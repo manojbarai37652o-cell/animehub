@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="hero-section" style="padding: 40px 20px;">
+        <h1>My Watchlist ❤️</h1>
+        <p>Your saved anime collection</p>
+    </div>
+
+    <div class="anime-grid" id="watchlist-grid"></div>
+    
+    <div id="empty-msg" style="text-align: center; padding: 100px 20px; display: none;">
+        <h2 style="color: #00a8e1;">Your watchlist is empty! 😢</h2>
+        <p style="color: #b0b0b0; margin-top: 10px;">Go add some anime from the home page.</p>
+        <a href="/" class="page-btn" style="display: inline-block; margin-top: 20px;">← Go to Home</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
+            const grid = document.getElementById('watchlist-grid');
+            
+            if (watchlist.length === 0) {
+                document.getElementById('empty-msg').style.display = 'block';
+            } else {
+                watchlist.forEach(item => {
+                    grid.innerHTML += `
+                        <a href="/watch/${item.id}" class="anime-card">
+                            <img src="${item.image}" alt="${item.title}" loading="lazy">
+                            <h3>${item.title}</h3>
+                        </a>
+                    `;
+                });
+            }
+        });
+    </script>
+{% endblock %}

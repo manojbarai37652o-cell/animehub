@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Featured Hero Banner Slider -->
+{% if hero_anime_list and page == 1 and not search_query %}
+<div class="hero-banner" id="hero-slider">
+    {% for anime in hero_anime_list %}
+    <div class="hero-slide {% if loop.first %}active{% endif %}">
+        <img src="{{ anime.image }}" alt="{{ anime.title }}" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-label">FEATURED</p>
+            <h1 class="hero-title">{{ anime.title }}</h1>
+            <p class="hero-meta">Action • Fantasy • Adventure</p>
+            <div class="hero-buttons">
+                <a href="/watch/{{ anime.id }}" class="btn-watch"><i class="fas fa-play"></i> Watch Now</a>
+                <button onclick="addHeroToWatchlist('{{ anime.id }}', '{{ anime.title }}', '{{ anime.image }}')" class="btn-list"><i class="fas fa-plus"></i> My List</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    <div class="hero-dots" id="hero-dots">
+        {% for anime in hero_anime_list %}
+        <span class="dot {% if loop.first %}active{% endif %}" onclick="currentSlide({{ loop.index }})"></span>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Continue Watching -->
+{% if page == 1 and not search_query %}
+<div class="app-section" id="continue-watching-section" style="display: none;">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> Continue Watching</h2>
+        <a href="#" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
+    </div>
+    <div class="horizontal-scroll" id="history-row"></div>
+</div>
+{% endif %}
+
+<!-- Trending This Week -->
+{% if page == 1 and not search_query and top_anime %}
+<div class="app-section">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> Trending This Week</h2>
+        <div class="section-controls">
+            <button type="button" class="scroll-btn" onclick="scrollLeft('trending-scroll')"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="scroll-btn" onclick="scrollRight('trending-scroll')"><i class="fas fa-chevron-right"></i></button>
+            <a href="#" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+    <div class="horizontal-scroll" id="trending-scroll">
+        {% for anime in top_anime %}
+        <a href="/watch/{{ anime.id }}" class="trending-app-card">
+            <div class="rank-number">{{ loop.index }}</div>
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+            <div class="card-info">
+                <div class="card-title">{{ anime.title }}</div>
+                <div class="card-sub">S1 • {{ anime.episodes|length if anime.episodes else 0 }} Episodes</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Browse by Genre -->
+{% if page == 1 and not search_query %}
+<div class="app-section">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> Browse by Genre</h2>
+    </div>
+    <div class="genre-scroll">
+        <a href="/genre/action" class="genre-app-card">
+            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=300&h=200&fit=crop" alt="Action">
+            <span>Action</span>
+        </a>
+        <a href="/genre/fantasy" class="genre-app-card">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300&h=200&fit=crop" alt="Fantasy">
+            <span>Fantasy</span>
+        </a>
+        <a href="/genre/comedy" class="genre-app-card">
+            <img src="https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=300&h=200&fit=crop" alt="Comedy">
+            <span>Comedy</span>
+        </a>
+        <a href="/genre/romance" class="genre-app-card">
+            <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=300&h=200&fit=crop" alt="Romance">
+            <span>Romance</span>
+        </a>
+    </div>
+</div>
+{% endif %}
+
+<!-- All Anime Grid -->
+<div class="app-section">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> 
+            {% if search_query %}"{{ search_query }}"{% else %}All Anime{% endif %}
+        </h2>
+    </div>
+    <div class="anime-grid-mobile">
+        {% for anime in anime_list %}
+        <a href="/watch/{{ anime.id }}" class="anime-card-mobile">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+            <h3>{{ anime.title }}</h3>
+        </a>
+        {% else %}
+        <p style="text-align: center; width: 100%; padding: 50px;">No anime found!</p>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Pagination -->
+{% if not search_query and total_pages > 1 %}
+<div class="pagination">
+    {% if page > 1 %}
+        <a href="/?page={{ page - 1 }}" class="page-btn">« Previous</a>
+    {% endif %}
+    <span class="page-info">{{ page }} / {{ total_pages }}</span>
+    {% if page < total_pages %}
+        <a href="/?page={{ page + 1 }}" class="page-btn">Next »</a>
+    {% endif %}
+</div>
+{% endif %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Continue Watching History
+        let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
+        const cwSection = document.getElementById('continue-watching-section');
+        if (cwSection && history.length > 0) {
+            cwSection.style.display = 'block';
+            const row = document.getElementById('history-row');
+            history.forEach(item => {
+                row.innerHTML += `
+                    <a href="/watch/${item.id}/${item.ep_num}" class="history-app-card">
+                        <div class="history-thumb">
+                            <img src="${item.image}" alt="${item.title}">
+                            <div class="play-icon"><i class="fas fa-play"></i></div>
+                            <div class="progress-bar"></div>
+                        </div>
+                        <div class="history-info">
+                            <div class="history-title">${item.title}</div>
+                            <div class="history-sub">S1 E${item.ep_num} • 16m left</div>
+                        </div>
+                    </a>
+                `;
+            });
+        }
+
+        // Hero Slider Logic
+        let slideIndex = 0;
+        let slides = document.getElementsByClassName("hero-slide");
+        let dots = document.getElementsByClassName("dot");
+        let slideInterval;
+
+        function showSlides() {
+            if (slides.length === 0) return;
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+                if(dots[i]) dots[i].classList.remove("active");
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].classList.add("active");
+            if(dots[slideIndex - 1]) dots[slideIndex - 1].classList.add("active");
+            slideInterval = setTimeout(showSlides, 5000);
+        }
+
+        window.currentSlide = function(n) {
+            clearTimeout(slideInterval);
+            slideIndex = n - 1;
+            showSlides();
+        }
+
+        if (slides.length > 0) {
+            slideInterval = setTimeout(showSlides, 5000);
+        }
+    });
+
+    function addHeroToWatchlist(id, title, image) {
+        let list = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
+        if (!list.some(item => item.id === id)) {
+            list.push({id, title, image});
+            localStorage.setItem('animeWatchlist', JSON.stringify(list));
+            alert('❤️ Added to My List!');
+        } else {
+            alert('Already in your list!');
+        }
+    }
+
+    // ✅ Scroll Buttons Logic (Updated)
+    function scrollLeft(containerId) {
+        const container = document.getElementById(containerId);
+        if (container) {
+            container.scrollBy({ left: -300, behavior: 'smooth' }); // ✅ Smooth Left
+        }
+    }
+    function scrollRight(containerId) {
+        const container = document.getElementById(containerId);
+        if (container) {
+            container.scrollBy({ left: 300, behavior: 'smooth' }); // ✅ Smooth Right
+        }
+    }
+</script>
+{% endblock %}

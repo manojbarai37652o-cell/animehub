@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="language-container">
+    <!-- ✅ ऊपर लोगो (MAG ANIME) -->
+    <div class="lang-header-logo">
+        <span style="color: #ff4d4d; font-size: 45px; font-weight: 900;">M</span>AG ANIME
+    </div>
+
+    <!-- ✅ Selected Language Pill -->
+    <div class="selected-lang-box">
+        Selected language: 
+        <span id="selected-lang-display" class="lang-pill">English</span>
+    </div>
+
+    <!-- ✅ Language Grid -->
+    <div class="language-grid">
+        <div class="lang-card" data-lang="Hindi" data-native="हिंदी">
+            <h3>Hindi</h3>
+            <p>हिंदी</p>
+        </div>
+        <div class="lang-card" data-lang="Tamil" data-native="தமிழ்">
+            <h3>Tamil</h3>
+            <p>தமிழ்</p>
+        </div>
+        <div class="lang-card" data-lang="Telugu" data-native="తెలుగు">
+            <h3>Telugu</h3>
+            <p>తెలుగు</p>
+        </div>
+        <div class="lang-card" data-lang="Bengali" data-native="বাংলা">
+            <h3>Bengali</h3>
+            <p>বাংলা</p>
+        </div>
+        <div class="lang-card" data-lang="Malayalam" data-native="മലയാളം">
+            <h3>Malayalam</h3>
+            <p>മലയാളം</p>
+        </div>
+        <div class="lang-card" data-lang="Kannada" data-native="ಕನ್ನಡ">
+            <h3>Kannada</h3>
+            <p>ಕನ್ನಡ</p>
+        </div>
+        <div class="lang-card" data-lang="English" data-native="English">
+            <h3>English</h3>
+            <p>English</p>
+        </div>
+        <div class="lang-card" data-lang="Japanese" data-native="日本語">
+            <h3>Japanese</h3>
+            <p>日本語</p>
+        </div>
+        <div class="lang-card" data-lang="Korean" data-native="한국어">
+            <h3>Korean</h3>
+            <p>한국어</p>
+        </div>
+    </div>
+
+    <!-- ✅ Networks Section (नया सेक्शन) -->
+    <h2 class="networks-title">Networks</h2>
+    <div class="networks-grid">
+        <div class="network-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Cartoon_Network_2010_logo.svg" alt="Cartoon Network">
+        </div>
+        <div class="network-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video">
+        </div>
+        <div class="network-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
+        </div>
+        <div class="network-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Crunchyroll_Logo.svg" alt="Crunchyroll">
+        </div>
+        <div class="network-item">
+            <img src="https://via.placeholder.com/100x100/222222/ffffff?text=Sony+Yay" alt="Sony Yay">
+        </div>
+        <div class="network-item">
+            <img src="https://via.placeholder.com/100x100/222222/ffffff?text=Disney+Hotstar" alt="Disney+ Hotstar">
+        </div>
+        <div class="network-item">
+            <img src="https://via.placeholder.com/100x100/222222/ffffff?text=Hungama" alt="Hungama">
+        </div>
+        <div class="network-item">
+            <img src="https://via.placeholder.com/100x100/222222/ffffff?text=Disney" alt="Disney">
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let savedLang = localStorage.getItem('appLanguage') || 'English';
+        updateUI(savedLang);
+
+        const cards = document.querySelectorAll('.lang-card');
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                let lang = this.getAttribute('data-lang');
+                let native = this.getAttribute('data-native');
+                localStorage.setItem('appLanguage', lang);
+                localStorage.setItem('appLanguageNative', native);
+                updateUI(lang, native);
+            });
+        });
+
+        function updateUI(lang, native = null) {
+            let displayNative = native || localStorage.getItem('appLanguageNative') || lang;
+            const pill = document.getElementById('selected-lang-display');
+            if(pill) {
+                pill.innerText = lang + ' (' + displayNative + ')';
+            }
+            
+            cards.forEach(card => {
+                card.classList.remove('active');
+                if(card.getAttribute('data-lang') === lang) {
+                    card.classList.add('active');
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}

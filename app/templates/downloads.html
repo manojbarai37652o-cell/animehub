@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="downloads-container">
+    <div class="section-header" style="padding: 20px 0;">
+        <h2><span class="red-bar"></span> My Downloads</h2>
+    </div>
+
+    <!-- डाउनलोड लिस्ट -->
+    <div id="downloads-list" class="downloads-list">
+        <!-- जावास्क्रिप्ट यहाँ डेटा लोड करेगी -->
+    </div>
+
+    <!-- अगर खाली है तो यह मैसेज दिखेगा -->
+    <div id="empty-downloads" class="empty-state" style="display: none;">
+        <i class="fas fa-download"></i>
+        <h3>No Downloads Yet</h3>
+        <p>Download your favourite anime episodes to watch them offline!</p>
+        <a href="/" class="page-btn" style="display: inline-block; margin-top: 15px;">Browse Anime</a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let downloads = JSON.parse(localStorage.getItem('animeDownloads')) || [];
+        const list = document.getElementById('downloads-list');
+        const emptyState = document.getElementById('empty-downloads');
+
+        if (downloads.length === 0) {
+            emptyState.style.display = 'block';
+        } else {
+            downloads.forEach(item => {
+                list.innerHTML += `
+                    <div class="download-item">
+                        <img src="${item.image}" alt="${item.title}" class="download-thumb">
+                        <div class="download-info">
+                            <h4>${item.title}</h4>
+                            <p>Episode ${item.ep_num} • Downloaded</p>
+                        </div>
+                        <a href="/watch/${item.id}/${item.ep_num}" class="download-play-btn">
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
+                `;
+            });
+        }
+    });
+</script>
+{% endblock %}

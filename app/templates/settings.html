@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="settings-container">
+    <!-- Back Button -->
+    <a href="/profile" class="back-link"><i class="fas fa-arrow-left"></i> Back to Profile</a>
+    
+    <h1 class="settings-title">⚙️ Settings</h1>
+
+    <!-- Account Section -->
+    <div class="settings-section">
+        <h2><i class="fas fa-user"></i> Account</h2>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>Profile Name</h4>
+                <p>{{ session.user_name }}</p>
+            </div>
+        </div>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>Email Address</h4>
+                <p>{{ session.user_email }}</p>
+            </div>
+        </div>
+        
+    <!-- Playback Section -->
+    <div class="settings-section">
+        <h2><i class="fas fa-play-circle"></i> Playback</h2>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>Video Quality</h4>
+                <p>Auto (Recommended)</p>
+            </div>
+            <select class="setting-select">
+                <option>Auto</option>
+                <option>1080p</option>
+                <option>720p</option>
+                <option>480p</option>
+            </select>
+        </div>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>Auto-Play Next Episode</h4>
+                <p>Play next episode automatically</p>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>Subtitles</h4>
+                <p>Show subtitles by default</p>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Notifications Section -->
+    <div class="settings-section">
+        <h2><i class="fas fa-bell"></i> Notifications</h2>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>New Episode Alerts</h4>
+                <p>Get notified about new episodes</p>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>Email Notifications</h4>
+                <p>Receive updates via email</p>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Appearance Section -->
+    <div class="settings-section">
+        <h2><i class="fas fa-palette"></i> Appearance</h2>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>Dark Theme</h4>
+                <p>Use dark mode (default)</p>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>Language</h4>
+                <p>Select your language</p>
+            </div>
+            <select class="setting-select">
+                <option>English</option>
+                <option>हिंदी</option>
+                <option>বাংলা</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Privacy Section -->
+    <div class="settings-section">
+        <h2><i class="fas fa-shield-alt"></i> Privacy & Security</h2>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>Clear Watch History</h4>
+                <p>Remove all watch history</p>
+            </div>
+            <button class="setting-btn danger" onclick="clearHistory()">Clear</button>
+        </div>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>Clear Watchlist</h4>
+                <p>Remove all saved anime</p>
+            </div>
+            <button class="setting-btn danger" onclick="clearWatchlist()">Clear</button>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="settings-section">
+        <h2><i class="fas fa-info-circle"></i> About</h2>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>App Version</h4>
+                <p>MAG ANIME v1.0.0</p>
+            </div>
+        </div>
+        
+        <div class="setting-item">
+            <div class="setting-info">
+                <h4>Help & Support</h4>
+                <p>Get help from our team</p>
+            </div>
+            <button class="setting-btn">Contact</button>
+        </div>
+    </div>
+
+    <!-- Logout -->
+    <a href="/logout" class="logout-btn-settings">Logout</a>
+</div>
+
+<script>
+    function clearHistory() {
+        if (confirm('क्या आप पूरी watch history साफ करना चाहते हैं?')) {
+            localStorage.removeItem('animeHistory');
+            alert('✅ History cleared!');
+        }
+    }
+    
+    function clearWatchlist() {
+        if (confirm('क्या आप पूरी watchlist साफ करना चाहते हैं?')) {
+            localStorage.removeItem('animeWatchlist');
+            alert('✅ Watchlist cleared!');
+        }
+    }
+</script>
+{% endblock %}

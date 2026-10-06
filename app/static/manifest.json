@@ -1,0 +1,24 @@
+{
+  "name": "MAG ANIME - Watch Anime Free",
+  "short_name": "MAG ANIME",
+  "description": "Watch Hindi Dubbed Anime for free!",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d0d0d",
+  "theme_color": "#ff4d4d",
+  "icons": [
+    {
+      "src": "/static/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

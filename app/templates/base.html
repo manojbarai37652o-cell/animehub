@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MAG ANIME - Watch Anime Free</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ✅ PWA Setup -->
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#ff4d4d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MAG ANIME">
+    <link rel="apple-touch-icon" href="/static/images/logo.png">
+</head>
+<body>
+
+    <div id="splash-screen">
+        <div class="splash-logo">
+            <span style="color: #ff4d4d; font-size: 50px; font-weight: 900;">M</span>AG ANIME
+        </div>
+        <div class="splash-spinner"></div>
+        <p class="splash-text">Loading your anime...</p>
+    </div>
+
+    <header>
+        <div class="logo">
+            <a href="/">
+                <span class="logo-m">M</span>AG <span class="logo-text">ANIME</span>
+            </a>
+        </div>
+        
+        <div class="header-actions">
+            <form action="/search" method="GET" class="search-box">
+                <input type="text" name="q" placeholder="Search..." value="{{ search_query if search_query else '' }}">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <a href="#" class="icon-btn"><i class="fas fa-bell"></i></a>
+            
+            {% if session.user_pic %}
+                <a href="/profile"><img src="{{ session.user_pic }}" alt="Profile" class="user-avatar"></a>
+            {% else %}
+                <a href="/profile" class="icon-btn"><i class="fas fa-user-circle"></i></a>
+            {% endif %}
+            
+            <a href="/logout" class="icon-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <div class="bottom-nav">
+        <a href="/" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="/random" class="nav-item"><i class="fas fa-compass"></i><span>Explore</span></a>
+        <a href="/watchlist" class="nav-item"><i class="fas fa-plus"></i><span>My List</span></a>
+        <a href="/downloads" class="nav-item"><i class="fas fa-download"></i><span>Downloads</span></a>
+        <a href="/profile" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const splash = document.getElementById('splash-screen');
+            if (splash) {
+                setTimeout(() => {
+                    splash.style.opacity = '0';
+                    setTimeout(() => { splash.style.display = 'none'; }, 500);
+                }, 1000);
+            }
+        });
+
+        // ✅ PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/static/service-worker.js')
+                    .then(reg => console.log('✅ Service Worker registered!'))
+                    .catch(err => console.log('❌ Service Worker error:', err));
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="profile-container">
+    <!-- User Info -->
+    <div class="profile-header">
+        <img src="{{ session.user_pic }}" alt="Profile Picture" class="profile-pic">
+        <h1>{{ session.user_name }}</h1>
+        <p>{{ session.user_email }}</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="profile-stats">
+        <div class="stat-box">
+            <h3 id="watchlist-count">0</h3>
+            <p>My List</p>
+        </div>
+        <div class="stat-box">
+            <h3 id="history-count">0</h3>
+            <p>Watching</p>
+        </div>
+    </div>
+
+    <!-- Menu Options -->
+    <div class="profile-menu">
+        <a href="/watchlist" class="menu-item">
+            <div class="menu-icon"><i class="fas fa-heart"></i></div>
+            <div class="menu-text">My Watchlist</div>
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <!-- ✅ Settings का लिंक अब काम करेगा -->
+        <a href="/settings" class="menu-item">
+            <div class="menu-icon"><i class="fas fa-cog"></i></div>
+            <div class="menu-text">Settings</div>
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="#" class="menu-item">
+            <div class="menu-icon"><i class="fas fa-question-circle"></i></div>
+            <div class="menu-text">Help & Support</div>
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="#" class="menu-item">
+            <div class="menu-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="menu-text">Privacy Policy</div>
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+
+    <!-- Logout Button -->
+    <a href="/logout" class="logout-btn">Logout</a>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
+        document.getElementById('watchlist-count').innerText = watchlist.length;
+        
+        let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
+        document.getElementById('history-count').innerText = history.length;
+    });
+</script>
+{% endblock %}
