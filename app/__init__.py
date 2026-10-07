@@ -1,4 +1,5 @@
-from flask import Flask, render_template, abort, request, redirect, url_for, session
+from flask import Flask, render_template, abort, request, redirect, url_for, session, Response
+import requests
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime, 
                                    get_paginated_anime, get_random_anime, 
@@ -43,7 +44,7 @@ def create_app(config_class=Config):
 
     @app.route('/guest')
     def guest_login():
-        session['user_email'] = 'guest@animehub.com'
+        session['user_email'] = 'guest@animenest.com'
         session['user_name'] = 'Guest'
         session['user_pic'] = 'https://ui-avatars.com/api/?name=Guest&background=ff4d4d&color=fff'
         return redirect(url_for('home'))
@@ -118,7 +119,58 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
 
-    # ✅ नया रास्ता: अब Season और Episode दोनों URL में आ सकते हैं
+    # ✅ वीडियो डाउनलोड वाला रास्ता
+    @app.route('/download/<anime_id>/<int:season_num>/<int:ep_num>')
+    def download_video(anime_id, season_num, ep_num):
+        if not session.get('user_email'):
+            return render_template('login.html')
+        
+        anime = get_anime_by_id(anime_id)
+        if not anime:
+            abort(404)
+        
+        seasons = anime.get('seasons', [])
+        current_season = next((s for s in seasons if s['season_number'] == season_num), None)
+        if not current_season:
+            abort(404)
+        
+        episodes = current_season['episodes']
+        current_ep = next((ep for ep in episodes if f"Episode {ep_num}" in ep.get('title', '')), None)
+        if not current_ep or not current_ep.get('video_url'):
+            abort(404)
+        
+        video_url = current_ep['video_url']
+        
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Referer': 'https://animesalt.cx/'
+        }
+        
+        try:
+            req = requests.get(video_url, headers=headers, stream=True, timeout=30)
+            content_type = req.headers.get('Content-Type', '')
+            
+            if 'text/html' in content_type:
+                return "<h2>❌ यह वीडियो सीधे डाउनलोड नहीं हो सकता।</h2><p>सोर्स साइट सिर्फ स्ट्रीमिंग की परमिशन देती है।</p><a href='/watch/{}/{}'>← वापस Watch Page पर जाओ</a>".format(anime_id, season_num)
+            
+            def generate():
+                for chunk in req.iter_content(chunk_size=8192):
+                    if chunk:
+                        yield chunk
+            
+            filename = f"{anime_id}_S{season_num}_E{ep_num}.mp4"
+            
+            return Response(
+                generate(),
+                headers={
+                    'Content-Type': content_type or 'video/mp4',
+                    'Content-Disposition': f'attachment; filename="{filename}"',
+                    'Content-Length': req.headers.get('Content-Length', '')
+                }
+            )
+        except Exception as e:
+            return f"<h2>❌ डाउनलोड में एरर आया</h2><p>{e}</p><a href='/watch/{anime_id}/{season_num}'>← वापस जाओ</a>"
+
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')
     @app.route('/watch/<anime_id>/<int:season_number>/<int:ep_number>')
@@ -127,14 +179,12 @@ def create_app(config_class=Config):
         anime = get_anime_by_id(anime_id)
         if not anime: abort(404)
         
-        # Seasons निकालो
         seasons = anime.get('seasons', [])
         if not seasons:
             episodes = anime.get('episodes', [])
             if episodes:
                 seasons = [{"season_number": 1, "episodes": episodes}]
         
-        # कौन सा Season दिखाना है
         current_season = next((s for s in seasons if s['season_number'] == season_number), None)
         if not current_season and seasons:
             current_season = seasons[0]
@@ -176,25 +226,3 @@ def create_app(config_class=Config):
     def page_not_found(e): return render_template('404.html'), 404
 
     return app
-    # ✅ DEBUG: Playwright से Letter A का HTML देखने के लिए
-if __name__ == '__main__':
-    from playwright.sync_api import sync_playwright
-    import time
-    
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
-        page.set_extra_http_headers({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        })
-        
-        print("🌐 Letter A खोल रहे हैं...")
-        page.goto("https://animesalt.cx/letter/A/", wait_until='domcontentloaded', timeout=30000)
-        time.sleep(5)
-        
-        html = page.content()
-        with open('letter_a_debug.html', 'w', encoding='utf-8') as f:
-            f.write(html)
-        print(f"✅ File saved! Size: {len(html)} characters")
-        
-        browser.close()
