@@ -2510,3 +2510,148 @@ header {
         margin: 0 8px !important;
     }
 }
+/* ✅ NEW NETFLIX-STYLE HEADER */
+.app-header {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 15px 20px 12px !important;
+    background-color: #0d0d0d !important;
+    border-bottom: 1px solid #1f1f1f !important;
+    gap: 12px !important;
+    position: relative !important;
+}
+
+/* Row 1: Logo Left, Icons Right */
+.header-top-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.logo-left a {
+    font-size: 24px !important;
+    font-weight: 900 !important;
+    text-decoration: none !important;
+    letter-spacing: 1px !important;
+    color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.logo-m {
+    color: #ff4d4d !important;
+    font-size: 28px !important;
+    margin-right: 2px !important;
+}
+
+.logo-text {
+    font-weight: 300 !important;
+    font-size: 24px !important;
+}
+
+/* Icons Circle Style */
+.header-right-icons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.icon-circle {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background-color: #1a1a1a !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+    transition: background 0.3s ease !important;
+}
+
+.icon-circle:hover {
+    background-color: #333 !important;
+}
+
+.profile-icon {
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.user-avatar {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+}
+
+/* Row 2: Full Width Search Bar */
+.header-bottom-row {
+    display: flex !important;
+    width: 100% !important;
+}
+
+.search-box-big {
+    display: flex !important;
+    align-items: center !important;
+    background-color: #1a1a1a !important;
+    border-radius: 25px !important;
+    padding: 12px 18px !important;
+    width: 100% !important;
+    gap: 12px !important;
+    border: 1px solid #333 !important;
+}
+
+.search-icon {
+    color: #888 !important;
+    font-size: 16px !important;
+}
+
+.search-box-big input {
+    flex: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    outline: none !important;
+    font-size: 15px !important;
+}
+
+.search-box-big input::placeholder {
+    color: #666 !important;
+}
+
+/* ✅ Mobile Adjustments */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 12px 15px 10px !important;
+        gap: 10px !important;
+    }
+    
+    .logo-left a {
+        font-size: 20px !important;
+    }
+    
+    .logo-m {
+        font-size: 24px !important;
+    }
+    
+    .logo-text {
+        font-size: 20px !important;
+    }
+    
+    .icon-circle {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 14px !important;
+    }
+    
+    .search-box-big {
+        padding: 10px 15px !important;
+    }
+    
+    .search-box-big input {
+        font-size: 14px !important;
+    }
+}
