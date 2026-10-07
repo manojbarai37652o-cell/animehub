@@ -2655,3 +2655,87 @@ header {
         font-size: 14px !important;
     }
 }
+/* ✅ Season Dropdown (Crunchyroll Style) */
+.season-dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #1a1a1a;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #333;
+    flex-wrap: wrap;
+}
+
+.season-label {
+    color: #ff4d4d;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+.season-label i {
+    font-size: 16px;
+}
+
+.season-dropdown {
+    flex: 1;
+    min-width: 200px;
+    background-color: #0d0d0d;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 2px solid #ff4d4d;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff4d4d'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 22px;
+    padding-right: 45px;
+}
+
+.season-dropdown:hover {
+    background-color: #1a1a1a;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
+}
+
+.season-dropdown:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.6);
+}
+
+.season-dropdown option {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 12px;
+    font-size: 15px;
+}
+
+/* Mobile में adjust */
+@media (max-width: 768px) {
+    .season-dropdown-container {
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    
+    .season-label {
+        font-size: 14px;
+    }
+    
+    .season-dropdown {
+        font-size: 14px;
+        padding: 10px 15px;
+        padding-right: 40px;
+        min-width: auto;
+    }
+}
