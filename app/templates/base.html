@@ -16,6 +16,7 @@
 </head>
 <body>
 
+    <!-- Splash Screen -->
     <div id="splash-screen">
         <div class="splash-logo">
             <span style="color: #ff4d4d; font-size: 50px; font-weight: 900;">A</span>NIMENEST
@@ -24,7 +25,7 @@
         <p class="splash-text">Loading your anime...</p>
     </div>
 
-    <!-- ✅ Header: Logo (left), Search (center), Icons (right) -->
+    <!-- Header -->
     <header>
         <div class="header-left">
             <div class="logo">
@@ -32,20 +33,29 @@
                     <span class="logo-m">A</span>NI<span class="logo-text">MENEST</span>
                 </a>
             </div>
+
+            <!-- ✅ PC Navigation Links (Downloads हटा दिया) -->
+            <nav class="desktop-nav">
+                <a href="/" class="desktop-nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="/random" class="desktop-nav-link"><i class="fas fa-compass"></i> Explore</a>
+                <a href="/watchlist" class="desktop-nav-link"><i class="fas fa-plus"></i> My List</a>
+                <a href="/profile" class="desktop-nav-link"><i class="fas fa-user"></i> Profile</a>
+            </nav>
         </div>
-
-        <form action="/search" method="GET" class="search-box">
-            <input type="text" name="q" placeholder="Search anime..." value="{{ search_query if search_query else '' }}">
-            <button type="submit"><i class="fas fa-search"></i></button>
-        </form>
-
+        
         <div class="header-actions">
+            <form action="/search" method="GET" class="search-box">
+                <input type="text" name="q" placeholder="Search..." value="{{ search_query if search_query else '' }}">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
             <a href="#" class="icon-btn"><i class="fas fa-bell"></i></a>
+            
             {% if session.user_pic %}
                 <a href="/profile"><img src="{{ session.user_pic }}" alt="Profile" class="user-avatar"></a>
             {% else %}
                 <a href="/profile" class="icon-btn"><i class="fas fa-user-circle"></i></a>
             {% endif %}
+            
             <a href="/logout" class="icon-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
         </div>
     </header>
@@ -54,6 +64,7 @@
         {% block content %}{% endblock %}
     </main>
 
+    <!-- ✅ Bottom Navigation (Mobile) - Downloads हटा दिया -->
     <div class="bottom-nav">
         <a href="/" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a>
         <a href="/random" class="nav-item"><i class="fas fa-compass"></i><span>Explore</span></a>
@@ -65,6 +76,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById('splash-screen');
             if (!splash) return;
+
             if (sessionStorage.getItem('splashShown')) {
                 splash.style.display = 'none';
             } else {

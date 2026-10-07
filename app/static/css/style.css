@@ -2106,99 +2106,50 @@ input:checked + .slider:before {
 @media screen and (max-width: 768px) {
     
     /* पूरे header को adjust करो */
-   /* ✅ Header - Search Bar Centered */
-header {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 12px 25px !important;
-    gap: 15px !important;
-    flex-wrap: nowrap !important;
-}
-
-.header-left {
-    flex-shrink: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-}
-
-.search-box {
-    flex: 1 1 auto !important;
-    max-width: 500px !important;
-    margin: 0 auto !important;
-    display: flex !important;
-    background-color: #1a1a1a !important;
-    border-radius: 20px !important;
-    overflow: hidden !important;
-    padding: 5px 15px !important;
-    border: 1px solid #333 !important;
-}
-
-.search-box input {
-    flex: 1 !important;
-    background: transparent !important;
-    border: none !important;
-    color: white !important;
-    outline: none !important;
-    padding: 5px !important;
-    font-size: 14px !important;
-    width: 100% !important;
-}
-
-.search-box button {
-    background: transparent !important;
-    border: none !important;
-    color: #fff !important;
-    cursor: pointer !important;
-    font-size: 16px !important;
-    flex-shrink: 0 !important;
-}
-
-.header-actions {
-    display: flex !important;
-    align-items: center !important;
-    gap: 15px !important;
-    flex-shrink: 0 !important;
-}
-
-.desktop-nav {
-    display: none !important;
-}
-
-/* ✅ Mobile में header adjust */
-    @media (max-width: 768px) {
     header {
-        padding: 10px 15px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 10px 12px !important;
         gap: 8px !important;
+        align-items: stretch !important;
+    }
+    
+    /* पहली लाइन: लोगो और आइकॉन */
+    .header-left {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 10px !important;
     }
     
     .logo a {
-        font-size: 16px !important;
-    }
-    
-    .logo-m {
-        font-size: 20px !important;
-    }
-    
-    .search-box {
-        margin: 0 8px !important;
-        padding: 3px 10px !important;
-        max-width: none !important;
-    }
-    
-    .search-box input {
-        font-size: 12px !important;
-        padding: 3px !important;
-    }
-    
-    .search-box button {
-        font-size: 13px !important;
+        font-size: 18px !important;
+        white-space: nowrap !important;
     }
     
     .header-actions {
-        gap: 8px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        flex-shrink: 0 !important;
     }
     
+    /* Search box पूरी चौड़ाई में नीचे आए */
+    .search-box {
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 5px 10px !important;
+    }
+    
+    .search-box input {
+        width: 100% !important;
+        font-size: 13px !important;
+    }
+    
+    /* आइकॉन को छोटा करो */
     .icon-btn {
         font-size: 16px !important;
         padding: 4px !important;
