@@ -69,12 +69,6 @@ def create_app(config_class=Config):
         
         return render_template('index.html', anime_list=anime_list, page=page, total_pages=total_pages, featured_anime=featured_anime, top_anime=top_anime, hero_anime_list=hero_anime_list)
 
-    @app.route('/downloads')
-    def downloads():
-        if not session.get('user_email'):
-            return render_template('login.html')
-        return render_template('downloads.html')
-
     @app.route('/profile')
     def profile():
         if not session.get('user_email'):
