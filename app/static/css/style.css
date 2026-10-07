@@ -2172,3 +2172,80 @@ input:checked + .slider:before {
         min-height: 100px !important;
     }
 }
+/* ✅ Netflix Style - Anime Row Cards */
+.horizontal-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 0 20px 20px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #ff4d4d #1a1a1a;
+    -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: #ff4d4d;
+    border-radius: 10px;
+}
+
+.anime-row-card {
+    flex: 0 0 150px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.anime-row-card:hover {
+    transform: translateY(-5px);
+}
+
+.anime-row-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+.anime-row-card:hover img {
+    box-shadow: 0 10px 25px rgba(255, 77, 77, 0.5);
+}
+
+.anime-row-card h3 {
+    font-size: 13px;
+    padding: 8px 4px 0;
+    text-align: center;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+/* ✅ Mobile में और छोटा */
+@media (max-width: 768px) {
+    .horizontal-scroll {
+        padding: 0 15px 15px;
+        gap: 10px;
+    }
+    
+    .anime-row-card {
+        flex: 0 0 120px;
+    }
+    
+    .anime-row-card img {
+        height: 175px;
+    }
+    
+    .anime-row-card h3 {
+        font-size: 11px;
+        padding: 6px 2px 0;
+    }
+}

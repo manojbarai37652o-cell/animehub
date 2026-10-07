@@ -39,28 +39,109 @@
 </div>
 {% endif %}
 
-<!-- Trending This Week -->
-{% if not search_query and top_anime %}
+<!-- ✅ Trending This Week (Horizontal Row) -->
+{% if trending and not search_query %}
 <div class="app-section">
     <div class="section-header">
-        <h2><span class="red-bar"></span> Trending This Week</h2>
+        <h2><span class="red-bar"></span> 🔥 Trending This Week</h2>
     </div>
     <div class="horizontal-scroll">
-        {% for anime in top_anime %}
-        <a href="/watch/{{ anime.id }}" class="trending-app-card">
-            <div class="rank-number">{{ loop.index }}</div>
+        {% for anime in trending %}
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
             <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
-            <div class="card-info">
-                <div class="card-title">{{ anime.title }}</div>
-                <div class="card-sub">{{ anime.episodes|length if anime.episodes else 0 }} Episodes</div>
-            </div>
+            <h3>{{ anime.title }}</h3>
         </a>
         {% endfor %}
     </div>
 </div>
 {% endif %}
 
-<!-- ✅ Browse by Genre -->
+<!-- ✅ Popular Series -->
+{% if popular and not search_query %}
+<div class="app-section">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> 📺 Popular Series</h2>
+    </div>
+    <div class="horizontal-scroll">
+        {% for anime in popular %}
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+            <h3>{{ anime.title }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- ✅ Action Anime -->
+{% if action and not search_query %}
+<div class="app-section">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> ⚔️ Action Anime</h2>
+    </div>
+    <div class="horizontal-scroll">
+        {% for anime in action %}
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+            <h3>{{ anime.title }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- ✅ Comedy Anime -->
+{% if comedy and not search_query %}
+<div class="app-section">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> 😂 Comedy Anime</h2>
+    </div>
+    <div class="horizontal-scroll">
+        {% for anime in comedy %}
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+            <h3>{{ anime.title }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- ✅ Fantasy Anime -->
+{% if fantasy and not search_query %}
+<div class="app-section">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> 🪄 Fantasy Anime</h2>
+    </div>
+    <div class="horizontal-scroll">
+        {% for anime in fantasy %}
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+            <h3>{{ anime.title }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- ✅ Romance Anime -->
+{% if romance and not search_query %}
+<div class="app-section">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> 💕 Romance Anime</h2>
+    </div>
+    <div class="horizontal-scroll">
+        {% for anime in romance %}
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+            <h3>{{ anime.title }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- ✅ Browse by Genre (Icon Cards) -->
 {% if not search_query %}
 <div class="app-section">
     <div class="section-header">
@@ -87,11 +168,11 @@
 </div>
 {% endif %}
 
-<!-- ✅ Tabs: All / Series / Movies -->
+<!-- ✅ All Anime (Grid + Tabs) -->
 <div class="app-section">
     <div class="section-header">
         <h2><span class="red-bar"></span> 
-            {% if search_query %}"{{ search_query }}"{% else %}Browse{% endif %}
+            {% if search_query %}"{{ search_query }}"{% else %}Browse All{% endif %}
         </h2>
     </div>
     
@@ -104,7 +185,7 @@
     {% endif %}
     
     <div class="anime-grid-mobile">
-        {% for anime in anime_list %}
+        {% for anime in anime_list[:30] %}
         <a href="/watch/{{ anime.id }}" class="anime-card-mobile">
             <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
             <h3>{{ anime.title }}</h3>
