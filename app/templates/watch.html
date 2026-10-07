@@ -123,12 +123,13 @@
         <div id="comments-list" class="comments-list"></div>
     </div>
 
-    {% if related_anime %}
+        {% if related_anime %}
     <div class="related-section">
         <h3>You Might Also Like</h3>
-        <div class="anime-grid">
+        <!-- ✅ यहाँ anime-grid की जगह horizontal-scroll लगा दिया है -->
+        <div class="horizontal-scroll related-scroll">
             {% for rec in related_anime %}
-            <a href="/watch/{{ rec.id }}" class="anime-card">
+            <a href="/watch/{{ rec.id }}" class="related-card">
                 <img src="{{ rec.image }}" alt="{{ rec.title }}" loading="lazy">
                 <h3>{{ rec.title }}</h3>
             </a>
