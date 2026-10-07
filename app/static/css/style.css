@@ -2454,3 +2454,59 @@ header {
         font-size: 22px !important;
     }
 }
+/* ✅ Header को स्पेस दो और Logo को बैलेंस करो */
+header {
+    padding: 18px 25px !important;
+    min-height: 90px !important;
+}
+
+.logo a {
+    font-size: 24px !important;
+    letter-spacing: 1.5px !important;
+}
+
+.logo-m {
+    font-size: 27px !important;
+}
+
+.logo-text {
+    font-size: 24px !important;
+}
+
+/* Icons को थोड़ा और जगह दो */
+.header-actions {
+    gap: 18px !important;
+}
+
+.search-box {
+    margin: 0 20px !important;
+}
+
+/* ✅ Mobile में भी स्पेस */
+@media (max-width: 768px) {
+    header {
+        padding: 14px 18px !important;
+        min-height: 75px !important;
+    }
+    
+    .logo a {
+        font-size: 19px !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .logo-m {
+        font-size: 22px !important;
+    }
+    
+    .logo-text {
+        font-size: 19px !important;
+    }
+    
+    .header-actions {
+        gap: 10px !important;
+    }
+    
+    .search-box {
+        margin: 0 8px !important;
+    }
+}
