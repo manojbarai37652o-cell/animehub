@@ -1,9 +1,9 @@
 from flask import Flask, render_template, abort, request, redirect, url_for, session
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime, 
-                                   get_paginated_anime, get_random_anime, 
-                                   get_featured_anime, get_anime_by_genre, 
-                                   get_single_random_anime, get_top_anime, get_hero_anime_list)
+                                   get_random_anime, get_featured_anime, 
+                                   get_anime_by_genre, get_single_random_anime, 
+                                   get_top_anime, get_hero_anime_list)
 from flask_dance.contrib.google import make_google_blueprint, google
 
 def create_app(config_class=Config):
@@ -60,14 +60,33 @@ def create_app(config_class=Config):
         if not session.get('user_email'):
             return render_template('login.html')
         
-        page = request.args.get('page', 1, type=int)
-        anime_list, total = get_paginated_anime(page, per_page=20)
-        total_pages = (total + 19) // 20
+        # ✅ Tab parameter लो (all, series, movies)
+        tab = request.args.get('tab', 'all')
+        
+        all_anime = get_all_anime()
+        
+        # ✅ Tab के हिसाब से फिल्टर करो
+        if tab == 'series':
+            # Series: जिनमें 1 से ज्यादा episode हैं
+            anime_list = [a for a in all_anime if len(a.get('episodes', [])) > 1 or len(a.get('seasons', [])) > 1]
+        elif tab == 'movies':
+            # Movies: जिनमें 1 या 0 episode हैं
+            anime_list = [a for a in all_anime if len(a.get('episodes', [])) <= 1]
+        else:
+            # All: सब दिखाओ
+            anime_list = all_anime
+            tab = 'all'
+        
         featured_anime = get_featured_anime(5)
         top_anime = get_top_anime(10)
         hero_anime_list = get_hero_anime_list(5)
         
-        return render_template('index.html', anime_list=anime_list, page=page, total_pages=total_pages, featured_anime=featured_anime, top_anime=top_anime, hero_anime_list=hero_anime_list)
+        return render_template('index.html', 
+                               anime_list=anime_list, 
+                               current_tab=tab,
+                               featured_anime=featured_anime, 
+                               top_anime=top_anime, 
+                               hero_anime_list=hero_anime_list)
 
     @app.route('/profile')
     def profile():
@@ -92,13 +111,13 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         query = request.args.get('q', '')
         anime_list = search_anime(query) if query else get_all_anime()
-        return render_template('index.html', anime_list=anime_list, search_query=query, page=1, total_pages=1, featured_anime=[], top_anime=[], hero_anime_list=[])
+        return render_template('index.html', anime_list=anime_list, search_query=query, current_tab='all', featured_anime=[], top_anime=[], hero_anime_list=[])
 
     @app.route('/genre/<genre_name>')
     def genre(genre_name):
         if not session.get('user_email'): return render_template('login.html')
         anime_list = get_anime_by_genre(genre_name)
-        return render_template('index.html', anime_list=anime_list, search_query=genre_name.title() + " Anime", page=1, total_pages=1, featured_anime=[], top_anime=[], hero_anime_list=[])
+        return render_template('index.html', anime_list=anime_list, search_query=genre_name.title() + " Anime", current_tab='all', featured_anime=[], top_anime=[], hero_anime_list=[])
 
     @app.route('/random')
     def random_anime():

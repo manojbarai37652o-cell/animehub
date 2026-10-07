@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<!-- Featured Hero Banner Slider -->
-{% if hero_anime_list and page == 1 and not search_query %}
+<!-- ✅ Hero Banner Slider -->
+{% if hero_anime_list and not search_query %}
 <div class="hero-banner" id="hero-slider">
     {% for anime in hero_anime_list %}
     <div class="hero-slide {% if loop.first %}active{% endif %}">
@@ -30,35 +30,29 @@
 {% endif %}
 
 <!-- Continue Watching -->
-{% if page == 1 and not search_query %}
+{% if not search_query %}
 <div class="app-section" id="continue-watching-section" style="display: none;">
     <div class="section-header">
         <h2><span class="red-bar"></span> Continue Watching</h2>
-        <a href="#" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
     </div>
     <div class="horizontal-scroll" id="history-row"></div>
 </div>
 {% endif %}
 
 <!-- Trending This Week -->
-{% if page == 1 and not search_query and top_anime %}
+{% if not search_query and top_anime %}
 <div class="app-section">
     <div class="section-header">
         <h2><span class="red-bar"></span> Trending This Week</h2>
-        <div class="section-controls">
-            <button type="button" class="scroll-btn" onclick="scrollLeft('trending-scroll')"><i class="fas fa-chevron-left"></i></button>
-            <button type="button" class="scroll-btn" onclick="scrollRight('trending-scroll')"><i class="fas fa-chevron-right"></i></button>
-            <a href="#" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
-        </div>
     </div>
-    <div class="horizontal-scroll" id="trending-scroll">
+    <div class="horizontal-scroll">
         {% for anime in top_anime %}
         <a href="/watch/{{ anime.id }}" class="trending-app-card">
             <div class="rank-number">{{ loop.index }}</div>
             <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
             <div class="card-info">
                 <div class="card-title">{{ anime.title }}</div>
-                <div class="card-sub">S1 • {{ anime.episodes|length if anime.episodes else 0 }} Episodes</div>
+                <div class="card-sub">{{ anime.episodes|length if anime.episodes else 0 }} Episodes</div>
             </div>
         </a>
         {% endfor %}
@@ -66,8 +60,8 @@
 </div>
 {% endif %}
 
-<!-- Browse by Genre -->
-{% if page == 1 and not search_query %}
+<!-- ✅ Browse by Genre -->
+{% if not search_query %}
 <div class="app-section">
     <div class="section-header">
         <h2><span class="red-bar"></span> Browse by Genre</h2>
@@ -93,13 +87,22 @@
 </div>
 {% endif %}
 
-<!-- All Anime Grid -->
+<!-- ✅ Tabs: All / Series / Movies -->
 <div class="app-section">
     <div class="section-header">
         <h2><span class="red-bar"></span> 
-            {% if search_query %}"{{ search_query }}"{% else %}All Anime{% endif %}
+            {% if search_query %}"{{ search_query }}"{% else %}Browse{% endif %}
         </h2>
     </div>
+    
+    {% if not search_query %}
+    <div class="tabs-container">
+        <a href="/?tab=all" class="tab-btn {% if current_tab == 'all' %}active{% endif %}">🔥 All</a>
+        <a href="/?tab=series" class="tab-btn {% if current_tab == 'series' %}active{% endif %}">📺 Series</a>
+        <a href="/?tab=movies" class="tab-btn {% if current_tab == 'movies' %}active{% endif %}">🎬 Movies</a>
+    </div>
+    {% endif %}
+    
     <div class="anime-grid-mobile">
         {% for anime in anime_list %}
         <a href="/watch/{{ anime.id }}" class="anime-card-mobile">
@@ -111,19 +114,6 @@
         {% endfor %}
     </div>
 </div>
-
-<!-- Pagination -->
-{% if not search_query and total_pages > 1 %}
-<div class="pagination">
-    {% if page > 1 %}
-        <a href="/?page={{ page - 1 }}" class="page-btn">« Previous</a>
-    {% endif %}
-    <span class="page-info">{{ page }} / {{ total_pages }}</span>
-    {% if page < total_pages %}
-        <a href="/?page={{ page + 1 }}" class="page-btn">Next »</a>
-    {% endif %}
-</div>
-{% endif %}
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -143,14 +133,14 @@
                         </div>
                         <div class="history-info">
                             <div class="history-title">${item.title}</div>
-                            <div class="history-sub">S1 E${item.ep_num} • 16m left</div>
+                            <div class="history-sub">E${item.ep_num} • Watch now</div>
                         </div>
                     </a>
                 `;
             });
         }
 
-        // Hero Slider Logic
+        // Hero Slider
         let slideIndex = 0;
         let slides = document.getElementsByClassName("hero-slide");
         let dots = document.getElementsByClassName("dot");
@@ -188,20 +178,6 @@
             alert('❤️ Added to My List!');
         } else {
             alert('Already in your list!');
-        }
-    }
-
-    // ✅ Scroll Buttons Logic (Updated)
-    function scrollLeft(containerId) {
-        const container = document.getElementById(containerId);
-        if (container) {
-            container.scrollBy({ left: -300, behavior: 'smooth' }); // ✅ Smooth Left
-        }
-    }
-    function scrollRight(containerId) {
-        const container = document.getElementById(containerId);
-        if (container) {
-            container.scrollBy({ left: 300, behavior: 'smooth' }); // ✅ Smooth Right
         }
     }
 </script>

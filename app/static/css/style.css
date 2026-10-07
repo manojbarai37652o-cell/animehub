@@ -2057,3 +2057,48 @@ input:checked + .slider:before {
         display: none;
     }
 }
+/* ✅ Tabs for All / Series / Movies */
+.tabs-container {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.tabs-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-btn {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.tab-btn.active {
+    background-color: #ff4d4d;
+    color: #fff;
+    border-color: #ff4d4d;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .tab-btn {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+}
