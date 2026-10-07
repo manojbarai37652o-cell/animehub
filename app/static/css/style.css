@@ -2102,3 +2102,59 @@ input:checked + .slider:before {
         font-size: 13px;
     }
 }
+/* ✅ Mobile Header Fix */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 12px !important;
+        gap: 8px;
+    }
+    
+    .header-left {
+        gap: 10px !important;
+    }
+    
+    .logo a {
+        font-size: 18px !important;
+    }
+    
+    .logo-m {
+        font-size: 22px !important;
+    }
+    
+    .header-actions {
+        gap: 8px !important;
+        flex-wrap: nowrap;
+    }
+    
+    /* Search box को छोटा करो */
+    .search-box {
+        padding: 3px 8px !important;
+        max-width: 120px;
+    }
+    
+    .search-box input {
+        width: 70px !important;
+        font-size: 12px;
+        padding: 3px;
+    }
+    
+    .search-box button {
+        font-size: 13px;
+    }
+    
+    /* Icons को छोटा करो */
+    .icon-btn {
+        font-size: 16px !important;
+    }
+    
+    /* Profile Photo छोटी करो */
+    .user-avatar {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    
+    /* Desktop nav को मोबाइल में छुपाओ */
+    .desktop-nav {
+        display: none !important;
+    }
+}
