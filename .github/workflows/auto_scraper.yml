@@ -2,7 +2,6 @@ name: Auto Anime Scraper
 
 on:
   schedule:
-    # हर 1 घंटे में एक बार चलेगा
     - cron: '0 * * * *'
   workflow_dispatch:
 
@@ -25,7 +24,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 playwright
+          pip install requests beautifulsoup4 playwright cloudscraper flask-dance
           playwright install chromium
       
       - name: Run Scraper
