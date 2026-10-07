@@ -2401,3 +2401,27 @@ input:checked + .slider:before {
         padding: 6px 2px 0;
     }
 }
+/* ✅ Logo को header के बिल्कुल बीच में करो */
+header {
+    position: relative !important;
+}
+
+.logo {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 5 !important;
+}
+
+/* Mobile में भी बीच में ही रहेगा */
+@media (max-width: 768px) {
+    .logo {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+    
+    .logo a {
+        font-size: 16px !important;
+        white-space: nowrap !important;
+    }
+}
