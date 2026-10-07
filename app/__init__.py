@@ -1,4 +1,5 @@
 from flask import Flask, render_template, abort, request, redirect, url_for, session
+import random
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime, 
                                    get_random_anime, get_featured_anime, 
@@ -71,13 +72,40 @@ def create_app(config_class=Config):
             anime_list = all_anime
             tab = 'all'
         
-        # ✅ हर category के लिए एनिमे अलग करो
-        trending = all_anime[:15]
+        # ✅ Trending (Random 15)
+        trending = random.sample(all_anime, min(15, len(all_anime))) if len(all_anime) > 15 else all_anime
+        
+        # ✅ Popular (सबसे ज्यादा एपिसोड वाले)
         popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)[:15]
-        action = [a for a in all_anime if any(k in a['title'].lower() for k in ['demon', 'slayer', 'jujutsu', 'hero', 'punch', 'titan', 'hunter', 'blade', 'sword', 'naruto', 'piece', 'clover', 'leveling'])][:15]
-        comedy = [a for a in all_anime if any(k in a['title'].lower() for k in ['comedy', 'life', 'school', 'family', 'spy', 'girlfriend', 'kanojo', 'dandadan'])][:15]
-        fantasy = [a for a in all_anime if any(k in a['title'].lower() for k in ['fantasy', 'magic', 'isekai', 'reincarnated', 'slime', 'immortal', 'king', 'dungeon'])][:15]
-        romance = [a for a in all_anime if any(k in a['title'].lower() for k in ['romance', 'love', 'heart', 'kiss'])][:15]
+        
+        # ✅ Action Anime (सही Keywords)
+        action_keywords = ['demon slayer', 'jujutsu kaisen', 'one punch man', 'attack on titan', 
+                          'solo leveling', 'naruto', 'one piece', 'black clover', 'my hero academia',
+                          'hunter x hunter', 'bleach', 'dragon ball', 'chainsaw man', 'tokyo revengers',
+                          'kaiju no. 8', 'dan da dan', 'vinland saga', 'mob psycho']
+        action = [a for a in all_anime if any(k in a['title'].lower() for k in action_keywords)][:15]
+        
+        # ✅ Comedy Anime (सही Keywords)
+        comedy_keywords = ['spy x family', 'grand blue', 'kaguya', 'komi', 'nichijou', 
+                          'gintama', 'konosuba', 'daily life', 'horimiya', 'fruits basket',
+                          'science fell in love', 'my dress-up darling', 'classroom of the elite',
+                          'toradora', 'love is war', 'tomo-chan', 'uzaki', 'rent-a-girlfriend']
+        comedy = [a for a in all_anime if any(k in a['title'].lower() for k in comedy_keywords)][:15]
+        
+        # ✅ Fantasy Anime (सही Keywords)
+        fantasy_keywords = ['reincarnated', 'isekai', 'mushoku tensei', 'that time i got',
+                           'overlord', 'slime', 're:zero', 'sword art online', 'fate',
+                           'immortal king', 'daily life of the immortal', 'frontier lord',
+                           'wistoria', 'frieren', 'dungeon', 'black torch', 'holy grail']
+        fantasy = [a for a in all_anime if any(k in a['title'].lower() for k in fantasy_keywords)][:15]
+        
+        # ✅ Romance Anime (सही Keywords)
+        romance_keywords = ['horimiya', 'kaguya', 'toradora', 'love is war', 'rent-a-girlfriend',
+                           'my dress-up darling', 'fruits basket', 'your name', 'weathering with you',
+                           'a silent voice', 'i want to eat your pancreas', 'garden of words',
+                           'tomo-chan', 'uzaki', 'quintessential', 'science fell in love',
+                           'a couple of cuckoos', 'kanojo', 'lovely complex']
+        romance = [a for a in all_anime if any(k in a['title'].lower() for k in romance_keywords)][:15]
         
         hero_anime_list = get_hero_anime_list(5)
         

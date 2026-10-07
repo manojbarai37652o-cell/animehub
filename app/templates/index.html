@@ -39,7 +39,7 @@
 </div>
 {% endif %}
 
-<!-- ✅ Trending This Week (Horizontal Row) -->
+<!-- ✅ Trending This Week (Horizontal) -->
 {% if trending and not search_query %}
 <div class="app-section">
     <div class="section-header">
@@ -141,7 +141,7 @@
 </div>
 {% endif %}
 
-<!-- ✅ Browse by Genre (Icon Cards) -->
+<!-- ✅ Browse by Genre -->
 {% if not search_query %}
 <div class="app-section">
     <div class="section-header">
@@ -168,7 +168,7 @@
 </div>
 {% endif %}
 
-<!-- ✅ All Anime (Grid + Tabs) -->
+<!-- ✅ Browse All (Horizontal) -->
 <div class="app-section">
     <div class="section-header">
         <h2><span class="red-bar"></span> 
@@ -184,9 +184,9 @@
     </div>
     {% endif %}
     
-    <div class="anime-grid-mobile">
+    <div class="horizontal-scroll">
         {% for anime in anime_list[:30] %}
-        <a href="/watch/{{ anime.id }}" class="anime-card-mobile">
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
             <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
             <h3>{{ anime.title }}</h3>
         </a>
@@ -198,7 +198,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Continue Watching History
         let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
         const cwSection = document.getElementById('continue-watching-section');
         if (cwSection && history.length > 0) {
@@ -221,7 +220,6 @@
             });
         }
 
-        // Hero Slider
         let slideIndex = 0;
         let slides = document.getElementsByClassName("hero-slide");
         let dots = document.getElementsByClassName("dot");
