@@ -36,5 +36,5 @@ jobs:
           git config --local user.name "AnimeNest Bot"
           git add database/storage.json database/progress.json database/skipped.json
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-scraped new anime"
-          git pull --rebase
+          git pull --no-rebase -X ours
           git push
