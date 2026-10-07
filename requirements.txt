@@ -4,3 +4,4 @@ beautifulsoup4
 playwright
 cloudscraper
 flask-dance
+gunicorn
