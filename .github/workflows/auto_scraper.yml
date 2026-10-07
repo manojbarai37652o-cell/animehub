@@ -2,7 +2,8 @@ name: Auto Anime Scraper
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    # हर 1 घंटे में एक बार चलेगा
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -32,8 +33,8 @@ jobs:
       
       - name: Save Data to GitHub
         run: |
-          git config --local user.email "bot@animehub.com"
-          git config --local user.name "AnimeHub Bot"
-          git add database/storage.json database/progress.json
+          git config --local user.email "bot@animenest.com"
+          git config --local user.name "AnimeNest Bot"
+          git add database/storage.json database/progress.json database/skipped.json
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-scraped new anime"
           git push
