@@ -87,7 +87,6 @@ def create_app(config_class=Config):
             return render_template('login.html')
         return render_template('settings.html')
 
-    # ✅ नया रास्ता: Language
     @app.route('/language')
     def language():
         if not session.get('user_email'):
@@ -119,22 +118,45 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
 
+    # ✅ नया रास्ता: अब Season और Episode दोनों URL में आ सकते हैं
     @app.route('/watch/<anime_id>')
-    @app.route('/watch/<anime_id>/<int:ep_number>')
-    def watch(anime_id, ep_number=None):
+    @app.route('/watch/<anime_id>/<int:season_number>')
+    @app.route('/watch/<anime_id>/<int:season_number>/<int:ep_number>')
+    def watch(anime_id, season_number=1, ep_number=None):
         if not session.get('user_email'): return render_template('login.html')
         anime = get_anime_by_id(anime_id)
         if not anime: abort(404)
-        episodes = anime.get('episodes', [])
+        
+        # Seasons निकालो
+        seasons = anime.get('seasons', [])
+        if not seasons:
+            episodes = anime.get('episodes', [])
+            if episodes:
+                seasons = [{"season_number": 1, "episodes": episodes}]
+        
+        # कौन सा Season दिखाना है
+        current_season = next((s for s in seasons if s['season_number'] == season_number), None)
+        if not current_season and seasons:
+            current_season = seasons[0]
+            season_number = current_season['season_number']
+        
+        episodes = current_season['episodes'] if current_season else []
+        
         current_ep, current_index = None, 0
         if episodes:
-            if ep_number is None: current_ep = episodes[0]
+            if ep_number is None:
+                current_ep = episodes[0]
+                current_index = 0
             else:
                 for i, ep in enumerate(episodes):
                     if f"Episode {ep_number}" in ep.get('title', ''):
-                        current_ep, current_index = ep, i
+                        current_ep = ep
+                        current_index = i
                         break
-                if not current_ep: current_ep = episodes[0]
+                if not current_ep:
+                    current_ep = episodes[0]
+                    current_index = 0
+
         prev_ep_num, next_ep_num = None, None
         if episodes:
             if current_index > 0:
@@ -143,8 +165,12 @@ def create_app(config_class=Config):
             if current_index < len(episodes) - 1:
                 next_match = episodes[current_index + 1]['title'].split(' ')[-1]
                 if next_match.isdigit(): next_ep_num = next_match
+
         related_anime = get_random_anime(anime_id, count=6)
-        return render_template('watch.html', anime=anime, episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num, related_anime=related_anime)
+        
+        return render_template('watch.html', anime=anime, seasons=seasons, current_season=current_season, 
+                               episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num, 
+                               related_anime=related_anime)
 
     @app.errorhandler(404)
     def page_not_found(e): return render_template('404.html'), 404

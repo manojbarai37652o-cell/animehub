@@ -23,28 +23,44 @@
         <div class="autoplay-content">
             <p>⏭️ अगला एपिसोड <span id="countdown">5</span> सेकंड में शुरू होने वाला है...</p>
             <div class="autoplay-buttons">
-                <a href="/watch/{{ anime.id }}/{{ next_ep }}" class="autoplay-btn">Play Now</a>
+                <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ next_ep }}" class="autoplay-btn">Play Now</a>
                 <button onclick="cancelAutoplay()" class="cancel-btn">Cancel</button>
             </div>
         </div>
     </div>
     {% endif %}
 
+    <!-- Season Selector (अगर 1 से ज्यादा Season हैं) -->
+    {% if seasons|length > 1 %}
+    <div class="season-selector">
+        {% for season in seasons %}
+            <a href="/watch/{{ anime.id }}/{{ season.season_number }}" 
+               class="season-btn {% if current_season and current_season.season_number == season.season_number %}active{% endif %}">
+               Season {{ season.season_number }}
+            </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
     <div class="episode-nav">
         {% if prev_ep %}
-            <a href="/watch/{{ anime.id }}/{{ prev_ep }}" class="nav-btn">« Previous</a>
+            <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ prev_ep }}" class="nav-btn">« Previous</a>
         {% else %}
             <span class="nav-btn disabled">« Previous</span>
         {% endif %}
-        <span class="current-ep-title">{{ current_ep.title if current_ep else 'Episode' }}</span>
+
+        <span class="current-ep-title">
+            Season {{ current_season.season_number }} • {{ current_ep.title if current_ep else 'Episode' }}
+        </span>
+
         {% if next_ep %}
-            <a href="/watch/{{ anime.id }}/{{ next_ep }}" class="nav-btn">Next »</a>
+            <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ next_ep }}" class="nav-btn">Next »</a>
         {% else %}
             <span class="nav-btn disabled">Next »</span>
         {% endif %}
     </div>
 
-    <!-- ✅ Action Buttons Row -->
+    <!-- Action Buttons -->
     <div class="action-row">
         <button type="button" class="action-btn" onclick="downloadEpisode()">
             <i class="fas fa-download"></i><span>Download</span>
@@ -62,7 +78,7 @@
         {% endif %}
     </div>
 
-    <!-- ✅ Rating Section -->
+    <!-- Rating Section -->
     <div class="rating-section" id="rating-section">
         <h3>Rate this Anime</h3>
         <div class="stars" id="star-rating">
@@ -77,12 +93,12 @@
 
     <!-- Episodes Grid -->
     <div class="episode-list">
-        <h3>All Episodes</h3>
+        <h3>All Episodes (Season {{ current_season.season_number }})</h3>
         {% if episodes %}
             <div class="episode-grid">
                 {% for episode in episodes %}
                     {% set ep_num = episode.title.split(' ')[-1] if episode.title else '1' %}
-                    <a href="/watch/{{ anime.id }}/{{ ep_num }}" 
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ ep_num }}" 
                        class="episode-btn {% if current_ep and current_ep.title == episode.title %}active{% endif %}">
                         {{ ep_num }}
                     </a>
@@ -95,7 +111,7 @@
     
     <a href="/" class="back-btn">← Back to Home</a>
 
-    <!-- ✅ Comments Section -->
+    <!-- Comments Section -->
     <div class="comments-section">
         <h3><i class="fas fa-comments"></i> Comments & Reviews</h3>
         <div class="comment-form">
@@ -151,12 +167,10 @@
     };
     const nextEpNum = {{ (next_ep if next_ep else '')|tojson }};
     const animeId = {{ anime.id|tojson }};
+    const currentSeason = {{ current_season.season_number|tojson }};
     const userName = {{ (session.user_name if session.user_name else 'Guest')|tojson }};
     const userPic = {{ (session.user_pic if session.user_pic else '')|tojson }};
 
-    console.log("AnimeHub Watch Page Loaded ✅");
-
-    // ========== 1. WATCHLIST ==========
     function toggleWatchlist() {
         let list = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
         const index = list.findIndex(item => item.id === animeData.id);
@@ -173,7 +187,6 @@
         localStorage.setItem('animeWatchlist', JSON.stringify(list));
     }
 
-    // ========== 2. RATING ==========
     function scrollToRating() {
         document.getElementById('rating-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -199,7 +212,6 @@
             localStorage.setItem('animeRatings', JSON.stringify(ratings));
             currentRating = rating;
             renderStars(rating);
-            console.log("Rated:", rating);
         });
         star.addEventListener('mouseover', function() {
             const rating = parseInt(this.getAttribute('data-rating'));
@@ -213,7 +225,6 @@
         renderStars(currentRating);
     });
 
-    // ========== 3. COMMENTS ==========
     let allComments = JSON.parse(localStorage.getItem('animeComments')) || {};
 
     function addComment() {
@@ -232,7 +243,6 @@
         localStorage.setItem('animeComments', JSON.stringify(allComments));
         input.value = '';
         renderComments();
-        console.log("Comment added!");
     }
 
     function renderComments() {
@@ -255,7 +265,6 @@
     }
     renderComments();
 
-    // ========== 4. DOWNLOAD ==========
     function downloadEpisode() {
         let downloads = JSON.parse(localStorage.getItem('animeDownloads')) || [];
         const exists = downloads.some(d => d.id === animeData.id && d.ep_num === currentEp.num);
@@ -269,11 +278,9 @@
             ep_title: currentEp.title
         });
         localStorage.setItem('animeDownloads', JSON.stringify(downloads));
-        alert('✅ Downloads में सेव हो गया! अब नीचे Downloads पेज पर जाकर देखें।');
-        console.log("Downloaded!");
+        alert('✅ Downloads में सेव हो गया!');
     }
 
-    // ========== 5. SHARE ==========
     function openShareModal() {
         const shareUrl = window.location.origin + '/watch/' + animeId;
         const shareText = 'Watch ' + animeData.title + ' on MAG ANIME! 🔥';
@@ -302,7 +309,6 @@
         alert('✅ Link copied!');
     }
 
-    // ========== 6. AUTO-PLAY ==========
     let autoplayTimer = null;
     function startAutoplay() {
         if (!nextEpNum) return;
@@ -317,7 +323,7 @@
             countEl.innerText = count;
             if (count <= 0) {
                 clearInterval(autoplayTimer);
-                window.location.href = '/watch/' + animeId + '/' + nextEpNum;
+                window.location.href = '/watch/' + animeId + '/' + currentSeason + '/' + nextEpNum;
             }
         }, 1000);
     }
@@ -326,7 +332,6 @@
         document.getElementById('autoplay-banner').style.display = 'none';
     }
 
-    // ========== 7. HISTORY ==========
     const currentEpData = { id: animeData.id, title: animeData.title, image: animeData.image, ep_num: currentEp.num, ep_title: currentEp.title };
     let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
     history = history.filter(item => item.id !== currentEpData.id);

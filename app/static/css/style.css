@@ -1933,3 +1933,35 @@ input:checked + .slider:before {
     .stars i { font-size: 28px; }
     .share-options { grid-template-columns: 1fr; }
 }
+/* ✅ Season Selector */
+.season-selector {
+    display: flex;
+    gap: 10px;
+    padding: 15px 0;
+    overflow-x: auto;
+    flex-wrap: wrap;
+}
+
+.season-btn {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #333;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.season-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.season-btn.active {
+    background-color: #ff4d4d;
+    color: #fff;
+    border-color: #ff4d4d;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
