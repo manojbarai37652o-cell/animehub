@@ -172,17 +172,9 @@
 <div class="app-section">
     <div class="section-header">
         <h2><span class="red-bar"></span> 
-            {% if search_query %}"{{ search_query }}"{% else %}Browse All{% endif %}
+            {% if search_query %}"{{ search_query }}"{% else %}All Anime{% endif %}
         </h2>
     </div>
-    
-    {% if not search_query %}
-    <div class="tabs-container">
-        <a href="/?tab=all" class="tab-btn {% if current_tab == 'all' %}active{% endif %}">🔥 All</a>
-        <a href="/?tab=series" class="tab-btn {% if current_tab == 'series' %}active{% endif %}">📺 Series</a>
-        <a href="/?tab=movies" class="tab-btn {% if current_tab == 'movies' %}active{% endif %}">🎬 Movies</a>
-    </div>
-    {% endif %}
     
     <div class="horizontal-scroll">
         {% for anime in anime_list[:30] %}

@@ -61,16 +61,7 @@ def create_app(config_class=Config):
         if not session.get('user_email'):
             return render_template('login.html')
         
-        tab = request.args.get('tab', 'all')
         all_anime = get_all_anime()
-        
-        if tab == 'series':
-            anime_list = [a for a in all_anime if len(a.get('episodes', [])) > 1 or len(a.get('seasons', [])) > 1]
-        elif tab == 'movies':
-            anime_list = [a for a in all_anime if len(a.get('episodes', [])) <= 1]
-        else:
-            anime_list = all_anime
-            tab = 'all'
         
         # ✅ Trending (Random 15)
         trending = random.sample(all_anime, min(15, len(all_anime))) if len(all_anime) > 15 else all_anime
@@ -78,28 +69,28 @@ def create_app(config_class=Config):
         # ✅ Popular (सबसे ज्यादा एपिसोड वाले)
         popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)[:15]
         
-        # ✅ Action Anime (सही Keywords)
+        # ✅ Action Anime
         action_keywords = ['demon slayer', 'jujutsu kaisen', 'one punch man', 'attack on titan', 
                           'solo leveling', 'naruto', 'one piece', 'black clover', 'my hero academia',
                           'hunter x hunter', 'bleach', 'dragon ball', 'chainsaw man', 'tokyo revengers',
                           'kaiju no. 8', 'dan da dan', 'vinland saga', 'mob psycho']
         action = [a for a in all_anime if any(k in a['title'].lower() for k in action_keywords)][:15]
         
-        # ✅ Comedy Anime (सही Keywords)
+        # ✅ Comedy Anime
         comedy_keywords = ['spy x family', 'grand blue', 'kaguya', 'komi', 'nichijou', 
                           'gintama', 'konosuba', 'daily life', 'horimiya', 'fruits basket',
                           'science fell in love', 'my dress-up darling', 'classroom of the elite',
                           'toradora', 'love is war', 'tomo-chan', 'uzaki', 'rent-a-girlfriend']
         comedy = [a for a in all_anime if any(k in a['title'].lower() for k in comedy_keywords)][:15]
         
-        # ✅ Fantasy Anime (सही Keywords)
+        # ✅ Fantasy Anime
         fantasy_keywords = ['reincarnated', 'isekai', 'mushoku tensei', 'that time i got',
                            'overlord', 'slime', 're:zero', 'sword art online', 'fate',
                            'immortal king', 'daily life of the immortal', 'frontier lord',
                            'wistoria', 'frieren', 'dungeon', 'black torch', 'holy grail']
         fantasy = [a for a in all_anime if any(k in a['title'].lower() for k in fantasy_keywords)][:15]
         
-        # ✅ Romance Anime (सही Keywords)
+        # ✅ Romance Anime
         romance_keywords = ['horimiya', 'kaguya', 'toradora', 'love is war', 'rent-a-girlfriend',
                            'my dress-up darling', 'fruits basket', 'your name', 'weathering with you',
                            'a silent voice', 'i want to eat your pancreas', 'garden of words',
@@ -110,8 +101,7 @@ def create_app(config_class=Config):
         hero_anime_list = get_hero_anime_list(5)
         
         return render_template('index.html', 
-                               anime_list=anime_list, 
-                               current_tab=tab,
+                               anime_list=all_anime, 
                                hero_anime_list=hero_anime_list,
                                trending=trending,
                                popular=popular,
@@ -143,13 +133,13 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         query = request.args.get('q', '')
         anime_list = search_anime(query) if query else get_all_anime()
-        return render_template('index.html', anime_list=anime_list, search_query=query, current_tab='all', hero_anime_list=[], trending=[], popular=[], action=[], comedy=[], fantasy=[], romance=[])
+        return render_template('index.html', anime_list=anime_list, search_query=query, hero_anime_list=[], trending=[], popular=[], action=[], comedy=[], fantasy=[], romance=[])
 
     @app.route('/genre/<genre_name>')
     def genre(genre_name):
         if not session.get('user_email'): return render_template('login.html')
         anime_list = get_anime_by_genre(genre_name)
-        return render_template('index.html', anime_list=anime_list, search_query=genre_name.title() + " Anime", current_tab='all', hero_anime_list=[], trending=[], popular=[], action=[], comedy=[], fantasy=[], romance=[])
+        return render_template('index.html', anime_list=anime_list, search_query=genre_name.title() + " Anime", hero_anime_list=[], trending=[], popular=[], action=[], comedy=[], fantasy=[], romance=[])
 
     @app.route('/random')
     def random_anime():
