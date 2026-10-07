@@ -1,16 +1,15 @@
-import requests
 import sys
 import os
 import time
 import json
+import cloudscraper
+from parser import (parse_anime_homepage, parse_post_id, parse_season_ajax,
+                    parse_video_link, parse_release_year, parse_season_episodes,
+                    has_hindi_dub)
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
-
-from parser import (parse_anime_homepage, parse_post_id, parse_season_ajax,
-                    parse_video_link, parse_release_year, parse_season_episodes,
-                    has_hindi_dub)
 
 MIN_YEAR = 2010
 BATCH_SIZE = 10
@@ -20,6 +19,9 @@ MAX_PAGES_TO_CHECK = 500
 PROGRESS_FILE = os.path.join(project_root, 'database', 'progress.json')
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
 SKIP_FILE = os.path.join(project_root, 'database', 'skipped.json')
+
+# ✅ Cloudscraper का इस्तेमाल करेंगे (Cloudflare बायपास के लिए)
+scraper = cloudscraper.create_scraper()
 
 
 def load_progress():
@@ -51,7 +53,6 @@ def save_db(data):
 
 
 def load_skipped():
-    """जो एनिमे हिंदी में नहीं हैं, उनकी लिस्ट"""
     if os.path.exists(SKIP_FILE):
         try:
             with open(SKIP_FILE, 'r') as f:
@@ -66,11 +67,8 @@ def save_skipped(data):
 
 
 def fetch_page(url):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-    }
     try:
-        response = requests.get(url, headers=headers, timeout=15)
+        response = scraper.get(url, timeout=20)
         if response.status_code == 404:
             return None
         response.raise_for_status()
@@ -82,13 +80,8 @@ def fetch_page(url):
 
 def fetch_season_ajax(post_id, season_num):
     ajax_url = f"https://animesalt.cx/wp-admin/admin-ajax.php?action=action_select_season&season={season_num}&post={post_id}"
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-        'X-Requested-With': 'XMLHttpRequest',
-        'Referer': 'https://animesalt.cx/'
-    }
     try:
-        response = requests.get(ajax_url, headers=headers, timeout=15)
+        response = scraper.get(ajax_url, timeout=20)
         if response.status_code == 404:
             return None
         response.raise_for_status()
@@ -100,14 +93,12 @@ def fetch_season_ajax(post_id, season_num):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🤖 SMART SCRAPER (सिर्फ हिंदी डब एनिमे)")
-    print(f"📅 सिर्फ {MIN_YEAR} साल या उसके बाद के एनिमे")
-    print(f"📦 हर बार {BATCH_SIZE} एनिमे")
+    print("🤖 SMART SCRAPER (हिंदी डब, Cloudscraper के साथ)")
     print("=" * 60)
     
     progress = load_progress()
     start_page = progress.get('last_page', 1)
-    print(f"\n📍 अभी Page {start_page} से शुरू कर रहे हैं। Total scraped: {progress['total_scraped']}")
+    print(f"\n📍 Page {start_page} से शुरू कर रहे हैं। Total scraped: {progress['total_scraped']}")
     
     db_data = load_db()
     existing_anime = db_data.get('anime_list', [])
@@ -117,7 +108,7 @@ if __name__ == '__main__':
     skipped_ids = set(skip_data.get('skipped_ids', []))
     
     print(f"💾 Database में {len(existing_ids)} एनिमे हैं")
-    print(f"⏭️ Skip list में {len(skipped_ids)} एनिमे हैं (हिंदी नहीं)\n")
+    print(f"⏭️ Skip list में {len(skipped_ids)} एनिमे हैं\n")
     
     found_new = False
     page_num = start_page
@@ -135,7 +126,6 @@ if __name__ == '__main__':
         all_anime = parse_anime_homepage(homepage_html, "https://animesalt.cx/")
         print(f"🔍 इस पेज पर मिले {len(all_anime)} एनिमे")
         
-        # ✅ जो पहले से DB में हैं या skip हो चुके हैं, उन्हें छोड़ दो
         new_anime = [a for a in all_anime if a['id'] not in existing_ids and a['id'] not in skipped_ids]
         print(f"🆕 इनमें से {len(new_anime)} नए हैं")
         
@@ -161,15 +151,14 @@ if __name__ == '__main__':
     skipped_this_run = 0
     updated_list = existing_anime.copy()
     
-    for anime in new_anime[:BATCH_SIZE]:
-        print(f"\n[{scraped_this_run + 1}/{min(BATCH_SIZE, len(new_anime))}] {anime['title']}")
+    for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
+        print(f"\n[{idx + 1}/{min(BATCH_SIZE, len(new_anime))}] {anime['title']}")
         
         anime_html = fetch_page(anime['url'])
         if not anime_html:
             print("   ❌ Page load fail")
             continue
         
-        # ✅ पहले हिंदी चेक करो
         if not has_hindi_dub(anime_html):
             print("   ⏭️ हिंदी डब नहीं है, Skip कर रहे हैं")
             skipped_ids.add(anime['id'])
@@ -179,7 +168,6 @@ if __name__ == '__main__':
         
         print("   ✅ हिंदी डब है!")
         
-        # फिर Year चेक करो
         year = parse_release_year(anime_html)
         if year:
             print(f"   📅 Release Year: {year}")
@@ -245,7 +233,6 @@ if __name__ == '__main__':
         total_eps = sum(len(s['episodes']) for s in anime_seasons)
         print(f"   💾 Save! {len(anime_seasons)} Season, {total_eps} Episodes")
         
-        # हर 3 एनिमे के बाद डेटा सेव करो
         if scraped_this_run % 3 == 0:
             db_data['anime_list'] = updated_list
             save_db(db_data)
@@ -255,18 +242,16 @@ if __name__ == '__main__':
         
         time.sleep(SLEEP_BETWEEN)
     
-    # अंत में सब सेव करो
     if scraped_this_run > 0:
         db_data['anime_list'] = updated_list
         save_db(db_data)
         progress['total_scraped'] += scraped_this_run
         save_progress(progress)
         print(f"\n🎉 इस बार {scraped_this_run} हिंदी एनिमे स्क्रैप हुए!")
-        print(f"📊 Total Database: {len(updated_list)} एनिमे")
     
     if skipped_this_run > 0:
         skip_data['skipped_ids'] = list(skipped_ids)
         save_skipped(skip_data)
-        print(f"⏭️ {skipped_this_run} एनिमे skip किए (हिंदी नहीं या पुराने)")
+        print(f"⏭️ {skipped_this_run} एनिमे skip किए")
     
     print("=" * 60)
