@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MAG ANIME - Watch Anime Free</title>
+    <title>AnimeNest - Watch Anime Free</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- ✅ PWA Setup -->
     <link rel="manifest" href="/static/manifest.json">
     <meta name="theme-color" content="#ff4d4d">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="MAG ANIME">
+    <meta name="apple-mobile-web-app-title" content="AnimeNest">
     <link rel="apple-touch-icon" href="/static/images/logo.png">
 </head>
 <body>
 
-    <!-- ✅ Splash Screen (सिर्फ पहली बार दिखेगा) -->
+    <!-- Splash Screen -->
     <div id="splash-screen">
         <div class="splash-logo">
-            <span style="color: #ff4d4d; font-size: 50px; font-weight: 900;">M</span>AG ANIME
+            <span style="color: #ff4d4d; font-size: 50px; font-weight: 900;">A</span>NIMENEST
         </div>
         <div class="splash-spinner"></div>
         <p class="splash-text">Loading your anime...</p>
     </div>
 
+    <!-- Header -->
     <header>
         <div class="logo">
             <a href="/">
-                <span class="logo-m">M</span>AG <span class="logo-text">ANIME</span>
+                <span class="logo-m">A</span>NI<span class="logo-text">MENEST</span>
             </a>
         </div>
         
@@ -54,7 +54,7 @@
         {% block content %}{% endblock %}
     </main>
 
-    <!-- ✅ Bottom Navigation (Mobile) -->
+    <!-- Bottom Navigation -->
     <div class="bottom-nav">
         <a href="/" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a>
         <a href="/random" class="nav-item"><i class="fas fa-compass"></i><span>Explore</span></a>
@@ -64,16 +64,13 @@
     </div>
 
     <script>
-        // ✅ Splash Screen सिर्फ पहली बार दिखेगा
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById('splash-screen');
             if (!splash) return;
 
             if (sessionStorage.getItem('splashShown')) {
-                // ✅ अगर पहले दिख चुका है, तो तुरंत छुपा दो (कोई लोडिंग नहीं)
                 splash.style.display = 'none';
             } else {
-                // ✅ पहली बार: 1 सेकंड दिखाओ, फिर छुपाओ
                 sessionStorage.setItem('splashShown', 'true');
                 setTimeout(() => {
                     splash.style.opacity = '0';
