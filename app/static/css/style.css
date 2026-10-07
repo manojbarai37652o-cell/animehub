@@ -2425,3 +2425,32 @@ header {
         white-space: nowrap !important;
     }
 }
+/* ✅ Logo को बड़ा और सुंदर करो */
+.logo a {
+    font-size: 28px !important;
+    letter-spacing: 2px !important;
+}
+
+.logo-m {
+    font-size: 32px !important;
+}
+
+.logo-text {
+    font-size: 28px !important;
+}
+
+/* Mobile में थोड़ा छोटा, पर फिर भी अच्छा दिखे */
+@media (max-width: 768px) {
+    .logo a {
+        font-size: 22px !important;
+        letter-spacing: 1.5px !important;
+    }
+    
+    .logo-m {
+        font-size: 26px !important;
+    }
+    
+    .logo-text {
+        font-size: 22px !important;
+    }
+}
