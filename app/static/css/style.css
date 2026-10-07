@@ -2016,3 +2016,44 @@ input:checked + .slider:before {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+/* ✅ Desktop Navigation Links (PC में हेडर के बाईं तरफ) */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.desktop-nav-link {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.desktop-nav-link i {
+    font-size: 14px;
+}
+
+.desktop-nav-link:hover {
+    color: #ff4d4d;
+    background-color: rgba(255, 77, 77, 0.1);
+}
+
+/* ✅ मोबाइल में Desktop Nav छुपा दो */
+@media (max-width: 1024px) {
+    .desktop-nav {
+        display: none;
+    }
+}
