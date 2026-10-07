@@ -17,6 +17,7 @@
 </head>
 <body>
 
+    <!-- ✅ Splash Screen (सिर्फ पहली बार दिखेगा) -->
     <div id="splash-screen">
         <div class="splash-logo">
             <span style="color: #ff4d4d; font-size: 50px; font-weight: 900;">M</span>AG ANIME
@@ -53,6 +54,7 @@
         {% block content %}{% endblock %}
     </main>
 
+    <!-- ✅ Bottom Navigation (Mobile) -->
     <div class="bottom-nav">
         <a href="/" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a>
         <a href="/random" class="nav-item"><i class="fas fa-compass"></i><span>Explore</span></a>
@@ -62,24 +64,25 @@
     </div>
 
     <script>
+        // ✅ Splash Screen सिर्फ पहली बार दिखेगा
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById('splash-screen');
-            if (splash) {
+            if (!splash) return;
+
+            if (sessionStorage.getItem('splashShown')) {
+                // ✅ अगर पहले दिख चुका है, तो तुरंत छुपा दो (कोई लोडिंग नहीं)
+                splash.style.display = 'none';
+            } else {
+                // ✅ पहली बार: 1 सेकंड दिखाओ, फिर छुपाओ
+                sessionStorage.setItem('splashShown', 'true');
                 setTimeout(() => {
                     splash.style.opacity = '0';
-                    setTimeout(() => { splash.style.display = 'none'; }, 500);
+                    setTimeout(() => {
+                        splash.style.display = 'none';
+                    }, 500);
                 }, 1000);
             }
         });
-
-        // ✅ PWA Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/static/service-worker.js')
-                    .then(reg => console.log('✅ Service Worker registered!'))
-                    .catch(err => console.log('❌ Service Worker error:', err));
-            });
-        }
     </script>
 
 </body>
