@@ -1,5 +1,4 @@
-from flask import Flask, render_template, abort, request, redirect, url_for, session, Response
-import requests
+from flask import Flask, render_template, abort, request, redirect, url_for, session
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime, 
                                    get_paginated_anime, get_random_anime, 
@@ -118,58 +117,6 @@ def create_app(config_class=Config):
     def watchlist():
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
-
-    # ✅ वीडियो डाउनलोड वाला रास्ता
-    @app.route('/download/<anime_id>/<int:season_num>/<int:ep_num>')
-    def download_video(anime_id, season_num, ep_num):
-        if not session.get('user_email'):
-            return render_template('login.html')
-        
-        anime = get_anime_by_id(anime_id)
-        if not anime:
-            abort(404)
-        
-        seasons = anime.get('seasons', [])
-        current_season = next((s for s in seasons if s['season_number'] == season_num), None)
-        if not current_season:
-            abort(404)
-        
-        episodes = current_season['episodes']
-        current_ep = next((ep for ep in episodes if f"Episode {ep_num}" in ep.get('title', '')), None)
-        if not current_ep or not current_ep.get('video_url'):
-            abort(404)
-        
-        video_url = current_ep['video_url']
-        
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-            'Referer': 'https://animesalt.cx/'
-        }
-        
-        try:
-            req = requests.get(video_url, headers=headers, stream=True, timeout=30)
-            content_type = req.headers.get('Content-Type', '')
-            
-            if 'text/html' in content_type:
-                return "<h2>❌ यह वीडियो सीधे डाउनलोड नहीं हो सकता।</h2><p>सोर्स साइट सिर्फ स्ट्रीमिंग की परमिशन देती है।</p><a href='/watch/{}/{}'>← वापस Watch Page पर जाओ</a>".format(anime_id, season_num)
-            
-            def generate():
-                for chunk in req.iter_content(chunk_size=8192):
-                    if chunk:
-                        yield chunk
-            
-            filename = f"{anime_id}_S{season_num}_E{ep_num}.mp4"
-            
-            return Response(
-                generate(),
-                headers={
-                    'Content-Type': content_type or 'video/mp4',
-                    'Content-Disposition': f'attachment; filename="{filename}"',
-                    'Content-Length': req.headers.get('Content-Length', '')
-                }
-            )
-        except Exception as e:
-            return f"<h2>❌ डाउनलोड में एरर आया</h2><p>{e}</p><a href='/watch/{anime_id}/{season_num}'>← वापस जाओ</a>"
 
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')

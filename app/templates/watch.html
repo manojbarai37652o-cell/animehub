@@ -59,10 +59,8 @@
         {% endif %}
     </div>
 
+    <!-- ✅ Action Buttons (Download हटा दिया) -->
     <div class="action-row">
-        <button type="button" class="action-btn" onclick="downloadEpisode()">
-            <i class="fas fa-download"></i><span>Download</span>
-        </button>
         <button type="button" class="action-btn" onclick="openShareModal()">
             <i class="fas fa-share-alt"></i><span>Share</span>
         </button>
@@ -258,32 +256,6 @@
         list.innerHTML = html;
     }
     renderComments();
-
-    // ✅ नया डाउनलोड फंक्शन
-    function downloadEpisode() {
-        if (!currentEp.video) {
-            alert('❌ इस एपिसोड का वीडियो लिंक उपलब्ध नहीं है।');
-            return;
-        }
-        
-        // Downloads list में सेव करो
-        let downloads = JSON.parse(localStorage.getItem('animeDownloads')) || [];
-        const exists = downloads.some(d => d.id === animeData.id && d.ep_num === currentEp.num);
-        if (!exists) {
-            downloads.unshift({
-                id: animeData.id,
-                title: animeData.title,
-                image: animeData.image,
-                ep_num: currentEp.num,
-                ep_title: currentEp.title
-            });
-            localStorage.setItem('animeDownloads', JSON.stringify(downloads));
-        }
-        
-        // ✅ सीधे सर्वर के download route पर भेजो
-        const downloadUrl = '/download/' + animeId + '/' + currentSeason + '/' + currentEp.num;
-        window.location.href = downloadUrl;
-    }
 
     function openShareModal() {
         const shareUrl = window.location.origin + '/watch/' + animeId;
