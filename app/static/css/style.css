@@ -2739,3 +2739,42 @@ header {
         min-width: auto;
     }
 }
+/* ✅ Desktop Nav Links (सिर्फ PC में दिखेंगे) */
+.desktop-nav {
+    display: flex !important;
+    gap: 25px !important;
+    align-items: center !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+.desktop-nav-link {
+    color: #ccc !important;
+    text-decoration: none !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 14px !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap !important;
+}
+
+.desktop-nav-link i {
+    font-size: 14px !important;
+}
+
+.desktop-nav-link:hover {
+    color: #ff4d4d !important;
+    background-color: rgba(255, 77, 77, 0.1) !important;
+}
+
+/* ✅ Mobile में Desktop Nav छुपाओ */
+@media (max-width: 1024px) {
+    .desktop-nav {
+        display: none !important;
+    }
+}
