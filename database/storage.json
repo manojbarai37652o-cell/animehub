@@ -31698,6 +31698,761 @@
                     "video_url": ""
                 }
             ]
+        },
+        {
+            "id": "monster",
+            "title": "Monster",
+            "url": "https://toonstream.us/series/monster",
+            "image": "https://image.tmdb.org/t/p/w780/n5XNKXnoXpoXyfiCtXHOf8q8PFM.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "url": "https://toonstream.us/episode/monster-1x1/",
+                            "video_url": "about:blank"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "url": "https://toonstream.us/episode/monster-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 3",
+                            "url": "https://toonstream.us/episode/monster-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "url": "https://toonstream.us/episode/monster-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "url": "https://toonstream.us/episode/monster-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "url": "https://toonstream.us/episode/monster-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "url": "https://toonstream.us/episode/monster-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "url": "https://toonstream.us/episode/monster-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "url": "https://toonstream.us/episode/monster-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "url": "https://toonstream.us/episode/monster-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "url": "https://toonstream.us/episode/monster-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://toonstream.us/episode/monster-1x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 13",
+                            "url": "https://toonstream.us/episode/monster-1x13/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 14",
+                            "url": "https://toonstream.us/episode/monster-1x14/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 15",
+                            "url": "https://toonstream.us/episode/monster-1x15/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 16",
+                            "url": "https://toonstream.us/episode/monster-1x16/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 17",
+                            "url": "https://toonstream.us/episode/monster-1x17/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 18",
+                            "url": "https://toonstream.us/episode/monster-1x18/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 19",
+                            "url": "https://toonstream.us/episode/monster-1x19/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 20",
+                            "url": "https://toonstream.us/episode/monster-1x20/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 21",
+                            "url": "https://toonstream.us/episode/monster-1x21/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 22",
+                            "url": "https://toonstream.us/episode/monster-1x22/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 23",
+                            "url": "https://toonstream.us/episode/monster-1x23/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 24",
+                            "url": "https://toonstream.us/episode/monster-1x24/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 25",
+                            "url": "https://toonstream.us/episode/monster-1x25/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 26",
+                            "url": "https://toonstream.us/episode/monster-1x26/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 27",
+                            "url": "https://toonstream.us/episode/monster-1x27/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 28",
+                            "url": "https://toonstream.us/episode/monster-1x28/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 29",
+                            "url": "https://toonstream.us/episode/monster-1x29/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 30",
+                            "url": "https://toonstream.us/episode/monster-1x30/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 31",
+                            "url": "https://toonstream.us/episode/monster-1x31/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 32",
+                            "url": "https://toonstream.us/episode/monster-1x32/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 33",
+                            "url": "https://toonstream.us/episode/monster-1x33/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 34",
+                            "url": "https://toonstream.us/episode/monster-1x34/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 35",
+                            "url": "https://toonstream.us/episode/monster-1x35/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 36",
+                            "url": "https://toonstream.us/episode/monster-1x36/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 37",
+                            "url": "https://toonstream.us/episode/monster-1x37/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 38",
+                            "url": "https://toonstream.us/episode/monster-1x38/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 39",
+                            "url": "https://toonstream.us/episode/monster-1x39/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 40",
+                            "url": "https://toonstream.us/episode/monster-1x40/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 41",
+                            "url": "https://toonstream.us/episode/monster-1x41/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 42",
+                            "url": "https://toonstream.us/episode/monster-1x42/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 43",
+                            "url": "https://toonstream.us/episode/monster-1x43/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 44",
+                            "url": "https://toonstream.us/episode/monster-1x44/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 45",
+                            "url": "https://toonstream.us/episode/monster-1x45/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 46",
+                            "url": "https://toonstream.us/episode/monster-1x46/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 47",
+                            "url": "https://toonstream.us/episode/monster-1x47/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 48",
+                            "url": "https://toonstream.us/episode/monster-1x48/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 49",
+                            "url": "https://toonstream.us/episode/monster-1x49/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 50",
+                            "url": "https://toonstream.us/episode/monster-1x50/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 51",
+                            "url": "https://toonstream.us/episode/monster-1x51/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 52",
+                            "url": "https://toonstream.us/episode/monster-1x52/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 53",
+                            "url": "https://toonstream.us/episode/monster-1x53/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 54",
+                            "url": "https://toonstream.us/episode/monster-1x54/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 55",
+                            "url": "https://toonstream.us/episode/monster-1x55/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 56",
+                            "url": "https://toonstream.us/episode/monster-1x56/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 57",
+                            "url": "https://toonstream.us/episode/monster-1x57/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 58",
+                            "url": "https://toonstream.us/episode/monster-1x58/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 59",
+                            "url": "https://toonstream.us/episode/monster-1x59/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 60",
+                            "url": "https://toonstream.us/episode/monster-1x60/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 61",
+                            "url": "https://toonstream.us/episode/monster-1x61/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 62",
+                            "url": "https://toonstream.us/episode/monster-1x62/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 63",
+                            "url": "https://toonstream.us/episode/monster-1x63/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 64",
+                            "url": "https://toonstream.us/episode/monster-1x64/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 65",
+                            "url": "https://toonstream.us/episode/monster-1x65/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 66",
+                            "url": "https://toonstream.us/episode/monster-1x66/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 67",
+                            "url": "https://toonstream.us/episode/monster-1x67/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 68",
+                            "url": "https://toonstream.us/episode/monster-1x68/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 69",
+                            "url": "https://toonstream.us/episode/monster-1x69/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 70",
+                            "url": "https://toonstream.us/episode/monster-1x70/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 71",
+                            "url": "https://toonstream.us/episode/monster-1x71/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 72",
+                            "url": "https://toonstream.us/episode/monster-1x72/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 73",
+                            "url": "https://toonstream.us/episode/monster-1x73/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 74",
+                            "url": "https://toonstream.us/episode/monster-1x74/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Episode 1",
+                    "url": "https://toonstream.us/episode/monster-1x1/",
+                    "video_url": "about:blank"
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://toonstream.us/episode/monster-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://toonstream.us/episode/monster-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://toonstream.us/episode/monster-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://toonstream.us/episode/monster-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://toonstream.us/episode/monster-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://toonstream.us/episode/monster-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://toonstream.us/episode/monster-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://toonstream.us/episode/monster-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://toonstream.us/episode/monster-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://toonstream.us/episode/monster-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://toonstream.us/episode/monster-1x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 13",
+                    "url": "https://toonstream.us/episode/monster-1x13/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 14",
+                    "url": "https://toonstream.us/episode/monster-1x14/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 15",
+                    "url": "https://toonstream.us/episode/monster-1x15/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 16",
+                    "url": "https://toonstream.us/episode/monster-1x16/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 17",
+                    "url": "https://toonstream.us/episode/monster-1x17/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 18",
+                    "url": "https://toonstream.us/episode/monster-1x18/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 19",
+                    "url": "https://toonstream.us/episode/monster-1x19/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://toonstream.us/episode/monster-1x20/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 21",
+                    "url": "https://toonstream.us/episode/monster-1x21/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 22",
+                    "url": "https://toonstream.us/episode/monster-1x22/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 23",
+                    "url": "https://toonstream.us/episode/monster-1x23/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 24",
+                    "url": "https://toonstream.us/episode/monster-1x24/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 25",
+                    "url": "https://toonstream.us/episode/monster-1x25/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 26",
+                    "url": "https://toonstream.us/episode/monster-1x26/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 27",
+                    "url": "https://toonstream.us/episode/monster-1x27/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 28",
+                    "url": "https://toonstream.us/episode/monster-1x28/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 29",
+                    "url": "https://toonstream.us/episode/monster-1x29/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 30",
+                    "url": "https://toonstream.us/episode/monster-1x30/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 31",
+                    "url": "https://toonstream.us/episode/monster-1x31/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 32",
+                    "url": "https://toonstream.us/episode/monster-1x32/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 33",
+                    "url": "https://toonstream.us/episode/monster-1x33/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 34",
+                    "url": "https://toonstream.us/episode/monster-1x34/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 35",
+                    "url": "https://toonstream.us/episode/monster-1x35/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 36",
+                    "url": "https://toonstream.us/episode/monster-1x36/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 37",
+                    "url": "https://toonstream.us/episode/monster-1x37/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 38",
+                    "url": "https://toonstream.us/episode/monster-1x38/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 39",
+                    "url": "https://toonstream.us/episode/monster-1x39/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 40",
+                    "url": "https://toonstream.us/episode/monster-1x40/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 41",
+                    "url": "https://toonstream.us/episode/monster-1x41/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 42",
+                    "url": "https://toonstream.us/episode/monster-1x42/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 43",
+                    "url": "https://toonstream.us/episode/monster-1x43/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 44",
+                    "url": "https://toonstream.us/episode/monster-1x44/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 45",
+                    "url": "https://toonstream.us/episode/monster-1x45/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 46",
+                    "url": "https://toonstream.us/episode/monster-1x46/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 47",
+                    "url": "https://toonstream.us/episode/monster-1x47/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 48",
+                    "url": "https://toonstream.us/episode/monster-1x48/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 49",
+                    "url": "https://toonstream.us/episode/monster-1x49/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 50",
+                    "url": "https://toonstream.us/episode/monster-1x50/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 51",
+                    "url": "https://toonstream.us/episode/monster-1x51/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 52",
+                    "url": "https://toonstream.us/episode/monster-1x52/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 53",
+                    "url": "https://toonstream.us/episode/monster-1x53/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 54",
+                    "url": "https://toonstream.us/episode/monster-1x54/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 55",
+                    "url": "https://toonstream.us/episode/monster-1x55/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 56",
+                    "url": "https://toonstream.us/episode/monster-1x56/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 57",
+                    "url": "https://toonstream.us/episode/monster-1x57/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 58",
+                    "url": "https://toonstream.us/episode/monster-1x58/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 59",
+                    "url": "https://toonstream.us/episode/monster-1x59/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 60",
+                    "url": "https://toonstream.us/episode/monster-1x60/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 61",
+                    "url": "https://toonstream.us/episode/monster-1x61/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 62",
+                    "url": "https://toonstream.us/episode/monster-1x62/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 63",
+                    "url": "https://toonstream.us/episode/monster-1x63/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 64",
+                    "url": "https://toonstream.us/episode/monster-1x64/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 65",
+                    "url": "https://toonstream.us/episode/monster-1x65/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 66",
+                    "url": "https://toonstream.us/episode/monster-1x66/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 67",
+                    "url": "https://toonstream.us/episode/monster-1x67/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 68",
+                    "url": "https://toonstream.us/episode/monster-1x68/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 69",
+                    "url": "https://toonstream.us/episode/monster-1x69/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 70",
+                    "url": "https://toonstream.us/episode/monster-1x70/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 71",
+                    "url": "https://toonstream.us/episode/monster-1x71/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 72",
+                    "url": "https://toonstream.us/episode/monster-1x72/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 73",
+                    "url": "https://toonstream.us/episode/monster-1x73/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 74",
+                    "url": "https://toonstream.us/episode/monster-1x74/",
+                    "video_url": ""
+                }
+            ]
         }
     ]
 }
