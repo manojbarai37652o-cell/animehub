@@ -3,7 +3,7 @@ import os
 import time
 import json
 import cloudscraper
-from parser import (parse_toonstream_homepage)
+from parser import (parse_toonstream_homepage, parse_toonstream_episodes)
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
@@ -15,6 +15,7 @@ SLEEP_BETWEEN = 2
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
 SKIP_FILE = os.path.join(project_root, 'database', 'skipped.json')
 
+# ✅ Cloudscraper बनाओ (Cloudflare बायपास के लिए)
 scraper = cloudscraper.create_scraper()
 
 def load_db():
@@ -37,10 +38,15 @@ def load_skipped():
         except: pass
     return {"skipped_ids": []}
 
+def save_skipped(data):
+    with open(SKIP_FILE, 'w') as f:
+        json.dump(data, f, indent=4)
+
 def fetch_page(url):
     try:
         response = scraper.get(url, timeout=20)
-        if response.status_code == 404: return None
+        if response.status_code == 404:
+            return None
         response.raise_for_status()
         return response.text
     except Exception as e:
@@ -49,7 +55,7 @@ def fetch_page(url):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🚀 TOONSTREAM SCRAPER (सिर्फ नए एनीमे के लिए)")
+    print("🚀 TOONSTREAM MASTER SCRAPER (हिंदी डब के साथ)")
     print("=" * 60)
 
     db_data = load_db()
@@ -59,7 +65,8 @@ if __name__ == '__main__':
     existing_ids = set(a['id'] for a in existing_anime)
     skipped_ids = set(skip_data.get('skipped_ids', []))
 
-    print(f"📦 Database में {len(existing_ids)} एनीमे हैं\n")
+    print(f"📦 Database में {len(existing_ids)} एनीमे हैं")
+    print(f"⏭️ Skip list में {len(skipped_ids)} एनीमे हैं\n")
 
     # --- ToonStream से नए एनीमे ढूंढें ---
     print("🔍 ToonStream होमपेज से नए एनीमे चेक कर रहे हैं...")
@@ -72,7 +79,7 @@ if __name__ == '__main__':
         all_anime = parse_toonstream_homepage(homepage_html, "https://toonstream.us")
         print(f"📄 होमपेज पर कुल {len(all_anime)} एनीमे मिले।")
         
-        # सिर्फ वही लो जो पहले से डेटाबेस में नहीं हैं
+        # सिर्फ वही लो जो पहले से डेटाबेस में नहीं हैं और स्किप लिस्ट में नहीं हैं
         for a in all_anime:
             if a['id'] not in existing_ids and a['id'] not in skipped_ids:
                 new_anime_list.append(a)
@@ -80,28 +87,56 @@ if __name__ == '__main__':
                     break
     else:
         print("❌ ToonStream का होमपेज लोड नहीं हो पाया।")
+        exit()
 
     if not new_anime_list:
         print("\n😔 भाई, कोई नया एनीमे नहीं मिला।")
         exit()
 
-    print(f"\n📋 इस बार {len(new_anime_list)} नए एनीमे मिले। इन्हें सेव कर रहे हैं...\n")
+    print(f"\n📋 इस बार {len(new_anime_list)} नए एनीमे चेक होंगे...\n")
 
     updated_list = existing_anime.copy()
+    scraped_this_run = 0
 
     for idx, anime in enumerate(new_anime_list):
-        print(f"[{idx + 1}/{len(new_anime_list)}] {anime['title']}")
+        print(f"\n[{idx + 1}/{len(new_anime_list)}] {anime['title']}")
         
-        # अभी हम सिर्फ बेसिक जानकारी सेव कर रहे हैं (टाइटल, इमेज, लिंक)
-        # एपिसोड और हिंदी डब का काम हम अगले स्टेप में करेंगे।
-        anime['seasons'] = []
-        anime['episodes'] = []
-        
-        updated_list.append(anime)
-        print("  💾 Save (Basic Info)")
+        # ✅ चेक करो कि यह हिंदी डब है या नहीं (URL में 'hindi-dub' होना चाहिए)
+        if 'hindi-dub' not in anime['url'].lower():
+            print("  ⏭️ यह हिंदी डब नहीं है, स्किप कर रहे हैं।")
+            skipped_ids.add(anime['id'])
+            continue
 
-    # डेटा सेव करें
-    db_data['anime_list'] = updated_list
-    save_db(db_data)
-    print(f"\n🎉 इस बार {len(new_anime_list)} नए एनीमे सेव हुए!")
+        print("  ✅ हिंदी डब है! एपिसोड निकाल रहे हैं...")
+        
+        # एनीमे का पेज खोलो
+        anime_html = fetch_page(anime['url'])
+        if anime_html:
+            episodes = parse_toonstream_episodes(anime_html, "https://toonstream.us")
+            print(f"  📺 {len(episodes)} एपिसोड मिले।")
+            
+            # एपिसोड को सेव करो
+            anime['seasons'] = [{"season_number": 1, "episodes": episodes}]
+            anime['episodes'] = episodes
+            
+            updated_list.append(anime)
+            scraped_this_run += 1
+            print("  💾 Save (Episodes + Hindi Dub)")
+        else:
+            print("  ❌ एनीमे का पेज लोड नहीं हो पाया।")
+        
+        time.sleep(SLEEP_BETWEEN)
+
+    # अंत में डेटा सेव करें
+    if scraped_this_run > 0:
+        db_data['anime_list'] = updated_list
+        save_db(db_data)
+        
+        skip_data['skipped_ids'] = list(skipped_ids)
+        save_skipped(skip_data)
+        
+        print(f"\n🎉 इस बार {scraped_this_run} हिंदी एनीमे सेव हुए!")
+    else:
+        print("\n😔 इस बार कोई हिंदी डब एनीमे नहीं मिला।")
+        
     print("=" * 60)

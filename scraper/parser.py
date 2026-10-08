@@ -259,3 +259,31 @@ def parse_toonstream_homepage(html, base_url="https://toonstream.us"):
             continue
             
     return anime_list
+    
+    def parse_toonstream_episodes(html, base_url="https://toonstream.us"):
+    """ToonStream के एनीमे पेज से एपिसोड निकालता है"""
+    soup = BeautifulSoup(html, 'html.parser')
+    episodes = []
+    
+    # एपिसोड की लिस्ट ढूंढो
+    episode_list = soup.find('ul', id='episode_by_temp')
+    if not episode_list:
+        return episodes
+        
+    for li in episode_list.find_all('li'):
+        link_tag = li.find('a', class_='lnk-blk')
+        if link_tag and link_tag.get('href'):
+            url = link_tag['href']
+            if url.startswith('/'):
+                url = base_url + url
+                
+            title_tag = li.find('h3') or li.find('h2') or link_tag
+            title = title_tag.text.strip() if title_tag.text.strip() else url.strip('/').split('/')[-1]
+            
+            episodes.append({
+                'title': title,
+                'url': url,
+                'video_url': '' # इसे बाद में भरेंगे
+            })
+            
+    return episodes
