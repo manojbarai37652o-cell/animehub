@@ -52,13 +52,13 @@
 {% if trending and not search_query %}
 <div class="app-section">
   <div class="section-header">
-    <h2>
+<h2>
   {% if current_genre == 'Action' %}⚔️ Action
   {% elif current_genre == 'Comedy' %}😂 Comedy
   {% elif current_genre == 'Fantasy' %}🧙‍♂️ Fantasy
   {% elif current_genre == 'Romance' %}❤️ Romance
   {% else %}🔥 Trending Now{% endif %}
-    </h2>
+</h2>
     <a href="/trending" class="see-all-link">See All <i class="fas fa-chevron-right"></i></a>
   </div>
   
