@@ -112,7 +112,7 @@ return render_template('index.html',
             hero_anime_list=hero_anime_list,
             trending=display_list,
             popular=popular,
-        current_genre=current_genre)
+            current_genre=current_genre)
 
     @app.route('/profile')
     def profile():
