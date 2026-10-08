@@ -13,6 +13,7 @@
             <p class="hero-label">FEATURED</p>
             <h1 class="hero-title">{{ anime.title }}</h1>
             <p class="hero-meta">Action • Fantasy • Adventure</p>
+            <p class="hero-description">Dive into the epic world of {{ anime.title }}! Follow the thrilling journey of powerful characters.</p>
             <div class="hero-buttons">
                 <a href="/watch/{{ anime.id }}" class="btn-watch"><i class="fas fa-play"></i> Watch Now</a>
                 <button onclick="addHeroToWatchlist('{{ anime.id }}', '{{ anime.title }}', '{{ anime.image }}')" class="btn-list"><i class="fas fa-plus"></i> My List</button>
