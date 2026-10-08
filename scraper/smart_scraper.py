@@ -11,7 +11,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
-MIN_YEAR = 2010
+MIN_YEAR = 2000
 NEW_ANIME_NEEDED = 20  # कितने नए एनीमे चाहिए
 OLD_ANIME_NEEDED = 20  # कितने पुराने एनीमे चाहिए
 SLEEP_BETWEEN = 2
@@ -99,10 +99,10 @@ if __name__ == '__main__':
     print(f"📦 Database में {len(existing_ids)} एनीमे हैं")
     print(f"⏭️ Skip list में {len(skipped_ids)} एनीमे हैं\n")
 
-    # --- भाग 1: 5 नए एनीमे ढूंढें (पेज 1 से 3 तक) ---
+    # --- भाग 1: 20 नए एनीमे ढूंढें (पेज 1 से 3 तक) ---
     print("🔍 नए एनीमे के लिए पेज 1 से 3 चेक कर रहे हैं...")
     new_anime_list = []
-    for page in range(1, 4):
+    for page in range(1, 6):
         base_url = f"https://animesalt.cx/?page={page}"
         homepage_html = fetch_page(base_url)
         if not homepage_html:
@@ -122,7 +122,7 @@ if __name__ == '__main__':
             break
         time.sleep(1)
 
-    # --- भाग 2: 5 पुराने एनीमे ढूंढें (last_page से शुरू करके) ---
+    # --- भाग 2: 20 पुराने एनीमे ढूंढें (last_page से शुरू करके) ---
     print(f"\n📚 पुराने एनीमे के लिए पेज {progress.get('last_page', 10)} से शुरू कर रहे हैं...")
     old_anime_list = []
     page_num = progress.get('last_page', 10)
