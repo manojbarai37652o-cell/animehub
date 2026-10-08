@@ -39,21 +39,103 @@
 </div>
 {% endif %}
 
-<!-- Trending This Week -->
-{% if not search_query and top_anime %}
+<!-- Category Pills -->
+<div class="category-pills">
+  <button class="pill active"><i class="fas fa-fire"></i> Popular</button>
+  <button class="pill"><i class="fas fa-khanda"></i> Action</button>
+  <button class="pill"><i class="fas fa-mountain"></i> Adventure</button>
+  <button class="pill"><i class="fas fa-hat-wizard"></i> Fantasy</button>
+  <button class="pill"><i class="fas fa-face-laugh-squint"></i> Comedy</button>
+</div>
+
+<!-- Trending Now Section -->
+{% if trending and not search_query %}
+<div class="app-section">
+  <div class="section-header">
+    <h2>🔥 Trending Now</h2>
+    <a href="/trending" class="see-all-link">See All <i class="fas fa-chevron-right"></i></a>
+  </div>
+  
+  <div class="trending-scroll">
+    {% for anime in trending %}
+    <a href="/watch/{{ anime.id }}" class="trending-card">
+      <div class="card-image-wrapper">
+        <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+        <span class="card-badge">TV</span>
+        <span class="card-rating"><i class="fas fa-star"></i> 8.7</span> <!-- Agar rating dynamic chahiye toh yahan anime.rating daal sakte ho -->
+      </div>
+      <div class="card-info">
+        <h3>{{ anime.title }}</h3>
+        <p>Action • Adventure</p> <!-- Yahan anime.genres aayega -->
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- ✅ Action Anime -->
+{% if action and not search_query %}
 <div class="app-section">
     <div class="section-header">
-        <h2><span class="red-bar"></span> Trending This Week</h2>
+        <h2><span class="red-bar"></span> ⚔️ Action Anime</h2>
     </div>
     <div class="horizontal-scroll">
-        {% for anime in top_anime %}
-        <a href="/watch/{{ anime.id }}" class="trending-app-card">
-            <div class="rank-number">{{ loop.index }}</div>
+        {% for anime in action %}
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
             <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
-            <div class="card-info">
-                <div class="card-title">{{ anime.title }}</div>
-                <div class="card-sub">{{ anime.episodes|length if anime.episodes else 0 }} Episodes</div>
-            </div>
+            <h3>{{ anime.title }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- ✅ Comedy Anime -->
+{% if comedy and not search_query %}
+<div class="app-section">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> 😂 Comedy Anime</h2>
+    </div>
+    <div class="horizontal-scroll">
+        {% for anime in comedy %}
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+            <h3>{{ anime.title }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- ✅ Fantasy Anime -->
+{% if fantasy and not search_query %}
+<div class="app-section">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> 🪄 Fantasy Anime</h2>
+    </div>
+    <div class="horizontal-scroll">
+        {% for anime in fantasy %}
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+            <h3>{{ anime.title }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- ✅ Romance Anime -->
+{% if romance and not search_query %}
+<div class="app-section">
+    <div class="section-header">
+        <h2><span class="red-bar"></span> 💕 Romance Anime</h2>
+    </div>
+    <div class="horizontal-scroll">
+        {% for anime in romance %}
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+            <h3>{{ anime.title }}</h3>
         </a>
         {% endfor %}
     </div>
@@ -87,25 +169,17 @@
 </div>
 {% endif %}
 
-<!-- ✅ Tabs: All / Series / Movies -->
+<!-- ✅ Browse All (Horizontal) -->
 <div class="app-section">
     <div class="section-header">
         <h2><span class="red-bar"></span> 
-            {% if search_query %}"{{ search_query }}"{% else %}Browse{% endif %}
+            {% if search_query %}"{{ search_query }}"{% else %}All Anime{% endif %}
         </h2>
     </div>
     
-    {% if not search_query %}
-    <div class="tabs-container">
-        <a href="/?tab=all" class="tab-btn {% if current_tab == 'all' %}active{% endif %}">🔥 All</a>
-        <a href="/?tab=series" class="tab-btn {% if current_tab == 'series' %}active{% endif %}">📺 Series</a>
-        <a href="/?tab=movies" class="tab-btn {% if current_tab == 'movies' %}active{% endif %}">🎬 Movies</a>
-    </div>
-    {% endif %}
-    
-    <div class="anime-grid-mobile">
-        {% for anime in anime_list %}
-        <a href="/watch/{{ anime.id }}" class="anime-card-mobile">
+    <div class="horizontal-scroll">
+        {% for anime in anime_list[:30] %}
+        <a href="/watch/{{ anime.id }}" class="anime-row-card">
             <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
             <h3>{{ anime.title }}</h3>
         </a>
@@ -117,7 +191,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Continue Watching History
         let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
         const cwSection = document.getElementById('continue-watching-section');
         if (cwSection && history.length > 0) {
@@ -140,7 +213,6 @@
             });
         }
 
-        // Hero Slider
         let slideIndex = 0;
         let slides = document.getElementsByClassName("hero-slide");
         let dots = document.getElementsByClassName("dot");
@@ -180,5 +252,21 @@
             alert('Already in your list!');
         }
     }
+ </div>
+</div>
+
+<!-- Yahan se script shuru -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const pills = document.querySelectorAll('.category-pills .pill');
+    pills.forEach(pill => {
+      pill.addEventListener('click', function() {
+        pills.forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  });
 </script>
+<!-- Yahan script khatam -->
+
 {% endblock %}

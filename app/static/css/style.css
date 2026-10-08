@@ -2102,3 +2102,2240 @@ input:checked + .slider:before {
         font-size: 13px;
     }
 }
+/* ✅ Mobile Header Fix - Strong Version */
+@media screen and (max-width: 768px) {
+    
+    /* पूरे header को adjust करो */
+    header {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 10px 12px !important;
+        gap: 8px !important;
+        align-items: stretch !important;
+    }
+    
+    /* पहली लाइन: लोगो और आइकॉन */
+    .header-left {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+    
+    .logo a {
+        font-size: 18px !important;
+        white-space: nowrap !important;
+    }
+    
+    .header-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Search box पूरी चौड़ाई में नीचे आए */
+    .search-box {
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 5px 10px !important;
+    }
+    
+    .search-box input {
+        width: 100% !important;
+        font-size: 13px !important;
+    }
+    
+    /* आइकॉन को छोटा करो */
+    .icon-btn {
+        font-size: 16px !important;
+        padding: 4px !important;
+    }
+    
+    .user-avatar {
+        width: 28px !important;
+        height: 28px !important;
+        margin: 0 !important;
+    }
+    
+    /* Desktop nav मोबाइल में छुपाओ */
+    .desktop-nav {
+        display: none !important;
+    }
+    
+    /* Header की ऊँचाई बढ़ाओ ताकि सब फिट हो */
+    header {
+        height: auto !important;
+        min-height: 100px !important;
+    }
+}
+/* ✅ Netflix Style - Anime Row Cards */
+.horizontal-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 0 20px 20px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #ff4d4d #1a1a1a;
+    -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: #ff4d4d;
+    border-radius: 10px;
+}
+
+.anime-row-card {
+    flex: 0 0 150px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.anime-row-card:hover {
+    transform: translateY(-5px);
+}
+
+.anime-row-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+.anime-row-card:hover img {
+    box-shadow: 0 10px 25px rgba(255, 77, 77, 0.5);
+}
+
+.anime-row-card h3 {
+    font-size: 13px;
+    padding: 8px 4px 0;
+    text-align: center;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+/* ✅ Mobile में और छोटा */
+@media (max-width: 768px) {
+    .horizontal-scroll {
+        padding: 0 15px 15px;
+        gap: 10px;
+    }
+    
+    .anime-row-card {
+        flex: 0 0 120px;
+    }
+    
+    .anime-row-card img {
+        height: 175px;
+    }
+    
+    .anime-row-card h3 {
+        font-size: 11px;
+        padding: 6px 2px 0;
+    }
+}
+/* ✅ Horizontal Rows (Netflix Style) */
+.horizontal-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 0 20px 20px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #ff4d4d #1a1a1a;
+    -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: #ff4d4d;
+    border-radius: 10px;
+}
+
+.anime-row-card {
+    flex: 0 0 150px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.anime-row-card:hover {
+    transform: translateY(-5px);
+}
+
+.anime-row-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+.anime-row-card:hover img {
+    box-shadow: 0 10px 25px rgba(255, 77, 77, 0.5);
+}
+
+.anime-row-card h3 {
+    font-size: 13px;
+    padding: 8px 4px 0;
+    text-align: center;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .horizontal-scroll {
+        padding: 0 15px 15px;
+        gap: 10px;
+    }
+    
+    .anime-row-card {
+        flex: 0 0 120px;
+    }
+    
+    .anime-row-card img {
+        height: 175px;
+    }
+    
+    .anime-row-card h3 {
+        font-size: 11px;
+        padding: 6px 2px 0;
+    }
+}
+/* ✅ Horizontal Rows (Netflix Style) */
+.horizontal-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 0 20px 20px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #ff4d4d #1a1a1a;
+    -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: #ff4d4d;
+    border-radius: 10px;
+}
+
+.anime-row-card {
+    flex: 0 0 150px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.anime-row-card:hover {
+    transform: translateY(-5px);
+}
+
+.anime-row-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+.anime-row-card:hover img {
+    box-shadow: 0 10px 25px rgba(255, 77, 77, 0.5);
+}
+
+.anime-row-card h3 {
+    font-size: 13px;
+    padding: 8px 4px 0;
+    text-align: center;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .horizontal-scroll {
+        padding: 0 15px 15px;
+        gap: 10px;
+    }
+    
+    .anime-row-card {
+        flex: 0 0 120px;
+    }
+    
+    .anime-row-card img {
+        height: 175px;
+    }
+    
+    .anime-row-card h3 {
+        font-size: 11px;
+        padding: 6px 2px 0;
+    }
+}
+/* ✅ Logo को header के बिल्कुल बीच में करो */
+header {
+    position: relative !important;
+}
+
+.logo {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 5 !important;
+}
+
+/* Mobile में भी बीच में ही रहेगा */
+@media (max-width: 768px) {
+    .logo {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+    
+    .logo a {
+        font-size: 16px !important;
+        white-space: nowrap !important;
+    }
+}
+/* ✅ Logo को बड़ा और सुंदर करो */
+.logo a {
+    font-size: 28px !important;
+    letter-spacing: 2px !important;
+}
+
+.logo-m {
+    font-size: 32px !important;
+}
+
+.logo-text {
+    font-size: 28px !important;
+}
+
+/* Mobile में थोड़ा छोटा, पर फिर भी अच्छा दिखे */
+@media (max-width: 768px) {
+    .logo a {
+        font-size: 22px !important;
+        letter-spacing: 1.5px !important;
+    }
+    
+    .logo-m {
+        font-size: 26px !important;
+    }
+    
+    .logo-text {
+        font-size: 22px !important;
+    }
+}
+/* ✅ Header को स्पेस दो और Logo को बैलेंस करो */
+header {
+    padding: 18px 25px !important;
+    min-height: 90px !important;
+}
+
+.logo a {
+    font-size: 24px !important;
+    letter-spacing: 1.5px !important;
+}
+
+.logo-m {
+    font-size: 27px !important;
+}
+
+.logo-text {
+    font-size: 24px !important;
+}
+
+/* Icons को थोड़ा और जगह दो */
+.header-actions {
+    gap: 18px !important;
+}
+
+.search-box {
+    margin: 0 20px !important;
+}
+
+/* ✅ Mobile में भी स्पेस */
+@media (max-width: 768px) {
+    header {
+        padding: 14px 18px !important;
+        min-height: 75px !important;
+    }
+    
+    .logo a {
+        font-size: 19px !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .logo-m {
+        font-size: 22px !important;
+    }
+    
+    .logo-text {
+        font-size: 19px !important;
+    }
+    
+    .header-actions {
+        gap: 10px !important;
+    }
+    
+    .search-box {
+        margin: 0 8px !important;
+    }
+}
+/* ✅ NEW NETFLIX-STYLE HEADER */
+.app-header {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 15px 20px 12px !important;
+    background-color: #0d0d0d !important;
+    border-bottom: 1px solid #1f1f1f !important;
+    gap: 12px !important;
+    position: relative !important;
+}
+
+/* Row 1: Logo Left, Icons Right */
+.header-top-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.logo-left a {
+    font-size: 24px !important;
+    font-weight: 900 !important;
+    text-decoration: none !important;
+    letter-spacing: 1px !important;
+    color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.logo-m {
+    color: #ff4d4d !important;
+    font-size: 28px !important;
+    margin-right: 2px !important;
+}
+
+.logo-text {
+    font-weight: 300 !important;
+    font-size: 24px !important;
+}
+
+/* Icons Circle Style */
+.header-right-icons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.icon-circle {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background-color: #1a1a1a !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+    transition: background 0.3s ease !important;
+}
+
+.icon-circle:hover {
+    background-color: #333 !important;
+}
+
+.profile-icon {
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.user-avatar {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+}
+
+/* Row 2: Full Width Search Bar */
+.header-bottom-row {
+    display: flex !important;
+    width: 100% !important;
+}
+
+.search-box-big {
+    display: flex !important;
+    align-items: center !important;
+    background-color: #1a1a1a !important;
+    border-radius: 25px !important;
+    padding: 12px 18px !important;
+    width: 100% !important;
+    gap: 12px !important;
+    border: 1px solid #333 !important;
+}
+
+.search-icon {
+    color: #888 !important;
+    font-size: 16px !important;
+}
+
+.search-box-big input {
+    flex: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    outline: none !important;
+    font-size: 15px !important;
+}
+
+.search-box-big input::placeholder {
+    color: #666 !important;
+}
+
+/* ✅ Mobile Adjustments */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 12px 15px 10px !important;
+        gap: 10px !important;
+    }
+    
+    .logo-left a {
+        font-size: 20px !important;
+    }
+    
+    .logo-m {
+        font-size: 24px !important;
+    }
+    
+    .logo-text {
+        font-size: 20px !important;
+    }
+    
+    .icon-circle {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 14px !important;
+    }
+    
+    .search-box-big {
+        padding: 10px 15px !important;
+    }
+    
+    .search-box-big input {
+        font-size: 14px !important;
+    }
+}
+/* ✅ Season Dropdown (Crunchyroll Style) */
+.season-dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #1a1a1a;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #333;
+    flex-wrap: wrap;
+}
+
+.season-label {
+    color: #ff4d4d;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+.season-label i {
+    font-size: 16px;
+}
+
+.season-dropdown {
+    flex: 1;
+    min-width: 200px;
+    background-color: #0d0d0d;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 2px solid #ff4d4d;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff4d4d'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 22px;
+    padding-right: 45px;
+}
+
+.season-dropdown:hover {
+    background-color: #1a1a1a;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
+}
+
+.season-dropdown:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.6);
+}
+
+.season-dropdown option {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 12px;
+    font-size: 15px;
+}
+
+/* Mobile में adjust */
+@media (max-width: 768px) {
+    .season-dropdown-container {
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    
+    .season-label {
+        font-size: 14px;
+    }
+    
+    .season-dropdown {
+        font-size: 14px;
+        padding: 10px 15px;
+        padding-right: 40px;
+        min-width: auto;
+    }
+}
+/* ✅ Desktop Nav Links (सिर्फ PC में दिखेंगे) */
+.desktop-nav {
+    display: flex !important;
+    gap: 25px !important;
+    align-items: center !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+.desktop-nav-link {
+    color: #ccc !important;
+    text-decoration: none !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 14px !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap !important;
+}
+
+.desktop-nav-link i {
+    font-size: 14px !important;
+}
+
+.desktop-nav-link:hover {
+    color: #ff4d4d !important;
+    background-color: rgba(255, 77, 77, 0.1) !important;
+}
+
+/* ✅ Mobile में Desktop Nav छुपाओ */
+@media (max-width: 1024px) {
+    .desktop-nav {
+        display: none !important;
+    }
+}
+/* ✅ CRUNCHYROLL-STYLE WATCH PAGE */
+.watch-page {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 100px;
+}
+
+/* ✅ HERO BANNER */
+.hero-detail {
+    position: relative;
+    min-height: 400px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.hero-detail-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(0.4);
+    transform: scale(1.1);
+}
+
+.hero-detail-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, #0d0d0d 5%, rgba(13,13,13,0.5) 70%, transparent);
+    z-index: 2;
+}
+
+.hero-detail-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 25px;
+    padding: 40px 25px 30px;
+    align-items: flex-end;
+}
+
+.hero-poster {
+    flex-shrink: 0;
+    width: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.hero-poster img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-info {
+    flex: 1;
+    padding-bottom: 10px;
+}
+
+.featured-badge {
+    display: inline-block;
+    background-color: #7b2cbf;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.hero-anime-title {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.hero-genres {
+    color: #ff4d4d;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.hero-description {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+.hero-action-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-watch-hero {
+    background: linear-gradient(135deg, #7b2cbf, #ff4d4d);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-watch-hero:hover {
+    transform: scale(1.05);
+}
+
+.btn-list-hero {
+    background-color: rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-list-hero:hover {
+    background-color: rgba(255,255,255,0.25);
+}
+
+.btn-list-hero.active {
+    background-color: #7b2cbf;
+    border-color: #7b2cbf;
+}
+
+.hero-dots-detail {
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
+    z-index: 3;
+    display: flex;
+    gap: 6px;
+}
+
+.hero-dots-detail .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.hero-dots-detail .dot.active {
+    background-color: #7b2cbf;
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* ✅ TABS */
+.watch-tabs {
+    display: flex;
+    gap: 5px;
+    padding: 0 25px;
+    margin-top: -10px;
+    position: relative;
+    z-index: 5;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+.watch-tab {
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 20px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.watch-tab:hover {
+    color: #ccc;
+}
+
+.watch-tab.active {
+    color: #7b2cbf;
+}
+
+.watch-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0; right: 0;
+    height: 3px;
+    background-color: #7b2cbf;
+    border-radius: 3px 3px 0 0;
+}
+
+.tab-content {
+    display: none;
+    padding: 25px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ✅ SEASON DROPDOWN */
+.season-dropdown-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.season-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 30px;
+    border: 2px solid #7b2cbf;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.season-toggle-btn:hover {
+    background-color: #7b2cbf;
+    box-shadow: 0 0 20px rgba(123, 44, 191, 0.6);
+}
+
+.season-toggle-btn i:first-child {
+    color: #7b2cbf;
+    font-size: 18px;
+}
+
+.season-toggle-btn:hover i:first-child {
+    color: #fff;
+}
+
+.season-toggle-btn i:last-child {
+    font-size: 12px;
+    color: #888;
+}
+
+.total-eps-label {
+    color: #888;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Season Dropdown Menu */
+.season-dropdown-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 340px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 10px;
+    z-index: 100;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    border: 1px solid #333;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.dropdown-header {
+    color: #7b2cbf;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.season-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.2s ease;
+    margin-top: 5px;
+}
+
+.season-option:hover {
+    background-color: #333;
+}
+
+.season-option.selected {
+    background-color: #7b2cbf;
+}
+
+.season-option.selected .season-thumb {
+    border: 2px solid #fff;
+}
+
+.season-thumb {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid #333;
+}
+
+.season-option-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.season-option-info strong {
+    font-size: 15px;
+    color: #fff;
+}
+
+.season-option-info span {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.season-option.selected .season-option-info span {
+    color: #fff;
+}
+
+.check-icon {
+    color: #fff;
+    font-size: 16px;
+}
+
+/* ✅ EPISODES LIST (Crunchyroll Style) */
+.episodes-list-crunchy {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.episode-item-crunchy {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #1a1a1a;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.episode-item-crunchy:hover {
+    background-color: #252525;
+    transform: translateX(5px);
+}
+
+.episode-item-crunchy.active-ep {
+    background-color: rgba(123, 44, 191, 0.15);
+    border-left-color: #7b2cbf;
+}
+
+.ep-thumb {
+    position: relative;
+    flex-shrink: 0;
+    width: 120px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ep-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ep-play-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+}
+
+.ep-thumb:hover .ep-play-overlay {
+    opacity: 1;
+}
+
+.ep-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.ep-number-title {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.ep-num {
+    color: #7b2cbf;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.ep-title {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ep-meta {
+    display: flex;
+    gap: 8px;
+    color: #888;
+    font-size: 12px;
+    align-items: center;
+}
+
+.ep-meta i {
+    margin-right: 3px;
+}
+
+.ep-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.ep-play-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #7b2cbf;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.ep-play-btn:hover {
+    background-color: #ff4d4d;
+    transform: scale(1.1);
+}
+
+.ep-menu-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #333;
+    color: #888;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.ep-menu-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Episode Nav Bottom */
+.episode-nav-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nav-btn-bottom {
+    background-color: #7b2cbf;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    transition: background 0.3s ease;
+}
+
+.nav-btn-bottom:hover {
+    background-color: #ff4d4d;
+}
+
+.nav-btn-bottom.disabled {
+    background-color: #333;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.current-ep-label {
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* ✅ DETAILS TAB */
+.details-box {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.details-box h3 {
+    color: #7b2cbf;
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #7b2cbf;
+    padding-left: 12px;
+}
+
+.details-box p {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.details-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.details-meta strong {
+    color: #7b2cbf;
+}
+
+/* ✅ SIMILAR TAB */
+.similar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.similar-card {
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.similar-card:hover {
+    transform: translateY(-5px);
+}
+
+.similar-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.similar-card h4 {
+    font-size: 13px;
+    padding: 8px 5px;
+    text-align: center;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ✅ Mobile Adjustments */
+@media (max-width: 768px) {
+    .hero-detail {
+        min-height: 320px;
+    }
+    
+    .hero-detail-content {
+        padding: 25px 15px 20px;
+        gap: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .hero-poster {
+        width: 100px;
+    }
+    
+    .hero-poster img {
+        height: 145px;
+    }
+    
+    .hero-anime-title {
+        font-size: 22px;
+    }
+    
+    .hero-description {
+        font-size: 12px;
+    }
+    
+    .btn-watch-hero, .btn-list-hero {
+        padding: 10px 18px;
+        font-size: 13px;
+    }
+    
+    .watch-tabs {
+        padding: 0 15px;
+    }
+    
+    .watch-tab {
+        font-size: 14px;
+        padding: 12px 12px;
+    }
+    
+    .tab-content {
+        padding: 15px;
+    }
+    
+    .season-toggle-btn {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+    
+    .season-dropdown-menu {
+        width: calc(100% - 30px);
+        left: 15px;
+    }
+    
+    .ep-thumb {
+        width: 90px;
+        height: 55px;
+    }
+    
+    .ep-title {
+        font-size: 13px;
+    }
+    
+    .ep-num {
+        font-size: 13px;
+    }
+    
+    .ep-play-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .similar-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .similar-card img {
+        height: 140px;
+    }
+    
+    .similar-card h4 {
+        font-size: 11px;
+    }
+}
+/* ✅ WATCH PAGE - Crunchyroll Style */
+.watch-page {
+    max-width: 100%;
+    padding-bottom: 100px;
+}
+
+.hero-detail {
+    position: relative;
+    min-height: 450px;
+    overflow: hidden;
+}
+
+.hero-detail-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(25px) brightness(0.4);
+    transform: scale(1.1);
+}
+
+.hero-detail-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, #0d0d0d 5%, rgba(13,13,13,0.6) 60%, transparent);
+    z-index: 2;
+}
+
+.hero-detail-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 30px;
+    padding: 60px 60px 50px;
+    align-items: flex-end;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-poster {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.hero-poster img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-info { flex: 1; padding-bottom: 10px; min-width: 0; }
+
+.featured-badge {
+    display: inline-block;
+    background-color: #7b2cbf;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 14px;
+    border-radius: 4px;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.hero-anime-title {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    line-height: 1.15;
+}
+
+.hero-genres { color: #ff4d4d; font-size: 15px; font-weight: 600; margin-bottom: 15px; }
+.hero-description { color: #ccc; font-size: 15px; line-height: 1.7; margin-bottom: 25px; max-width: 700px; }
+
+.hero-action-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+
+.btn-watch-hero {
+    background: linear-gradient(135deg, #7b2cbf, #ff4d4d);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.btn-watch-hero:hover { transform: scale(1.05); }
+
+.btn-list-hero {
+    background-color: rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+}
+.btn-list-hero:hover { background-color: rgba(255,255,255,0.25); }
+.btn-list-hero.active { background-color: #7b2cbf; border-color: #7b2cbf; }
+
+/* Tabs */
+.watch-tabs {
+    display: flex;
+    gap: 5px;
+    padding: 0 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+.watch-tab {
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 18px 25px;
+    cursor: pointer;
+    position: relative;
+}
+
+.watch-tab:hover { color: #ccc; }
+.watch-tab.active { color: #7b2cbf; }
+
+.watch-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0; right: 0;
+    height: 3px;
+    background-color: #7b2cbf;
+    border-radius: 3px 3px 0 0;
+}
+
+.tab-content { display: none; padding: 30px 60px; max-width: 1200px; margin: 0 auto; }
+.tab-content.active { display: block; }
+
+/* Video Player */
+.video-player-crunchy {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.video-player-crunchy iframe { width: 100%; height: 100%; border: none; display: block; }
+
+.no-video-msg-crunchy {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+.no-video-msg-crunchy h3 { color: #ff4d4d; font-size: 22px; margin-bottom: 10px; }
+.no-video-msg-crunchy p { color: #888; font-size: 14px; }
+
+/* Season Dropdown */
+.season-dropdown-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.season-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 15px 28px;
+    border-radius: 30px;
+    border: 2px solid #7b2cbf;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.season-toggle-btn:hover { background-color: #7b2cbf; }
+
+.season-toggle-btn i:first-child { color: #7b2cbf; font-size: 19px; }
+.season-toggle-btn:hover i:first-child { color: #fff; }
+.season-toggle-btn i:last-child { font-size: 13px; color: #888; }
+
+.total-eps-label { color: #888; font-size: 15px; font-weight: 500; }
+
+.season-dropdown-menu {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 380px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 10px;
+    z-index: 100;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    border: 1px solid #333;
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.dropdown-header {
+    color: #7b2cbf;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.season-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.season-option:hover { background-color: #333; }
+.season-option.selected { background-color: #7b2cbf; }
+.season-option.selected .season-thumb { border: 2px solid #fff; }
+
+.season-thumb {
+    width: 55px;
+    height: 55px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid #333;
+}
+
+.season-option-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.season-option-info strong { font-size: 15px; color: #fff; }
+.season-option-info span { font-size: 12px; color: #aaa; }
+.season-option.selected .season-option-info span { color: #fff; }
+.check-icon { color: #fff; font-size: 17px; }
+
+/* Episodes List */
+.episodes-list-crunchy { display: flex; flex-direction: column; gap: 8px; }
+
+.episode-item-crunchy {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px;
+    border-radius: 10px;
+    background-color: #1a1a1a;
+    border-left: 3px solid transparent;
+}
+
+.episode-item-crunchy:hover { background-color: #252525; }
+.episode-item-crunchy.active-ep { background-color: rgba(123, 44, 191, 0.15); border-left-color: #7b2cbf; }
+
+.ep-thumb {
+    position: relative;
+    flex-shrink: 0;
+    width: 150px;
+    height: 90px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.ep-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.ep-play-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.ep-thumb:hover .ep-play-overlay { opacity: 1; }
+
+.ep-info { flex: 1; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.ep-number-title { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.ep-num { color: #7b2cbf; font-weight: bold; font-size: 16px; }
+.ep-title { color: #fff; font-size: 16px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ep-meta { display: flex; gap: 10px; color: #888; font-size: 13px; align-items: center; }
+.ep-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+
+.ep-play-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #7b2cbf;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+.ep-play-btn:hover { background-color: #ff4d4d; }
+
+/* Episode Nav Bottom */
+.episode-nav-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding: 18px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.nav-btn-bottom {
+    background-color: #7b2cbf;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+.nav-btn-bottom:hover { background-color: #ff4d4d; }
+.nav-btn-bottom.disabled { background-color: #333; color: #666; cursor: not-allowed; }
+.current-ep-label { color: #fff; font-weight: bold; font-size: 15px; }
+
+/* Details Tab */
+.details-box { background-color: #1a1a1a; padding: 30px; border-radius: 12px; margin-bottom: 30px; }
+.details-box h3 { color: #7b2cbf; font-size: 22px; margin-bottom: 18px; border-left: 4px solid #7b2cbf; padding-left: 14px; }
+.details-box p { color: #ccc; font-size: 16px; line-height: 1.8; margin-bottom: 25px; }
+.details-meta { display: flex; flex-direction: column; gap: 12px; color: #fff; font-size: 15px; }
+.details-meta strong { color: #7b2cbf; }
+
+/* Rating */
+.rating-section { background-color: #1a1a1a; border-radius: 12px; padding: 30px; text-align: center; }
+.rating-section h3 { color: #fff; font-size: 20px; margin-bottom: 20px; }
+.stars { display: flex; justify-content: center; gap: 12px; margin-bottom: 15px; }
+.stars i { font-size: 32px !important; color: #ffc107 !important; cursor: pointer; }
+.rating-text { color: #888; font-size: 14px; margin-top: 10px; }
+
+/* Similar Tab */
+.similar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 18px; }
+.similar-card { text-decoration: none; color: #fff; border-radius: 10px; overflow: hidden; }
+.similar-card:hover { transform: translateY(-6px); }
+.similar-card img { width: 100%; height: 260px; object-fit: cover; border-radius: 10px; display: block; }
+.similar-card h4 { font-size: 14px; padding: 10px 5px; text-align: center; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-detail { min-height: 380px; }
+    .hero-detail-content { padding: 30px 15px 25px; gap: 15px; }
+    .hero-poster { width: 105px; }
+    .hero-poster img { height: 150px; }
+    .hero-anime-title { font-size: 20px; }
+    .hero-genres { font-size: 12px; }
+    .hero-description { font-size: 11px; max-height: 55px; overflow: hidden; }
+    .featured-badge { font-size: 10px; padding: 3px 10px; margin-bottom: 8px; }
+    .btn-watch-hero, .btn-list-hero { padding: 9px 16px; font-size: 12px; }
+    
+    .watch-tabs { padding: 0 15px; }
+    .watch-tab { font-size: 14px; padding: 12px 14px; }
+    .tab-content { padding: 15px; }
+    
+    .video-player-crunchy { margin-bottom: 20px; }
+    
+    .season-toggle-btn { padding: 11px 18px; font-size: 14px; }
+    .season-dropdown-menu { width: calc(100% - 30px); left: 15px; top: 55px; }
+    .season-thumb { width: 45px; height: 45px; }
+    .season-option-info strong { font-size: 13px; }
+    
+    .ep-thumb { width: 90px; height: 55px; }
+    .ep-title { font-size: 13px; }
+    .ep-num { font-size: 13px; }
+    .ep-play-btn { width: 36px; height: 36px; font-size: 12px; }
+    .ep-meta { font-size: 11px; }
+    
+    .episode-nav-bottom { padding: 12px; }
+    .nav-btn-bottom { padding: 9px 15px; font-size: 12px; }
+    .current-ep-label { font-size: 12px; }
+    
+    .details-box { padding: 20px; }
+    .details-box h3 { font-size: 18px; }
+    .details-box p { font-size: 13px; }
+    .details-meta { font-size: 13px; }
+    
+    .rating-section { padding: 20px; }
+    .stars i { font-size: 26px !important; }
+    
+    .similar-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .similar-card img { height: 140px; }
+    .similar-card h4 { font-size: 11px; padding: 6px 3px; }
+}
+/* =========================================
+   NAYA HEADER STYLING (AnimeNest Look)
+   ========================================= */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #0f0f13;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Logo Styling */
+.logo-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-crown {
+  color: #8b5cf6;
+  font-size: 22px;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-text {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.logo-accent {
+  color: #8b5cf6;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: none; /* Mobile pe chhupa rahe hain */
+}
+
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+  
+  .desktop-nav-link {
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+  }
+  
+  .desktop-nav-link:hover, .desktop-nav-link.active {
+    color: #ffffff;
+  }
+}
+
+/* Right Side Icons */
+.header-right-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #1f1f24;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  position: relative;
+  font-size: 14px;
+}
+
+.icon-circle:hover {
+  background: #2a2a30;
+}
+
+.bell-icon .notification-dot {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 2px solid #0f0f13;
+}
+
+.user-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Purane Search bar ko chhupa rahe hain (New design me nahi hai) */
+.header-bottom-row {
+  display: none; 
+}
+/* =========================================
+   NAYA HERO BANNER STYLING (One Piece Look)
+   ========================================= */
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 450px; /* Height of the banner */
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark gradient overlay for text readability */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #0f0f13 10%, rgba(15, 15, 19, 0.8) 40%, transparent 100%);
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* Featured Badge */
+.hero-label {
+  display: inline-block;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  color: white;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+}
+
+.hero-meta {
+  color: #a78bfa; /* Light purple */
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.hero-description {
+  color: #d1d5db; /* Light gray */
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  max-width: 600px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+    line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-watch {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-watch:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}
+
+.btn-list {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-list:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Slider Dots */
+.hero-dots {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.hero-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-dots .dot.active {
+  width: 24px;
+  background: #8b5cf6;
+  border-radius: 10px;
+}
+/* =========================================
+   CATEGORY PILLS & TRENDING CARDS
+   ========================================= */
+
+/* Category Pills */
+.category-pills {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  scrollbar-width: none; /* Firefox */
+}
+.category-pills::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+.category-pills .pill {
+  background: #1f1f24;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9ca3af;
+  padding: 10px 22px;
+  border-radius: 30px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-pills .pill.active {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  color: white;
+  border: none;
+}
+
+/* Section Headers */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header h2 {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.see-all-link {
+  color: #8b5cf6;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Trending Cards Layout */
+.trending-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scrollbar-width: none;
+}
+.trending-scroll::-webkit-scrollbar { display: none; }
+
+.trending-card {
+  width: 160px;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s ease;
+}
+.trending-card:hover { transform: translateY(-5px); }
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TV Badge & Rating */
+.card-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.card-rating {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.card-rating i { color: #fbbf24; } /* Yellow star */
+
+/* Card Info Text */
+.card-info h3 {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-info p {
+  margin: 0;
+  font-size: 11px;
+  color: #9ca3af;
+}

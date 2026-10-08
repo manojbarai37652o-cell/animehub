@@ -1,149 +1,178 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="watch-container">
-    <div class="watch-header">
-        <h1>{{ anime.title if anime else 'Anime' }}</h1>
-        <button id="watchlist-btn" onclick="toggleWatchlist()">❤️ Add to Watchlist</button>
-    </div>
-    
-    <div class="video-player">
-        {% if current_ep and current_ep.video_url %}
-            <iframe id="video-frame" src="{{ current_ep.video_url }}" width="100%" height="500px" frameborder="0" allowfullscreen></iframe>
-        {% else %}
-            <div class="no-video-msg">
-                <h3>Video Not Available 😢</h3>
-                <p>इस एपिसोड का वीडियो सोर्स अभी ब्लॉक है या उपलब्ध नहीं है। कृपया कोई और एपिसोड ट्राई करें।</p>
+<div class="watch-page">
+
+    <!-- ✅ HERO BANNER (Crunchyroll Style) -->
+    <div class="hero-detail">
+        <div class="hero-detail-bg" style="background-image: url('{{ anime.image }}');"></div>
+        <div class="hero-detail-overlay"></div>
+        <div class="hero-detail-content">
+            <div class="hero-poster">
+                <img src="{{ anime.image }}" alt="{{ anime.title }}">
             </div>
-        {% endif %}
-    </div>
-
-    {% if next_ep %}
-    <div id="autoplay-banner" class="autoplay-banner" style="display: none;">
-        <div class="autoplay-content">
-            <p>⏭️ अगला एपिसोड <span id="countdown">5</span> सेकंड में शुरू होने वाला है...</p>
-            <div class="autoplay-buttons">
-                <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ next_ep }}" class="autoplay-btn">Play Now</a>
-                <button onclick="cancelAutoplay()" class="cancel-btn">Cancel</button>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-
-    {% if seasons|length > 1 %}
-    <div class="season-selector">
-        {% for season in seasons %}
-            <a href="/watch/{{ anime.id }}/{{ season.season_number }}" 
-               class="season-btn {% if current_season and current_season.season_number == season.season_number %}active{% endif %}">
-               Season {{ season.season_number }}
-            </a>
-        {% endfor %}
-    </div>
-    {% endif %}
-
-    <div class="episode-nav">
-        {% if prev_ep %}
-            <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ prev_ep }}" class="nav-btn">« Previous</a>
-        {% else %}
-            <span class="nav-btn disabled">« Previous</span>
-        {% endif %}
-
-        <span class="current-ep-title">
-            Season {{ current_season.season_number }} • {{ current_ep.title if current_ep else 'Episode' }}
-        </span>
-
-        {% if next_ep %}
-            <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ next_ep }}" class="nav-btn">Next »</a>
-        {% else %}
-            <span class="nav-btn disabled">Next »</span>
-        {% endif %}
-    </div>
-
-    <!-- ✅ Action Buttons (Download हटा दिया) -->
-    <div class="action-row">
-        <button type="button" class="action-btn" onclick="openShareModal()">
-            <i class="fas fa-share-alt"></i><span>Share</span>
-        </button>
-        <button type="button" class="action-btn" onclick="scrollToRating()">
-            <i class="fas fa-star"></i><span>Rate</span>
-        </button>
-        {% if next_ep %}
-        <button type="button" class="action-btn" onclick="startAutoplay()">
-            <i class="fas fa-forward"></i><span>Auto-Play</span>
-        </button>
-        {% endif %}
-    </div>
-
-    <div class="rating-section" id="rating-section">
-        <h3>Rate this Anime</h3>
-        <div class="stars" id="star-rating">
-            <i class="far fa-star" data-rating="1"></i>
-            <i class="far fa-star" data-rating="2"></i>
-            <i class="far fa-star" data-rating="3"></i>
-            <i class="far fa-star" data-rating="4"></i>
-            <i class="far fa-star" data-rating="5"></i>
-        </div>
-        <p id="rating-text" class="rating-text">Click on a star to rate</p>
-    </div>
-
-    <div class="episode-list">
-        <h3>All Episodes (Season {{ current_season.season_number }})</h3>
-        {% if episodes %}
-            <div class="episode-grid">
-                {% for episode in episodes %}
-                    {% set ep_num = episode.title.split(' ')[-1] if episode.title else '1' %}
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ ep_num }}" 
-                       class="episode-btn {% if current_ep and current_ep.title == episode.title %}active{% endif %}">
-                        {{ ep_num }}
+            <div class="hero-info">
+                <span class="featured-badge">FEATURED</span>
+                <h1 class="hero-anime-title">{{ anime.title }}</h1>
+                <p class="hero-genres">{{ genres_text }}</p>
+                <p class="hero-description">{{ description }}</p>
+                <div class="hero-action-buttons">
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ current_ep.title.split(' ')[-1] if current_ep else '1' }}" class="btn-watch-hero">
+                        <i class="fas fa-play"></i> Watch Now
                     </a>
+                    <button onclick="toggleWatchlist()" id="watchlist-btn" class="btn-list-hero">
+                        <i class="fas fa-plus"></i> My List
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ TABS -->
+    <div class="watch-tabs">
+        <button class="watch-tab active" onclick="switchTab('episodes', this)">Episodes</button>
+        <button class="watch-tab" onclick="switchTab('details', this)">Details</button>
+        <button class="watch-tab" onclick="switchTab('similar', this)">Similar</button>
+    </div>
+
+    <!-- ✅ EPISODES TAB -->
+    <div id="tab-episodes" class="tab-content active">
+        
+        {% if current_ep and current_ep.video_url %}
+        <div class="video-player-crunchy">
+            <iframe src="{{ current_ep.video_url }}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+        </div>
+        {% else %}
+        <div class="no-video-msg-crunchy">
+            <h3><i class="fas fa-video-slash"></i> Video Not Available</h3>
+            <p>इस एपिसोड का वीडियो सोर्स अभी ब्लॉक है या उपलब्ध नहीं है।</p>
+        </div>
+        {% endif %}
+
+        {% if seasons|length > 0 %}
+        <div class="season-dropdown-wrapper">
+            <button class="season-toggle-btn" onclick="toggleSeasonDropdown()">
+                <i class="fas fa-layer-group"></i>
+                <span>Season {{ current_season.season_number }}</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <span class="total-eps-label">Total {{ current_season.episodes|length }} Episodes</span>
+            
+            <div id="season-dropdown-menu" class="season-dropdown-menu" style="display: none;">
+                <div class="dropdown-header">
+                    <i class="fas fa-layer-group"></i> Select Season
+                </div>
+                {% for season in seasons %}
+                <a href="/watch/{{ anime.id }}/{{ season.season_number }}" class="season-option {% if current_season.season_number == season.season_number %}selected{% endif %}">
+                    <img src="{{ anime.image }}" alt="Season {{ season.season_number }}" class="season-thumb">
+                    <div class="season-option-info">
+                        <strong>Season {{ season.season_number }}</strong>
+                        <span>(1 - {{ season.episodes|length }})</span>
+                    </div>
+                    {% if current_season.season_number == season.season_number %}
+                    <i class="fas fa-check check-icon"></i>
+                    {% endif %}
+                </a>
                 {% endfor %}
             </div>
-        {% else %}
-            <p style="color: #fff; padding: 10px;">No episodes found.</p>
-        {% endif %}
-    </div>
-    
-    <a href="/" class="back-btn">← Back to Home</a>
-
-    <div class="comments-section">
-        <h3><i class="fas fa-comments"></i> Comments & Reviews</h3>
-        <div class="comment-form">
-            <textarea id="comment-input" placeholder="अपनी राय लिखें..."></textarea>
-            <button type="button" onclick="addComment()" class="comment-submit-btn">
-                <i class="fas fa-paper-plane"></i> Post Comment
-            </button>
         </div>
-        <div id="comments-list" class="comments-list"></div>
+        {% endif %}
+
+        {% if episodes %}
+        <div class="episodes-list-crunchy">
+            {% for episode in episodes %}
+                {% set ep_num = episode.title.split(' ')[-1] if episode.title else loop.index %}
+                <div class="episode-item-crunchy {% if current_ep and current_ep.title == episode.title %}active-ep{% endif %}">
+                    <div class="ep-thumb">
+                        <img src="{{ anime.image }}" alt="Episode {{ ep_num }}" loading="lazy">
+                        <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ ep_num }}" class="ep-play-overlay">
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
+                    <div class="ep-info">
+                        <div class="ep-number-title">
+                            <span class="ep-num">{{ loop.index }}.</span>
+                            <span class="ep-title">Episode {{ ep_num }}</span>
+                        </div>
+                        <div class="ep-meta">
+                            <span><i class="far fa-clock"></i> 24m</span>
+                            <span>|</span>
+                            <span>Season {{ current_season.season_number }}</span>
+                        </div>
+                    </div>
+                    <div class="ep-actions">
+                        <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ ep_num }}" class="ep-play-btn">
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="no-video-msg">
+            <h3>No Episodes Available 😢</h3>
+            <p>इस सीज़न के एपिसोड अभी उपलब्ध नहीं हैं।</p>
+        </div>
+        {% endif %}
+
+        <div class="episode-nav-bottom">
+            {% if prev_ep %}
+                <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ prev_ep }}" class="nav-btn-bottom">« Previous</a>
+            {% else %}
+                <span class="nav-btn-bottom disabled">« Previous</span>
+            {% endif %}
+            <span class="current-ep-label">{{ current_ep.title if current_ep else 'Episode 1' }}</span>
+            {% if next_ep %}
+                <a href="/watch/{{ anime.id }}/{{ current_season.season_number }}/{{ next_ep }}" class="nav-btn-bottom">Next »</a>
+            {% else %}
+                <span class="nav-btn-bottom disabled">Next »</span>
+            {% endif %}
+        </div>
     </div>
 
-    {% if related_anime %}
-    <div class="related-section">
-        <h3>You Might Also Like</h3>
-        <div class="horizontal-scroll related-scroll">
+    <!-- ✅ DETAILS TAB -->
+    <div id="tab-details" class="tab-content">
+        <div class="details-box">
+            <h3>About {{ anime.title }}</h3>
+            <p>{{ description }}</p>
+            <div class="details-meta">
+                <div><strong>Genres:</strong> {{ genres_text }}</div>
+                <div><strong>Total Seasons:</strong> {{ seasons|length }}</div>
+                <div><strong>Total Episodes:</strong> 
+                    {% set total = namespace(count=0) %}
+                    {% for s in seasons %}{% set total.count = total.count + s.episodes|length %}{% endfor %}
+                    {{ total.count }}
+                </div>
+            </div>
+        </div>
+
+        <div class="rating-section" id="rating-section">
+            <h3>Rate this Anime</h3>
+            <div class="stars" id="star-rating">
+                <i class="far fa-star" data-rating="1"></i>
+                <i class="far fa-star" data-rating="2"></i>
+                <i class="far fa-star" data-rating="3"></i>
+                <i class="far fa-star" data-rating="4"></i>
+                <i class="far fa-star" data-rating="5"></i>
+            </div>
+            <p id="rating-text" class="rating-text">Click on a star to rate</p>
+        </div>
+    </div>
+
+    <!-- ✅ SIMILAR TAB -->
+    <div id="tab-similar" class="tab-content">
+        {% if related_anime %}
+        <div class="similar-grid">
             {% for rec in related_anime %}
-            <a href="/watch/{{ rec.id }}" class="related-card">
+            <a href="/watch/{{ rec.id }}" class="similar-card">
                 <img src="{{ rec.image }}" alt="{{ rec.title }}" loading="lazy">
-                <h3>{{ rec.title }}</h3>
+                <h4>{{ rec.title }}</h4>
             </a>
             {% endfor %}
         </div>
+        {% endif %}
     </div>
-    {% endif %}
-</div>
 
-<!-- Share Modal -->
-<div id="share-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeShareModal()">&times;</span>
-        <h3>Share this Anime</h3>
-        <div class="share-options">
-            <a href="#" id="share-whatsapp" target="_blank" class="share-option whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="#" id="share-facebook" target="_blank" class="share-option facebook"><i class="fab fa-facebook"></i> Facebook</a>
-            <a href="#" id="share-twitter" target="_blank" class="share-option twitter"><i class="fab fa-twitter"></i> Twitter</a>
-            <a href="#" id="share-telegram" target="_blank" class="share-option telegram"><i class="fab fa-telegram"></i> Telegram</a>
-            <button type="button" onclick="copyLink()" class="share-option copylink"><i class="fas fa-link"></i> Copy Link</button>
-        </div>
-    </div>
 </div>
 
 <script>
@@ -154,14 +183,44 @@
     };
     const currentEp = {
         title: {{ (current_ep.title if current_ep else 'Episode 1')|tojson }},
-        num: {{ (current_ep.title.split(' ')[-1] if current_ep else '1')|tojson }},
-        video: {{ (current_ep.video_url if current_ep and current_ep.video_url else '')|tojson }}
+        num: {{ (current_ep.title.split(' ')[-1] if current_ep else '1')|tojson }}
     };
-    const nextEpNum = {{ (next_ep if next_ep else '')|tojson }};
     const animeId = {{ anime.id|tojson }};
     const currentSeason = {{ current_season.season_number|tojson }};
     const userName = {{ (session.user_name if session.user_name else 'Guest')|tojson }};
     const userPic = {{ (session.user_pic if session.user_pic else '')|tojson }};
+
+    function switchTab(tabName, btn) {
+        document.querySelectorAll('.watch-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + tabName).classList.add('active');
+    }
+
+    function toggleSeasonDropdown() {
+        const menu = document.getElementById('season-dropdown-menu');
+        if (menu.style.display === 'none' || menu.style.display === '') {
+            menu.style.display = 'block';
+        } else {
+            menu.style.display = 'none';
+        }
+    }
+
+    document.addEventListener('click', function(e) {
+        const wrapper = document.querySelector('.season-dropdown-wrapper');
+        const menu = document.getElementById('season-dropdown-menu');
+        if (wrapper && menu && !wrapper.contains(e.target)) {
+            menu.style.display = 'none';
+        }
+    });
+
+    let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
+    const btn = document.getElementById('watchlist-btn');
+    const inList = watchlist.some(item => item.id === animeData.id);
+    if (btn && inList) {
+        btn.innerHTML = '<i class="fas fa-check"></i> In My List';
+        btn.classList.add('active');
+    }
 
     function toggleWatchlist() {
         let list = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
@@ -169,18 +228,14 @@
         const btn = document.getElementById('watchlist-btn');
         if (index > -1) {
             list.splice(index, 1);
-            btn.innerHTML = '❤️ Add to Watchlist';
+            btn.innerHTML = '<i class="fas fa-plus"></i> My List';
             btn.classList.remove('active');
         } else {
             list.push({ id: animeData.id, title: animeData.title, image: animeData.image });
-            btn.innerHTML = '❌ Remove from Watchlist';
+            btn.innerHTML = '<i class="fas fa-check"></i> In My List';
             btn.classList.add('active');
         }
         localStorage.setItem('animeWatchlist', JSON.stringify(list));
-    }
-
-    function scrollToRating() {
-        document.getElementById('rating-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     let ratings = JSON.parse(localStorage.getItem('animeRatings')) || {};
@@ -193,9 +248,12 @@
             else s.className = 'far fa-star';
         });
         const text = document.getElementById('rating-text');
-        if (rating > 0) text.innerText = 'You rated this ' + rating + '/5 ⭐';
-        else text.innerText = 'Click on a star to rate';
+        if (text) {
+            if (rating > 0) text.innerText = 'You rated this ' + rating + '/5 ⭐';
+            else text.innerText = 'Click on a star to rate';
+        }
     }
+    renderStars(currentRating);
 
     starElements.forEach(star => {
         star.addEventListener('click', function() {
@@ -213,99 +271,11 @@
             });
         });
     });
-    document.getElementById('star-rating').addEventListener('mouseleave', function() {
-        renderStars(currentRating);
-    });
-
-    let allComments = JSON.parse(localStorage.getItem('animeComments')) || {};
-
-    function addComment() {
-        const input = document.getElementById('comment-input');
-        const text = input.value.trim();
-        if (!text) { alert('कृपया कुछ लिखें!'); return; }
-        
-        let userComments = allComments[animeData.id] || [];
-        userComments.unshift({
-            text: text,
-            user: userName,
-            pic: userPic,
-            date: new Date().toLocaleDateString()
+    const sr = document.getElementById('star-rating');
+    if (sr) {
+        sr.addEventListener('mouseleave', function() {
+            renderStars(currentRating);
         });
-        allComments[animeData.id] = userComments;
-        localStorage.setItem('animeComments', JSON.stringify(allComments));
-        input.value = '';
-        renderComments();
-    }
-
-    function renderComments() {
-        const list = document.getElementById('comments-list');
-        const userComments = allComments[animeData.id] || [];
-        if (userComments.length === 0) {
-            list.innerHTML = '<p class="no-comments">No comments yet. Be the first to comment!</p>';
-            return;
-        }
-        let html = '';
-        userComments.forEach(c => {
-            let avatarHtml = c.pic ? '<img src="' + c.pic + '" class="comment-avatar">' : '<i class="fas fa-user-circle comment-avatar-icon"></i>';
-            html += '<div class="comment-item">' +
-                '<div class="comment-header">' + avatarHtml +
-                '<div><strong>' + c.user + '</strong><span class="comment-date">' + c.date + '</span></div>' +
-                '</div>' +
-                '<p class="comment-text">' + c.text + '</p></div>';
-        });
-        list.innerHTML = html;
-    }
-    renderComments();
-
-    function openShareModal() {
-        const shareUrl = window.location.origin + '/watch/' + animeId;
-        const shareText = 'Watch ' + animeData.title + ' on AnimeNest! 🔥';
-        
-        document.getElementById('share-whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl);
-        document.getElementById('share-facebook').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
-        document.getElementById('share-twitter').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl);
-        document.getElementById('share-telegram').href = 'https://t.me/share/url?url=' + encodeURIComponent(shareUrl) + '&text=' + encodeURIComponent(shareText);
-        
-        document.getElementById('share-modal').style.display = 'flex';
-    }
-    function closeShareModal() { document.getElementById('share-modal').style.display = 'none'; }
-    function copyLink() {
-        const url = window.location.origin + '/watch/' + animeId;
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(url).then(() => alert('✅ Link copied!')).catch(() => fallbackCopy(url));
-        } else { fallbackCopy(url); }
-    }
-    function fallbackCopy(url) {
-        const temp = document.createElement('input');
-        temp.value = url;
-        document.body.appendChild(temp);
-        temp.select();
-        document.execCommand('copy');
-        document.body.removeChild(temp);
-        alert('✅ Link copied!');
-    }
-
-    let autoplayTimer = null;
-    function startAutoplay() {
-        if (!nextEpNum) return;
-        const banner = document.getElementById('autoplay-banner');
-        banner.style.display = 'block';
-        banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        let count = 5;
-        const countEl = document.getElementById('countdown');
-        countEl.innerText = count;
-        autoplayTimer = setInterval(() => {
-            count--;
-            countEl.innerText = count;
-            if (count <= 0) {
-                clearInterval(autoplayTimer);
-                window.location.href = '/watch/' + animeId + '/' + currentSeason + '/' + nextEpNum;
-            }
-        }, 1000);
-    }
-    function cancelAutoplay() {
-        if (autoplayTimer) clearInterval(autoplayTimer);
-        document.getElementById('autoplay-banner').style.display = 'none';
     }
 
     const currentEpData = { id: animeData.id, title: animeData.title, image: animeData.image, ep_num: currentEp.num, ep_title: currentEp.title };
