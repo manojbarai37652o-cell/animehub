@@ -14,7 +14,7 @@ sys.path.append(project_root)
 MIN_YEAR = 2000
 NEW_ANIME_NEEDED = 20  # कितने नए एनीमे चाहिए
 OLD_ANIME_NEEDED = 20  # कितने पुराने एनीमे चाहिए
-SLEEP_BETWEEN = 2
+SLEEP_BETWEEN = 4
 MAX_PAGES_TO_CHECK = 500
 
 PROGRESS_FILE = os.path.join(project_root, 'database', 'progress.json')
