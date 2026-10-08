@@ -40,20 +40,38 @@
 </div>
 {% endif %}
 
-<!-- ✅ Trending This Week (Horizontal) -->
+<!-- Category Pills -->
+<div class="category-pills">
+  <button class="pill active"><i class="fas fa-fire"></i> Popular</button>
+  <button class="pill"><i class="fas fa-khanda"></i> Action</button>
+  <button class="pill"><i class="fas fa-mountain"></i> Adventure</button>
+  <button class="pill"><i class="fas fa-hat-wizard"></i> Fantasy</button>
+  <button class="pill"><i class="fas fa-face-laugh-squint"></i> Comedy</button>
+</div>
+
+<!-- Trending Now Section -->
 {% if trending and not search_query %}
 <div class="app-section">
-    <div class="section-header">
-        <h2><span class="red-bar"></span> 🔥 Trending This Week</h2>
-    </div>
-    <div class="horizontal-scroll">
-        {% for anime in trending %}
-        <a href="/watch/{{ anime.id }}" class="anime-row-card">
-            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
-            <h3>{{ anime.title }}</h3>
-        </a>
-        {% endfor %}
-    </div>
+  <div class="section-header">
+    <h2>🔥 Trending Now</h2>
+    <a href="/trending" class="see-all-link">See All <i class="fas fa-chevron-right"></i></a>
+  </div>
+  
+  <div class="trending-scroll">
+    {% for anime in trending %}
+    <a href="/watch/{{ anime.id }}" class="trending-card">
+      <div class="card-image-wrapper">
+        <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+        <span class="card-badge">TV</span>
+        <span class="card-rating"><i class="fas fa-star"></i> 8.7</span> <!-- Agar rating dynamic chahiye toh yahan anime.rating daal sakte ho -->
+      </div>
+      <div class="card-info">
+        <h3>{{ anime.title }}</h3>
+        <p>Action • Adventure</p> <!-- Yahan anime.genres aayega -->
+      </div>
+    </a>
+    {% endfor %}
+  </div>
 </div>
 {% endif %}
 
