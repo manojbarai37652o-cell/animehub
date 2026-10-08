@@ -202,31 +202,31 @@ if episodes:
         next_match = episodes[current_index + 1]['title'].split(' ')[-1]
         if next_match.isdigit(): next_ep_num = next_match
 
-# ✅ Description और Genres अपने आप बनाओ
-title_lower = anime['title'].lower()
-if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan', 'hunter', 'hero']):
-    genres_text = "Action • Adventure • Fantasy"
-    description = f"Dive into the epic world of {anime['title']}! Follow the thrilling journey of powerful characters as they battle legendary foes and uncover ancient mysteries in this action-packed anime."
-elif any(k in title_lower for k in ['love', 'romance', 'couple', 'girlfriend', 'kaguya']):
-    genres_text = "Romance • Comedy • Drama"
-    description = f"Experience the heartwarming tale of {anime['title']}. A beautiful story of love, friendship, and all the emotions in between that will touch your heart."
-elif any(k in title_lower for k in ['reincarnated', 'isekai', 'magic', 'dungeon', 'king']):
-    genres_text = "Fantasy • Isekai • Adventure"
-    description = f"Step into the magical world of {anime['title']}! A thrilling fantasy adventure filled with magic, mystery, and unforgettable characters on an epic quest."
-elif any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy']):
-    genres_text = "Comedy • Slice of Life • Drama"
-    description = f"Get ready for laughs and heartwarming moments with {anime['title']}! A delightful story filled with comedy, friendship, and everyday adventures."
-else:
-    genres_text = "Action • Adventure • Drama"
-    description = f"Watch the amazing story of {anime['title']}. An unforgettable journey filled with action, emotion, and incredible characters!"
+        # ✅ Description और Genres अपने आप बनाओ
+        title_lower = anime['title'].lower()
+        if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan', 'hunter', 'hero']):
+            genres_text = "Action • Adventure • Fantasy"
+            description = f"Dive into the epic world of {anime['title']}! Follow the thrilling journey of powerful characters as they battle legendary foes and uncover ancient mysteries in this action-packed anime."
+        elif any(k in title_lower for k in ['love', 'romance', 'couple', 'girlfriend', 'kaguya']):
+            genres_text = "Romance • Comedy • Drama"
+            description = f"Experience the heartwarming tale of {anime['title']}. A beautiful story of love, friendship, and all the emotions in between that will touch your heart."
+        elif any(k in title_lower for k in ['reincarnated', 'isekai', 'magic', 'dungeon', 'king']):
+            genres_text = "Fantasy • Isekai • Adventure"
+            description = f"Step into the magical world of {anime['title']}! A thrilling fantasy adventure filled with magic, mystery, and unforgettable characters on an epic quest."
+        elif any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy']):
+            genres_text = "Comedy • Slice of Life • Drama"
+            description = f"Get ready for laughs and heartwarming moments with {anime['title']}! A delightful story filled with comedy, friendship, and everyday adventures."
+        else:
+            genres_text = "Action • Adventure • Drama"
+            description = f"Watch the amazing story of {anime['title']}. An unforgettable journey filled with action, emotion, and incredible characters!"
 
-related_anime = get_random_anime(anime_id, count=6)
+        related_anime = get_random_anime(anime_id, count=6)
+        
+        return render_template('watch.html', anime=anime, seasons=seasons, current_season=current_season, 
+                               episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num, 
+                               related_anime=related_anime, genres_text=genres_text, description=description)
 
-return render_template('watch.html', anime=anime, seasons=seasons, current_season=current_season, 
-                        episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num, 
-                        related_anime=related_anime, genres_text=genres_text, description=description)
+    @app.errorhandler(404)
+    def page_not_found(e): return render_template('404.html'), 404
 
-@app.errorhandler(404)
-def page_not_found(e): return render_template('404.html'), 404
-
-return app
+    return app
