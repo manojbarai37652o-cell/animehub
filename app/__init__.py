@@ -133,6 +133,7 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
 
+    # --- WATCH ROUTE (Master Fix for ToonStream) ---
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')
     @app.route('/watch/<anime_id>/<int:season_number>/<int:ep_number>')
@@ -142,31 +143,34 @@ def create_app(config_class=Config):
         anime = get_anime_by_id(anime_id)
         if not anime: abort(404)
 
-        # 1. Seasons Data Handling (Fallbacks for both old and new data structures)
+        # 1. Seasons Data Handling (ToonStream Data Structure)
         seasons = anime.get('seasons', [])
         if not seasons:
             episodes_fallback = anime.get('episodes', [])
             if episodes_fallback:
                 seasons = [{"season_number": 1, "episodes": episodes_fallback}]
             else:
-                seasons = [{"season_number": 1, "episodes": []}]
+                seasons = []
 
         current_season = next((s for s in seasons if s.get('season_number') == season_number), None)
         if not current_season and seasons:
             current_season = seasons[0]
             season_number = current_season.get('season_number', 1)
 
+        # 2. Get Episodes for the current season
         episodes = current_season.get('episodes', []) if current_season else []
 
-        # 2. Current Episode Handling
-        current_ep, current_index = None, 0
+        # 3. Current Episode Handling
+        current_ep = None
+        current_index = 0
         if episodes:
             if ep_number is None:
                 current_ep = episodes[0]
                 current_index = 0
             else:
                 for i, ep in enumerate(episodes):
-                    if f"Episode {ep_number}" in ep.get('title', ''):
+                    ep_title = str(ep.get('title', ''))
+                    if str(ep_number) in ep_title:
                         current_ep = ep
                         current_index = i
                         break
@@ -174,18 +178,18 @@ def create_app(config_class=Config):
                     current_ep = episodes[0]
                     current_index = 0
 
-        # 3. Prev/Next Episode Handling
+        # 4. Prev/Next Episode Handling
         prev_ep_num, next_ep_num = None, None
         if episodes and current_ep:
             if current_index > 0:
-                prev_match = episodes[current_index - 1].get('title', '').split(' ')[-1]
+                prev_match = str(episodes[current_index - 1].get('title', '')).split(' ')[-1]
                 if prev_match.isdigit(): prev_ep_num = int(prev_match)
             
             if current_index < len(episodes) - 1:
-                next_match = episodes[current_index + 1].get('title', '').split(' ')[-1]
+                next_match = str(episodes[current_index + 1].get('title', '')).split(' ')[-1]
                 if next_match.isdigit(): next_ep_num = int(next_match)
 
-        # 4. Safe Genres and Description Generation (English)
+        # 5. Safe Genres and Description Generation (English)
         title_lower = anime.get('title', '').lower()
         if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'hunter', 'titan']):
             genres_text = "Action • Adventure • Fantasy"
@@ -204,6 +208,9 @@ def create_app(config_class=Config):
             description = f"Watch the amazing story of {anime.get('title', 'Unknown')}. An unforgettable journey awaits."
 
         related_anime = get_random_anime(anime_id, count=6)
+
+        # ✅ सुरक्षा कवच: अगर current_ep None है, तो उसे खाली डिक्शनरी बना दो
+        current_ep = current_ep or {}
 
         return render_template('watch.html', 
                                anime=anime, 
