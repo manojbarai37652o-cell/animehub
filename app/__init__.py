@@ -165,42 +165,42 @@ def watch(anime_id, season_number=1, ep_number=None):
     anime = get_anime_by_id(anime_id)
     if not anime: abort(404)
         
-seasons = anime.get('seasons', [])
-if not seasons:
-    episodes = anime.get('episodes', [])
+    seasons = anime.get('seasons', [])
+    if not seasons:
+        episodes = anime.get('episodes', [])
+        if episodes:
+            seasons = [{"season_number": 1, "episodes": episodes}]
+    
+    current_season = next((s for s in seasons if s['season_number'] == season_number), None)
+    if not current_season and seasons:
+        current_season = seasons[0]
+        season_number = current_season['season_number']
+    
+    episodes = current_season['episodes'] if current_season else []
+    
+    current_ep, current_index = None, 0
     if episodes:
-        seasons = [{"season_number": 1, "episodes": episodes}]
-
-current_season = next((s for s in seasons if s['season_number'] == season_number), None)
-if not current_season and seasons:
-    current_season = seasons[0]
-    season_number = current_season['season_number']
-
-episodes = current_season['episodes'] if current_season else []
-
-current_ep, current_index = None, 0
-if episodes:
-    if ep_number is None:
-        current_ep = episodes[0]
-        current_index = 0
-    else:
-        for i, ep in enumerate(episodes):
-            if f"Episode {ep_number}" in ep.get('title', ''):
-                current_ep = ep
-                current_index = i
-                break
-        if not current_ep:
+        if ep_number is None:
             current_ep = episodes[0]
             current_index = 0
+        else:
+            for i, ep in enumerate(episodes):
+                if f"Episode {ep_number}" in ep.get('title', ''):
+                    current_ep = ep
+                    current_index = i
+                    break
+            if not current_ep:
+                current_ep = episodes[0]
+                current_index = 0
 
-prev_ep_num, next_ep_num = None, None
-if episodes:
-    if current_index > 0:
-        prev_match = episodes[current_index - 1]['title'].split(' ')[-1]
-        if prev_match.isdigit(): prev_ep_num = prev_match
-    if current_index < len(episodes) - 1:
-        next_match = episodes[current_index + 1]['title'].split(' ')[-1]
-        if next_match.isdigit(): next_ep_num = next_match
+    prev_ep_num, next_ep_num = None, None
+    if episodes:
+        if current_index > 0:
+            prev_match = episodes[current_index - 1]['title'].split(' ')[-1]
+            if prev_match.isdigit(): prev_ep_num = prev_match
+        if current_index < len(episodes) - 1:
+            next_match = episodes[current_index + 1]['title'].split(' ')[-1]
+            if next_match.isdigit(): next_ep_num = next_match
 
         # ✅ Description और Genres अपने आप बनाओ
         title_lower = anime['title'].lower()
