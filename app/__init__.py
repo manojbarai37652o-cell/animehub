@@ -73,7 +73,7 @@ def create_app(config_class=Config):
         
         comedy_keywords = ['spy x family', 'grand blue', 'kaguya', 'komi', 'nichijou', 
                           'gintama', 'konosuba', 'daily life', 'horimiya', 'fruits basket',
-                          'science fell in love', 'my dress-up darling', 'toruto', 'love is war', 'tomo-chan']
+                          'science fell in love', 'my dress-up darling', 'toradora', 'love is war', 'tomo-chan']
         comedy = [a for a in all_anime if any(k in a['title'].lower() for k in comedy_keywords)][:15]
         
         fantasy_keywords = ['reincarnated', 'isekai', 'mushoku tensei', 'that time i got',

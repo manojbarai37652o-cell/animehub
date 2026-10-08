@@ -3482,3 +3482,420 @@ header {
         font-size: 11px;
     }
 }
+/* ✅ WATCH PAGE - Crunchyroll Style */
+.watch-page {
+    max-width: 100%;
+    padding-bottom: 100px;
+}
+
+.hero-detail {
+    position: relative;
+    min-height: 450px;
+    overflow: hidden;
+}
+
+.hero-detail-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(25px) brightness(0.4);
+    transform: scale(1.1);
+}
+
+.hero-detail-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, #0d0d0d 5%, rgba(13,13,13,0.6) 60%, transparent);
+    z-index: 2;
+}
+
+.hero-detail-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 30px;
+    padding: 60px 60px 50px;
+    align-items: flex-end;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-poster {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.hero-poster img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-info { flex: 1; padding-bottom: 10px; min-width: 0; }
+
+.featured-badge {
+    display: inline-block;
+    background-color: #7b2cbf;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 14px;
+    border-radius: 4px;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.hero-anime-title {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    line-height: 1.15;
+}
+
+.hero-genres { color: #ff4d4d; font-size: 15px; font-weight: 600; margin-bottom: 15px; }
+.hero-description { color: #ccc; font-size: 15px; line-height: 1.7; margin-bottom: 25px; max-width: 700px; }
+
+.hero-action-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+
+.btn-watch-hero {
+    background: linear-gradient(135deg, #7b2cbf, #ff4d4d);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.btn-watch-hero:hover { transform: scale(1.05); }
+
+.btn-list-hero {
+    background-color: rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+}
+.btn-list-hero:hover { background-color: rgba(255,255,255,0.25); }
+.btn-list-hero.active { background-color: #7b2cbf; border-color: #7b2cbf; }
+
+/* Tabs */
+.watch-tabs {
+    display: flex;
+    gap: 5px;
+    padding: 0 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+.watch-tab {
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 18px 25px;
+    cursor: pointer;
+    position: relative;
+}
+
+.watch-tab:hover { color: #ccc; }
+.watch-tab.active { color: #7b2cbf; }
+
+.watch-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0; right: 0;
+    height: 3px;
+    background-color: #7b2cbf;
+    border-radius: 3px 3px 0 0;
+}
+
+.tab-content { display: none; padding: 30px 60px; max-width: 1200px; margin: 0 auto; }
+.tab-content.active { display: block; }
+
+/* Video Player */
+.video-player-crunchy {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.video-player-crunchy iframe { width: 100%; height: 100%; border: none; display: block; }
+
+.no-video-msg-crunchy {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+.no-video-msg-crunchy h3 { color: #ff4d4d; font-size: 22px; margin-bottom: 10px; }
+.no-video-msg-crunchy p { color: #888; font-size: 14px; }
+
+/* Season Dropdown */
+.season-dropdown-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.season-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 15px 28px;
+    border-radius: 30px;
+    border: 2px solid #7b2cbf;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.season-toggle-btn:hover { background-color: #7b2cbf; }
+
+.season-toggle-btn i:first-child { color: #7b2cbf; font-size: 19px; }
+.season-toggle-btn:hover i:first-child { color: #fff; }
+.season-toggle-btn i:last-child { font-size: 13px; color: #888; }
+
+.total-eps-label { color: #888; font-size: 15px; font-weight: 500; }
+
+.season-dropdown-menu {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 380px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 10px;
+    z-index: 100;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    border: 1px solid #333;
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.dropdown-header {
+    color: #7b2cbf;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.season-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.season-option:hover { background-color: #333; }
+.season-option.selected { background-color: #7b2cbf; }
+.season-option.selected .season-thumb { border: 2px solid #fff; }
+
+.season-thumb {
+    width: 55px;
+    height: 55px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid #333;
+}
+
+.season-option-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.season-option-info strong { font-size: 15px; color: #fff; }
+.season-option-info span { font-size: 12px; color: #aaa; }
+.season-option.selected .season-option-info span { color: #fff; }
+.check-icon { color: #fff; font-size: 17px; }
+
+/* Episodes List */
+.episodes-list-crunchy { display: flex; flex-direction: column; gap: 8px; }
+
+.episode-item-crunchy {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px;
+    border-radius: 10px;
+    background-color: #1a1a1a;
+    border-left: 3px solid transparent;
+}
+
+.episode-item-crunchy:hover { background-color: #252525; }
+.episode-item-crunchy.active-ep { background-color: rgba(123, 44, 191, 0.15); border-left-color: #7b2cbf; }
+
+.ep-thumb {
+    position: relative;
+    flex-shrink: 0;
+    width: 150px;
+    height: 90px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.ep-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.ep-play-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.ep-thumb:hover .ep-play-overlay { opacity: 1; }
+
+.ep-info { flex: 1; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.ep-number-title { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.ep-num { color: #7b2cbf; font-weight: bold; font-size: 16px; }
+.ep-title { color: #fff; font-size: 16px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ep-meta { display: flex; gap: 10px; color: #888; font-size: 13px; align-items: center; }
+.ep-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+
+.ep-play-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #7b2cbf;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+.ep-play-btn:hover { background-color: #ff4d4d; }
+
+/* Episode Nav Bottom */
+.episode-nav-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding: 18px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.nav-btn-bottom {
+    background-color: #7b2cbf;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+.nav-btn-bottom:hover { background-color: #ff4d4d; }
+.nav-btn-bottom.disabled { background-color: #333; color: #666; cursor: not-allowed; }
+.current-ep-label { color: #fff; font-weight: bold; font-size: 15px; }
+
+/* Details Tab */
+.details-box { background-color: #1a1a1a; padding: 30px; border-radius: 12px; margin-bottom: 30px; }
+.details-box h3 { color: #7b2cbf; font-size: 22px; margin-bottom: 18px; border-left: 4px solid #7b2cbf; padding-left: 14px; }
+.details-box p { color: #ccc; font-size: 16px; line-height: 1.8; margin-bottom: 25px; }
+.details-meta { display: flex; flex-direction: column; gap: 12px; color: #fff; font-size: 15px; }
+.details-meta strong { color: #7b2cbf; }
+
+/* Rating */
+.rating-section { background-color: #1a1a1a; border-radius: 12px; padding: 30px; text-align: center; }
+.rating-section h3 { color: #fff; font-size: 20px; margin-bottom: 20px; }
+.stars { display: flex; justify-content: center; gap: 12px; margin-bottom: 15px; }
+.stars i { font-size: 32px !important; color: #ffc107 !important; cursor: pointer; }
+.rating-text { color: #888; font-size: 14px; margin-top: 10px; }
+
+/* Similar Tab */
+.similar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 18px; }
+.similar-card { text-decoration: none; color: #fff; border-radius: 10px; overflow: hidden; }
+.similar-card:hover { transform: translateY(-6px); }
+.similar-card img { width: 100%; height: 260px; object-fit: cover; border-radius: 10px; display: block; }
+.similar-card h4 { font-size: 14px; padding: 10px 5px; text-align: center; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-detail { min-height: 380px; }
+    .hero-detail-content { padding: 30px 15px 25px; gap: 15px; }
+    .hero-poster { width: 105px; }
+    .hero-poster img { height: 150px; }
+    .hero-anime-title { font-size: 20px; }
+    .hero-genres { font-size: 12px; }
+    .hero-description { font-size: 11px; max-height: 55px; overflow: hidden; }
+    .featured-badge { font-size: 10px; padding: 3px 10px; margin-bottom: 8px; }
+    .btn-watch-hero, .btn-list-hero { padding: 9px 16px; font-size: 12px; }
+    
+    .watch-tabs { padding: 0 15px; }
+    .watch-tab { font-size: 14px; padding: 12px 14px; }
+    .tab-content { padding: 15px; }
+    
+    .video-player-crunchy { margin-bottom: 20px; }
+    
+    .season-toggle-btn { padding: 11px 18px; font-size: 14px; }
+    .season-dropdown-menu { width: calc(100% - 30px); left: 15px; top: 55px; }
+    .season-thumb { width: 45px; height: 45px; }
+    .season-option-info strong { font-size: 13px; }
+    
+    .ep-thumb { width: 90px; height: 55px; }
+    .ep-title { font-size: 13px; }
+    .ep-num { font-size: 13px; }
+    .ep-play-btn { width: 36px; height: 36px; font-size: 12px; }
+    .ep-meta { font-size: 11px; }
+    
+    .episode-nav-bottom { padding: 12px; }
+    .nav-btn-bottom { padding: 9px 15px; font-size: 12px; }
+    .current-ep-label { font-size: 12px; }
+    
+    .details-box { padding: 20px; }
+    .details-box h3 { font-size: 18px; }
+    .details-box p { font-size: 13px; }
+    .details-meta { font-size: 13px; }
+    
+    .rating-section { padding: 20px; }
+    .stars i { font-size: 26px !important; }
+    
+    .similar-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .similar-card img { height: 140px; }
+    .similar-card h4 { font-size: 11px; padding: 6px 3px; }
+}
