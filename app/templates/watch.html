@@ -44,7 +44,7 @@
         {% else %}
         <div class="no-video-msg-crunchy">
             <h3><i class="fas fa-video-slash"></i> Video Not Available</h3>
-            <p>इस एपिसोड का वीडियो लिंक अभी उपलब्ध नहीं है।</p>
+            <p>Video link is not available for this episode.</p>
         </div>
         {% endif %}
 
@@ -77,7 +77,7 @@
         </div>
         {% endif %}
 
-        {% if episodes %}
+        {% if episodes and episodes|length > 0 %}
         <div class="episodes-list-crunchy">
             {% for episode in episodes %}
             {% set ep_num = (episode.title.split(' ')[-1] if episode.title else loop.index) %}
@@ -108,8 +108,9 @@
             {% endfor %}
         </div>
         {% else %}
-        <div class="no-episodes-msg">
-            <p>कोई एपिसोड नहीं मिला।</p>
+        <div class="no-episodes-msg" style="text-align: center; padding: 30px; color: #888;">
+            <h3><i class="fas fa-exclamation-circle"></i> No Episodes Found</h3>
+            <p>Episodes for this anime are not available right now. Please check back later.</p>
         </div>
         {% endif %}
 

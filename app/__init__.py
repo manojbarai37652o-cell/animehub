@@ -133,7 +133,6 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
 
-    # --- WATCH ROUTE (Master Fix) ---
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')
     @app.route('/watch/<anime_id>/<int:season_number>/<int:ep_number>')
@@ -186,7 +185,7 @@ def create_app(config_class=Config):
                 next_match = episodes[current_index + 1].get('title', '').split(' ')[-1]
                 if next_match.isdigit(): next_ep_num = int(next_match)
 
-        # 4. Safe Genres and Description Generation
+        # 4. Safe Genres and Description Generation (English)
         title_lower = anime.get('title', '').lower()
         if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'hunter', 'titan']):
             genres_text = "Action • Adventure • Fantasy"
