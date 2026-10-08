@@ -218,3 +218,44 @@ def has_hindi_dub(html_content):
         return True
     
     return False
+
+def parse_toonstream_homepage(html, base_url="https://toonstream.us"):
+    """ToonStream के होमपेज से एनीमे निकालता है"""
+    soup = BeautifulSoup(html, 'html.parser')
+    anime_list = []
+    
+    # सभी आर्टिकल कार्ड्स ढूंढो
+    cards = soup.find_all('article', class_=lambda x: x and 'post' in x and ('movies' in x or 'series' in x))
+    
+    for card in cards:
+        try:
+            # लिंक निकालो
+            link_tag = card.find('a', class_='lnk-blk')
+            if not link_tag:
+                continue
+            url = link_tag.get('href')
+            if not url:
+                continue
+                
+            # टाइटल निकालो
+            title_tag = card.find('h2') or card.find('h3')
+            title = title_tag.text.strip() if title_tag else "Unknown Title"
+            
+            # इमेज निकालो
+            img_tag = card.find('img')
+            image = img_tag.get('src') if img_tag else ""
+            
+            # ID बनाओ (URL से)
+            anime_id = url.strip('/').split('/')[-1]
+            
+            anime_list.append({
+                'id': anime_id,
+                'title': title,
+                'url': base_url + url if url.startswith('/') else url,
+                'image': image
+            })
+        except Exception as e:
+            print(f"Error parsing card: {e}")
+            continue
+            
+    return anime_list
