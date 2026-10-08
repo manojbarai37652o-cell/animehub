@@ -45,7 +45,16 @@
 
     <!-- Right Icons -->
     <div class="header-right-icons">
-      <a href="#" class="icon-circle"><i class="fas fa-search"></i></a>
+      <a href="javascript:void(0)" onclick="openSearch()" class="icon-circle"><i class="fas fa-search"></i></a>
+
+<script>
+function openSearch() {
+    let query = prompt("कृपया एनीमे का नाम लिखें (Search Anime):");
+    if (query) {
+        window.location.href = "/search?q=" + encodeURIComponent(query);
+    }
+}
+</script>
       <a href="#" class="icon-circle bell-icon">
         <i class="fas fa-bell"></i>
         <span class="notification-dot"></span>
