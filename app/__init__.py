@@ -97,15 +97,15 @@ def create_app(config_class=Config):
 
 # Genre ke hisaab se list choose karo
 if current_genre == 'Action':
-display_list = action
+ display_list = action
 elif current_genre == 'Comedy':
-display_list = comedy
+ display_list = comedy
 elif current_genre == 'Fantasy':
-    display_list = fantasy
+ display_list = fantasy
 elif current_genre == 'Romance':
-    display_list = romance
+ display_list = romance
 else:
-        display_list = trending # Default
+ display_list = trending # Default
         
            return render_template('index.html',
                 anime_list=all_anime,
