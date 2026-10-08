@@ -107,12 +107,12 @@ elif current_genre == 'Romance':
 else:
  display_list = trending # Default
         
-           return render_template('index.html',
-                anime_list=all_anime,
-                hero_anime_list=hero_anime_list,
-                trending=display_list,
-                popular=popular,
-                current_genre=current_genre)
+    return render_template('index.html',
+        anime_list=all_anime,
+        hero_anime_list=hero_anime_list,
+        trending=display_list,
+        popular=popular,
+        current_genre=current_genre)
 
     @app.route('/profile')
     def profile():
