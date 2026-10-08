@@ -7,13 +7,13 @@
         <a href="/" class="back-btn"><i class="fas fa-arrow-left"></i></a>
         <div class="search-input-wrapper">
             <i class="fas fa-search search-icon"></i>
-            <input type="text" id="search-input" placeholder="Search anime..." value="{{ search_query }}">
+            <input type="text" id="search-input" placeholder="Search anime..." value="{{ search_query }}" onchange="doSearch(this.value)">
             <i class="fas fa-times clear-icon" onclick="clearSearch()"></i>
         </div>
     </div>
 
+    {% if anime_list and anime_list|length > 0 %}
     <!-- Top Result Section -->
-    {% if anime_list %}
     <div class="top-result-section">
         <h3 class="section-title">Top Result</h3>
         <div class="top-result-card">
@@ -31,7 +31,7 @@
     <div class="related-results-section">
         <h3 class="section-title">Related Results</h3>
         <div class="related-grid">
-            {% for anime in anime_list[1:5] %}
+            {% for anime in anime_list[1:10] %}
             <a href="/watch/{{ anime.id }}" class="related-card">
                 <img src="{{ anime.image }}" alt="{{ anime.title }}">
                 <div class="related-info">
@@ -50,4 +50,16 @@
         </div>
     {% endif %}
 </div>
+
+<script>
+function doSearch(query) {
+    if (query.trim() !== "") {
+        window.location.href = "/search?q=" + encodeURIComponent(query);
+    }
+}
+function clearSearch() {
+    document.getElementById('search-input').value = '';
+    window.location.href = "/search";
+}
+</script>
 {% endblock %}
