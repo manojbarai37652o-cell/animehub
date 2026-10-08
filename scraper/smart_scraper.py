@@ -40,6 +40,7 @@ def save_skipped(data):
         json.dump(data, f, indent=4)
 
 def fetch_page(url):
+    """Playwright का उपयोग करके पेज लोड करता है और एपिसोड लिस्ट का इंतज़ार करता है"""
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
@@ -47,7 +48,17 @@ def fetch_page(url):
             page.set_extra_http_headers({
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
             })
+            
+            # पेज पर जाओ
             page.goto(url, timeout=60000, wait_until="domcontentloaded")
+            
+            # 🚀 यहाँ जादू है: एपिसोड की लिस्ट लोड होने तक 15 सेकंड तक इंतज़ार करो
+            try:
+                page.wait_for_selector('ul#episode_by_temp', timeout=15000)
+                print("   ⏳ Episode list loaded successfully.")
+            except Exception as e:
+                print(f"   ⚠️ Warning: Episode list selector not found or timed out.")
+            
             content = page.content()
             browser.close()
             return content
@@ -57,7 +68,7 @@ def fetch_page(url):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🚀 TOONSTREAM MASTER SCRAPER (सिर्फ हिंदी डब)")
+    print("🚀 TOONSTREAM MASTER SCRAPER (Episode Loader Fixed)")
     print("=" * 60)
 
     db_data = load_db()
@@ -74,7 +85,6 @@ if __name__ == '__main__':
     print("🔍 ToonStream के Hindi Dub सेक्शन से एनीमे चेक कर रहे हैं...")
     new_anime_list = []
     
-    # यहाँ हमने सीधे Hindi Dub वाले पेज का लिंक डाला है
     base_url = "https://toonstream.us/series/hindi-dub/" 
     
     homepage_html = fetch_page(base_url)
@@ -83,7 +93,6 @@ if __name__ == '__main__':
         all_anime = parse_toonstream_homepage(homepage_html, "https://toonstream.us")
         print(f"📄 इस पेज पर कुल {len(all_anime)} एनीमे मिले।")
         
-        # अब कोई URL चेक नहीं करना है, जो भी इस पेज पर है, वो हिंदी डब है
         for a in all_anime:
             if a['id'] not in existing_ids and a['id'] not in skipped_ids:
                 new_anime_list.append(a)
