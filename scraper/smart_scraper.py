@@ -9,7 +9,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
-NEW_ANIME_NEEDED = 20  # एक बार में 20 नए एनीमे लाएंगे
+NEW_ANIME_NEEDED = 50  # एक बार में 50 एनीमे चेक करेंगे
 SLEEP_BETWEEN = 2
 
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
@@ -40,18 +40,13 @@ def save_skipped(data):
         json.dump(data, f, indent=4)
 
 def fetch_page(url):
-    """Playwright का उपयोग करके पेज लोड करता है (Cloudflare बायपास के लिए)"""
     try:
         with sync_playwright() as p:
-            # Chromium ब्राउज़र हेडलेस मोड में खोलो
             browser = p.chromium.launch(headless=True)
             page = browser.new_page()
-            
-            # ब्राउज़र की तरह दिखने के लिए हेडर्स
             page.set_extra_http_headers({
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
             })
-            
             page.goto(url, timeout=60000, wait_until="domcontentloaded")
             content = page.content()
             browser.close()
@@ -62,7 +57,7 @@ def fetch_page(url):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🚀 TOONSTREAM MASTER SCRAPER (Playwright के साथ)")
+    print("🚀 TOONSTREAM MASTER SCRAPER (सिर्फ हिंदी डब)")
     print("=" * 60)
 
     db_data = load_db()
@@ -75,44 +70,40 @@ if __name__ == '__main__':
     print(f"📦 Database में {len(existing_ids)} एनीमे हैं")
     print(f"⏭️ Skip list में {len(skipped_ids)} एनीमे हैं\n")
 
-    # --- ToonStream से नए एनीमे ढूंढें ---
-    print("🔍 ToonStream होमपेज से नए एनीमे चेक कर रहे हैं...")
+    # --- सीधे ToonStream के Hindi Dub सेक्शन पर जाओ ---
+    print("🔍 ToonStream के Hindi Dub सेक्शन से एनीमे चेक कर रहे हैं...")
     new_anime_list = []
     
-    base_url = "https://toonstream.us/home"
+    # यहाँ हमने सीधे Hindi Dub वाले पेज का लिंक डाला है
+    base_url = "https://toonstream.us/series/hindi-dub/" 
+    
     homepage_html = fetch_page(base_url)
     
     if homepage_html:
         all_anime = parse_toonstream_homepage(homepage_html, "https://toonstream.us")
-        print(f"📄 होमपेज पर कुल {len(all_anime)} एनीमे मिले।")
+        print(f"📄 इस पेज पर कुल {len(all_anime)} एनीमे मिले।")
         
+        # अब कोई URL चेक नहीं करना है, जो भी इस पेज पर है, वो हिंदी डब है
         for a in all_anime:
             if a['id'] not in existing_ids and a['id'] not in skipped_ids:
                 new_anime_list.append(a)
                 if len(new_anime_list) >= NEW_ANIME_NEEDED:
                     break
     else:
-        print("❌ ToonStream का होमपेज लोड नहीं हो पाया।")
+        print("❌ Hindi Dub पेज लोड नहीं हो पाया।")
         exit()
 
     if not new_anime_list:
-        print("\n😔 भाई, कोई नया एनीमे नहीं मिला।")
+        print("\n😔 भाई, कोई नया हिंदी एनीमे नहीं मिला।")
         exit()
 
-    print(f"\n📋 इस बार {len(new_anime_list)} नए एनीमे चेक होंगे...\n")
+    print(f"\n📋 इस बार {len(new_anime_list)} नए हिंदी एनीमे चेक होंगे...\n")
 
     updated_list = existing_anime.copy()
     scraped_this_run = 0
 
     for idx, anime in enumerate(new_anime_list):
         print(f"\n[{idx + 1}/{len(new_anime_list)}] {anime['title']}")
-        
-        # चेक करो कि यह हिंदी डब है या नहीं
-        if 'hindi-dub' not in anime['url'].lower():
-            print("  ⏭️ यह हिंदी डब नहीं है, स्किप कर रहे हैं।")
-            skipped_ids.add(anime['id'])
-            continue
-
         print("  ✅ हिंदी डब है! एपिसोड निकाल रहे हैं...")
         
         anime_html = fetch_page(anime['url'])
@@ -131,7 +122,6 @@ if __name__ == '__main__':
         
         time.sleep(SLEEP_BETWEEN)
 
-    # अंत में डेटा सेव करें
     if scraped_this_run > 0:
         db_data['anime_list'] = updated_list
         save_db(db_data)

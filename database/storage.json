@@ -26048,6 +26048,1531 @@
             "image": "https://image.tmdb.org/t/p/w780/tECUAfNnSrNp7IS1HwXboLvg1FQ.jpg",
             "seasons": [],
             "episodes": []
+        },
+        {
+            "id": "naruto-shippuden-hindi-dub",
+            "title": "Naruto Shippūden",
+            "url": "https://toonstream.us/series/naruto-shippuden-hindi-dub",
+            "image": "https://image.tmdb.org/t/p/w780/wi73sU6BjJAgUI8C5qIXgb3S6Nz.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "naruto-shippuden-1x1",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x1/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x2",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x3",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x4",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x5",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x6",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x7",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x8",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden",
+                            "url": "https://toonstream.us/episode/naruto-shippuden/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x10",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x11",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x12",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x13",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x13/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x14",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x14/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x15",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x15/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x16",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x16/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x17",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x17/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x18",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x18/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x19",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x19/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x20",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x20/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x21",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x21/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x22",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x22/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x23",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x23/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x24",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x24/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x25",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x25/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x26",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x26/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x27",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x27/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x28",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x28/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x29",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x29/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x30",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x30/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x31",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x31/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "naruto-shippuden-1x32",
+                            "url": "https://toonstream.us/episode/naruto-shippuden-1x32/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "naruto-shippuden-1x1",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x1/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x2",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x3",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x4",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x5",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x6",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x7",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x8",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden",
+                    "url": "https://toonstream.us/episode/naruto-shippuden/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x10",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x11",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x12",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x13",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x13/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x14",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x14/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x15",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x15/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x16",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x16/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x17",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x17/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x18",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x18/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x19",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x19/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x20",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x20/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x21",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x21/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x22",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x22/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x23",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x23/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x24",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x24/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x25",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x25/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x26",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x26/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x27",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x27/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x28",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x28/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x29",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x29/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x30",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x30/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x31",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x31/",
+                    "video_url": ""
+                },
+                {
+                    "title": "naruto-shippuden-1x32",
+                    "url": "https://toonstream.us/episode/naruto-shippuden-1x32/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "easygoing-territory-defense-by-the-optimistic-lord",
+            "title": "Easygoing Territory Defense by the Optimistic Lord",
+            "url": "https://toonstream.us/series/easygoing-territory-defense-by-the-optimistic-lord",
+            "image": "https://image.tmdb.org/t/p/w780/2ctXv1LyyVad5VLToS1t2ZqSCQa.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x1",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x1/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x2",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x3",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x4",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x5",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x6",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x7",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x8",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x9",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x10",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x11",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "easygoing-territory-defense-by-the-optimistic-lord-1x12",
+                            "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x12/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x1",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x1/",
+                    "video_url": ""
+                },
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x2",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x3",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x4",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x5",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x6",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x7",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x8",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x9",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x10",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x11",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "easygoing-territory-defense-by-the-optimistic-lord-1x12",
+                    "url": "https://toonstream.us/episode/easygoing-territory-defense-by-the-optimistic-lord-1x12/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "thundercats",
+            "title": "ThunderCats",
+            "url": "https://toonstream.us/series/thundercats",
+            "image": "https://image.tmdb.org/t/p/w780/d2ii5RufpXgpKBudPstkbeVEJBC.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "thundercats-1x1",
+                            "url": "https://toonstream.us/episode/thundercats-1x1/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x2",
+                            "url": "https://toonstream.us/episode/thundercats-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x3",
+                            "url": "https://toonstream.us/episode/thundercats-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x4",
+                            "url": "https://toonstream.us/episode/thundercats-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x5",
+                            "url": "https://toonstream.us/episode/thundercats-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x6",
+                            "url": "https://toonstream.us/episode/thundercats-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x7",
+                            "url": "https://toonstream.us/episode/thundercats-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x8",
+                            "url": "https://toonstream.us/episode/thundercats-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x9",
+                            "url": "https://toonstream.us/episode/thundercats-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x10",
+                            "url": "https://toonstream.us/episode/thundercats-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x11",
+                            "url": "https://toonstream.us/episode/thundercats-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x12",
+                            "url": "https://toonstream.us/episode/thundercats-1x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x13",
+                            "url": "https://toonstream.us/episode/thundercats-1x13/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x14",
+                            "url": "https://toonstream.us/episode/thundercats-1x14/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x15",
+                            "url": "https://toonstream.us/episode/thundercats-1x15/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x16",
+                            "url": "https://toonstream.us/episode/thundercats-1x16/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x17",
+                            "url": "https://toonstream.us/episode/thundercats-1x17/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x18",
+                            "url": "https://toonstream.us/episode/thundercats-1x18/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x19",
+                            "url": "https://toonstream.us/episode/thundercats-1x19/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x20",
+                            "url": "https://toonstream.us/episode/thundercats-1x20/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x21",
+                            "url": "https://toonstream.us/episode/thundercats-1x21/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x22",
+                            "url": "https://toonstream.us/episode/thundercats-1x22/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x23",
+                            "url": "https://toonstream.us/episode/thundercats-1x23/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x24",
+                            "url": "https://toonstream.us/episode/thundercats-1x24/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x25",
+                            "url": "https://toonstream.us/episode/thundercats-1x25/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "thundercats-1x26",
+                            "url": "https://toonstream.us/episode/thundercats-1x26/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "thundercats-1x1",
+                    "url": "https://toonstream.us/episode/thundercats-1x1/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x2",
+                    "url": "https://toonstream.us/episode/thundercats-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x3",
+                    "url": "https://toonstream.us/episode/thundercats-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x4",
+                    "url": "https://toonstream.us/episode/thundercats-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x5",
+                    "url": "https://toonstream.us/episode/thundercats-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x6",
+                    "url": "https://toonstream.us/episode/thundercats-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x7",
+                    "url": "https://toonstream.us/episode/thundercats-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x8",
+                    "url": "https://toonstream.us/episode/thundercats-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x9",
+                    "url": "https://toonstream.us/episode/thundercats-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x10",
+                    "url": "https://toonstream.us/episode/thundercats-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x11",
+                    "url": "https://toonstream.us/episode/thundercats-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x12",
+                    "url": "https://toonstream.us/episode/thundercats-1x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x13",
+                    "url": "https://toonstream.us/episode/thundercats-1x13/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x14",
+                    "url": "https://toonstream.us/episode/thundercats-1x14/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x15",
+                    "url": "https://toonstream.us/episode/thundercats-1x15/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x16",
+                    "url": "https://toonstream.us/episode/thundercats-1x16/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x17",
+                    "url": "https://toonstream.us/episode/thundercats-1x17/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x18",
+                    "url": "https://toonstream.us/episode/thundercats-1x18/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x19",
+                    "url": "https://toonstream.us/episode/thundercats-1x19/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x20",
+                    "url": "https://toonstream.us/episode/thundercats-1x20/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x21",
+                    "url": "https://toonstream.us/episode/thundercats-1x21/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x22",
+                    "url": "https://toonstream.us/episode/thundercats-1x22/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x23",
+                    "url": "https://toonstream.us/episode/thundercats-1x23/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x24",
+                    "url": "https://toonstream.us/episode/thundercats-1x24/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x25",
+                    "url": "https://toonstream.us/episode/thundercats-1x25/",
+                    "video_url": ""
+                },
+                {
+                    "title": "thundercats-1x26",
+                    "url": "https://toonstream.us/episode/thundercats-1x26/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "rent-a-girlfriend",
+            "title": "Rent-a-Girlfriend",
+            "url": "https://toonstream.us/series/rent-a-girlfriend",
+            "image": "https://image.tmdb.org/t/p/w780/31Bzdzi44gvpNEYsWTtplU3rlbl.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "rent-a-girlfriend-1x1",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x1/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "rent-a-girlfriend-1x2",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "rent-a-girlfriend-1x3",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "rent-a-girlfriend-1x4",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "rent-a-girlfriend-1x5",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "rent-a-girlfriend-1x6",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "rent-a-girlfriend-1x7",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "rent-a-girlfriend-1x8",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "rent-a-girlfriend-1x9",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "rent-a-girlfriend-1x10",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "rent-a-girlfriend-1x11",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "rent-a-girlfriend-1x12",
+                            "url": "https://toonstream.us/episode/rent-a-girlfriend-1x12/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "rent-a-girlfriend-1x1",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x1/",
+                    "video_url": ""
+                },
+                {
+                    "title": "rent-a-girlfriend-1x2",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "rent-a-girlfriend-1x3",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "rent-a-girlfriend-1x4",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "rent-a-girlfriend-1x5",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "rent-a-girlfriend-1x6",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "rent-a-girlfriend-1x7",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "rent-a-girlfriend-1x8",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "rent-a-girlfriend-1x9",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "rent-a-girlfriend-1x10",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "rent-a-girlfriend-1x11",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "rent-a-girlfriend-1x12",
+                    "url": "https://toonstream.us/episode/rent-a-girlfriend-1x12/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "the-girl-downstairs-eng-sub",
+            "title": "The Girl Downstairs Eng Sub",
+            "url": "https://toonstream.us/series/the-girl-downstairs-eng-sub",
+            "image": "https://image.tmdb.org/t/p/w780/8uO9UNjikqQU1BsFrodVVGVvzpe.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x1",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x1/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x2",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x3",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x4",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x5",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x6",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x7",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x8",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x9",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x10",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x11",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x12",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x13",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x13/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x14",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x14/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x15",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x15/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x16",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x16/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x17",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x17/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x18",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x18/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x19",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x19/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x20",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x20/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x21",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x21/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-girl-downstairs-eng-sub-1x22",
+                            "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x22/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x1",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x1/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x2",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x3",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x4",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x5",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x6",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x7",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x8",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x9",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x10",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x11",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x12",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x13",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x13/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x14",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x14/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x15",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x15/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x16",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x16/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x17",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x17/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x18",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x18/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x19",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x19/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x20",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x20/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x21",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x21/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-girl-downstairs-eng-sub-1x22",
+                    "url": "https://toonstream.us/episode/the-girl-downstairs-eng-sub-1x22/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "the-sylvester-tweety-mysteries",
+            "title": "The Sylvester & Tweety Mysteries",
+            "url": "https://toonstream.us/series/the-sylvester-tweety-mysteries",
+            "image": "https://image.tmdb.org/t/p/w780/b8AkMeacC71nABALm5GgT1x5nMo.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "the-sylvester-tweety-mysteries-1x1",
+                            "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x1/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-sylvester-tweety-mysteries-1x4",
+                            "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-sylvester-tweety-mysteries-1x6",
+                            "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-sylvester-tweety-mysteries-1x7",
+                            "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-sylvester-tweety-mysteries-1x8",
+                            "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-sylvester-tweety-mysteries-1x9",
+                            "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-sylvester-tweety-mysteries-1x10",
+                            "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-sylvester-tweety-mysteries-1x11",
+                            "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-sylvester-tweety-mysteries-1x12",
+                            "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "the-sylvester-tweety-mysteries-1x13",
+                            "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x13/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "the-sylvester-tweety-mysteries-1x1",
+                    "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x1/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-sylvester-tweety-mysteries-1x4",
+                    "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-sylvester-tweety-mysteries-1x6",
+                    "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-sylvester-tweety-mysteries-1x7",
+                    "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-sylvester-tweety-mysteries-1x8",
+                    "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-sylvester-tweety-mysteries-1x9",
+                    "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-sylvester-tweety-mysteries-1x10",
+                    "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-sylvester-tweety-mysteries-1x11",
+                    "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-sylvester-tweety-mysteries-1x12",
+                    "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "the-sylvester-tweety-mysteries-1x13",
+                    "url": "https://toonstream.us/episode/the-sylvester-tweety-mysteries-1x13/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "invincible",
+            "title": "Invincible",
+            "url": "https://toonstream.us/series/invincible",
+            "image": "https://image.tmdb.org/t/p/w780/4tblBrslcKSifMVZ3TmtT2ukMor.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "invincible-1x1",
+                            "url": "https://toonstream.us/episode/invincible-1x1/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "invincible-1x2",
+                            "url": "https://toonstream.us/episode/invincible-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "invincible-1x3",
+                            "url": "https://toonstream.us/episode/invincible-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "invincible-1x4",
+                            "url": "https://toonstream.us/episode/invincible-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "invincible-1x5",
+                            "url": "https://toonstream.us/episode/invincible-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "invincible-1x6",
+                            "url": "https://toonstream.us/episode/invincible-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "invincible-1x7",
+                            "url": "https://toonstream.us/episode/invincible-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "invincible-1x8",
+                            "url": "https://toonstream.us/episode/invincible-1x8/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "invincible-1x1",
+                    "url": "https://toonstream.us/episode/invincible-1x1/",
+                    "video_url": ""
+                },
+                {
+                    "title": "invincible-1x2",
+                    "url": "https://toonstream.us/episode/invincible-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "invincible-1x3",
+                    "url": "https://toonstream.us/episode/invincible-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "invincible-1x4",
+                    "url": "https://toonstream.us/episode/invincible-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "invincible-1x5",
+                    "url": "https://toonstream.us/episode/invincible-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "invincible-1x6",
+                    "url": "https://toonstream.us/episode/invincible-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "invincible-1x7",
+                    "url": "https://toonstream.us/episode/invincible-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "invincible-1x8",
+                    "url": "https://toonstream.us/episode/invincible-1x8/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "ben-10",
+            "title": "Ben 10",
+            "url": "https://toonstream.us/series/ben-10",
+            "image": "https://image.tmdb.org/t/p/w780/pT0NlYVIkwM2zAw9oUkePwrOlxW.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "ben-10-1x1",
+                            "url": "https://toonstream.us/episode/ben-10-1x1/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x2",
+                            "url": "https://toonstream.us/episode/ben-10-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x3",
+                            "url": "https://toonstream.us/episode/ben-10-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x4",
+                            "url": "https://toonstream.us/episode/ben-10-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x5",
+                            "url": "https://toonstream.us/episode/ben-10-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x6",
+                            "url": "https://toonstream.us/episode/ben-10-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x7",
+                            "url": "https://toonstream.us/episode/ben-10-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x8",
+                            "url": "https://toonstream.us/episode/ben-10-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x9",
+                            "url": "https://toonstream.us/episode/ben-10-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x10",
+                            "url": "https://toonstream.us/episode/ben-10-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x11",
+                            "url": "https://toonstream.us/episode/ben-10-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x12",
+                            "url": "https://toonstream.us/episode/ben-10-1x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "ben-10-1x13",
+                            "url": "https://toonstream.us/episode/ben-10-1x13/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "ben-10-1x1",
+                    "url": "https://toonstream.us/episode/ben-10-1x1/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x2",
+                    "url": "https://toonstream.us/episode/ben-10-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x3",
+                    "url": "https://toonstream.us/episode/ben-10-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x4",
+                    "url": "https://toonstream.us/episode/ben-10-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x5",
+                    "url": "https://toonstream.us/episode/ben-10-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x6",
+                    "url": "https://toonstream.us/episode/ben-10-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x7",
+                    "url": "https://toonstream.us/episode/ben-10-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x8",
+                    "url": "https://toonstream.us/episode/ben-10-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x9",
+                    "url": "https://toonstream.us/episode/ben-10-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x10",
+                    "url": "https://toonstream.us/episode/ben-10-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x11",
+                    "url": "https://toonstream.us/episode/ben-10-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x12",
+                    "url": "https://toonstream.us/episode/ben-10-1x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "ben-10-1x13",
+                    "url": "https://toonstream.us/episode/ben-10-1x13/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "corpse-party-tortured-souls",
+            "title": "Corpse Party: Tortured Souls",
+            "url": "https://toonstream.us/series/corpse-party-tortured-souls",
+            "image": "https://image.tmdb.org/t/p/w780/aP72Yn8rkmZpGZB3fdzQBS3rlr6.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "corpse-party-tortured-souls-1x1",
+                            "url": "https://toonstream.us/episode/corpse-party-tortured-souls-1x1/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "corpse-party-tortured-souls-1x2",
+                            "url": "https://toonstream.us/episode/corpse-party-tortured-souls-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "corpse-party-tortured-souls-1x3",
+                            "url": "https://toonstream.us/episode/corpse-party-tortured-souls-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "corpse-party-tortured-souls-1x4",
+                            "url": "https://toonstream.us/episode/corpse-party-tortured-souls-1x4/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "corpse-party-tortured-souls-1x1",
+                    "url": "https://toonstream.us/episode/corpse-party-tortured-souls-1x1/",
+                    "video_url": ""
+                },
+                {
+                    "title": "corpse-party-tortured-souls-1x2",
+                    "url": "https://toonstream.us/episode/corpse-party-tortured-souls-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "corpse-party-tortured-souls-1x3",
+                    "url": "https://toonstream.us/episode/corpse-party-tortured-souls-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "corpse-party-tortured-souls-1x4",
+                    "url": "https://toonstream.us/episode/corpse-party-tortured-souls-1x4/",
+                    "video_url": ""
+                }
+            ]
         }
     ]
 }
