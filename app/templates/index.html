@@ -13,7 +13,6 @@
             <p class="hero-label">FEATURED</p>
             <h1 class="hero-title">{{ anime.title }}</h1>
             <p class="hero-meta">Action • Fantasy • Adventure</p>
-            <p class="hero-description">Dive into the epic world of {{ anime.title }}! Follow the thrilling journey of powerful characters.</p>
             <div class="hero-buttons">
                 <a href="/watch/{{ anime.id }}" class="btn-watch"><i class="fas fa-play"></i> Watch Now</a>
                 <button onclick="addHeroToWatchlist('{{ anime.id }}', '{{ anime.title }}', '{{ anime.image }}')" class="btn-list"><i class="fas fa-plus"></i> My List</button>
@@ -72,23 +71,6 @@
     </a>
     {% endfor %}
   </div>
-</div>
-{% endif %}
-
-<!-- ✅ Popular Series -->
-{% if popular and not search_query %}
-<div class="app-section">
-    <div class="section-header">
-        <h2><span class="red-bar"></span> 📺 Popular Series</h2>
-    </div>
-    <div class="horizontal-scroll">
-        {% for anime in popular %}
-        <a href="/watch/{{ anime.id }}" class="anime-row-card">
-            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
-            <h3>{{ anime.title }}</h3>
-        </a>
-        {% endfor %}
-    </div>
 </div>
 {% endif %}
 
@@ -270,5 +252,21 @@
             alert('Already in your list!');
         }
     }
+ </div>
+</div>
+
+<!-- Yahan se script shuru -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const pills = document.querySelectorAll('.category-pills .pill');
+    pills.forEach(pill => {
+      pill.addEventListener('click', function() {
+        pills.forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  });
 </script>
+<!-- Yahan script khatam -->
+
 {% endblock %}
