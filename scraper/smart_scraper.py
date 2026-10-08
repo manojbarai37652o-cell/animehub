@@ -2,7 +2,7 @@ import sys
 import os
 import time
 import json
-import cloudscraper
+from playwright.sync_api import sync_playwright
 from parser import (parse_toonstream_homepage, parse_toonstream_episodes)
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -14,9 +14,6 @@ SLEEP_BETWEEN = 2
 
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
 SKIP_FILE = os.path.join(project_root, 'database', 'skipped.json')
-
-# ✅ Cloudscraper बनाओ (Cloudflare बायपास के लिए)
-scraper = cloudscraper.create_scraper()
 
 def load_db():
     if os.path.exists(DB_FILE):
@@ -43,19 +40,29 @@ def save_skipped(data):
         json.dump(data, f, indent=4)
 
 def fetch_page(url):
+    """Playwright का उपयोग करके पेज लोड करता है (Cloudflare बायपास के लिए)"""
     try:
-        response = scraper.get(url, timeout=20)
-        if response.status_code == 404:
-            return None
-        response.raise_for_status()
-        return response.text
+        with sync_playwright() as p:
+            # Chromium ब्राउज़र हेडलेस मोड में खोलो
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            
+            # ब्राउज़र की तरह दिखने के लिए हेडर्स
+            page.set_extra_http_headers({
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+            })
+            
+            page.goto(url, timeout=60000, wait_until="domcontentloaded")
+            content = page.content()
+            browser.close()
+            return content
     except Exception as e:
         print(f"❌ Error fetching {url}: {e}")
         return None
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🚀 TOONSTREAM MASTER SCRAPER (हिंदी डब के साथ)")
+    print("🚀 TOONSTREAM MASTER SCRAPER (Playwright के साथ)")
     print("=" * 60)
 
     db_data = load_db()
@@ -79,7 +86,6 @@ if __name__ == '__main__':
         all_anime = parse_toonstream_homepage(homepage_html, "https://toonstream.us")
         print(f"📄 होमपेज पर कुल {len(all_anime)} एनीमे मिले।")
         
-        # सिर्फ वही लो जो पहले से डेटाबेस में नहीं हैं और स्किप लिस्ट में नहीं हैं
         for a in all_anime:
             if a['id'] not in existing_ids and a['id'] not in skipped_ids:
                 new_anime_list.append(a)
@@ -101,7 +107,7 @@ if __name__ == '__main__':
     for idx, anime in enumerate(new_anime_list):
         print(f"\n[{idx + 1}/{len(new_anime_list)}] {anime['title']}")
         
-        # ✅ चेक करो कि यह हिंदी डब है या नहीं (URL में 'hindi-dub' होना चाहिए)
+        # चेक करो कि यह हिंदी डब है या नहीं
         if 'hindi-dub' not in anime['url'].lower():
             print("  ⏭️ यह हिंदी डब नहीं है, स्किप कर रहे हैं।")
             skipped_ids.add(anime['id'])
@@ -109,13 +115,11 @@ if __name__ == '__main__':
 
         print("  ✅ हिंदी डब है! एपिसोड निकाल रहे हैं...")
         
-        # एनीमे का पेज खोलो
         anime_html = fetch_page(anime['url'])
         if anime_html:
             episodes = parse_toonstream_episodes(anime_html, "https://toonstream.us")
             print(f"  📺 {len(episodes)} एपिसोड मिले।")
             
-            # एपिसोड को सेव करो
             anime['seasons'] = [{"season_number": 1, "episodes": episodes}]
             anime['episodes'] = episodes
             
@@ -131,10 +135,8 @@ if __name__ == '__main__':
     if scraped_this_run > 0:
         db_data['anime_list'] = updated_list
         save_db(db_data)
-        
         skip_data['skipped_ids'] = list(skipped_ids)
         save_skipped(skip_data)
-        
         print(f"\n🎉 इस बार {scraped_this_run} हिंदी एनीमे सेव हुए!")
     else:
         print("\n😔 इस बार कोई हिंदी डब एनीमे नहीं मिला।")
