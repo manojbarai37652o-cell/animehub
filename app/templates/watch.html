@@ -39,8 +39,20 @@
     <div id="tab-episodes" class="tab-content active">
         {% if current_ep and current_ep.video_url %}
         <div class="video-player-crunchy">
-            <iframe src="{{ current_ep.video_url }}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            <video id="video-player" controls playsinline style="width: 100%; height: 100%; background: #000;"></video>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+        <script>
+            var video = document.getElementById('video-player');
+            var videoUrl = "{{ current_ep.video_url }}";
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(videoUrl);
+                hls.attachMedia(video);
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = videoUrl;
+            }
+        </script>
         {% else %}
         <div class="no-video-msg-crunchy">
             <h3><i class="fas fa-video-slash"></i> Video Not Available</h3>
