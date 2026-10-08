@@ -90,16 +90,29 @@ def create_app(config_class=Config):
         romance = [a for a in all_anime if any(k in a['title'].lower() for k in romance_keywords)][:15]
         
         hero_anime_list = get_hero_anime_list(5)
+
+     
+    # URL se genre check karo (agar nahi hai toh default 'Popular')
+    current_genre = request.args.get('genre', 'Popular')
+
+    # Genre ke hisaab se list choose karo
+    if current_genre == 'Action':
+        display_list = action
+    elif current_genre == 'Comedy':
+        display_list = comedy
+    elif current_genre == 'Fantasy':
+        display_list = fantasy
+    elif current_genre == 'Romance':
+        display_list = romance
+    else:
+        display_list = trending # Default
         
-        return render_template('index.html', 
-                               anime_list=all_anime, 
-                               hero_anime_list=hero_anime_list,
-                               trending=trending,
-                               popular=popular,
-                               action=action,
-                               comedy=comedy,
-                               fantasy=fantasy,
-                               romance=romance)
+           return render_template('index.html',
+                           anime_list=all_anime,
+                           hero_anime_list=hero_anime_list,
+                           trending=display_list,
+                           popular=popular,
+                           current_genre=current_genre)
 
     @app.route('/profile')
     def profile():

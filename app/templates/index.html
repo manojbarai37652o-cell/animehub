@@ -41,18 +41,24 @@
 
 <!-- Category Pills -->
 <div class="category-pills">
-  <a href="/" class="pill active"><i class="fas fa-fire"></i> Popular</a>
-  <a href="/?genre=Action" class="pill"><i class="fas fa-khanda"></i> Action</a>
-  <a href="/?genre=Adventure" class="pill"><i class="fas fa-mountain"></i> Adventure</a>
-  <a href="/?genre=Fantasy" class="pill"><i class="fas fa-hat-wizard"></i> Fantasy</a>
-  <a href="/?genre=Comedy" class="pill"><i class="fas fa-face-laugh-squint"></i> Comedy</a>
+  <a href="/" class="pill {% if current_genre == 'Popular' or not current_genre %}active{% endif %}"><i class="fas fa-fire"></i> Popular</a>
+  <a href="/?genre=Action" class="pill {% if current_genre == 'Action' %}active{% endif %}"><i class="fas fa-khanda"></i> Action</a>
+  <a href="/?genre=Adventure" class="pill {% if current_genre == 'Adventure' %}active{% endif %}"><i class="fas fa-mountain"></i> Adventure</a>
+  <a href="/?genre=Fantasy" class="pill {% if current_genre == 'Fantasy' %}active{% endif %}"><i class="fas fa-hat-wizard"></i> Fantasy</a>
+  <a href="/?genre=Comedy" class="pill {% if current_genre == 'Comedy' %}active{% endif %}"><i class="fas fa-face-laugh-squint"></i> Comedy</a>
 </div>
 
 <!-- Trending Now Section -->
 {% if trending and not search_query %}
 <div class="app-section">
   <div class="section-header">
-    <h2>🔥 Trending Now</h2>
+    <h2>
+  {% if current_genre == 'Action' %}⚔️ Action
+  {% elif current_genre == 'Comedy' %}😂 Comedy
+  {% elif current_genre == 'Fantasy' %}🧙‍♂️ Fantasy
+  {% elif current_genre == 'Romance' %}❤️ Romance
+  {% else %}🔥 Trending Now{% endif %}
+    </h2>
     <a href="/trending" class="see-all-link">See All <i class="fas fa-chevron-right"></i></a>
   </div>
   
