@@ -12,8 +12,8 @@ project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
 MIN_YEAR = 2010
-NEW_ANIME_NEEDED = 5  # कितने नए एनीमे चाहिए
-OLD_ANIME_NEEDED = 5  # कितने पुराने एनीमे चाहिए
+NEW_ANIME_NEEDED = 20  # कितने नए एनीमे चाहिए
+OLD_ANIME_NEEDED = 20  # कितने पुराने एनीमे चाहिए
 SLEEP_BETWEEN = 2
 MAX_PAGES_TO_CHECK = 500
 
