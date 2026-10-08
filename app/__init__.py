@@ -136,7 +136,7 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         query = request.args.get('q', '')
         anime_list = search_anime(query) if query else get_all_anime()
-        return render_template('index.html', anime_list=anime_list, search_query=query)
+        return render_template('search.html', anime_list=anime_list, search_query=query)
 
     @app.route('/genre/<genre_name>')
     def genre(genre_name):
