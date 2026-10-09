@@ -32723,6 +32723,281 @@
                     "video_url": ""
                 }
             ]
+        },
+        {
+            "id": "baki",
+            "title": "BAKI",
+            "url": "https://toonstream.us/series/baki",
+            "image": "https://image.tmdb.org/t/p/w780/j4bL0G8h8k49MuXKYfZqhXqk2rI.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "url": "https://toonstream.us/episode/baki-1x1/",
+                            "video_url": "https://rubystm.com/e/r9b6ok6rswaj.html"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "url": "https://toonstream.us/episode/baki-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 3",
+                            "url": "https://toonstream.us/episode/baki-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "url": "https://toonstream.us/episode/baki-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "url": "https://toonstream.us/episode/baki-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "url": "https://toonstream.us/episode/baki-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "url": "https://toonstream.us/episode/baki-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "url": "https://toonstream.us/episode/baki-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "url": "https://toonstream.us/episode/baki-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "url": "https://toonstream.us/episode/baki-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "url": "https://toonstream.us/episode/baki-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://toonstream.us/episode/baki-1x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 13",
+                            "url": "https://toonstream.us/episode/baki-1x13/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 14",
+                            "url": "https://toonstream.us/episode/baki-1x14/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 15",
+                            "url": "https://toonstream.us/episode/baki-1x15/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 16",
+                            "url": "https://toonstream.us/episode/baki-1x16/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 17",
+                            "url": "https://toonstream.us/episode/baki-1x17/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 18",
+                            "url": "https://toonstream.us/episode/baki-1x18/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 19",
+                            "url": "https://toonstream.us/episode/baki-1x19/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 20",
+                            "url": "https://toonstream.us/episode/baki-1x20/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 21",
+                            "url": "https://toonstream.us/episode/baki-1x21/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 22",
+                            "url": "https://toonstream.us/episode/baki-1x22/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 23",
+                            "url": "https://toonstream.us/episode/baki-1x23/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 24",
+                            "url": "https://toonstream.us/episode/baki-1x24/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 25",
+                            "url": "https://toonstream.us/episode/baki-1x25/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 26",
+                            "url": "https://toonstream.us/episode/baki-1x26/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Episode 1",
+                    "url": "https://toonstream.us/episode/baki-1x1/",
+                    "video_url": "https://rubystm.com/e/r9b6ok6rswaj.html"
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://toonstream.us/episode/baki-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://toonstream.us/episode/baki-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://toonstream.us/episode/baki-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://toonstream.us/episode/baki-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://toonstream.us/episode/baki-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://toonstream.us/episode/baki-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://toonstream.us/episode/baki-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://toonstream.us/episode/baki-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://toonstream.us/episode/baki-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://toonstream.us/episode/baki-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://toonstream.us/episode/baki-1x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 13",
+                    "url": "https://toonstream.us/episode/baki-1x13/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 14",
+                    "url": "https://toonstream.us/episode/baki-1x14/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 15",
+                    "url": "https://toonstream.us/episode/baki-1x15/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 16",
+                    "url": "https://toonstream.us/episode/baki-1x16/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 17",
+                    "url": "https://toonstream.us/episode/baki-1x17/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 18",
+                    "url": "https://toonstream.us/episode/baki-1x18/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 19",
+                    "url": "https://toonstream.us/episode/baki-1x19/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://toonstream.us/episode/baki-1x20/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 21",
+                    "url": "https://toonstream.us/episode/baki-1x21/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 22",
+                    "url": "https://toonstream.us/episode/baki-1x22/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 23",
+                    "url": "https://toonstream.us/episode/baki-1x23/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 24",
+                    "url": "https://toonstream.us/episode/baki-1x24/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 25",
+                    "url": "https://toonstream.us/episode/baki-1x25/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 26",
+                    "url": "https://toonstream.us/episode/baki-1x26/",
+                    "video_url": ""
+                }
+            ]
         }
     ]
 }
