@@ -144,14 +144,14 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
 
-    # --- WATCH ROUTE (Master Fix) ---
+    # --- WATCH ROUTE (Master Fix for Episode URLs) ---
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')
     @app.route('/watch/<anime_id>/<int:season_number>/<int:ep_number>')
     def watch(anime_id, season_number=1, ep_number=None):
         if not session.get('user_email'): return render_template('login.html')
         
-        # 🚀 404 FIX: अगर URL में 'episode' शब्द है, तो ID को साफ करो
+        # 🚀 MASTER FIX: URL se 'episode-X' ko alag karo
         if 'episode' in anime_id:
             parts = anime_id.split('-episode-')
             if len(parts) > 1:
@@ -159,7 +159,8 @@ def create_app(config_class=Config):
                 if ep_number is None:
                     try:
                         ep_number = int(parts[1])
-                    except: pass
+                    except: 
+                        pass
         
         anime = get_anime_by_id(anime_id)
         if not anime: abort(404)
