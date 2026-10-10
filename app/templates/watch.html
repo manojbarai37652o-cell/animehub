@@ -17,7 +17,7 @@
                 <p class="hero-genres">{{ genres_text|default('Action • Adventure') }}</p>
                 <p class="hero-description">{{ description|default('No description available.') }}</p>
                 <div class="hero-action-buttons">
-                    <a href="/watch/{{ anime.id|default(0) }}/{{ current_season.season_number|default(1) }}/{{ (current_ep.title.split(' ')[-1] if current_ep and current_ep.title else '1') }}" class="btn-watch">
+                    <a href="/watch/{{ anime.id|default(0) }}/{{ current_season.season_number|default(1) }}/{{ (current_ep.title.split(' ')[-1] if current_ep and current_ep.title else '1') }}" class="btn-watch-hero">
                         <i class="fas fa-play"></i> Watch Now
                     </a>
                     <button onclick="toggleWatchlist()" id="watchlist-btn" class="btn-list-hero">
@@ -37,33 +37,38 @@
 
     <!-- EPISODES TAB -->
     <div id="tab-episodes" class="tab-content active">
-        {# 🎯 सुरक्षा कवच: चेक करो कि वीडियो लिंक मौजूद है और सही है #}
-        {% if current_ep and current_ep.video_url and current_ep.video_url.startswith('http') %}
+        
+        {# 🎯 HLS.js Player with CORS Proxy #}
+        {% if current_ep and current_ep.video_url and current_ep.video_url|length > 10 %}
         <div class="video-player-crunchy">
             <video id="video-player" controls playsinline style="width: 100%; height: 100%; background: #000;"></video>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
         <script>
             var video = document.getElementById('video-player');
-            var videoUrl = "{{ current_ep.video_url }}";
-            if (videoUrl) {
-                if (Hls.isSupported()) {
-                    var hls = new Hls();
-                    hls.loadSource(videoUrl);
-                    hls.attachMedia(video);
-                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                    video.src = videoUrl;
-                }
+            var originalUrl = "{{ current_ep.video_url }}";
+            
+            if (originalUrl && Hls.isSupported()) {
+                var hls = new Hls({
+                    // 🎯 CORS प्रॉक्सी: यह वीडियो सर्वर को ब्लॉक करने से रोकेगा
+                    xhrSetup: function(xhr, url) {
+                        xhr.open('GET', 'https://corsproxy.io/?' + encodeURIComponent(url), true);
+                    }
+                });
+                hls.loadSource('https://corsproxy.io/?' + encodeURIComponent(originalUrl));
+                hls.attachMedia(video);
+            } else if (originalUrl && video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = originalUrl;
             }
         </script>
         {% else %}
         <div class="no-video-msg-crunchy" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0f0f13; border: 1px solid #333; height: 300px; border-radius: 10px; margin-bottom: 20px;">
             <h3 style="color: #fff; margin-bottom: 10px;"><i class="fas fa-video-slash" style="color: #8a2be2;"></i> Video Not Available</h3>
-            <p style="color: #aaa; text-align: center; padding: 0 20px;">Video link is not available for this episode right now. Please check back later.</p>
+            <p style="color: #aaa; text-align: center; padding: 0 20px;">Video link is not available right now.</p>
         </div>
         {% endif %}
 
-        {% if seasons and seasons|length > 0 %}
+        {% if seasons|length > 0 %}
         <div class="season-dropdown-wrapper">
             <button class="season-toggle-btn" onclick="toggleSeasonDropdown()">
                 <i class="fas fa-layer-group"></i>
@@ -71,13 +76,13 @@
                 <i class="fas fa-chevron-down"></i>
             </button>
             <span class="total-eps-label">Total {{ current_season.episodes|default([])|length }} Episodes</span>
-
+            
             <div id="season-dropdown-menu" class="season-dropdown-menu" style="display: none;">
                 <div class="dropdown-header">
                     <i class="fas fa-layer-group"></i> Select Season
                 </div>
                 {% for season in seasons %}
-                <a href="/watch/{{ anime.id|default(0) }}/{{ season.season_number|default(1) }}" class="season-option {% if current_season.season_number == season.season_number %}active{% endif %}">
+                <a href="/watch/{{ anime.id|default(0) }}/{{ season.season_number|default(1) }}" class="season-option {% if current_season.season_number == season.season_number %}selected{% endif %}">
                     <img src="{{ anime.image|default('') }}" alt="Season {{ season.season_number|default(1) }}" class="season-thumb">
                     <div class="season-option-info">
                         <strong>Season {{ season.season_number|default(1) }}</strong>
@@ -92,40 +97,40 @@
         </div>
         {% endif %}
 
-        {% if episodes and episodes|length > 0 %}
+        {% if episodes %}
         <div class="episodes-list-crunchy">
             {% for episode in episodes %}
-            {% set ep_num = (episode.title.split(' ')[-1] if episode.title else loop.index) %}
-            <div class="episode-item-crunchy {% if current_ep and current_ep.title == episode.title %}active{% endif %}">
-                <div class="ep-thumb">
-                    <img src="{{ anime.image|default('') }}" alt="Episode {{ ep_num }}" loading="lazy">
-                    <a href="/watch/{{ anime.id|default(0) }}/{{ current_season.season_number|default(1) }}/{{ ep_num }}" class="ep-play-overlay">
-                        <i class="fas fa-play"></i>
-                    </a>
-                </div>
-                <div class="ep-info">
-                    <div class="ep-number-title">
-                        <span class="ep-num">{{ loop.index }}.</span>
-                        <span class="ep-title">Episode {{ ep_num }}</span>
+                {% set ep_num = episode.title.split(' ')[-1] if episode.title else loop.index %}
+                <div class="episode-item-crunchy {% if current_ep and current_ep.title == episode.title %}active-ep{% endif %}">
+                    <div class="ep-thumb">
+                        <img src="{{ anime.image|default('') }}" alt="Episode {{ ep_num }}" loading="lazy">
+                        <a href="/watch/{{ anime.id|default(0) }}/{{ current_season.season_number|default(1) }}/{{ ep_num }}" class="ep-play-overlay">
+                            <i class="fas fa-play"></i>
+                        </a>
                     </div>
-                    <div class="ep-meta">
-                        <span><i class="far fa-clock"></i> 24m</span>
-                        <span>|</span>
-                        <span>Season {{ current_season.season_number|default(1) }}</span>
+                    <div class="ep-info">
+                        <div class="ep-number-title">
+                            <span class="ep-num">{{ loop.index }}.</span>
+                            <span class="ep-title">Episode {{ ep_num }}</span>
+                        </div>
+                        <div class="ep-meta">
+                            <span><i class="far fa-clock"></i> 24m</span>
+                            <span>|</span>
+                            <span>Season {{ current_season.season_number|default(1) }}</span>
+                        </div>
+                    </div>
+                    <div class="ep-actions">
+                        <a href="/watch/{{ anime.id|default(0) }}/{{ current_season.season_number|default(1) }}/{{ ep_num }}" class="ep-play-btn">
+                            <i class="fas fa-play"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="ep-actions">
-                    <a href="/watch/{{ anime.id|default(0) }}/{{ current_season.season_number|default(1) }}/{{ ep_num }}" class="ep-play-btn">
-                        <i class="fas fa-play"></i>
-                    </a>
-                </div>
-            </div>
             {% endfor %}
         </div>
         {% else %}
-        <div class="no-episodes-msg" style="text-align: center; padding: 30px; color: #888;">
-            <h3><i class="fas fa-exclamation-circle"></i> No Episodes Found</h3>
-            <p>Episodes for this anime are not available right now. Please check back later.</p>
+        <div class="no-video-msg">
+            <h3>No Episodes Available 😢</h3>
+            <p>इस सीज़न के एपिसोड अभी उपलब्ध नहीं हैं।</p>
         </div>
         {% endif %}
 
@@ -152,7 +157,7 @@
             <div class="details-meta">
                 <div><strong>Genres:</strong> {{ genres_text|default('Action') }}</div>
                 <div><strong>Total Seasons:</strong> {{ seasons|default([])|length }}</div>
-                <div><strong>Total Episodes:</strong>
+                <div><strong>Total Episodes:</strong> 
                     {% set total = namespace(count=0) %}
                     {% for s in seasons|default([]) %}{% set total.count = total.count + s.episodes|default([])|length %}{% endfor %}
                     {{ total.count }}
@@ -184,10 +189,9 @@
             </a>
             {% endfor %}
         </div>
-        {% else %}
-        <p style="color: #888; padding: 30px; text-align: center;">No similar anime found.</p>
         {% endif %}
     </div>
+
 </div>
 
 <script>
@@ -264,7 +268,7 @@
         });
         const text = document.getElementById('rating-text');
         if (text) {
-            if (rating > 0) text.innerText = 'You rated this ' + rating + '/5 ★';
+            if (rating > 0) text.innerText = 'You rated this ' + rating + '/5 ⭐';
             else text.innerText = 'Click on a star to rate';
         }
     }
@@ -293,7 +297,7 @@
         });
     }
 
-    const currentEpData = { id: animeData.id, title: animeData.title, image: animeData.image, ep: currentEp.title };
+    const currentEpData = { id: animeData.id, title: animeData.title, image: animeData.image, ep_num: currentEp.num, ep_title: currentEp.title };
     let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
     history = history.filter(item => item.id !== currentEpData.id);
     history.unshift(currentEpData);
