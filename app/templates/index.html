@@ -184,7 +184,7 @@
     </div>
     
     <div class="horizontal-scroll">
-        {% for anime in anime_list[:30] %}
+        {% for anime in anime_list %}
         <a href="/watch/{{ anime.id }}" class="anime-row-card">
             <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
             <h3>{{ anime.title }}</h3>
