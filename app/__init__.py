@@ -1,6 +1,6 @@
 from flask import Flask, render_template, abort, request, redirect, url_for, session
 import random
-import re  # 🚀 Regex के लिए इम्पोर्ट किया
+import re
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
@@ -145,25 +145,29 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
 
-    # --- WATCH ROUTE (Foolproof Master Fix with Regex) ---
+    # --- WATCH ROUTE (Foolproof Master Fix) ---
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')
-    @app.route('/watch/<anime_id>/<int:season_number>/<int:ep_number>')
+    @app.route('/watch/<anime_id>/<int:season_number>/<string:ep_number>')
     def watch(anime_id, season_number=1, ep_number=None):
         if not session.get('user_email'): return render_template('login.html')
         
-        # 🚀 Regex: URL से सिर्फ असली ID निकालो
-        # यह '-episode-2', '-ep-2', '-1x2' जैसे सब कुछ हटा देगा
+        # 🚀 Regex: URL से सिर्फ असली ID निकालो (episode-7, ep-7, 1x7 सब हटाओ)
         base_id = re.sub(r'[-_ ]?(episode|ep)[-_ ]?\d+$', '', anime_id, flags=re.IGNORECASE)
-        base_id = re.sub(r'[-_ ]?\d+x\d+$', '', base_id) # -1x2 format के लिए
+        base_id = re.sub(r'[-_ ]?\d+x\d+$', '', base_id)
         
         # अगर एपिसोड नंबर URL में है, तो उसे निकालो
         if ep_number is None:
             ep_match = re.search(r'(?:episode|ep)[-_ ]?(\d+)', anime_id, re.IGNORECASE)
             if ep_match:
-                try:
-                    ep_number = int(ep_match.group(1))
-                except: pass
+                ep_number = ep_match.group(1)
+        elif ep_number and not str(ep_number).isdigit():
+            # अगर ep_number स्ट्रिंग है (जैसे 'Hands'), तो उसे नंबर में बदलो
+            num_match = re.search(r'\d+', str(ep_number))
+            if num_match:
+                ep_number = num_match.group(0)
+            else:
+                ep_number = None
         
         # 🚀 पहले साफ किए गए ID से ढूंढो, अगर न मिले तो पूरे ID से ढूंढो
         anime = get_anime_by_id(base_id)
@@ -171,7 +175,7 @@ def create_app(config_class=Config):
             anime = get_anime_by_id(anime_id)
             
         if not anime: 
-            print(f"❌ 404 ERROR: Anime not found in DB. Tried ID: '{base_id}' and '{anime_id}'")
+            print(f"❌ 404 ERROR: Anime not found. Tried ID: '{base_id}' and '{anime_id}'")
             abort(404)
         
         seasons = anime.get('seasons', [])
@@ -229,7 +233,7 @@ def create_app(config_class=Config):
             genres_text = "Action • Adventure • Drama"
             description = f"Watch the amazing story of {anime['title']}. An unforgettable journey filled with action, emotion, and incredible characters!"
 
-        related_anime = get_random_anime(anime_id, count=6)
+        related_anime = get_random_anime(base_id, count=6)
         
         return render_template('watch.html', anime=anime, seasons=seasons, current_season=current_season, 
                                episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num, 
