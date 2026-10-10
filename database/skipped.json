@@ -1,19 +1,68 @@
 {
     "skipped_ids": [
+<<<<<<< HEAD
         "the-exiled-heavy-knight-knows-how-to-game-the-system",
-        "sparks-of-tomorrow",
-        "daemons-of-the-shadow-realm",
-        "liar-game",
-        "tomb-raider-king",
-        "hanaori-san-still-wants-to-fight-in-the-next-life",
+        "relife",
+        "the-angel-next-door-spoils-me-rotten",
+=======
+        "bleach-dub",
+        "why-raeliana-ended-up-at-the-dukes-mansion",
+        "frieren-beyond-journeys-end",
+        "one-punch-man-muse-india",
+        "engage-kiss",
+        "mob-psycho-100",
+        "blue-box",
+        "power-rangers-ninja-storm",
         "thunder-3",
-        "black-torch",
-        "grand-blue-dreaming",
-        "captain-tsubasa",
-        "hana-kimi",
-        "oddballs",
-        "i-became-a-legend-after-my-10-year-long-last-stand",
-        "the-frontier-lord-begins-with-zero-subjects",
-        "jaadugar-a-witch-in-mongolia"
+        "relife",
+        "spirit-rangers",
+        "the-exiled-heavy-knight-knows-how-to-game-the-system",
+        "the-ramparts-of-ice",
+        "the-ramparts-of-ice-2x2",
+        "the-angel-next-door-spoils-me-rotten",
+        "yuri-on-ice",
+        "the-reincarnation-of-the-strongest-exorcist-in-another-world",
+        "kurozuka",
+        "the-many-sides-of-voice-actor-radio"
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
+    ]
+}
+        "frieren-beyond-journeys-end",
+        "power-rangers-ninja-storm",
+        "one-punch-man-muse-india",
+        "the-reincarnation-of-the-strongest-exorcist-in-another-world",
+        "the-ramparts-of-ice",
+        "spirit-rangers",
+        "mob-psycho-100",
+        "why-raeliana-ended-up-at-the-dukes-mansion",
+        "the-many-sides-of-voice-actor-radio",
+        "the-ramparts-of-ice-2x2",
+        "blue-box",
+        "bleach-dub",
+        "kurozuka",
+        "thunder-3",
+        "engage-kiss",
+        "yuri-on-ice"
+=======
+        "bleach-dub",
+        "why-raeliana-ended-up-at-the-dukes-mansion",
+        "frieren-beyond-journeys-end",
+        "one-punch-man-muse-india",
+        "engage-kiss",
+        "mob-psycho-100",
+        "blue-box",
+        "power-rangers-ninja-storm",
+        "thunder-3",
+        "relife",
+        "spirit-rangers",
+        "the-exiled-heavy-knight-knows-how-to-game-the-system",
+        "the-ramparts-of-ice",
+        "the-ramparts-of-ice-2x2",
+        "the-angel-next-door-spoils-me-rotten",
+        "yuri-on-ice",
+        "the-reincarnation-of-the-strongest-exorcist-in-another-world",
+        "kurozuka",
+        "the-many-sides-of-voice-actor-radio"
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
     ]
 }

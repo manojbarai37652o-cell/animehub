@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="search-page-container">
+    <!-- Top Search Bar -->
+    <div class="search-header-bar">
+        <a href="/" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+        <div class="search-input-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="search-input" placeholder="Search anime..." value="{{ search_query }}" onchange="doSearch(this.value)">
+            <i class="fas fa-times clear-icon" onclick="clearSearch()"></i>
+        </div>
+    </div>
+
+    {% if anime_list and anime_list|length > 0 %}
+    <!-- Top Result Section -->
+    <div class="top-result-section">
+        <h3 class="section-title">Top Result</h3>
+        <div class="top-result-card">
+            <img src="{{ anime_list[0].image }}" alt="{{ anime_list[0].title }}" class="top-result-img">
+            <div class="top-result-info">
+                <h2>{{ anime_list[0].title }}</h2>
+                <p class="top-result-meta">TV • Action • Adventure</p>
+                <a href="/watch/{{ anime_list[0].id }}" class="btn-watch-now">▶ Watch Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Results Section -->
+    <div class="related-results-section">
+        <h3 class="section-title">More Results</h3>
+        <div class="related-grid">
+            {% for anime in anime_list[1:] %}
+            <a href="/watch/{{ anime.id }}" class="related-card">
+                <img src="{{ anime.image }}" alt="{{ anime.title }}">
+                <div class="related-info">
+                    <span class="tv-badge">TV</span>
+                    <h4>{{ anime.title }}</h4>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+        <div class="no-results">
+            <h2>कोई रिजल्ट नहीं मिला भाई! 😔</h2>
+            <p>कृपया कोई और नाम टाइप करके देखें।</p>
+        </div>
+    {% endif %}
+</div>
+
+<script>
+function doSearch(query) {
+    if (query.trim() !== "") {
+        window.location.href = "/search?q=" + encodeURIComponent(query);
+    }
+}
+function clearSearch() {
+    document.getElementById('search-input').value = '';
+    window.location.href = "/search";
+}
+</script>
+{% endblock %}
