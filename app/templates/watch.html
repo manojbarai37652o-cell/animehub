@@ -46,7 +46,7 @@
             
             if (originalUrl && Hls.isSupported()) {
                 var hls = new Hls({
-                    // 🚀 हर छोटे सेगमेंट को भी हमारे प्रॉक्सी से गुजारो
+                    // 🚀 सारे सेगमेंट्स को प्रॉक्सी से गुजारो
                     xhrSetup: function(xhr, url) {
                         if (url.includes('/proxy?url=')) {
                             xhr.open('GET', url, true);

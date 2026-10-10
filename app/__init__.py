@@ -24,10 +24,18 @@ def create_app(config_class=Config):
     app.register_blueprint(google_bp, url_prefix="/login")
 
     # ============================================================
-    # 🚀 CORS PROXY ROUTE (सारे वीडियो सेगमेंट्स के लिए)
+    # 🚀 FOOLPROOF CORS PROXY ROUTE
     # ============================================================
-    @app.route('/proxy')
+    @app.route('/proxy', methods=['GET', 'OPTIONS'])
     def proxy():
+        # CORS प्रीफ्लाइट रिक्वेस्ट को हैंडल करो
+        if request.method == 'OPTIONS':
+            response = app.make_default_options_response()
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            response.headers['Access-Control-Allow-Methods'] = 'GET, OPTIONS'
+            response.headers['Access-Control-Allow-Headers'] = '*'
+            return response
+
         target_url = request.args.get('url')
         if not target_url:
             return "Missing URL", 400
@@ -35,11 +43,16 @@ def create_app(config_class=Config):
         try:
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+                'Accept': '*/*',
+                'Accept-Language': 'en-US,en;q=0.9',
                 'Referer': 'https://www.desidubanime.me/',
                 'Origin': 'https://www.desidubanime.me'
             }
+            
+            # सर्वर से डेटा मंगाओ
             resp = requests.get(target_url, headers=headers, timeout=30, stream=True)
             
+            # अगर m3u8 फाइल है, तो उसके अंदर के URL भी प्रॉक्सी से गुजारो
             if '.m3u8' in target_url or 'mpegurl' in resp.headers.get('Content-Type', ''):
                 content = resp.text
                 base_url = target_url.rsplit('/', 1)[0] + '/'
@@ -49,6 +62,7 @@ def create_app(config_class=Config):
                 for line in lines:
                     stripped = line.strip()
                     if stripped and not stripped.startswith('#'):
+                        # हर सेगमेंट/वेरिएंट URL को प्रॉक्सी के जरिए भेजो
                         absolute = urljoin(base_url, stripped)
                         new_lines.append(f"/proxy?url={quote(absolute, safe='')}")
                     else:
@@ -59,9 +73,11 @@ def create_app(config_class=Config):
                 response.headers['Access-Control-Allow-Origin'] = '*'
                 return response
             else:
+                # .ts या बाकी वीडियो सेगमेंट को सीधे स्ट्रीम करो
                 def generate():
                     for chunk in resp.iter_content(chunk_size=8192):
-                        yield chunk
+                        if chunk:
+                            yield chunk
                 response = Response(stream_with_context(generate()), mimetype=resp.headers.get('Content-Type', 'video/mp2t'))
                 response.headers['Access-Control-Allow-Origin'] = '*'
                 return response
