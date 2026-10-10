@@ -41,39 +41,21 @@ def parse_desidubanime_homepage(html, base_url="https://www.desidubanime.me"):
             
     return anime_list
 
-def parse_desidubanime_anime_detail(html, base_url="https://www.desidubanime.me"):
-    """DesiDubAnime के एनीमे पेज से डिस्क्रिप्शन, जॉनर और एपिसोड निकालता है"""
+
+def parse_desidubanime_episodes(html, base_url="https://www.desidubanime.me"):
+    """DesiDubAnime के एनीमे पेज से एपिसोड निकालता है"""
     if not html:
-        return {}
+        return []
         
     soup = BeautifulSoup(html, 'html.parser')
-    detail = {}
-    
-    # डिस्क्रिप्शन निकालो
-    desc_tag = soup.find('div', class_='description') or soup.find('p', class_='description') or soup.find('div', class_='synopsis')
-    if desc_tag:
-        detail['description'] = desc_tag.text.strip()
-    else:
-        # अगर ऊपर वाला न मिले, तो कोई भी लंबा पैराग्राफ ढूंढो
-        for p in soup.find_all('p'):
-            if len(p.text.strip()) > 50:
-                detail['description'] = p.text.strip()
-                break
-    
-    # जॉनर निकालो
-    genres = []
-    genre_tags = soup.find_all('a', href=re.compile(r'/genre/'))
-    for g in genre_tags:
-        genres.append(g.text.strip())
-    detail['genres'] = list(set(genres))  # डुप्लीकेट हटाओ
-    
-    # एपिसोड निकालो
     episodes = []
+    
     for link in soup.find_all('a', href=True):
         href = link.get('href', '')
         if '/episode/' in href or '/watch/' in href:
             url = urljoin(base_url, href)
             title = link.text.strip() or href.strip('/').split('/')[-1]
+            
             if url not in [e['url'] for e in episodes]:
                 episodes.append({
                     'title': title,
@@ -81,5 +63,4 @@ def parse_desidubanime_anime_detail(html, base_url="https://www.desidubanime.me"
                     'video_url': ''
                 })
     
-    detail['episodes'] = episodes
-    return detail
+    return episodes
