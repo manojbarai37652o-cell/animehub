@@ -1,5 +1,6 @@
 from flask import Flask, render_template, abort, request, redirect, url_for, session
 import random
+import re  # 🚀 Regex के लिए इम्पोर्ट किया
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
@@ -144,26 +145,34 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
 
-    # --- WATCH ROUTE (Master Fix for Episode URLs) ---
+    # --- WATCH ROUTE (Foolproof Master Fix with Regex) ---
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')
     @app.route('/watch/<anime_id>/<int:season_number>/<int:ep_number>')
     def watch(anime_id, season_number=1, ep_number=None):
         if not session.get('user_email'): return render_template('login.html')
         
-        # 🚀 MASTER FIX: URL se 'episode-X' ko alag karo
-        if 'episode' in anime_id:
-            parts = anime_id.split('-episode-')
-            if len(parts) > 1:
-                anime_id = parts[0]
-                if ep_number is None:
-                    try:
-                        ep_number = int(parts[1])
-                    except: 
-                        pass
+        # 🚀 Regex: URL से सिर्फ असली ID निकालो
+        # यह '-episode-2', '-ep-2', '-1x2' जैसे सब कुछ हटा देगा
+        base_id = re.sub(r'[-_ ]?(episode|ep)[-_ ]?\d+$', '', anime_id, flags=re.IGNORECASE)
+        base_id = re.sub(r'[-_ ]?\d+x\d+$', '', base_id) # -1x2 format के लिए
         
-        anime = get_anime_by_id(anime_id)
-        if not anime: abort(404)
+        # अगर एपिसोड नंबर URL में है, तो उसे निकालो
+        if ep_number is None:
+            ep_match = re.search(r'(?:episode|ep)[-_ ]?(\d+)', anime_id, re.IGNORECASE)
+            if ep_match:
+                try:
+                    ep_number = int(ep_match.group(1))
+                except: pass
+        
+        # 🚀 पहले साफ किए गए ID से ढूंढो, अगर न मिले तो पूरे ID से ढूंढो
+        anime = get_anime_by_id(base_id)
+        if not anime:
+            anime = get_anime_by_id(anime_id)
+            
+        if not anime: 
+            print(f"❌ 404 ERROR: Anime not found in DB. Tried ID: '{base_id}' and '{anime_id}'")
+            abort(404)
         
         seasons = anime.get('seasons', [])
         if not seasons:
