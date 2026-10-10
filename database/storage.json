@@ -31700,15 +31700,23 @@
             ]
         },
         {
+<<<<<<< HEAD
             "id": "400",
             "title": "Tamon's B-Side",
             "url": "https://animixstream.com/anime/400",
             "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178005-pCEReATswrup.jpg",
+=======
+            "id": "monster",
+            "title": "Monster",
+            "url": "https://toonstream.us/series/monster",
+            "image": "https://image.tmdb.org/t/p/w780/n5XNKXnoXpoXyfiCtXHOf8q8PFM.jpg",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
             "seasons": [
                 {
                     "season_number": 1,
                     "episodes": [
                         {
+<<<<<<< HEAD
                             "title": "▶ Watch Now",
                             "url": "https://animixstream.com/watch/400/1",
                             "video_url": ""
@@ -31726,6 +31734,375 @@
                         {
                             "title": "EP 4💬 0",
                             "url": "https://animixstream.com/watch/400/4",
+=======
+                            "title": "Episode 1",
+                            "url": "https://toonstream.us/episode/monster-1x1/",
+                            "video_url": "about:blank"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "url": "https://toonstream.us/episode/monster-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 3",
+                            "url": "https://toonstream.us/episode/monster-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "url": "https://toonstream.us/episode/monster-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "url": "https://toonstream.us/episode/monster-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "url": "https://toonstream.us/episode/monster-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "url": "https://toonstream.us/episode/monster-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "url": "https://toonstream.us/episode/monster-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "url": "https://toonstream.us/episode/monster-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "url": "https://toonstream.us/episode/monster-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "url": "https://toonstream.us/episode/monster-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://toonstream.us/episode/monster-1x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 13",
+                            "url": "https://toonstream.us/episode/monster-1x13/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 14",
+                            "url": "https://toonstream.us/episode/monster-1x14/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 15",
+                            "url": "https://toonstream.us/episode/monster-1x15/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 16",
+                            "url": "https://toonstream.us/episode/monster-1x16/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 17",
+                            "url": "https://toonstream.us/episode/monster-1x17/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 18",
+                            "url": "https://toonstream.us/episode/monster-1x18/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 19",
+                            "url": "https://toonstream.us/episode/monster-1x19/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 20",
+                            "url": "https://toonstream.us/episode/monster-1x20/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 21",
+                            "url": "https://toonstream.us/episode/monster-1x21/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 22",
+                            "url": "https://toonstream.us/episode/monster-1x22/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 23",
+                            "url": "https://toonstream.us/episode/monster-1x23/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 24",
+                            "url": "https://toonstream.us/episode/monster-1x24/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 25",
+                            "url": "https://toonstream.us/episode/monster-1x25/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 26",
+                            "url": "https://toonstream.us/episode/monster-1x26/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 27",
+                            "url": "https://toonstream.us/episode/monster-1x27/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 28",
+                            "url": "https://toonstream.us/episode/monster-1x28/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 29",
+                            "url": "https://toonstream.us/episode/monster-1x29/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 30",
+                            "url": "https://toonstream.us/episode/monster-1x30/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 31",
+                            "url": "https://toonstream.us/episode/monster-1x31/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 32",
+                            "url": "https://toonstream.us/episode/monster-1x32/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 33",
+                            "url": "https://toonstream.us/episode/monster-1x33/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 34",
+                            "url": "https://toonstream.us/episode/monster-1x34/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 35",
+                            "url": "https://toonstream.us/episode/monster-1x35/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 36",
+                            "url": "https://toonstream.us/episode/monster-1x36/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 37",
+                            "url": "https://toonstream.us/episode/monster-1x37/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 38",
+                            "url": "https://toonstream.us/episode/monster-1x38/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 39",
+                            "url": "https://toonstream.us/episode/monster-1x39/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 40",
+                            "url": "https://toonstream.us/episode/monster-1x40/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 41",
+                            "url": "https://toonstream.us/episode/monster-1x41/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 42",
+                            "url": "https://toonstream.us/episode/monster-1x42/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 43",
+                            "url": "https://toonstream.us/episode/monster-1x43/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 44",
+                            "url": "https://toonstream.us/episode/monster-1x44/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 45",
+                            "url": "https://toonstream.us/episode/monster-1x45/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 46",
+                            "url": "https://toonstream.us/episode/monster-1x46/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 47",
+                            "url": "https://toonstream.us/episode/monster-1x47/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 48",
+                            "url": "https://toonstream.us/episode/monster-1x48/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 49",
+                            "url": "https://toonstream.us/episode/monster-1x49/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 50",
+                            "url": "https://toonstream.us/episode/monster-1x50/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 51",
+                            "url": "https://toonstream.us/episode/monster-1x51/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 52",
+                            "url": "https://toonstream.us/episode/monster-1x52/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 53",
+                            "url": "https://toonstream.us/episode/monster-1x53/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 54",
+                            "url": "https://toonstream.us/episode/monster-1x54/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 55",
+                            "url": "https://toonstream.us/episode/monster-1x55/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 56",
+                            "url": "https://toonstream.us/episode/monster-1x56/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 57",
+                            "url": "https://toonstream.us/episode/monster-1x57/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 58",
+                            "url": "https://toonstream.us/episode/monster-1x58/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 59",
+                            "url": "https://toonstream.us/episode/monster-1x59/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 60",
+                            "url": "https://toonstream.us/episode/monster-1x60/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 61",
+                            "url": "https://toonstream.us/episode/monster-1x61/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 62",
+                            "url": "https://toonstream.us/episode/monster-1x62/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 63",
+                            "url": "https://toonstream.us/episode/monster-1x63/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 64",
+                            "url": "https://toonstream.us/episode/monster-1x64/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 65",
+                            "url": "https://toonstream.us/episode/monster-1x65/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 66",
+                            "url": "https://toonstream.us/episode/monster-1x66/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 67",
+                            "url": "https://toonstream.us/episode/monster-1x67/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 68",
+                            "url": "https://toonstream.us/episode/monster-1x68/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 69",
+                            "url": "https://toonstream.us/episode/monster-1x69/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 70",
+                            "url": "https://toonstream.us/episode/monster-1x70/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 71",
+                            "url": "https://toonstream.us/episode/monster-1x71/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 72",
+                            "url": "https://toonstream.us/episode/monster-1x72/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 73",
+                            "url": "https://toonstream.us/episode/monster-1x73/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 74",
+                            "url": "https://toonstream.us/episode/monster-1x74/",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
                             "video_url": ""
                         }
                     ]
@@ -31733,6 +32110,7 @@
             ],
             "episodes": [
                 {
+<<<<<<< HEAD
                     "title": "▶ Watch Now",
                     "url": "https://animixstream.com/watch/400/1",
                     "video_url": ""
@@ -31750,20 +32128,397 @@
                 {
                     "title": "EP 4💬 0",
                     "url": "https://animixstream.com/watch/400/4",
+=======
+                    "title": "Episode 1",
+                    "url": "https://toonstream.us/episode/monster-1x1/",
+                    "video_url": "about:blank"
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://toonstream.us/episode/monster-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://toonstream.us/episode/monster-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://toonstream.us/episode/monster-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://toonstream.us/episode/monster-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://toonstream.us/episode/monster-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://toonstream.us/episode/monster-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://toonstream.us/episode/monster-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://toonstream.us/episode/monster-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://toonstream.us/episode/monster-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://toonstream.us/episode/monster-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://toonstream.us/episode/monster-1x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 13",
+                    "url": "https://toonstream.us/episode/monster-1x13/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 14",
+                    "url": "https://toonstream.us/episode/monster-1x14/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 15",
+                    "url": "https://toonstream.us/episode/monster-1x15/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 16",
+                    "url": "https://toonstream.us/episode/monster-1x16/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 17",
+                    "url": "https://toonstream.us/episode/monster-1x17/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 18",
+                    "url": "https://toonstream.us/episode/monster-1x18/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 19",
+                    "url": "https://toonstream.us/episode/monster-1x19/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://toonstream.us/episode/monster-1x20/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 21",
+                    "url": "https://toonstream.us/episode/monster-1x21/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 22",
+                    "url": "https://toonstream.us/episode/monster-1x22/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 23",
+                    "url": "https://toonstream.us/episode/monster-1x23/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 24",
+                    "url": "https://toonstream.us/episode/monster-1x24/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 25",
+                    "url": "https://toonstream.us/episode/monster-1x25/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 26",
+                    "url": "https://toonstream.us/episode/monster-1x26/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 27",
+                    "url": "https://toonstream.us/episode/monster-1x27/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 28",
+                    "url": "https://toonstream.us/episode/monster-1x28/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 29",
+                    "url": "https://toonstream.us/episode/monster-1x29/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 30",
+                    "url": "https://toonstream.us/episode/monster-1x30/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 31",
+                    "url": "https://toonstream.us/episode/monster-1x31/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 32",
+                    "url": "https://toonstream.us/episode/monster-1x32/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 33",
+                    "url": "https://toonstream.us/episode/monster-1x33/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 34",
+                    "url": "https://toonstream.us/episode/monster-1x34/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 35",
+                    "url": "https://toonstream.us/episode/monster-1x35/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 36",
+                    "url": "https://toonstream.us/episode/monster-1x36/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 37",
+                    "url": "https://toonstream.us/episode/monster-1x37/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 38",
+                    "url": "https://toonstream.us/episode/monster-1x38/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 39",
+                    "url": "https://toonstream.us/episode/monster-1x39/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 40",
+                    "url": "https://toonstream.us/episode/monster-1x40/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 41",
+                    "url": "https://toonstream.us/episode/monster-1x41/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 42",
+                    "url": "https://toonstream.us/episode/monster-1x42/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 43",
+                    "url": "https://toonstream.us/episode/monster-1x43/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 44",
+                    "url": "https://toonstream.us/episode/monster-1x44/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 45",
+                    "url": "https://toonstream.us/episode/monster-1x45/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 46",
+                    "url": "https://toonstream.us/episode/monster-1x46/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 47",
+                    "url": "https://toonstream.us/episode/monster-1x47/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 48",
+                    "url": "https://toonstream.us/episode/monster-1x48/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 49",
+                    "url": "https://toonstream.us/episode/monster-1x49/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 50",
+                    "url": "https://toonstream.us/episode/monster-1x50/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 51",
+                    "url": "https://toonstream.us/episode/monster-1x51/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 52",
+                    "url": "https://toonstream.us/episode/monster-1x52/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 53",
+                    "url": "https://toonstream.us/episode/monster-1x53/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 54",
+                    "url": "https://toonstream.us/episode/monster-1x54/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 55",
+                    "url": "https://toonstream.us/episode/monster-1x55/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 56",
+                    "url": "https://toonstream.us/episode/monster-1x56/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 57",
+                    "url": "https://toonstream.us/episode/monster-1x57/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 58",
+                    "url": "https://toonstream.us/episode/monster-1x58/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 59",
+                    "url": "https://toonstream.us/episode/monster-1x59/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 60",
+                    "url": "https://toonstream.us/episode/monster-1x60/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 61",
+                    "url": "https://toonstream.us/episode/monster-1x61/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 62",
+                    "url": "https://toonstream.us/episode/monster-1x62/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 63",
+                    "url": "https://toonstream.us/episode/monster-1x63/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 64",
+                    "url": "https://toonstream.us/episode/monster-1x64/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 65",
+                    "url": "https://toonstream.us/episode/monster-1x65/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 66",
+                    "url": "https://toonstream.us/episode/monster-1x66/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 67",
+                    "url": "https://toonstream.us/episode/monster-1x67/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 68",
+                    "url": "https://toonstream.us/episode/monster-1x68/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 69",
+                    "url": "https://toonstream.us/episode/monster-1x69/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 70",
+                    "url": "https://toonstream.us/episode/monster-1x70/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 71",
+                    "url": "https://toonstream.us/episode/monster-1x71/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 72",
+                    "url": "https://toonstream.us/episode/monster-1x72/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 73",
+                    "url": "https://toonstream.us/episode/monster-1x73/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 74",
+                    "url": "https://toonstream.us/episode/monster-1x74/",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
                     "video_url": ""
                 }
             ]
         },
         {
+<<<<<<< HEAD
             "id": "395",
             "title": "Karna the Guardian",
             "url": "https://animixstream.com/anime/395",
             "image": "https://www.themoviedb.org/t/p/w600_and_h900_face/3M7PkwXvT2scTNUoXOaCqlIpfVM.jpg",
+=======
+            "id": "the-warrior-princess-and-the-barbaric-king",
+            "title": "The Warrior Princess and the Barbaric King",
+            "url": "https://toonstream.us/series/the-warrior-princess-and-the-barbaric-king",
+            "image": "https://image.tmdb.org/t/p/w780/hO5fLLMqteEopcYy5r0gQB1pWl.jpg",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
             "seasons": [
                 {
                     "season_number": 1,
                     "episodes": [
                         {
+<<<<<<< HEAD
                             "title": "▶ Watch Now",
                             "url": "https://animixstream.com/watch/395/1",
                             "video_url": ""
@@ -31801,6 +32556,65 @@
                         {
                             "title": "EP 8💬 0",
                             "url": "https://animixstream.com/watch/395/8",
+=======
+                            "title": "Episode 1",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x1/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 2",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 3",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x12/",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
                             "video_url": ""
                         }
                     ]
@@ -31808,6 +32622,7 @@
             ],
             "episodes": [
                 {
+<<<<<<< HEAD
                     "title": "▶ Watch Now",
                     "url": "https://animixstream.com/watch/395/1",
                     "video_url": ""
@@ -31845,20 +32660,87 @@
                 {
                     "title": "EP 8💬 0",
                     "url": "https://animixstream.com/watch/395/8",
+=======
+                    "title": "Episode 1",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x1/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://toonstream.us/episode/the-warrior-princess-and-the-barbaric-king-1x12/",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
                     "video_url": ""
                 }
             ]
         },
         {
+<<<<<<< HEAD
             "id": "391",
             "title": "Eren the Southpaw",
             "url": "https://animixstream.com/anime/391",
             "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx158036-KfXv0BFBUsWl.jpg",
+=======
+            "id": "alya-sometimes-hides-her-feelings-in-russian",
+            "title": "Alya Sometimes Hides Her Feelings in Russian",
+            "url": "https://toonstream.us/series/alya-sometimes-hides-her-feelings-in-russian",
+            "image": "https://image.tmdb.org/t/p/w780/ad3HZCjN5RhMD0ETX75Q8Jr1r2q.jpg",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
             "seasons": [
                 {
                     "season_number": 1,
                     "episodes": [
                         {
+<<<<<<< HEAD
                             "title": "▶ Watch Now",
                             "url": "https://animixstream.com/watch/391/1",
                             "video_url": ""
@@ -31906,6 +32788,65 @@
                         {
                             "title": "EP 10💬 0",
                             "url": "https://animixstream.com/watch/391/10",
+=======
+                            "title": "Episode 1",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x1/",
+                            "video_url": "https://rubystm.com/embed-1n7b9swepzyf.html"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 3",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x12/",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
                             "video_url": ""
                         }
                     ]
@@ -31913,6 +32854,7 @@
             ],
             "episodes": [
                 {
+<<<<<<< HEAD
                     "title": "▶ Watch Now",
                     "url": "https://animixstream.com/watch/391/1",
                     "video_url": ""
@@ -31960,20 +32902,87 @@
                 {
                     "title": "EP 10💬 0",
                     "url": "https://animixstream.com/watch/391/10",
+=======
+                    "title": "Episode 1",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x1/",
+                    "video_url": "https://rubystm.com/embed-1n7b9swepzyf.html"
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://toonstream.us/episode/alya-sometimes-hides-her-feelings-in-russian-1x12/",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
                     "video_url": ""
                 }
             ]
         },
         {
+<<<<<<< HEAD
             "id": "390",
             "title": "MARRIAGETOXIN",
             "url": "https://animixstream.com/anime/390",
             "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx199547-LAaG3cmKCGhr.jpg",
+=======
+            "id": "baki",
+            "title": "BAKI",
+            "url": "https://toonstream.us/series/baki",
+            "image": "https://image.tmdb.org/t/p/w780/j4bL0G8h8k49MuXKYfZqhXqk2rI.jpg",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
             "seasons": [
                 {
                     "season_number": 1,
                     "episodes": [
                         {
+<<<<<<< HEAD
                             "title": "▶ Watch Now",
                             "url": "https://animixstream.com/watch/390/1",
                             "video_url": ""
@@ -32021,6 +33030,135 @@
                         {
                             "title": "EP 10💬 0",
                             "url": "https://animixstream.com/watch/390/10",
+=======
+                            "title": "Episode 1",
+                            "url": "https://toonstream.us/episode/baki-1x1/",
+                            "video_url": "https://rubystm.com/e/r9b6ok6rswaj.html"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "url": "https://toonstream.us/episode/baki-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 3",
+                            "url": "https://toonstream.us/episode/baki-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "url": "https://toonstream.us/episode/baki-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "url": "https://toonstream.us/episode/baki-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "url": "https://toonstream.us/episode/baki-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "url": "https://toonstream.us/episode/baki-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "url": "https://toonstream.us/episode/baki-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "url": "https://toonstream.us/episode/baki-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "url": "https://toonstream.us/episode/baki-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "url": "https://toonstream.us/episode/baki-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://toonstream.us/episode/baki-1x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 13",
+                            "url": "https://toonstream.us/episode/baki-1x13/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 14",
+                            "url": "https://toonstream.us/episode/baki-1x14/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 15",
+                            "url": "https://toonstream.us/episode/baki-1x15/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 16",
+                            "url": "https://toonstream.us/episode/baki-1x16/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 17",
+                            "url": "https://toonstream.us/episode/baki-1x17/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 18",
+                            "url": "https://toonstream.us/episode/baki-1x18/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 19",
+                            "url": "https://toonstream.us/episode/baki-1x19/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 20",
+                            "url": "https://toonstream.us/episode/baki-1x20/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 21",
+                            "url": "https://toonstream.us/episode/baki-1x21/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 22",
+                            "url": "https://toonstream.us/episode/baki-1x22/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 23",
+                            "url": "https://toonstream.us/episode/baki-1x23/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 24",
+                            "url": "https://toonstream.us/episode/baki-1x24/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 25",
+                            "url": "https://toonstream.us/episode/baki-1x25/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 26",
+                            "url": "https://toonstream.us/episode/baki-1x26/",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
                             "video_url": ""
                         }
                     ]
@@ -32028,6 +33166,7 @@
             ],
             "episodes": [
                 {
+<<<<<<< HEAD
                     "title": "▶ Watch Now",
                     "url": "https://animixstream.com/watch/390/1",
                     "video_url": ""
@@ -32075,6 +33214,545 @@
                 {
                     "title": "EP 10💬 0",
                     "url": "https://animixstream.com/watch/390/10",
+=======
+                    "title": "Episode 1",
+                    "url": "https://toonstream.us/episode/baki-1x1/",
+                    "video_url": "https://rubystm.com/e/r9b6ok6rswaj.html"
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://toonstream.us/episode/baki-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://toonstream.us/episode/baki-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://toonstream.us/episode/baki-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://toonstream.us/episode/baki-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://toonstream.us/episode/baki-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://toonstream.us/episode/baki-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://toonstream.us/episode/baki-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://toonstream.us/episode/baki-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://toonstream.us/episode/baki-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://toonstream.us/episode/baki-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://toonstream.us/episode/baki-1x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 13",
+                    "url": "https://toonstream.us/episode/baki-1x13/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 14",
+                    "url": "https://toonstream.us/episode/baki-1x14/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 15",
+                    "url": "https://toonstream.us/episode/baki-1x15/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 16",
+                    "url": "https://toonstream.us/episode/baki-1x16/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 17",
+                    "url": "https://toonstream.us/episode/baki-1x17/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 18",
+                    "url": "https://toonstream.us/episode/baki-1x18/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 19",
+                    "url": "https://toonstream.us/episode/baki-1x19/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://toonstream.us/episode/baki-1x20/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 21",
+                    "url": "https://toonstream.us/episode/baki-1x21/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 22",
+                    "url": "https://toonstream.us/episode/baki-1x22/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 23",
+                    "url": "https://toonstream.us/episode/baki-1x23/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 24",
+                    "url": "https://toonstream.us/episode/baki-1x24/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 25",
+                    "url": "https://toonstream.us/episode/baki-1x25/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 26",
+                    "url": "https://toonstream.us/episode/baki-1x26/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "valkyria-chronicles",
+            "title": "Valkyria Chronicles (Senjou no Valkyria)",
+            "url": "https://toonstream.us/series/valkyria-chronicles",
+            "image": "https://image.tmdb.org/t/p/w780/dhhUR4iDsM0ODztgzOOc8KoG0jP.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x1/",
+                            "video_url": "about:blank"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 3",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 13",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x13/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 14",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x14/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 15",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x15/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 16",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x16/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 17",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x17/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 18",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x18/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 19",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x19/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 20",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x20/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 21",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x21/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 22",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x22/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 23",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x23/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 24",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x24/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 25",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x25/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 26",
+                            "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x26/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Episode 1",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x1/",
+                    "video_url": "about:blank"
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 13",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x13/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 14",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x14/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 15",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x15/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 16",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x16/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 17",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x17/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 18",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x18/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 19",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x19/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x20/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 21",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x21/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 22",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x22/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 23",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x23/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 24",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x24/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 25",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x25/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 26",
+                    "url": "https://toonstream.us/episode/valkyria-chronicles-senjou-no-valkyria-1x26/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "shikimoris-not-just-a-cutie",
+            "title": "Shikimori's Not Just a Cutie",
+            "url": "https://toonstream.us/series/shikimoris-not-just-a-cutie",
+            "image": "https://image.tmdb.org/t/p/w780/i6WK5JY3ziYdCARgG2l1ragQ5fI.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x1/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 2",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x2/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 3",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x3/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x12/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Episode 1",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x1/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x2/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x3/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://toonstream.us/episode/shikimoris-not-just-a-cutie-1x12/",
+>>>>>>> 692191573a31a00d462f4585e5650f44ffcac98c
                     "video_url": ""
                 }
             ]
