@@ -45,20 +45,12 @@
             var originalUrl = "{{ current_ep.video_url }}";
             
             if (originalUrl && Hls.isSupported()) {
-                var hls = new Hls({
-                    xhrSetup: function(xhr, url) {
-                        // अगर लिंक पहले से प्रॉक्सी है तो दोबारा मत लगाओ
-                        if (url.includes('allorigins.win')) {
-                            xhr.open('GET', url, true);
-                        } else {
-                            xhr.open('GET', 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url), true);
-                        }
-                    }
-                });
-                hls.loadSource('https://api.allorigins.win/raw?url=' + encodeURIComponent(originalUrl));
+                var hls = new Hls();
+                // 🚀 अपने ही प्रॉक्सी से होकर वीडियो चलाओ
+                hls.loadSource('/proxy?url=' + encodeURIComponent(originalUrl));
                 hls.attachMedia(video);
             } else if (originalUrl && video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(originalUrl);
+                video.src = originalUrl;
             }
         </script>
         {% else %}

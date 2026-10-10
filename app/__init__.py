@@ -1,6 +1,8 @@
-from flask import Flask, render_template, abort, request, redirect, url_for, session
+from flask import Flask, render_template, abort, request, redirect, url_for, session, Response, stream_with_context
 import random
 import re
+import requests
+from urllib.parse import urljoin, quote
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
@@ -21,6 +23,58 @@ def create_app(config_class=Config):
     )
     app.register_blueprint(google_bp, url_prefix="/login")
 
+    # ============================================================
+    # 🚀 CORS PROXY ROUTE (अपनी ही वेबसाइट पर)
+    # ============================================================
+    @app.route('/proxy')
+    def proxy():
+        target_url = request.args.get('url')
+        if not target_url:
+            return "Missing URL", 400
+        
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+                'Referer': 'https://www.desidubanime.me/',
+                'Origin': 'https://www.desidubanime.me'
+            }
+            resp = requests.get(target_url, headers=headers, timeout=30, stream=True)
+            
+            # अगर यह m3u8 फाइल है, तो अंदर के सेगमेंट URLs को भी प्रॉक्सी से गुजारो
+            if '.m3u8' in target_url or 'mpegurl' in resp.headers.get('Content-Type', ''):
+                content = resp.text
+                base_url = target_url.rsplit('/', 1)[0] + '/'
+                
+                lines = content.split('\n')
+                new_lines = []
+                for line in lines:
+                    stripped = line.strip()
+                    if stripped and not stripped.startswith('#'):
+                        # हर सेगमेंट/वेरिएंट URL को प्रॉक्सी के जरिए भेजो
+                        absolute = urljoin(base_url, stripped)
+                        new_lines.append(f"/proxy?url={quote(absolute, safe='')}")
+                    else:
+                        new_lines.append(line)
+                
+                new_content = '\n'.join(new_lines)
+                response = Response(new_content, mimetype='application/vnd.apple.mpegurl')
+                response.headers['Access-Control-Allow-Origin'] = '*'
+                return response
+            else:
+                # .ts या बाकी वीडियो सेगमेंट को सीधे स्ट्रीम करो
+                def generate():
+                    for chunk in resp.iter_content(chunk_size=8192):
+                        yield chunk
+                response = Response(stream_with_context(generate()), mimetype=resp.headers.get('Content-Type', 'video/mp2t'))
+                response.headers['Access-Control-Allow-Origin'] = '*'
+                return response
+        except Exception as e:
+            print(f"❌ Proxy Error: {e}")
+            return f"Proxy error: {e}", 500
+
+    # ============================================================
+    # LOGIN / OAUTH
+    # ============================================================
     @app.route('/login')
     def login():
         if session.get('user_email'):
@@ -57,6 +111,9 @@ def create_app(config_class=Config):
         session.pop('google_oauth_token', None)
         return redirect(url_for('home'))
 
+    # ============================================================
+    # HOME
+    # ============================================================
     @app.route('/')
     def home():
         if not session.get('user_email'):
@@ -145,31 +202,29 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
 
-    # --- WATCH ROUTE (Foolproof Master Fix) ---
+    # ============================================================
+    # WATCH ROUTE
+    # ============================================================
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')
     @app.route('/watch/<anime_id>/<int:season_number>/<string:ep_number>')
     def watch(anime_id, season_number=1, ep_number=None):
         if not session.get('user_email'): return render_template('login.html')
         
-        # 🚀 Regex: URL से सिर्फ असली ID निकालो (episode-7, ep-7, 1x7 सब हटाओ)
         base_id = re.sub(r'[-_ ]?(episode|ep)[-_ ]?\d+$', '', anime_id, flags=re.IGNORECASE)
         base_id = re.sub(r'[-_ ]?\d+x\d+$', '', base_id)
         
-        # अगर एपिसोड नंबर URL में है, तो उसे निकालो
         if ep_number is None:
             ep_match = re.search(r'(?:episode|ep)[-_ ]?(\d+)', anime_id, re.IGNORECASE)
             if ep_match:
                 ep_number = ep_match.group(1)
         elif ep_number and not str(ep_number).isdigit():
-            # अगर ep_number स्ट्रिंग है (जैसे 'Hands'), तो उसे नंबर में बदलो
             num_match = re.search(r'\d+', str(ep_number))
             if num_match:
                 ep_number = num_match.group(0)
             else:
                 ep_number = None
         
-        # 🚀 पहले साफ किए गए ID से ढूंढो, अगर न मिले तो पूरे ID से ढूंढो
         anime = get_anime_by_id(base_id)
         if not anime:
             anime = get_anime_by_id(anime_id)
@@ -215,7 +270,6 @@ def create_app(config_class=Config):
                 next_match = episodes[current_index + 1]['title'].split(' ')[-1]
                 if next_match.isdigit(): next_ep_num = next_match
 
-        # ✅ Description और Genres अपने आप बनाओ
         title_lower = anime['title'].lower()
         if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan', 'hunter', 'hero']):
             genres_text = "Action • Adventure • Fantasy"
