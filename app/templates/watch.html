@@ -44,21 +44,23 @@
             var video = document.getElementById('video-player');
             var originalUrl = "{{ current_ep.video_url }}";
             
+            // 🚀 यहाँ अपना Cloudflare Worker वाला लिंक पेस्ट करो
+            var workerUrl = "https://anime-proxy.manojbarai37652o.workers.dev/"; 
+            
             if (originalUrl && Hls.isSupported()) {
                 var hls = new Hls({
-                    // 🚀 सारे सेगमेंट्स को प्रॉक्सी से गुजारो
                     xhrSetup: function(xhr, url) {
-                        if (url.includes('/proxy?url=')) {
+                        if (url.includes(workerUrl)) {
                             xhr.open('GET', url, true);
                         } else {
-                            xhr.open('GET', '/proxy?url=' + encodeURIComponent(url), true);
+                            xhr.open('GET', workerUrl + '/?url=' + encodeURIComponent(url), true);
                         }
                     }
                 });
-                hls.loadSource('/proxy?url=' + encodeURIComponent(originalUrl));
+                hls.loadSource(workerUrl + '/?url=' + encodeURIComponent(originalUrl));
                 hls.attachMedia(video);
             } else if (originalUrl && video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = originalUrl;
+                video.src = workerUrl + '/?url=' + encodeURIComponent(originalUrl);
             }
         </script>
         {% else %}
