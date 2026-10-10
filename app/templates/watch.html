@@ -45,8 +45,16 @@
             var originalUrl = "{{ current_ep.video_url }}";
             
             if (originalUrl && Hls.isSupported()) {
-                var hls = new Hls();
-                // 🚀 अपने ही प्रॉक्सी से होकर वीडियो चलाओ
+                var hls = new Hls({
+                    // 🚀 हर छोटे सेगमेंट को भी हमारे प्रॉक्सी से गुजारो
+                    xhrSetup: function(xhr, url) {
+                        if (url.includes('/proxy?url=')) {
+                            xhr.open('GET', url, true);
+                        } else {
+                            xhr.open('GET', '/proxy?url=' + encodeURIComponent(url), true);
+                        }
+                    }
+                });
                 hls.loadSource('/proxy?url=' + encodeURIComponent(originalUrl));
                 hls.attachMedia(video);
             } else if (originalUrl && video.canPlayType('application/vnd.apple.mpegurl')) {

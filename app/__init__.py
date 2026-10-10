@@ -24,7 +24,7 @@ def create_app(config_class=Config):
     app.register_blueprint(google_bp, url_prefix="/login")
 
     # ============================================================
-    # 🚀 CORS PROXY ROUTE (अपनी ही वेबसाइट पर)
+    # 🚀 CORS PROXY ROUTE (सारे वीडियो सेगमेंट्स के लिए)
     # ============================================================
     @app.route('/proxy')
     def proxy():
@@ -40,7 +40,6 @@ def create_app(config_class=Config):
             }
             resp = requests.get(target_url, headers=headers, timeout=30, stream=True)
             
-            # अगर यह m3u8 फाइल है, तो अंदर के सेगमेंट URLs को भी प्रॉक्सी से गुजारो
             if '.m3u8' in target_url or 'mpegurl' in resp.headers.get('Content-Type', ''):
                 content = resp.text
                 base_url = target_url.rsplit('/', 1)[0] + '/'
@@ -50,7 +49,6 @@ def create_app(config_class=Config):
                 for line in lines:
                     stripped = line.strip()
                     if stripped and not stripped.startswith('#'):
-                        # हर सेगमेंट/वेरिएंट URL को प्रॉक्सी के जरिए भेजो
                         absolute = urljoin(base_url, stripped)
                         new_lines.append(f"/proxy?url={quote(absolute, safe='')}")
                     else:
@@ -61,7 +59,6 @@ def create_app(config_class=Config):
                 response.headers['Access-Control-Allow-Origin'] = '*'
                 return response
             else:
-                # .ts या बाकी वीडियो सेगमेंट को सीधे स्ट्रीम करो
                 def generate():
                     for chunk in resp.iter_content(chunk_size=8192):
                         yield chunk
@@ -123,58 +120,37 @@ def create_app(config_class=Config):
         trending = random.sample(all_anime, min(15, len(all_anime))) if len(all_anime) > 15 else all_anime
         popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)[:15]
         
-        action_keywords = ['demon slayer', 'jujutsu kaisen', 'one punch man', 'attack on titan', 
-                          'solo leveling', 'naruto', 'one piece', 'black clover', 'my hero academia',
-                          'hunter x hunter', 'bleach', 'dragon ball', 'chainsaw man', 'tokyo revengers',
-                          'kaiju no. 8', 'dan da dan', 'vinland saga', 'mob psycho']
+        action_keywords = ['demon slayer', 'jujutsu kaisen', 'one punch man', 'attack on titan', 'solo leveling', 'naruto', 'one piece', 'black clover', 'my hero academia', 'hunter x hunter', 'bleach', 'dragon ball', 'chainsaw man', 'tokyo revengers', 'kaiju no. 8', 'dan da dan', 'vinland saga', 'mob psycho']
         action = [a for a in all_anime if any(k in a['title'].lower() for k in action_keywords)][:15]
         
-        comedy_keywords = ['spy x family', 'grand blue', 'kaguya', 'komi', 'nichijou', 
-                          'gintama', 'konosuba', 'daily life', 'horimiya', 'fruits basket',
-                          'science fell in love', 'my dress-up darling', 'toradora', 'love is war', 'tomo-chan']
+        comedy_keywords = ['spy x family', 'grand blue', 'kaguya', 'komi', 'nichijou', 'gintama', 'konosuba', 'daily life', 'horimiya', 'fruits basket', 'science fell in love', 'my dress-up darling', 'toradora', 'love is war', 'tomo-chan']
         comedy = [a for a in all_anime if any(k in a['title'].lower() for k in comedy_keywords)][:15]
         
-        fantasy_keywords = ['reincarnated', 'isekai', 'mushoku tensei', 'that time i got',
-                           'overlord', 'slime', 're:zero', 'sword art online', 'fate',
-                           'immortal king', 'daily life of the immortal', 'frontier lord',
-                           'wistoria', 'frieren', 'dungeon', 'black torch', 'holy grail']
+        fantasy_keywords = ['reincarnated', 'isekai', 'mushoku tensei', 'that time i got', 'overlord', 'slime', 're:zero', 'sword art online', 'fate', 'immortal king', 'daily life of the immortal', 'frontier lord', 'wistoria', 'frieren', 'dungeon', 'black torch', 'holy grail']
         fantasy = [a for a in all_anime if any(k in a['title'].lower() for k in fantasy_keywords)][:15]
         
-        romance_keywords = ['horimiya', 'kaguya', 'toradora', 'love is war', 'rent-a-girlfriend',
-                           'my dress-up darling', 'fruits basket', 'your name', 'weathering with you',
-                           'a silent voice', 'i want to eat your pancreas', 'garden of words',
-                           'tomo-chan', 'uzaki', 'quintessential', 'science fell in love',
-                           'a couple of cuckoos', 'kanojo', 'lovely complex']
+        romance_keywords = ['horimiya', 'kaguya', 'toradora', 'love is war', 'rent-a-girlfriend', 'my dress-up darling', 'fruits basket', 'your name', 'weathering with you', 'a silent voice', 'i want to eat your pancreas', 'garden of words', 'tomo-chan', 'uzaki', 'quintessential', 'science fell in love', 'a couple of cuckoos', 'kanojo', 'lovely complex']
         romance = [a for a in all_anime if any(k in a['title'].lower() for k in romance_keywords)][:15]
         
         hero_anime_list = get_hero_anime_list(5)
         
-        return render_template('index.html', 
-                               anime_list=all_anime, 
-                               hero_anime_list=hero_anime_list,
-                               trending=trending,
-                               popular=popular,
-                               action=action,
-                               comedy=comedy,
-                               fantasy=fantasy,
-                               romance=romance)
+        return render_template('index.html', anime_list=all_anime, hero_anime_list=hero_anime_list,
+                               trending=trending, popular=popular, action=action, comedy=comedy,
+                               fantasy=fantasy, romance=romance)
 
     @app.route('/profile')
     def profile():
-        if not session.get('user_email'):
-            return render_template('login.html')
+        if not session.get('user_email'): return render_template('login.html')
         return render_template('profile.html')
 
     @app.route('/settings')
     def settings():
-        if not session.get('user_email'):
-            return render_template('login.html')
+        if not session.get('user_email'): return render_template('login.html')
         return render_template('settings.html')
 
     @app.route('/language')
     def language():
-        if not session.get('user_email'):
-            return render_template('login.html')
+        if not session.get('user_email'): return render_template('login.html')
         return render_template('language.html')
 
     @app.route('/search')
@@ -220,15 +196,9 @@ def create_app(config_class=Config):
                 ep_number = ep_match.group(1)
         elif ep_number and not str(ep_number).isdigit():
             num_match = re.search(r'\d+', str(ep_number))
-            if num_match:
-                ep_number = num_match.group(0)
-            else:
-                ep_number = None
+            ep_number = num_match.group(0) if num_match else None
         
-        anime = get_anime_by_id(base_id)
-        if not anime:
-            anime = get_anime_by_id(anime_id)
-            
+        anime = get_anime_by_id(base_id) or get_anime_by_id(anime_id)
         if not anime: 
             print(f"❌ 404 ERROR: Anime not found. Tried ID: '{base_id}' and '{anime_id}'")
             abort(404)
@@ -250,7 +220,6 @@ def create_app(config_class=Config):
         if episodes:
             if ep_number is None:
                 current_ep = episodes[0]
-                current_index = 0
             else:
                 for i, ep in enumerate(episodes):
                     if f"Episode {ep_number}" in ep.get('title', ''):
@@ -259,7 +228,6 @@ def create_app(config_class=Config):
                         break
                 if not current_ep:
                     current_ep = episodes[0]
-                    current_index = 0
 
         prev_ep_num, next_ep_num = None, None
         if episodes:
@@ -273,19 +241,19 @@ def create_app(config_class=Config):
         title_lower = anime['title'].lower()
         if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan', 'hunter', 'hero']):
             genres_text = "Action • Adventure • Fantasy"
-            description = f"Dive into the epic world of {anime['title']}! Follow the thrilling journey of powerful characters as they battle legendary foes and uncover ancient mysteries in this action-packed anime."
+            description = f"Dive into the epic world of {anime['title']}! Follow the thrilling journey of powerful characters."
         elif any(k in title_lower for k in ['love', 'romance', 'couple', 'girlfriend', 'kaguya']):
             genres_text = "Romance • Comedy • Drama"
-            description = f"Experience the heartwarming tale of {anime['title']}. A beautiful story of love, friendship, and all the emotions in between that will touch your heart."
+            description = f"Experience the heartwarming tale of {anime['title']}. A beautiful story of love and friendship."
         elif any(k in title_lower for k in ['reincarnated', 'isekai', 'magic', 'dungeon', 'king']):
             genres_text = "Fantasy • Isekai • Adventure"
-            description = f"Step into the magical world of {anime['title']}! A thrilling fantasy adventure filled with magic, mystery, and unforgettable characters on an epic quest."
+            description = f"Step into the magical world of {anime['title']}! A thrilling fantasy adventure awaits."
         elif any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy']):
             genres_text = "Comedy • Slice of Life • Drama"
-            description = f"Get ready for laughs and heartwarming moments with {anime['title']}! A delightful story filled with comedy, friendship, and everyday adventures."
+            description = f"Get ready for laughs and heartwarming moments with {anime['title']}!"
         else:
             genres_text = "Action • Adventure • Drama"
-            description = f"Watch the amazing story of {anime['title']}. An unforgettable journey filled with action, emotion, and incredible characters!"
+            description = f"Watch the amazing story of {anime['title']}. An unforgettable journey awaits."
 
         related_anime = get_random_anime(base_id, count=6)
         
