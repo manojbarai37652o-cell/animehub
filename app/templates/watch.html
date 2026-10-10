@@ -37,7 +37,8 @@
 
     <!-- EPISODES TAB -->
     <div id="tab-episodes" class="tab-content active">
-        {% if current_ep and current_ep.video_url %}
+        {# 🎯 सुरक्षा कवच: चेक करो कि वीडियो लिंक मौजूद है और सही है #}
+        {% if current_ep and current_ep.video_url and current_ep.video_url.startswith('http') %}
         <div class="video-player-crunchy">
             <video id="video-player" controls playsinline style="width: 100%; height: 100%; background: #000;"></video>
         </div>
@@ -45,18 +46,20 @@
         <script>
             var video = document.getElementById('video-player');
             var videoUrl = "{{ current_ep.video_url }}";
-            if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource(videoUrl);
-                hls.attachMedia(video);
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = videoUrl;
+            if (videoUrl) {
+                if (Hls.isSupported()) {
+                    var hls = new Hls();
+                    hls.loadSource(videoUrl);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = videoUrl;
+                }
             }
         </script>
         {% else %}
-        <div class="no-video-msg-crunchy">
-            <h3><i class="fas fa-video-slash"></i> Video Not Available</h3>
-            <p>Video link is not available for this episode.</p>
+        <div class="no-video-msg-crunchy" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0f0f13; border: 1px solid #333; height: 300px; border-radius: 10px; margin-bottom: 20px;">
+            <h3 style="color: #fff; margin-bottom: 10px;"><i class="fas fa-video-slash" style="color: #8a2be2;"></i> Video Not Available</h3>
+            <p style="color: #aaa; text-align: center; padding: 0 20px;">Video link is not available for this episode right now. Please check back later.</p>
         </div>
         {% endif %}
 

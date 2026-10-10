@@ -209,6 +209,9 @@ def create_app(config_class=Config):
 
         related_anime = get_random_anime(anime_id, count=6)
 
+        # ✅ सुरक्षा कवच: अगर current_ep None है, तो उसे खाली डिक्शनरी बना दो
+        current_ep = current_ep or {}
+
         return render_template('watch.html', 
                                anime=anime, 
                                seasons=seasons, 
