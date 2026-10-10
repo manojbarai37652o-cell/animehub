@@ -2,78 +2,74 @@ import re
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
-def parse_toonstream_homepage(html, base_url="https://toonstream.us"):
-    """ToonStream के होमपेज से एनीमे निकालता है"""
+def parse_animixstream_homepage(html, base_url="https://animixstream.com"):
+    """AnimixStream के होमपेज से एनीमे निकालता है"""
     if not html:
         return []
         
     soup = BeautifulSoup(html, 'html.parser')
     anime_list = []
     
-    cards = soup.find_all('article', class_=lambda x: x and 'post' in x and ('movies' in x or 'series' in x))
+    # AnimixStream के कार्ड्स ढूंढो (<a class="card">)
+    cards = soup.find_all('a', class_='card')
     
     for card in cards:
         try:
-            link_tag = card.find('a', class_='lnk-blk')
-            if not link_tag: continue
-            url = link_tag.get('href')
+            url = card.get('href')
             if not url: continue
-                
-            title_tag = card.find('h2') or card.find('h3')
-            title = title_tag.text.strip() if title_tag else "Unknown Title"
             
-            img_tag = card.find('img')
-            image = img_tag.get('src') if img_tag else ""
+            # नाम निकालो (card-body के अंदर)
+            title_tag = card.find('div', class_='card-body')
+            if title_tag:
+                name_tag = title_tag.find('h3') or title_tag.find('h4') or title_tag
+                title = name_tag.text.strip()
+            else:
+                title = "Unknown Title"
+            
+            # इमेज निकालो (imgwrap के अंदर)
+            img_tag = card.find('div', class_='imgwrap')
+            image = ""
+            if img_tag:
+                img = img_tag.find('img')
+                if img:
+                    image = img.get('src', '')
             
             anime_id = url.strip('/').split('/')[-1]
             
-            anime_list.append({
-                'id': anime_id,
-                'title': title,
-                'url': base_url + url if url.startswith('/') else url,
-                'image': image
-            })
+            if anime_id.isdigit():
+                anime_list.append({
+                    'id': anime_id,
+                    'title': title,
+                    'url': base_url + url if url.startswith('/') else url,
+                    'image': image
+                })
         except Exception as e:
             continue
             
     return anime_list
 
 
-def parse_toonstream_episodes(html, base_url="https://toonstream.us"):
-    """ToonStream के एनीमे पेज से एपिसोड निकालता है"""
+def parse_animixstream_episodes(html, base_url="https://animixstream.com"):
+    """AnimixStream के एनीमे पेज से एपिसोड निकालता है"""
     if not html:
         return []
         
     soup = BeautifulSoup(html, 'html.parser')
     episodes = []
     
-    episode_list = soup.find('ul', id='episode_by_temp')
-    if not episode_list:
-        return episodes
-        
-    for li in episode_list.find_all('li'):
-        try:
-            link_tag = li.find('a', class_='lnk-blk')
-            if link_tag and link_tag.get('href'):
-                url = link_tag['href']
-                if url.startswith('/'):
-                    url = base_url + url
-                
-                # URL से सीजन और एपिसोड नंबर निकालो (जैसे -1x1)
-                ep_match = re.search(r'-(\d+)x(\d+)', url)
-                if ep_match:
-                    ep_num = ep_match.group(2) # सिर्फ एपिसोड नंबर
-                    title = f"Episode {ep_num}"
-                else:
-                    title_tag = li.find('h3') or li.find('h2') or link_tag
-                    title = title_tag.text.strip() if title_tag.text.strip() else url.strip('/').split('/')[-1]
-                
+    # AnimixStream में एपिसोड की लिस्ट 'ep-list' या 'episodes' क्लास में हो सकती है
+    # पहले सारे <a> टैग ढूंढो जिनमें 'ep' या 'episode' लिखा हो
+    for link in soup.find_all('a', href=True):
+        href = link.get('href', '')
+        if '/ep/' in href or 'episode' in href.lower() or 'watch' in href.lower():
+            url = base_url + href if href.startswith('/') else href
+            title = link.text.strip() or href.strip('/').split('/')[-1]
+            
+            if url not in [e['url'] for e in episodes]:
                 episodes.append({
                     'title': title,
                     'url': url,
-                    'video_url': '' # इसे स्क्रैपर भरेगा
+                    'video_url': ''
                 })
-        except Exception as e:
-            continue
-            
+    
     return episodes
