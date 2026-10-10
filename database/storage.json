@@ -25888,6 +25888,61 @@
                     "video_url": ""
                 }
             ]
+        },
+        {
+            "id": "400",
+            "title": "Tamon's B-Side",
+            "url": "https://animixstream.com/anime/400",
+            "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178005-pCEReATswrup.jpg",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "▶ Watch Now",
+                            "url": "https://animixstream.com/watch/400/1",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "EP 2💬 0",
+                            "url": "https://animixstream.com/watch/400/2",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "EP 3💬 0",
+                            "url": "https://animixstream.com/watch/400/3",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "EP 4💬 0",
+                            "url": "https://animixstream.com/watch/400/4",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "▶ Watch Now",
+                    "url": "https://animixstream.com/watch/400/1",
+                    "video_url": ""
+                },
+                {
+                    "title": "EP 2💬 0",
+                    "url": "https://animixstream.com/watch/400/2",
+                    "video_url": ""
+                },
+                {
+                    "title": "EP 3💬 0",
+                    "url": "https://animixstream.com/watch/400/3",
+                    "video_url": ""
+                },
+                {
+                    "title": "EP 4💬 0",
+                    "url": "https://animixstream.com/watch/400/4",
+                    "video_url": ""
+                }
+            ]
         }
     ]
 }
