@@ -133,7 +133,7 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
 
-    # --- WATCH ROUTE (Master Fix) ---
+    # --- WATCH ROUTE (Master Fix for Both Old and New Data) ---
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')
     @app.route('/watch/<anime_id>/<int:season_number>/<int:ep_number>')
@@ -143,14 +143,14 @@ def create_app(config_class=Config):
         anime = get_anime_by_id(anime_id)
         if not anime: abort(404)
 
-        # 1. Seasons Data Handling (ToonStream Data Structure)
+        # 1. Seasons Data Handling (Fallbacks for both old and new data structures)
         seasons = anime.get('seasons', [])
         if not seasons:
             episodes_fallback = anime.get('episodes', [])
             if episodes_fallback:
                 seasons = [{"season_number": 1, "episodes": episodes_fallback}]
             else:
-                seasons = []
+                seasons = [{"season_number": 1, "episodes": []}]
 
         current_season = next((s for s in seasons if s.get('season_number') == season_number), None)
         if not current_season and seasons:
@@ -189,7 +189,7 @@ def create_app(config_class=Config):
                 next_match = str(episodes[current_index + 1].get('title', '')).split(' ')[-1]
                 if next_match.isdigit(): next_ep_num = int(next_match)
 
-        # 5. Safe Genres and Description Generation
+        # 5. Safe Genres and Description Generation (English)
         title_lower = anime.get('title', '').lower()
         if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'hunter', 'titan']):
             genres_text = "Action • Adventure • Fantasy"
@@ -208,9 +208,6 @@ def create_app(config_class=Config):
             description = f"Watch the amazing story of {anime.get('title', 'Unknown')}. An unforgettable journey awaits."
 
         related_anime = get_random_anime(anime_id, count=6)
-
-        # ✅ सुरक्षा कवच: अगर current_ep None है, तो उसे खाली डिक्शनरी बना दो
-        current_ep = current_ep or {}
 
         return render_template('watch.html', 
                                anime=anime, 
