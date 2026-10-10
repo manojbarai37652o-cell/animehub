@@ -4725,6 +4725,7 @@ function clearSearch() {
 }
 </script>
 {% endblock %}
+/* ✅ VIDEO PLAYER CSS (For HLS.js) */
 .video-player-crunchy {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -4734,10 +4735,30 @@ function clearSearch() {
     margin-bottom: 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
+
 .video-player-crunchy video {
     width: 100%;
     height: 100%;
     display: block;
+    object-fit: cover;
 }
-.no-video-msg-crunchy h3 { color: #ff4d4d; font-size: 22px; margin-bottom: 10px; }
-.no-video-msg-crunchy p { color: #888; font-size: 14px; }
+
+.no-video-msg-crunchy {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+}
+
+.no-video-msg-crunchy h3 {
+    color: #ff4d4d;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.no-video-msg-crunchy p {
+    color: #888;
+    font-size: 14px;
+}
