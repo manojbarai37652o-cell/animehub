@@ -48,17 +48,17 @@
                 var hls = new Hls({
                     xhrSetup: function(xhr, url) {
                         // अगर लिंक पहले से प्रॉक्सी है तो दोबारा मत लगाओ
-                        if (url.includes('corsproxy.io')) {
+                        if (url.includes('allorigins.win')) {
                             xhr.open('GET', url, true);
                         } else {
-                            xhr.open('GET', 'https://corsproxy.io/?' + encodeURIComponent(url), true);
+                            xhr.open('GET', 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url), true);
                         }
                     }
                 });
-                hls.loadSource('https://corsproxy.io/?' + encodeURIComponent(originalUrl));
+                hls.loadSource('https://api.allorigins.win/raw?url=' + encodeURIComponent(originalUrl));
                 hls.attachMedia(video);
             } else if (originalUrl && video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = originalUrl;
+                video.src = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(originalUrl);
             }
         </script>
         {% else %}
