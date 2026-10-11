@@ -5181,28 +5181,35 @@ jobs:
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-scraped new anime"
           git pull --no-rebase -X ours
           git push
-          /* =========================================
-   ULTIMATE FIX: AnimeCard Horizontal Scroll
+/* =========================================
+   ULTIMATE NUCLEAR FIX: Horizontal Scroll Grid
    ========================================= */
 
-/* 1. रो (Row) को जबरदस्ती हॉरिजॉन्टल स्क्रॉल बनाओ */
-.anime-row, .horizontal-scroll, #history-row {
-    display: flex !important;
-    flex-wrap: nowrap !important; /* एक लाइन में रखेगा, नीचे नहीं गिरेगा */
-    overflow-x: auto !important;  /* बगल में स्क्रॉल होगा */
+/* 1. app-section को साफ रखो */
+.app-section {
+    margin-bottom: 30px !important;
+    width: 100% !important;
+    overflow: hidden !important; /* पेज को बगल में स्क्रॉल होने से रोकेगा */
+}
+
+/* 2. रो (Row) को जबरदस्ती CSS Grid से हॉरिजॉन्टल बनाओ */
+.anime-row, .horizontal-scroll {
+    display: grid !important;
+    grid-auto-flow: column !important; /* बगल में रखेगा */
+    grid-auto-columns: 130px !important; /* हर कार्ड की फिक्स चौड़ाई */
+    overflow-x: auto !important; 
     overflow-y: hidden !important;
     gap: 12px !important;
     padding-bottom: 15px !important;
-    scrollbar-width: none; /* स्क्रॉलबार छिपाने के लिए */
+    scrollbar-width: none; 
     -ms-overflow-style: none;
 }
-.anime-row::-webkit-scrollbar, .horizontal-scroll::-webkit-scrollbar, #history-row::-webkit-scrollbar {
+.anime-row::-webkit-scrollbar, .horizontal-scroll::-webkit-scrollbar {
     display: none;
 }
 
-/* 2. कार्ड को छोटा और फिक्स साइज़ करो */
-.anime-card, .anime-row-card, .trending-card, .history-card {
-    flex: 0 0 130px !important; /* कार्ड की चौड़ाई तय कर दी */
+/* 3. कार्ड को छोटा और फिक्स करो */
+.anime-card, .anime-row-card, .trending-card {
     width: 130px !important;
     max-width: 130px !important;
     display: flex !important;
@@ -5211,7 +5218,6 @@ jobs:
     border-radius: 10px !important;
     overflow: hidden !important;
     text-decoration: none !important;
-    color: #ffffff !important;
     position: relative !important;
     transition: transform 0.3s ease;
 }
@@ -5220,10 +5226,10 @@ jobs:
     transform: translateY(-5px);
 }
 
-/* 3. इमेज को परफेक्ट साइज़ करो (न खिंचे, न बड़ी हो) */
-.anime-card img, .anime-row-card img, .trending-card img, .history-thumb img {
+/* 4. इमेज को परफेक्ट साइज़ करो (न खिंचे, न बड़ी हो) */
+.anime-card img, .anime-row-card img, .trending-card img {
     width: 100% !important;
-    height: 170px !important;
+    height: 170px !important; 
     min-height: 170px !important;
     max-height: 170px !important;
     object-fit: cover !important; /* इमेज को क्रॉप करेगा, खींचेगा नहीं */
@@ -5231,7 +5237,7 @@ jobs:
     border-bottom: 2px solid #a371f7 !important;
 }
 
-/* 4. टेक्स्ट को कार्ड के अंदर फिट करो */
+/* 5. टेक्स्ट को कार्ड के अंदर फिट करो */
 .anime-title {
     font-size: 0.8rem !important;
     font-weight: 600 !important;
@@ -5240,6 +5246,7 @@ jobs:
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     color: #ffffff !important;
+    display: block !important;
 }
 
 .anime-meta {
@@ -5247,15 +5254,15 @@ jobs:
     justify-content: space-between !important;
     font-size: 0.7rem !important;
     color: #8b949e !important;
-    margin: 0 8px 10px 8px !important;
-    margin-top: auto !important;
+    margin: auto 8px 10px 8px !important; /* Push to bottom */
+    padding: 0 !important;
 }
 
 .rating {
     color: #f1c40f !important;
 }
 
-/* 5. रैंक नंबर को सही जगह रखो */
+/* 6. रैंक नंबर को सही जगह रखो */
 .rank-number {
     position: absolute !important;
     top: 0 !important;
@@ -5271,8 +5278,8 @@ jobs:
 
 /* Continue Watching कार्ड्स के लिए अलग साइज़ */
 .history-card {
-    flex: 0 0 150px !important;
     width: 150px !important;
+    max-width: 150px !important;
 }
 .history-thumb {
     height: 85px !important;
