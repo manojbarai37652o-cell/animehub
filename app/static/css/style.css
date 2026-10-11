@@ -5181,3 +5181,125 @@ jobs:
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-scraped new anime"
           git pull --no-rebase -X ours
           git push
+          /* =========================================
+   AnimeNest UI Theme Styles (Add to Bottom)
+   ========================================= */
+
+/* हॉरिजॉन्टल स्क्रॉलिंग रो (Side Scroll) */
+.anime-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+.anime-row::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* एनीमे कार्ड */
+.anime-card {
+    position: relative;
+    flex: 0 0 140px;
+    background-color: #161b22;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anime-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(163, 113, 247, 0.2);
+}
+
+.anime-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #a371f7;
+}
+
+/* रैंक नंबर (1, 2, 3...) */
+.rank-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 2px 10px 5px 10px;
+    border-bottom-right-radius: 12px;
+    border-top-left-radius: 12px;
+    z-index: 10;
+}
+
+.anime-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 8px 8px 4px 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.anime-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #8b949e;
+    margin: 0 8px 10px 8px;
+}
+
+.rating {
+    color: #f1c40f; /* स्टार का रंग */
+}
+
+/* जॉनर ग्रिड */
+.genre-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.genre-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.genre-card:hover {
+    opacity: 0.8;
+}
+
+/* जॉनर के रंग (Gradients) */
+.genre-card.action { background: linear-gradient(135deg, #ff4b2b, #ff416c); }
+.genre-card.adventure { background: linear-gradient(135deg, #1cb5e0, #000046); }
+.genre-card.comedy { background: linear-gradient(135deg, #f7971e, #ffd200); color: #000; }
+.genre-card.fantasy { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+.genre-card.romance { background: linear-gradient(135deg, #ff758c, #ff7eb3); }
+.genre-card.horror { background: linear-gradient(135deg, #870000, #190a05); }
+
+/* मोबाइल रिस्पॉन्सिव */
+@media (max-width: 768px) {
+    .genre-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .anime-card {
+        flex: 0 0 120px;
+    }
+    .anime-card img {
+        height: 170px;
+    }
+}
