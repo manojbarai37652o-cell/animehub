@@ -7,7 +7,6 @@ from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_top_anime, get_hero_anime_list)
 from flask_dance.contrib.google import make_google_blueprint, google
 
-
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
@@ -68,33 +67,35 @@ def create_app(config_class=Config):
         
         action_keywords = ['demon slayer', 'jujutsu kaisen', 'one punch man', 'attack on titan', 
                           'solo leveling', 'naruto', 'one piece', 'black clover', 'my hero academia',
-                          'hunter x hunter', 'bleach', 'dragon ball', 'chainsaw man', 'tokyo revengers']
+                          'hunter x hunter', 'bleach', 'dragon ball', 'chainsaw man', 'tokyo revengers',
+                          'kaiju no. 8', 'dan da dan', 'vinland saga', 'mob psycho']
         action = [a for a in all_anime if any(k in a['title'].lower() for k in action_keywords)][:15]
         
         comedy_keywords = ['spy x family', 'grand blue', 'kaguya', 'komi', 'nichijou', 
-                          'gintama', 'konosuba', 'daily life', 'horimiya', 'fruits basket']
+                          'gintama', 'konosuba', 'daily life', 'horimiya', 'fruits basket',
+                          'science fell in love', 'my dress-up darling', 'toradora', 'love is war', 'tomo-chan']
         comedy = [a for a in all_anime if any(k in a['title'].lower() for k in comedy_keywords)][:15]
         
         fantasy_keywords = ['reincarnated', 'isekai', 'mushoku tensei', 'that time i got',
                            'overlord', 'slime', 're:zero', 'sword art online', 'fate',
-                           'immortal king', 'frontier lord', 'wistoria', 'frieren', 'dungeon']
+                           'immortal king', 'daily life of the immortal', 'frontier lord',
+                           'wistoria', 'frieren', 'dungeon', 'black torch', 'holy grail']
         fantasy = [a for a in all_anime if any(k in a['title'].lower() for k in fantasy_keywords)][:15]
         
         romance_keywords = ['horimiya', 'kaguya', 'toradora', 'love is war', 'rent-a-girlfriend',
-                           'my dress-up darling', 'fruits basket', 'tomo-chan', 'uzaki', 'quintessential']
+                           'my dress-up darling', 'fruits basket', 'your name', 'weathering with you',
+                           'a silent voice', 'i want to eat your pancreas', 'garden of words',
+                           'tomo-chan', 'uzaki', 'quintessential', 'science fell in love',
+                           'a couple of cuckoos', 'kanojo', 'lovely complex']
         romance = [a for a in all_anime if any(k in a['title'].lower() for k in romance_keywords)][:15]
         
         hero_anime_list = get_hero_anime_list(5)
         
-        return render_template('index.html',     
-                               anime_list=all_anime,
+        return render_template('index.html', 
+                               anime_list=all_anime, 
                                hero_anime_list=hero_anime_list,
                                trending=trending,
                                popular=popular,
-                               top_rated=trending,  # टेस्टिंग के लिए
-                               ongoing=trending,    # टेस्टिंग के लिए
-                               latest=trending,     # टेस्टिंग के लिए
-                               movies=trending,     # टेस्टिंग के लिए
                                action=action,
                                comedy=comedy,
                                fantasy=fantasy,
@@ -188,17 +189,20 @@ def create_app(config_class=Config):
                 next_match = episodes[current_index + 1]['title'].split(' ')[-1]
                 if next_match.isdigit(): next_ep_num = next_match
 
-        # Description + genres
+        # ✅ Description और Genres अपने आप बनाओ
         title_lower = anime['title'].lower()
         if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan', 'hunter', 'hero']):
             genres_text = "Action • Adventure • Fantasy"
-            description = f"Dive into the epic world of {anime['title']}! Follow the thrilling journey of powerful characters as they battle legendary foes and uncover ancient mysteries."
+            description = f"Dive into the epic world of {anime['title']}! Follow the thrilling journey of powerful characters as they battle legendary foes and uncover ancient mysteries in this action-packed anime."
         elif any(k in title_lower for k in ['love', 'romance', 'couple', 'girlfriend', 'kaguya']):
             genres_text = "Romance • Comedy • Drama"
-            description = f"Experience the heartwarming tale of {anime['title']}. A beautiful story of love, friendship, and all the emotions in between."
+            description = f"Experience the heartwarming tale of {anime['title']}. A beautiful story of love, friendship, and all the emotions in between that will touch your heart."
         elif any(k in title_lower for k in ['reincarnated', 'isekai', 'magic', 'dungeon', 'king']):
             genres_text = "Fantasy • Isekai • Adventure"
-            description = f"Step into the magical world of {anime['title']}! A thrilling fantasy adventure filled with magic, mystery, and unforgettable characters."
+            description = f"Step into the magical world of {anime['title']}! A thrilling fantasy adventure filled with magic, mystery, and unforgettable characters on an epic quest."
+        elif any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy']):
+            genres_text = "Comedy • Slice of Life • Drama"
+            description = f"Get ready for laughs and heartwarming moments with {anime['title']}! A delightful story filled with comedy, friendship, and everyday adventures."
         else:
             genres_text = "Action • Adventure • Drama"
             description = f"Watch the amazing story of {anime['title']}. An unforgettable journey filled with action, emotion, and incredible characters!"

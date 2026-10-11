@@ -3,6 +3,7 @@
 {% block content %}
 <div class="watch-page">
 
+    <!-- ✅ HERO BANNER (Crunchyroll Style) -->
     <div class="hero-detail">
         <div class="hero-detail-bg" style="background-image: url('{{ anime.image }}');"></div>
         <div class="hero-detail-overlay"></div>
@@ -27,22 +28,24 @@
         </div>
     </div>
 
+    <!-- ✅ TABS -->
     <div class="watch-tabs">
         <button class="watch-tab active" onclick="switchTab('episodes', this)">Episodes</button>
         <button class="watch-tab" onclick="switchTab('details', this)">Details</button>
         <button class="watch-tab" onclick="switchTab('similar', this)">Similar</button>
     </div>
 
+    <!-- ✅ EPISODES TAB -->
     <div id="tab-episodes" class="tab-content active">
         
-        {% if current_ep and current_ep.video_url and current_ep.video_url|length > 10 %}
+        {% if current_ep and current_ep.video_url %}
         <div class="video-player-crunchy">
-            <iframe src="{{ current_ep.video_url }}" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+            <iframe src="{{ current_ep.video_url }}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
         </div>
         {% else %}
-        <div class="no-video-msg-crunchy" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0f0f13; border: 1px solid #333; height: 300px; border-radius: 10px; margin-bottom: 20px;">
-            <h3 style="color: #fff; margin-bottom: 10px;"><i class="fas fa-video-slash" style="color: #8a2be2;"></i> Video Not Available</h3>
-            <p style="color: #aaa; text-align: center; padding: 0 20px;">Video link is not available right now.</p>
+        <div class="no-video-msg-crunchy">
+            <h3><i class="fas fa-video-slash"></i> Video Not Available</h3>
+            <p>इस एपिसोड का वीडियो सोर्स अभी ब्लॉक है या उपलब्ध नहीं है।</p>
         </div>
         {% endif %}
 
@@ -127,6 +130,7 @@
         </div>
     </div>
 
+    <!-- ✅ DETAILS TAB -->
     <div id="tab-details" class="tab-content">
         <div class="details-box">
             <h3>About {{ anime.title }}</h3>
@@ -155,6 +159,7 @@
         </div>
     </div>
 
+    <!-- ✅ SIMILAR TAB -->
     <div id="tab-similar" class="tab-content">
         {% if related_anime %}
         <div class="similar-grid">
