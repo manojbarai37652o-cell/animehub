@@ -2,6 +2,14 @@ import re
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
+def clean_blogger_image_url(url):
+    """Blogger की छोटी इमेज को HD (1600px) बनाता है"""
+    if not url:
+        return ""
+    # /s72-c/, /w72-h72-p-k-no-nu/ जैसे पैटर्न को /s1600/ से बदलो
+    cleaned = re.sub(r'/(s\d+(-c)?|w\d+-h\d+[^/]*)/', '/s1600/', url)
+    return cleaned
+
 def parse_animostream_homepage(html, base_url="https://www.animostream.xyz"):
     """animostream.xyz के होमपेज से एनीमे निकालता है"""
     if not html:
@@ -41,6 +49,9 @@ def parse_animostream_homepage(html, base_url="https://www.animostream.xyz"):
                     if match:
                         image = match.group(1)
             
+            # 🚀 इमेज को HD बनाओ
+            image = clean_blogger_image_url(image)
+            
             anime_id = url.strip('/').split('/')[-1].replace('.html', '')
             
             anime_list.append({
@@ -63,7 +74,7 @@ def parse_animostream_episodes(html, base_url="https://www.animostream.xyz"):
     soup = BeautifulSoup(html, 'html.parser')
     episodes = []
     
-    # 🚀 स्क्रीनशॉट के मुताबिक एपिसोड 'episodeList' के अंदर 'ep' क्लास में हैं
+    # 🚀 एपिसोड 'episodeList' के अंदर 'ep' क्लास में हैं
     ep_list = soup.find('div', id='episodeList')
     if not ep_list:
         return episodes
@@ -73,7 +84,7 @@ def parse_animostream_episodes(html, base_url="https://www.animostream.xyz"):
         if num:
             episodes.append({
                 'title': f"Episode {num}",
-                'ep_num': num  # हम सिर्फ एपिसोड नंबर सेव करेंगे
+                'ep_num': num
             })
     
     return episodes
