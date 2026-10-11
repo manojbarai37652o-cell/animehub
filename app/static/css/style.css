@@ -1403,3 +1403,448 @@ body {
     .similar-card img { height: 140px; }
     .similar-card h4 { font-size: 11px; padding: 6px 3px; }
 }
+/* =========================================
+   PROFILE & SETTINGS PAGE STYLES
+   ========================================= */
+
+.profile-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+/* 1. Profile Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.profile-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #a371f7;
+    box-shadow: 0 0 15px rgba(163, 113, 247, 0.5);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #ffffff;
+}
+
+.profile-info p {
+    font-size: 0.8rem;
+    color: #8b949e;
+}
+
+.edit-profile-btn {
+    background: rgba(163, 113, 247, 0.1);
+    color: #a371f7;
+    border: 1px solid #a371f7;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s;
+}
+
+.edit-profile-btn:hover {
+    background: #a371f7;
+    color: #fff;
+}
+
+/* 2. Stats Bar */
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #161b22;
+    border-radius: 12px;
+    padding: 15px 10px;
+    margin-bottom: 25px;
+    border: 1px solid #30363d;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.stat-item p {
+    font-size: 0.7rem;
+    color: #8b949e;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 25px;
+    background-color: #30363d;
+}
+
+/* 3. Settings List */
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #161b22;
+    padding: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid #30363d;
+    transition: background 0.3s;
+}
+
+.setting-item:hover {
+    background-color: #1f242d;
+}
+
+.setting-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.setting-text {
+    flex: 1;
+}
+
+.setting-text h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 3px;
+}
+
+.setting-text p {
+    font-size: 0.7rem;
+    color: #8b949e;
+}
+
+.setting-arrow {
+    color: #8b949e;
+    font-size: 0.9rem;
+}
+
+/* 4. Logout Button */
+.logout-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #a371f7, #4a00e0);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(163, 113, 247, 0.3);
+    transition: transform 0.3s;
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* 5. Light Mode Theme (Appearance Setting) */
+body.light-mode {
+    background-color: #f0f2f5 !important;
+    color: #000000 !important;
+}
+body.light-mode .app-header,
+body.light-mode .bottom-nav {
+    background-color: #ffffff !important;
+    border-color: #e1e4e8 !important;
+}
+body.light-mode .logo-text,
+body.light-mode .profile-info h2,
+body.light-mode .setting-text h3,
+body.light-mode .stat-item span {
+    color: #000000 !important;
+}
+body.light-mode .settings-list .setting-item,
+body.light-mode .stats-bar {
+    background-color: #ffffff !important;
+    border-color: #e1e4e8 !important;
+}
+body.light-mode .setting-item:hover {
+    background-color: #f6f8fa !important;
+}
+body.light-mode .icon-circle {
+    background-color: #f0f2f5 !important;
+    color: #000000 !important;
+}
+/* =========================================
+   PREMIUM PROFILE PAGE UI
+   ========================================= */
+
+.profile-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+/* 1. Cover Photo Section */
+.profile-cover {
+    position: relative;
+    height: 180px;
+    background-image: url('https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=1000&auto=format&fit=crop'); /* आप इसे बदल सकते हैं */
+    background-size: cover;
+    background-position: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.cover-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #0b0f19 0%, transparent 100%);
+}
+
+/* 2. Profile Header (Avatar + Name) */
+.profile-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    padding: 0 20px;
+    margin-top: -50px; /* एवाटर को कवर फोटो के ऊपर लाने के लिए */
+    position: relative;
+    z-index: 2;
+}
+
+.avatar-container {
+    position: relative;
+}
+
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #0b0f19; /* बैकग्राउंड के रंग का बॉर्डर */
+    box-shadow: 0 0 20px rgba(163, 113, 247, 0.6); /* बैंगनी ग्लो */
+}
+
+.profile-info {
+    flex: 1;
+    padding-bottom: 5px;
+}
+
+.profile-info h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.profile-info p {
+    font-size: 0.8rem;
+    color: #a371f7;
+    font-weight: 600;
+}
+
+.edit-profile-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.edit-profile-btn:hover {
+    background: #a371f7;
+    border-color: #a371f7;
+}
+
+/* 3. Stats Bar */
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #161b22;
+    border-radius: 16px;
+    padding: 15px 10px;
+    margin: 20px;
+    border: 1px solid #30363d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item span {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.stat-item p {
+    font-size: 0.7rem;
+    color: #8b949e;
+    font-weight: 500;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 30px;
+    background-color: #30363d;
+}
+
+/* 4. Settings List */
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 20px 25px 20px;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #161b22;
+    padding: 14px 15px;
+    border-radius: 14px;
+    text-decoration: none;
+    border: 1px solid #30363d;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.setting-item:hover {
+    background-color: #1f242d;
+    transform: translateX(5px);
+}
+
+.setting-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.setting-text {
+    flex: 1;
+}
+
+.setting-text h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 3px;
+}
+
+.setting-text p {
+    font-size: 0.7rem;
+    color: #8b949e;
+}
+
+.setting-arrow {
+    color: #8b949e;
+    font-size: 0.9rem;
+}
+
+/* 5. Logout Button */
+.logout-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    padding: 14px;
+    background: linear-gradient(135deg, #4facfe 0%, #a371f7 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(163, 113, 247, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(163, 113, 247, 0.6);
+}
+
+/* 6. Light Mode Theme (Appearance Setting) */
+body.light-mode {
+    background-color: #f0f2f5 !important;
+    color: #000000 !important;
+}
+body.light-mode .app-header,
+body.light-mode .bottom-nav {
+    background-color: #ffffff !important;
+    border-color: #e1e4e8 !important;
+}
+body.light-mode .logo-text,
+body.light-mode .profile-info h2,
+body.light-mode .setting-text h3,
+body.light-mode .stat-item span {
+    color: #000000 !important;
+}
+body.light-mode .settings-list .setting-item,
+body.light-mode .stats-bar {
+    background-color: #ffffff !important;
+    border-color: #e1e4e8 !important;
+}
+body.light-mode .setting-item:hover {
+    background-color: #f6f8fa !important;
+}
+body.light-mode .icon-circle {
+    background-color: #f0f2f5 !important;
+    color: #000000 !important;
+}
