@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="manifest" href="/static/manifest.json">
-    <meta name="theme-color" content="#ff4d4d">
+    <meta name="theme-color" content="#0b0f19">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="AnimeNest">
@@ -16,74 +16,62 @@
 </head>
 <body>
 
+    <!-- Splash Screen -->
     <div id="splash-screen">
         <div class="splash-logo">
-            <span style="color: #ff4d4d; font-size: 50px; font-weight: 900;">A</span>NIMENEST
+            <span style="color: #ff4d4d; font-size: 50px; font-weight: 900;">A</span>
         </div>
         <div class="splash-spinner"></div>
         <p class="splash-text">Loading your anime...</p>
     </div>
 
-    <!-- ✅ Header: Logo + Desktop Nav + Icons + Search -->
+    <!-- ✅ Header: Logo + Icons (No duplicate nav here) -->
     <header class="app-header">
-    <div class="header-top-row">
-    <!-- Logo -->
-    <div class="logo-left">
-      <a href="/" class="logo-link">
-        <i class="fas fa-crown logo-crown"></i>
-        <span class="logo-text">AnimeNest</span>
-      </a>
-    </div>
+        <div class="header-top-row">
+            <!-- Logo -->
+            <div class="logo-left">
+                <a href="/" class="logo-link">
+                    <i class="fas fa-crown logo-crown"></i>
+                    <span class="logo-text">AnimeNest</span>
+                </a>
+            </div>
 
-    <!-- Desktop Nav Links (Center) -->
-    <nav class="desktop-nav">
-      <a href="/" class="desktop-nav-link"><i class="fas fa-home"></i> Home</a>
-      <a href="/random" class="desktop-nav-link"><i class="fas fa-compass"></i> Explore</a>
-      <a href="/watchlist" class="desktop-nav-link"><i class="fas fa-plus"></i> My List</a>
-      <a href="/profile" class="desktop-nav-link"><i class="fas fa-user"></i> Profile</a>
-    </nav>
+            <!-- Right Icons (Search, Notification, Profile) -->
+            <div class="header-right-icons">
+                <a href="/search" class="icon-circle"><i class="fas fa-search"></i></a>
+                <a href="#" class="icon-circle bell-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </a>
+                {% if session.user_pic %}
+                <a href="/profile" class="icon-circle profile-icon">
+                    <img src="{{ session.user_pic }}" alt="Profile" class="user-avatar">
+                </a>
+                {% else %}
+                <a href="/profile" class="icon-circle"><i class="fas fa-user"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
 
-    <!-- Right Icons -->
-    <div class="header-right-icons">
-    <a href="/search" class="icon-circle"><i class="fas fa-search"></i></a>
-
-<script>
-function openSearch() {
-    let query = prompt("कृपया एनीमे का नाम लिखें (Search Anime):");
-    if (query) {
-        window.location.href = "/search?q=" + encodeURIComponent(query);
-    }
-}
-</script>
-      <a href="#" class="icon-circle bell-icon">
-        <i class="fas fa-bell"></i>
-        <span class="notification-dot"></span>
-      </a>
-      {% if session.user_pic %}
-        <a href="/profile" class="icon-circle profile-icon">
-          <img src="{{ session.user_pic }}" alt="Profile" class="user-avatar">
-        </a>
-      {% else %}
-        <a href="/profile" class="icon-circle"><i class="fas fa-user"></i></a>
-      {% endif %}
-    </div>
-  </div>
-  </header>
-
+    <!-- Main Content -->
     <main>
         {% block content %}{% endblock %}
     </main>
 
+    <!-- ✅ Bottom Navigation -->
     <div class="bottom-nav">
         <a href="/" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a>
-        <a href="/random" class="nav-item"><i class="fas fa-compass"></i><span>Explore</span></a>
-        <a href="/watchlist" class="nav-item"><i class="fas fa-plus"></i><span>My List</span></a>
-        <a href="/profile" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
+        <a href="/trending" class="nav-item"><i class="fas fa-fire"></i><span>Trending</span></a>
+        <a href="/categories" class="nav-item"><i class="fas fa-th-large"></i><span>Categories</span></a>
+        <a href="/top-rated" class="nav-item"><i class="fas fa-crown"></i><span>Top Rated</span></a>
+        <a href="/more" class="nav-item"><i class="fas fa-ellipsis-h"></i><span>More</span></a>
     </div>
 
+    <!-- Splash Screen Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const splash = document.getElementById('splash-screen');
+            const splash = document.getElementById("splash-screen");
             if (!splash) return;
             if (sessionStorage.getItem('splashShown')) {
                 splash.style.display = 'none';
@@ -98,6 +86,5 @@ function openSearch() {
             }
         });
     </script>
-
 </body>
 </html>
