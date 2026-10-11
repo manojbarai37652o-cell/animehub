@@ -5142,61 +5142,67 @@ function clearSearch() {
     .similar-card img { height: 140px; }
     .similar-card h4 { font-size: 11px; padding: 6px 3px; }
 }
-/* =========================================
-   ULTIMATE GRID FIX: Multiple Cards Per Row
+      /* =========================================
+   FINAL ABSOLUTE FIX: Multi-Column Grid Layout
    ========================================= */
 
-/* 1. app-section को साफ रखो */
-.app-section {
-    margin-bottom: 30px !important;
-    width: 100% !important;
-    overflow: hidden !important; /* पेज को बगल में स्क्रॉल होने से रोकेगा */
-}
-
-/* 2. रो (Row) को जबरदस्ती CSS Grid से मल्टी-लाइन बनाओ */
-.anime-row, .horizontal-scroll, #history-row {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important; /* जादुई लाइन: ये अपने आप 3-5 कॉलम बना देगा */
+/* 1. सारे सेक्शन्स को फ्लेक्सबॉक्स (Flexbox) में बदलो ताकि कार्ड्स बगल में आएं */
+.app-section, .anime-row, .horizontal-scroll, #history-row {
+    display: flex !important;
+    flex-wrap: wrap !important; /* कार्ड्स को एक लाइन में रखेगा, भरे होने पर नीचे भेजेगा */
+    justify-content: flex-start !important;
     gap: 12px !important;
-    padding-bottom: 15px !important;
+    overflow: visible !important;
     width: 100% !important;
+    padding: 0 !important;
+    margin-bottom: 25px !important;
 }
 
-/* 3. कार्ड को ग्रिड के हिसाब से सेट करो */
-.anime-card, .anime-row-card, .trending-card {
-    width: 100% !important;
-    max-width: 100% !important;
+/* 2. कार्ड्स को छोटा और मल्टी-कॉलम बनाओ */
+.anime-card, .anime-row-card, .trending-card, .history-card {
+    /* मोबाइल पर 2 कार्ड एक लाइन में */
+    width: calc(50% - 12px) !important; 
+    max-width: calc(50% - 12px) !important;
+    min-width: 100px !important;
+    flex: 0 0 auto !important;
     display: flex !important;
     flex-direction: column !important;
     background-color: #161b22 !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     overflow: hidden !important;
-    text-decoration: none !important;
     position: relative !important;
-    transition: transform 0.3s ease;
     box-sizing: border-box !important;
+    margin: 0 !important;
+    border: none !important;
 }
 
-.anime-card:hover {
-    transform: translateY(-5px);
-}
-
-/* 4. इमेज को परफेक्ट साइज़ करो (न खिंचे, न बड़ी हो) */
+/* 3. इमेज को परफेक्ट साइज़ करो (पोस्टर साइज़) */
 .anime-card img, .anime-row-card img, .trending-card img {
     width: 100% !important;
-    height: 170px !important; 
-    min-height: 170px !important;
-    max-height: 170px !important;
-    object-fit: cover !important; /* इमेज को क्रॉप करेगा, खींचेगा नहीं */
-    display: block !important;
+    height: 180px !important;
+    object-fit: cover !important;
     border-bottom: 2px solid #a371f7 !important;
+    display: block !important;
 }
 
-/* 5. टेक्स्ट को कार्ड के अंदर फिट करो */
+/* 4. Continue Watching कार्ड्स के लिए अलग साइज़ (लैंडस्केप) */
+.history-card .history-thumb {
+    height: 90px !important;
+    width: 100% !important;
+    position: relative !important;
+}
+.history-card .history-thumb img {
+    height: 100% !important;
+    width: 100% !important;
+    border-bottom: none !important;
+}
+
+/* 5. टेक्स्ट को कार्ड के अंदर सही से फिट करो */
 .anime-title {
     font-size: 0.75rem !important;
     font-weight: 600 !important;
-    margin: 8px 8px 4px 8px !important;
+    padding: 6px 6px 2px 6px !important;
+    margin: 0 !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -5209,8 +5215,9 @@ function clearSearch() {
     justify-content: space-between !important;
     font-size: 0.65rem !important;
     color: #8b949e !important;
-    margin: auto 8px 10px 8px !important; /* Push to bottom */
-    padding: 0 !important;
+    padding: 0 6px 6px 6px !important;
+    margin: 0 !important;
+    margin-top: auto !important;
 }
 
 .rating {
@@ -5222,52 +5229,51 @@ function clearSearch() {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    background: rgba(0, 0, 0, 0.8) !important;
+    background: rgba(0, 0, 0, 0.85) !important;
     color: #fff !important;
-    font-size: 0.9rem !important;
+    font-size: 0.8rem !important;
     font-weight: bold !important;
-    padding: 2px 8px !important;
-    border-bottom-right-radius: 8px !important;
+    padding: 2px 6px !important;
+    border-bottom-right-radius: 6px !important;
     z-index: 10 !important;
 }
 
-/* 7. Continue Watching के कार्ड्स को भी छोटा करो */
-.history-card {
-    width: 100% !important;
-    background: #161b22 !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    text-decoration: none !important;
+/* 7. हेडिंग के बगल वाली काली लाइन (red-bar) को ठीक करो */
+.red-bar {
+    display: inline-block !important;
+    width: 4px !important;
+    height: 14px !important;
+    background-color: #ff4b2b !important;
+    margin-right: 6px !important;
+    vertical-align: middle !important;
+    border-radius: 2px !important;
     border: none !important;
 }
-.history-thumb {
-    height: 90px !important;
-    position: relative !important;
-    border-bottom: none !important;
-}
-.history-thumb img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    border-bottom: none !important;
-    display: block !important;
-}
-.history-title {
-    font-size: 0.75rem !important;
-    padding: 5px !important;
-    color: #fff !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-}
-.history-sub {
-    font-size: 0.65rem !important;
-    padding: 0 5px 5px 5px !important;
-    color: #8b949e !important;
-}
 
-/* फालतू लाइनें हटाओ */
+/* 8. फालतू लाइनें हटाओ */
 .progress-bar, hr {
     display: none !important;
 }
-          
+
+/* 9. डेस्कटॉप स्क्रीन (बड़ी स्क्रीन) के लिए 4-5 कॉलम */
+@media (min-width: 768px) {
+    .anime-card, .anime-row-card, .trending-card {
+        width: calc(25% - 12px) !important; /* 4 कार्ड प्रति लाइन */
+        max-width: calc(25% - 12px) !important;
+    }
+    .history-card {
+        width: calc(25% - 12px) !important;
+        max-width: calc(25% - 12px) !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .anime-card, .anime-row-card, .trending-card {
+        width: calc(20% - 12px) !important; /* 5 कार्ड प्रति लाइन (टारगेट फोटो जैसा) */
+        max-width: calc(20% - 12px) !important;
+    }
+    .history-card {
+        width: calc(25% - 12px) !important; /* 4 हिस्ट्री कार्ड */
+        max-width: calc(25% - 12px) !important;
+    }
+}
