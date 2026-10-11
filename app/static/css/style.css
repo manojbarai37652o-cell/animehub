@@ -524,3 +524,465 @@ body {
 }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 .splash-text { color: #8b949e; font-size: 0.8rem; }
+/* =========================================
+   AnimeNest UI - Master Stylesheet (Final)
+   ========================================= */
+
+/* 1. मुख्य सेटिंग्स */
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: #161b22;
+    --text-primary: #ffffff;
+    --text-secondary: #8b949e;
+    --accent-color: #a371f7;
+    --rating-color: #f1c40f;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    padding-top: 60px; /* हेडर के लिए जगह */
+    padding-bottom: 70px; /* बॉटम नेविगेशन के लिए जगह */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.main-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* =========================================
+   2. Header (Top Nav) - base.html
+   ========================================= */
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0b0f19;
+    z-index: 1000;
+    padding: 10px 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.header-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-left .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 8px;
+}
+
+.logo-crown {
+    color: #a371f7;
+    font-size: 1.2rem;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+/* 🛠️ Logo Fix: 'AnimeNestNest' वाली गलती हटाने के लिए */
+.logo-text::after {
+    content: "" !important; 
+}
+
+.header-right-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #161b22;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.user-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 7px;
+    height: 7px;
+    background-color: #ff4b2b;
+    border-radius: 50%;
+    border: 1.5px solid #0b0f19;
+}
+
+/* =========================================
+   3. Bottom Navigation - base.html
+   ========================================= */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0b0f19;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    border-top: 1px solid #161b22;
+    z-index: 1000;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    text-decoration: none;
+    color: #8b949e;
+    font-size: 0.65rem;
+    transition: color 0.3s;
+}
+
+.nav-item.active, .nav-item:hover {
+    color: #a371f7;
+}
+
+.nav-item i {
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   4. Hero Banner - index.html
+   ========================================= */
+.hero-banner {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    height: 220px;
+    background: #1a1a1a;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    z-index: 1;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(11, 15, 25, 1) 0%, rgba(11, 15, 25, 0.4) 50%, transparent 100%);
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    z-index: 3;
+    width: 100%;
+}
+
+.hero-badge {
+    background-color: #ff4b2b;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.hero-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+
+.hero-desc {
+    font-size: 0.75rem;
+    color: #d1d5db;
+    margin-bottom: 12px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.btn-watch {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hero-dots {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    display: flex;
+    gap: 5px;
+    z-index: 4;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: var(--accent-color);
+    width: 15px;
+    border-radius: 4px;
+}
+
+/* =========================================
+   5. Category Icons - index.html
+   ========================================= */
+.category-icons {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 5px 20px 5px;
+    scrollbar-width: none;
+}
+.category-icons::-webkit-scrollbar {
+    display: none;
+}
+
+.cat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    min-width: 65px;
+}
+
+.cat-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   6. Anime Sections & Cards - index.html
+   ========================================= */
+.app-section {
+    margin-bottom: 25px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 0 5px;
+}
+
+.section-header h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.see-all {
+    color: var(--accent-color);
+    font-size: 0.75rem;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Horizontal Scrolling Row */
+.anime-row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 12px !important;
+    padding-bottom: 10px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    scroll-behavior: smooth;
+}
+.anime-row::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Anime Card */
+.anime-card {
+    position: relative;
+    flex: 0 0 110px !important; /* मोबाइल पर कार्ड की चौड़ाई */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.anime-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--accent-color);
+    display: block;
+}
+
+.anime-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 6px 6px 2px 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.anime-meta {
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+    padding: 0 6px 6px 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rating {
+    color: var(--rating-color);
+}
+
+/* Rank Number (1, 2, 3...) */
+.rank-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-bottom-right-radius: 6px;
+    z-index: 10;
+}
+
+/* Ongoing Badge */
+.badge-ongoing {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #2ecc71;
+    color: #fff;
+    font-size: 0.55rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+/* =========================================
+   7. Genres Section - index.html
+   ========================================= */
+.genre-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 0 5px;
+}
+
+.genre-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.genre-card.action { background: linear-gradient(135deg, #ff4b2b, #ff416c); }
+.genre-card.adventure { background: linear-gradient(135deg, #1cb5e0, #000046); }
+.genre-card.comedy { background: linear-gradient(135deg, #f7971e, #ffd200); color: #000; }
+.genre-card.fantasy { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+.genre-card.romance { background: linear-gradient(135deg, #ff758c, #ff7eb3); }
+.genre-card.horror { background: linear-gradient(135deg, #870000, #190a05); }
+
+/* =========================================
+   8. Responsive Layout (Tablets & Desktop)
+   ========================================= */
+@media (min-width: 768px) {
+    .hero-banner { height: 300px; }
+    .hero-title { font-size: 1.8rem; }
+    .anime-card { flex: 0 0 140px !important; }
+    .anime-card img { height: 190px; }
+    .genre-grid { grid-template-columns: repeat(6, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    .anime-card { flex: 0 0 160px !important; }
+    .anime-card img { height: 220px; }
+}
