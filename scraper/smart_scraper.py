@@ -82,9 +82,9 @@ if __name__ == '__main__':
     print("📺 SCRAPER चालू (सारे anime - हर भाषा)")
     print("=" * 60)
 
-    progress = load_progress()
-    start_page = progress.get('last_page', 1)
-    print(f"\n📌 Page {start_page} से शुरू")
+    # 🛠️ FIX: हमेशा पेज 1 से ही शुरू करो। इससे नए एनीमे कभी मिस नहीं होंगे।
+    start_page = 1
+    print(f"\n📌 Page {start_page} से शुरू (हमेशा नए एनीमे चेक करने के लिए)")
 
     db_data = load_db()
     existing_anime = db_data.get('anime_list', [])
@@ -96,7 +96,7 @@ if __name__ == '__main__':
     page_num = start_page
     pages_checked = 0
     
-    # 🛠️ FIX 1: हम तब तक पेज चेक करेंगे जब तक 35 नए एनीमे नहीं मिल जाते
+    # सेफ्टी लिमिट ताकि कभी इनफिनिट लूप में न फंसें
     MAX_PAGES_TO_CHECK = 500 
     
     while len(new_anime) < BATCH_SIZE and pages_checked < MAX_PAGES_TO_CHECK:
@@ -106,13 +106,14 @@ if __name__ == '__main__':
         try:
             homepage_html = fetch_page(base_url)
             if not homepage_html:
-                # 🛠️ FIX 2: 504 एरर आने पर रुकना नहीं है, अगले पेज पर जाना है
                 print(f"⚠️ Page {page_num} लोड नहीं हुआ (शायद 504 एरर)। अगले पेज पर जा रहे हैं...")
                 page_num += 1
                 pages_checked += 1
                 continue
 
             all_anime = parse_anime_homepage(homepage_html, "https://animesalt.cx/")
+            
+            # केवल वही एनीमे लो जो डेटाबेस में नहीं हैं
             page_new_anime = [a for a in all_anime if a['id'] not in existing_ids]
             
             for a in page_new_anime:
@@ -124,10 +125,8 @@ if __name__ == '__main__':
             print(f"   📊 इस पेज पर {len(page_new_anime)} नए आइटम मिले (कुल जुटाए: {len(new_anime)})")
 
             page_num += 1
-            progress['last_page'] = page_num
-            save_progress(progress)
             pages_checked += 1
-            time.sleep(1) # सर्वर पर लोड कम करने के लिए
+            time.sleep(1) 
             
         except Exception as e:
             print(f"❌ Page {page_num} पर एरर: {e}. अगले पेज पर जा रहे हैं...")
@@ -144,7 +143,7 @@ if __name__ == '__main__':
     scraped_this_run = 0
     updated_list = existing_anime.copy()
 
-    # 🛠️ FIX 3: अब हम 35 एनीमे (सीरीज़ या मूवी) को प्रोसेस करेंगे
+    # अब हम 35 एनीमे (सीरीज़ या मूवी) को प्रोसेस करेंगे
     for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
         print(f"\n[{idx + 1}/{min(BATCH_SIZE, len(new_anime))}] {anime['title']}")
         
@@ -198,7 +197,7 @@ if __name__ == '__main__':
             season_num += 1
             time.sleep(1)
 
-        # 🛠️ FIX 4: मूवीज़ को स्किप मत करो। अगर सीज़न नहीं हैं, तो खाली लिस्ट सेव करो।
+        # मूवीज़ को स्किप मत करो। अगर सीज़न नहीं हैं, तो खाली लिस्ट सेव करो।
         if anime_seasons:
             anime['seasons'] = anime_seasons
             anime['episodes'] = anime_seasons[0]['episodes']
@@ -223,13 +222,7 @@ if __name__ == '__main__':
     if scraped_this_run > 0:
         db_data['anime_list'] = updated_list
         save_db(db_data)
-        progress['total_scraped'] += scraped_this_run
-        
-        # यही तुम्हारे सवाल का जवाब है! अगली बार फिर से पेज 1 से शुरू करने के लिए
-        progress['last_page'] = 1 
-        save_progress(progress)
-        
-        print(f"\n🎉 {scraped_this_run} anime saved! अगली बार फिर से Page 1 से शुरू होगा।")
+        print(f"\n🎉 {scraped_this_run} anime saved!")
     else:
         print("\n⚠️ कोई नया एनीमे सेव नहीं हुआ।")
 
