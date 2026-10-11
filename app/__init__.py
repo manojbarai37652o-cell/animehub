@@ -91,11 +91,15 @@ def create_app(config_class=Config):
         
         hero_anime_list = get_hero_anime_list(5)
         
-        return render_template('index.html', 
-                               anime_list=all_anime, 
+        return render_template('index.html',                                
+                               anime_list=all_anime,
                                hero_anime_list=hero_anime_list,
                                trending=trending,
                                popular=popular,
+                               top_rated=trending,  # टेस्टिंग के लिए
+                               ongoing=trending,    # टेस्टिंग के लिए
+                               latest=trending,     # टेस्टिंग के लिए
+                               movies=trending,     # टेस्टिंग के लिए
                                action=action,
                                comedy=comedy,
                                fantasy=fantasy,
