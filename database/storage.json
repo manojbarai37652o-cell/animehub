@@ -1,52 +1,137 @@
 {
     "anime_list": [
         {
-            "id": "temppal-item-no-chikara-episode-2",
-            "title": "Temppal: Item no Chikara",
-            "url": "https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2/",
-            "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx212888-NhyvqPt5aIuJ.jpg",
+            "id": "black-clover",
+            "title": "Black Clover",
+            "url": "https://www.animostream.xyz/2026/08/black-clover.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAEzUVOOQ_CwWe_r4wAK5_pEG2tVOTL4rit7fQwh-krrd7qN6U2FXFLIPCADOUrdxn5Gly03CpCkBGek9riHz4PKP49m8vzFN0ah88WN0MKQbwL2NuK0b8zoDKRvWaYTuHzhLT9WuQ1xtakI3cp2Aq6HKDYF1rCZp8VgP1tNcU3KB1-hXrcwWd5tAIJaAK/w72-h72-p-k-no-nu/bc.webp",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": []
+                }
+            ],
+            "episodes": []
+        },
+        {
+            "id": "the-100-girlfriends-who-really-really",
+            "title": "The 100 Girlfriends Who Really, Really, Really, Really, REALLY Love You",
+            "url": "https://www.animostream.xyz/2026/09/the-100-girlfriends-who-really-really.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipqnKlibhKZzoRNSXqwxxKZ4ssUVvtB-_rhaQrbYAjZ3szRItQm6Qk0Lix_Q6r3vH7L8rZkeZt8Tt18R7w5RdaGY2rxAja6k7XgTo8bVCBic3iym1u8a-FrQmCh0PRgiId7_3PQpvbobaNuRP0TIB2REHQszqmvnNytMKapBaeWbkZZmMdSCWEqDPxggGn/w72-h72-p-k-no-nu/g.webp",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": []
+                }
+            ],
+            "episodes": []
+        },
+        {
+            "id": "jaadugar-witch-in-mongolia",
+            "title": "Jaadugar: A Witch in Mongolia",
+            "url": "https://www.animostream.xyz/2026/08/jaadugar-witch-in-mongolia.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVyYYLvSkCh1P7yfaEEHHTOEwJ5R5CzCvHjM9wlMApBlBwRG-s-7uhqu9tS2gRcz9wESo72mFpfFYa4JGnJlykQHZz4m6SPtMKe09RVahNGoZKoeolCiS6e2Ll6sBRmfA95zcW1iHVej_QZmC0BlF50cHCe9dywrQ2Odwqb8rzMWzdOaa6_KoUbQdt45aX/w72-h72-p-k-no-nu/j.webp",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": []
+                }
+            ],
+            "episodes": []
+        },
+        {
+            "id": "hanaori-san-still-wants-to-fight-in",
+            "title": "Hanaori-San Still Wants To Fight In The Next Life",
+            "url": "https://www.animostream.xyz/2026/08/hanaori-san-still-wants-to-fight-in.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjh8cU5uuiFwMC58yiyYktqNNaOD6hMjOZrkB9Xu3T4D9S2MCEg28C9HT6lVFGWNGBWuMHZgLuKJ1dCUi04j_vLyxWsOPXX_faSIAEL78ZMzetvDnEJ78N43fIV9sQMwx7HhPx0i-OKXSbrk64dZbFbaLOOX9sTNr9SK96feV2v2euQ2EFkDRIcgyDoQEs6/w72-h72-p-k-no-nu/hs.webp",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": []
+                }
+            ],
+            "episodes": []
+        },
+        {
+            "id": "jojos-bizarre-adventure",
+            "title": "JoJo's Bizarre Adventure: Diamond Is Unbreakable",
+            "url": "https://www.animostream.xyz/2026/09/jojos-bizarre-adventure.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHICuyddj86D2aAk0DiajnrhACYl1HsdK7WI1GfNIdWh-vbz9-oILSdpB71xLvWXdJYukeR0XkFseHdKoZw5b8OuoIj7ZBexc6qLgz_q_OLa0Ac3w7JdiMhepP-L1xJT0kIHTsLYiEHGsyCTUP0PeCeZDI8FvSSMjyQZmRz-zqoL00zdOJE0J8MDmr1lv6/w72-h72-p-k-no-nu/j.webp",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": []
+                }
+            ],
+            "episodes": []
+        },
+        {
+            "id": "ranma_1",
+            "title": "Ranma ½",
+            "url": "https://www.animostream.xyz/2026/04/ranma_1.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjv3WDxSaWwID7PGX3CRT0f6556UDNjusIPuAH8nCFBFhcXjOeo8oxihnTwSk1vW1OYUdjWd-tvH5GkrQfxtRX3mVM4U-SBsrhiJut0WZdXy9dsP21G6_d3QLeEjGKwfhcUYU13pD5dh1ALyDg66vvrOHtsFGpa57F4iGGxjH7amVM091ytZuZ5vD4L5nt2/w72-h72-p-k-no-nu/rs3.webp",
             "seasons": [
                 {
                     "season_number": 1,
                     "episodes": [
                         {
-                            "title": "1\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLegendary Class",
-                            "url": "https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-1/",
-                            "video_url": "https://storage.googleapis.com/mediastorage/1791649492770/1/boog8mn9ngb.m3u8"
-                        },
-                        {
-                            "title": "2\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tEpisode 2",
-                            "url": "https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2/",
-                            "video_url": "https://storage.googleapis.com/mediastorage/1791649519725/1/6acajolry2k.m3u8"
-                        },
-                        {
-                            "title": "telegram",
-                            "url": "https://t.me/share/url?url=https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2&text=Temppal: Item no Chikara Episode 2",
+                            "title": "Episode 1",
+                            "ep_num": "1",
                             "video_url": ""
                         },
                         {
-                            "title": "reddit",
-                            "url": "https://reddit.com/submit?url=https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2&title=Temppal: Item no Chikara Episode 2",
+                            "title": "Episode 2",
+                            "ep_num": "2",
                             "video_url": ""
                         },
                         {
-                            "title": "facebook",
-                            "url": "https://www.facebook.com/sharer.php?u=https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2",
+                            "title": "Episode 3",
+                            "ep_num": "3",
                             "video_url": ""
                         },
                         {
-                            "title": "whatsapp",
-                            "url": "whatsapp://send/?text=Temppal: Item no Chikara Episode 2%20https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2",
+                            "title": "Episode 4",
+                            "ep_num": "4",
                             "video_url": ""
                         },
                         {
-                            "title": "x",
-                            "url": "https://x.com/intent/tweet?url=https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2&text=Temppal: Item no Chikara Episode 2",
+                            "title": "Episode 5",
+                            "ep_num": "5",
                             "video_url": ""
                         },
                         {
-                            "title": "tumblr",
-                            "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2&title=Temppal: Item no Chikara Episode 2",
+                            "title": "Episode 6",
+                            "ep_num": "6",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "ep_num": "7",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "ep_num": "8",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "ep_num": "9",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "ep_num": "10",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "ep_num": "11",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "ep_num": "12",
                             "video_url": ""
                         }
                     ]
@@ -54,144 +139,84 @@
             ],
             "episodes": [
                 {
-                    "title": "1\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLegendary Class",
-                    "url": "https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-1/",
-                    "video_url": "https://storage.googleapis.com/mediastorage/1791649492770/1/boog8mn9ngb.m3u8"
-                },
-                {
-                    "title": "2\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tEpisode 2",
-                    "url": "https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2/",
-                    "video_url": "https://storage.googleapis.com/mediastorage/1791649519725/1/6acajolry2k.m3u8"
-                },
-                {
-                    "title": "telegram",
-                    "url": "https://t.me/share/url?url=https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2&text=Temppal: Item no Chikara Episode 2",
+                    "title": "Episode 1",
+                    "ep_num": "1",
                     "video_url": ""
                 },
                 {
-                    "title": "reddit",
-                    "url": "https://reddit.com/submit?url=https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2&title=Temppal: Item no Chikara Episode 2",
+                    "title": "Episode 2",
+                    "ep_num": "2",
                     "video_url": ""
                 },
                 {
-                    "title": "facebook",
-                    "url": "https://www.facebook.com/sharer.php?u=https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2",
+                    "title": "Episode 3",
+                    "ep_num": "3",
                     "video_url": ""
                 },
                 {
-                    "title": "whatsapp",
-                    "url": "whatsapp://send/?text=Temppal: Item no Chikara Episode 2%20https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2",
+                    "title": "Episode 4",
+                    "ep_num": "4",
                     "video_url": ""
                 },
                 {
-                    "title": "x",
-                    "url": "https://x.com/intent/tweet?url=https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2&text=Temppal: Item no Chikara Episode 2",
+                    "title": "Episode 5",
+                    "ep_num": "5",
                     "video_url": ""
                 },
                 {
-                    "title": "tumblr",
-                    "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://www.desidubanime.me/watch/temppal-item-no-chikara-episode-2&title=Temppal: Item no Chikara Episode 2",
+                    "title": "Episode 6",
+                    "ep_num": "6",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "ep_num": "7",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "ep_num": "8",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "ep_num": "9",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "ep_num": "10",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "ep_num": "11",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "ep_num": "12",
                     "video_url": ""
                 }
             ]
         },
         {
-            "id": "otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12",
-            "title": "Otome Game Sekai wa Mob ni Kibishii Sekai desu 2",
-            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12/",
-            "image": "https://cdn.myanimelist.net/images/anime/1285/158337l.jpg",
+            "id": "the-seven-knights-of-marronnier-kingdom",
+            "title": "The Seven Knights of The Marronnier Kingdom",
+            "url": "https://www.animostream.xyz/2026/10/the-seven-knights-of-marronnier-kingdom.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqJdlKVGjSastoWAgs_0lDmPSh9ZfX53SrZP_LzRXKsEBygEAsk_jyOI6tF40xbaacDCcz0MdbO16RGrHTuyk-v3bILlk_o2J1Wyico76ZNAjBWei0svbQmZH4NI80zl73yNblkDewwrDP_U7f-BThE-QUw04mcst5GiSJaYrkXXQeRmNV2IlIw1iCbo3V/w72-h72-p-k-no-nu/7k.webp",
             "seasons": [
                 {
                     "season_number": 1,
                     "episodes": [
                         {
-                            "title": "1\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tIt's Always Love That Saves the World",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-1/",
-                            "video_url": ""
+                            "title": "Episode 1",
+                            "ep_num": "1",
+                            "video_url": "https://storage.googleapis.com/mediastorage/1791711610495/1/gu6kf44a7op.m3u8"
                         },
                         {
-                            "title": "2\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tDo You Enjoy the Aesthetics of Destruction?",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-2/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "3\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHey, Brat",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-3/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "4\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThey're Flip-Flopping Again?",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-4/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "5\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tI Love Facades",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-5/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "6\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tIf I Don't Like It, I'll Just Run",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-6/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "7\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tShut Your Filthy Mouth, Scum",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-7/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "8\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYou Can't Quantify Love!",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-8/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "9\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLivia...",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-9/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "10\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThey Hit Where It Hurts",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-10/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "11\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tI Don't Care About That!",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-11/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "12\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThis World Is Tough for Mobs",
-                            "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "telegram",
-                            "url": "https://t.me/share/url?url=https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12&text=Otome Game Sekai wa Mob ni Kibishii Sekai desu 2 Episode 12",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "reddit",
-                            "url": "https://reddit.com/submit?url=https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12&title=Otome Game Sekai wa Mob ni Kibishii Sekai desu 2 Episode 12",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "facebook",
-                            "url": "https://www.facebook.com/sharer.php?u=https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "whatsapp",
-                            "url": "whatsapp://send/?text=Otome Game Sekai wa Mob ni Kibishii Sekai desu 2 Episode 12%20https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "x",
-                            "url": "https://x.com/intent/tweet?url=https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12&text=Otome Game Sekai wa Mob ni Kibishii Sekai desu 2 Episode 12",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "tumblr",
-                            "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12&title=Otome Game Sekai wa Mob ni Kibishii Sekai desu 2 Episode 12",
+                            "title": "Episode 2",
+                            "ep_num": "2",
                             "video_url": ""
                         }
                     ]
@@ -199,144 +224,39 @@
             ],
             "episodes": [
                 {
-                    "title": "1\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tIt's Always Love That Saves the World",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-1/",
-                    "video_url": ""
+                    "title": "Episode 1",
+                    "ep_num": "1",
+                    "video_url": "https://storage.googleapis.com/mediastorage/1791711610495/1/gu6kf44a7op.m3u8"
                 },
                 {
-                    "title": "2\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tDo You Enjoy the Aesthetics of Destruction?",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-2/",
-                    "video_url": ""
-                },
-                {
-                    "title": "3\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHey, Brat",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-3/",
-                    "video_url": ""
-                },
-                {
-                    "title": "4\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThey're Flip-Flopping Again?",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-4/",
-                    "video_url": ""
-                },
-                {
-                    "title": "5\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tI Love Facades",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-5/",
-                    "video_url": ""
-                },
-                {
-                    "title": "6\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tIf I Don't Like It, I'll Just Run",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-6/",
-                    "video_url": ""
-                },
-                {
-                    "title": "7\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tShut Your Filthy Mouth, Scum",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-7/",
-                    "video_url": ""
-                },
-                {
-                    "title": "8\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYou Can't Quantify Love!",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-8/",
-                    "video_url": ""
-                },
-                {
-                    "title": "9\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLivia...",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-9/",
-                    "video_url": ""
-                },
-                {
-                    "title": "10\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThey Hit Where It Hurts",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-10/",
-                    "video_url": ""
-                },
-                {
-                    "title": "11\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tI Don't Care About That!",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-11/",
-                    "video_url": ""
-                },
-                {
-                    "title": "12\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThis World Is Tough for Mobs",
-                    "url": "https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12/",
-                    "video_url": ""
-                },
-                {
-                    "title": "telegram",
-                    "url": "https://t.me/share/url?url=https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12&text=Otome Game Sekai wa Mob ni Kibishii Sekai desu 2 Episode 12",
-                    "video_url": ""
-                },
-                {
-                    "title": "reddit",
-                    "url": "https://reddit.com/submit?url=https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12&title=Otome Game Sekai wa Mob ni Kibishii Sekai desu 2 Episode 12",
-                    "video_url": ""
-                },
-                {
-                    "title": "facebook",
-                    "url": "https://www.facebook.com/sharer.php?u=https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12",
-                    "video_url": ""
-                },
-                {
-                    "title": "whatsapp",
-                    "url": "whatsapp://send/?text=Otome Game Sekai wa Mob ni Kibishii Sekai desu 2 Episode 12%20https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12",
-                    "video_url": ""
-                },
-                {
-                    "title": "x",
-                    "url": "https://x.com/intent/tweet?url=https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12&text=Otome Game Sekai wa Mob ni Kibishii Sekai desu 2 Episode 12",
-                    "video_url": ""
-                },
-                {
-                    "title": "tumblr",
-                    "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://www.desidubanime.me/watch/otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-2-episode-12&title=Otome Game Sekai wa Mob ni Kibishii Sekai desu 2 Episode 12",
+                    "title": "Episode 2",
+                    "ep_num": "2",
                     "video_url": ""
                 }
             ]
         },
         {
-            "id": "tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26",
-            "title": "Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season",
-            "url": "https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26/",
-            "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx185756-xPCl0RyQ7fXD.jpg",
+            "id": "dualmulti-audio-hindi-org-eng-web-dl",
+            "title": "Avatar: Seven Havens",
+            "url": "https://www.animostream.xyz/2026/10/dualmulti-audio-hindi-org-eng-web-dl.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOPoRcqDKmu0ErbZx2eRlpON2UqGVxwtG7NlJabFaTqgki1MLaw1AcI5Crch-l7G0gbwzoocFoUt2ydoyi7ioo2Ddv6zag5IfyG-r7zaHpZn0ss0CRu_q69IztesHi4oWoHzjSSW9pYkFEXjxrc1-fmEaJiOcMm8xKvQeHMgVAiWaCPVo6hMKcmaBH6EGP/w72-h72-p-k-no-nu/ash.webp",
             "seasons": [
                 {
                     "season_number": 1,
                     "episodes": [
                         {
-                            "title": "1\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHeadman",
-                            "url": "https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-25/",
-                            "video_url": "https://storage.googleapis.com/mediastorage/1791649641131/1/p8qz9mshlek.m3u8"
-                        },
-                        {
-                            "title": "2\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tCanarre in Crisis",
-                            "url": "https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26/",
-                            "video_url": "https://storage.googleapis.com/mediastorage/1791649668217/1/h9cm6k8mxeg.m3u8"
-                        },
-                        {
-                            "title": "telegram",
-                            "url": "https://t.me/share/url?url=https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26&text=Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season Episode 26",
+                            "title": "Episode 1",
+                            "ep_num": "1",
                             "video_url": ""
                         },
                         {
-                            "title": "reddit",
-                            "url": "https://reddit.com/submit?url=https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26&title=Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season Episode 26",
+                            "title": "Episode 2",
+                            "ep_num": "2",
                             "video_url": ""
                         },
                         {
-                            "title": "facebook",
-                            "url": "https://www.facebook.com/sharer.php?u=https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "whatsapp",
-                            "url": "whatsapp://send/?text=Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season Episode 26%20https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "x",
-                            "url": "https://x.com/intent/tweet?url=https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26&text=Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season Episode 26",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "tumblr",
-                            "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26&title=Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season Episode 26",
+                            "title": "Episode 3",
+                            "ep_num": "3",
                             "video_url": ""
                         }
                     ]
@@ -344,274 +264,34 @@
             ],
             "episodes": [
                 {
-                    "title": "1\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHeadman",
-                    "url": "https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-25/",
-                    "video_url": "https://storage.googleapis.com/mediastorage/1791649641131/1/p8qz9mshlek.m3u8"
-                },
-                {
-                    "title": "2\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tCanarre in Crisis",
-                    "url": "https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26/",
-                    "video_url": "https://storage.googleapis.com/mediastorage/1791649668217/1/h9cm6k8mxeg.m3u8"
-                },
-                {
-                    "title": "telegram",
-                    "url": "https://t.me/share/url?url=https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26&text=Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season Episode 26",
+                    "title": "Episode 1",
+                    "ep_num": "1",
                     "video_url": ""
                 },
                 {
-                    "title": "reddit",
-                    "url": "https://reddit.com/submit?url=https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26&title=Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season Episode 26",
+                    "title": "Episode 2",
+                    "ep_num": "2",
                     "video_url": ""
                 },
                 {
-                    "title": "facebook",
-                    "url": "https://www.facebook.com/sharer.php?u=https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26",
-                    "video_url": ""
-                },
-                {
-                    "title": "whatsapp",
-                    "url": "whatsapp://send/?text=Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season Episode 26%20https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26",
-                    "video_url": ""
-                },
-                {
-                    "title": "x",
-                    "url": "https://x.com/intent/tweet?url=https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26&text=Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season Episode 26",
-                    "video_url": ""
-                },
-                {
-                    "title": "tumblr",
-                    "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://www.desidubanime.me/watch/tensei-kizoku-kantei-skill-de-nariagaru-3rd-season-episode-26&title=Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season Episode 26",
+                    "title": "Episode 3",
+                    "ep_num": "3",
                     "video_url": ""
                 }
             ]
         },
         {
-            "id": "jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38",
-            "title": "JoJo no Kimyou na Bouken: Diamond wa Kudakenai",
-            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38/",
-            "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21450-D7XFwEQjZ5GA.jpg",
+            "id": "im-dating-dark-summoner",
+            "title": "I'm Dating A Dark Summoner",
+            "url": "https://www.animostream.xyz/2026/10/im-dating-dark-summoner.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrQKQX_GEu0gW_fidvIvedx331UVP8kxuCfjrSpXsdRCcZfHzKPVptw3bD05h5pjMBhECDAXS9vyLFDRgY2Qie4KryYMyHJ7eotsNuiyahZb2eXsffSmtaF5jxrF5NRaB4uqCm5jVubz8_3fIoO23R82PD1A8MM7fr7lAXWzSbd15zUtc-ET7kkzFX8rqp/w72-h72-p-k-no-nu/dt.webp",
             "seasons": [
                 {
                     "season_number": 1,
                     "episodes": [
                         {
-                            "title": "1\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJotaro Kujo! Meets Josuke Higashikata",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-1/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "2\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJosuke Higashikata! Meets Angelo",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-2/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "3\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Nijimura Brothers (1)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-3/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "4\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Nijimura Brothers (2)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-4/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "5\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Nijimura Brothers (3)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-5/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "6\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tKoichi Hirose (Reverb)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-6/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "7\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tToshikazu Hazamada (Show Off)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-7/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "8\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYukako Yamagishi Falls in Love (1)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-8/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "9\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYukako Yamagishi Falls in Love (2)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-9/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "10\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLet's Go Eat Some Italian Food",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-10/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "11\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tChili Pepper (1)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-11/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "12\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tChili Pepper (2)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-12/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "13\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tWe Picked Up Something Crazy!",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-13/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "14\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLet's Go to the Manga Artist's House (1)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-14/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "15\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLet's Go to the Manga Artist's House (2)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-15/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "16\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLet's Go Hunting!",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-16/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "17\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tRohan Kishibe's Adventure",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-17/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "18\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tShigechi's Harvest (1)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-18/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "19\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tShigechi's Harvest (2)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-19/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "20\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYukako Yamagishi Dreams of Cinderella",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-20/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "21\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYoshikage Kira Just Wants to Live Quietly (1)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-21/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "22\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYoshikage Kira Just Wants to Live Quietly (2)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-22/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "23\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHeart Attack (1)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-23/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "24\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHeart Attack (2)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-24/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "25\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHeart Father",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-25/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "26\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJanken Boy Is Coming!",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-26/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "27\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tI'm an Alien",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-27/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "28\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHighway Go Go (1)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-28/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "29\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHighway Go Go (2)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-29/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "30\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tCats Love Yoshikage Kira",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-30/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "31\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJuly 15th (Thurs) (1)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-31/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "32\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJuly 15th (Thurs) (2)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-32/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "33\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJuly 15th (Thurs) (3)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-33/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "34\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJuly 15th (Thurs) (4)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-34/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "35\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tBites the Dust (1)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-35/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "36\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tBites the Dust (2)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-36/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "37\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tShining D (Diamond) Is Unbreakable (1)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-37/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "38\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tShining D (Diamond) Is Unbreakable (2)",
-                            "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38/",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "telegram",
-                            "url": "https://t.me/share/url?url=https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38&text=JoJo no Kimyou na Bouken: Diamond wa Kudakenai Episode 38",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "reddit",
-                            "url": "https://reddit.com/submit?url=https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38&title=JoJo no Kimyou na Bouken: Diamond wa Kudakenai Episode 38",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "facebook",
-                            "url": "https://www.facebook.com/sharer.php?u=https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "whatsapp",
-                            "url": "whatsapp://send/?text=JoJo no Kimyou na Bouken: Diamond wa Kudakenai Episode 38%20https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "x",
-                            "url": "https://x.com/intent/tweet?url=https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38&text=JoJo no Kimyou na Bouken: Diamond wa Kudakenai Episode 38",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "tumblr",
-                            "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38&title=JoJo no Kimyou na Bouken: Diamond wa Kudakenai Episode 38",
+                            "title": "Episode 1",
+                            "ep_num": "1",
                             "video_url": ""
                         }
                     ]
@@ -619,314 +299,79 @@
             ],
             "episodes": [
                 {
-                    "title": "1\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJotaro Kujo! Meets Josuke Higashikata",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-1/",
-                    "video_url": ""
-                },
-                {
-                    "title": "2\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJosuke Higashikata! Meets Angelo",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-2/",
-                    "video_url": ""
-                },
-                {
-                    "title": "3\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Nijimura Brothers (1)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-3/",
-                    "video_url": ""
-                },
-                {
-                    "title": "4\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Nijimura Brothers (2)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-4/",
-                    "video_url": ""
-                },
-                {
-                    "title": "5\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Nijimura Brothers (3)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-5/",
-                    "video_url": ""
-                },
-                {
-                    "title": "6\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tKoichi Hirose (Reverb)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-6/",
-                    "video_url": ""
-                },
-                {
-                    "title": "7\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tToshikazu Hazamada (Show Off)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-7/",
-                    "video_url": ""
-                },
-                {
-                    "title": "8\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYukako Yamagishi Falls in Love (1)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-8/",
-                    "video_url": ""
-                },
-                {
-                    "title": "9\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYukako Yamagishi Falls in Love (2)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-9/",
-                    "video_url": ""
-                },
-                {
-                    "title": "10\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLet's Go Eat Some Italian Food",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-10/",
-                    "video_url": ""
-                },
-                {
-                    "title": "11\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tChili Pepper (1)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-11/",
-                    "video_url": ""
-                },
-                {
-                    "title": "12\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tChili Pepper (2)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-12/",
-                    "video_url": ""
-                },
-                {
-                    "title": "13\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tWe Picked Up Something Crazy!",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-13/",
-                    "video_url": ""
-                },
-                {
-                    "title": "14\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLet's Go to the Manga Artist's House (1)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-14/",
-                    "video_url": ""
-                },
-                {
-                    "title": "15\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLet's Go to the Manga Artist's House (2)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-15/",
-                    "video_url": ""
-                },
-                {
-                    "title": "16\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLet's Go Hunting!",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-16/",
-                    "video_url": ""
-                },
-                {
-                    "title": "17\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tRohan Kishibe's Adventure",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-17/",
-                    "video_url": ""
-                },
-                {
-                    "title": "18\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tShigechi's Harvest (1)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-18/",
-                    "video_url": ""
-                },
-                {
-                    "title": "19\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tShigechi's Harvest (2)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-19/",
-                    "video_url": ""
-                },
-                {
-                    "title": "20\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYukako Yamagishi Dreams of Cinderella",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-20/",
-                    "video_url": ""
-                },
-                {
-                    "title": "21\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYoshikage Kira Just Wants to Live Quietly (1)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-21/",
-                    "video_url": ""
-                },
-                {
-                    "title": "22\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tYoshikage Kira Just Wants to Live Quietly (2)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-22/",
-                    "video_url": ""
-                },
-                {
-                    "title": "23\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHeart Attack (1)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-23/",
-                    "video_url": ""
-                },
-                {
-                    "title": "24\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHeart Attack (2)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-24/",
-                    "video_url": ""
-                },
-                {
-                    "title": "25\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHeart Father",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-25/",
-                    "video_url": ""
-                },
-                {
-                    "title": "26\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJanken Boy Is Coming!",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-26/",
-                    "video_url": ""
-                },
-                {
-                    "title": "27\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tI'm an Alien",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-27/",
-                    "video_url": ""
-                },
-                {
-                    "title": "28\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHighway Go Go (1)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-28/",
-                    "video_url": ""
-                },
-                {
-                    "title": "29\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tHighway Go Go (2)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-29/",
-                    "video_url": ""
-                },
-                {
-                    "title": "30\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tCats Love Yoshikage Kira",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-30/",
-                    "video_url": ""
-                },
-                {
-                    "title": "31\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJuly 15th (Thurs) (1)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-31/",
-                    "video_url": ""
-                },
-                {
-                    "title": "32\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJuly 15th (Thurs) (2)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-32/",
-                    "video_url": ""
-                },
-                {
-                    "title": "33\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJuly 15th (Thurs) (3)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-33/",
-                    "video_url": ""
-                },
-                {
-                    "title": "34\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tJuly 15th (Thurs) (4)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-34/",
-                    "video_url": ""
-                },
-                {
-                    "title": "35\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tBites the Dust (1)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-35/",
-                    "video_url": ""
-                },
-                {
-                    "title": "36\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tBites the Dust (2)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-36/",
-                    "video_url": ""
-                },
-                {
-                    "title": "37\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tShining D (Diamond) Is Unbreakable (1)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-37/",
-                    "video_url": ""
-                },
-                {
-                    "title": "38\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tShining D (Diamond) Is Unbreakable (2)",
-                    "url": "https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38/",
-                    "video_url": ""
-                },
-                {
-                    "title": "telegram",
-                    "url": "https://t.me/share/url?url=https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38&text=JoJo no Kimyou na Bouken: Diamond wa Kudakenai Episode 38",
-                    "video_url": ""
-                },
-                {
-                    "title": "reddit",
-                    "url": "https://reddit.com/submit?url=https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38&title=JoJo no Kimyou na Bouken: Diamond wa Kudakenai Episode 38",
-                    "video_url": ""
-                },
-                {
-                    "title": "facebook",
-                    "url": "https://www.facebook.com/sharer.php?u=https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38",
-                    "video_url": ""
-                },
-                {
-                    "title": "whatsapp",
-                    "url": "whatsapp://send/?text=JoJo no Kimyou na Bouken: Diamond wa Kudakenai Episode 38%20https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38",
-                    "video_url": ""
-                },
-                {
-                    "title": "x",
-                    "url": "https://x.com/intent/tweet?url=https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38&text=JoJo no Kimyou na Bouken: Diamond wa Kudakenai Episode 38",
-                    "video_url": ""
-                },
-                {
-                    "title": "tumblr",
-                    "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://www.desidubanime.me/watch/jojo-no-kimyou-na-bouken-diamond-wa-kudakenai-episode-38&title=JoJo no Kimyou na Bouken: Diamond wa Kudakenai Episode 38",
+                    "title": "Episode 1",
+                    "ep_num": "1",
                     "video_url": ""
                 }
             ]
         },
         {
-            "id": "nige-jouzu-no-wakagimi-2nd-season-episode-10",
-            "title": "Nige Jouzu no Wakagimi 2nd Season",
-            "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10/",
-            "image": "https://cdn.myanimelist.net/images/anime/1289/156329l.jpg",
+            "id": "trapped-in-dating-sim-world-of-otome",
+            "title": "Trapped In A Dating Sim: The World of Otome Games Is Tough For Mobs",
+            "url": "https://www.animostream.xyz/2026/06/trapped-in-dating-sim-world-of-otome.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiGKUx7vEzkoV0ySZ4K7xy8i35QE_Ak1aL_g00QoIgWcRyASUDSzcWLcVj2_KvmQZ9FTJj2qnu5gMjr5vpjjQ04V19D-kursKgSivA7DEnYCIWZG2qF1hplHusfpt-l8vw1eYeN0PeHnaVzFUfyjRARNTw5vqtiRrefQzd_l8Y872-1Nj00IodgWzCR3tnH/w72-h72-p-k-no-nu/d.webp",
             "seasons": [
                 {
                     "season_number": 1,
                     "episodes": [
                         {
-                            "title": "1\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLonging for Sea Bream!",
-                            "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-1/",
+                            "title": "Episode 1",
+                            "ep_num": "1",
                             "video_url": ""
                         },
                         {
-                            "title": "2\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tAyako's Heart-Pounding Operation!",
-                            "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-2/",
+                            "title": "Episode 2",
+                            "ep_num": "2",
                             "video_url": ""
                         },
                         {
-                            "title": "3\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tTokiyuki and Three Great Generals",
-                            "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-3/",
+                            "title": "Episode 3",
+                            "ep_num": "3",
                             "video_url": ""
                         },
                         {
-                            "title": "4\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Warrior of Love: Shinano Mask!",
-                            "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-4/",
+                            "title": "Episode 4",
+                            "ep_num": "4",
                             "video_url": ""
                         },
                         {
-                            "title": "5\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Unyielding",
-                            "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-5/",
+                            "title": "Episode 5",
+                            "ep_num": "5",
                             "video_url": ""
                         },
                         {
-                            "title": "6\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Boy Who Became a God",
-                            "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-6/",
+                            "title": "Episode 6",
+                            "ep_num": "6",
                             "video_url": ""
                         },
                         {
-                            "title": "7\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tMy Uncle",
-                            "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-7/",
+                            "title": "Episode 7",
+                            "ep_num": "7",
                             "video_url": ""
                         },
                         {
-                            "title": "8\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tIrreplaceable",
-                            "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-8/",
+                            "title": "Episode 8",
+                            "ep_num": "8",
                             "video_url": ""
                         },
                         {
-                            "title": "9\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Man Called Masashige Kusunoki",
-                            "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-9/",
+                            "title": "Episode 9",
+                            "ep_num": "9",
                             "video_url": ""
                         },
                         {
-                            "title": "10\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tA Perverted Kid and Disturbances of Holy Power",
-                            "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10/",
+                            "title": "Episode 10",
+                            "ep_num": "10",
                             "video_url": ""
                         },
                         {
-                            "title": "telegram",
-                            "url": "https://t.me/share/url?url=https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10&text=Nige Jouzu no Wakagimi 2nd Season Episode 10",
+                            "title": "Episode 11",
+                            "ep_num": "11",
                             "video_url": ""
                         },
                         {
-                            "title": "reddit",
-                            "url": "https://reddit.com/submit?url=https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10&title=Nige Jouzu no Wakagimi 2nd Season Episode 10",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "facebook",
-                            "url": "https://www.facebook.com/sharer.php?u=https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "whatsapp",
-                            "url": "whatsapp://send/?text=Nige Jouzu no Wakagimi 2nd Season Episode 10%20https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "x",
-                            "url": "https://x.com/intent/tweet?url=https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10&text=Nige Jouzu no Wakagimi 2nd Season Episode 10",
-                            "video_url": ""
-                        },
-                        {
-                            "title": "tumblr",
-                            "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10&title=Nige Jouzu no Wakagimi 2nd Season Episode 10",
+                            "title": "Episode 12",
+                            "ep_num": "12",
                             "video_url": ""
                         }
                     ]
@@ -934,83 +379,843 @@
             ],
             "episodes": [
                 {
-                    "title": "1\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tLonging for Sea Bream!",
-                    "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-1/",
+                    "title": "Episode 1",
+                    "ep_num": "1",
                     "video_url": ""
                 },
                 {
-                    "title": "2\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tAyako's Heart-Pounding Operation!",
-                    "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-2/",
+                    "title": "Episode 2",
+                    "ep_num": "2",
                     "video_url": ""
                 },
                 {
-                    "title": "3\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tTokiyuki and Three Great Generals",
-                    "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-3/",
+                    "title": "Episode 3",
+                    "ep_num": "3",
                     "video_url": ""
                 },
                 {
-                    "title": "4\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Warrior of Love: Shinano Mask!",
-                    "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-4/",
+                    "title": "Episode 4",
+                    "ep_num": "4",
                     "video_url": ""
                 },
                 {
-                    "title": "5\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Unyielding",
-                    "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-5/",
+                    "title": "Episode 5",
+                    "ep_num": "5",
                     "video_url": ""
                 },
                 {
-                    "title": "6\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Boy Who Became a God",
-                    "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-6/",
+                    "title": "Episode 6",
+                    "ep_num": "6",
                     "video_url": ""
                 },
                 {
-                    "title": "7\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tMy Uncle",
-                    "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-7/",
+                    "title": "Episode 7",
+                    "ep_num": "7",
                     "video_url": ""
                 },
                 {
-                    "title": "8\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tIrreplaceable",
-                    "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-8/",
+                    "title": "Episode 8",
+                    "ep_num": "8",
                     "video_url": ""
                 },
                 {
-                    "title": "9\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tThe Man Called Masashige Kusunoki",
-                    "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-9/",
+                    "title": "Episode 9",
+                    "ep_num": "9",
                     "video_url": ""
                 },
                 {
-                    "title": "10\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tA Perverted Kid and Disturbances of Holy Power",
-                    "url": "https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10/",
+                    "title": "Episode 10",
+                    "ep_num": "10",
                     "video_url": ""
                 },
                 {
-                    "title": "telegram",
-                    "url": "https://t.me/share/url?url=https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10&text=Nige Jouzu no Wakagimi 2nd Season Episode 10",
+                    "title": "Episode 11",
+                    "ep_num": "11",
                     "video_url": ""
                 },
                 {
-                    "title": "reddit",
-                    "url": "https://reddit.com/submit?url=https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10&title=Nige Jouzu no Wakagimi 2nd Season Episode 10",
+                    "title": "Episode 12",
+                    "ep_num": "12",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "as-reincarnated-aristocrat-ill-use-my",
+            "title": "As A Reincarnated Aristocrat, I'll Use My Appraisal Skill To Rise In The World",
+            "url": "https://www.animostream.xyz/2026/06/as-reincarnated-aristocrat-ill-use-my.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTKohOggZ0rYj_2_4FPaQjmxqtseuWveZGAD-Q9X8tTxUgbfQwgVDY-Yzz7TOG0j6drIzDyIGIZf8qz9P3hcfNHcaZNB09jhriD_7yeSzVFrUN0bc983I4f4tn-zK7POArQC6CkbQnqreMM_O8uoYWxQ46lgtkEc17E_ZzCBaSp2zKVAwKTOAbcToiOv4o/w72-h72-p-k-no-nu/a.webp",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "ep_num": "1",
+                            "video_url": "https://abyssplayer.com/8G8DfDRBs?t=1791711907178"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "ep_num": "2",
+                            "video_url": "https://kettledroopingcontinuation.com/watch.661751712226?key=eaafef21bbd7a6e3656e6f43a3e5273b&kw=%5B%22as%22%2C%22a%22%2C%22reincarnated%22%2C%22aristocrat%22%2C%22i%22%2C%22ll%22%2C%22use%22%2C%22my%22%2C%22appraisal%22%2C%22skill%22%2C%22to%22%2C%22rise%22%2C%22in%22%2C%22the%22%2C%22world%22%5D&refer=https%3A%2F%2Fwww.animostream.xyz%2F2026%2F06%2Fas-reincarnated-aristocrat-ill-use-my.html&tz=-7&dev=r&res=14.31&uuid=01a12a59-facd-7d7c-a133-50c5c69fdcc9%3A2%3A1"
+                        },
+                        {
+                            "title": "Episode 3",
+                            "ep_num": "3",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "ep_num": "4",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "ep_num": "5",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "ep_num": "6",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "ep_num": "7",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "ep_num": "8",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "ep_num": "9",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "ep_num": "10",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "ep_num": "11",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "ep_num": "12",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Episode 1",
+                    "ep_num": "1",
+                    "video_url": "https://abyssplayer.com/8G8DfDRBs?t=1791711907178"
+                },
+                {
+                    "title": "Episode 2",
+                    "ep_num": "2",
+                    "video_url": "https://kettledroopingcontinuation.com/watch.661751712226?key=eaafef21bbd7a6e3656e6f43a3e5273b&kw=%5B%22as%22%2C%22a%22%2C%22reincarnated%22%2C%22aristocrat%22%2C%22i%22%2C%22ll%22%2C%22use%22%2C%22my%22%2C%22appraisal%22%2C%22skill%22%2C%22to%22%2C%22rise%22%2C%22in%22%2C%22the%22%2C%22world%22%5D&refer=https%3A%2F%2Fwww.animostream.xyz%2F2026%2F06%2Fas-reincarnated-aristocrat-ill-use-my.html&tz=-7&dev=r&res=14.31&uuid=01a12a59-facd-7d7c-a133-50c5c69fdcc9%3A2%3A1"
+                },
+                {
+                    "title": "Episode 3",
+                    "ep_num": "3",
                     "video_url": ""
                 },
                 {
-                    "title": "facebook",
-                    "url": "https://www.facebook.com/sharer.php?u=https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10",
+                    "title": "Episode 4",
+                    "ep_num": "4",
                     "video_url": ""
                 },
                 {
-                    "title": "whatsapp",
-                    "url": "whatsapp://send/?text=Nige Jouzu no Wakagimi 2nd Season Episode 10%20https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10",
+                    "title": "Episode 5",
+                    "ep_num": "5",
                     "video_url": ""
                 },
                 {
-                    "title": "x",
-                    "url": "https://x.com/intent/tweet?url=https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10&text=Nige Jouzu no Wakagimi 2nd Season Episode 10",
+                    "title": "Episode 6",
+                    "ep_num": "6",
                     "video_url": ""
                 },
                 {
-                    "title": "tumblr",
-                    "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://www.desidubanime.me/watch/nige-jouzu-no-wakagimi-2nd-season-episode-10&title=Nige Jouzu no Wakagimi 2nd Season Episode 10",
+                    "title": "Episode 7",
+                    "ep_num": "7",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "ep_num": "8",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "ep_num": "9",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "ep_num": "10",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "ep_num": "11",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "ep_num": "12",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "the-elusive-samurai",
+            "title": "The Elusive Samurai",
+            "url": "https://www.animostream.xyz/2026/06/the-elusive-samurai.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjz_9YAlqXPG9jyRb_RaXdDqNAlmA3kJPQzIS4eKSnQ3_q3Pc-oVKtYNSjcOMYmsUe2uqx7gfJTaMfKbDKE24y46iYg9KyoiYiShpKRr8ACmLsHVUjSbyzrizQtB7dsNowvcUlG3mnymXnZBkCQPBydvYiS0T0VcGM0JuooUlRkb84rYr8IuXNtBcVdP0e-/w72-h72-p-k-no-nu/e.webp",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "ep_num": "1",
+                            "video_url": "https://abyssplayer.com/Gly0fUeiRl?t=1791711935311"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "ep_num": "2",
+                            "video_url": "https://abyssplayer.com/-VfKDadS_?t=1791711943433"
+                        },
+                        {
+                            "title": "Episode 3",
+                            "ep_num": "3",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "ep_num": "4",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "ep_num": "5",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "ep_num": "6",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "ep_num": "7",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "ep_num": "8",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "ep_num": "9",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "ep_num": "10",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "ep_num": "11",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "ep_num": "12",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Episode 1",
+                    "ep_num": "1",
+                    "video_url": "https://abyssplayer.com/Gly0fUeiRl?t=1791711935311"
+                },
+                {
+                    "title": "Episode 2",
+                    "ep_num": "2",
+                    "video_url": "https://abyssplayer.com/-VfKDadS_?t=1791711943433"
+                },
+                {
+                    "title": "Episode 3",
+                    "ep_num": "3",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 4",
+                    "ep_num": "4",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "ep_num": "5",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "ep_num": "6",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "ep_num": "7",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "ep_num": "8",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "ep_num": "9",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "ep_num": "10",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "ep_num": "11",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "ep_num": "12",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "that-time-i-got-reincarnated-as-slime_9",
+            "title": "That Time I Got Reincarnated As A Slime",
+            "url": "https://www.animostream.xyz/2026/04/that-time-i-got-reincarnated-as-slime_9.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQRw2Fp4l2siMXSapjzU28rO4US0GaydWbxA9tjnmgYBhHZGUo3zxa8LveW8j3RhuVKiflLluhMCToKAA_YWe3EQAP-dZKVDXYxmijYWXkSogAbBddXlkeKKyP4ZMOc3TtjbMLRIjB9ntkW0trUhmQhF1fRvBayD0OVly8PvDdCZLpffNRzhM8s1WRNEeW/w72-h72-p-k-no-nu/s.webp",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "ep_num": "1",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 2",
+                            "ep_num": "2",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 3",
+                            "ep_num": "3",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "ep_num": "4",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "ep_num": "5",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "ep_num": "6",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "ep_num": "7",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "ep_num": "8",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "ep_num": "9",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "ep_num": "10",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "ep_num": "11",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "ep_num": "12",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 13",
+                            "ep_num": "13",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 14",
+                            "ep_num": "14",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 15",
+                            "ep_num": "15",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 16",
+                            "ep_num": "16",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 17",
+                            "ep_num": "17",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 18",
+                            "ep_num": "18",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 19",
+                            "ep_num": "19",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 20",
+                            "ep_num": "20",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 21",
+                            "ep_num": "21",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 22",
+                            "ep_num": "22",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 23",
+                            "ep_num": "23",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 24",
+                            "ep_num": "24",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Episode 1",
+                    "ep_num": "1",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 2",
+                    "ep_num": "2",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 3",
+                    "ep_num": "3",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 4",
+                    "ep_num": "4",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "ep_num": "5",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "ep_num": "6",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "ep_num": "7",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "ep_num": "8",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "ep_num": "9",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "ep_num": "10",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "ep_num": "11",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "ep_num": "12",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 13",
+                    "ep_num": "13",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 14",
+                    "ep_num": "14",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 15",
+                    "ep_num": "15",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 16",
+                    "ep_num": "16",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 17",
+                    "ep_num": "17",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 18",
+                    "ep_num": "18",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 19",
+                    "ep_num": "19",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 20",
+                    "ep_num": "20",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 21",
+                    "ep_num": "21",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 22",
+                    "ep_num": "22",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 23",
+                    "ep_num": "23",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 24",
+                    "ep_num": "24",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "tokyo-revengers",
+            "title": "Tokyo Revengers",
+            "url": "https://www.animostream.xyz/2026/07/tokyo-revengers.html",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgW_N9HilJT5naR6NbdxHCZjbTTcQYNaRlimF4-FhdvEvn4mFP9208Tw4cw8rklfYRk2NH3YTQXlIZ36SjQfN7qVoMAySkKFeSnC7PMeLfUcRnP7Qlh_Q-ya5nVH9ZcuDeGvNnLuA8jNp6Nv4tp1YzIOkd7cp7Fovf9gursiwpba7WZK-ezZaN3X6qfol_0/w72-h72-p-k-no-nu/tr4.webp",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "ep_num": "1",
+                            "video_url": "https://play.abyssplayer.com/OzQUpZc-e?t=1791712023991"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "ep_num": "2",
+                            "video_url": "https://play.abyssplayer.com/FS4ZryvED?t=1791712032148"
+                        },
+                        {
+                            "title": "Episode 3",
+                            "ep_num": "3",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 4",
+                            "ep_num": "4",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "ep_num": "5",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "ep_num": "6",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "ep_num": "7",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "ep_num": "8",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "ep_num": "9",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "ep_num": "10",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "ep_num": "11",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "ep_num": "12",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 13",
+                            "ep_num": "13",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 14",
+                            "ep_num": "14",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 15",
+                            "ep_num": "15",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 16",
+                            "ep_num": "16",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 17",
+                            "ep_num": "17",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 18",
+                            "ep_num": "18",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 19",
+                            "ep_num": "19",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 20",
+                            "ep_num": "20",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 21",
+                            "ep_num": "21",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 22",
+                            "ep_num": "22",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 23",
+                            "ep_num": "23",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 24",
+                            "ep_num": "24",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Episode 1",
+                    "ep_num": "1",
+                    "video_url": "https://play.abyssplayer.com/OzQUpZc-e?t=1791712023991"
+                },
+                {
+                    "title": "Episode 2",
+                    "ep_num": "2",
+                    "video_url": "https://play.abyssplayer.com/FS4ZryvED?t=1791712032148"
+                },
+                {
+                    "title": "Episode 3",
+                    "ep_num": "3",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 4",
+                    "ep_num": "4",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "ep_num": "5",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "ep_num": "6",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "ep_num": "7",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "ep_num": "8",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "ep_num": "9",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "ep_num": "10",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "ep_num": "11",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "ep_num": "12",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 13",
+                    "ep_num": "13",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 14",
+                    "ep_num": "14",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 15",
+                    "ep_num": "15",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 16",
+                    "ep_num": "16",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 17",
+                    "ep_num": "17",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 18",
+                    "ep_num": "18",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 19",
+                    "ep_num": "19",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 20",
+                    "ep_num": "20",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 21",
+                    "ep_num": "21",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 22",
+                    "ep_num": "22",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 23",
+                    "ep_num": "23",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 24",
+                    "ep_num": "24",
                     "video_url": ""
                 }
             ]

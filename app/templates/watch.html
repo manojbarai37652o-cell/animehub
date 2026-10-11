@@ -37,32 +37,8 @@
         
         {% if current_ep and current_ep.video_url and current_ep.video_url|length > 10 %}
         <div class="video-player-crunchy">
-            <video id="video-player" controls playsinline style="width: 100%; height: 100%; background: #000;"></video>
+            <iframe src="{{ current_ep.video_url }}" width="100%" height="100%" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-        <script>
-            var video = document.getElementById('video-player');
-            var originalUrl = "{{ current_ep.video_url }}";
-            
-            // 🚀 यहाँ अपना Cloudflare Worker वाला लिंक पेस्ट करो
-            var workerUrl = "https://anime-proxy.manojbarai37652o.workers.dev"; 
-            
-            if (originalUrl && Hls.isSupported()) {
-                var hls = new Hls({
-                    xhrSetup: function(xhr, url) {
-                        if (url.includes(workerUrl)) {
-                            xhr.open('GET', url, true);
-                        } else {
-                            xhr.open('GET', workerUrl + '/?url=' + encodeURIComponent(url), true);
-                        }
-                    }
-                });
-                hls.loadSource(workerUrl + '/?url=' + encodeURIComponent(originalUrl));
-                hls.attachMedia(video);
-            } else if (originalUrl && video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = workerUrl + '/?url=' + encodeURIComponent(originalUrl);
-            }
-        </script>
         {% else %}
         <div class="no-video-msg-crunchy" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0f0f13; border: 1px solid #333; height: 300px; border-radius: 10px; margin-bottom: 20px;">
             <h3 style="color: #fff; margin-bottom: 10px;"><i class="fas fa-video-slash" style="color: #8a2be2;"></i> Video Not Available</h3>
