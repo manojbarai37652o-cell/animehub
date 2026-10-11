@@ -9,17 +9,15 @@ project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
 from parser import (parse_anime_homepage, parse_post_id, parse_season_ajax,
-                    parse_video_link, parse_release_year, parse_season_episodes,
-                    has_hindi_dub)
+                    parse_video_link, parse_release_year, parse_season_episodes)
 
-MIN_YEAR = 2010
-BATCH_SIZE = 10
+MIN_YEAR = 2000
+BATCH_SIZE = 35
 SLEEP_BETWEEN = 2
 MAX_PAGES_TO_CHECK = 500
 
 PROGRESS_FILE = os.path.join(project_root, 'database', 'progress.json')
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
-SKIP_FILE = os.path.join(project_root, 'database', 'skipped.json')
 
 # Cloudflare bypass
 scraper = cloudscraper.create_scraper()
@@ -53,20 +51,6 @@ def save_db(data):
         json.dump(data, f, indent=4, ensure_ascii=False)
 
 
-def load_skipped():
-    if os.path.exists(SKIP_FILE):
-        try:
-            with open(SKIP_FILE, 'r') as f:
-                return json.load(f)
-        except: pass
-    return {"skipped_ids": []}
-
-
-def save_skipped(data):
-    with open(SKIP_FILE, 'w') as f:
-        json.dump(data, f, indent=4)
-
-
 def fetch_page(url):
     try:
         response = scraper.get(url, timeout=20)
@@ -95,7 +79,7 @@ def fetch_season_ajax(post_id, season_num):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🤖 SCRAPER चालू (हिंदी डब - animesalt.cx)")
+    print("🤖 SCRAPER चालू (सारे anime - हर भाषा)")
     print("=" * 60)
     
     progress = load_progress()
@@ -106,11 +90,7 @@ if __name__ == '__main__':
     existing_anime = db_data.get('anime_list', [])
     existing_ids = set(a['id'] for a in existing_anime)
     
-    skip_data = load_skipped()
-    skipped_ids = set(skip_data.get('skipped_ids', []))
-    
-    print(f"💾 Database: {len(existing_ids)} anime")
-    print(f"⏭️ Skipped: {len(skipped_ids)} anime\n")
+    print(f"💾 Database: {len(existing_ids)} anime\n")
     
     found_new = False
     page_num = start_page
@@ -126,7 +106,7 @@ if __name__ == '__main__':
             break
         
         all_anime = parse_anime_homepage(homepage_html, "https://animesalt.cx/")
-        new_anime = [a for a in all_anime if a['id'] not in existing_ids and a['id'] not in skipped_ids]
+        new_anime = [a for a in all_anime if a['id'] not in existing_ids]
         
         if not new_anime:
             page_num += 1
@@ -145,7 +125,6 @@ if __name__ == '__main__':
     print(f"\n📦 {min(BATCH_SIZE, len(new_anime))} anime check होंगे\n")
     
     scraped_this_run = 0
-    skipped_this_run = 0
     updated_list = existing_anime.copy()
     
     for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
@@ -155,21 +134,10 @@ if __name__ == '__main__':
         if not anime_html:
             continue
         
-        # Hindi check
-        if not has_hindi_dub(anime_html):
-            print("   ⏭️ हिंदी नहीं, skip")
-            skipped_ids.add(anime['id'])
-            skipped_this_run += 1
-            time.sleep(1)
-            continue
-        
-        print("   ✅ हिंदी डब है!")
-        
         # Year check
         year = parse_release_year(anime_html)
         if year and year < MIN_YEAR:
-            skipped_ids.add(anime['id'])
-            skipped_this_run += 1
+            print(f"   ⏭️ बहुत पुराना ({year}), skip")
             continue
         
         # Post ID (AJAX के लिए)
@@ -216,6 +184,7 @@ if __name__ == '__main__':
             time.sleep(1)
         
         if not anime_seasons:
+            print("   ⏭️ कोई episode नहीं")
             continue
         
         anime['seasons'] = anime_seasons
@@ -223,12 +192,13 @@ if __name__ == '__main__':
         updated_list.append(anime)
         scraped_this_run += 1
         
+        total_eps = sum(len(s['episodes']) for s in anime_seasons)
+        print(f"   💾 Save! {len(anime_seasons)} Season, {total_eps} Episodes")
+        
         # बीच में save
         if scraped_this_run % 3 == 0:
             db_data['anime_list'] = updated_list
             save_db(db_data)
-            skip_data['skipped_ids'] = list(skipped_ids)
-            save_skipped(skip_data)
         
         time.sleep(SLEEP_BETWEEN)
     
@@ -240,7 +210,4 @@ if __name__ == '__main__':
         save_progress(progress)
         print(f"\n🎉 {scraped_this_run} anime saved!")
     
-    skip_data['skipped_ids'] = list(skipped_ids)
-    save_skipped(skip_data)
-    print(f"⏭️ {skipped_this_run} skipped")
     print("=" * 60)
