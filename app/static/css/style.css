@@ -5182,168 +5182,98 @@ jobs:
           git pull --no-rebase -X ours
           git push
           /* =========================================
-   AnimeNest UI Theme Styles (Add to Bottom)
+   ULTIMATE FIX: AnimeCard Horizontal Scroll
    ========================================= */
 
-/* हॉरिजॉन्टल स्क्रॉलिंग रो (Side Scroll) */
-.anime-row {
-    display: flex;
-    overflow-x: auto;
-    gap: 15px;
-    padding-bottom: 10px;
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
+/* 1. रो (Row) को जबरदस्ती हॉरिजॉन्टल स्क्रॉल बनाओ */
+.anime-row, .horizontal-scroll, #history-row {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* एक लाइन में रखेगा, नीचे नहीं गिरेगा */
+    overflow-x: auto !important;  /* बगल में स्क्रॉल होगा */
+    overflow-y: hidden !important;
+    gap: 12px !important;
+    padding-bottom: 15px !important;
+    scrollbar-width: none; /* स्क्रॉलबार छिपाने के लिए */
+    -ms-overflow-style: none;
 }
-.anime-row::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+.anime-row::-webkit-scrollbar, .horizontal-scroll::-webkit-scrollbar, #history-row::-webkit-scrollbar {
+    display: none;
 }
 
-/* एनीमे कार्ड */
-.anime-card {
-    position: relative;
-    flex: 0 0 140px;
-    background-color: #161b22;
-    border-radius: 12px;
-    overflow: hidden;
-    text-decoration: none;
-    color: #ffffff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
+/* 2. कार्ड को छोटा और फिक्स साइज़ करो */
+.anime-card, .anime-row-card, .trending-card, .history-card {
+    flex: 0 0 130px !important; /* कार्ड की चौड़ाई तय कर दी */
+    width: 130px !important;
+    max-width: 130px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background-color: #161b22 !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    position: relative !important;
+    transition: transform 0.3s ease;
 }
 
 .anime-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(163, 113, 247, 0.2);
 }
 
-.anime-card img {
-    width: 100%;
-    height: 200px;
-    max-height: 200px;
-    object-fit: cover; /* इमेज को खींचे बिना क्रॉप करेगा */
-    border-bottom: 2px solid #a371f7;
-    display: block;
+/* 3. इमेज को परफेक्ट साइज़ करो (न खिंचे, न बड़ी हो) */
+.anime-card img, .anime-row-card img, .trending-card img, .history-thumb img {
+    width: 100% !important;
+    height: 170px !important;
+    min-height: 170px !important;
+    max-height: 170px !important;
+    object-fit: cover !important; /* इमेज को क्रॉप करेगा, खींचेगा नहीं */
+    display: block !important;
+    border-bottom: 2px solid #a371f7 !important;
 }
 
-/* रैंक नंबर (1, 2, 3...) */
-.rank-number {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 2px 10px 5px 10px;
-    border-bottom-right-radius: 12px;
-    border-top-left-radius: 12px;
-    z-index: 10;
-}
-
+/* 4. टेक्स्ट को कार्ड के अंदर फिट करो */
 .anime-title {
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin: 8px 8px 4px 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    margin: 8px 8px 4px 8px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    color: #ffffff !important;
 }
 
 .anime-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.75rem;
-    color: #8b949e;
-    margin: 0 8px 10px 8px;
-    margin-top: auto;
+    display: flex !important;
+    justify-content: space-between !important;
+    font-size: 0.7rem !important;
+    color: #8b949e !important;
+    margin: 0 8px 10px 8px !important;
+    margin-top: auto !important;
 }
 
 .rating {
-    color: #f1c40f; /* स्टार का रंग */
+    color: #f1c40f !important;
 }
 
-/* जॉनर ग्रिड */
-.genre-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+/* 5. रैंक नंबर को सही जगह रखो */
+.rank-number {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    color: #fff !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    padding: 2px 8px !important;
+    border-bottom-right-radius: 8px !important;
+    z-index: 10 !important;
 }
 
-.genre-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 10px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: opacity 0.3s;
-}
-
-.genre-card:hover {
-    opacity: 0.8;
-}
-
-/* जॉनर के रंग (Gradients) */
-.genre-card.action { background: linear-gradient(135deg, #ff4b2b, #ff416c); }
-.genre-card.adventure { background: linear-gradient(135deg, #1cb5e0, #000046); }
-.genre-card.comedy { background: linear-gradient(135deg, #f7971e, #ffd200); color: #000; }
-.genre-card.fantasy { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
-.genre-card.romance { background: linear-gradient(135deg, #ff758c, #ff7eb3); }
-.genre-card.horror { background: linear-gradient(135deg, #870000, #190a05); }
-
-/* Continue Watching सेक्शन */
-#history-row {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-}
+/* Continue Watching कार्ड्स के लिए अलग साइज़ */
 .history-card {
-    flex: 0 0 150px;
-    background: #161b22;
-    border-radius: 8px;
-    overflow: hidden;
-    text-decoration: none;
-    color: #fff;
+    flex: 0 0 150px !important;
+    width: 150px !important;
 }
 .history-thumb {
-    position: relative;
-    height: 90px;
-}
-.history-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.history-info {
-    padding: 8px;
-}
-.history-title {
-    font-size: 0.8rem;
-    font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.history-sub {
-    font-size: 0.7rem;
-    color: #8b949e;
-}
-
-/* मोबाइल रिस्पॉन्सिव */
-@media (max-width: 768px) {
-    .genre-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .anime-card {
-        flex: 0 0 120px;
-    }
-    .anime-card img {
-        height: 170px;
-        max-height: 170px;
-    }
+    height: 85px !important;
 }
