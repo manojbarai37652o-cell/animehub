@@ -10,7 +10,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
-NEW_ANIME_NEEDED = 5
+NEW_ANIME_NEEDED = 10  # टेस्टिंग के लिए 10
 SLEEP_BETWEEN = 2
 
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
@@ -64,12 +64,13 @@ def fetch_page(url, wait_for_selector=None):
 
 def fetch_videos_for_anime(anime_url, episodes):
     """एक ही पेज पर एपिसोड पर क्लिक करके m3u8 या iframe लिंक निकालता है"""
-    video_urls = {}  # {ep_num: video_url}
+    video_urls = {}
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             context = browser.new_context(
-                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+                viewport={'width': 1366, 'height': 768}
             )
             
             current_m3u8 = None
@@ -93,38 +94,58 @@ def fetch_videos_for_anime(anime_url, episodes):
                 current_m3u8 = None
                 video_url = None
                 
-                # 3 बार कोशिश करेंगे
-                for attempt in range(3):
+                # 4 बार कोशिश करेंगे
+                for attempt in range(4):
                     if video_url:
                         break
                     try:
-                        # एपिसोड के नंबर पर क्लिक करो
                         page.locator(f"div.ep:text-is('{ep_num}')").first.click(timeout=10000)
-                        page.wait_for_timeout(8000)
+                        page.wait_for_timeout(10000)  # 10 सेकंड का इंतज़ार
                         
-                        # अगर प्ले बटन की जरूरत हो तो क्लिक करो
+                        # Plyr/VJS का प्ले बटन क्लिक करो
                         if not current_m3u8:
-                            play_btn = page.locator('.plyr__control--overlaid, .vjs-big-play-button, video').first
-                            if play_btn.count() > 0:
-                                play_btn.click(force=True, timeout=5000)
-                                page.wait_for_timeout(5000)
+                            play_selectors = ['.plyr__control--overlaid', '.vjs-big-play-button', 'video', '.play-button']
+                            for sel in play_selectors:
+                                btn = page.locator(sel).first
+                                if btn.count() > 0:
+                                    btn.click(force=True, timeout=5000)
+                                    page.wait_for_timeout(5000)
+                                    break
                                 
                         if current_m3u8:
                             video_url = current_m3u8
-                            print(f"    ✅ Real m3u8 URL found for Episode {ep_num}!")
+                            print(f"    ✅ m3u8 found for Episode {ep_num}!")
                             break
                             
-                        # अगर m3u8 नहीं मिला, तो iframe का src निकालो
-                        iframe = page.query_selector('iframe')
-                        if iframe:
+                        # iframe का src निकालो
+                        iframes = page.query_selector_all('iframe')
+                        for iframe in iframes:
                             src = iframe.get_attribute('src')
-                            if src and 'http' in src:
+                            if src and 'http' in src and 'player' in src.lower() or (src and 'http' in src and 'embed' in src.lower()):
                                 video_url = src
-                                print(f"    📺 Found iframe src for Episode {ep_num}!")
+                                print(f"    📺 iframe found for Episode {ep_num}!")
                                 break
-                                
+                        
+                        if video_url:
+                            break
+                            
                     except Exception as e:
                         print(f"      ⚠️ Attempt {attempt+1} failed: {e}")
+                
+                # अगर फिर भी न मिले, तो HTML सोर्स से ढूंढो
+                if not video_url:
+                    try:
+                        content = page.content()
+                        m3u8_match = re.search(r'https?://[^"\']+\.m3u8[^"\']*', content)
+                        if m3u8_match:
+                            video_url = m3u8_match.group(0)
+                            print(f"    🎯 Found m3u8 in HTML for Episode {ep_num}!")
+                        else:
+                            iframe_match = re.search(r'<iframe[^>]+src=["\'](https?://[^"\']+)["\']', content)
+                            if iframe_match:
+                                video_url = iframe_match.group(1)
+                                print(f"    📺 Found iframe in HTML for Episode {ep_num}!")
+                    except: pass
                 
                 if not video_url:
                     print(f"    ⚠️ No video URL found for Episode {ep_num}.")
@@ -138,7 +159,7 @@ def fetch_videos_for_anime(anime_url, episodes):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🚀 ANIMOSTREAM.XYZ SCRAPER (Fallback Support)")
+    print("🚀 ANIMOSTREAM.XYZ SCRAPER (Enhanced Fallback)")
     print("=" * 60)
 
     db_data = load_db()
