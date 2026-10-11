@@ -5142,104 +5142,132 @@ function clearSearch() {
     .similar-card img { height: 140px; }
     .similar-card h4 { font-size: 11px; padding: 6px 3px; }
 }
-name: Auto Anime Scraper
-
-on:
-  schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  scrape:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-      
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 cloudscraper flask-dance
-      
-      - name: Run Scraper
-        run: python scraper/smart_scraper.py
-      
-      - name: Save Data to GitHub
-        run: |
-          git config --local user.email "bot@animenest.com"
-          git config --local user.name "AnimeNest Bot"
-          git add database/storage.json database/progress.json database/skipped.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-scraped new anime"
-          git pull --no-rebase -X ours
-          git push
 /* =========================================
-   FINAL FIX: History Cards, Red Bar, & Lines
+   ULTIMATE GRID FIX: Multiple Cards Per Row
    ========================================= */
 
-/* 1. हेडिंग के बगल वाली काली लाइन (red-bar) को ठीक करो */
-.red-bar {
-    display: inline-block !important;
-    width: 4px !important;
-    height: 18px !important;
-    background-color: #ff4b2b !important; /* इसे जबरदस्ती लाल कर दिया */
-    margin-right: 8px !important;
-    vertical-align: middle !important;
-    border-radius: 2px !important;
-    border: none !important;
+/* 1. app-section को साफ रखो */
+.app-section {
+    margin-bottom: 30px !important;
+    width: 100% !important;
+    overflow: hidden !important; /* पेज को बगल में स्क्रॉल होने से रोकेगा */
 }
 
-/* 2. Continue Watching कार्ड्स की ब्लू लाइन और साइज़ फिक्स */
-#history-row {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
+/* 2. रो (Row) को जबरदस्ती CSS Grid से मल्टी-लाइन बनाओ */
+.anime-row, .horizontal-scroll, #history-row {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important; /* जादुई लाइन: ये अपने आप 3-5 कॉलम बना देगा */
     gap: 12px !important;
-    padding-bottom: 10px !important;
+    padding-bottom: 15px !important;
+    width: 100% !important;
 }
 
-.history-card {
-    flex: 0 0 160px !important; /* कार्ड की चौड़ाई फिक्स */
-    width: 160px !important;
-    max-width: 160px !important;
+/* 3. कार्ड को ग्रिड के हिसाब से सेट करो */
+.anime-card, .anime-row-card, .trending-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
     background-color: #161b22 !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+    position: relative !important;
+    transition: transform 0.3s ease;
+    box-sizing: border-box !important;
+}
+
+.anime-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 4. इमेज को परफेक्ट साइज़ करो (न खिंचे, न बड़ी हो) */
+.anime-card img, .anime-row-card img, .trending-card img {
+    width: 100% !important;
+    height: 170px !important; 
+    min-height: 170px !important;
+    max-height: 170px !important;
+    object-fit: cover !important; /* इमेज को क्रॉप करेगा, खींचेगा नहीं */
+    display: block !important;
+    border-bottom: 2px solid #a371f7 !important;
+}
+
+/* 5. टेक्स्ट को कार्ड के अंदर फिट करो */
+.anime-title {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    margin: 8px 8px 4px 8px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    color: #ffffff !important;
+    display: block !important;
+}
+
+.anime-meta {
+    display: flex !important;
+    justify-content: space-between !important;
+    font-size: 0.65rem !important;
+    color: #8b949e !important;
+    margin: auto 8px 10px 8px !important; /* Push to bottom */
+    padding: 0 !important;
+}
+
+.rating {
+    color: #f1c40f !important;
+}
+
+/* 6. रैंक नंबर को सही जगह रखो */
+.rank-number {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    color: #fff !important;
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
+    padding: 2px 8px !important;
+    border-bottom-right-radius: 8px !important;
+    z-index: 10 !important;
+}
+
+/* 7. Continue Watching के कार्ड्स को भी छोटा करो */
+.history-card {
+    width: 100% !important;
+    background: #161b22 !important;
     border-radius: 8px !important;
     overflow: hidden !important;
     text-decoration: none !important;
     border: none !important;
 }
-
 .history-thumb {
-    height: 90px !important; /* इमेज की ऊंचाई फिक्स */
+    height: 90px !important;
     position: relative !important;
-    border-bottom: none !important; /* नीली लाइन हटाने के लिए */
+    border-bottom: none !important;
 }
-
 .history-thumb img {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    border-bottom: none !important; /* जबरदस्ती नीली लाइन हटाई */
+    border-bottom: none !important;
     display: block !important;
 }
-
-/* अगर कहीं प्रोग्रेस बार या एक्स्ट्रा लाइन है तो उसे छिपा दो */
-.progress-bar {
-    display: none !important; 
+.history-title {
+    font-size: 0.75rem !important;
+    padding: 5px !important;
+    color: #fff !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+.history-sub {
+    font-size: 0.65rem !important;
+    padding: 0 5px 5px 5px !important;
+    color: #8b949e !important;
 }
 
-/* 3. पुरानी CSS से आ रही कोई भी फालतू लाइन हटाओ */
-.app-section {
-    border-bottom: none !important;
-}
-hr {
+/* फालतू लाइनें हटाओ */
+.progress-bar, hr {
     display: none !important;
 }
+          
