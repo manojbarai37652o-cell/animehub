@@ -3,50 +3,32 @@ import os
 import random
 import requests
 
-# ✅ तुम्हारी GitHub repository का raw link
+# ✅ GitHub से ताजा डेटा
 GITHUB_RAW_URL = "https://raw.githubusercontent.com/manojbarai37652o-cell/animehub/main/database/storage.json"
-
-# ✅ अगर GitHub से डेटा न आए, तो लोकल फाइल का इस्तेमाल करेंगे
 DB_PATH = os.path.join(os.getcwd(), 'database', 'storage.json')
 
 
 def get_all_anime():
-    """GitHub से ताज़ा डेटा लाओ, अगर न आए तो लोकल से लो"""
-    
-    # ✅ पहले GitHub से डेटा उठाओ
+    """GitHub से ताजा डेटा लाओ"""
     try:
         response = requests.get(GITHUB_RAW_URL, timeout=10)
         if response.status_code == 200:
-            data = response.json()
-            print("✅ GitHub से नया डेटा आ गया!")
-            return data.get('anime_list', [])
+            return response.json().get('anime_list', [])
     except Exception as e:
-        print(f"⚠️ GitHub से डेटा नहीं आया: {e}")
+        print(f"⚠️ GitHub fetch error: {e}")
     
-    # ✅ अगर GitHub से न आए तो लोकल फाइल पढ़ो
-    print("📂 लोकल फाइल से डेटा ला रहे हैं...")
+    # Fallback: लोकल
     if not os.path.exists(DB_PATH):
         return []
     try:
         with open(DB_PATH, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-            return data.get('anime_list', [])
-    except Exception as e:
-        print(f"Database Error: {e}")
+            return json.load(f).get('anime_list', [])
+    except:
         return []
 
 
-def get_paginated_anime(page=1, per_page=20):
-    anime_list = get_all_anime()
-    total = len(anime_list)
-    start = (page - 1) * per_page
-    end = start + per_page
-    return anime_list[start:end], total
-
-
 def get_anime_by_id(anime_id):
-    anime_list = get_all_anime()
-    for anime in anime_list:
+    for anime in get_all_anime():
         if anime['id'] == anime_id:
             return anime
     return None
@@ -56,7 +38,7 @@ def search_anime(query):
     anime_list = get_all_anime()
     if not query: return anime_list
     query = query.lower()
-    return [anime for anime in anime_list if query in anime['title'].lower()]
+    return [a for a in anime_list if query in a['title'].lower()]
 
 
 def get_random_anime(exclude_id, count=6):
@@ -88,10 +70,17 @@ def get_anime_by_genre(genre):
     if not genre: return anime_list
     genre = genre.lower()
     results = []
-    action_keywords = ['demon', 'slayer', 'jujutsu', 'hero', 'punch', 'leveling', 'titan', 'hunter', 'blade', 'sword', 'kai', 'dan', 'torch', 'piece', 'naruto', 'clover', 'academia']
-    comedy_keywords = ['comedy', 'funny', 'life', 'slice', 'school', 'club', 'kanojo', 'girlfriend', 'dandadan', 'family', 'spy']
-    fantasy_keywords = ['fantasy', 'magic', 'isekai', 'reincarnated', 'slime', 'immortal', 'king', 'dungeon', 'adventure']
-    romance_keywords = ['romance', 'love', 'romantic', 'heart', 'kiss']
+    action_keywords = ['demon slayer', 'jujutsu kaisen', 'one punch man', 'attack on titan', 
+                      'solo leveling', 'naruto', 'one piece', 'black clover', 'my hero academia',
+                      'hunter x hunter', 'bleach', 'dragon ball', 'chainsaw man', 'tokyo revengers']
+    comedy_keywords = ['spy x family', 'grand blue', 'kaguya', 'komi', 'nichijou', 
+                      'gintama', 'konosuba', 'daily life', 'horimiya', 'fruits basket']
+    fantasy_keywords = ['reincarnated', 'isekai', 'mushoku tensei', 'that time i got',
+                       'overlord', 'slime', 're:zero', 'sword art online', 'fate',
+                       'immortal king', 'frontier lord', 'wistoria', 'frieren', 'dungeon']
+    romance_keywords = ['horimiya', 'kaguya', 'toradora', 'love is war', 'rent-a-girlfriend',
+                       'my dress-up darling', 'fruits basket', 'tomo-chan', 'uzaki', 'quintessential']
+    
     for anime in anime_list:
         title_lower = anime['title'].lower()
         if genre == 'action' and any(k in title_lower for k in action_keywords): results.append(anime)
@@ -109,17 +98,15 @@ def get_single_random_anime():
 
 
 def save_anime_list(anime_list):
-    """लोकल फाइल में सेव करो (सिर्फ बैकअप के लिए)"""
     data = {"anime_list": anime_list}
     try:
         with open(DB_PATH, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
     except Exception as e:
-        print(f"❌ डेटा सेव करने में एरर: {e}")
+        print(f"❌ Save error: {e}")
 
 
 def update_anime_episodes(anime_id, episodes):
-    """अब यह फंक्शन सिर्फ लोकल में सेव करेगा"""
     anime_list = get_all_anime()
     for anime in anime_list:
         if anime['id'] == anime_id:
