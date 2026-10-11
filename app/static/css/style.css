@@ -5209,6 +5209,8 @@ jobs:
     text-decoration: none;
     color: #ffffff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .anime-card:hover {
@@ -5219,8 +5221,10 @@ jobs:
 .anime-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    max-height: 200px;
+    object-fit: cover; /* इमेज को खींचे बिना क्रॉप करेगा */
     border-bottom: 2px solid #a371f7;
+    display: block;
 }
 
 /* रैंक नंबर (1, 2, 3...) */
@@ -5253,6 +5257,7 @@ jobs:
     font-size: 0.75rem;
     color: #8b949e;
     margin: 0 8px 10px 8px;
+    margin-top: auto;
 }
 
 .rating {
@@ -5291,6 +5296,44 @@ jobs:
 .genre-card.romance { background: linear-gradient(135deg, #ff758c, #ff7eb3); }
 .genre-card.horror { background: linear-gradient(135deg, #870000, #190a05); }
 
+/* Continue Watching सेक्शन */
+#history-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+}
+.history-card {
+    flex: 0 0 150px;
+    background: #161b22;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+}
+.history-thumb {
+    position: relative;
+    height: 90px;
+}
+.history-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.history-info {
+    padding: 8px;
+}
+.history-title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.history-sub {
+    font-size: 0.7rem;
+    color: #8b949e;
+}
+
 /* मोबाइल रिस्पॉन्सिव */
 @media (max-width: 768px) {
     .genre-grid {
@@ -5301,5 +5344,6 @@ jobs:
     }
     .anime-card img {
         height: 170px;
+        max-height: 170px;
     }
 }
