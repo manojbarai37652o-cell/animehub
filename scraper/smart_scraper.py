@@ -95,45 +95,56 @@ if __name__ == '__main__':
     new_anime = []
     page_num = start_page
     pages_checked = 0
-
-    # 🛠️ FIX: अब हम पेज 1, 2, 3, 4... सब चेक करेंगे ताकि BATCH_SIZE (35) नए एनीमे मिल सकें
+    
+    # 🛠️ FIX 1: हम तब तक पेज चेक करेंगे जब तक 35 नए एनीमे नहीं मिल जाते
+    MAX_PAGES_TO_CHECK = 500 
+    
     while len(new_anime) < BATCH_SIZE and pages_checked < MAX_PAGES_TO_CHECK:
         base_url = f"https://animesalt.cx/?page={page_num}"
         print(f"\n🔍 Page {page_num}...")
 
-        homepage_html = fetch_page(base_url)
-        if not homepage_html:
-            print(f"⚠️ Page {page_num} लोड नहीं हुआ। स्क्रैपिंग रोक रहे हैं।")
-            break
+        try:
+            homepage_html = fetch_page(base_url)
+            if not homepage_html:
+                # 🛠️ FIX 2: 504 एरर आने पर रुकना नहीं है, अगले पेज पर जाना है
+                print(f"⚠️ Page {page_num} लोड नहीं हुआ (शायद 504 एरर)। अगले पेज पर जा रहे हैं...")
+                page_num += 1
+                pages_checked += 1
+                continue
 
-        all_anime = parse_anime_homepage(homepage_html, "https://animesalt.cx/")
-        page_new_anime = [a for a in all_anime if a['id'] not in existing_ids]
-        
-        # इस पेज के नए एनीमे को मुख्य लिस्ट में जोड़ो
-        for a in page_new_anime:
-            if a not in new_anime:
-                new_anime.append(a)
-                if len(new_anime) >= BATCH_SIZE:
-                    break
-        
-        print(f"   📊 इस पेज पर {len(page_new_anime)} नए anime मिले (कुल जुटाए: {len(new_anime)})")
+            all_anime = parse_anime_homepage(homepage_html, "https://animesalt.cx/")
+            page_new_anime = [a for a in all_anime if a['id'] not in existing_ids]
+            
+            for a in page_new_anime:
+                if a not in new_anime:
+                    new_anime.append(a)
+                    if len(new_anime) >= BATCH_SIZE:
+                        break
+            
+            print(f"   📊 इस पेज पर {len(page_new_anime)} नए आइटम मिले (कुल जुटाए: {len(new_anime)})")
 
-        # अगले पेज के लिए प्रोग्रेस सेव करो
-        page_num += 1
-        progress['last_page'] = page_num
-        save_progress(progress)
-        pages_checked += 1
-        time.sleep(1) # सर्वर पर लोड कम करने के लिए
+            page_num += 1
+            progress['last_page'] = page_num
+            save_progress(progress)
+            pages_checked += 1
+            time.sleep(1) # सर्वर पर लोड कम करने के लिए
+            
+        except Exception as e:
+            print(f"❌ Page {page_num} पर एरर: {e}. अगले पेज पर जा रहे हैं...")
+            page_num += 1
+            pages_checked += 1
+            continue
 
     if not new_anime:
-        print("\n👋 सारे पेज खत्म! कोई नया एनीमे नहीं मिला।")
+        print("\n👋 सारे पेज खत्म! कोई नया आइटम नहीं मिला।")
         exit()
 
-    print(f"\n✅ {min(BATCH_SIZE, len(new_anime))} anime चेक कर रहे हैं...\n")
+    print(f"\n✅ {len(new_anime)} एनीमे चेक कर रहे हैं...\n")
 
     scraped_this_run = 0
     updated_list = existing_anime.copy()
 
+    # 🛠️ FIX 3: अब हम 35 एनीमे (सीरीज़ या मूवी) को प्रोसेस करेंगे
     for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
         print(f"\n[{idx + 1}/{min(BATCH_SIZE, len(new_anime))}] {anime['title']}")
         
@@ -141,20 +152,17 @@ if __name__ == '__main__':
         if not anime_html:
             continue
 
-        # Year check
         year = parse_release_year(anime_html)
         if year and year < MIN_YEAR:
             print(f"   ⚠️ बहुत पुराना ({year}), skip")
             continue
 
-        # Post ID (AJAX के लिए)
         post_id = parse_post_id(anime_html)
         if not post_id:
             continue
 
         print(f"   📌 Post ID: {post_id}")
 
-        # हर season के episodes निकालो
         anime_seasons = []
         season_num = 1
 
@@ -172,7 +180,6 @@ if __name__ == '__main__':
 
             print(f"   📺 Season {season_num}: {len(episodes)} episodes")
 
-            # हर episode का video link निकालो (पहले 3)
             for ep in episodes[:3]:
                 ep_html = fetch_page(ep['url'])
                 if ep_html:
@@ -191,31 +198,39 @@ if __name__ == '__main__':
             season_num += 1
             time.sleep(1)
 
-        if not anime_seasons:
-            print("   ⏭️ कोई episode नहीं")
-            continue
+        # 🛠️ FIX 4: मूवीज़ को स्किप मत करो। अगर सीज़न नहीं हैं, तो खाली लिस्ट सेव करो।
+        if anime_seasons:
+            anime['seasons'] = anime_seasons
+            anime['episodes'] = anime_seasons[0]['episodes']
+            total_eps = sum(len(s['episodes']) for s in anime_seasons)
+            print(f"   💾 Save (Series)! {len(anime_seasons)} Season, {total_eps} Episodes")
+        else:
+            anime['seasons'] = []
+            anime['episodes'] = []
+            print(f"   💾 Save (Movie)! कोई सीज़न नहीं मिला, मूवी के रूप में सेव कर रहे हैं।")
 
-        anime['seasons'] = anime_seasons
-        anime['episodes'] = anime_seasons[0]['episodes']
         updated_list.append(anime)
         scraped_this_run += 1
 
-        total_eps = sum(len(s['episodes']) for s in anime_seasons)
-        print(f"   💾 Save! {len(anime_seasons)} Season, {total_eps} Episodes")
-
-        # बीच में save
+        # हर 3 एनीमे के बाद डेटाबेस में सेव करो
         if scraped_this_run % 3 == 0:
             db_data['anime_list'] = updated_list
             save_db(db_data)
 
         time.sleep(SLEEP_BETWEEN)
 
-    # अंत में save
+    # 🛠️ FIX 5: आखिर में सेव करो और अगली बार के लिए पेज 1 पर रीसेट कर दो
     if scraped_this_run > 0:
         db_data['anime_list'] = updated_list
         save_db(db_data)
         progress['total_scraped'] += scraped_this_run
+        
+        # यही तुम्हारे सवाल का जवाब है! अगली बार फिर से पेज 1 से शुरू करने के लिए
+        progress['last_page'] = 1 
         save_progress(progress)
-        print(f"\n🎉 {scraped_this_run} anime saved!")
-    
+        
+        print(f"\n🎉 {scraped_this_run} anime saved! अगली बार फिर से Page 1 से शुरू होगा।")
+    else:
+        print("\n⚠️ कोई नया एनीमे सेव नहीं हुआ।")
+
     print("=" * 60)
