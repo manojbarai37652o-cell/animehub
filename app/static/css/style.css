@@ -2767,3 +2767,34 @@ body.light-mode .icon-circle {
     background-color: #ff4d4d;
     margin: 8px auto 0 auto;
 }
+/* =========================================
+   FIX: Compact Header (Puraane Jaisa)
+   ========================================= */
+
+.app-header {
+    padding: 8px 15px !important;
+}
+
+.logo-crown {
+    font-size: 1.1rem !important;
+    color: #a371f7 !important;
+}
+
+.logo-text {
+    font-size: 1.2rem !important; /* नाम का साइज़ छोटा कर दिया */
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+}
+
+.header-right-icons .icon-circle {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.85rem !important;
+}
+
+.user-avatar {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+}
