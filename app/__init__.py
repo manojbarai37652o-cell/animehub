@@ -24,22 +24,19 @@ class User(db.Model):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(200), nullable=False)
-    remember_token = db.Column(db.String(200), nullable=True) # 🛠️ परमानेंट लॉगिन के लिए
+    remember_token = db.Column(db.String(200), nullable=True)
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
 
-    # 🛠️ PostgreSQL डेटाबेस (Render पर) और SQLite (लोकल पर)
     db_url = os.environ.get('DATABASE_URL', 'sqlite:///users.db')
     if db_url.startswith("postgres://"):
         db_url = db_url.replace("postgres://", "postgresql://", 1)
     
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    
-    # 🛠️ सेशन को 10 साल का बनाओ
     app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=3650)
     app.config['SESSION_COOKIE_SECURE'] = True
     app.config['SESSION_COOKIE_HTTPONLY'] = True
@@ -58,7 +55,6 @@ def create_app(config_class=Config):
     )
     app.register_blueprint(google_bp, url_prefix="/login")
 
-    # 🛠️ ऑटो-लॉगिन (हर बार पेज लोड होने से पहले चेक करेगा)
     @app.before_request
     def auto_login():
         if not session.get('user_email'):
@@ -105,7 +101,7 @@ def create_app(config_class=Config):
     def login_email():
         email = request.form.get('email')
         password = request.form.get('password')
-        remember = request.form.get('remember') # 🛠️ Remember Me
+        remember = request.form.get('remember')
         
         user = User.query.filter_by(email=email).first()
         if user and check_password_hash(user.password_hash, password):
@@ -119,7 +115,6 @@ def create_app(config_class=Config):
                 token = secrets.token_urlsafe(64)
                 user.remember_token = token
                 db.session.commit()
-                # 🛠️ 10 साल की कुकी सेट करो
                 response.set_cookie('remember_token', token, max_age=3650*24*60*60, httponly=True, secure=True, samesite='Lax')
             
             response.set_cookie('saved_email', email, max_age=3650*24*60*60)
@@ -158,7 +153,6 @@ def create_app(config_class=Config):
 
     @app.route('/logout')
     def logout():
-        # 🛠️ डेटाबेस से टोकन हटाओ
         token = request.cookies.get('remember_token')
         if token:
             user = User.query.filter_by(remember_token=token).first()
@@ -238,6 +232,13 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         all_anime, _, _, _, _, _, _, _, _, _ = get_filtered_anime()
         return render_template('index.html', anime_list=all_anime, page_title="Top Rated")
+
+    # 🛠️ नया: Categories पेज
+    @app.route('/categories')
+    def categories_page():
+        if not session.get('user_email'): return render_template('login.html')
+        all_anime, _, _, _, _, _, _, _, _, _ = get_filtered_anime()
+        return render_template('index.html', anime_list=all_anime, page_title="All Categories")
 
     @app.route('/profile')
     def profile():
