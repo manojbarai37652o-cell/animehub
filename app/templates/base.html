@@ -13,6 +13,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="AnimeNest">
     <link rel="apple-touch-icon" href="/static/images/logo.png">
+    
+    <!-- 🛠️ HLS Player Library (मूवीज़ के लिए) -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
 </head>
 <body>
 
@@ -25,10 +28,9 @@
         <p class="splash-text">Loading your anime...</p>
     </div>
 
-    <!-- ✅ Header: Logo + Icons (No duplicate nav here) -->
+    <!-- Header -->
     <header class="app-header">
         <div class="header-top-row">
-            <!-- Logo -->
             <div class="logo-left">
                 <a href="/" class="logo-link">
                     <i class="fas fa-crown logo-crown"></i>
@@ -36,7 +38,6 @@
                 </a>
             </div>
 
-            <!-- Right Icons (Search, Notification, Profile) -->
             <div class="header-right-icons">
                 <a href="/search" class="icon-circle"><i class="fas fa-search"></i></a>
                 <a href="#" class="icon-circle bell-icon">
@@ -59,7 +60,7 @@
         {% block content %}{% endblock %}
     </main>
 
-    <!-- ✅ Bottom Navigation -->
+    <!-- Bottom Navigation -->
     <div class="bottom-nav">
         <a href="/" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a>
         <a href="/trending" class="nav-item"><i class="fas fa-fire"></i><span>Trending</span></a>

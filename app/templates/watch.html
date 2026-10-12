@@ -3,7 +3,7 @@
 {% block content %}
 <div class="watch-page">
 
-    <!-- ✅ HERO BANNER (Crunchyroll Style) -->
+    <!-- ✅ HERO BANNER -->
     <div class="hero-detail">
         <div class="hero-detail-bg" style="background-image: url('{{ anime.image }}');"></div>
         <div class="hero-detail-overlay"></div>
@@ -16,7 +16,6 @@
                 <h1 class="hero-anime-title">{{ anime.title }}</h1>
                 
                 <div class="hero-meta-row">
-                    <!-- 🛠️ FIX: Language Badge (Hindi, English, etc.) -->
                     {% if anime.language and anime.language != 'Unknown' %}
                     <span class="lang-badge">{{ anime.language }}</span>
                     {% endif %}
@@ -48,7 +47,14 @@
     <div id="tab-episodes" class="tab-content active">
         {% if current_ep and current_ep.video_url %}
         <div class="video-player-crunchy">
-            <iframe src="{{ current_ep.video_url }}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            <!-- 🛠️ FIX: मूवीज़ के लिए HLS वीडियो प्लेयर, सीरीज़ के लिए iframe -->
+            {% if current_ep.title == 'Full Movie' %}
+                <video id="hlsPlayer" controls poster="{{ anime.image }}" preload="metadata" playsinline>
+                    आपका ब्राउज़र वीडियो सपोर्ट नहीं करता।
+                </video>
+            {% else %}
+                <iframe src="{{ current_ep.video_url }}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            {% endif %}
         </div>
         {% else %}
         <div class="no-video-msg-crunchy">
@@ -188,7 +194,7 @@
 
 </div>
 
-<!-- ✅ JAVASCRIPT (तुम्हारा पूरा लॉजिक वैसा ही रहेगा) -->
+<!-- ✅ JAVASCRIPT -->
 <script>
 const animeData = {
     id: {{ anime.id|tojson }},
@@ -203,6 +209,25 @@ const animeId = {{ anime.id|tojson }};
 const currentSeason = {{ (current_season.season_number if current_season else 1)|tojson }};
 const userName = {{ (session.user_name if session.user_name else 'Guest')|tojson }};
 const userPic = {{ (session.user_pic if session.user_pic else '')|tojson }};
+
+// 🛠️ HLS Player Initialization (सिर्फ मूवीज़ के लिए)
+document.addEventListener('DOMContentLoaded', function() {
+    var video = document.getElementById('hlsPlayer');
+    if (video) {
+        var videoSrc = "{{ current_ep.video_url if current_ep else '' }}";
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                console.log("HLS Manifest loaded for Movie");
+            });
+        } 
+        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+        }
+    }
+});
 
 function switchTab(tabName, btn) {
     document.querySelectorAll('.watch-tab').forEach(t => t.classList.remove('active'));
