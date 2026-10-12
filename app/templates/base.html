@@ -27,9 +27,9 @@
         <p class="splash-text">Loading your anime...</p>
     </div>
 
-    <!-- Header -->
-    <header class="app-header">
-        <div class="header-top-row">
+    <!-- 🛠️ NEW: Floating Glass Header -->
+    <div class="header-wrapper">
+        <header class="glass-header">
             <div class="logo-left">
                 <a href="/" class="logo-link">
                     <i class="fas fa-crown logo-crown"></i>
@@ -38,49 +38,49 @@
             </div>
 
             <div class="header-right-icons">
-                <!-- 🛠️ FIX: Search Icon now opens the overlay -->
-                <a href="javascript:void(0)" onclick="openSearch()" class="icon-circle"><i class="fas fa-search"></i></a>
-                <a href="#" class="icon-circle bell-icon">
+                <a href="javascript:void(0)" onclick="openSearch()" class="glass-icon-btn"><i class="fas fa-search"></i></a>
+                <a href="#" class="glass-icon-btn bell-icon">
                     <i class="fas fa-bell"></i>
                     <span class="notification-dot"></span>
                 </a>
                 {% if session.user_pic %}
-                <a href="/profile" class="icon-circle profile-icon">
+                <a href="/profile" class="glass-icon-btn profile-icon">
                     <img src="{{ session.user_pic }}" alt="Profile" class="user-avatar">
                 </a>
                 {% else %}
-                <a href="/profile" class="icon-circle"><i class="fas fa-user"></i></a>
+                <a href="/profile" class="glass-icon-btn"><i class="fas fa-user"></i></a>
                 {% endif %}
             </div>
-        </div>
-    </header>
+        </header>
+    </div>
 
-    <!-- 🛠️ NEW: Netflix Style Search Overlay -->
+    <!-- Netflix Style Search Overlay -->
     <div id="searchOverlay" class="search-overlay">
         <div class="search-overlay-content">
             <form action="/search" method="GET" class="search-form-overlay">
                 <i class="fas fa-search search-icon-overlay"></i>
-                <input type="text" name="q" id="searchInput" placeholder="Search anime, movies, genres..." autocomplete="off" required>
+                <input type="text" name="q" id="searchInput" placeholder="Search anime, movies..." autocomplete="off" required>
                 <button type="button" class="close-search-btn" onclick="closeSearch()"><i class="fas fa-times"></i></button>
             </form>
         </div>
     </div>
 
     <!-- Main Content -->
-    <main>
+    <main class="main-content">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Bottom Navigation -->
-    <div class="bottom-nav">
-        <a href="/" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a>
-        <a href="/trending" class="nav-item"><i class="fas fa-fire"></i><span>Trending</span></a>
-        <a href="/categories" class="nav-item"><i class="fas fa-th-large"></i><span>Categories</span></a>
-        <a href="/top-rated" class="nav-item"><i class="fas fa-crown"></i><span>Top Rated</span></a>
-        <a href="/more" class="nav-item"><i class="fas fa-ellipsis-h"></i><span>More</span></a>
+    <!-- 🛠️ NEW: Floating Glass Bottom Nav -->
+    <div class="bottom-nav-wrapper">
+        <div class="glass-bottom-nav">
+            <a href="/" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="/trending" class="nav-item"><i class="fas fa-fire"></i><span>Trending</span></a>
+            <a href="/categories" class="nav-item"><i class="fas fa-th-large"></i><span>Categories</span></a>
+            <a href="/top-rated" class="nav-item"><i class="fas fa-crown"></i><span>Top Rated</span></a>
+            <a href="/more" class="nav-item"><i class="fas fa-ellipsis-h"></i><span>More</span></a>
+        </div>
     </div>
 
-    <!-- Splash Screen & Search Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById("splash-screen");
@@ -91,32 +91,20 @@
                 sessionStorage.setItem('splashShown', 'true');
                 setTimeout(() => {
                     splash.style.opacity = '0';
-                    setTimeout(() => {
-                        splash.style.display = 'none';
-                    }, 500);
+                    setTimeout(() => { splash.style.display = 'none'; }, 500);
                 }, 1000);
             }
         });
 
-        // 🛠️ FIX: सर्च ओवरले को खोलने और बंद करने का फंक्शन
         function openSearch() {
             document.getElementById('searchOverlay').classList.add('active');
-            setTimeout(() => {
-                document.getElementById('searchInput').focus();
-            }, 100);
+            setTimeout(() => { document.getElementById('searchInput').focus(); }, 100);
         }
-
         function closeSearch() {
             document.getElementById('searchOverlay').classList.remove('active');
             document.getElementById('searchInput').value = '';
         }
-
-        // एस्केप (Esc) बटन दबाने पर बंद हो जाए
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeSearch();
-            }
-        });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeSearch(); } });
     </script>
 </body>
 </html>
