@@ -195,7 +195,6 @@ def has_hindi_dub(html_content):
         return True
     return False
 
-# 🛠️ FIX: यह फंक्शन add किया गया है ताकि भाषा (Language) निकाली जा सके
 def extract_language_from_detail(detail_html):
     """एनीमे के डिटेल पेज से भाषा (Language) निकालता है"""
     if not detail_html:
@@ -221,15 +220,20 @@ def extract_language_from_detail(detail_html):
     found_languages = []
     for lang_name, keywords in languages_dict.items():
         for kw in keywords:
+            # \b का मतलब है कि पूरा शब्द मैच हो (जैसे 'hin' 'hindi' में ही मैच हो)
             if re.search(r'\b' + kw + r'\b', full_text):
                 found_languages.append(lang_name)
                 break 
 
+    # 🛠️ FIX: अगर 1 से ज्यादा भाषाएँ मिलीं तो "Multi Audio"
     if len(found_languages) > 1:
         return "Multi Audio"
-    elif len(found_languages) == 1:
-        return found_languages[0]
     
+    # 🛠️ FIX: अगर सिर्फ 1 भाषा मिली तो उसका नाम + "Dub"
+    elif len(found_languages) == 1:
+        return f"{found_languages[0]} Dub"
+    
+    # अगर कोई खास भाषा नहीं मिली, तो dubbed चेक करो
     if 'dubbed' in full_text or 'dub' in full_text:
         return "Dubbed"
         
