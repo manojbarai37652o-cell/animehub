@@ -11,7 +11,7 @@ from scraper.smart_scraper import (fetch_movie_video_with_playwright, fetch_page
                                    parse_video_link, parse_post_id, fetch_season_ajax, 
                                    parse_season_ajax)
 
-# 🛠️ नया: डेटाबेस और पासवर्ड हैशिंग के लिए
+# 🛠️ डेटाबेस और पासवर्ड हैशिंग
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -49,7 +49,7 @@ def create_app(config_class=Config):
         if session.get('user_email'):
             return redirect(url_for('home'))
         if not google.authorized:
-            return redirect(url_for("google.login"))
+            return render_template('login.html')
         try:
             resp = google.get("/oauth2/v2/userinfo")
             if resp.ok:
@@ -66,7 +66,12 @@ def create_app(config_class=Config):
             session.clear()
             return render_template('login.html')
 
-    # 🛠️ नया: ईमेल/पासवर्ड से लॉगिन
+    @app.route('/login/google')
+    def login_google():
+        if not google.authorized:
+            return redirect(url_for("google.login"))
+        return redirect(url_for('login'))
+
     @app.route('/login/email', methods=['POST'])
     def login_email():
         email = request.form.get('email')
@@ -81,7 +86,6 @@ def create_app(config_class=Config):
         else:
             return render_template('login.html', error="गलत ईमेल या पासवर्ड!")
 
-    # 🛠️ नया: नया अकाउंट बनाना (Signup)
     @app.route('/signup', methods=['GET', 'POST'])
     def signup():
         if request.method == 'POST':

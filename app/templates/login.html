@@ -16,22 +16,18 @@
         <div class="login-bg-overlay"></div>
         <div class="login-content">
             
-            <!-- Logo Section -->
             <div class="login-logo">
                 <span class="logo-a">A</span><span class="logo-text">NIMENEST</span>
                 <p class="logo-sub">YOUR ANIME HOME</p>
             </div>
 
-            <!-- Welcome Text -->
             <h1 class="welcome-title">Welcome Back!</h1>
             <p class="welcome-sub">Sign in to watch your favourite anime</p>
 
-            <!-- 🛠️ FIX: असली ईमेल/पासवर्ड वाला फॉर्म -->
             <form class="login-form" action="/login/email" method="POST">
                 {% if error %}
                 <p style="color: #ff4d4d; font-size: 0.8rem; text-align: center; margin-bottom: 10px;">{{ error }}</p>
                 {% endif %}
-                
                 <div class="input-group">
                     <i class="fas fa-envelope input-icon"></i>
                     <input type="email" name="email" placeholder="Email" required>
@@ -55,23 +51,16 @@
                 </button>
             </form>
 
-            <!-- Divider -->
             <div class="divider">
                 <span>OR</span>
             </div>
 
-            <!-- Social Logins -->
-            <a href="/login" class="social-btn google-btn">
+            <a href="/login/google" class="social-btn google-btn">
                 <i class="fab fa-google" style="color: #db4437;"></i> Continue with Google
             </a>
-            <a href="#" class="social-btn discord-btn" onclick="alert('Discord लॉगिन जल्द ही आ रहा है!')">
-                <i class="fab fa-discord" style="color: #5865F2;"></i> Continue with Discord
-            </a>
 
-            <!-- Sign Up -->
             <p class="signup-text">Don't have an account? <a href="/signup">Sign Up</a></p>
 
-            <!-- Japanese Footer -->
             <div class="login-footer">
                 <p>アニメは永遠だ</p>
                 <div class="footer-line"></div>
