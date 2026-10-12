@@ -2880,32 +2880,46 @@ body.light-mode .icon-circle {
     color: #ff4d4d;
 }
 /* =========================================
-   PREMIUM GLASSMORPHISM THEME (iOS 17 Style)
+   ULTIMATE GLASSMORPHISM THEME (Fully Transparent)
    ========================================= */
 
 :root {
     --bg-color: #070a12;
-    --glass-bg: rgba(22, 27, 34, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-blur: blur(20px);
-    --accent-purple: #8b5cf6;
-    --accent-blue: #3b82f6;
+    --glass-bg: rgba(15, 20, 30, 0.3); /* 🛠️ बहुत ज्यादा ट्रांसपेरेंट (सिर्फ 30% ओपेसिटी) */
+    --glass-border: rgba(255, 255, 255, 0.12); /* हल्का सा चमकता बॉर्डर */
+    --glass-blur: blur(25px); /* ज्यादा धुंधलापन (Blur) */
     --text-main: #ffffff;
     --text-sub: #9ca3af;
 }
 
+/* 🛠️ 1. बैकग्राउंड में एनीमे इमेज लगाओ */
 body {
     background-color: var(--bg-color) !important;
-    background-image: radial-gradient(circle at 50% -20%, #1e1b4b 0%, #070a12 70%) !important; /* बैकग्राउंड में हल्का सा ग्लो */
+    background-image: url('https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1000&auto=format&fit=crop') !important; /* यहाँ अपनी पसंद की इमेज का लिंक डाल सकते हो */
+    background-size: cover !important;
+    background-position: center !important;
     background-attachment: fixed !important;
-    padding-top: 85px !important; /* फ्लोटिंग हेडर के लिए जगह */
-    padding-bottom: 90px !important; /* फ्लोटिंग बॉटम नेव के लिए जगह */
+    padding-top: 90px !important;
+    padding-bottom: 95px !important;
 }
 
-/* 1. FLOATING GLASS HEADER */
+/* 🛠️ 2. इमेज के ऊपर हल्का डार्क शेड डालो ताकि टेक्स्ट पढ़ा जा सके */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(7, 10, 18, 0.6) 0%, rgba(7, 10, 18, 0.85) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* 3. FLOATING GLASS HEADER (ट्रांसपेरेंट) */
 .header-wrapper {
     position: fixed;
-    top: 10px;
+    top: 12px;
     left: 0;
     width: 100%;
     padding: 0 15px;
@@ -2923,7 +2937,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .logo-left .logo-link {
@@ -2934,7 +2948,7 @@ body {
 }
 
 .logo-crown {
-    color: var(--accent-purple);
+    color: #a371f7;
     font-size: 1.2rem;
 }
 
@@ -2989,7 +3003,7 @@ body {
     border: 2px solid #1f2937;
 }
 
-/* 2. FLOATING GLASS BOTTOM NAV */
+/* 4. FLOATING GLASS BOTTOM NAV (ट्रांसपेरेंट) */
 .bottom-nav-wrapper {
     position: fixed;
     bottom: 15px;
@@ -3010,7 +3024,7 @@ body {
     justify-content: space-around;
     align-items: center;
     padding: 10px 0;
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nav-item {
@@ -3025,89 +3039,80 @@ body {
 }
 
 .nav-item.active, .nav-item:hover {
-    color: var(--accent-purple);
+    color: #a371f7;
 }
 
 .nav-item i {
     font-size: 1.1rem;
 }
 
-/* 3. CARDS & SECTIONS (Glass Effect) */
+/* 5. CARDS (ट्रांसपेरेंट ग्लास कार्ड्स) */
 .anime-card {
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background: rgba(15, 20, 30, 0.5) !important; /* 50% ट्रांसपेरेंट */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
     backdrop-filter: blur(10px);
     border-radius: 16px !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 .anime-card:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-color: rgba(139, 92, 246, 0.3) !important;
+    background: rgba(15, 20, 30, 0.7) !important;
+    border-color: rgba(163, 113, 247, 0.4) !important;
 }
 
 .anime-card img {
     border-radius: 14px 14px 0 0 !important;
 }
 
-/* 4. HERO BANNER */
+/* 6. HERO BANNER (ट्रांसपेरेंट ओवरले) */
 .hero-banner {
     border-radius: 20px !important;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .hero-content {
-    background: linear-gradient(to top, rgba(7, 10, 18, 0.95) 0%, transparent 100%) !important;
+    background: linear-gradient(to top, rgba(7, 10, 18, 0.9) 0%, transparent 100%) !important;
 }
 
-/* 5. BUTTONS */
+/* 7. BUTTONS */
 .btn-watch, .btn-signin, .btn-watch-now {
-    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue)) !important;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6) !important;
     border: none !important;
     border-radius: 15px !important;
     box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4) !important;
 }
 
 .btn-my-list {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     border-radius: 15px !important;
+    backdrop-filter: blur(5px);
 }
 
-/* 6. APP SECTIONS & ICONS */
+/* 8. CATEGORY ICONS */
 .category-icons .cat-icon {
-    background: rgba(255, 255, 255, 0.05) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+    backdrop-filter: blur(5px);
 }
 
-/* 7. SEARCH OVERLAY */
+/* 9. SEARCH OVERLAY */
 .search-overlay {
-    background-color: rgba(7, 10, 18, 0.9) !important;
+    background-color: rgba(7, 10, 18, 0.85) !important;
     backdrop-filter: blur(25px) !important;
 }
 
 .search-form-overlay input {
-    background-color: rgba(22, 27, 34, 0.8) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(15, 20, 30, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     border-radius: 20px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
+    color: #fff;
 }
 
-/* 8. GLOBAL FIXES */
+/* 10. MAIN CONTENT PADDING */
 .main-content {
     padding: 0 10px;
-}
-
-.section-header h2 {
-    font-size: 1.1rem !important;
-}
-
-/* Login Page Specifics (Make it match too) */
-.login-container {
-    background: radial-gradient(circle at top right, #1e1b4b, #070a12) !important;
-}
-.login-bg-overlay {
-    background: linear-gradient(135deg, rgba(7, 10, 18, 0.9) 0%, rgba(7, 10, 18, 0.7) 100%) !important;
 }
