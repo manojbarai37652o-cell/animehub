@@ -27,7 +27,7 @@
         <p class="splash-text">Loading your anime...</p>
     </div>
 
-    <!-- 🛠️ NEW: Floating Glass Header -->
+    <!-- Floating Glass Header -->
     <div class="header-wrapper">
         <header class="glass-header">
             <div class="logo-left">
@@ -54,7 +54,7 @@
         </header>
     </div>
 
-    <!-- Netflix Style Search Overlay -->
+    <!-- Search Overlay -->
     <div id="searchOverlay" class="search-overlay">
         <div class="search-overlay-content">
             <form action="/search" method="GET" class="search-form-overlay">
@@ -70,14 +70,15 @@
         {% block content %}{% endblock %}
     </main>
 
-    <!-- 🛠️ NEW: Floating Glass Bottom Nav -->
+    <!-- Floating Glass Bottom Nav -->
     <div class="bottom-nav-wrapper">
         <div class="glass-bottom-nav">
-            <a href="/" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="/" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
             <a href="/trending" class="nav-item"><i class="fas fa-fire"></i><span>Trending</span></a>
             <a href="/categories" class="nav-item"><i class="fas fa-th-large"></i><span>Categories</span></a>
             <a href="/top-rated" class="nav-item"><i class="fas fa-crown"></i><span>Top Rated</span></a>
-            <a href="/more" class="nav-item"><i class="fas fa-ellipsis-h"></i><span>More</span></a>
+            <!-- 🛠️ FIX: "More" की जगह "Profile" कर दिया -->
+            <a href="/profile" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
         </div>
     </div>
 
