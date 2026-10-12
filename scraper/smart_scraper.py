@@ -4,18 +4,18 @@ import time
 import json
 import cloudscraper
 from bs4 import BeautifulSoup
-from playwright.sync_api import sync_playwright # 🛠️ मूवी के m3u8 लिंक के लिए
+from playwright.sync_api import sync_playwright # 🛠️ मूवी के iframe लिंक के लिए
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
-from scraper.parser import (parse_anime_homepage, parse_post_id, parse_season_ajax,
-                            parse_video_link, parse_release_year, parse_season_episodes,
-                            extract_language_from_detail)
+from parser import (parse_anime_homepage, parse_post_id, parse_season_ajax,
+                    parse_video_link, parse_release_year, parse_season_episodes,
+                    extract_language_from_detail)
 
 MIN_YEAR = 2000
-BATCH_SIZE = 50
+BATCH_SIZE = 35
 SLEEP_BETWEEN = 2
 MAX_PAGES_TO_CHECK = 500
 
@@ -73,72 +73,38 @@ def fetch_season_ajax(post_id, season_num):
         print(f"   ❌ AJAX Error: {e}")
         return None
 
-# 🛠️ FIX: ये नया फंक्शन मूवी का m3u8 लिंक निकालेगा (iframe के अंदर तक जाकर)
+# 🛠️ FIX: मूवीज़ के लिए अब .m3u8 नहीं, बल्कि iframe का URL निकालेगा
 def fetch_movie_video_with_playwright(url):
-    """Playwright का इस्तेमाल करके मूवी का m3u8 वीडियो लिंक निकालता है"""
-    print(f"   🎬 Playwright से मूवी वीडियो लिंक ढूंढ रहे हैं...")
-    found_video = ""
+    """Playwright का इस्तेमाल करके मूवी का iframe URL निकालता है (ताकि iframe में चले)"""
+    print(f"   🎬 Playwright से मूवी का iframe लिंक ढूंढ रहे हैं...")
+    found_iframe = ""
     try:
+        from urllib.parse import urljoin
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True, args=["--disable-ipv6"])
-            context = browser.new_context(
-                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-            )
-            page = context.new_page()
-            
-            # हर रिक्वेस्ट को चेक करो
-            def handle_response(response):
-                nonlocal found_video
-                if '.m3u8' in response.url and not found_video:
-                    found_video = response.url
-                    print(f"   🎯 Caught m3u8: {found_video[:70]}...")
-
-            page.on('response', handle_response)
+            page = browser.new_page()
             page.goto(url, timeout=60000, wait_until="domcontentloaded")
             
-            # 10 सेकंड का इंतज़ार करो ताकि iframe और उसके अंदर के एड्स लोड हो जाएं
+            # iframe लोड होने का इंतज़ार करो (थोड़ा ज्यादा समय दिया)
             page.wait_for_timeout(10000)
             
-            # अगर अभी तक नहीं मिला, तो iframes में जाकर देखो
-            if not found_video:
-                iframes = page.query_selector_all('iframe')
-                for iframe in iframes:
-                    src = iframe.get_attribute('src')
-                    if src and ('ravok' in src or 'player' in src or 'video' in src or 'embed' in src):
-                        print(f"   🌐 Iframe मिला, उसके अंदर जा रहे हैं: {src[:50]}...")
-                        try:
-                            # नए पेज में iframe का URL खोलो
-                            iframe_page = context.new_page()
-                            iframe_page.on('response', handle_response)
-                            iframe_page.goto(src, timeout=30000, wait_until="domcontentloaded")
-                            iframe_page.wait_for_timeout(8000)
-                            
-                            # अगर अभी भी नहीं मिला, तो iframe के अंदर Play बटन दबाओ
-                            if not found_video:
-                                try:
-                                    iframe_page.locator('video, .play-btn, .vjs-big-play-button, button:has-text("Play")').first.click(timeout=3000)
-                                    iframe_page.wait_for_timeout(5000)
-                                except: pass
-                            iframe_page.close()
-                        except Exception as e:
-                            print(f"   ❌ Iframe Error: {e}")
-                    if found_video: break
-
-            # आखिरी कोशिश: HTML में सीधा m3u8 ढूंढो
-            if not found_video:
-                content = page.content()
-                import re
-                match = re.search(r'https?://[^\s"\']+\.m3u8[^\s"\']*', content)
-                if match:
-                    found_video = match.group(1)
-                    print(f"   🎯 Caught m3u8 from HTML: {found_video[:70]}...")
-
+            # सारे iframes को चेक करो
+            iframes = page.query_selector_all('iframe')
+            for iframe in iframes:
+                src = iframe.get_attribute('src')
+                if src:
+                    if src.startswith('//'):
+                        src = 'https:' + src
+                    if 'http' in src: # जो भी iframe लिंक मिले, उसे ले लो
+                        found_iframe = src
+                        print(f"   🎯 Caught iframe URL: {found_iframe[:70]}...")
+                        break
+                        
             browser.close()
     except Exception as e:
         print(f"   ❌ Playwright Error: {e}")
         
-    return found_video
-
+    return found_iframe
 
 if __name__ == '__main__':
     print("=" * 60)
@@ -220,6 +186,7 @@ if __name__ == '__main__':
 
     print(f"\n✅ {len(new_anime)} एनीमे चेक कर रहे हैं...\n")
 
+    # अब हम 35 एनीमे (सीरीज़ या मूवी) को प्रोसेस करेंगे
     for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
         print(f"\n[{idx + 1}/{min(BATCH_SIZE, len(new_anime))}] {anime['title']}")
         
@@ -227,6 +194,7 @@ if __name__ == '__main__':
         if not anime_html:
             continue
 
+        # भाषा निकालो और सेव करो
         language = extract_language_from_detail(anime_html)
         anime['language'] = language
         print(f"   🌐 Language: {language}")
@@ -259,6 +227,7 @@ if __name__ == '__main__':
 
             print(f"   📺 Season {season_num}: {len(episodes)} episodes")
 
+            # सिर्फ पहले 3 एपिसोड के वीडियो लिंक निकालेंगे (स्पीड के लिए)
             for ep in episodes[:3]:
                 ep_html = fetch_page(ep['url'])
                 if ep_html:
@@ -283,23 +252,23 @@ if __name__ == '__main__':
             total_eps = sum(len(s['episodes']) for s in anime_seasons)
             print(f"   💾 Save (Series)! {len(anime_seasons)} Season, {total_eps} Episodes")
         else:
-            # 🛠️ FIX: ये मूवी है! Playwright से सीधा m3u8 लिंक निकालो
-            movie_video = fetch_movie_video_with_playwright(anime['url'])
+            # 🛠️ FIX: ये मूवी है! Playwright से iframe लिंक निकालो
+            movie_iframe = fetch_movie_video_with_playwright(anime['url'])
             
             anime['seasons'] = [{
                 "season_number": 1,
                 "episodes": [{
                     "title": "Full Movie",
                     "ep_num": "1",
-                    "video_url": movie_video
+                    "video_url": movie_iframe
                 }]
             }]
             anime['episodes'] = anime['seasons'][0]['episodes']
             
-            if movie_video:
-                print(f"   💾 Save (Movie)! वीडियो लिंक के साथ सेव कर रहे हैं।")
+            if movie_iframe:
+                print(f"   💾 Save (Movie)! iframe लिंक के साथ सेव कर रहे हैं।")
             else:
-                print(f"   ⚠️ Save (Movie) without video link. (Video nahi mila)")
+                print(f"   ⚠️ Save (Movie) without video link. (Iframe nahi mila)")
 
         updated_list.append(anime)
         scraped_this_run += 1
