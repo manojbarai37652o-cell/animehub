@@ -13,7 +13,7 @@ from parser import (parse_anime_homepage, parse_post_id, parse_season_ajax,
                     extract_language_from_detail) # 👈 बस यही एक इम्पोर्ट रहेगा
 
 MIN_YEAR = 2000
-BATCH_SIZE = 35
+BATCH_SIZE = 50
 SLEEP_BETWEEN = 2
 MAX_PAGES_TO_CHECK = 500
 
@@ -111,8 +111,6 @@ if __name__ == '__main__':
             base_url_pattern = f"https://animesalt.cx/letter/{letter}/?page={{}}"
         
         page_num = 1
-        found_on_this_letter = False
-        
         while page_num <= MAX_PAGES_PER_SECTION:
             base_url = base_url_pattern.format(page_num)
             
@@ -136,7 +134,6 @@ if __name__ == '__main__':
                 for a in page_new_anime:
                     if a not in new_anime:
                         new_anime.append(a)
-                        found_on_this_letter = True
                         if len(new_anime) >= BATCH_SIZE:
                             break
                 
@@ -171,7 +168,7 @@ if __name__ == '__main__':
         if not anime_html:
             continue
 
-        # 🛠️ FIX: अब यहाँ 'extract_language_from_detail' फंक्शन सही से काम करेगा
+        # भाषा निकालो और सेव करो
         language = extract_language_from_detail(anime_html)
         anime['language'] = language
         print(f"   🌐 Language: {language}")
@@ -231,6 +228,26 @@ if __name__ == '__main__':
             # 🛠️ FIX: ये मूवी है! इसमें सीधा वीडियो लिंक निकालो
             movie_video = parse_video_link(anime_html, anime['url'])
             
+            # अगर सीधे नहीं मिला, तो शायद "Watch Now" या "Episode" वाले लिंक पर जाना पड़ेगा
+            if not movie_video:
+                from bs4 import BeautifulSoup
+                from urllib.parse import urljoin
+                soup = BeautifulSoup(anime_html, 'html.parser')
+                
+                # ऐसे लिंक ढूंढो जिनमें 'watch', 'episode', या 'movie' हो
+                watch_links = soup.find_all('a', href=True)
+                for link in watch_links:
+                    href = link['href'].lower()
+                    if 'watch' in href or 'episode' in href or 'movie' in href:
+                        full_ep_url = urljoin(anime['url'], link['href'])
+                        # उस लिंक पर जाओ और वीडियो निकालो
+                        ep_html = fetch_page(full_ep_url)
+                        if ep_html:
+                            movie_video = parse_video_link(ep_html, full_ep_url)
+                            if movie_video:
+                                print(f"   ✅ मूवी का वीडियो लिंक मिल गया: {full_ep_url}")
+                                break
+
             # मूवी को भी एक "सीज़न" की तरह सेव कर दो ताकि watch.html पर चले
             anime['seasons'] = [{
                 "season_number": 1,
@@ -241,7 +258,11 @@ if __name__ == '__main__':
                 }]
             }]
             anime['episodes'] = anime['seasons'][0]['episodes']
-            print(f"   💾 Save (Movie)! वीडियो लिंक के साथ सेव कर रहे हैं।")
+            
+            if movie_video:
+                print(f"   💾 Save (Movie)! वीडियो लिंक के साथ सेव कर रहे हैं।")
+            else:
+                print(f"   ⚠️ Save (Movie) without video link. (Video nahi mila)")
 
         updated_list.append(anime)
         scraped_this_run += 1

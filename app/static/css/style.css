@@ -1947,3 +1947,513 @@ body.light-mode .icon-circle {
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     letter-spacing: 0.5px;
 }
+/* =========================================
+   WATCH PAGE STYLES (Crunchyroll Look)
+   ========================================= */
+
+.watch-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* 1. Hero Detail Section */
+.hero-detail {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    min-height: 250px;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    background-color: #161b22;
+}
+
+.hero-detail-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.4);
+    z-index: 1;
+}
+
+.hero-detail-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #0b0f19 0%, transparent 100%);
+    z-index: 2;
+}
+
+.hero-detail-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    align-items: flex-end;
+}
+
+.hero-poster img {
+    width: 110px; /* 🛠️ FIX: इमेज की चौड़ाई तय कर दी */
+    height: 160px; /* 🛠️ FIX: इमेज की ऊंचाई तय कर दी */
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #a371f7;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero-info {
+    flex: 1;
+}
+
+.featured-badge {
+    background-color: #a371f7;
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.hero-anime-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.hero-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.hero-genres {
+    font-size: 0.7rem;
+    color: #ff4b2b;
+    font-weight: 600;
+}
+
+.hero-description {
+    font-size: 0.75rem;
+    color: #8b949e;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 2. Tabs */
+.watch-tabs {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 15px;
+    padding: 0 5px;
+}
+
+.watch-tab {
+    background: none;
+    border: none;
+    color: #8b949e;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 0;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.watch-tab.active {
+    color: #a371f7;
+    border-bottom-color: #a371f7;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 3. Video Player */
+.video-player-crunchy {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid #30363d;
+}
+
+.no-video-msg-crunchy, .no-video-msg {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #161b22;
+    border-radius: 8px;
+    border: 1px dashed #30363d;
+    margin-bottom: 15px;
+}
+
+.no-video-msg-crunchy h3, .no-video-msg h3 {
+    color: #ff4b2b;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.no-video-msg-crunchy p, .no-video-msg p {
+    color: #8b949e;
+    font-size: 0.8rem;
+}
+
+/* 4. Episodes List */
+.episodes-list-crunchy {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.episode-item-crunchy {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #161b22;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    transition: border-color 0.3s;
+}
+
+.episode-item-crunchy.active {
+    border-color: #a371f7;
+    background-color: rgba(163, 113, 247, 0.1);
+}
+
+.ep-thumb {
+    position: relative;
+    width: 80px;
+    height: 50px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.ep-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ep-thumb a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.ep-info {
+    flex: 1;
+}
+
+.ep-number-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 3px;
+}
+
+.ep-meta {
+    font-size: 0.65rem;
+    color: #8b949e;
+    display: flex;
+    gap: 5px;
+}
+
+.ep-actions a {
+    background-color: #a371f7;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+/* 5. Bottom Nav (Prev/Next) */
+.episode-nav-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px solid #30363d;
+}
+
+.nav-btn-bottom {
+    background-color: #161b22;
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid #30363d;
+    transition: all 0.3s;
+}
+
+.nav-btn-bottom:hover {
+    background-color: #a371f7;
+    border-color: #a371f7;
+}
+
+.nav-btn-bottom.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.current-ep-label {
+    font-size: 0.8rem;
+    color: #8b949e;
+    font-weight: 600;
+}
+
+/* 6. Season Dropdown */
+.season-dropdown-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.season-toggle-btn {
+    background-color: #161b22;
+    color: #ffffff;
+    border: 1px solid #a371f7;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.total-eps-label {
+    font-size: 0.75rem;
+    color: #8b949e;
+}
+
+.season-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    z-index: 100;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.dropdown-header {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+    color: #8b949e;
+    border-bottom: 1px solid #30363d;
+    font-weight: 600;
+}
+
+.season-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #ffffff;
+    border-bottom: 1px solid #30363d;
+    transition: background 0.3s;
+}
+
+.season-option:hover {
+    background-color: #1f242d;
+}
+
+.season-option.active {
+    background-color: rgba(163, 113, 247, 0.1);
+    border-left: 3px solid #a371f7;
+}
+
+.season-option-img {
+    width: 40px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.season-option-info {
+    flex: 1;
+}
+
+.season-option-info strong {
+    font-size: 0.85rem;
+    display: block;
+}
+
+.season-option-info span {
+    font-size: 0.7rem;
+    color: #8b949e;
+}
+
+.check-icon {
+    color: #a371f7;
+}
+
+/* 7. Details & Similar Tab */
+.details-box, .similar-grid {
+    background-color: #161b22;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+}
+
+.details-box h3 {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.details-box p {
+    font-size: 0.8rem;
+    color: #8b949e;
+    margin-bottom: 10px;
+}
+
+.details-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #ffffff;
+    background-color: #0b0f19;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.similar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.similar-card {
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+}
+
+.similar-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.similar-card h4 {
+    font-size: 0.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 8. Rating Section */
+.rating-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #161b22;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    margin-top: 15px;
+}
+
+.rating-section h3 {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.stars i {
+    font-size: 1.5rem;
+    color: #f1c40f;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.stars i:hover {
+    transform: scale(1.2);
+}
+
+.rating-text {
+    font-size: 0.75rem;
+    color: #8b949e;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .hero-detail-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .hero-poster img {
+        width: 100px;
+        height: 150px;
+    }
+    .hero-meta-row {
+        justify-content: center;
+    }
+    .hero-action-buttons {
+        justify-content: center;
+    }
+}
