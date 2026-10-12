@@ -3116,3 +3116,115 @@ body::before {
 .main-content {
     padding: 0 10px;
 }
+/* =========================================
+   FIX: Compact Login/Signup Page (Fits in screen)
+   ========================================= */
+
+/* 1. Page को पूरी स्क्रीन में फिट करो */
+.login-page-body {
+    height: 100vh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.login-container {
+    height: 100vh !important;
+    width: 100vw !important;
+    padding: 10px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+}
+
+/* 2. Content को कॉम्पैक्ट करो */
+.login-content {
+    padding: 10px 20px !important;
+    max-width: 380px !important;
+    width: 100% !important;
+    max-height: 95vh !important;
+    overflow-y: auto !important; /* जरूरत पड़े तो स्क्रॉल हो */
+    scrollbar-width: none;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.login-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* 3. Logo और Heading का साइज़ कम करो */
+.login-logo {
+    margin-bottom: 12px !important;
+}
+.logo-a, .logo-text {
+    font-size: 1.8rem !important;
+}
+.logo-sub {
+    font-size: 0.55rem !important;
+    letter-spacing: 2px !important;
+}
+
+.welcome-title {
+    font-size: 1.4rem !important;
+    margin-bottom: 3px !important;
+}
+.welcome-sub {
+    font-size: 0.75rem !important;
+    margin-bottom: 15px !important;
+}
+
+/* 4. Input Fields का साइज़ कम करो */
+.input-group {
+    margin-bottom: 10px !important;
+}
+.input-group input {
+    padding: 11px 12px 11px 40px !important;
+    font-size: 0.85rem !important;
+    border-radius: 10px !important;
+}
+.input-icon {
+    left: 13px !important;
+    font-size: 0.9rem !important;
+}
+
+/* 5. Form Options और Button का साइज़ कम करो */
+.form-options {
+    margin-bottom: 12px !important;
+    font-size: 0.75rem !important;
+}
+.btn-signin {
+    padding: 11px !important;
+    font-size: 0.9rem !important;
+    border-radius: 10px !important;
+}
+
+/* 6. Divider और Social Buttons का साइज़ कम करो */
+.divider {
+    margin: 12px 0 !important;
+}
+.social-btn {
+    padding: 10px !important;
+    font-size: 0.8rem !important;
+    border-radius: 10px !important;
+    margin-bottom: 8px !important;
+}
+
+/* 7. Sign Up Link और Footer को ऊपर लाओ */
+.signup-text {
+    font-size: 0.75rem !important;
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
+}
+.login-footer {
+    margin-top: 10px !important;
+}
+.login-footer p {
+    font-size: 0.65rem !important;
+}
+.footer-line {
+    margin: 5px auto 0 auto !important;
+}
