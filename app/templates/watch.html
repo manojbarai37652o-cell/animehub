@@ -47,17 +47,13 @@
     <div id="tab-episodes" class="tab-content active">
         {% if current_ep and current_ep.video_url %}
         <div class="video-player-crunchy">
-            <!-- 🛠️ FIX: मोबाइल के लिए iframe में सभी जरूरी permissions जोड़ी गईं -->
+            <!-- 🛠️ FIX: वापस सिंपल iframe, बिना कोई सख्त परमिशन -->
             <iframe src="{{ current_ep.video_url }}" 
                     width="100%" 
                     height="100%" 
                     frameborder="0" 
-                    allow="autoplay; fullscreen; encrypted-media; picture-in-picture; accelerometer; gyroscope"
-                    allowfullscreen
-                    webkitallowfullscreen
-                    mozallowfullscreen
-                    sandbox="allow-scripts allow-same-origin allow-presentation allow-forms"
-                    referrerpolicy="no-referrer">
+                    allow="autoplay; fullscreen; encrypted-media"
+                    allowfullscreen>
             </iframe>
         </div>
         {% else %}
