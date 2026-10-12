@@ -1,6 +1,8 @@
 from flask import Flask, render_template, abort, request, redirect, url_for, session, jsonify
 import random
 import json
+import os
+from datetime import timedelta
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                   get_random_anime, get_featured_anime,
@@ -27,8 +29,20 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+    # 🛠️ PostgreSQL डेटाबेस (Render पर) और SQLite (लोकल पर)
+    db_url = os.environ.get('DATABASE_URL', 'sqlite:///users.db')
+    if db_url.startswith("postgres://"):
+        db_url = db_url.replace("postgres://", "postgresql://", 1)
+    
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    
+    # 🛠️ FIX: सेशन को लाइफटाइम (10 साल) बनाओ, ताकि यूजर हमेशा लॉगिन रहे
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=3650)
+    app.config['SESSION_COOKIE_SECURE'] = True # HTTPS पर ही भेजो (Render पर HTTPS है)
+    app.config['SESSION_COOKIE_HTTPONLY'] = True
+    app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+    
     db.init_app(app)
 
     with app.app_context():
@@ -45,6 +59,7 @@ def create_app(config_class=Config):
     @app.route('/login')
     def login():
         if session.get('user_email'):
+            session.permanent = True # 🛠️ हर बार याद दिलाओ
             return redirect(url_for('home'))
         if not google.authorized:
             return render_template('login.html')
@@ -55,6 +70,7 @@ def create_app(config_class=Config):
                 session['user_email'] = user_info['email']
                 session['user_name'] = user_info.get('name', 'User')
                 session['user_pic'] = user_info.get('picture', '')
+                session.permanent = True # 🛠️ लाइफटाइम लॉगिन
                 return redirect(url_for('home'))
             else:
                 session.clear()
@@ -80,6 +96,7 @@ def create_app(config_class=Config):
             session['user_email'] = user.email
             session['user_name'] = user.name
             session['user_pic'] = f"https://ui-avatars.com/api/?name={user.name}&background=a371f7&color=fff"
+            session.permanent = True # 🛠️ लाइफटाइम लॉगिन
             return redirect(url_for('home'))
         else:
             return render_template('login.html', error="गलत ईमेल या पासवर्ड!")
@@ -110,6 +127,7 @@ def create_app(config_class=Config):
         session['user_email'] = 'guest@animenest.com'
         session['user_name'] = 'Guest'
         session['user_pic'] = 'https://ui-avatars.com/api/?name=Guest&background=ff4d4d&color=fff'
+        session.permanent = True
         return redirect(url_for('home'))
 
     @app.route('/logout')
@@ -119,32 +137,23 @@ def create_app(config_class=Config):
         session.pop('google_oauth_token', None)
         return redirect(url_for('login'))
 
-    # 🛠️ फिल्टरिंग फंक्शन (सारी कैटेगरीज़ के लिए)
     def get_filtered_anime():
         all_anime = get_all_anime()
-        
-        # कार्टून की लिस्ट
-        cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman', 'superman', 'cartoon', 'looney tunes', 'oggy', 'motu patlu', 'chhota bheem', 'ninja hattori', 'perman', 'doraemon', 'shin chan']
-        
-        # जॉनर की लिस्ट
+        cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman', 'superman', 'cartoon', 'looney tunes', 'oggy', 'motu patlu', 'chhota bheem', 'ninja hattori', 'perman', 'shin chan']
         action_keywords = ['demon slayer', 'jujutsu kaisen', 'one punch man', 'attack on titan', 'solo leveling', 'naruto', 'one piece', 'black clover', 'my hero academia', 'hunter x hunter', 'bleach', 'dragon ball', 'chainsaw man', 'tokyo revengers', 'kaiju no. 8', 'dan da dan', 'vinland saga', 'mob psycho']
         comedy_keywords = ['spy x family', 'grand blue', 'kaguya', 'komi', 'nichijou', 'gintama', 'konosuba', 'daily life', 'horimiya', 'fruits basket', 'science fell in love', 'my dress-up darling', 'toradora', 'love is war', 'a couple of cuckoos', 'kanojo', 'lovely complex']
         fantasy_keywords = ['reincarnated', 'isekai', 'mushoku tensei', 'that time i got', 'overlord', 'slime', 're:zero', 'sword art online', 'fate', 'immortal king', 'daily life of the immortal', 'frontier lord', 'wistoria', 'frieren', 'dungeon', 'black torch', 'holy grail']
         romance_keywords = ['horimiya', 'kaguya', 'toradora', 'love is war', 'rent-a-girlfriend', 'my dress-up darling', 'fruits basket', 'your name', 'weathering with you', 'a silent voice', 'i want to eat your pancreas', 'garden of words', 'tomo-chan', 'uzaki', 'quintessential', 'science fell in love', 'a couple of cuckoos', 'kanojo', 'lovely complex']
 
-        # मूवीज़ और सीरीज़ अलग करो
         movies_list = [a for a in all_anime if not a.get('episodes') or len(a.get('episodes', [])) == 0]
         series_list = [a for a in all_anime if a.get('episodes') and len(a.get('episodes', [])) > 0]
-        
-        # कार्टून और बाकी कैटेगरीज़
         cartoons_list = [a for a in all_anime if any(k in a['title'].lower() for k in cartoon_keywords)]
         action = [a for a in all_anime if any(k in a['title'].lower() for k in action_keywords)]
         comedy = [a for a in all_anime if any(k in a['title'].lower() for k in comedy_keywords)]
         fantasy = [a for a in all_anime if any(k in a['title'].lower() for k in fantasy_keywords)]
         romance = [a for a in all_anime if any(k in a['title'].lower() for k in romance_keywords)]
         
-        # Trending और Popular (लिमिट हटा दी है ताकि सारे दिखें)
-        trending = series_list # फिलहाल सारी सीरीज़ को ट्रेंडिंग मान रहे हैं
+        trending = series_list 
         popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)
         
         return all_anime, trending, popular, movies_list, series_list, cartoons_list, action, comedy, fantasy, romance
@@ -153,25 +162,10 @@ def create_app(config_class=Config):
     def home():
         if not session.get('user_email'):
             return render_template('login.html')
-
         all_anime, trending, popular, movies_list, series_list, cartoons_list, action, comedy, fantasy, romance = get_filtered_anime()
         hero_anime_list = get_hero_anime_list(5)
+        return render_template('index.html', anime_list=all_anime, trending=trending, popular=popular, movies=movies_list, cartoons=cartoons_list, series=series_list, hero_anime_list=hero_anime_list, action=action, comedy=comedy, fantasy=fantasy, romance=romance, page_title="Home")
 
-        return render_template('index.html',
-                               anime_list=all_anime, # सारे एनीमे (Browse All के लिए)
-                               trending=trending,
-                               popular=popular,
-                               movies=movies_list,
-                               cartoons=cartoons_list,
-                               series=series_list,
-                               hero_anime_list=hero_anime_list,
-                               action=action,
-                               comedy=comedy,
-                               fantasy=fantasy,
-                               romance=romance,
-                               page_title="Home")
-
-    # 🛠️ "See All" और बॉटम नेविगेशन के लिए अलग-अलग राउट्स
     @app.route('/trending')
     def trending_page():
         if not session.get('user_email'): return render_template('login.html')
@@ -206,7 +200,6 @@ def create_app(config_class=Config):
     def top_rated_page():
         if not session.get('user_email'): return render_template('login.html')
         all_anime, _, _, _, _, _, _, _, _, _ = get_filtered_anime()
-        # फिलहाल टॉप रेटेड के लिए सारे एनीमे दिखा रहे हैं
         return render_template('index.html', anime_list=all_anime, page_title="Top Rated")
 
     @app.route('/profile')
