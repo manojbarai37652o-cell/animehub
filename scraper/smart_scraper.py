@@ -15,7 +15,7 @@ from parser import (parse_anime_homepage, parse_post_id, parse_season_ajax,
                     extract_language_from_detail)
 
 MIN_YEAR = 2000
-BATCH_SIZE = 35
+BATCH_SIZE = 50
 SLEEP_BETWEEN = 2
 MAX_PAGES_TO_CHECK = 500
 
