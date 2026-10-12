@@ -51073,6 +51073,786 @@
                     "video_url": ""
                 }
             ]
+        },
+        {
+            "id": "shinchan-movie-the-spicy-kasukabe-dancers",
+            "title": "Shinchan Movie: The Spicy Kasukabe Dancers",
+            "url": "https://animesalt.cx/movies/shinchan-movie-the-spicy-kasukabe-dancers/",
+            "image": "https://image.tmdb.org/t/p/w500/1TfdgQbZXuEswjqLYlsVvhHw0Py.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/5bbbc008a8580c42b7295efb972ad40d/master.m3u8?md5=jklDPjyLeI050cpDgiHT3Q&expires=1791808744"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/5bbbc008a8580c42b7295efb972ad40d/master.m3u8?md5=jklDPjyLeI050cpDgiHT3Q&expires=1791808744"
+                }
+            ]
+        },
+        {
+            "id": "your-name",
+            "title": "Your Name.",
+            "url": "https://animesalt.cx/movies/your-name/",
+            "image": "https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgKnONONX.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/4d62cf5785b4f71e28240c3c5e0ca2f5/master.m3u8?md5=LcQtTC2O5qBBt4AxtGnLNQ&expires=1791808768"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/4d62cf5785b4f71e28240c3c5e0ca2f5/master.m3u8?md5=LcQtTC2O5qBBt4AxtGnLNQ&expires=1791808768"
+                }
+            ]
+        },
+        {
+            "id": "weathering-with-you",
+            "title": "Weathering with You",
+            "url": "https://animesalt.cx/movies/weathering-with-you/",
+            "image": "https://image.tmdb.org/t/p/w500/qgrk7r1fV4IjuoeiGS5HOhXNdLJ.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/e68b881b2fba64535b5e417e18ba49df/master.m3u8?md5=Y-b8KbmegLOJDLExlNp7Dw&expires=1791808793"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/e68b881b2fba64535b5e417e18ba49df/master.m3u8?md5=Y-b8KbmegLOJDLExlNp7Dw&expires=1791808793"
+                }
+            ]
+        },
+        {
+            "id": "suzume",
+            "title": "Suzume",
+            "url": "https://animesalt.cx/movies/suzume/",
+            "image": "https://image.tmdb.org/t/p/w500/yStW1TXF5s7Tbtu9KjIZEaWl6HL.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/f49e9913e8b06f5b57b12711f46b129d/master.m3u8?md5=fRonf2lpXvp1RLcw8ijBiA&expires=1791808818"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/f49e9913e8b06f5b57b12711f46b129d/master.m3u8?md5=fRonf2lpXvp1RLcw8ijBiA&expires=1791808818"
+                }
+            ]
+        },
+        {
+            "id": "doraemon-the-movie-nobitas-earth-symphony",
+            "title": "Doraemon the Movie: Nobita's Earth Symphony",
+            "url": "https://animesalt.cx/movies/doraemon-the-movie-nobitas-earth-symphony/",
+            "image": "https://image.tmdb.org/t/p/w500/1W5Kg4K27U3dx9Kxb8DaE6WFLHI.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/40f572c70520bbffce63b293ed9ab010/master.m3u8?md5=iyjqto-toK3GREDYj8bWqQ&expires=1791808842"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/40f572c70520bbffce63b293ed9ab010/master.m3u8?md5=iyjqto-toK3GREDYj8bWqQ&expires=1791808842"
+                }
+            ]
+        },
+        {
+            "id": "jujutsu-kaisen-0",
+            "title": "Jujutsu Kaisen 0",
+            "url": "https://animesalt.cx/movies/jujutsu-kaisen-0/",
+            "image": "https://image.tmdb.org/t/p/w500/23oJaeBh0FDk2mQ2P240PU9Xxfh.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/be7875fdae716de6406d9bfe76ec4bf4/master.m3u8?md5=Ku8zOUaFmbfvXzoMVaO0qA&expires=1791808866"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/be7875fdae716de6406d9bfe76ec4bf4/master.m3u8?md5=Ku8zOUaFmbfvXzoMVaO0qA&expires=1791808866"
+                }
+            ]
+        },
+        {
+            "id": "chainsaw-man-the-movie-reze-arc",
+            "title": "Chainsaw Man the Movie: Reze Arc",
+            "url": "https://animesalt.cx/movies/chainsaw-man-the-movie-reze-arc/",
+            "image": "https://image.tmdb.org/t/p/w500/xdzLBZjCVSEsic7m7nJc4jNJZVW.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/a196845f31c8ee6d671f6f4c31694990/master.m3u8?md5=FtacxLU9CgJLBNzGi9ssAw&expires=1791808891"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/a196845f31c8ee6d671f6f4c31694990/master.m3u8?md5=FtacxLU9CgJLBNzGi9ssAw&expires=1791808891"
+                }
+            ]
+        },
+        {
+            "id": "shinchan-movie-the-legends-of-ninja-mononoke",
+            "title": "Shinchan Movie: The Legends of Ninja Mononoke",
+            "url": "https://animesalt.cx/movies/shinchan-movie-the-legends-of-ninja-mononoke/",
+            "image": "https://image.tmdb.org/t/p/w500/wyYfIWUtetlfxor8ibugKXthdKE.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/23927c6ff2ec7005be01a15924fd013c/master.m3u8?md5=pqVygpIVky0JOJPJHbbD9w&expires=1791808915"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/23927c6ff2ec7005be01a15924fd013c/master.m3u8?md5=pqVygpIVky0JOJPJHbbD9w&expires=1791808915"
+                }
+            ]
+        },
+        {
+            "id": "shinchan-movie-rakuga-kingdom",
+            "title": "Shinchan Movie: Rakuga Kingdom",
+            "url": "https://animesalt.cx/movies/shinchan-movie-rakuga-kingdom/",
+            "image": "https://image.tmdb.org/t/p/w500/xWv5pUwyf96MDImATZYx0toI7T7.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/edb3eeec0d958ed2b4f894b79ddc568e/master.m3u8?md5=894X8v6AEwodeWLgmuGpUw&expires=1791808939"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/edb3eeec0d958ed2b4f894b79ddc568e/master.m3u8?md5=894X8v6AEwodeWLgmuGpUw&expires=1791808939"
+                }
+            ]
+        },
+        {
+            "id": "shinchan-movie-very-very-tasty-tasty",
+            "title": "Shinchan Movie: Very Very Tasty Tasty",
+            "url": "https://animesalt.cx/movies/shinchan-movie-very-very-tasty-tasty/",
+            "image": "https://image.tmdb.org/t/p/w500/iPN3Vy71U0B7p1R667EdifmwW1b.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/ca92e096c722034a474071642e2438f3/master.m3u8?md5=q_kHLGA1H6Uv_vDrPYogDQ&expires=1791808963"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/ca92e096c722034a474071642e2438f3/master.m3u8?md5=q_kHLGA1H6Uv_vDrPYogDQ&expires=1791808963"
+                }
+            ]
+        },
+        {
+            "id": "shinchan-movie-himawari-banegi-rajkumari",
+            "title": "Shinchan Movie: Himawari Banegi Rajkumari",
+            "url": "https://animesalt.cx/movies/shinchan-movie-himawari-banegi-rajkumari/",
+            "image": "https://image.tmdb.org/t/p/w500/7NGIushHHtUuOwnDMoGWRpkrOwx.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/884f35765d2943872cc743a7df998461/master.m3u8?md5=BBP9bz_dJxYZMv0PXABmsA&expires=1791808987"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/884f35765d2943872cc743a7df998461/master.m3u8?md5=BBP9bz_dJxYZMv0PXABmsA&expires=1791808987"
+                }
+            ]
+        },
+        {
+            "id": "shinchan-movie-the-golden-sword",
+            "title": "Shinchan Movie: The Golden Sword",
+            "url": "https://animesalt.cx/movies/shinchan-movie-the-golden-sword/",
+            "image": "https://image.tmdb.org/t/p/w500/nTEE7CByX86ZALfTzKCfuJpU4kB.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/40a8d949aba3029eabd1e7de4275b18d/master.m3u8?md5=qNgPdspF160wZmsbtVbxPw&expires=1791809012"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/40a8d949aba3029eabd1e7de4275b18d/master.m3u8?md5=qNgPdspF160wZmsbtVbxPw&expires=1791809012"
+                }
+            ]
+        },
+        {
+            "id": "shinchan-movie-masala-story",
+            "title": "Shinchan Movie: Masala Story",
+            "url": "https://animesalt.cx/movies/shinchan-movie-masala-story/",
+            "image": "https://image.tmdb.org/t/p/w500/beZGic7PCVEUW06Y9cOmhiQZZRj.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/db913a2b4acec578305fb2f81f492458/master.m3u8?md5=HnovhrB8zuIXkovjfadeOg&expires=1791809036"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/db913a2b4acec578305fb2f81f492458/master.m3u8?md5=HnovhrB8zuIXkovjfadeOg&expires=1791809036"
+                }
+            ]
+        },
+        {
+            "id": "shinchan-movie-bungle-in-the-jungle",
+            "title": "Shinchan Movie: Bungle in the Jungle",
+            "url": "https://animesalt.cx/movies/shinchan-movie-bungle-in-the-jungle/",
+            "image": "https://image.tmdb.org/t/p/w500/pbcpCQ8sHRUhNCeCnBTgdver4N6.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/8c54df31b131ae7641db2a42ba42e439/master.m3u8?md5=4JuOY8tcXiF45D_FxCZpsg&expires=1791809060"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/8c54df31b131ae7641db2a42ba42e439/master.m3u8?md5=4JuOY8tcXiF45D_FxCZpsg&expires=1791809060"
+                }
+            ]
+        },
+        {
+            "id": "the-loud-house-movie",
+            "title": "The Loud House Movie",
+            "url": "https://animesalt.cx/movies/the-loud-house-movie/",
+            "image": "https://image.tmdb.org/t/p/w500/mab5wPeGVjbMyYMzyzfdKKnG9cl.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://prd.jwpltx.com/v1/jwplayer6/ping.gif?h=-1059358935&e=e&n=7558679010268049&aid=I9GYCF3cEeOTIBIxOQfUww&amp=0&at=1&c=-1&ccp=0&cp=0&d=1&eb=1&ed=2&emi=14fee7125ww0&i=1&lid=1gmljjp1vs1p&lsa=set&mt=0&pbd=1&pbr=1&pgi=1b1uczh1i5rf&ph=0&pii=0&pl=0&plc=1&pli=7dyvhfg20bvp&pp=hlsjs&prc=1&ps=0&pss=1&pt=stream&pu=https%3A%2F%2Fanimesalt.cx%2F&pv=8.33.1&pyc=0&s=0&sdk=0&ss=1&stc=1&stpe=0&t=The%20Loud%20House%20Movie%20-%20Episode%20001&tv=4.0.3&vb=0&vi=0&vl=90&wd=0&ab=1&cae=0&cb=1&cdid=player&cme=0&dd=1&flc=0&fv=&ga=0&lng=en&mk=hls&mu=https%3A%2F%2Fravok.buzz%2Fcdn%2Fhls%2F524ee50b3ecacf050cd0145bd884e80f%2Fmaster.m3u8%3Fmd5%3DgLhrkoO8Gm9xB3FQySYT7Q%26expires%3D1791809078&pbc=1&pd=3&plng=en&plt=2100&pni=1&po=1&sn=%7B%22name%22%3A%22alaska%22%7D&sp=0&st=120&sa=1791801879506"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://prd.jwpltx.com/v1/jwplayer6/ping.gif?h=-1059358935&e=e&n=7558679010268049&aid=I9GYCF3cEeOTIBIxOQfUww&amp=0&at=1&c=-1&ccp=0&cp=0&d=1&eb=1&ed=2&emi=14fee7125ww0&i=1&lid=1gmljjp1vs1p&lsa=set&mt=0&pbd=1&pbr=1&pgi=1b1uczh1i5rf&ph=0&pii=0&pl=0&plc=1&pli=7dyvhfg20bvp&pp=hlsjs&prc=1&ps=0&pss=1&pt=stream&pu=https%3A%2F%2Fanimesalt.cx%2F&pv=8.33.1&pyc=0&s=0&sdk=0&ss=1&stc=1&stpe=0&t=The%20Loud%20House%20Movie%20-%20Episode%20001&tv=4.0.3&vb=0&vi=0&vl=90&wd=0&ab=1&cae=0&cb=1&cdid=player&cme=0&dd=1&flc=0&fv=&ga=0&lng=en&mk=hls&mu=https%3A%2F%2Fravok.buzz%2Fcdn%2Fhls%2F524ee50b3ecacf050cd0145bd884e80f%2Fmaster.m3u8%3Fmd5%3DgLhrkoO8Gm9xB3FQySYT7Q%26expires%3D1791809078&pbc=1&pd=3&plng=en&plt=2100&pni=1&po=1&sn=%7B%22name%22%3A%22alaska%22%7D&sp=0&st=120&sa=1791801879506"
+                }
+            ]
+        },
+        {
+            "id": "ben-10-vs-the-universe-the-movie",
+            "title": "Ben 10 vs. the Universe: The Movie",
+            "url": "https://animesalt.cx/movies/ben-10-vs-the-universe-the-movie/",
+            "image": "https://image.tmdb.org/t/p/w500/34KSOJVowmkeh6G0HZJMxqdHq6s.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/d8987afc9d4d5aa975f1f45e402ed737/master.m3u8?md5=5_LptCAZPIkeB3qgNqPbAA&expires=1791809103"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/d8987afc9d4d5aa975f1f45e402ed737/master.m3u8?md5=5_LptCAZPIkeB3qgNqPbAA&expires=1791809103"
+                }
+            ]
+        },
+        {
+            "id": "transformers-prime-beast-hunters-predacons-rising",
+            "title": "Transformers Prime: Beast Hunters - Predacons Rising",
+            "url": "https://animesalt.cx/movies/transformers-prime-beast-hunters-predacons-rising/",
+            "image": "https://image.tmdb.org/t/p/w500/4T4pQqr2RoVgWQYtIzDGMByktwq.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/4d92892cb85c852d34bc3d7134ed75af/master.m3u8?md5=JiSGXOmKmUuXmqVlV70l1Q&expires=1791809127"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/4d92892cb85c852d34bc3d7134ed75af/master.m3u8?md5=JiSGXOmKmUuXmqVlV70l1Q&expires=1791809127"
+                }
+            ]
+        },
+        {
+            "id": "the-witcher-nightmare-of-the-wolf",
+            "title": "The Witcher: Nightmare of the Wolf",
+            "url": "https://animesalt.cx/movies/the-witcher-nightmare-of-the-wolf/",
+            "image": "https://image.tmdb.org/t/p/w500/3sLz2yv6vBDWqBbd8rdnNeoJ2kJ.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/0d47500d44e7f125c7089df0ef9e2e93/master.m3u8?md5=wYtAd9ony7gIpHuGtupN9Q&expires=1791809151"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/0d47500d44e7f125c7089df0ef9e2e93/master.m3u8?md5=wYtAd9ony7gIpHuGtupN9Q&expires=1791809151"
+                }
+            ]
+        },
+        {
+            "id": "the-spongebob-squarepants-movie",
+            "title": "The SpongeBob SquarePants Movie",
+            "url": "https://animesalt.cx/movies/the-spongebob-squarepants-movie/",
+            "image": "https://image.tmdb.org/t/p/w500/1rvzKV1d18EbDVaEd4VDzK3cgnY.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/7bd975b5db8188cb371359f00e02611c/master.m3u8?md5=WSXgIIaOlxufBPT2iJwhdw&expires=1791809176"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/7bd975b5db8188cb371359f00e02611c/master.m3u8?md5=WSXgIIaOlxufBPT2iJwhdw&expires=1791809176"
+                }
+            ]
+        },
+        {
+            "id": "slugterra-slug-fu-showdown",
+            "title": "Slugterra: Slug Fu Showdown",
+            "url": "https://animesalt.cx/movies/slugterra-slug-fu-showdown/",
+            "image": "https://image.tmdb.org/t/p/w500/9IrfRT8stzY3xh9y0SEBraNhm3E.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/b6a135032c77c4235e33e9e3767f495e/master.m3u8?md5=QS45rNl79qJJCo7TTcCHyg&expires=1791809200"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/b6a135032c77c4235e33e9e3767f495e/master.m3u8?md5=QS45rNl79qJJCo7TTcCHyg&expires=1791809200"
+                }
+            ]
+        },
+        {
+            "id": "slugterra-return-of-the-elementals",
+            "title": "SlugTerra: Return of the Elementals",
+            "url": "https://animesalt.cx/movies/slugterra-return-of-the-elementals/",
+            "image": "https://image.tmdb.org/t/p/w500/ApN2lteDsoIU5dDHJXeqVD13vpd.jpg",
+            "language": "English Dub",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/c4daa2bd06f6e80afa26d325766152a8/master.m3u8?md5=VvyIvgLZcB7iz_2GsszPEg&expires=1791809224"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/c4daa2bd06f6e80afa26d325766152a8/master.m3u8?md5=VvyIvgLZcB7iz_2GsszPEg&expires=1791809224"
+                }
+            ]
+        },
+        {
+            "id": "slugterra-into-the-shadows",
+            "title": "Slugterra: Into The Shadows",
+            "url": "https://animesalt.cx/movies/slugterra-into-the-shadows/",
+            "image": "https://image.tmdb.org/t/p/w500/fwcdoV9qBpEorDlCtqO6RFLIXtA.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/46d6034c3106e33fb08e97994f1e1b55/master.m3u8?md5=WtYIZn3ty7yGv0UxfaESeA&expires=1791809248"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/46d6034c3106e33fb08e97994f1e1b55/master.m3u8?md5=WtYIZn3ty7yGv0UxfaESeA&expires=1791809248"
+                }
+            ]
+        },
+        {
+            "id": "slugterra-ghoul-from-beyond",
+            "title": "Slugterra: Ghoul from Beyond",
+            "url": "https://animesalt.cx/movies/slugterra-ghoul-from-beyond/",
+            "image": "https://image.tmdb.org/t/p/w500/jPT77gSUa9yad7ysoB8R9RnuPfa.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/a2f171939a438c5bb5bdee117fd7ab7d/master.m3u8?md5=PXf_s9St2_2prv0a_ozPyw&expires=1791809272"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/a2f171939a438c5bb5bdee117fd7ab7d/master.m3u8?md5=PXf_s9St2_2prv0a_ozPyw&expires=1791809272"
+                }
+            ]
+        },
+        {
+            "id": "miraculous-world-new-york-united-heroez",
+            "title": "Miraculous World: New York United HeroeZ",
+            "url": "https://animesalt.cx/movies/miraculous-world-new-york-united-heroez/",
+            "image": "https://image.tmdb.org/t/p/w500/9YbyvcrHmY2SVbdfXpb8mC4Fy0g.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/27eff5b53f87eaf7cf412731a5061fe8/master.m3u8?md5=UOb2U698q6StXFu7q_SBfA&expires=1791809296"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/27eff5b53f87eaf7cf412731a5061fe8/master.m3u8?md5=UOb2U698q6StXFu7q_SBfA&expires=1791809296"
+                }
+            ]
+        },
+        {
+            "id": "miraculous-world-shanghai-the-legend-of-ladydragon",
+            "title": "Miraculous World: Shanghai – The Legend of Ladydragon",
+            "url": "https://animesalt.cx/movies/miraculous-world-shanghai-the-legend-of-ladydragon/",
+            "image": "https://image.tmdb.org/t/p/w500/qQ0VKsGRQ2ofAmswGNzZnvC1xPE.jpg",
+            "language": "English Dub",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/4cf47a623c6d1fb035ad852825e6a6f0/master.m3u8?md5=Hr0goYwdelJfhok6aWrfqA&expires=1791809320"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/4cf47a623c6d1fb035ad852825e6a6f0/master.m3u8?md5=Hr0goYwdelJfhok6aWrfqA&expires=1791809320"
+                }
+            ]
+        },
+        {
+            "id": "ben-10-secret-of-the-omnitrix",
+            "title": "Ben 10: Secret of the Omnitrix",
+            "url": "https://animesalt.cx/movies/ben-10-secret-of-the-omnitrix/",
+            "image": "https://image.tmdb.org/t/p/w500/vPND6Qff1KVYAtjaQuZtij8wtAj.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/d3ad46bf288b66aa31da12fa87fe6c3b/master.m3u8?md5=qPBUuywVqAo1tYw3I8hYZA&expires=1791809344"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/d3ad46bf288b66aa31da12fa87fe6c3b/master.m3u8?md5=qPBUuywVqAo1tYw3I8hYZA&expires=1791809344"
+                }
+            ]
+        },
+        {
+            "id": "ben-10-destroy-all-aliens",
+            "title": "Ben 10: Destroy All Aliens",
+            "url": "https://animesalt.cx/movies/ben-10-destroy-all-aliens/",
+            "image": "https://image.tmdb.org/t/p/w500/qoILNllyC6YXHyT4V9YOhMJlPuO.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/eab9677be18cc2cc377d8ac70b011224/master.m3u8?md5=0itYHxoaKmM8Iq9DJQhHsg&expires=1791809368"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/eab9677be18cc2cc377d8ac70b011224/master.m3u8?md5=0itYHxoaKmM8Iq9DJQhHsg&expires=1791809368"
+                }
+            ]
+        },
+        {
+            "id": "a-magnificent-life",
+            "title": "A Magnificent Life",
+            "url": "https://animesalt.cx/movies/a-magnificent-life/",
+            "image": "https://image.tmdb.org/t/p/w500/mnYryuWqCGPBggGDNHeY6dI6AWQ.jpg",
+            "language": "Unknown",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/04ccb3fffc4adaecc524ebdae09dc202/master.m3u8?md5=pQQv-WgvyHJcjhRD67h9Bw&expires=1791809392"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/04ccb3fffc4adaecc524ebdae09dc202/master.m3u8?md5=pQQv-WgvyHJcjhRD67h9Bw&expires=1791809392"
+                }
+            ]
+        },
+        {
+            "id": "a-silent-voice-the-movie",
+            "title": "A Silent Voice: The Movie",
+            "url": "https://animesalt.cx/movies/a-silent-voice-the-movie/",
+            "image": "https://image.tmdb.org/t/p/w500/tuFaWiqX0TXoWu7DGNcmX3UW7sT.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/79b86debe54c5d7d7a3cac1795a7b074/master.m3u8?md5=7skVLvyO2DPG7os6JrmdvA&expires=1791809416"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/79b86debe54c5d7d7a3cac1795a7b074/master.m3u8?md5=7skVLvyO2DPG7os6JrmdvA&expires=1791809416"
+                }
+            ]
+        },
+        {
+            "id": "baki-hanma-vs-kengan-ashura",
+            "title": "Baki Hanma VS Kengan Ashura",
+            "url": "https://animesalt.cx/movies/baki-hanma-vs-kengan-ashura/",
+            "image": "https://image.tmdb.org/t/p/w500/etbHJxil0wHvYOCmibzFLsMcl2C.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/cdn/hls/9921708373b9a35e97840c8ce291e563/master.m3u8?md5=GSZJzmWlJiepEBOyZE4tmw&expires=1791809440"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/cdn/hls/9921708373b9a35e97840c8ce291e563/master.m3u8?md5=GSZJzmWlJiepEBOyZE4tmw&expires=1791809440"
+                }
+            ]
         }
     ]
 }

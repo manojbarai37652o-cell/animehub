@@ -4,7 +4,7 @@ import time
 import json
 import cloudscraper
 from bs4 import BeautifulSoup
-from playwright.sync_api import sync_playwright  # 🛠️ नया इम्पोर्ट (मूवी के लिए)
+from playwright.sync_api import sync_playwright # 🛠️ मूवी के m3u8 लिंक के लिए
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
@@ -73,7 +73,7 @@ def fetch_season_ajax(post_id, season_num):
         print(f"   ❌ AJAX Error: {e}")
         return None
 
-# 🛠️ FIX: ये नया फंक्शन मूवी का m3u8 लिंक निकालेगा (JavaScript चलाने के लिए Playwright)
+# 🛠️ FIX: ये नया फंक्शन मूवी का m3u8 लिंक निकालेगा (iframe के अंदर तक जाकर)
 def fetch_movie_video_with_playwright(url):
     """Playwright का इस्तेमाल करके मूवी का m3u8 वीडियो लिंक निकालता है"""
     print(f"   🎬 Playwright से मूवी वीडियो लिंक ढूंढ रहे हैं...")
@@ -81,8 +81,12 @@ def fetch_movie_video_with_playwright(url):
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True, args=["--disable-ipv6"])
-            page = browser.new_page()
+            context = browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+            )
+            page = context.new_page()
             
+            # हर रिक्वेस्ट को चेक करो
             def handle_response(response):
                 nonlocal found_video
                 if '.m3u8' in response.url and not found_video:
@@ -91,24 +95,50 @@ def fetch_movie_video_with_playwright(url):
 
             page.on('response', handle_response)
             page.goto(url, timeout=60000, wait_until="domcontentloaded")
-            page.wait_for_timeout(8000)
             
+            # 10 सेकंड का इंतज़ार करो ताकि iframe और उसके अंदर के एड्स लोड हो जाएं
+            page.wait_for_timeout(10000)
+            
+            # अगर अभी तक नहीं मिला, तो iframes में जाकर देखो
             if not found_video:
-                play_selectors = ['button:has-text("Watch")', 'button:has-text("Play")', '.play-btn', '.btn-watch']
-                for sel in play_selectors:
-                    try:
-                        btn = page.locator(sel).first
-                        if btn.count() > 0:
-                            btn.click(timeout=3000)
-                            page.wait_for_timeout(5000)
-                            break
-                    except: pass
-            
+                iframes = page.query_selector_all('iframe')
+                for iframe in iframes:
+                    src = iframe.get_attribute('src')
+                    if src and ('ravok' in src or 'player' in src or 'video' in src or 'embed' in src):
+                        print(f"   🌐 Iframe मिला, उसके अंदर जा रहे हैं: {src[:50]}...")
+                        try:
+                            # नए पेज में iframe का URL खोलो
+                            iframe_page = context.new_page()
+                            iframe_page.on('response', handle_response)
+                            iframe_page.goto(src, timeout=30000, wait_until="domcontentloaded")
+                            iframe_page.wait_for_timeout(8000)
+                            
+                            # अगर अभी भी नहीं मिला, तो iframe के अंदर Play बटन दबाओ
+                            if not found_video:
+                                try:
+                                    iframe_page.locator('video, .play-btn, .vjs-big-play-button, button:has-text("Play")').first.click(timeout=3000)
+                                    iframe_page.wait_for_timeout(5000)
+                                except: pass
+                            iframe_page.close()
+                        except Exception as e:
+                            print(f"   ❌ Iframe Error: {e}")
+                    if found_video: break
+
+            # आखिरी कोशिश: HTML में सीधा m3u8 ढूंढो
+            if not found_video:
+                content = page.content()
+                import re
+                match = re.search(r'https?://[^\s"\']+\.m3u8[^\s"\']*', content)
+                if match:
+                    found_video = match.group(1)
+                    print(f"   🎯 Caught m3u8 from HTML: {found_video[:70]}...")
+
             browser.close()
     except Exception as e:
         print(f"   ❌ Playwright Error: {e}")
         
     return found_video
+
 
 if __name__ == '__main__':
     print("=" * 60)
