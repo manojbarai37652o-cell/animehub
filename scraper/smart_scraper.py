@@ -15,7 +15,7 @@ from scraper.parser import (parse_anime_homepage, parse_post_id, parse_season_aj
                             extract_language_from_detail)
 
 MIN_YEAR = 2000
-BATCH_SIZE = 35
+BATCH_SIZE = 50
 SLEEP_BETWEEN = 2
 MAX_PAGES_TO_CHECK = 500
 
@@ -186,7 +186,7 @@ if __name__ == '__main__':
 
     print(f"\n✅ {len(new_anime)} एनीमे चेक कर रहे हैं...\n")
 
-    # अब हम 35 एनीमे (सीरीज़ या मूवी) को प्रोसेस करेंगे
+    # अब हम 50 एनीमे (सीरीज़ या मूवी) को प्रोसेस करेंगे
     for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
         print(f"\n[{idx + 1}/{min(BATCH_SIZE, len(new_anime))}] {anime['title']}")
         
