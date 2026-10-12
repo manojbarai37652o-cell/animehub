@@ -3,6 +3,8 @@ import os
 import time
 import json
 import cloudscraper
+from bs4 import BeautifulSoup
+from playwright.sync_api import sync_playwright  # 🛠️ नया इम्पोर्ट (मूवी के लिए)
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
@@ -10,10 +12,10 @@ sys.path.append(project_root)
 
 from parser import (parse_anime_homepage, parse_post_id, parse_season_ajax,
                     parse_video_link, parse_release_year, parse_season_episodes,
-                    extract_language_from_detail) # 👈 बस यही एक इम्पोर्ट रहेगा
+                    extract_language_from_detail)
 
 MIN_YEAR = 2000
-BATCH_SIZE = 50
+BATCH_SIZE = 35
 SLEEP_BETWEEN = 2
 MAX_PAGES_TO_CHECK = 500
 
@@ -23,7 +25,6 @@ DB_FILE = os.path.join(project_root, 'database', 'storage.json')
 # Cloudflare bypass
 scraper = cloudscraper.create_scraper()
 
-
 def load_progress():
     if os.path.exists(PROGRESS_FILE):
         try:
@@ -32,11 +33,9 @@ def load_progress():
         except: pass
     return {"last_page": 1, "total_scraped": 0}
 
-
 def save_progress(progress):
     with open(PROGRESS_FILE, 'w') as f:
         json.dump(progress, f, indent=4)
-
 
 def load_db():
     if os.path.exists(DB_FILE):
@@ -46,11 +45,9 @@ def load_db():
         except: pass
     return {"anime_list": []}
 
-
 def save_db(data):
     with open(DB_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
-
 
 def fetch_page(url):
     try:
@@ -63,10 +60,9 @@ def fetch_page(url):
         print(f"❌ Error: {e}")
         return None
 
-
 def fetch_season_ajax(post_id, season_num):
-    """AJAX call से Season 2, 3, 4... के episodes लाता है"""
-    ajax_url = f"https://animesalt.cx/wp-admin/admin-ajax.php?action=action_select_season&season={season_num}&post={post_id}"
+    """AJAX call से Season 2, 3, 4... के episodes निकालता है"""
+    ajax_url = f"https://animesalt.cx/wp-admin/admin-ajax.php?action=action_select_season&season={season_num}&post_id={post_id}"
     try:
         response = scraper.get(ajax_url, timeout=20)
         if response.status_code == 404:
@@ -77,6 +73,42 @@ def fetch_season_ajax(post_id, season_num):
         print(f"   ❌ AJAX Error: {e}")
         return None
 
+# 🛠️ FIX: ये नया फंक्शन मूवी का m3u8 लिंक निकालेगा (JavaScript चलाने के लिए Playwright)
+def fetch_movie_video_with_playwright(url):
+    """Playwright का इस्तेमाल करके मूवी का m3u8 वीडियो लिंक निकालता है"""
+    print(f"   🎬 Playwright से मूवी वीडियो लिंक ढूंढ रहे हैं...")
+    found_video = ""
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True, args=["--disable-ipv6"])
+            page = browser.new_page()
+            
+            def handle_response(response):
+                nonlocal found_video
+                if '.m3u8' in response.url and not found_video:
+                    found_video = response.url
+                    print(f"   🎯 Caught m3u8: {found_video[:70]}...")
+
+            page.on('response', handle_response)
+            page.goto(url, timeout=60000, wait_until="domcontentloaded")
+            page.wait_for_timeout(8000)
+            
+            if not found_video:
+                play_selectors = ['button:has-text("Watch")', 'button:has-text("Play")', '.play-btn', '.btn-watch']
+                for sel in play_selectors:
+                    try:
+                        btn = page.locator(sel).first
+                        if btn.count() > 0:
+                            btn.click(timeout=3000)
+                            page.wait_for_timeout(5000)
+                            break
+                    except: pass
+            
+            browser.close()
+    except Exception as e:
+        print(f"   ❌ Playwright Error: {e}")
+        
+    return found_video
 
 if __name__ == '__main__':
     print("=" * 60)
@@ -221,27 +253,9 @@ if __name__ == '__main__':
             total_eps = sum(len(s['episodes']) for s in anime_seasons)
             print(f"   💾 Save (Series)! {len(anime_seasons)} Season, {total_eps} Episodes")
         else:
-            # 🛠️ FIX: ये मूवी है! इसमें सीधा वीडियो लिंक निकालो
-            movie_video = parse_video_link(anime_html, anime['url'])
+            # 🛠️ FIX: ये मूवी है! Playwright से सीधा m3u8 लिंक निकालो
+            movie_video = fetch_movie_video_with_playwright(anime['url'])
             
-            # अगर सीधे नहीं मिला, तो "Watch Now" वाले लिंक पर जाना पड़ेगा
-            if not movie_video:
-                from bs4 import BeautifulSoup
-                from urllib.parse import urljoin
-                soup = BeautifulSoup(anime_html, 'html.parser')
-                
-                watch_links = soup.find_all('a', href=True)
-                for link in watch_links:
-                    href = link['href'].lower()
-                    if 'watch' in href or 'episode' in href or 'movie' in href:
-                        full_ep_url = urljoin(anime['url'], link['href'])
-                        ep_html = fetch_page(full_ep_url)
-                        if ep_html:
-                            movie_video = parse_video_link(ep_html, full_ep_url)
-                            if movie_video:
-                                print(f"   ✅ मूवी का वीडियो लिंक मिल गया: {full_ep_url}")
-                                break
-
             anime['seasons'] = [{
                 "season_number": 1,
                 "episodes": [{
