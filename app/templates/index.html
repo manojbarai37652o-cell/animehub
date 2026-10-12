@@ -191,7 +191,7 @@
         <div class="anime-row">
             {% for anime in movies %}
             <a href="/watch/{{ anime.id }}" class="anime-card">
-                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime';">
+                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
                 <h3 class="anime-title">{{ anime.title }}</h3>
                 <div class="anime-meta">
                     <span class="rating">★ {{ anime.rating|default('8.0') }}</span>

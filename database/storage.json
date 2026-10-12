@@ -16971,6 +16971,737 @@
                 }
             ],
             "language": "Multi Audio"
+        },
+        {
+            "id": "shinchan-movie-the-spicy-kasukabe-dancers",
+            "title": "Shinchan Movie: The Spicy Kasukabe Dancers",
+            "url": "https://animesalt.cx/movies/shinchan-movie-the-spicy-kasukabe-dancers/",
+            "image": "https://image.tmdb.org/t/p/w500/1TfdgQbZXuEswjqLYlsVvhHw0Py.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "your-name",
+            "title": "Your Name.",
+            "url": "https://animesalt.cx/movies/your-name/",
+            "image": "https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgKnONONX.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "weathering-with-you",
+            "title": "Weathering with You",
+            "url": "https://animesalt.cx/movies/weathering-with-you/",
+            "image": "https://image.tmdb.org/t/p/w500/qgrk7r1fV4IjuoeiGS5HOhXNdLJ.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "suzume",
+            "title": "Suzume",
+            "url": "https://animesalt.cx/movies/suzume/",
+            "image": "https://image.tmdb.org/t/p/w500/yStW1TXF5s7Tbtu9KjIZEaWl6HL.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "doraemon-the-movie-nobitas-earth-symphony",
+            "title": "Doraemon the Movie: Nobita's Earth Symphony",
+            "url": "https://animesalt.cx/movies/doraemon-the-movie-nobitas-earth-symphony/",
+            "image": "https://image.tmdb.org/t/p/w500/1W5Kg4K27U3dx9Kxb8DaE6WFLHI.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "jujutsu-kaisen-0",
+            "title": "Jujutsu Kaisen 0",
+            "url": "https://animesalt.cx/movies/jujutsu-kaisen-0/",
+            "image": "https://image.tmdb.org/t/p/w500/23oJaeBh0FDk2mQ2P240PU9Xxfh.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "chainsaw-man-the-movie-reze-arc",
+            "title": "Chainsaw Man the Movie: Reze Arc",
+            "url": "https://animesalt.cx/movies/chainsaw-man-the-movie-reze-arc/",
+            "image": "https://image.tmdb.org/t/p/w500/xdzLBZjCVSEsic7m7nJc4jNJZVW.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "shinchan-movie-the-legends-of-ninja-mononoke",
+            "title": "Shinchan Movie: The Legends of Ninja Mononoke",
+            "url": "https://animesalt.cx/movies/shinchan-movie-the-legends-of-ninja-mononoke/",
+            "image": "https://image.tmdb.org/t/p/w500/wyYfIWUtetlfxor8ibugKXthdKE.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "shinchan-movie-rakuga-kingdom",
+            "title": "Shinchan Movie: Rakuga Kingdom",
+            "url": "https://animesalt.cx/movies/shinchan-movie-rakuga-kingdom/",
+            "image": "https://image.tmdb.org/t/p/w500/xWv5pUwyf96MDImATZYx0toI7T7.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "shinchan-movie-very-very-tasty-tasty",
+            "title": "Shinchan Movie: Very Very Tasty Tasty",
+            "url": "https://animesalt.cx/movies/shinchan-movie-very-very-tasty-tasty/",
+            "image": "https://image.tmdb.org/t/p/w500/iPN3Vy71U0B7p1R667EdifmwW1b.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "shinchan-movie-himawari-banegi-rajkumari",
+            "title": "Shinchan Movie: Himawari Banegi Rajkumari",
+            "url": "https://animesalt.cx/movies/shinchan-movie-himawari-banegi-rajkumari/",
+            "image": "https://image.tmdb.org/t/p/w500/7NGIushHHtUuOwnDMoGWRpkrOwx.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "shinchan-movie-the-golden-sword",
+            "title": "Shinchan Movie: The Golden Sword",
+            "url": "https://animesalt.cx/movies/shinchan-movie-the-golden-sword/",
+            "image": "https://image.tmdb.org/t/p/w500/nTEE7CByX86ZALfTzKCfuJpU4kB.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "shinchan-movie-masala-story",
+            "title": "Shinchan Movie: Masala Story",
+            "url": "https://animesalt.cx/movies/shinchan-movie-masala-story/",
+            "image": "https://image.tmdb.org/t/p/w500/beZGic7PCVEUW06Y9cOmhiQZZRj.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "shinchan-movie-bungle-in-the-jungle",
+            "title": "Shinchan Movie: Bungle in the Jungle",
+            "url": "https://animesalt.cx/movies/shinchan-movie-bungle-in-the-jungle/",
+            "image": "https://image.tmdb.org/t/p/w500/pbcpCQ8sHRUhNCeCnBTgdver4N6.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "the-loud-house-movie",
+            "title": "The Loud House Movie",
+            "url": "https://animesalt.cx/movies/the-loud-house-movie/",
+            "image": "https://image.tmdb.org/t/p/w500/mab5wPeGVjbMyYMzyzfdKKnG9cl.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "ben-10-vs-the-universe-the-movie",
+            "title": "Ben 10 vs. the Universe: The Movie",
+            "url": "https://animesalt.cx/movies/ben-10-vs-the-universe-the-movie/",
+            "image": "https://image.tmdb.org/t/p/w500/34KSOJVowmkeh6G0HZJMxqdHq6s.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "transformers-prime-beast-hunters-predacons-rising",
+            "title": "Transformers Prime: Beast Hunters - Predacons Rising",
+            "url": "https://animesalt.cx/movies/transformers-prime-beast-hunters-predacons-rising/",
+            "image": "https://image.tmdb.org/t/p/w500/4T4pQqr2RoVgWQYtIzDGMByktwq.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "the-witcher-nightmare-of-the-wolf",
+            "title": "The Witcher: Nightmare of the Wolf",
+            "url": "https://animesalt.cx/movies/the-witcher-nightmare-of-the-wolf/",
+            "image": "https://image.tmdb.org/t/p/w500/3sLz2yv6vBDWqBbd8rdnNeoJ2kJ.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "the-spongebob-squarepants-movie",
+            "title": "The SpongeBob SquarePants Movie",
+            "url": "https://animesalt.cx/movies/the-spongebob-squarepants-movie/",
+            "image": "https://image.tmdb.org/t/p/w500/1rvzKV1d18EbDVaEd4VDzK3cgnY.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "slugterra-slug-fu-showdown",
+            "title": "Slugterra: Slug Fu Showdown",
+            "url": "https://animesalt.cx/movies/slugterra-slug-fu-showdown/",
+            "image": "https://image.tmdb.org/t/p/w500/9IrfRT8stzY3xh9y0SEBraNhm3E.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "slugterra-return-of-the-elementals",
+            "title": "SlugTerra: Return of the Elementals",
+            "url": "https://animesalt.cx/movies/slugterra-return-of-the-elementals/",
+            "image": "https://image.tmdb.org/t/p/w500/ApN2lteDsoIU5dDHJXeqVD13vpd.jpg",
+            "language": "English Dub",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "slugterra-into-the-shadows",
+            "title": "Slugterra: Into The Shadows",
+            "url": "https://animesalt.cx/movies/slugterra-into-the-shadows/",
+            "image": "https://image.tmdb.org/t/p/w500/fwcdoV9qBpEorDlCtqO6RFLIXtA.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "slugterra-ghoul-from-beyond",
+            "title": "Slugterra: Ghoul from Beyond",
+            "url": "https://animesalt.cx/movies/slugterra-ghoul-from-beyond/",
+            "image": "https://image.tmdb.org/t/p/w500/jPT77gSUa9yad7ysoB8R9RnuPfa.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "miraculous-world-new-york-united-heroez",
+            "title": "Miraculous World: New York United HeroeZ",
+            "url": "https://animesalt.cx/movies/miraculous-world-new-york-united-heroez/",
+            "image": "https://image.tmdb.org/t/p/w500/9YbyvcrHmY2SVbdfXpb8mC4Fy0g.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "miraculous-world-shanghai-the-legend-of-ladydragon",
+            "title": "Miraculous World: Shanghai – The Legend of Ladydragon",
+            "url": "https://animesalt.cx/movies/miraculous-world-shanghai-the-legend-of-ladydragon/",
+            "image": "https://image.tmdb.org/t/p/w500/qQ0VKsGRQ2ofAmswGNzZnvC1xPE.jpg",
+            "language": "English Dub",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "ben-10-secret-of-the-omnitrix",
+            "title": "Ben 10: Secret of the Omnitrix",
+            "url": "https://animesalt.cx/movies/ben-10-secret-of-the-omnitrix/",
+            "image": "https://image.tmdb.org/t/p/w500/vPND6Qff1KVYAtjaQuZtij8wtAj.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "ben-10-destroy-all-aliens",
+            "title": "Ben 10: Destroy All Aliens",
+            "url": "https://animesalt.cx/movies/ben-10-destroy-all-aliens/",
+            "image": "https://image.tmdb.org/t/p/w500/qoILNllyC6YXHyT4V9YOhMJlPuO.jpg",
+            "language": "Multi Audio",
+            "seasons": [],
+            "episodes": []
+        },
+        {
+            "id": "a-condition-called-love",
+            "title": "A Condition Called Love",
+            "url": "https://animesalt.cx/series/a-condition-called-love/",
+            "image": "https://image.tmdb.org/t/p/w500/e1ao8YAdgbN0wCUSatCESTPwaAh.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x1/",
+                            "video_url": "https://ravok.buzz/video/232a03118725240918c5a4a0ab33e9b3"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x2/",
+                            "video_url": "https://ravok.buzz/video/df46e19efffe9c4cd3e8808359aa8c8a"
+                        },
+                        {
+                            "title": "Episode 3",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x3/",
+                            "video_url": "https://ravok.buzz/video/649ecbcdbf3571a2a3197e021287efa1"
+                        },
+                        {
+                            "title": "Episode 4",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://animesalt.cx/episode/a-condition-called-love-1x12/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x1/",
+                    "video_url": "https://ravok.buzz/video/232a03118725240918c5a4a0ab33e9b3"
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x2/",
+                    "video_url": "https://ravok.buzz/video/df46e19efffe9c4cd3e8808359aa8c8a"
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x3/",
+                    "video_url": "https://ravok.buzz/video/649ecbcdbf3571a2a3197e021287efa1"
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://animesalt.cx/episode/a-condition-called-love-1x12/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "a-couple-of-cuckoos",
+            "title": "A Couple of Cuckoos",
+            "url": "https://animesalt.cx/series/a-couple-of-cuckoos/",
+            "image": "https://image.tmdb.org/t/p/w500/gV9XAk7xrZaB2eTjroQNn1VhdBI.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x1/",
+                            "video_url": "https://ravok.buzz/video/a41a6a3856ee3c8c2816d4828b64f560"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x2/",
+                            "video_url": "https://ravok.buzz/video/0fbadcbe8b2b6612b48d0fe109db849b"
+                        },
+                        {
+                            "title": "Episode 3",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x3/",
+                            "video_url": "https://ravok.buzz/video/abdac3c2c521741e5aa11fc9c87bf7db"
+                        },
+                        {
+                            "title": "Episode 4",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x12/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 13",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x13/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 14",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x14/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 15",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x15/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 16",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x16/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 17",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x17/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 18",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x18/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 19",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x19/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 20",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x20/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 21",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x21/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 22",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x22/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 23",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x23/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 24",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x24/",
+                            "video_url": ""
+                        }
+                    ]
+                },
+                {
+                    "season_number": 2,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "episode_name": "A Couple of Cuckoos 2x1",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x1/",
+                            "video_url": "https://ravok.buzz/video/fab6cdec3712c24619019567ac26c060"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "episode_name": "A Couple of Cuckoos 2x2",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x2/",
+                            "video_url": "https://ravok.buzz/video/d111f133fa0ea545d48291f9b0a72b2d"
+                        },
+                        {
+                            "title": "Episode 3",
+                            "episode_name": "A Couple of Cuckoos 2x3",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x3/",
+                            "video_url": "https://ravok.buzz/video/991c0955da231335e4864d3389698fd5"
+                        },
+                        {
+                            "title": "Episode 4",
+                            "episode_name": "A Couple of Cuckoos 2x4",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x4/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 5",
+                            "episode_name": "A Couple of Cuckoos 2x5",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x5/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 6",
+                            "episode_name": "A Couple of Cuckoos 2x6",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x6/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 7",
+                            "episode_name": "A Couple of Cuckoos 2x7",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x7/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 8",
+                            "episode_name": "A Couple of Cuckoos 2x8",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x8/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 9",
+                            "episode_name": "A Couple of Cuckoos 2x9",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x9/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 10",
+                            "episode_name": "A Couple of Cuckoos 2x10",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x10/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 11",
+                            "episode_name": "A Couple of Cuckoos 2x11",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x11/",
+                            "video_url": ""
+                        },
+                        {
+                            "title": "Episode 12",
+                            "episode_name": "A Couple of Cuckoos 2x12",
+                            "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x12/",
+                            "video_url": ""
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x1/",
+                    "video_url": "https://ravok.buzz/video/a41a6a3856ee3c8c2816d4828b64f560"
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x2/",
+                    "video_url": "https://ravok.buzz/video/0fbadcbe8b2b6612b48d0fe109db849b"
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x3/",
+                    "video_url": "https://ravok.buzz/video/abdac3c2c521741e5aa11fc9c87bf7db"
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x4/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x5/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x6/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x7/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x8/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x9/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x10/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x11/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-2x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x12/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 13",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x13/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 14",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x14/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 15",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x15/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 16",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x16/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 17",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x17/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 18",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x18/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 19",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x19/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x20/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 21",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x21/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 22",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x22/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 23",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x23/",
+                    "video_url": ""
+                },
+                {
+                    "title": "Episode 24",
+                    "url": "https://animesalt.cx/episode/a-couple-of-cuckoos-1x24/",
+                    "video_url": ""
+                }
+            ]
+        },
+        {
+            "id": "a-magnificent-life",
+            "title": "A Magnificent Life",
+            "url": "https://animesalt.cx/movies/a-magnificent-life/",
+            "image": "https://image.tmdb.org/t/p/w500/mnYryuWqCGPBggGDNHeY6dI6AWQ.jpg",
+            "language": "Unknown",
+            "seasons": [],
+            "episodes": []
         }
     ]
 }

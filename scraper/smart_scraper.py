@@ -9,7 +9,8 @@ project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
 from parser import (parse_anime_homepage, parse_post_id, parse_season_ajax,
-                    parse_video_link, parse_release_year, parse_season_episodes)
+                    parse_video_link, parse_release_year, parse_season_episodes,
+                    extract_language_from_detail) # 👈 बस यही एक इम्पोर्ट रहेगा
 
 MIN_YEAR = 2000
 BATCH_SIZE = 35
@@ -79,7 +80,7 @@ def fetch_season_ajax(post_id, season_num):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("📺 SCRAPER चालू (सारे anime - हर भाषा)")
+    print("📺 SCRAPER चालू (होमपेज + A-Z लेटर)")
     print("=" * 60)
 
     db_data = load_db()
@@ -91,38 +92,51 @@ if __name__ == '__main__':
     new_anime = []
     scraped_this_run = 0
     updated_list = existing_anime.copy()
-
-    # 🛠️ FIX: A से Z तक जाएंगे ताकि नए एनीमे कभी मिस न हों
+    
+    # 🛠️ FIX: पहले होमपेज चेक करेंगे, फिर A-Z लेटर
     import string
-    letters = string.ascii_uppercase
-    MAX_PAGES_PER_LETTER = 20
+    letters = [''] + list(string.ascii_uppercase) # '' का मतलब होमपेज, फिर A, B, C...
+    
+    MAX_PAGES_PER_SECTION = 5 # हर सेक्शन में ज्यादा से ज्यादा 5 पेज चेक करेंगे
 
     for letter in letters:
         if len(new_anime) >= BATCH_SIZE:
             break
             
-        print(f"\n🔍 Letter {letter} चेक कर रहे हैं...")
-        page_num = 1
+        if letter == '':
+            print(f"\n🏠 होमपेज चेक कर रहे हैं...")
+            base_url_pattern = "https://animesalt.cx/?page={}"
+        else:
+            print(f"\n🔍 Letter {letter} चेक कर रहे हैं...")
+            base_url_pattern = f"https://animesalt.cx/letter/{letter}/?page={{}}"
         
-        while page_num <= MAX_PAGES_PER_LETTER:
-            base_url = f"https://animesalt.cx/letter/{letter}/?page={page_num}"
+        page_num = 1
+        found_on_this_letter = False
+        
+        while page_num <= MAX_PAGES_PER_SECTION:
+            base_url = base_url_pattern.format(page_num)
             
             try:
                 homepage_html = fetch_page(base_url)
                 if not homepage_html:
-                    print(f"   ⚠️ Page {page_num} लोड नहीं हुआ। इस लेटर को छोड़ रहे हैं।")
                     break
 
                 all_anime = parse_anime_homepage(homepage_html, "https://animesalt.cx/")
                 if not all_anime:
-                    print(f"   ⏭️ इस पेज पर कोई एनीमे नहीं मिला। अगले लेटर पर जा रहे हैं।")
                     break
 
                 page_new_anime = [a for a in all_anime if a['id'] not in existing_ids]
                 
+                # अगर इस पेज पर कोई नया एनीमे नहीं मिला, तो इस लेटर को छोड़ दो
+                if not page_new_anime:
+                    print(f"   ⏭️ Page {page_num} पर कुछ नया नहीं मिला। अगले लेटर पर जा रहे हैं।")
+                    break
+                
+                # नए एनीमे को लिस्ट में जोड़ो
                 for a in page_new_anime:
                     if a not in new_anime:
                         new_anime.append(a)
+                        found_on_this_letter = True
                         if len(new_anime) >= BATCH_SIZE:
                             break
                 
@@ -132,7 +146,7 @@ if __name__ == '__main__':
                     break
 
                 page_num += 1
-                time.sleep(1)
+                time.sleep(1) 
                 
             except Exception as e:
                 print(f"   ❌ Page {page_num} पर एरर: {e}. अगले पेज पर जा रहे हैं...")
@@ -149,6 +163,7 @@ if __name__ == '__main__':
 
     print(f"\n✅ {len(new_anime)} एनीमे चेक कर रहे हैं...\n")
 
+    # अब हम 35 एनीमे (सीरीज़ या मूवी) को प्रोसेस करेंगे
     for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
         print(f"\n[{idx + 1}/{min(BATCH_SIZE, len(new_anime))}] {anime['title']}")
         
@@ -156,7 +171,7 @@ if __name__ == '__main__':
         if not anime_html:
             continue
 
-        # 🛠️ FIX: यहाँ भाषा निकालो और सेव करो
+        # 🛠️ FIX: अब यहाँ 'extract_language_from_detail' फंक्शन सही से काम करेगा
         language = extract_language_from_detail(anime_html)
         anime['language'] = language
         print(f"   🌐 Language: {language}")
@@ -189,7 +204,6 @@ if __name__ == '__main__':
 
             print(f"   📺 Season {season_num}: {len(episodes)} episodes")
 
-            # सिर्फ पहले 3 एपिसोड के वीडियो लिंक निकालेंगे (स्पीड के लिए)
             for ep in episodes[:3]:
                 ep_html = fetch_page(ep['url'])
                 if ep_html:
@@ -214,9 +228,20 @@ if __name__ == '__main__':
             total_eps = sum(len(s['episodes']) for s in anime_seasons)
             print(f"   💾 Save (Series)! {len(anime_seasons)} Season, {total_eps} Episodes")
         else:
-            anime['seasons'] = []
-            anime['episodes'] = []
-            print(f"   💾 Save (Movie)! कोई सीज़न नहीं मिला, मूवी के रूप में सेव कर रहे हैं।")
+            # 🛠️ FIX: ये मूवी है! इसमें सीधा वीडियो लिंक निकालो
+            movie_video = parse_video_link(anime_html, anime['url'])
+            
+            # मूवी को भी एक "सीज़न" की तरह सेव कर दो ताकि watch.html पर चले
+            anime['seasons'] = [{
+                "season_number": 1,
+                "episodes": [{
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": movie_video
+                }]
+            }]
+            anime['episodes'] = anime['seasons'][0]['episodes']
+            print(f"   💾 Save (Movie)! वीडियो लिंक के साथ सेव कर रहे हैं।")
 
         updated_list.append(anime)
         scraped_this_run += 1

@@ -225,7 +225,7 @@ def extract_language_from_detail(detail_html):
                 found_languages.append(lang_name)
                 break 
 
-    # 🛠️ FIX: अगर 1 से ज्यादा भाषाएँ मिलीं तो "Multi Audio"
+    # 🛠️ FIX: अगर एक से ज्यादा भाषाएँ मिलीं तो "Multi Audio"
     if len(found_languages) > 1:
         return "Multi Audio"
     
