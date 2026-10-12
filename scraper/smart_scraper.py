@@ -10,9 +10,9 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
-from parser import (parse_anime_homepage, parse_post_id, parse_season_ajax,
-                    parse_video_link, parse_release_year, parse_season_episodes,
-                    extract_language_from_detail)
+from scraper.parser import (parse_anime_homepage, parse_post_id, parse_season_ajax,
+                            parse_video_link, parse_release_year, parse_season_episodes,
+                            extract_language_from_detail)
 
 MIN_YEAR = 2000
 BATCH_SIZE = 50
