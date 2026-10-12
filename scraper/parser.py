@@ -15,7 +15,7 @@ def parse_anime_homepage(html_content, base_url):
         anime_url = ""
         link_tag = article.find('a', class_='lnk-blk')
         if not link_tag:
-            link_tag = article.find('a', href=re.compile(r'/series/|/anime/'))
+            link_tag = article.find('a', href=re.compile(r'/series/|/anime/|/movies/'))
             
         if not link_tag or not link_tag.get('href'):
             continue
@@ -147,24 +147,32 @@ def parse_season_ajax(html_content, base_url):
     return episodes
 
 def parse_video_link(html_content, base_url):
-    """Episode page से अंदर की video iframe link निकालता है"""
+    """Episode/Movie page से अंदर की video iframe link निकालता है"""
     if not html_content: return ""
     soup = BeautifulSoup(html_content, 'html.parser')
     
-    iframe = soup.find('iframe')
-    if iframe and iframe.get('src'):
-        v = iframe['src']
-        if v.startswith('//'): v = 'https:' + v
-        return v
-        
+    # 🛠️ FIX: अब हम सारे iframes को चेक करेंगे (मूवीज़ के लिए जरूरी)
+    iframes = soup.find_all('iframe')
+    for iframe in iframes:
+        src = iframe.get('src') or iframe.get('data-src')
+        if src:
+            if src.startswith('//'): 
+                src = 'https:' + src
+            # अगर लिंक में 'http' है, तो इसे वीडियो लिंक मान लो
+            if 'http' in src:
+                return src
+            
     video = soup.find('video')
-    if video and video.get('src'):
-        v = video['src']
-        if v.startswith('//'): v = 'https:' + v
-        return v
+    if video:
+        src = video.get('src')
+        if src:
+            if src.startswith('//'): src = 'https:' + src
+            return src
         
     match = re.search(r'(https?://[^\s"\']+\.(m3u8|mp4))', html_content)
-    if match: return match.group(1)
+    if match: 
+        return match.group(1)
+        
     return ""
 
 def parse_release_year(html_content):
@@ -220,20 +228,15 @@ def extract_language_from_detail(detail_html):
     found_languages = []
     for lang_name, keywords in languages_dict.items():
         for kw in keywords:
-            # \b का मतलब है कि पूरा शब्द मैच हो (जैसे 'hin' 'hindi' में ही मैच हो)
             if re.search(r'\b' + kw + r'\b', full_text):
                 found_languages.append(lang_name)
                 break 
 
-    # 🛠️ FIX: अगर एक से ज्यादा भाषाएँ मिलीं तो "Multi Audio"
     if len(found_languages) > 1:
         return "Multi Audio"
-    
-    # 🛠️ FIX: अगर सिर्फ 1 भाषा मिली तो उसका नाम + "Dub"
     elif len(found_languages) == 1:
         return f"{found_languages[0]} Dub"
     
-    # अगर कोई खास भाषा नहीं मिली, तो dubbed चेक करो
     if 'dubbed' in full_text or 'dub' in full_text:
         return "Dubbed"
         

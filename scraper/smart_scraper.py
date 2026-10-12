@@ -95,9 +95,9 @@ if __name__ == '__main__':
     
     # 🛠️ FIX: पहले होमपेज चेक करेंगे, फिर A-Z लेटर
     import string
-    letters = [''] + list(string.ascii_uppercase) # '' का मतलब होमपेज, फिर A, B, C...
+    letters = [''] + list(string.ascii_uppercase) 
     
-    MAX_PAGES_PER_SECTION = 5 # हर सेक्शन में ज्यादा से ज्यादा 5 पेज चेक करेंगे
+    MAX_PAGES_PER_SECTION = 5 
 
     for letter in letters:
         if len(new_anime) >= BATCH_SIZE:
@@ -125,12 +125,10 @@ if __name__ == '__main__':
 
                 page_new_anime = [a for a in all_anime if a['id'] not in existing_ids]
                 
-                # अगर इस पेज पर कोई नया एनीमे नहीं मिला, तो इस लेटर को छोड़ दो
                 if not page_new_anime:
                     print(f"   ⏭️ Page {page_num} पर कुछ नया नहीं मिला। अगले लेटर पर जा रहे हैं।")
                     break
                 
-                # नए एनीमे को लिस्ट में जोड़ो
                 for a in page_new_anime:
                     if a not in new_anime:
                         new_anime.append(a)
@@ -160,7 +158,6 @@ if __name__ == '__main__':
 
     print(f"\n✅ {len(new_anime)} एनीमे चेक कर रहे हैं...\n")
 
-    # अब हम 35 एनीमे (सीरीज़ या मूवी) को प्रोसेस करेंगे
     for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
         print(f"\n[{idx + 1}/{min(BATCH_SIZE, len(new_anime))}] {anime['title']}")
         
@@ -168,7 +165,6 @@ if __name__ == '__main__':
         if not anime_html:
             continue
 
-        # भाषा निकालो और सेव करो
         language = extract_language_from_detail(anime_html)
         anime['language'] = language
         print(f"   🌐 Language: {language}")
@@ -228,19 +224,17 @@ if __name__ == '__main__':
             # 🛠️ FIX: ये मूवी है! इसमें सीधा वीडियो लिंक निकालो
             movie_video = parse_video_link(anime_html, anime['url'])
             
-            # अगर सीधे नहीं मिला, तो शायद "Watch Now" या "Episode" वाले लिंक पर जाना पड़ेगा
+            # अगर सीधे नहीं मिला, तो "Watch Now" वाले लिंक पर जाना पड़ेगा
             if not movie_video:
                 from bs4 import BeautifulSoup
                 from urllib.parse import urljoin
                 soup = BeautifulSoup(anime_html, 'html.parser')
                 
-                # ऐसे लिंक ढूंढो जिनमें 'watch', 'episode', या 'movie' हो
                 watch_links = soup.find_all('a', href=True)
                 for link in watch_links:
                     href = link['href'].lower()
                     if 'watch' in href or 'episode' in href or 'movie' in href:
                         full_ep_url = urljoin(anime['url'], link['href'])
-                        # उस लिंक पर जाओ और वीडियो निकालो
                         ep_html = fetch_page(full_ep_url)
                         if ep_html:
                             movie_video = parse_video_link(ep_html, full_ep_url)
@@ -248,7 +242,6 @@ if __name__ == '__main__':
                                 print(f"   ✅ मूवी का वीडियो लिंक मिल गया: {full_ep_url}")
                                 break
 
-            # मूवी को भी एक "सीज़न" की तरह सेव कर दो ताकि watch.html पर चले
             anime['seasons'] = [{
                 "season_number": 1,
                 "episodes": [{
