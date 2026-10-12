@@ -2052,6 +2052,7 @@ body.light-mode .icon-circle {
     color: #8b949e;
     margin-bottom: 10px;
     display: -webkit-box;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
