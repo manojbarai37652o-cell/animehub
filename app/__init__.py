@@ -89,6 +89,7 @@ def create_app(config_class=Config):
                            'a couple of cuckoos', 'kanojo', 'lovely complex']
         romance = [a for a in all_anime if any(k in a['title'].lower() for k in romance_keywords)][:15]
         
+        movies_list = [a for a in all_anime if not a.get('episodes') or len(a.get('episodes', [])) == 0]
         hero_anime_list = get_hero_anime_list(5)
         
         return render_template('index.html',                                
