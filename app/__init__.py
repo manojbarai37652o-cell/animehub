@@ -7,15 +7,34 @@ from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                   get_anime_by_genre, get_single_random_anime,
                                   get_top_anime, get_hero_anime_list)
 from flask_dance.contrib.google import make_google_blueprint, google
-# 🛠️ नया इम्पोर्ट (मूवी का लाइव वीडियो लिंक निकालने के लिए)
 from scraper.smart_scraper import (fetch_movie_video_with_playwright, fetch_page, 
                                    parse_video_link, parse_post_id, fetch_season_ajax, 
                                    parse_season_ajax)
+
+# 🛠️ नया: डेटाबेस और पासवर्ड हैशिंग के लिए
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
+
+db = SQLAlchemy()
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    password_hash = db.Column(db.String(200), nullable=False)
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
+
+    # 🛠️ डेटाबेस सेटअप
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    db.init_app(app)
+
+    with app.app_context():
+        db.create_all()
 
     google_bp = make_google_blueprint(
         client_id=app.config['GOOGLE_CLIENT_ID'],
@@ -47,6 +66,45 @@ def create_app(config_class=Config):
             session.clear()
             return render_template('login.html')
 
+    # 🛠️ नया: ईमेल/पासवर्ड से लॉगिन
+    @app.route('/login/email', methods=['POST'])
+    def login_email():
+        email = request.form.get('email')
+        password = request.form.get('password')
+        
+        user = User.query.filter_by(email=email).first()
+        if user and check_password_hash(user.password_hash, password):
+            session['user_email'] = user.email
+            session['user_name'] = user.name
+            session['user_pic'] = f"https://ui-avatars.com/api/?name={user.name}&background=a371f7&color=fff"
+            return redirect(url_for('home'))
+        else:
+            return render_template('login.html', error="गलत ईमेल या पासवर्ड!")
+
+    # 🛠️ नया: नया अकाउंट बनाना (Signup)
+    @app.route('/signup', methods=['GET', 'POST'])
+    def signup():
+        if request.method == 'POST':
+            name = request.form.get('name')
+            email = request.form.get('email')
+            password = request.form.get('password')
+            
+            existing_user = User.query.filter_by(email=email).first()
+            if existing_user:
+                return render_template('signup.html', error="यह ईमेल पहले से रजिस्टर्ड है!")
+            
+            new_user = User(
+                name=name,
+                email=email,
+                password_hash=generate_password_hash(password)
+            )
+            db.session.add(new_user)
+            db.session.commit()
+            
+            return redirect(url_for('login'))
+            
+        return render_template('signup.html')
+
     @app.route('/guest')
     def guest_login():
         session['user_email'] = 'guest@animenest.com'
@@ -59,7 +117,7 @@ def create_app(config_class=Config):
         session.clear()
         session.pop('google_token', None)
         session.pop('google_oauth_token', None)
-        return redirect(url_for('home'))
+        return redirect(url_for('login'))
 
     @app.route('/')
     def home():
@@ -70,7 +128,6 @@ def create_app(config_class=Config):
         trending = random.sample(all_anime, min(15, len(all_anime))) if len(all_anime) > 15 else all_anime
         popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)[:15]
         
-        # Keywords for different genres
         action_keywords = ['demon slayer', 'jujutsu kaisen', 'one punch man', 'attack on titan', 'solo leveling', 'naruto', 'one piece', 'black clover', 'my hero academia', 'hunter x hunter', 'bleach', 'dragon ball', 'chainsaw man', 'tokyo revengers', 'kaiju no. 8', 'dan da dan', 'vinland saga', 'mob psycho']
         comedy_keywords = ['spy x family', 'grand blue', 'kaguya', 'komi', 'nichijou', 'gintama', 'konosuba', 'daily life', 'horimiya', 'fruits basket', 'science fell in love', 'my dress-up darling', 'toradora', 'love is war', 'a couple of cuckoos', 'kanojo', 'lovely complex']
         fantasy_keywords = ['reincarnated', 'isekai', 'mushoku tensei', 'that time i got', 'overlord', 'slime', 're:zero', 'sword art online', 'fate', 'immortal king', 'daily life of the immortal', 'frontier lord', 'wistoria', 'frieren', 'dungeon', 'black torch', 'holy grail']
@@ -82,8 +139,6 @@ def create_app(config_class=Config):
         romance = [a for a in all_anime if any(k in a['title'].lower() for k in romance_keywords)][:15]
 
         hero_anime_list = get_hero_anime_list(5)
-        
-        # 🛠️ FIX: मूवीज़ की लिस्ट बनाओ
         movies_list = [a for a in all_anime if not a.get('episodes') or len(a.get('episodes', [])) == 0]
 
         return render_template('index.html',
@@ -211,36 +266,28 @@ def create_app(config_class=Config):
                                episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num,
                                related_anime=related_anime, genres_text=genres_text, description=description)
 
-    # 🛠️ नया API राउट: लाइव वीडियो लिंक निकालने के लिए
     @app.route('/api/get-video/<anime_id>/<int:season_num>/<int:ep_num>')
     def get_video_api(anime_id, season_num, ep_num):
         anime = get_anime_by_id(anime_id)
         if not anime:
             return jsonify({"video_url": ""})
         
-        # 🛠️ अगर मूवी है (Full Movie), तो Playwright से ताज़ा लिंक निकालो
         if anime.get('episodes') and len(anime['episodes']) > 0 and anime['episodes'][0].get('title') == 'Full Movie':
             fresh_link = fetch_movie_video_with_playwright(anime['url'])
             return jsonify({"video_url": fresh_link})
-        
-        # 🛠️ सीरीज़ के लिए: एपिसोड का पेज खोलकर ताज़ा लिंक निकालो
         else:
             if not anime.get('seasons'):
                 return jsonify({"video_url": ""})
-                
             current_season = next((s for s in anime['seasons'] if s['season_number'] == season_num), None)
             if not current_season:
                 return jsonify({"video_url": ""})
-                
             current_ep = next((e for e in current_season['episodes'] if str(e.get('ep_num')) == str(ep_num)), None)
             if not current_ep:
                 return jsonify({"video_url": ""})
-                
             ep_html = fetch_page(current_ep['url'])
             if ep_html:
                 video_url = parse_video_link(ep_html, current_ep['url'])
                 return jsonify({"video_url": video_url})
-                
         return jsonify({"video_url": ""})
 
     @app.errorhandler(404)

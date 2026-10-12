@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sign Up - AnimeNest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-page-body">
+
+    <div class="login-container">
+        <div class="login-bg-overlay"></div>
+        <div class="login-content">
+            
+            <div class="login-logo">
+                <span class="logo-a">A</span><span class="logo-text">NIMENEST</span>
+                <p class="logo-sub">YOUR ANIME HOME</p>
+            </div>
+
+            <h1 class="welcome-title">Create Account</h1>
+            <p class="welcome-sub">Join AnimeNest to start watching</p>
+
+            <form class="login-form" action="/signup" method="POST">
+                {% if error %}
+                <p style="color: #ff4d4d; font-size: 0.8rem; text-align: center; margin-bottom: 10px;">{{ error }}</p>
+                {% endif %}
+                <div class="input-group">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" name="name" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="btn-signin">
+                    Sign Up <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <p class="signup-text">Already have an account? <a href="/login">Sign In</a></p>
+
+        </div>
+    </div>
+</body>
+</html>
