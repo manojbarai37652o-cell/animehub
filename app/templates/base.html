@@ -14,7 +14,6 @@
     <meta name="apple-mobile-web-app-title" content="AnimeNest">
     <link rel="apple-touch-icon" href="/static/images/logo.png">
     
-    <!-- 🛠️ HLS Player Library (मूवीज़ के लिए) -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
 </head>
 <body>
@@ -39,7 +38,8 @@
             </div>
 
             <div class="header-right-icons">
-                <a href="/search" class="icon-circle"><i class="fas fa-search"></i></a>
+                <!-- 🛠️ FIX: Search Icon now opens the overlay -->
+                <a href="javascript:void(0)" onclick="openSearch()" class="icon-circle"><i class="fas fa-search"></i></a>
                 <a href="#" class="icon-circle bell-icon">
                     <i class="fas fa-bell"></i>
                     <span class="notification-dot"></span>
@@ -55,6 +55,17 @@
         </div>
     </header>
 
+    <!-- 🛠️ NEW: Netflix Style Search Overlay -->
+    <div id="searchOverlay" class="search-overlay">
+        <div class="search-overlay-content">
+            <form action="/search" method="GET" class="search-form-overlay">
+                <i class="fas fa-search search-icon-overlay"></i>
+                <input type="text" name="q" id="searchInput" placeholder="Search anime, movies, genres..." autocomplete="off" required>
+                <button type="button" class="close-search-btn" onclick="closeSearch()"><i class="fas fa-times"></i></button>
+            </form>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <main>
         {% block content %}{% endblock %}
@@ -69,7 +80,7 @@
         <a href="/more" class="nav-item"><i class="fas fa-ellipsis-h"></i><span>More</span></a>
     </div>
 
-    <!-- Splash Screen Script -->
+    <!-- Splash Screen & Search Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById("splash-screen");
@@ -84,6 +95,26 @@
                         splash.style.display = 'none';
                     }, 500);
                 }, 1000);
+            }
+        });
+
+        // 🛠️ FIX: सर्च ओवरले को खोलने और बंद करने का फंक्शन
+        function openSearch() {
+            document.getElementById('searchOverlay').classList.add('active');
+            setTimeout(() => {
+                document.getElementById('searchInput').focus();
+            }, 100);
+        }
+
+        function closeSearch() {
+            document.getElementById('searchOverlay').classList.remove('active');
+            document.getElementById('searchInput').value = '';
+        }
+
+        // एस्केप (Esc) बटन दबाने पर बंद हो जाए
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSearch();
             }
         });
     </script>

@@ -2798,3 +2798,84 @@ body.light-mode .icon-circle {
     border-radius: 50% !important;
     object-fit: cover !important;
 }
+/* =========================================
+   NETFLIX STYLE SEARCH OVERLAY
+   ========================================= */
+
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(11, 15, 25, 0.95); /* गहरा डार्क बैकग्राउंड */
+    backdrop-filter: blur(12px); /* ब्लर इफेक्ट */
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* ऊपर से शुरू होगा */
+    padding-top: 80px; /* हेडर के नीचे से */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-20px);
+}
+
+.search-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.search-overlay-content {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.search-form-overlay {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon-overlay {
+    position: absolute;
+    left: 20px;
+    color: #8b949e;
+    font-size: 1.2rem;
+}
+
+.search-form-overlay input {
+    width: 100%;
+    padding: 18px 50px 18px 55px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-form-overlay input:focus {
+    border-color: #a371f7;
+    box-shadow: 0 0 20px rgba(163, 113, 247, 0.3);
+}
+
+.close-search-btn {
+    position: absolute;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #8b949e;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+.close-search-btn:hover {
+    color: #ff4d4d;
+}
