@@ -2,6 +2,7 @@ from flask import Flask, render_template, abort, request, redirect, url_for, ses
 import random
 import json
 import os
+import secrets
 from datetime import timedelta
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
@@ -23,6 +24,7 @@ class User(db.Model):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(200), nullable=False)
+    remember_token = db.Column(db.String(200), nullable=True) # 🛠️ परमानेंट लॉगिन के लिए
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -37,9 +39,9 @@ def create_app(config_class=Config):
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
-    # 🛠️ FIX: सेशन को लाइफटाइम (10 साल) बनाओ, ताकि यूजर हमेशा लॉगिन रहे
+    # 🛠️ सेशन को 10 साल का बनाओ
     app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=3650)
-    app.config['SESSION_COOKIE_SECURE'] = True # HTTPS पर ही भेजो (Render पर HTTPS है)
+    app.config['SESSION_COOKIE_SECURE'] = True
     app.config['SESSION_COOKIE_HTTPONLY'] = True
     app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
     
@@ -56,10 +58,23 @@ def create_app(config_class=Config):
     )
     app.register_blueprint(google_bp, url_prefix="/login")
 
+    # 🛠️ ऑटो-लॉगिन (हर बार पेज लोड होने से पहले चेक करेगा)
+    @app.before_request
+    def auto_login():
+        if not session.get('user_email'):
+            token = request.cookies.get('remember_token')
+            if token:
+                user = User.query.filter_by(remember_token=token).first()
+                if user:
+                    session['user_email'] = user.email
+                    session['user_name'] = user.name
+                    session['user_pic'] = f"https://ui-avatars.com/api/?name={user.name}&background=a371f7&color=fff"
+                    session.permanent = True
+
     @app.route('/login')
     def login():
         if session.get('user_email'):
-            session.permanent = True # 🛠️ हर बार याद दिलाओ
+            session.permanent = True
             return redirect(url_for('home'))
         if not google.authorized:
             return render_template('login.html')
@@ -70,7 +85,7 @@ def create_app(config_class=Config):
                 session['user_email'] = user_info['email']
                 session['user_name'] = user_info.get('name', 'User')
                 session['user_pic'] = user_info.get('picture', '')
-                session.permanent = True # 🛠️ लाइफटाइम लॉगिन
+                session.permanent = True
                 return redirect(url_for('home'))
             else:
                 session.clear()
@@ -90,14 +105,25 @@ def create_app(config_class=Config):
     def login_email():
         email = request.form.get('email')
         password = request.form.get('password')
+        remember = request.form.get('remember') # 🛠️ Remember Me
         
         user = User.query.filter_by(email=email).first()
         if user and check_password_hash(user.password_hash, password):
             session['user_email'] = user.email
             session['user_name'] = user.name
             session['user_pic'] = f"https://ui-avatars.com/api/?name={user.name}&background=a371f7&color=fff"
-            session.permanent = True # 🛠️ लाइफटाइम लॉगिन
-            return redirect(url_for('home'))
+            session.permanent = True
+            
+            response = redirect(url_for('home'))
+            if remember:
+                token = secrets.token_urlsafe(64)
+                user.remember_token = token
+                db.session.commit()
+                # 🛠️ 10 साल की कुकी सेट करो
+                response.set_cookie('remember_token', token, max_age=3650*24*60*60, httponly=True, secure=True, samesite='Lax')
+            
+            response.set_cookie('saved_email', email, max_age=3650*24*60*60)
+            return response
         else:
             return render_template('login.html', error="गलत ईमेल या पासवर्ड!")
 
@@ -132,10 +158,21 @@ def create_app(config_class=Config):
 
     @app.route('/logout')
     def logout():
+        # 🛠️ डेटाबेस से टोकन हटाओ
+        token = request.cookies.get('remember_token')
+        if token:
+            user = User.query.filter_by(remember_token=token).first()
+            if user:
+                user.remember_token = None
+                db.session.commit()
+        
         session.clear()
         session.pop('google_token', None)
         session.pop('google_oauth_token', None)
-        return redirect(url_for('login'))
+        
+        resp = redirect(url_for('login'))
+        resp.set_cookie('remember_token', '', expires=0)
+        return resp
 
     def get_filtered_anime():
         all_anime = get_all_anime()

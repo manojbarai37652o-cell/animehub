@@ -30,7 +30,8 @@
                 {% endif %}
                 <div class="input-group">
                     <i class="fas fa-envelope input-icon"></i>
-                    <input type="email" name="email" placeholder="Email" required>
+                    <!-- 🛠️ ईमेल अपने आप भरा आएगा अगर पहले सेव किया है -->
+                    <input type="email" name="email" placeholder="Email" required value="{{ request.cookies.get('saved_email', '') }}">
                 </div>
                 <div class="input-group">
                     <i class="fas fa-lock input-icon"></i>
@@ -40,7 +41,8 @@
                 
                 <div class="form-options">
                     <label class="remember-me">
-                        <input type="checkbox" checked>
+                        <!-- 🛠️ Remember Me चेकबॉक्स -->
+                        <input type="checkbox" name="remember" checked>
                         <span>Remember me</span>
                     </label>
                     <a href="#" class="forgot-pass">Forgot Password?</a>
