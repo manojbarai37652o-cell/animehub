@@ -4,7 +4,7 @@
 <div class="main-content-wrapper">
 
     <!-- 1. Hero Banner Section -->
-    {% if hero_anime_list and not search_query %}
+    {% if hero_anime_list and not search_query and page_title == 'Home' %}
     <div class="hero-banner" id="hero-slider">
         {% for anime in hero_anime_list %}
         <div class="hero-slide {% if loop.first %}active{% endif %}">
@@ -18,7 +18,6 @@
             </div>
         </div>
         {% endfor %}
-        
         <div class="hero-dots" id="hero-dots">
             {% for anime in hero_anime_list %}
             <span class="dot {% if loop.first %}active{% endif %}" onclick="currentSlide({{ loop.index }})"></span>
@@ -27,40 +26,57 @@
     </div>
     {% endif %}
 
-    <!-- 2. Category Icons Section (Top 7 Icons) -->
+    <!-- 2. Category Icons Section -->
+    {% if not search_query and page_title == 'Home' %}
     <div class="category-icons">
-        <a href="/?genre=Trending" class="cat-item">
+        <a href="/trending" class="cat-item">
             <div class="cat-icon" style="background: rgba(255, 75, 43, 0.2); color: #ff4b2b;"><i class="fas fa-fire"></i></div>
             <span>Trending</span>
         </a>
-        <a href="/?genre=Popular" class="cat-item">
+        <a href="/popular" class="cat-item">
             <div class="cat-icon" style="background: rgba(241, 196, 15, 0.2); color: #f1c40f;"><i class="fas fa-star"></i></div>
             <span>Popular</span>
         </a>
-        <a href="/?genre=Top" class="cat-item">
+        <a href="/top-rated" class="cat-item">
             <div class="cat-icon" style="background: rgba(163, 113, 247, 0.2); color: #a371f7;"><i class="fas fa-trophy"></i></div>
             <span>Top Rated</span>
         </a>
-        <a href="/?genre=Ongoing" class="cat-item">
-            <div class="cat-icon" style="background: rgba(46, 204, 113, 0.2); color: #2ecc71;"><i class="fas fa-clock"></i></div>
-            <span>Ongoing</span>
-        </a>
-        <a href="/?genre=Latest" class="cat-item">
-            <div class="cat-icon" style="background: rgba(52, 152, 219, 0.2); color: #3498db;"><i class="fas fa-calendar-alt"></i></div>
-            <span>Latest</span>
-        </a>
-        <a href="/?genre=Genres" class="cat-item">
-            <div class="cat-icon" style="background: rgba(155, 89, 182, 0.2); color: #9b59b6;"><i class="fas fa-th-large"></i></div>
-            <span>Genres</span>
-        </a>
-        <a href="/?genre=Movies" class="cat-item">
-            <div class="cat-icon" style="background: rgba(230, 126, 34, 0.2); color: #e67e22;"><i class="fas fa-film"></i></div>
+        <a href="/movies" class="cat-item">
+            <div class="cat-icon" style="background: rgba(52, 152, 219, 0.2); color: #3498db;"><i class="fas fa-film"></i></div>
             <span>Movies</span>
         </a>
+        <a href="/cartoons" class="cat-item">
+            <div class="cat-icon" style="background: rgba(46, 204, 113, 0.2); color: #2ecc71;"><i class="fas fa-child"></i></div>
+            <span>Cartoons</span>
+        </a>
     </div>
+    {% endif %}
 
     <!-- 3. Anime Sections -->
     {% if not search_query %}
+    
+    <!-- पेज टाइटल (अगर "See All" किया है तो) -->
+    {% if page_title != 'Home' %}
+    <div class="app-section">
+        <div class="section-header">
+            <h2>{{ page_title }}</h2>
+        </div>
+        <div class="anime-row">
+            {% for anime in anime_list %}
+            <a href="/watch/{{ anime.id }}" class="anime-card">
+                <span class="rank-number">{{ loop.index }}</span>
+                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
+                <h3 class="anime-title">{{ anime.title }}</h3>
+                <div class="anime-meta">
+                    <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    
+    <!-- होमपेज के सारे सेक्शन्स (हर सेक्शन में सारे एनीमे दिखेंगे, कोई लिमिट नहीं) -->
     
     <!-- 🔥 Trending Anime -->
     {% if trending %}
@@ -73,7 +89,7 @@
             {% for anime in trending %}
             <a href="/watch/{{ anime.id }}" class="anime-card">
                 <span class="rank-number">{{ loop.index }}</span>
-                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime';">
+                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
                 <h3 class="anime-title">{{ anime.title }}</h3>
                 <div class="anime-meta">
                     <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
@@ -95,7 +111,7 @@
             {% for anime in popular %}
             <a href="/watch/{{ anime.id }}" class="anime-card">
                 <span class="rank-number">{{ loop.index }}</span>
-                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime';">
+                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
                 <h3 class="anime-title">{{ anime.title }}</h3>
                 <div class="anime-meta">
                     <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
@@ -105,81 +121,6 @@
         </div>
     </div>
     {% endif %}
-
-    <!-- 🏆 Top Rated Anime -->
-    {% if top_rated %}
-    <div class="app-section">
-        <div class="section-header">
-            <h2>🏆 Top Rated Anime</h2>
-            <a href="/top-rated" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="anime-row">
-            {% for anime in top_rated %}
-            <a href="/watch/{{ anime.id }}" class="anime-card">
-                <span class="rank-number">{{ loop.index }}</span>
-                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime';">
-                <h3 class="anime-title">{{ anime.title }}</h3>
-                <div class="anime-meta">
-                    <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
-    </div>
-    {% endif %}
-
-    <!-- ⏳ Ongoing Anime -->
-    {% if ongoing %}
-    <div class="app-section">
-        <div class="section-header">
-            <h2>⏳ Ongoing Anime</h2>
-            <a href="/ongoing" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="anime-row">
-            {% for anime in ongoing %}
-            <a href="/watch/{{ anime.id }}" class="anime-card">
-                <span class="badge-ongoing">Ongoing</span>
-                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime';">
-                <h3 class="anime-title">{{ anime.title }}</h3>
-            </a>
-            {% endfor %}
-        </div>
-    </div>
-    {% endif %}
-
-    <!-- 📅 Latest Releases -->
-    {% if latest %}
-    <div class="app-section">
-        <div class="section-header">
-            <h2>📅 Latest Releases</h2>
-            <a href="/latest" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="anime-row">
-            {% for anime in latest %}
-            <a href="/watch/{{ anime.id }}" class="anime-card">
-                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime';">
-                <h3 class="anime-title">{{ anime.title }}</h3>
-            </a>
-            {% endfor %}
-        </div>
-    </div>
-    {% endif %}
-
-    <!-- 🎭 Genres -->
-    <div class="app-section">
-        <div class="section-header">
-            <h2>🎭 Genres</h2>
-            <a href="/genres" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="genre-grid">
-            <a href="/genre/action" class="genre-card action">🔥 Action</a>
-            <a href="/genre/adventure" class="genre-card adventure">🧭 Adventure</a>
-            <a href="/genre/comedy" class="genre-card comedy">😂 Comedy</a>
-            <a href="/genre/fantasy" class="genre-card fantasy">🔮 Fantasy</a>
-            <a href="/genre/romance" class="genre-card romance">💖 Romance</a>
-            <a href="/genre/horror" class="genre-card horror">💀 Horror</a>
-        </div>
-    </div>
 
     <!-- 🎬 Anime Movies -->
     {% if movies %}
@@ -191,12 +132,114 @@
         <div class="anime-row">
             {% for anime in movies %}
             <a href="/watch/{{ anime.id }}" class="anime-card">
+                <span class="rank-number">{{ loop.index }}</span>
                 <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
                 <h3 class="anime-title">{{ anime.title }}</h3>
                 <div class="anime-meta">
                     <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
                 </div>
             </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- 🎨 Cartoons -->
+    {% if cartoons %}
+    <div class="app-section">
+        <div class="section-header">
+            <h2>🎨 Cartoons</h2>
+            <a href="/cartoons" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="anime-row">
+            {% for anime in cartoons %}
+            <a href="/watch/{{ anime.id }}" class="anime-card">
+                <span class="rank-number">{{ loop.index }}</span>
+                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
+                <h3 class="anime-title">{{ anime.title }}</h3>
+                <div class="anime-meta">
+                    <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- 💥 Action Anime -->
+    {% if action %}
+    <div class="app-section">
+        <div class="section-header">
+            <h2>💥 Action Anime</h2>
+        </div>
+        <div class="anime-row">
+            {% for anime in action %}
+            <a href="/watch/{{ anime.id }}" class="anime-card">
+                <span class="rank-number">{{ loop.index }}</span>
+                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
+                <h3 class="anime-title">{{ anime.title }}</h3>
+                <div class="anime-meta">
+                    <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- 😂 Comedy Anime -->
+    {% if comedy %}
+    <div class="app-section">
+        <div class="section-header">
+            <h2>😂 Comedy Anime</h2>
+        </div>
+        <div class="anime-row">
+            {% for anime in comedy %}
+            <a href="/watch/{{ anime.id }}" class="anime-card">
+                <span class="rank-number">{{ loop.index }}</span>
+                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
+                <h3 class="anime-title">{{ anime.title }}</h3>
+                <div class="anime-meta">
+                    <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- 🎭 Genres -->
+    <div class="app-section">
+        <div class="section-header">
+            <h2>🎭 Genres</h2>
+        </div>
+        <div class="genre-grid">
+            <a href="/genre/action" class="genre-card action">🔥 Action</a>
+            <a href="/genre/adventure" class="genre-card adventure">🧭 Adventure</a>
+            <a href="/genre/comedy" class="genre-card comedy">😂 Comedy</a>
+            <a href="/genre/fantasy" class="genre-card fantasy">🔮 Fantasy</a>
+            <a href="/genre/romance" class="genre-card romance">💖 Romance</a>
+            <a href="/genre/horror" class="genre-card horror">💀 Horror</a>
+        </div>
+    </div>
+
+    <!-- 🎬 Browse All (सारे एनीमे) -->
+    <div class="app-section">
+        <div class="section-header">
+            <h2>📚 Browse All</h2>
+        </div>
+        <div class="anime-row">
+            {% for anime in anime_list %}
+            <a href="/watch/{{ anime.id }}" class="anime-card">
+                <span class="rank-number">{{ loop.index }}</span>
+                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime';">
+                <h3 class="anime-title">{{ anime.title }}</h3>
+                <div class="anime-meta">
+                    <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
+                </div>
+            </a>
+            {% else %}
+            <p style="text-align: center; width: 100%; padding: 20px; color: #8b949e;">कोई एनीमे नहीं मिला।</p>
             {% endfor %}
         </div>
     </div>
@@ -211,8 +254,12 @@
         <div class="anime-row">
             {% for anime in anime_list %}
             <a href="/watch/{{ anime.id }}" class="anime-card">
-                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime';">
+                <span class="rank-number">{{ loop.index }}</span>
+                <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
                 <h3 class="anime-title">{{ anime.title }}</h3>
+                <div class="anime-meta">
+                    <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
+                </div>
             </a>
             {% else %}
             <p style="text-align: center; width: 100%; padding: 20px; color: #8b949e;">कोई एनीमे नहीं मिला।</p>
