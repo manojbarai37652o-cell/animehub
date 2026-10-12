@@ -1848,3 +1848,22 @@ body.light-mode .icon-circle {
     background-color: #f0f2f5 !important;
     color: #000000 !important;
 }
+/* =========================================
+   Language Badge Styles
+   ========================================= */
+
+.lang-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px; /* कार्ड के ऊपर दाईं तरफ */
+    background: linear-gradient(135deg, #a371f7, #4a00e0); /* बैंगनी ग्रेडिएंट */
+    color: #ffffff;
+    font-size: 0.55rem;
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 6px;
+    z-index: 10;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    letter-spacing: 0.5px;
+}

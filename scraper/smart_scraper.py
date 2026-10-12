@@ -82,10 +82,6 @@ if __name__ == '__main__':
     print("📺 SCRAPER चालू (सारे anime - हर भाषा)")
     print("=" * 60)
 
-    # 🛠️ FIX: हमेशा पेज 1 से ही शुरू करो। इससे नए एनीमे कभी मिस नहीं होंगे।
-    start_page = 1
-    print(f"\n📌 Page {start_page} से शुरू (हमेशा नए एनीमे चेक करने के लिए)")
-
     db_data = load_db()
     existing_anime = db_data.get('anime_list', [])
     existing_ids = set(a['id'] for a in existing_anime)
@@ -93,63 +89,77 @@ if __name__ == '__main__':
     print(f"📊 Database: {len(existing_ids)} anime\n")
 
     new_anime = []
-    page_num = start_page
-    pages_checked = 0
-    
-    # सेफ्टी लिमिट ताकि कभी इनफिनिट लूप में न फंसें
-    MAX_PAGES_TO_CHECK = 500 
-    
-    while len(new_anime) < BATCH_SIZE and pages_checked < MAX_PAGES_TO_CHECK:
-        base_url = f"https://animesalt.cx/?page={page_num}"
-        print(f"\n🔍 Page {page_num}...")
+    scraped_this_run = 0
+    updated_list = existing_anime.copy()
 
-        try:
-            homepage_html = fetch_page(base_url)
-            if not homepage_html:
-                print(f"⚠️ Page {page_num} लोड नहीं हुआ (शायद 504 एरर)। अगले पेज पर जा रहे हैं...")
+    # 🛠️ FIX: A से Z तक जाएंगे ताकि नए एनीमे कभी मिस न हों
+    import string
+    letters = string.ascii_uppercase
+    MAX_PAGES_PER_LETTER = 20
+
+    for letter in letters:
+        if len(new_anime) >= BATCH_SIZE:
+            break
+            
+        print(f"\n🔍 Letter {letter} चेक कर रहे हैं...")
+        page_num = 1
+        
+        while page_num <= MAX_PAGES_PER_LETTER:
+            base_url = f"https://animesalt.cx/letter/{letter}/?page={page_num}"
+            
+            try:
+                homepage_html = fetch_page(base_url)
+                if not homepage_html:
+                    print(f"   ⚠️ Page {page_num} लोड नहीं हुआ। इस लेटर को छोड़ रहे हैं।")
+                    break
+
+                all_anime = parse_anime_homepage(homepage_html, "https://animesalt.cx/")
+                if not all_anime:
+                    print(f"   ⏭️ इस पेज पर कोई एनीमे नहीं मिला। अगले लेटर पर जा रहे हैं।")
+                    break
+
+                page_new_anime = [a for a in all_anime if a['id'] not in existing_ids]
+                
+                for a in page_new_anime:
+                    if a not in new_anime:
+                        new_anime.append(a)
+                        if len(new_anime) >= BATCH_SIZE:
+                            break
+                
+                print(f"   📊 Page {page_num} पर {len(page_new_anime)} नए आइटम मिले (कुल जुटाए: {len(new_anime)})")
+
+                if len(new_anime) >= BATCH_SIZE:
+                    break
+
                 page_num += 1
-                pages_checked += 1
+                time.sleep(1)
+                
+            except Exception as e:
+                print(f"   ❌ Page {page_num} पर एरर: {e}. अगले पेज पर जा रहे हैं...")
+                page_num += 1
                 continue
 
-            all_anime = parse_anime_homepage(homepage_html, "https://animesalt.cx/")
-            
-            # केवल वही एनीमे लो जो डेटाबेस में नहीं हैं
-            page_new_anime = [a for a in all_anime if a['id'] not in existing_ids]
-            
-            for a in page_new_anime:
-                if a not in new_anime:
-                    new_anime.append(a)
-                    if len(new_anime) >= BATCH_SIZE:
-                        break
-            
-            print(f"   📊 इस पेज पर {len(page_new_anime)} नए आइटम मिले (कुल जुटाए: {len(new_anime)})")
-
-            page_num += 1
-            pages_checked += 1
-            time.sleep(1) 
-            
-        except Exception as e:
-            print(f"❌ Page {page_num} पर एरर: {e}. अगले पेज पर जा रहे हैं...")
-            page_num += 1
-            pages_checked += 1
-            continue
+        if len(new_anime) >= BATCH_SIZE:
+            print(f"\n🎯 हमें {BATCH_SIZE} नए एनीमे मिल गए! अब इन्हें प्रोसेस करते हैं।")
+            break
 
     if not new_anime:
-        print("\n👋 सारे पेज खत्म! कोई नया आइटम नहीं मिला।")
+        print("\n👋 सारे लेटर चेक हो गए! कोई नया आइटम नहीं मिला।")
         exit()
 
     print(f"\n✅ {len(new_anime)} एनीमे चेक कर रहे हैं...\n")
 
-    scraped_this_run = 0
-    updated_list = existing_anime.copy()
-
-    # अब हम 35 एनीमे (सीरीज़ या मूवी) को प्रोसेस करेंगे
     for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
         print(f"\n[{idx + 1}/{min(BATCH_SIZE, len(new_anime))}] {anime['title']}")
         
         anime_html = fetch_page(anime['url'])
         if not anime_html:
             continue
+
+        # 🛠️ FIX: यहाँ भाषा निकालो और सेव करो
+        language = extract_language_from_detail(anime_html)
+        anime['language'] = language
+        print(f"   🌐 Language: {language}")
 
         year = parse_release_year(anime_html)
         if year and year < MIN_YEAR:
@@ -179,6 +189,7 @@ if __name__ == '__main__':
 
             print(f"   📺 Season {season_num}: {len(episodes)} episodes")
 
+            # सिर्फ पहले 3 एपिसोड के वीडियो लिंक निकालेंगे (स्पीड के लिए)
             for ep in episodes[:3]:
                 ep_html = fetch_page(ep['url'])
                 if ep_html:
@@ -197,7 +208,6 @@ if __name__ == '__main__':
             season_num += 1
             time.sleep(1)
 
-        # मूवीज़ को स्किप मत करो। अगर सीज़न नहीं हैं, तो खाली लिस्ट सेव करो।
         if anime_seasons:
             anime['seasons'] = anime_seasons
             anime['episodes'] = anime_seasons[0]['episodes']
@@ -211,14 +221,12 @@ if __name__ == '__main__':
         updated_list.append(anime)
         scraped_this_run += 1
 
-        # हर 3 एनीमे के बाद डेटाबेस में सेव करो
         if scraped_this_run % 3 == 0:
             db_data['anime_list'] = updated_list
             save_db(db_data)
 
         time.sleep(SLEEP_BETWEEN)
 
-    # 🛠️ FIX 5: आखिर में सेव करो और अगली बार के लिए पेज 1 पर रीसेट कर दो
     if scraped_this_run > 0:
         db_data['anime_list'] = updated_list
         save_db(db_data)
