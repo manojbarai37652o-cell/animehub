@@ -2487,3 +2487,32 @@ body.light-mode .icon-circle {
     height: 100%;
     border: none;
 }
+/* =========================================
+   Custom Video Player Styles (For Movies)
+   ========================================= */
+
+.video-player-crunchy {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid #30363d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.video-player-crunchy video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #000;
+    outline: none;
+}
+
+.video-player-crunchy iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}

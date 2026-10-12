@@ -45,23 +45,12 @@
 
     <!-- ✅ EPISODES TAB -->
     <div id="tab-episodes" class="tab-content active">
-        {% if current_ep and current_ep.video_url %}
-        <div class="video-player-crunchy">
-            <!-- 🛠️ FIX: मूवीज़ के लिए HLS वीडियो प्लेयर, सीरीज़ के लिए iframe -->
-            {% if current_ep.title == 'Full Movie' %}
-                <video id="hlsPlayer" controls poster="{{ anime.image }}" preload="metadata" playsinline>
-                    आपका ब्राउज़र वीडियो सपोर्ट नहीं करता।
-                </video>
-            {% else %}
-                <iframe src="{{ current_ep.video_url }}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
-            {% endif %}
+        <!-- 🛠️ FIX: वीडियो प्लेयर अब JavaScript से लोड होगा -->
+        <div class="video-player-crunchy" id="video-container">
+            <div style="display:flex; justify-content:center; align-items:center; height:100%; color:#a371f7;">
+                <i class="fas fa-spinner fa-spin fa-3x"></i>
+            </div>
         </div>
-        {% else %}
-        <div class="no-video-msg-crunchy">
-            <h3><i class="fas fa-video-slash"></i> Video Not Available</h3>
-            <p>इस एपिसोड का वीडियो सोर्स अभी ब्लॉक है या उपलब्ध नहीं है।</p>
-        </div>
-        {% endif %}
 
         {% if seasons|length > 0 %}
         <div class="season-dropdown-wrapper">
@@ -210,23 +199,44 @@ const currentSeason = {{ (current_season.season_number if current_season else 1)
 const userName = {{ (session.user_name if session.user_name else 'Guest')|tojson }};
 const userPic = {{ (session.user_pic if session.user_pic else '')|tojson }};
 
-// 🛠️ HLS Player Initialization (सिर्फ मूवीज़ के लिए)
+// 🛠️ HLS Player Initialization (अब Dynamic API से लिंक फेच करेगा)
 document.addEventListener('DOMContentLoaded', function() {
-    var video = document.getElementById('hlsPlayer');
-    if (video) {
-        var videoSrc = "{{ current_ep.video_url if current_ep else '' }}";
-        if (Hls.isSupported()) {
-            var hls = new Hls();
-            hls.loadSource(videoSrc);
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                console.log("HLS Manifest loaded for Movie");
-            });
-        } 
-        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = videoSrc;
-        }
-    }
+    var videoContainer = document.getElementById('video-container');
+    if (!videoContainer) return;
+
+    // API से ताज़ा लिंक मंगाओ
+    fetch(`/api/get-video/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ current_ep.ep_num if current_ep else 1 }}`)
+        .then(response => response.json())
+        .then(data => {
+            var freshUrl = data.video_url;
+            
+            if (!freshUrl) {
+                videoContainer.innerHTML = '<div class="no-video-msg-crunchy"><h3><i class="fas fa-video-slash"></i> Video Not Available</h3><p>इस एपिसोड का वीडियो सोर्स अभी उपलब्ध नहीं है।</p></div>';
+                return;
+            }
+
+            // अगर ये मूवी है (या लिंक में .m3u8 है), तो HLS प्लेयर लगाओ
+            if (freshUrl.includes('.m3u8')) {
+                videoContainer.innerHTML = `<video id="hlsPlayer" controls poster="{{ anime.image }}" preload="metadata" playsinline style="width:100%; height:100%; object-fit:contain; background:#000;"></video>`;
+                var video = document.getElementById('hlsPlayer');
+                
+                if (Hls.isSupported()) {
+                    var hls = new Hls();
+                    hls.loadSource(freshUrl);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = freshUrl;
+                }
+            } 
+            // अगर सीरीज़ का iframe लिंक है, तो iframe लगाओ
+            else {
+                videoContainer.innerHTML = `<iframe src="${freshUrl}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching video:', error);
+            videoContainer.innerHTML = '<div class="no-video-msg-crunchy"><h3><i class="fas fa-exclamation-triangle"></i> Error</h3><p>वीडियो लोड करने में समस्या आई।</p></div>';
+        });
 });
 
 function switchTab(tabName, btn) {
