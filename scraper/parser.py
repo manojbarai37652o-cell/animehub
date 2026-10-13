@@ -48,8 +48,27 @@ def parse_post_id(html_content):
     if match: return int(match.group(1))
     return None
 
+def extract_seasons_from_html(html_content):
+    """🛠️ HTML से सारे सीज़न के बटन और उनके डेटा निकालता है"""
+    if not html_content: return []
+    soup = BeautifulSoup(html_content, 'html.parser')
+    seasons = []
+    seen = set()
+    season_buttons = soup.find_all('a', class_='season-btn')
+    for btn in season_buttons:
+        season_num = btn.get('data-season')
+        if season_num:
+            try:
+                season_num = int(season_num)
+                if season_num not in seen:
+                    seen.add(season_num)
+                    seasons.append(season_num)
+            except: pass
+    seasons.sort()
+    return seasons
+
 def parse_season_episodes(html_content, base_url):
-    """ये फंक्शन किसी भी सीज़न के HTML से episodes के लिंक निकालेगा"""
+    """किसी भी सीज़न के HTML से episodes के लिंक निकालता है"""
     if not html_content: return []
     soup = BeautifulSoup(html_content, 'html.parser')
     episodes = []
@@ -74,7 +93,7 @@ def parse_season_episodes(html_content, base_url):
     return episodes
 
 def parse_video_link(html_content, base_url):
-    """एपिसोड/मूवी के पेज से वीडियो iframe/m3u8 लिंक निकालता है"""
+    """एपिसोड/मूवी के पेज से वीडियो iframe लिंक निकालता है"""
     if not html_content: return ""
     soup = BeautifulSoup(html_content, 'html.parser')
     iframes = soup.find_all('iframe')
