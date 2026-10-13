@@ -378,10 +378,12 @@ def create_app(config_class=Config):
         
         # एपिसोड का URL ढूंढो
         episode_url = ""
-        for season in anime.get('seasons', []):
+               for season in anime.get('seasons', []):
             if season['season_number'] == season_num:
                 for ep in season['episodes']:
-                    if str(ep.get('ep_num')) == str(ep_num):
+                    # 🛠️ FIX: अब ep_num की जगह title से मैच करेंगे
+                    title = ep.get('title', '')
+                    if f"Episode {ep_num}" in title or str(ep_num) in title:
                         episode_url = ep.get('url', '')
                         break
                 break
