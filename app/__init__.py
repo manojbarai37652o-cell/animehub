@@ -24,19 +24,22 @@ class User(db.Model):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(200), nullable=False)
-    remember_token = db.Column(db.String(200), nullable=True)
+    remember_token = db.Column(db.String(200), nullable=True) # 🛠️ परमानेंट लॉगिन के लिए
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
 
+    # 🛠️ PostgreSQL डेटाबेस (Render पर) और SQLite (लोकल पर)
     db_url = os.environ.get('DATABASE_URL', 'sqlite:///users.db')
     if db_url.startswith("postgres://"):
         db_url = db_url.replace("postgres://", "postgresql://", 1)
     
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    
+    # 🛠️ सेशन को 10 साल का बनाओ (Crunchyroll Style)
     app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=3650)
     app.config['SESSION_COOKIE_SECURE'] = True
     app.config['SESSION_COOKIE_HTTPONLY'] = True
@@ -46,6 +49,13 @@ def create_app(config_class=Config):
 
     with app.app_context():
         db.create_all()
+        # 🛠️ FIX: अगर पुराने टेबल में remember_token कॉलम नहीं है, तो उसे जोड़ो
+        try:
+            db.session.execute(db.text('ALTER TABLE user ADD COLUMN remember_token VARCHAR(200)'))
+            db.session.commit()
+            print("✅ remember_token कॉलम जोड़ दिया गया।")
+        except Exception:
+            db.session.rollback() 
 
     google_bp = make_google_blueprint(
         client_id=app.config['GOOGLE_CLIENT_ID'],
@@ -55,6 +65,7 @@ def create_app(config_class=Config):
     )
     app.register_blueprint(google_bp, url_prefix="/login")
 
+    # 🛠️ ऑटो-लॉगिन (हर बार पेज लोड होने से पहले चेक करेगा)
     @app.before_request
     def auto_login():
         if not session.get('user_email'):
@@ -103,6 +114,8 @@ def create_app(config_class=Config):
         password = request.form.get('password')
         remember = request.form.get('remember')
         
+        print(f"🔍 Login attempt: {email}")
+        
         user = User.query.filter_by(email=email).first()
         if user and check_password_hash(user.password_hash, password):
             session['user_email'] = user.email
@@ -115,11 +128,14 @@ def create_app(config_class=Config):
                 token = secrets.token_urlsafe(64)
                 user.remember_token = token
                 db.session.commit()
+                # 🛠️ 10 साल की कुकी सेट करो
                 response.set_cookie('remember_token', token, max_age=3650*24*60*60, httponly=True, secure=True, samesite='Lax')
             
             response.set_cookie('saved_email', email, max_age=3650*24*60*60)
+            print(f"✅ Login successful: {email}")
             return response
         else:
+            print(f"❌ Login failed for: {email}")
             return render_template('login.html', error="गलत ईमेल या पासवर्ड!")
 
     @app.route('/signup', methods=['GET', 'POST'])
@@ -140,6 +156,7 @@ def create_app(config_class=Config):
             )
             db.session.add(new_user)
             db.session.commit()
+            print(f"✅ New user created: {email}")
             return redirect(url_for('login'))
         return render_template('signup.html')
 
@@ -166,6 +183,7 @@ def create_app(config_class=Config):
         
         resp = redirect(url_for('login'))
         resp.set_cookie('remember_token', '', expires=0)
+        resp.set_cookie('saved_email', '', expires=0)
         return resp
 
     def get_filtered_anime():
@@ -233,7 +251,6 @@ def create_app(config_class=Config):
         all_anime, _, _, _, _, _, _, _, _, _ = get_filtered_anime()
         return render_template('index.html', anime_list=all_anime, page_title="Top Rated")
 
-    # 🛠️ नया: Categories पेज
     @app.route('/categories')
     def categories_page():
         if not session.get('user_email'): return render_template('login.html')
