@@ -371,8 +371,10 @@ def create_app(config_class=Config):
     # 🛠️ नया API: लाइव m3u8 लिंक निकालेगा
     @app.route('/api/get-video/<anime_id>/<int:season_num>/<int:ep_num>')
     def get_video_api(anime_id, season_num, ep_num):
+        print(f"🔥 API HIT: {anime_id} S{season_num}E{ep_num}")  # 👈 ये नई लाइन जोड़ो
         anime = get_anime_by_id(anime_id)
         if not anime: return jsonify({"video_url": ""})
+        # ... बाकी पुराना कोड वैसा ही रहेगा ...
         
         # एपिसोड का URL ढूंढो
         episode_url = ""
