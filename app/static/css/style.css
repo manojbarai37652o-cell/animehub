@@ -3537,3 +3537,41 @@ body::before {
 .login-footer { margin-top: 10px; text-align: center; }
 .login-footer p { color: #8b949e; font-size: 0.65rem; letter-spacing: 1px; }
 .footer-line { width: 40px; height: 2px; background-color: #ff4d4d; margin: 5px auto 0 auto; }
+/* =========================================
+   Video Player Loading Spinner
+   ========================================= */
+
+.video-player-crunchy {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid #30363d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.video-player-crunchy video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #000;
+    outline: none;
+}
+
+.player-loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #a371f7;
+    gap: 15px;
+}
+
+.player-loading p {
+    color: #8b949e;
+    font-size: 0.85rem;
+}
