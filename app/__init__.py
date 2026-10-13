@@ -3,14 +3,17 @@ import random
 import json
 import os
 import secrets
+import re
+import time
+import cloudscraper
 from datetime import timedelta
+from urllib.parse import urljoin
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                   get_random_anime, get_featured_anime,
                                   get_anime_by_genre, get_single_random_anime,
                                   get_top_anime, get_hero_anime_list)
 from flask_dance.contrib.google import make_google_blueprint, google
-from playwright.sync_api import sync_playwright
 
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -27,64 +30,83 @@ class User(db.Model):
 # 🛠️ m3u8 लिंक के लिए कैश (30 मिनट तक सेव रहेगा)
 video_cache = {}
 
+
 def get_fresh_video_url(episode_url):
-    """Playwright से लाइव m3u8 लिंक निकालता है (कैश के साथ)"""
-    import time
-    # कैश चेक करो
+    """Cloudscraper + Regex से m3u8 लिंक निकालता है (हल्का और तेज़)"""
+    # कैश चेक
     if episode_url in video_cache:
         cached = video_cache[episode_url]
-        if time.time() - cached['timestamp'] < 1800: # 30 मिनट
+        if time.time() - cached['timestamp'] < 1800:
             print(f"✅ Using cached URL for {episode_url[:50]}")
             return cached['url']
     
-    print(f"🔍 Playwright started for: {episode_url[:60]}")
+    print(f"🔍 Fetching: {episode_url[:70]}")
     found_video = ""
     
     try:
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True, args=["--disable-ipv6"])
-            page = browser.new_page()
-            
-            def handle_response(response):
-                nonlocal found_video
-                if '.m3u8' in response.url and not found_video:
-                    found_video = response.url
-            
-            page.on('response', handle_response)
-            page.goto(episode_url, timeout=60000, wait_until="domcontentloaded")
-            page.wait_for_timeout(15000)
-            
-            # अगर m3u8 नहीं मिला, तो iframe के अंदर जाकर देखो
-            if not found_video:
-                iframes = page.query_selector_all('iframe')
-                for iframe in iframes:
-                    src = iframe.get_attribute('src')
-                    if src:
-                        if src.startswith('//'): src = 'https:' + src
-                        if 'ravok' in src or 'video' in src.lower() or 'player' in src.lower():
-                            try:
-                                inner = browser.new_page()
-                                inner.on('response', handle_response)
-                                inner.goto(src, timeout=30000, wait_until="domcontentloaded")
-                                inner.wait_for_timeout(15000)
-                                inner.close()
-                            except: pass
-                    if found_video: break
-            
-            # अगर अभी भी नहीं मिला, तो HTML में ढूंढो
-            if not found_video:
-                content = page.content()
-                import re
-                match = re.search(r'https?://[^\s"\']+\.m3u8[^\s"\']*', content)
-                if match: found_video = match.group(1)
-            
-            browser.close()
+        scraper = cloudscraper.create_scraper()
+        
+        # 1. एपिसोड पेज खोलो
+        response = scraper.get(episode_url, timeout=20)
+        if not response.ok:
+            print(f"❌ Episode page load failed (status {response.status_code})")
+            return ""
+        
+        episode_html = response.text
+        print(f"   📄 Episode page loaded ({len(episode_html)} bytes)")
+        
+        # 2. iframe का src निकालो
+        iframe_match = re.search(r'<iframe[^>]+src=["\']([^"\']+)["\']', episode_html)
+        iframe_url = ""
+        if iframe_match:
+            iframe_url = iframe_match.group(1)
+            if iframe_url.startswith('//'):
+                iframe_url = 'https:' + iframe_url
+            elif iframe_url.startswith('/'):
+                iframe_url = urljoin(episode_url, iframe_url)
+            print(f"   🌐 Iframe: {iframe_url[:70]}")
+        
+        # 3. अगर iframe मिला, तो उसके अंदर जाओ
+        if iframe_url:
+            try:
+                iframe_response = scraper.get(iframe_url, timeout=20, headers={'Referer': episode_url})
+                if iframe_response.ok:
+                    iframe_html = iframe_response.text
+                    print(f"   📄 Iframe page loaded ({len(iframe_html)} bytes)")
+                    
+                    # 🎯 m3u8 को HTML में ढूंढो (multiple patterns)
+                    patterns = [
+                        r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)',
+                        r'file\s*:\s*["\']([^"\']+\.m3u8[^"\']*)["\']',
+                        r'source\s*:\s*["\']([^"\']+\.m3u8[^"\']*)["\']',
+                        r'["\']([^"\']+\.m3u8[^"\']*)["\']',
+                    ]
+                    
+                    for pattern in patterns:
+                        m3u8_match = re.search(pattern, iframe_html)
+                        if m3u8_match:
+                            found_video = m3u8_match.group(1)
+                            if found_video.startswith('//'):
+                                found_video = 'https:' + found_video
+                            elif found_video.startswith('/'):
+                                found_video = urljoin(iframe_url, found_video)
+                            print(f"   🎯 m3u8 found: {found_video[:80]}")
+                            break
+            except Exception as e:
+                print(f"   ❌ Iframe fetch error: {e}")
+        
+        # 4. अगर iframe से नहीं मिला, तो एपिसोड पेज में ढूंढो
+        if not found_video:
+            m3u8_match = re.search(r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)', episode_html)
+            if m3u8_match:
+                found_video = m3u8_match.group(1)
+                print(f"   🎯 m3u8 from episode page: {found_video[:80]}")
+                
     except Exception as e:
-        print(f"❌ Playwright Error: {e}")
+        print(f"❌ Error: {e}")
     
-    print(f"🔍 Final found_video: {found_video[:80] if found_video else 'NONE'}")
+    print(f"🔍 Result: {found_video[:80] if found_video else 'NONE'}")
     
-    # कैश में सेव करो
     if found_video:
         video_cache[episode_url] = {'url': found_video, 'timestamp': time.time()}
     
@@ -114,7 +136,9 @@ def create_app(config_class=Config):
         try:
             db.session.execute(db.text('ALTER TABLE user ADD COLUMN remember_token VARCHAR(200)'))
             db.session.commit()
-        except: db.session.rollback()
+            print("✅ remember_token कॉलम जोड़ दिया गया।")
+        except: 
+            db.session.rollback()
 
     google_bp = make_google_blueprint(
         client_id=app.config['GOOGLE_CLIENT_ID'],
@@ -362,7 +386,7 @@ def create_app(config_class=Config):
                                episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num,
                                related_anime=related_anime, genres_text=genres_text, description=description)
 
-    # 🛠️ नया API: लाइव m3u8 लिंक निकालेगा
+    # 🛠️ API: लाइव m3u8 लिंक निकालेगा (Cloudscraper से)
     @app.route('/api/get-video/<anime_id>/<int:season_num>/<int:ep_num>')
     def get_video_api(anime_id, season_num, ep_num):
         print(f"🔥 API HIT: {anime_id} S{season_num}E{ep_num}")
@@ -383,9 +407,15 @@ def create_app(config_class=Config):
             print(f"❌ Episode URL not found for S{season_num}E{ep_num}")
             return jsonify({"video_url": ""})
         
-        print(f"🔗 Episode URL found: {episode_url[:60]}")
-        fresh_url = get_fresh_video_url(episode_url)
-        return jsonify({"video_url": fresh_url})
+        print(f"🔗 Episode URL: {episode_url[:70]}")
+        fresh_m3u8 = get_fresh_video_url(episode_url)
+        
+        if fresh_m3u8:
+            print(f"✅ Returning m3u8")
+            return jsonify({"video_url": fresh_m3u8})
+        else:
+            print(f"❌ No m3u8 found")
+            return jsonify({"video_url": ""})
 
     @app.errorhandler(404)
     def page_not_found(e): return render_template('404.html'), 404
