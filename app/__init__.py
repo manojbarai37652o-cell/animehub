@@ -30,6 +30,7 @@ video_cache = {}
 def get_fresh_video_url(episode_url):
     """Playwright से लाइव m3u8 लिंक निकालता है (कैश के साथ)"""
     import time
+    
     # कैश चेक करो
     if episode_url in video_cache:
         cached = video_cache[episode_url]
@@ -37,7 +38,8 @@ def get_fresh_video_url(episode_url):
             print(f"✅ Using cached URL for {episode_url[:50]}")
             return cached['url']
     
-    print(f"🎬 Fetching fresh video URL for: {episode_url[:60]}")
+    # 🛠️ नया प्रिंट (डिबगिंग के लिए)
+    print(f"🔍 Playwright started for: {episode_url[:60]}")
     found_video = ""
     
     try:
@@ -52,7 +54,9 @@ def get_fresh_video_url(episode_url):
             
             page.on('response', handle_response)
             page.goto(episode_url, timeout=60000, wait_until="domcontentloaded")
-            page.wait_for_timeout(8000)
+            
+            # 🛠️ 8000 से बढ़ाकर 15000 कर दिया
+            page.wait_for_timeout(15000)
             
             # अगर m3u8 नहीं मिला, तो iframe के अंदर जाकर देखो
             if not found_video:
@@ -66,7 +70,8 @@ def get_fresh_video_url(episode_url):
                                 inner = browser.new_page()
                                 inner.on('response', handle_response)
                                 inner.goto(src, timeout=30000, wait_until="domcontentloaded")
-                                inner.wait_for_timeout(8000)
+                                # 🛠️ यहाँ भी 15000 कर दिया
+                                inner.wait_for_timeout(15000)
                                 inner.close()
                             except: pass
                     if found_video: break
@@ -81,6 +86,9 @@ def get_fresh_video_url(episode_url):
             browser.close()
     except Exception as e:
         print(f"❌ Playwright Error: {e}")
+    
+    # 🛠️ नया प्रिंट (डिबगिंग के लिए)
+    print(f"🔍 Final found_video: {found_video[:80] if found_video else 'NONE'}")
     
     # कैश में सेव करो
     if found_video:
