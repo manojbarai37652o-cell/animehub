@@ -10,7 +10,7 @@ from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                   get_anime_by_genre, get_single_random_anime,
                                   get_top_anime, get_hero_anime_list)
 from flask_dance.contrib.google import make_google_blueprint, google
-from scraper.parser import parse_video_link
+from playwright.sync_api import sync_playwright
 
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -30,7 +30,6 @@ video_cache = {}
 def get_fresh_video_url(episode_url):
     """Playwright से लाइव m3u8 लिंक निकालता है (कैश के साथ)"""
     import time
-    
     # कैश चेक करो
     if episode_url in video_cache:
         cached = video_cache[episode_url]
@@ -38,7 +37,6 @@ def get_fresh_video_url(episode_url):
             print(f"✅ Using cached URL for {episode_url[:50]}")
             return cached['url']
     
-    # 🛠️ नया प्रिंट (डिबगिंग के लिए)
     print(f"🔍 Playwright started for: {episode_url[:60]}")
     found_video = ""
     
@@ -54,8 +52,6 @@ def get_fresh_video_url(episode_url):
             
             page.on('response', handle_response)
             page.goto(episode_url, timeout=60000, wait_until="domcontentloaded")
-            
-            # 🛠️ 8000 से बढ़ाकर 15000 कर दिया
             page.wait_for_timeout(15000)
             
             # अगर m3u8 नहीं मिला, तो iframe के अंदर जाकर देखो
@@ -70,7 +66,6 @@ def get_fresh_video_url(episode_url):
                                 inner = browser.new_page()
                                 inner.on('response', handle_response)
                                 inner.goto(src, timeout=30000, wait_until="domcontentloaded")
-                                # 🛠️ यहाँ भी 15000 कर दिया
                                 inner.wait_for_timeout(15000)
                                 inner.close()
                             except: pass
@@ -87,7 +82,6 @@ def get_fresh_video_url(episode_url):
     except Exception as e:
         print(f"❌ Playwright Error: {e}")
     
-    # 🛠️ नया प्रिंट (डिबगिंग के लिए)
     print(f"🔍 Final found_video: {found_video[:80] if found_video else 'NONE'}")
     
     # कैश में सेव करो
@@ -371,17 +365,14 @@ def create_app(config_class=Config):
     # 🛠️ नया API: लाइव m3u8 लिंक निकालेगा
     @app.route('/api/get-video/<anime_id>/<int:season_num>/<int:ep_num>')
     def get_video_api(anime_id, season_num, ep_num):
-        print(f"🔥 API HIT: {anime_id} S{season_num}E{ep_num}")  # 👈 ये नई लाइन जोड़ो
+        print(f"🔥 API HIT: {anime_id} S{season_num}E{ep_num}")
         anime = get_anime_by_id(anime_id)
         if not anime: return jsonify({"video_url": ""})
-        # ... बाकी पुराना कोड वैसा ही रहेगा ...
         
-        # एपिसोड का URL ढूंढो
         episode_url = ""
-               for season in anime.get('seasons', []):
+        for season in anime.get('seasons', []):
             if season['season_number'] == season_num:
                 for ep in season['episodes']:
-                    # 🛠️ FIX: अब ep_num की जगह title से मैच करेंगे
                     title = ep.get('title', '')
                     if f"Episode {ep_num}" in title or str(ep_num) in title:
                         episode_url = ep.get('url', '')
@@ -389,9 +380,10 @@ def create_app(config_class=Config):
                 break
         
         if not episode_url:
+            print(f"❌ Episode URL not found for S{season_num}E{ep_num}")
             return jsonify({"video_url": ""})
         
-        # Playwright से ताज़ा m3u8 लिंक लाओ
+        print(f"🔗 Episode URL found: {episode_url[:60]}")
         fresh_url = get_fresh_video_url(episode_url)
         return jsonify({"video_url": fresh_url})
 
