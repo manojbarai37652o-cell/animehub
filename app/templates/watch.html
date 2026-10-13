@@ -46,48 +46,17 @@
     <!-- ✅ EPISODES TAB -->
     <div id="tab-episodes" class="tab-content active">
         
-        <!-- 🛠️ FIX: वीडियो प्लेयर अब JavaScript से लोड होगा -->
-        {% if current_ep %}
-        <div class="video-player-crunchy" id="videoContainer">
-            <div class="player-loading">
-                <i class="fas fa-spinner fa-spin fa-3x"></i>
-                <p>वीडियो लोड हो रहा है...</p>
-            </div>
+        <!-- 🛠️ FIX: सीधा iframe, कोई API कॉल नहीं, कोई Error नहीं -->
+        {% if current_ep and current_ep.video_url %}
+        <div class="video-player-crunchy">
+            <iframe src="{{ current_ep.video_url }}" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen; encrypted-media"
+                    allowfullscreen>
+            </iframe>
         </div>
-
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var container = document.getElementById('videoContainer');
-            var animeId = "{{ anime.id }}";
-            var seasonNum = "{{ current_season.season_number if current_season else 1 }}";
-            var epNum = "{{ current_ep.ep_num if current_ep else 1 }}";
-            
-            // API से ताज़ा m3u8 लिंक मंगाओ
-            fetch(`/api/get-video/${animeId}/${seasonNum}/${epNum}`)
-                .then(r => r.json())
-                .then(data => {
-                    if (!data.video_url) {
-                        container.innerHTML = '<div class="no-video-msg-crunchy"><h3><i class="fas fa-video-slash"></i> Video Not Available</h3><p>इस एपिसोड का वीडियो सोर्स अभी उपलब्ध नहीं है।</p></div>';
-                        return;
-                    }
-                    
-                    container.innerHTML = '<video id="hlsPlayer" controls poster="{{ anime.image }}" playsinline style="width:100%;height:100%;object-fit:contain;background:#000;"></video>';
-                    var video = document.getElementById('hlsPlayer');
-                    
-                    if (Hls.isSupported()) {
-                        var hls = new Hls();
-                        hls.loadSource(data.video_url);
-                        hls.attachMedia(video);
-                    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                        video.src = data.video_url;
-                    }
-                })
-                .catch(err => {
-                    console.error(err);
-                    container.innerHTML = '<div class="no-video-msg-crunchy"><h3><i class="fas fa-exclamation-triangle"></i> Error</h3><p>वीडियो लोड करने में समस्या आई।</p></div>';
-                });
-        });
-        </script>
         {% else %}
         <div class="no-video-msg-crunchy">
             <h3><i class="fas fa-video-slash"></i> Video Not Available</h3>
