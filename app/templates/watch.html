@@ -25,7 +25,7 @@
                 <p class="hero-description">{{ description }}</p>
                 
                 <div class="hero-action-buttons">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/1" class="btn-watch-now">
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/1" class="btn-watch-now no-spa">
                         <i class="fas fa-play"></i> Watch Now
                     </a>
                     <button onclick="toggleWatchlist()" id="watchlist-btn" class="btn-my-list">
@@ -46,23 +46,25 @@
     <!-- ✅ EPISODES TAB -->
     <div id="tab-episodes" class="tab-content active">
         
-        <!-- 🛠️ FIX: सीधा iframe, कोई API कॉल नहीं, कोई Error नहीं -->
-        {% if current_ep and current_ep.video_url %}
-        <div class="video-player-crunchy">
-            <iframe src="{{ current_ep.video_url }}" 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0" 
-                    allow="autoplay; fullscreen; encrypted-media"
-                    allowfullscreen>
-            </iframe>
+        <!-- 🛠️ YOUTUBE-STYLE MINI PLAYER WRAPPER -->
+        <div class="video-section-wrapper" id="videoSectionWrapper">
+            <div class="video-player-crunchy" id="mainVideoPlayer">
+                {% if current_ep and current_ep.video_url %}
+                <iframe src="{{ current_ep.video_url }}" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; encrypted-media"
+                        allowfullscreen>
+                </iframe>
+                {% else %}
+                <div class="no-video-msg-crunchy">
+                    <h3><i class="fas fa-video-slash"></i> Video Not Available</h3>
+                    <p>इस एपिसोड का वीडियो सोर्स अभी उपलब्ध नहीं है।</p>
+                </div>
+                {% endif %}
+            </div>
         </div>
-        {% else %}
-        <div class="no-video-msg-crunchy">
-            <h3><i class="fas fa-video-slash"></i> Video Not Available</h3>
-            <p>इस एपिसोड का वीडियो सोर्स अभी उपलब्ध नहीं है।</p>
-        </div>
-        {% endif %}
 
         {% if seasons|length > 0 %}
         <div class="season-dropdown-wrapper">
@@ -78,7 +80,7 @@
                     <i class="fas fa-layer-group"></i> Select Season
                 </div>
                 {% for season in seasons %}
-                <a href="/watch/{{ anime.id }}/{{ season.season_number }}" class="season-option {% if current_season and current_season.season_number == season.season_number %}active{% endif %}">
+                <a href="/watch/{{ anime.id }}/{{ season.season_number }}" class="season-option no-spa {% if current_season and current_season.season_number == season.season_number %}active{% endif %}">
                     <img src="{{ anime.image }}" alt="Season {{ season.season_number }}" class="season-option-img">
                     <div class="season-option-info">
                         <strong>Season {{ season.season_number }}</strong>
@@ -100,7 +102,7 @@
             <div class="episode-item-crunchy {% if current_ep and current_ep.ep_num == ep_num %}active{% endif %}">
                 <div class="ep-thumb">
                     <img src="{{ anime.image }}" alt="Episode {{ ep_num }}">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}">
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}" class="no-spa">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
@@ -116,7 +118,7 @@
                     </div>
                 </div>
                 <div class="ep-actions">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}" class="ep-play-btn">
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}" class="ep-play-btn no-spa">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
@@ -132,7 +134,7 @@
 
         <div class="episode-nav-bottom">
             {% if prev_ep_num %}
-            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ prev_ep_num }}" class="nav-btn-bottom">
+            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ prev_ep_num }}" class="nav-btn-bottom no-spa">
                 « Previous
             </a>
             {% else %}
@@ -142,7 +144,7 @@
             <span class="current-ep-label">{{ current_ep.title if current_ep else 'Episode 1' }}</span>
             
             {% if next_ep_num %}
-            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ next_ep_num }}" class="nav-btn-bottom">
+            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ next_ep_num }}" class="nav-btn-bottom no-spa">
                 Next »
             </a>
             {% else %}
@@ -184,7 +186,7 @@
         {% if related_anime %}
         <div class="similar-grid">
             {% for rec in related_anime %}
-            <a href="/watch/{{ rec.id }}" class="similar-card">
+            <a href="/watch/{{ rec.id }}" class="similar-card no-spa">
                 <img src="{{ rec.image }}" alt="{{ rec.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
                 <h4>{{ rec.title }}</h4>
             </a>
@@ -195,7 +197,7 @@
 
 </div>
 
-<!-- ✅ JAVASCRIPT FOR TABS, WATCHLIST, RATINGS -->
+<!-- ✅ JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, MINI PLAYER -->
 <script>
 const animeData = {
     id: {{ anime.id|tojson }},
@@ -305,5 +307,37 @@ history = history.filter(item => item.id !== currentEpData.id);
 history.unshift(currentEpData);
 history = history.slice(0, 20);
 localStorage.setItem('animeHistory', JSON.stringify(history));
+
+// =========================================
+// 🛠️ YOUTUBE-STYLE MINI PLAYER LOGIC
+// =========================================
+(function() {
+    const wrapper = document.getElementById('videoSectionWrapper');
+    const player = document.getElementById('mainVideoPlayer');
+    if (!wrapper || !player) return;
+
+    let isMini = false;
+
+    function handleScroll() {
+        const wrapperRect = wrapper.getBoundingClientRect();
+
+        if (!isMini) {
+            // जब wrapper पूरा ऊपर स्क्रॉल हो जाए (viewport से बाहर)
+            if (wrapperRect.bottom < 100) {
+                isMini = true;
+                player.classList.add('mini-player');
+            }
+        } else {
+            // जब wrapper वापस viewport में आ जाए
+            if (wrapperRect.top > 0 && wrapperRect.bottom > 100) {
+                isMini = false;
+                player.classList.remove('mini-player');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+})();
 </script>
 {% endblock %}

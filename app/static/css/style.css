@@ -3591,3 +3591,71 @@ body::before {
     transition: width 0.4s ease, opacity 0.3s ease;
     box-shadow: 0 0 10px rgba(163, 113, 247, 0.6);
 }
+/* =========================================
+   YOUTUBE-STYLE MINI PLAYER
+   ========================================= */
+
+.video-section-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 15px;
+}
+
+.video-player-crunchy {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #30363d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.video-player-crunchy iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* 🛠️ Mini Player Mode (जब यूजर नीचे स्क्रॉल करे) */
+.video-player-crunchy.mini-player {
+    position: fixed;
+    bottom: 100px;
+    right: 15px;
+    width: 320px;
+    height: 180px;
+    z-index: 999;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(163, 113, 247, 0.6);
+    animation: miniPlayerIn 0.3s ease;
+}
+
+@keyframes miniPlayerIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* 📱 मोबाइल के लिए छोटा साइज़ */
+@media (max-width: 768px) {
+    .video-player-crunchy.mini-player {
+        width: 200px;
+        height: 113px;
+        bottom: 90px;
+        right: 10px;
+    }
+}
+
+/* 📺 डेस्कटॉप के लिए थोड़ा बड़ा */
+@media (min-width: 1024px) {
+    .video-player-crunchy.mini-player {
+        width: 380px;
+        height: 214px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
