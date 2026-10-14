@@ -15,7 +15,7 @@ from scraper.parser import (parse_anime_homepage, parse_post_id, parse_season_ep
                             extract_seasons_from_html)
 
 MIN_YEAR = 2000
-BATCH_SIZE = 70
+BATCH_SIZE = 100
 SLEEP_BETWEEN = 2
 MAX_PAGES_PER_SECTION = 5
 
