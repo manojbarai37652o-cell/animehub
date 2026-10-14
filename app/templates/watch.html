@@ -46,7 +46,7 @@
     <!-- ✅ EPISODES TAB -->
     <div id="tab-episodes" class="tab-content active">
         
-        <!-- 🛠️ YOUTUBE-STYLE MINI PLAYER WRAPPER -->
+        <!-- 🛠️ YOUTUBE-STYLE STICKY PLAYER WRAPPER -->
         <div class="video-section-wrapper" id="videoSectionWrapper">
             <div class="video-player-crunchy" id="mainVideoPlayer">
                 {% if current_ep and current_ep.video_url %}
@@ -197,7 +197,7 @@
 
 </div>
 
-<!-- ✅ JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, MINI PLAYER -->
+<!-- ✅ JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER -->
 <script>
 const animeData = {
     id: {{ anime.id|tojson }},
@@ -309,30 +309,29 @@ history = history.slice(0, 20);
 localStorage.setItem('animeHistory', JSON.stringify(history));
 
 // =========================================
-// 🛠️ YOUTUBE-STYLE MINI PLAYER LOGIC
+// 🛠️ STICKY TOP PLAYER (YouTube Style, Top me chipka rahega)
 // =========================================
 (function() {
     const wrapper = document.getElementById('videoSectionWrapper');
     const player = document.getElementById('mainVideoPlayer');
     if (!wrapper || !player) return;
 
-    let isMini = false;
-
     function handleScroll() {
         const wrapperRect = wrapper.getBoundingClientRect();
+        const headerOffset = 75; // हेडर के नीचे की जगह
 
-        if (!isMini) {
-            // जब wrapper पूरा ऊपर स्क्रॉल हो जाए (viewport से बाहर)
-            if (wrapperRect.bottom < 100) {
-                isMini = true;
-                player.classList.add('mini-player');
+        // जब wrapper ऊपर हेडर के पीछे चला जाए
+        if (wrapperRect.top < headerOffset) {
+            player.classList.add('sticky-player');
+            // Placeholder जोड़ो ताकि लेआउट न टूटे
+            if (!wrapper.dataset.hasPlaceholder) {
+                wrapper.style.height = wrapper.offsetHeight + 'px';
+                wrapper.dataset.hasPlaceholder = 'true';
             }
         } else {
-            // जब wrapper वापस viewport में आ जाए
-            if (wrapperRect.top > 0 && wrapperRect.bottom > 100) {
-                isMini = false;
-                player.classList.remove('mini-player');
-            }
+            player.classList.remove('sticky-player');
+            wrapper.style.height = '';
+            delete wrapper.dataset.hasPlaceholder;
         }
     }
 

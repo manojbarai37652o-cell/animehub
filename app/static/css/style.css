@@ -3592,26 +3592,34 @@ body::before {
     box-shadow: 0 0 10px rgba(163, 113, 247, 0.6);
 }
 /* =========================================
-   YOUTUBE-STYLE MINI PLAYER
+   STICKY TOP PLAYER (YouTube Style) + Fix for Side Swipe
    ========================================= */
 
+/* 🛠️ 1. मुख्य प्लेयर अब बड़ा और मजबूत */
 .video-section-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    z-index: 100;
+    /* 🛠️ FIX: साइड स्वाइप से बचने के लिए */
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
 }
 
 .video-player-crunchy {
     width: 100%;
-    height: 100%;
+    height: 55vh; /* मोबाइल पर प्लेयर की ऊंचाई बढ़ा दी */
+    min-height: 300px;
+    max-height: 500px;
     background-color: #000;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid #30363d;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    position: relative;
     transition: all 0.3s ease;
+    /* 🛠️ FIX: साइड स्वाइप से बचने के लिए */
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
 }
 
 .video-player-crunchy iframe {
@@ -3621,41 +3629,39 @@ body::before {
     display: block;
 }
 
-/* 🛠️ Mini Player Mode (जब यूजर नीचे स्क्रॉल करे) */
-.video-player-crunchy.mini-player {
+/* 🛠️ 2. जब स्क्रॉल करके ऊपर जाए, तो हेडर के नीचे चिपक जाए */
+.video-player-crunchy.sticky-player {
     position: fixed;
-    bottom: 100px;
-    right: 15px;
-    width: 320px;
-    height: 180px;
+    top: 65px; /* हेडर के ठीक नीचे */
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 30vh; /* चिपके हुए प्लेयर की ऊंचाई */
+    max-height: 250px;
+    min-height: 180px;
+    border-radius: 0; /* पूरी चौड़ाई में */
+    border-left: none;
+    border-right: none;
     z-index: 999;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-    border: 2px solid rgba(163, 113, 247, 0.6);
-    animation: miniPlayerIn 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+    border-top: 2px solid rgba(163, 113, 247, 0.6);
+    border-bottom: 2px solid rgba(163, 113, 247, 0.6);
+    animation: stickyPlayerIn 0.3s ease;
 }
 
-@keyframes miniPlayerIn {
-    from { transform: translateY(20px); opacity: 0; }
+@keyframes stickyPlayerIn {
+    from { transform: translateY(-20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* 📱 मोबाइल के लिए छोटा साइज़ */
-@media (max-width: 768px) {
-    .video-player-crunchy.mini-player {
-        width: 200px;
-        height: 113px;
-        bottom: 90px;
-        right: 10px;
-    }
-}
-
-/* 📺 डेस्कटॉप के लिए थोड़ा बड़ा */
+/* 📺 डेस्कटॉप पर प्लेयर और भी बड़ा */
 @media (min-width: 1024px) {
-    .video-player-crunchy.mini-player {
-        width: 380px;
-        height: 214px;
-        bottom: 20px;
-        right: 20px;
+    .video-player-crunchy {
+        height: 60vh;
+        max-height: 600px;
+    }
+    .video-player-crunchy.sticky-player {
+        height: 25vh;
+        max-height: 220px;
     }
 }
