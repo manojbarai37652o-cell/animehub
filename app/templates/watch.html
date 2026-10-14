@@ -25,7 +25,7 @@
                 <p class="hero-description">{{ description }}</p>
                 
                 <div class="hero-action-buttons">
-                    <a href="/watch/{{ anime.id }}" class="btn-watch-now no-spa">
+                    <a href="/watch/{{ anime.id }}" class="btn-watch-now">
                         <i class="fas fa-play"></i> Watch Now
                     </a>
                     <button onclick="toggleWatchlist()" id="watchlist-btn" class="btn-my-list">
@@ -51,7 +51,7 @@
             <div class="video-player-crunchy" id="mainVideoPlayer">
                 {% if current_ep and current_ep.video_url %}
                     {% if ep_number is defined and ep_number is not none %}
-                        <!-- 🎬 यूजर सीधे एपिसोड पर आया है, तो वीडियो सीधे load करो -->
+                        <!-- 🎬 यूजर एपिसोड पर क्लिक करके आया है, तो वीडियो सीधे load करो -->
                         <iframe src="{{ current_ep.video_url }}" 
                                 width="100%" 
                                 height="100%" 
@@ -105,7 +105,8 @@
                     <i class="fas fa-layer-group"></i> Select Season
                 </div>
                 {% for season in seasons %}
-                <a href="/watch/{{ anime.id }}/{{ season.season_number }}" class="season-option no-spa {% if current_season and current_season.season_number == season.season_number %}active{% endif %}">
+                <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
+                <a href="/watch/{{ anime.id }}/{{ season.season_number }}" class="season-option {% if current_season and current_season.season_number == season.season_number %}active{% endif %}">
                     <img src="{{ anime.image }}" alt="Season {{ season.season_number }}" class="season-option-img">
                     <div class="season-option-info">
                         <strong>Season {{ season.season_number }}</strong>
@@ -127,7 +128,8 @@
             <div class="episode-item-crunchy {% if current_ep and current_ep.ep_num == ep_num %}active{% endif %}">
                 <div class="ep-thumb">
                     <img src="{{ anime.image }}" alt="Episode {{ ep_num }}">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}" class="no-spa">
+                    <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
@@ -143,7 +145,8 @@
                     </div>
                 </div>
                 <div class="ep-actions">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}" class="ep-play-btn no-spa">
+                    <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}" class="ep-play-btn">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
@@ -159,7 +162,8 @@
 
         <div class="episode-nav-bottom">
             {% if prev_ep_num %}
-            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ prev_ep_num }}" class="nav-btn-bottom no-spa">
+            <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
+            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ prev_ep_num }}" class="nav-btn-bottom">
                 « Previous
             </a>
             {% else %}
@@ -169,7 +173,8 @@
             <span class="current-ep-label">{{ current_ep.title if current_ep else 'Episode 1' }}</span>
             
             {% if next_ep_num %}
-            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ next_ep_num }}" class="nav-btn-bottom no-spa">
+            <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
+            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ next_ep_num }}" class="nav-btn-bottom">
                 Next »
             </a>
             {% else %}
@@ -211,7 +216,8 @@
         {% if related_anime %}
         <div class="similar-grid">
             {% for rec in related_anime %}
-            <a href="/watch/{{ rec.id }}" class="similar-card no-spa">
+            <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
+            <a href="/watch/{{ rec.id }}" class="similar-card">
                 <img src="{{ rec.image }}" alt="{{ rec.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
                 <h4>{{ rec.title }}</h4>
             </a>
