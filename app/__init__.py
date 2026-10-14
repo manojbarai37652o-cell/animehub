@@ -29,15 +29,12 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
 
-    # 🛠️ PostgreSQL डेटाबेस (Render पर) और SQLite (लोकल पर)
     db_url = os.environ.get('DATABASE_URL', 'sqlite:///users.db')
     if db_url.startswith("postgres://"):
         db_url = db_url.replace("postgres://", "postgresql://", 1)
     
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    
-    # 🛠️ सेशन को 10 साल का बनाओ
     app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=3650)
     app.config['SESSION_COOKIE_SECURE'] = True
     app.config['SESSION_COOKIE_HTTPONLY'] = True
@@ -47,7 +44,6 @@ def create_app(config_class=Config):
 
     with app.app_context():
         db.create_all()
-        # 🛠️ FIX: अगर पुराने टेबल में remember_token कॉलम नहीं है, तो उसे जोड़ो
         try:
             db.session.execute(db.text('ALTER TABLE user ADD COLUMN remember_token VARCHAR(200)'))
             db.session.commit()
@@ -63,7 +59,6 @@ def create_app(config_class=Config):
     )
     app.register_blueprint(google_bp, url_prefix="/login")
 
-    # 🛠️ ऑटो-लॉगिन (हर बार पेज लोड होने से पहले चेक करेगा)
     @app.before_request
     def auto_login():
         if not session.get('user_email'):
@@ -172,12 +167,8 @@ def create_app(config_class=Config):
         
         cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman', 'superman', 'cartoon', 'looney tunes', 'oggy', 'motu patlu', 'chhota bheem', 'ninja hattori', 'perman', 'shin chan']
         
-        # 🛠️ FIX: मूवीज़ की पहचान अब 'Full Movie' वाले एपिसोड से होगी
         movies_list = [a for a in all_anime if a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie']
-        
-        # सीरीज़ वो हैं जिनमें 'Full Movie' नहीं है
         series_list = [a for a in all_anime if not (a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie')]
-        
         cartoons_list = [a for a in all_anime if any(k in a['title'].lower() for k in cartoon_keywords)]
         
         trending = series_list 
@@ -306,9 +297,11 @@ def create_app(config_class=Config):
         description = f"Watch the amazing story of {anime['title']}. An unforgettable journey filled with action, emotion, and incredible characters!"
         related_anime = get_random_anime(anime_id, count=4)
 
+        # 🛠️ FIX: ep_number को template को pass किया गया
         return render_template('watch.html', anime=anime, seasons=seasons, current_season=current_season,
                                episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num,
-                               related_anime=related_anime, genres_text=genres_text, description=description)
+                               related_anime=related_anime, genres_text=genres_text, description=description,
+                               ep_number=ep_number)
 
     @app.errorhandler(404)
     def page_not_found(e): return render_template('404.html'), 404

@@ -3,7 +3,7 @@
 {% block content %}
 <div class="watch-page">
 
-    {% if current_ep and ep_number is defined and ep_number is not none %}
+    {% if ep_number is not none and current_ep and current_ep.video_url %}
         <!-- 🎬 VIDEO PLAYER (जब यूजर एपिसोड पर क्लिक करेगा, यह दिखेगा) -->
         <div class="video-section-wrapper" id="videoSectionWrapper">
             <div class="video-player-crunchy" id="mainVideoPlayer">
@@ -51,7 +51,7 @@
         </div>
     {% endif %}
 
-    <!-- ✅ TABS (दोनों हालातों में दिखेंगे) -->
+    <!-- ✅ TABS -->
     <div class="watch-tabs">
         <button class="watch-tab active" onclick="switchTab('episodes', this)">Episodes</button>
         <button class="watch-tab" onclick="switchTab('details', this)">Details</button>
