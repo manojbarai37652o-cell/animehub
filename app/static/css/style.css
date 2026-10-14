@@ -3575,3 +3575,19 @@ body::before {
     color: #8b949e;
     font-size: 0.85rem;
 }
+/* =========================================
+   SPA Top Loading Bar
+   ========================================= */
+
+.spa-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #a371f7, #3b82f6);
+    z-index: 9999;
+    opacity: 0;
+    transition: width 0.4s ease, opacity 0.3s ease;
+    box-shadow: 0 0 10px rgba(163, 113, 247, 0.6);
+}
