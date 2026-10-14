@@ -4,7 +4,7 @@
 <div class="watch-page">
 
     {% if ep_number is not none and current_ep and current_ep.video_url %}
-        <!-- 🎬 VIDEO PLAYER (जब यूजर एपिसोड पर क्लिक करेगा, यह दिखेगा) -->
+        <!-- 🎬 VIDEO PLAYER SECTION -->
         <div class="video-section-wrapper" id="videoSectionWrapper">
             <div class="video-player-crunchy" id="mainVideoPlayer">
                 <iframe src="{{ current_ep.video_url }}" 
@@ -15,10 +15,15 @@
                         allowfullscreen>
                 </iframe>
             </div>
+            <!-- 🛠️ नया: एपिसोड और सीज़न लेबल (ToonStream Style) -->
+            <div class="video-info-bar">
+                <span class="video-info-title">{{ anime.title }}</span>
+                <span class="video-info-meta">Season {{ current_season.season_number if current_season else 1 }} • Episode {{ current_ep.ep_num if current_ep else 1 }}</span>
+            </div>
         </div>
     {% else %}
-        <!-- 🎨 HERO BANNER (जब यूजर सिर्फ एनीमे पेज पर आएगा, यह दिखेगा) -->
-        <div class="hero-detail">
+        <!-- 🎨 HERO BANNER (Smooth Fade In) -->
+        <div class="hero-detail hero-fade-in">
             <div class="hero-detail-bg" style="background-image: url('{{ anime.image }}');"></div>
             <div class="hero-detail-overlay"></div>
             <div class="hero-detail-content">
@@ -192,7 +197,7 @@
 
 </div>
 
-<!-- ✅ JAVASCRIPT FOR TABS, WATCHLIST, RATINGS -->
+<!-- ✅ JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER -->
 <script>
 const animeData = {
     id: {{ anime.id|tojson }},
@@ -302,5 +307,34 @@ history = history.filter(item => item.id !== currentEpData.id);
 history.unshift(currentEpData);
 history = history.slice(0, 20);
 localStorage.setItem('animeHistory', JSON.stringify(history));
+
+// =========================================
+// 🛠️ STICKY TOP PLAYER (स्क्रॉल करने पर ऊपर चिपके)
+// =========================================
+(function() {
+    const wrapper = document.getElementById('videoSectionWrapper');
+    const player = document.getElementById('mainVideoPlayer');
+    if (!wrapper || !player) return;
+
+    function handleScroll() {
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const headerOffset = 70; // हेडर के नीचे की जगह
+
+        if (wrapperRect.top < headerOffset) {
+            player.classList.add('sticky-player');
+            if (!wrapper.dataset.hasPlaceholder) {
+                wrapper.style.height = wrapper.offsetHeight + 'px';
+                wrapper.dataset.hasPlaceholder = 'true';
+            }
+        } else {
+            player.classList.remove('sticky-player');
+            wrapper.style.height = '';
+            delete wrapper.dataset.hasPlaceholder;
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+})();
 </script>
 {% endblock %}
