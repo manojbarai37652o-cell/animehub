@@ -3,11 +3,7 @@ import random
 import json
 import os
 import secrets
-import re
-import time
-import cloudscraper
 from datetime import timedelta
-from urllib.parse import urljoin
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                   get_random_anime, get_featured_anime,
@@ -27,103 +23,21 @@ class User(db.Model):
     password_hash = db.Column(db.String(200), nullable=False)
     remember_token = db.Column(db.String(200), nullable=True)
 
-# 🛠️ m3u8 लिंक के लिए कैश (30 मिनट तक सेव रहेगा)
-video_cache = {}
-
-
-def get_fresh_video_url(episode_url):
-    """Cloudscraper + Regex से m3u8 लिंक निकालता है (हल्का और तेज़)"""
-    # कैश चेक
-    if episode_url in video_cache:
-        cached = video_cache[episode_url]
-        if time.time() - cached['timestamp'] < 1800:
-            print(f"✅ Using cached URL for {episode_url[:50]}")
-            return cached['url']
-    
-    print(f"🔍 Fetching: {episode_url[:70]}")
-    found_video = ""
-    
-    try:
-        scraper = cloudscraper.create_scraper()
-        
-        # 1. एपिसोड पेज खोलो
-        response = scraper.get(episode_url, timeout=20)
-        if not response.ok:
-            print(f"❌ Episode page load failed (status {response.status_code})")
-            return ""
-        
-        episode_html = response.text
-        print(f"   📄 Episode page loaded ({len(episode_html)} bytes)")
-        
-        # 2. iframe का src निकालो
-        iframe_match = re.search(r'<iframe[^>]+src=["\']([^"\']+)["\']', episode_html)
-        iframe_url = ""
-        if iframe_match:
-            iframe_url = iframe_match.group(1)
-            if iframe_url.startswith('//'):
-                iframe_url = 'https:' + iframe_url
-            elif iframe_url.startswith('/'):
-                iframe_url = urljoin(episode_url, iframe_url)
-            print(f"   🌐 Iframe: {iframe_url[:70]}")
-        
-        # 3. अगर iframe मिला, तो उसके अंदर जाओ
-        if iframe_url:
-            try:
-                iframe_response = scraper.get(iframe_url, timeout=20, headers={'Referer': episode_url})
-                if iframe_response.ok:
-                    iframe_html = iframe_response.text
-                    print(f"   📄 Iframe page loaded ({len(iframe_html)} bytes)")
-                    
-                    # 🎯 m3u8 को HTML में ढूंढो (multiple patterns)
-                    patterns = [
-                        r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)',
-                        r'file\s*:\s*["\']([^"\']+\.m3u8[^"\']*)["\']',
-                        r'source\s*:\s*["\']([^"\']+\.m3u8[^"\']*)["\']',
-                        r'["\']([^"\']+\.m3u8[^"\']*)["\']',
-                    ]
-                    
-                    for pattern in patterns:
-                        m3u8_match = re.search(pattern, iframe_html)
-                        if m3u8_match:
-                            found_video = m3u8_match.group(1)
-                            if found_video.startswith('//'):
-                                found_video = 'https:' + found_video
-                            elif found_video.startswith('/'):
-                                found_video = urljoin(iframe_url, found_video)
-                            print(f"   🎯 m3u8 found: {found_video[:80]}")
-                            break
-            except Exception as e:
-                print(f"   ❌ Iframe fetch error: {e}")
-        
-        # 4. अगर iframe से नहीं मिला, तो एपिसोड पेज में ढूंढो
-        if not found_video:
-            m3u8_match = re.search(r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)', episode_html)
-            if m3u8_match:
-                found_video = m3u8_match.group(1)
-                print(f"   🎯 m3u8 from episode page: {found_video[:80]}")
-                
-    except Exception as e:
-        print(f"❌ Error: {e}")
-    
-    print(f"🔍 Result: {found_video[:80] if found_video else 'NONE'}")
-    
-    if found_video:
-        video_cache[episode_url] = {'url': found_video, 'timestamp': time.time()}
-    
-    return found_video
-
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
 
+    # 🛠️ PostgreSQL डेटाबेस (Render पर) और SQLite (लोकल पर)
     db_url = os.environ.get('DATABASE_URL', 'sqlite:///users.db')
     if db_url.startswith("postgres://"):
         db_url = db_url.replace("postgres://", "postgresql://", 1)
     
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    
+    # 🛠️ सेशन को 10 साल का बनाओ
     app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=3650)
     app.config['SESSION_COOKIE_SECURE'] = True
     app.config['SESSION_COOKIE_HTTPONLY'] = True
@@ -133,11 +47,12 @@ def create_app(config_class=Config):
 
     with app.app_context():
         db.create_all()
+        # 🛠️ FIX: अगर पुराने टेबल में remember_token कॉलम नहीं है, तो उसे जोड़ो
         try:
             db.session.execute(db.text('ALTER TABLE user ADD COLUMN remember_token VARCHAR(200)'))
             db.session.commit()
             print("✅ remember_token कॉलम जोड़ दिया गया।")
-        except: 
+        except Exception:
             db.session.rollback()
 
     google_bp = make_google_blueprint(
@@ -148,6 +63,7 @@ def create_app(config_class=Config):
     )
     app.register_blueprint(google_bp, url_prefix="/login")
 
+    # 🛠️ ऑटो-लॉगिन (हर बार पेज लोड होने से पहले चेक करेगा)
     @app.before_request
     def auto_login():
         if not session.get('user_email'):
@@ -253,12 +169,20 @@ def create_app(config_class=Config):
 
     def get_filtered_anime():
         all_anime = get_all_anime()
+        
         cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman', 'superman', 'cartoon', 'looney tunes', 'oggy', 'motu patlu', 'chhota bheem', 'ninja hattori', 'perman', 'shin chan']
-        movies_list = [a for a in all_anime if not a.get('episodes') or len(a.get('episodes', [])) == 0]
-        series_list = [a for a in all_anime if a.get('episodes') and len(a.get('episodes', [])) > 0]
+        
+        # 🛠️ FIX: मूवीज़ की पहचान अब 'Full Movie' वाले एपिसोड से होगी
+        movies_list = [a for a in all_anime if a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie']
+        
+        # सीरीज़ वो हैं जिनमें 'Full Movie' नहीं है
+        series_list = [a for a in all_anime if not (a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie')]
+        
         cartoons_list = [a for a in all_anime if any(k in a['title'].lower() for k in cartoon_keywords)]
+        
         trending = series_list 
         popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)
+        
         return all_anime, trending, popular, movies_list, series_list, cartoons_list
 
     @app.route('/')
@@ -385,37 +309,6 @@ def create_app(config_class=Config):
         return render_template('watch.html', anime=anime, seasons=seasons, current_season=current_season,
                                episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num,
                                related_anime=related_anime, genres_text=genres_text, description=description)
-
-    # 🛠️ API: लाइव m3u8 लिंक निकालेगा (Cloudscraper से)
-    @app.route('/api/get-video/<anime_id>/<int:season_num>/<int:ep_num>')
-    def get_video_api(anime_id, season_num, ep_num):
-        print(f"🔥 API HIT: {anime_id} S{season_num}E{ep_num}")
-        anime = get_anime_by_id(anime_id)
-        if not anime: return jsonify({"video_url": ""})
-        
-        episode_url = ""
-        for season in anime.get('seasons', []):
-            if season['season_number'] == season_num:
-                for ep in season['episodes']:
-                    title = ep.get('title', '')
-                    if f"Episode {ep_num}" in title or str(ep_num) in title:
-                        episode_url = ep.get('url', '')
-                        break
-                break
-        
-        if not episode_url:
-            print(f"❌ Episode URL not found for S{season_num}E{ep_num}")
-            return jsonify({"video_url": ""})
-        
-        print(f"🔗 Episode URL: {episode_url[:70]}")
-        fresh_m3u8 = get_fresh_video_url(episode_url)
-        
-        if fresh_m3u8:
-            print(f"✅ Returning m3u8")
-            return jsonify({"video_url": fresh_m3u8})
-        else:
-            print(f"❌ No m3u8 found")
-            return jsonify({"video_url": ""})
 
     @app.errorhandler(404)
     def page_not_found(e): return render_template('404.html'), 404
