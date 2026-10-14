@@ -25,7 +25,7 @@
                 <p class="hero-description">{{ description }}</p>
                 
                 <div class="hero-action-buttons">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/1" class="btn-watch-now no-spa">
+                    <a href="/watch/{{ anime.id }}" class="btn-watch-now no-spa">
                         <i class="fas fa-play"></i> Watch Now
                     </a>
                     <button onclick="toggleWatchlist()" id="watchlist-btn" class="btn-my-list">
@@ -46,17 +46,42 @@
     <!-- ✅ EPISODES TAB -->
     <div id="tab-episodes" class="tab-content active">
         
-        <!-- 🛠️ YOUTUBE-STYLE STICKY PLAYER WRAPPER -->
+        <!-- 🛠️ FULL-WIDTH PLAYER WRAPPER -->
         <div class="video-section-wrapper" id="videoSectionWrapper">
             <div class="video-player-crunchy" id="mainVideoPlayer">
                 {% if current_ep and current_ep.video_url %}
-                <iframe src="{{ current_ep.video_url }}" 
-                        width="100%" 
-                        height="100%" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; encrypted-media"
-                        allowfullscreen>
-                </iframe>
+                    {% if ep_number is defined and ep_number is not none %}
+                        <!-- 🎬 यूजर सीधे एपिसोड पर आया है, तो वीडियो सीधे load करो -->
+                        <iframe src="{{ current_ep.video_url }}" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                allow="autoplay; fullscreen; encrypted-media"
+                                allowfullscreen>
+                        </iframe>
+                    {% else %}
+                        <!-- 🎨 यूजर सिर्फ एनीमे पेज पर आया है, तो पहले पोस्टर दिखाओ -->
+                        <div class="poster-overlay" id="posterOverlay" onclick="loadVideo()">
+                            <img src="{{ anime.image }}" alt="{{ anime.title }}" class="poster-image" onerror="this.src='https://placehold.co/800x450/161b22/a371f7?text=Anime'">
+                            <div class="poster-dark-overlay"></div>
+                            <div class="poster-play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="poster-info">
+                                <h3>{{ anime.title }}</h3>
+                                <p>Click to Play • Episode {{ current_ep.ep_num if current_ep else 1 }}</p>
+                            </div>
+                        </div>
+                        <!-- असली वीडियो iframe (शुरू में छिपा हुआ) -->
+                        <iframe id="mainIframe" src="{{ current_ep.video_url }}" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                allow="autoplay; fullscreen; encrypted-media"
+                                allowfullscreen
+                                style="display: none;">
+                        </iframe>
+                    {% endif %}
                 {% else %}
                 <div class="no-video-msg-crunchy">
                     <h3><i class="fas fa-video-slash"></i> Video Not Available</h3>
@@ -197,7 +222,7 @@
 
 </div>
 
-<!-- ✅ JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER -->
+<!-- ✅ JAVASCRIPT -->
 <script>
 const animeData = {
     id: {{ anime.id|tojson }},
@@ -236,6 +261,20 @@ document.addEventListener('click', function(e) {
         menu.style.display = 'none';
     }
 });
+
+// 🛠️ पोस्टर हटाओ और वीडियो चलाओ
+function loadVideo() {
+    const poster = document.getElementById('posterOverlay');
+    const iframe = document.getElementById('mainIframe');
+    
+    if (poster && iframe) {
+        poster.style.opacity = '0';
+        setTimeout(() => {
+            poster.style.display = 'none';
+            iframe.style.display = 'block';
+        }, 300);
+    }
+}
 
 let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
 const btn = document.getElementById('watchlist-btn');
@@ -307,36 +346,5 @@ history = history.filter(item => item.id !== currentEpData.id);
 history.unshift(currentEpData);
 history = history.slice(0, 20);
 localStorage.setItem('animeHistory', JSON.stringify(history));
-
-// =========================================
-// 🛠️ STICKY TOP PLAYER (YouTube Style, Top me chipka rahega)
-// =========================================
-(function() {
-    const wrapper = document.getElementById('videoSectionWrapper');
-    const player = document.getElementById('mainVideoPlayer');
-    if (!wrapper || !player) return;
-
-    function handleScroll() {
-        const wrapperRect = wrapper.getBoundingClientRect();
-        const headerOffset = 75; // हेडर के नीचे की जगह
-
-        // जब wrapper ऊपर हेडर के पीछे चला जाए
-        if (wrapperRect.top < headerOffset) {
-            player.classList.add('sticky-player');
-            // Placeholder जोड़ो ताकि लेआउट न टूटे
-            if (!wrapper.dataset.hasPlaceholder) {
-                wrapper.style.height = wrapper.offsetHeight + 'px';
-                wrapper.dataset.hasPlaceholder = 'true';
-            }
-        } else {
-            player.classList.remove('sticky-player');
-            wrapper.style.height = '';
-            delete wrapper.dataset.hasPlaceholder;
-        }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll);
-})();
 </script>
 {% endblock %}

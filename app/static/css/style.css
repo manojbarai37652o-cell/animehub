@@ -3576,18 +3576,150 @@ body::before {
     font-size: 0.85rem;
 }
 /* =========================================
-   SPA Top Loading Bar
+   FULL-WIDTH PLAYER + POSTER-FIRST (Crunchyroll Style)
    ========================================= */
 
-.spa-loader {
-    position: fixed;
+/* पूरे watch page से side padding हटाओ */
+.watch-page {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+/* 🛠️ प्लेयर पूरी चौड़ाई में, बिना साइड स्पेस */
+.video-section-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
+}
+
+.video-player-crunchy {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    overflow: hidden;
+    border: none;
+    border-radius: 0;
+}
+
+.video-player-crunchy iframe {
+    position: absolute;
     top: 0;
     left: 0;
-    height: 3px;
-    width: 0%;
-    background: linear-gradient(90deg, #a371f7, #3b82f6);
-    z-index: 9999;
-    opacity: 0;
-    transition: width 0.4s ease, opacity 0.3s ease;
-    box-shadow: 0 0 10px rgba(163, 113, 247, 0.6);
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* 🎨 पोस्टर ओवरले */
+.poster-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.poster-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.poster-dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
+}
+
+.poster-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: rgba(163, 113, 247, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.6rem;
+    z-index: 3;
+    box-shadow: 0 0 30px rgba(163, 113, 247, 0.8);
+    animation: pulsePlay 2s infinite;
+}
+
+@keyframes pulsePlay {
+    0% { box-shadow: 0 0 0 0 rgba(163, 113, 247, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(163, 113, 247, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(163, 113, 247, 0); }
+}
+
+.poster-info {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    z-index: 3;
+    color: #fff;
+}
+
+.poster-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.9);
+}
+
+.poster-info p {
+    font-size: 0.75rem;
+    color: #d1d5db;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+}
+
+/* 📺 डेस्कटॉप पर पोस्टर इन्फो थोड़ा बड़ा */
+@media (min-width: 768px) {
+    .poster-play-button {
+        width: 90px;
+        height: 90px;
+        font-size: 2rem;
+    }
+    .poster-info h3 {
+        font-size: 1.4rem;
+    }
+    .poster-info p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ✅ बाकी कंटेंट में side padding वापस लाओ */
+.watch-tabs,
+.season-dropdown-wrapper,
+.episodes-list-crunchy,
+.episode-nav-bottom,
+.tab-content,
+.hero-detail {
+    margin-left: 10px;
+    margin-right: 10px;
 }
