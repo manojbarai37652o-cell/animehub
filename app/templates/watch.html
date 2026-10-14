@@ -15,42 +15,40 @@
                         allowfullscreen>
                 </iframe>
             </div>
-            <!-- 🛠️ नया: एपिसोड और सीज़न लेबल (ToonStream Style) -->
+            <!-- 🛠️ Video Info Bar (ToonStream Style) -->
             <div class="video-info-bar">
                 <span class="video-info-title">{{ anime.title }}</span>
                 <span class="video-info-meta">Season {{ current_season.season_number if current_season else 1 }} • Episode {{ current_ep.ep_num if current_ep else 1 }}</span>
             </div>
         </div>
     {% else %}
-        <!-- 🎨 HERO BANNER (Smooth Fade In) -->
+        <!-- 🎨 HERO BANNER (Crunchyroll Style) -->
         <div class="hero-detail hero-fade-in">
+            <!-- 🛠️ पूरा पोस्टर बैकग्राउंड में -->
             <div class="hero-detail-bg" style="background-image: url('{{ anime.image }}');"></div>
             <div class="hero-detail-overlay"></div>
             <div class="hero-detail-content">
-                <div class="hero-poster">
-                    <img src="{{ anime.image }}" alt="{{ anime.title }}" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
+                <span class="featured-badge">FEATURED</span>
+                <h1 class="hero-anime-title">{{ anime.title }}</h1>
+                
+                <div class="hero-meta-row">
+                    {% if anime.language and anime.language != 'Unknown' %}
+                    <span class="lang-badge">{{ anime.language }}</span>
+                    {% endif %}
+                    <span class="rating-badge">★ {{ anime.rating|default('8.0') }}/10</span>
+                    <span class="genre-text">{{ genres_text }}</span>
                 </div>
-                <div class="hero-info">
-                    <span class="featured-badge">FEATURED</span>
-                    <h1 class="hero-anime-title">{{ anime.title }}</h1>
-                    
-                    <div class="hero-meta-row">
-                        {% if anime.language and anime.language != 'Unknown' %}
-                        <span class="lang-badge">{{ anime.language }}</span>
-                        {% endif %}
-                        <p class="hero-genres">{{ genres_text }}</p>
-                    </div>
-                    
-                    <p class="hero-description">{{ description }}</p>
-                    
-                    <div class="hero-action-buttons">
-                        <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/1" class="btn-watch-now">
-                            <i class="fas fa-play"></i> Watch Now
-                        </a>
-                        <button onclick="toggleWatchlist()" id="watchlist-btn" class="btn-my-list">
-                            <i class="fas fa-plus"></i> My List
-                        </button>
-                    </div>
+                
+                <p class="hero-description">{{ description }}</p>
+                
+                <div class="hero-action-buttons">
+                    <!-- 🛠️ Watch Now बटन (Download button नहीं) -->
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/1" class="btn-watch-now">
+                        <i class="fas fa-play"></i> Watch Now
+                    </a>
+                    <button onclick="toggleWatchlist()" id="watchlist-btn" class="btn-my-list">
+                        <i class="fas fa-plus"></i> My List
+                    </button>
                 </div>
             </div>
         </div>
@@ -308,33 +306,21 @@ history.unshift(currentEpData);
 history = history.slice(0, 20);
 localStorage.setItem('animeHistory', JSON.stringify(history));
 
-// =========================================
-// 🛠️ STICKY TOP PLAYER (स्क्रॉल करने पर ऊपर चिपके)
-// =========================================
-(function() {
-    const wrapper = document.getElementById('videoSectionWrapper');
-    const player = document.getElementById('mainVideoPlayer');
-    if (!wrapper || !player) return;
-
-    function handleScroll() {
-        const wrapperRect = wrapper.getBoundingClientRect();
-        const headerOffset = 70; // हेडर के नीचे की जगह
-
-        if (wrapperRect.top < headerOffset) {
-            player.classList.add('sticky-player');
-            if (!wrapper.dataset.hasPlaceholder) {
-                wrapper.style.height = wrapper.offsetHeight + 'px';
-                wrapper.dataset.hasPlaceholder = 'true';
-            }
+// 🛠️ Sticky Player Logic (YouTube Style)
+document.addEventListener('DOMContentLoaded', function() {
+    const videoWrapper = document.getElementById('videoSectionWrapper');
+    if (!videoWrapper) return;
+    
+    // Get the top offset of the video wrapper
+    const wrapperOffset = videoWrapper.offsetTop;
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > wrapperOffset) {
+            videoWrapper.classList.add('sticky');
         } else {
-            player.classList.remove('sticky-player');
-            wrapper.style.height = '';
-            delete wrapper.dataset.hasPlaceholder;
+            videoWrapper.classList.remove('sticky');
         }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll);
-})();
+    });
+});
 </script>
 {% endblock %}
