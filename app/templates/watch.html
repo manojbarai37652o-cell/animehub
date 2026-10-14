@@ -3,40 +3,55 @@
 {% block content %}
 <div class="watch-page">
 
-    <!-- ✅ HERO BANNER -->
-    <div class="hero-detail">
-        <div class="hero-detail-bg" style="background-image: url('{{ anime.image }}');"></div>
-        <div class="hero-detail-overlay"></div>
-        <div class="hero-detail-content">
-            <div class="hero-poster">
-                <img src="{{ anime.image }}" alt="{{ anime.title }}" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
+    {% if current_ep and ep_number is defined and ep_number is not none %}
+        <!-- 🎬 VIDEO PLAYER (जब यूजर एपिसोड पर क्लिक करेगा, यह दिखेगा) -->
+        <div class="video-section-wrapper" id="videoSectionWrapper">
+            <div class="video-player-crunchy" id="mainVideoPlayer">
+                <iframe src="{{ current_ep.video_url }}" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; encrypted-media"
+                        allowfullscreen>
+                </iframe>
             </div>
-            <div class="hero-info">
-                <span class="featured-badge">FEATURED</span>
-                <h1 class="hero-anime-title">{{ anime.title }}</h1>
-                
-                <div class="hero-meta-row">
-                    {% if anime.language and anime.language != 'Unknown' %}
-                    <span class="lang-badge">{{ anime.language }}</span>
-                    {% endif %}
-                    <p class="hero-genres">{{ genres_text }}</p>
+        </div>
+    {% else %}
+        <!-- 🎨 HERO BANNER (जब यूजर सिर्फ एनीमे पेज पर आएगा, यह दिखेगा) -->
+        <div class="hero-detail">
+            <div class="hero-detail-bg" style="background-image: url('{{ anime.image }}');"></div>
+            <div class="hero-detail-overlay"></div>
+            <div class="hero-detail-content">
+                <div class="hero-poster">
+                    <img src="{{ anime.image }}" alt="{{ anime.title }}" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
                 </div>
-                
-                <p class="hero-description">{{ description }}</p>
-                
-                <div class="hero-action-buttons">
-                    <a href="/watch/{{ anime.id }}" class="btn-watch-now">
-                        <i class="fas fa-play"></i> Watch Now
-                    </a>
-                    <button onclick="toggleWatchlist()" id="watchlist-btn" class="btn-my-list">
-                        <i class="fas fa-plus"></i> My List
-                    </button>
+                <div class="hero-info">
+                    <span class="featured-badge">FEATURED</span>
+                    <h1 class="hero-anime-title">{{ anime.title }}</h1>
+                    
+                    <div class="hero-meta-row">
+                        {% if anime.language and anime.language != 'Unknown' %}
+                        <span class="lang-badge">{{ anime.language }}</span>
+                        {% endif %}
+                        <p class="hero-genres">{{ genres_text }}</p>
+                    </div>
+                    
+                    <p class="hero-description">{{ description }}</p>
+                    
+                    <div class="hero-action-buttons">
+                        <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/1" class="btn-watch-now">
+                            <i class="fas fa-play"></i> Watch Now
+                        </a>
+                        <button onclick="toggleWatchlist()" id="watchlist-btn" class="btn-my-list">
+                            <i class="fas fa-plus"></i> My List
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 
-    <!-- ✅ TABS -->
+    <!-- ✅ TABS (दोनों हालातों में दिखेंगे) -->
     <div class="watch-tabs">
         <button class="watch-tab active" onclick="switchTab('episodes', this)">Episodes</button>
         <button class="watch-tab" onclick="switchTab('details', this)">Details</button>
@@ -46,51 +61,6 @@
     <!-- ✅ EPISODES TAB -->
     <div id="tab-episodes" class="tab-content active">
         
-        <!-- 🛠️ FULL-WIDTH PLAYER WRAPPER -->
-        <div class="video-section-wrapper" id="videoSectionWrapper">
-            <div class="video-player-crunchy" id="mainVideoPlayer">
-                {% if current_ep and current_ep.video_url %}
-                    {% if ep_number is defined and ep_number is not none %}
-                        <!-- 🎬 यूजर एपिसोड पर क्लिक करके आया है, तो वीडियो सीधे load करो -->
-                        <iframe src="{{ current_ep.video_url }}" 
-                                width="100%" 
-                                height="100%" 
-                                frameborder="0" 
-                                allow="autoplay; fullscreen; encrypted-media"
-                                allowfullscreen>
-                        </iframe>
-                    {% else %}
-                        <!-- 🎨 यूजर सिर्फ एनीमे पेज पर आया है, तो पहले पोस्टर दिखाओ -->
-                        <div class="poster-overlay" id="posterOverlay" onclick="loadVideo()">
-                            <img src="{{ anime.image }}" alt="{{ anime.title }}" class="poster-image" onerror="this.src='https://placehold.co/800x450/161b22/a371f7?text=Anime'">
-                            <div class="poster-dark-overlay"></div>
-                            <div class="poster-play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="poster-info">
-                                <h3>{{ anime.title }}</h3>
-                                <p>Click to Play • Episode {{ current_ep.ep_num if current_ep else 1 }}</p>
-                            </div>
-                        </div>
-                        <!-- असली वीडियो iframe (शुरू में छिपा हुआ) -->
-                        <iframe id="mainIframe" src="{{ current_ep.video_url }}" 
-                                width="100%" 
-                                height="100%" 
-                                frameborder="0" 
-                                allow="autoplay; fullscreen; encrypted-media"
-                                allowfullscreen
-                                style="display: none;">
-                        </iframe>
-                    {% endif %}
-                {% else %}
-                <div class="no-video-msg-crunchy">
-                    <h3><i class="fas fa-video-slash"></i> Video Not Available</h3>
-                    <p>इस एपिसोड का वीडियो सोर्स अभी उपलब्ध नहीं है।</p>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-
         {% if seasons|length > 0 %}
         <div class="season-dropdown-wrapper">
             <button class="season-toggle-btn" onclick="toggleSeasonDropdown()">
@@ -105,7 +75,6 @@
                     <i class="fas fa-layer-group"></i> Select Season
                 </div>
                 {% for season in seasons %}
-                <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
                 <a href="/watch/{{ anime.id }}/{{ season.season_number }}" class="season-option {% if current_season and current_season.season_number == season.season_number %}active{% endif %}">
                     <img src="{{ anime.image }}" alt="Season {{ season.season_number }}" class="season-option-img">
                     <div class="season-option-info">
@@ -128,7 +97,6 @@
             <div class="episode-item-crunchy {% if current_ep and current_ep.ep_num == ep_num %}active{% endif %}">
                 <div class="ep-thumb">
                     <img src="{{ anime.image }}" alt="Episode {{ ep_num }}">
-                    <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
                     <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}">
                         <i class="fas fa-play"></i>
                     </a>
@@ -145,7 +113,6 @@
                     </div>
                 </div>
                 <div class="ep-actions">
-                    <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
                     <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}" class="ep-play-btn">
                         <i class="fas fa-play"></i>
                     </a>
@@ -162,7 +129,6 @@
 
         <div class="episode-nav-bottom">
             {% if prev_ep_num %}
-            <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
             <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ prev_ep_num }}" class="nav-btn-bottom">
                 « Previous
             </a>
@@ -173,7 +139,6 @@
             <span class="current-ep-label">{{ current_ep.title if current_ep else 'Episode 1' }}</span>
             
             {% if next_ep_num %}
-            <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
             <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ next_ep_num }}" class="nav-btn-bottom">
                 Next »
             </a>
@@ -216,7 +181,6 @@
         {% if related_anime %}
         <div class="similar-grid">
             {% for rec in related_anime %}
-            <!-- 🛠️ SPA Navigation के लिए no-spa हटाया गया -->
             <a href="/watch/{{ rec.id }}" class="similar-card">
                 <img src="{{ rec.image }}" alt="{{ rec.title }}" loading="lazy" onerror="this.src='https://placehold.co/150x200/161b22/a371f7?text=Anime'">
                 <h4>{{ rec.title }}</h4>
@@ -228,7 +192,7 @@
 
 </div>
 
-<!-- ✅ JAVASCRIPT -->
+<!-- ✅ JAVASCRIPT FOR TABS, WATCHLIST, RATINGS -->
 <script>
 const animeData = {
     id: {{ anime.id|tojson }},
@@ -267,20 +231,6 @@ document.addEventListener('click', function(e) {
         menu.style.display = 'none';
     }
 });
-
-// 🛠️ पोस्टर हटाओ और वीडियो चलाओ
-function loadVideo() {
-    const poster = document.getElementById('posterOverlay');
-    const iframe = document.getElementById('mainIframe');
-    
-    if (poster && iframe) {
-        poster.style.opacity = '0';
-        setTimeout(() => {
-            poster.style.display = 'none';
-            iframe.style.display = 'block';
-        }, 300);
-    }
-}
 
 let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
 const btn = document.getElementById('watchlist-btn');

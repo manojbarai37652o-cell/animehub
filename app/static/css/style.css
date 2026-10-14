@@ -3576,25 +3576,22 @@ body::before {
     font-size: 0.85rem;
 }
 /* =========================================
-   FULL-WIDTH PLAYER + POSTER-FIRST (Crunchyroll Style)
+   FULL-WIDTH VIDEO PLAYER + HERO BANNER (Crunchyroll Style)
    ========================================= */
 
-/* पूरे watch page से side padding हटाओ */
 .watch-page {
     padding: 0 !important;
     margin: 0 !important;
     max-width: 100% !important;
 }
 
-/* 🛠️ प्लेयर पूरी चौड़ाई में, बिना साइड स्पेस */
+/* 🎬 VIDEO PLAYER - FULL WIDTH, NO SIDE SPACE */
 .video-section-wrapper {
     position: relative;
     width: 100%;
     margin: 0;
     padding: 0;
     z-index: 100;
-    overscroll-behavior-x: none;
-    touch-action: pan-y;
 }
 
 .video-player-crunchy {
@@ -3617,109 +3614,119 @@ body::before {
     display: block;
 }
 
-/* 🎨 पोस्टर ओवरले */
-.poster-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* 🎨 HERO BANNER - FULL WIDTH */
+.hero-detail {
+    position: relative;
     width: 100%;
-    height: 100%;
-    z-index: 10;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.3s ease;
+    min-height: 400px;
     overflow: hidden;
-    background-color: #000;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    background-color: #161b22;
+    box-sizing: border-box;
 }
 
-.poster-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.poster-dark-overlay {
+.hero-detail-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%);
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.4);
     z-index: 1;
 }
 
-.poster-play-button {
+.hero-detail-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70px;
-    height: 70px;
-    background: rgba(163, 113, 247, 0.9);
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #0b0f19 0%, transparent 100%);
+    z-index: 2;
+}
+
+.hero-detail-content {
+    position: relative;
+    z-index: 3;
     display: flex;
-    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    align-items: flex-end;
+}
+
+.hero-poster img {
+    width: 110px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #a371f7;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero-info {
+    flex: 1;
+}
+
+.featured-badge {
+    background-color: #a371f7;
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.hero-anime-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.hero-meta-row {
+    display: flex;
     align-items: center;
-    color: #fff;
-    font-size: 1.6rem;
-    z-index: 3;
-    box-shadow: 0 0 30px rgba(163, 113, 247, 0.8);
-    animation: pulsePlay 2s infinite;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
 }
 
-@keyframes pulsePlay {
-    0% { box-shadow: 0 0 0 0 rgba(163, 113, 247, 0.7); }
-    70% { box-shadow: 0 0 0 20px rgba(163, 113, 247, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(163, 113, 247, 0); }
+.hero-genres {
+    font-size: 0.7rem;
+    color: #ff4b2b;
+    font-weight: 600;
 }
 
-.poster-info {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    z-index: 3;
-    color: #fff;
-}
-
-.poster-info h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 3px;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.9);
-}
-
-.poster-info p {
+.hero-description {
     font-size: 0.75rem;
-    color: #d1d5db;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    color: #8b949e;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* 📺 डेस्कटॉप पर पोस्टर इन्फो थोड़ा बड़ा */
-@media (min-width: 768px) {
-    .poster-play-button {
-        width: 90px;
-        height: 90px;
-        font-size: 2rem;
-    }
-    .poster-info h3 {
-        font-size: 1.4rem;
-    }
-    .poster-info p {
-        font-size: 0.9rem;
-    }
+.hero-action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-/* ✅ बाकी कंटेंट में side padding वापस लाओ */
+/* 🛠️ बाकी कंटेंट में side padding वापस लाओ */
 .watch-tabs,
 .season-dropdown-wrapper,
 .episodes-list-crunchy,
 .episode-nav-bottom,
-.tab-content,
-.hero-detail {
+.tab-content {
     margin-left: 10px;
     margin-right: 10px;
 }
