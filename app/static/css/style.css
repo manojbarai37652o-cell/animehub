@@ -3592,32 +3592,29 @@ body::before {
     box-shadow: 0 0 10px rgba(163, 113, 247, 0.6);
 }
 /* =========================================
-   STICKY TOP PLAYER (YouTube Style) + Fix for Side Swipe
+   STICKY TOP PLAYER (16:9 Aspect Ratio, No Black Bars)
    ========================================= */
 
-/* 🛠️ 1. मुख्य प्लेयर अब बड़ा और मजबूत */
+/* 🛠️ 1. मुख्य प्लेयर अब 16:9 (YouTube Style) */
 .video-section-wrapper {
     position: relative;
     width: 100%;
     margin-bottom: 20px;
     z-index: 100;
-    /* 🛠️ FIX: साइड स्वाइप से बचने के लिए */
-    overscroll-behavior-x: none;
+    overscroll-behavior-x: none; /* साइड स्वाइप फिक्स */
     touch-action: pan-y;
 }
 
 .video-player-crunchy {
     width: 100%;
-    height: 55vh; /* मोबाइल पर प्लेयर की ऊंचाई बढ़ा दी */
-    min-height: 300px;
-    max-height: 500px;
+    aspect-ratio: 16 / 9 !important; /* वीडियो के साइज़ में रहेगा, न लंबा न चौड़ा */
+    max-height: 65vh; /* बहुत बड़ी स्क्रीन पर भी बहुत ज्यादा बड़ा न हो */
     background-color: #000;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid #30363d;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     transition: all 0.3s ease;
-    /* 🛠️ FIX: साइड स्वाइप से बचने के लिए */
     overscroll-behavior-x: none;
     touch-action: pan-y;
 }
@@ -3629,16 +3626,15 @@ body::before {
     display: block;
 }
 
-/* 🛠️ 2. जब स्क्रॉल करके ऊपर जाए, तो हेडर के नीचे चिपक जाए */
+/* 🛠️ 2. जब स्क्रॉल करके ऊपर जाए, तो हेडर के नीचे 16:9 में चिपक जाए */
 .video-player-crunchy.sticky-player {
     position: fixed;
     top: 65px; /* हेडर के ठीक नीचे */
     left: 0;
     right: 0;
     width: 100%;
-    height: 30vh; /* चिपके हुए प्लेयर की ऊंचाई */
-    max-height: 250px;
-    min-height: 180px;
+    aspect-ratio: 16 / 9 !important; /* चिपके हुए प्लेयर का भी 16:9 रेशियो */
+    max-height: 30vh;
     border-radius: 0; /* पूरी चौड़ाई में */
     border-left: none;
     border-right: none;
@@ -3652,16 +3648,4 @@ body::before {
 @keyframes stickyPlayerIn {
     from { transform: translateY(-20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
-}
-
-/* 📺 डेस्कटॉप पर प्लेयर और भी बड़ा */
-@media (min-width: 1024px) {
-    .video-player-crunchy {
-        height: 60vh;
-        max-height: 600px;
-    }
-    .video-player-crunchy.sticky-player {
-        height: 25vh;
-        max-height: 220px;
-    }
 }
