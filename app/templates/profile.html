@@ -5,45 +5,32 @@
 
     <!-- 1. Cover Photo Section -->
     <div class="profile-cover">
-        <!-- यहाँ हम कवर फोटो सेट कर रहे हैं। अगर यूजर की कोई फोटो नहीं है, तो एक डिफ़ॉल्ट बैकग्राउंड आएगा। -->
+        <!-- यहाँ अपनी पसंद का कवर फोटो लगा सकते हैं -->
         <div class="cover-overlay"></div>
     </div>
 
     <!-- 2. Profile Header (Avatar, Name, Edit Button) -->
     <div class="profile-header">
         <div class="avatar-container">
-            <img src="{{ session.user_pic|default('https://placehold.co/100x100/161b22/a371f7?text=User') }}" alt="Profile" class="profile-avatar">
+            <img src="{{ session.user_pic|default('https://placeholder.co/100x100/161b22/a855f7?text=User') }}" alt="Profile Picture">
         </div>
         <div class="profile-info">
             <h2>{{ session.user_name|default('Manoj') }}</h2>
             <p>@{{ session.user_handle|default('manoj_yt') }}</p>
         </div>
-        <button class="edit-profile-btn"><i class="fas fa-pen"></i> Edit Profile</button>
+        <button class="edit-profile-btn" onclick="alert('Edit Profile feature coming soon!')"><i class="fas fa-pen"></i> Edit Profile</button>
     </div>
 
-    <!-- 3. Stats Bar -->
-    <div class="stats-bar">
-        <div class="stat-item">
-            <span>12</span>
-            <p>Following</p>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-            <span>3.4K</span>
-            <p>Followers</p>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-            <span>45</span>
-            <p>Saved</p>
-        </div>
-    </div>
+    <!-- ❌ Stats Bar (Following, Followers, Saved) यहाँ से हटा दिया गया है ❌ -->
 
-    <!-- 4. Settings List (सारे 7 आइटम्स) -->
+    <!-- 3. Settings List (सिर्फ 2 आइटम्स बचे हैं) -->
     <div class="settings-list">
         
+        <!-- Account Information -->
         <a href="/settings/account" class="setting-item">
-            <div class="setting-icon" style="background: rgba(52, 152, 219, 0.15); color: #3498db;"><i class="fas fa-user"></i></div>
+            <div class="setting-icon" style="background: rgba(52, 152, 219, 0.15); color: #3498db;">
+                <i class="fas fa-user"></i>
+            </div>
             <div class="setting-text">
                 <h3>Account Information</h3>
                 <p>View and manage your account details</p>
@@ -51,8 +38,11 @@
             <i class="fas fa-chevron-right setting-arrow"></i>
         </a>
 
+        <!-- Playback Settings -->
         <a href="/settings/playback" class="setting-item">
-            <div class="setting-icon" style="background: rgba(163, 113, 247, 0.15); color: #a371f7;"><i class="fas fa-play"></i></div>
+            <div class="setting-icon" style="background: rgba(163, 113, 247, 0.15); color: #a855f7;">
+                <i class="fas fa-play"></i>
+            </div>
             <div class="setting-text">
                 <h3>Playback Settings</h3>
                 <p>Quality, subtitles, auto-play and more</p>
@@ -60,75 +50,16 @@
             <i class="fas fa-chevron-right setting-arrow"></i>
         </a>
 
-        <a href="/settings/notifications" class="setting-item">
-            <div class="setting-icon" style="background: rgba(241, 196, 15, 0.15); color: #f1c40f;"><i class="fas fa-bell"></i></div>
-            <div class="setting-text">
-                <h3>Notifications</h3>
-                <p>Manage your notifications</p>
-            </div>
-            <i class="fas fa-chevron-right setting-arrow"></i>
-        </a>
+        <!-- ❌ Notifications, Appearance, Privacy, Help, About यहाँ से हटा दिए गए हैं ❌ -->
 
-        <!-- Appearance Setting with JS toggle -->
-        <a href="#" class="setting-item" onclick="toggleTheme()">
-            <div class="setting-icon" style="background: rgba(155, 89, 182, 0.15); color: #9b59b6;"><i class="fas fa-palette"></i></div>
-            <div class="setting-text">
-                <h3>Appearance</h3>
-                <p>Light / Dark mode, theme and UI</p>
-            </div>
-            <i class="fas fa-chevron-right setting-arrow"></i>
-        </a>
-
-        <a href="/settings/privacy" class="setting-item">
-            <div class="setting-icon" style="background: rgba(46, 204, 113, 0.15); color: #2ecc71;"><i class="fas fa-shield-alt"></i></div>
-            <div class="setting-text">
-                <h3>Privacy & Security</h3>
-                <p>Password, login devices and more</p>
-            </div>
-            <i class="fas fa-chevron-right setting-arrow"></i>
-        </a>
-
-        <a href="/settings/support" class="setting-item">
-            <div class="setting-icon" style="background: rgba(230, 126, 34, 0.15); color: #e67e22;"><i class="fas fa-headset"></i></div>
-            <div class="setting-text">
-                <h3>Help & Support</h3>
-                <p>FAQs, contact us, report a problem</p>
-            </div>
-            <i class="fas fa-chevron-right setting-arrow"></i>
-        </a>
-
-        <a href="/about" class="setting-item">
-            <div class="setting-icon" style="background: rgba(149, 165, 166, 0.15); color: #95a5a6;"><i class="fas fa-info-circle"></i></div>
-            <div class="setting-text">
-                <h3>About AnimeNest</h3>
-                <p>Version 1.0.0</p>
-            </div>
-            <i class="fas fa-chevron-right setting-arrow"></i>
-        </a>
     </div>
 
-    <!-- 5. Logout Button -->
+    <!-- 4. Logout Button -->
     <a href="/logout" class="logout-btn">
         <i class="fas fa-sign-out-alt"></i> Log Out
     </a>
 
 </div>
 
-<!-- JavaScript for Appearance (Dark/Light Mode Toggle) -->
-<script>
-    function toggleTheme() {
-        document.body.classList.toggle('light-mode');
-        if (document.body.classList.contains('light-mode')) {
-            localStorage.setItem('theme', 'light');
-        } else {
-            localStorage.setItem('theme', 'dark');
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        if (localStorage.getItem('theme') === 'light') {
-            document.body.classList.add('light-mode');
-        }
-    });
-</script>
+<!-- ❌ Appearance Toggle (Dark/Light mode) का JavaScript यहाँ से हटा दिया गया है ❌ -->
 {% endblock %}
