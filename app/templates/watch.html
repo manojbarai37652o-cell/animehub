@@ -62,7 +62,6 @@
     <div id="tab-episodes" class="tab-content active">
         {% if seasons|length > 0 %}
         <div class="season-dropdown-wrapper">
-            <!-- 🛠️ FIX: Inline onclick use kiya hai taaki SPA ise block na kare -->
             <button class="season-toggle-btn" onclick="event.stopPropagation(); toggleSeasonDropdown();">
                 <i class="fas fa-layer-group"></i>
                 <span>Season {{ current_season.season_number if current_season else 1 }}</span>
@@ -76,7 +75,8 @@
                 </div>
                 {% for season in seasons %}
                 <a href="/watch/{{ anime.id }}/{{ season.season_number }}" class="season-option">
-                    <img src="{{ anime.image }}" alt="Season {{ season.season_number }}">
+                    <!-- 🛠️ FIX: Yahan class="season-thumb" add kar diya gaya hai -->
+                    <img src="{{ anime.image }}" class="season-thumb" alt="Season {{ season.season_number }}">
                     <div class="season-option-info">
                         <strong>Season {{ season.season_number }}</strong>
                         <span>{{ season.episodes|length }} Episodes</span>
@@ -209,7 +209,6 @@
         document.getElementById('tab-' + tabName).classList.add('active');
     }
 
-    // 🟢 FIXED: Global function for SPA compatibility 🟢
     function toggleSeasonDropdown() {
         const menu = document.getElementById('season-dropdown-menu');
         if (menu) {
@@ -221,7 +220,6 @@
         }
     }
 
-    // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
         const wrapper = document.querySelector('.season-dropdown-wrapper');
         const menu = document.getElementById('season-dropdown-menu');
@@ -301,7 +299,6 @@
     history = history.slice(0, 20);
     localStorage.setItem('animeHistory', JSON.stringify(history));
 
-    // 🟢 CONTINUE WATCHING TRACKER (Moved outside DOMContentLoaded) 🟢
     {% if current_ep and current_ep.video_url %}
     const progressData = {
         anime_id: animeId,
@@ -320,7 +317,6 @@
     .catch(error => console.error('Error saving progress:', error));
     {% endif %}
 
-    // 🟢 STICKY PLAYER LOGIC (Moved outside DOMContentLoaded) 🟢
     const videoWrapper = document.getElementById('videoSectionWrapper');
     if (videoWrapper) {
         const wrapperTop = videoWrapper.offsetTop;
