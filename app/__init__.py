@@ -3,7 +3,7 @@ import random
 import json
 import os
 import secrets
-from datetime import timedelta
+from datetime import timedelta, datetime
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
@@ -65,7 +65,6 @@ def create_app(config_class=Config):
         try:
             db.session.execute(db.text('ALTER TABLE user ADD COLUMN remember_token VARCHAR(200)'))
             db.session.commit()
-            print("✅ remember_token कॉलम जोड़ दिया गया।")
         except Exception:
             db.session.rollback()
             
@@ -92,7 +91,6 @@ def create_app(config_class=Config):
     @app.route('/login')
     def login():
         if session.get('user_email'):
-            session.permanent = True
             return redirect(url_for('home'))
         if not google.authorized:
             return render_template('login.html')
@@ -109,7 +107,6 @@ def create_app(config_class=Config):
                 session.clear()
                 return render_template('login.html')
         except Exception as e:
-            print(f"Error: {e}")
             session.clear()
             return render_template('login.html')
 
@@ -180,9 +177,6 @@ def create_app(config_class=Config):
         resp.set_cookie('saved_email', '', expires=0)
         return resp
 
-    # =========================================================
-    # 🟢 AUTO-CATEGORIZATION LOGIC 🟢
-    # =========================================================
     def get_filtered_anime():
         all_anime = get_all_anime()
         cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman']
@@ -194,7 +188,7 @@ def create_app(config_class=Config):
         return all_anime, trending_full, popular_full, movies_list, series_list, cartoons_list
 
     # =========================================================
-    # 🟢 NEW: CONTINUE WATCHING FEATURE 🟢
+    # 🟢 CONTINUE WATCHING FEATURE 🟢
     # =========================================================
     
     @app.route('/api/save_progress', methods=['POST'])
@@ -212,8 +206,8 @@ def create_app(config_class=Config):
         progress_db[user_email][anime_id] = {
             "season": data.get('season', 1),
             "episode": data.get('episode', 1),
-            "timestamp": data.get('timestamp', 0), # Kitne second tak dekha
-            "duration": data.get('duration', 0),   # Total kitne second ka hai
+            "timestamp": data.get('timestamp', 0),
+            "duration": data.get('duration', 0),
             "updated_at": datetime.now().isoformat()
         }
         
@@ -232,7 +226,6 @@ def create_app(config_class=Config):
         for anime_id, data in user_progress.items():
             anime_details = get_anime_by_id(anime_id)
             if anime_details:
-                # Progress percentage calculate karo (UI me dikhane ke liye)
                 duration = data.get('duration', 1)
                 timestamp = data.get('timestamp', 0)
                 percent = int((timestamp / duration) * 100) if duration > 0 else 0
@@ -245,12 +238,9 @@ def create_app(config_class=Config):
                 }
                 continue_list.append(anime_details)
                 
-        # Latest updated pehle dikhane ke liye sort karo
         continue_list.sort(key=lambda x: user_progress[str(x['id'])].get('updated_at', ''), reverse=True)
         
         return render_template('continue_watching.html', anime_list=continue_list, page_title="Continue Watching")
-
-    # =========================================================
 
     @app.route('/')
     def home():

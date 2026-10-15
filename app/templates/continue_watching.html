@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main-content-wrapper">
+    <div class="app-section">
+        <div class="section-header">
+            <h2>▶️ Continue Watching</h2>
+        </div>
+        
+        {% if anime_list %}
+        <div class="continue-grid">
+            {% for anime in anime_list %}
+            <a href="/watch/{{ anime.id }}/{{ anime.resume_data.season }}/{{ anime.resume_data.episode }}" class="continue-card">
+                <div class="continue-img-wrap">
+                    <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy">
+                    <div class="continue-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="continue-info">
+                    <h3 class="anime-title">{{ anime.title }}</h3>
+                    <p class="continue-meta">S{{ anime.resume_data.season }} • E{{ anime.resume_data.episode }}</p>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" style="width: {{ anime.resume_data.percent }}%;"></div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-history"></i>
+            <p>अभी तक कोई एनीमे नहीं देखा है।</p>
+            <a href="/" class="btn-watch">Watch Now</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
