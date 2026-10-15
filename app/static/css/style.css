@@ -3804,14 +3804,65 @@ body::before {
     .video-info-meta { font-size: 0.7rem; }
 }
 /* =========================================
-   BROWSE A TO Z GRID
+   A-Z GRID (3-COLUMN) + BROWSE A-Z BUTTONS
    ========================================= */
 
+/* 🛠️ A-Z Page का 3-कॉलम ग्रिड (ToonStream Style) */
+.az-anime-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.az-anime-grid .anime-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+}
+
+.az-anime-grid .anime-card img {
+    width: 100% !important;
+    height: 150px !important;
+    object-fit: cover !important;
+}
+
+.az-anime-grid .anime-title {
+    font-size: 0.7rem !important;
+    padding: 6px 6px 2px 6px !important;
+    margin: 0 !important;
+    text-align: center;
+}
+
+.az-anime-grid .anime-meta {
+    padding: 0 6px 8px 6px !important;
+    font-size: 0.6rem !important;
+    justify-content: center !important;
+}
+
+.az-anime-grid .rank-number {
+    font-size: 0.7rem !important;
+    padding: 2px 6px !important;
+}
+
+/* 📺 डेस्कटॉप पर 5-कॉलम ग्रिड */
+@media (min-width: 768px) {
+    .az-anime-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+    }
+    .az-anime-grid .anime-card img {
+        height: 200px !important;
+    }
+}
+
+/* 🛠️ A-Z Browse Buttons (होम पेज पर) */
 .az-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
     gap: 8px;
-    padding: 0 5px;
+    padding: 0 10px;
 }
 
 .az-btn {

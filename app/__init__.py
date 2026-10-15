@@ -213,15 +213,13 @@ def create_app(config_class=Config):
         all_anime, _, _, _, _, _ = get_filtered_anime()
         return render_template('index.html', anime_list=all_anime, page_title="Top Rated")
 
-    # 🛠️ नया: A-Z Browse Route
+    # 🛠️ A-Z Browse Route
     @app.route('/az/<letter>')
     def az_page(letter):
         if not session.get('user_email'): return render_template('login.html')
         letter = letter.upper()
         all_anime = get_all_anime()
-        # उन सारे एनीमे को फ़िल्टर करो जो उस लेटर से शुरू होते हैं
         filtered = [a for a in all_anime if a['title'].upper().startswith(letter)]
-        # टाइटल के हिसाब से सॉर्ट करो
         filtered.sort(key=lambda x: x['title'].lower())
         return render_template('index.html', anime_list=filtered, page_title=f"Anime starting with '{letter}'", current_letter=letter)
 

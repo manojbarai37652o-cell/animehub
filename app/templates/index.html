@@ -61,7 +61,8 @@
         <div class="section-header">
             <h2>{{ page_title }}</h2>
         </div>
-        <div class="anime-row">
+        <!-- 🛠️ यहाँ A-Z वाला ग्रिड है (3 कॉलम) -->
+        <div class="az-anime-grid">
             {% for anime in anime_list %}
             <a href="/watch/{{ anime.id }}" class="anime-card">
                 <span class="rank-number">{{ loop.index }}</span>
@@ -72,7 +73,7 @@
                 </div>
             </a>
             {% else %}
-            <p style="text-align: center; width: 100%; padding: 20px; color: #8b949e;">कोई एनीमे नहीं मिला।</p>
+            <p style="text-align: center; width: 100%; padding: 20px; color: #8b949e; grid-column: 1 / -1;">कोई एनीमे नहीं मिला।</p>
             {% endfor %}
         </div>
     </div>
@@ -80,7 +81,7 @@
     
     <!-- होमपेज के सारे सेक्शन्स -->
     
-    <!-- 🔥 Trending Anime -->
+    <!-- 🔥 Trending Anime (Horizontal Scroll) -->
     {% if trending %}
     <div class="app-section">
         <div class="section-header">
@@ -202,14 +203,14 @@
         </div>
     </div>
 
-    <!-- 🛠️ NEW: Browse A to Z (सिर्फ होम पेज पर) -->
+    <!-- 🛠️ Browse A to Z (सिर्फ होम पेज पर) -->
     <div class="app-section">
         <div class="section-header">
             <h2>🔤 Browse A to Z</h2>
         </div>
         <div class="az-grid">
             {% for letter in ['#', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %}
-            <a href="/az/{{ letter }}" class="az-btn {% if current_letter == letter %}active{% endif %}">{{ letter }}</a>
+            <a href="/az/{{ letter }}" class="az-btn">{{ letter }}</a>
             {% endfor %}
         </div>
     </div>
