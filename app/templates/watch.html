@@ -22,24 +22,29 @@
         </div>
     </div>
     {% else %}
-    <!-- 🟡 HERO BANNER (सिर्फ एनीमे क्लिक करने पर दिखेगा) 🟡 -->
-    <div class="hero-detail hero-fade-in">
-        <img src="{{ anime.image }}" alt="{{ anime.title }}" class="hero-bg-image" onerror="this.src='https://via.placeholder.com/800x400?text=No+Poster'">
-        <div class="hero-detail-overlay"></div>
+    <!-- 🟡 HERO BANNER (Professional Redesign) 🟡 -->
+    <div class="hero-detail">
+        <!-- Background Image Container -->
+        <div class="hero-bg-container">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" class="hero-bg-image" onerror="this.src='https://via.placeholder.com/800x400?text=No+Poster';">
+            <div class="hero-overlay-gradient"></div>
+        </div>
+        
+        <!-- Content -->
         <div class="hero-detail-content">
-            <span class="featured-badge">FEATURED</span>
+            <span class="featured-badge"><i class="fas fa-star"></i> FEATURED</span>
             <h1 class="hero-anime-title">{{ anime.title }}</h1>
-
+            
             <div class="hero-meta-row">
                 {% if anime.language and anime.language != 'Unknown' %}
-                <span class="lang-badge">{{ anime.language }}</span>
+                <span class="lang-badge"><i class="fas fa-globe"></i> {{ anime.language }}</span>
                 {% endif %}
-                <span class="rating-badge">★ {{ anime.rating|default('8.0') }}</span>
+                <span class="rating-badge"><i class="fas fa-star" style="color: #f1c40f;"></i> {{ anime.rating|default('8.0') }}</span>
                 <span class="genre-text">{{ genres_text }}</span>
             </div>
-
+            
             <p class="hero-description">{{ description }}</p>
-
+            
             <div class="hero-action-buttons">
                 <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/1" class="btn-watch-hero">
                     <i class="fas fa-play"></i> Watch Now
