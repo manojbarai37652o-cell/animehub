@@ -62,8 +62,8 @@
     <div id="tab-episodes" class="tab-content active">
         {% if seasons|length > 0 %}
         <div class="season-dropdown-wrapper">
-            <!-- 🛠️ यहाँ ID जोड़ दी है ताकि JS आसानी से पकड़ सके -->
-            <button class="season-toggle-btn" id="seasonToggleBtn">
+            <!-- 🛠️ FIX: Inline onclick use kiya hai aur event propagation roka hai -->
+            <button class="season-toggle-btn" onclick="event.stopPropagation(); toggleSeasonDropdown();">
                 <i class="fas fa-layer-group"></i>
                 <span>Season {{ current_season.season_number if current_season else 1 }}</span>
                 <i class="fas fa-chevron-down"></i>
@@ -188,7 +188,7 @@
 
 </div>
 
-<!-- 🟢 JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER, & SEASON DROPDOWN 🟢 -->
+<!-- 🟢 JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, SEASON DROPDOWN 🟢 -->
 <script>
     const animeData = {
         id: {{ anime.id|tojson }},
@@ -209,29 +209,24 @@
         document.getElementById('tab-' + tabName).classList.add('active');
     }
 
-    // 🟢 FIXED: Season Dropdown Logic using Event Listener 🟢
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggleBtn = document.getElementById('seasonToggleBtn');
-        const dropdownMenu = document.getElementById('season-dropdown-menu');
-        
-        if (toggleBtn && dropdownMenu) {
-            // जब बटन पर क्लिक हो
-            toggleBtn.addEventListener('click', function(e) {
-                e.stopPropagation(); // ताकि नीचे वाला डॉक्यूमेंट क्लिक इसे तुरंत बंद न कर दे
-                if (dropdownMenu.style.display === 'block') {
-                    dropdownMenu.style.display = 'none';
-                } else {
-                    dropdownMenu.style.display = 'block';
-                }
-            });
-            
-            // जब बाहर कहीं और क्लिक हो, तो ड्रॉपडाउन बंद हो जाए
-            document.addEventListener('click', function(e) {
-                const wrapper = document.querySelector('.season-dropdown-wrapper');
-                if (wrapper && !wrapper.contains(e.target)) {
-                    dropdownMenu.style.display = 'none';
-                }
-            });
+    // 🟢 FIXED: Global function for SPA compatibility 🟢
+    function toggleSeasonDropdown() {
+        const menu = document.getElementById('season-dropdown-menu');
+        if (menu) {
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
+        }
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        const wrapper = document.querySelector('.season-dropdown-wrapper');
+        const menu = document.getElementById('season-dropdown-menu');
+        if (wrapper && menu && !wrapper.contains(e.target)) {
+            menu.style.display = 'none';
         }
     });
 
