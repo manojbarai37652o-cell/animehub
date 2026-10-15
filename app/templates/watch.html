@@ -62,7 +62,7 @@
     <div id="tab-episodes" class="tab-content active">
         {% if seasons|length > 0 %}
         <div class="season-dropdown-wrapper">
-            <!-- 🛠️ FIX: Inline onclick use kiya hai aur event propagation roka hai -->
+            <!-- 🛠️ FIX: Inline onclick use kiya hai taaki SPA ise block na kare -->
             <button class="season-toggle-btn" onclick="event.stopPropagation(); toggleSeasonDropdown();">
                 <i class="fas fa-layer-group"></i>
                 <span>Season {{ current_season.season_number if current_season else 1 }}</span>
@@ -196,11 +196,11 @@
         image: {{ anime.image|tojson }}
     };
     const currentEp = {
-        title: {{ current_ep.title if current_ep else 'Episode 1'|tojson }},
-        num: {{ current_ep.title.split(' ')[-1] if current_ep else '1'|tojson }}
+        title: {{ (current_ep.title if current_ep and current_ep.title else 'Episode 1')|tojson }},
+        num: {{ (current_ep.title.split(' ')[-1] if current_ep and current_ep.title else '1')|tojson }}
     };
     const animeId = {{ anime.id|tojson }};
-    const currentSeason = {{ current_season.season_number if current_season else 1|tojson }};
+    const currentSeason = {{ (current_season.season_number if current_season and current_season.season_number else 1)|tojson }};
 
     function switchTab(tabName, btn) {
         document.querySelectorAll('.watch-tab').forEach(t => t.classList.remove('active'));
@@ -301,29 +301,28 @@
     history = history.slice(0, 20);
     localStorage.setItem('animeHistory', JSON.stringify(history));
 
+    // 🟢 CONTINUE WATCHING TRACKER (Moved outside DOMContentLoaded) 🟢
     {% if current_ep and current_ep.video_url %}
-    document.addEventListener('DOMContentLoaded', function() {
-        const progressData = {
-            anime_id: animeId,
-            season: currentSeason,
-            episode: currentEp.num,
-            timestamp: 0,
-            duration: 1
-        };
-        fetch('/api/save_progress', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
-            body: JSON.stringify(progressData)
-        })
-        .then(response => response.json())
-        .then(data => console.log('Progress saved:', data))
-        .catch(error => console.error('Error saving progress:', error));
-    });
+    const progressData = {
+        anime_id: animeId,
+        season: currentSeason,
+        episode: currentEp.num,
+        timestamp: 0,
+        duration: 1
+    };
+    fetch('/api/save_progress', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+        body: JSON.stringify(progressData)
+    })
+    .then(response => response.json())
+    .then(data => console.log('Progress saved:', data))
+    .catch(error => console.error('Error saving progress:', error));
     {% endif %}
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const videoWrapper = document.getElementById('videoSectionWrapper');
-        if (!videoWrapper) return;
+    // 🟢 STICKY PLAYER LOGIC (Moved outside DOMContentLoaded) 🟢
+    const videoWrapper = document.getElementById('videoSectionWrapper');
+    if (videoWrapper) {
         const wrapperTop = videoWrapper.offsetTop;
         const wrapperHeight = videoWrapper.offsetHeight;
         window.addEventListener('scroll', function() {
@@ -340,6 +339,6 @@
                 delete document.body.dataset.hasStickyPadding;
             }
         });
-    });
+    }
 </script>
 {% endblock %}
