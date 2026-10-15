@@ -4,7 +4,7 @@
 <div class="watch-page">
 
     {% if ep_number is not none and current_ep and current_ep.video_url %}
-    <!-- 🟢 VIDEO PLAYER SECTION 🟢 -->
+    <!-- 🟢 VIDEO PLAYER SECTION (सिर्फ एपिसोड क्लिक करने पर दिखेगा) 🟢 -->
     <div class="video-section-wrapper" id="videoSectionWrapper">
         <div class="video-player-crunchy" id="mainVideoPlayer">
             <iframe src="{{ current_ep.video_url }}"
@@ -22,9 +22,9 @@
         </div>
     </div>
     {% else %}
-    <!-- 🟡 HERO BANNER (Crunchyroll Style) 🟡 -->
+    <!-- 🟡 HERO BANNER (सिर्फ एनीमे क्लिक करने पर दिखेगा) 🟡 -->
     <div class="hero-detail hero-fade-in">
-        <img src="{{ anime.image }}" alt="{{ anime.title }}" class="hero-bg-image">
+        <img src="{{ anime.image }}" alt="{{ anime.title }}" class="hero-bg-image" onerror="this.src='https://via.placeholder.com/800x400?text=No+Poster'">
         <div class="hero-detail-overlay"></div>
         <div class="hero-detail-content">
             <span class="featured-badge">FEATURED</span>
@@ -301,17 +301,15 @@
     history = history.slice(0, 20);
     localStorage.setItem('animeHistory', JSON.stringify(history));
 
-    // 🟢 CONTINUE WATCHING TRACKER (YEH NAYA HAI) 🟢
+    // 🟢 CONTINUE WATCHING TRACKER 🟢
     {% if current_ep and current_ep.video_url %}
     document.addEventListener('DOMContentLoaded', function() {
-        // Kyunki hum iframe use kar rahe hain, hum exact time nahi le sakte.
-        // Isliye hum sirf yeh save karenge ki user ne is episode ko khola hai.
         const progressData = {
             anime_id: animeId,
             season: currentSeason,
             episode: currentEp.num,
-            timestamp: 0, // Iframe limitations ki wajah se 0 bhej rahe hain
-            duration: 1   // Placeholder duration
+            timestamp: 0,
+            duration: 1
         };
 
         fetch('/api/save_progress', {

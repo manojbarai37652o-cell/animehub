@@ -4214,21 +4214,30 @@ body::before {
 .empty-state p { font-size: 16px; margin-bottom: 20px; }
 
 /* =========================================
-   Watch Page Styles (Tabs, Episodes, etc.)
+   Watch Page Styles
    ========================================= */
-.watch-page { padding-bottom: 80px; }
+.watch-page { padding-bottom: 80px; position: relative; }
 
 /* Hero Banner */
-.hero-detail { position: relative; height: 60vh; min-height: 400px; display: flex; align-items: flex-end; padding: 20px; overflow: hidden; }
+.hero-detail { 
+    position: relative; 
+    height: auto; 
+    min-height: 350px; 
+    display: flex; 
+    align-items: flex-end; 
+    padding: 20px; 
+    overflow: hidden; 
+    margin-bottom: 10px;
+}
 .hero-bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .hero-detail-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, #0b0f19 0%, rgba(11, 15, 25, 0.4) 60%, rgba(11, 15, 25, 0.1) 100%); z-index: -1; }
 .hero-detail-content { position: relative; z-index: 1; width: 100%; max-width: 800px; }
 .featured-badge { background: #a855f7; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: bold; letter-spacing: 1px; }
-.hero-anime-title { font-size: 32px; font-weight: 800; margin: 10px 0; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.hero-anime-title { font-size: 28px; font-weight: 800; margin: 10px 0; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
 .hero-meta-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 15px; }
 .lang-badge, .rating-badge { background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; font-size: 12px; color: #fff; backdrop-filter: blur(5px); }
 .genre-text { font-size: 12px; color: #ccc; }
-.hero-description { font-size: 14px; color: #bbb; line-height: 1.5; margin-bottom: 20px; display: -webkit-box; line-clamp: 3; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.hero-description { font-size: 14px; color: #bbb; line-height: 1.5; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .hero-action-buttons { display: flex; gap: 15px; }
 .btn-watch-hero { background: #a855f7; color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
 .btn-watch-hero:hover { background: #9333ea; transform: translateY(-2px); }
@@ -4236,7 +4245,7 @@ body::before {
 .btn-outline-hero:hover { background: rgba(255,255,255,0.1); }
 
 /* Video Player */
-.video-section-wrapper { position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */ background: #000; z-index: 100; transition: all 0.3s ease; }
+.video-section-wrapper { position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */ background: #000; z-index: 100; transition: all 0.3s ease; margin-top: 10px; border-top: 2px solid #a855f7; }
 .video-section-wrapper.sticky { position: fixed; top: 0; left: 0; width: 100%; z-index: 2000; box-shadow: 0 4px 20px rgba(0,0,0,0.8); }
 .video-player-crunchy { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 .video-player-crunchy iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
