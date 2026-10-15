@@ -27,7 +27,7 @@
         <p class="splash-text">Loading your anime...</p>
     </div>
 
-    <!-- 🛠️ NEW: SPA Top Loading Bar (पतली सी लाइन जो ऊपर दिखेगी) -->
+    <!-- SPA Top Loading Bar -->
     <div id="spaLoader" class="spa-loader"></div>
 
     <!-- Floating Glass Header -->
@@ -62,7 +62,7 @@
         <div class="search-overlay-content">
             <form action="/search" method="GET" class="search-form-overlay">
                 <i class="fas fa-search search-icon-overlay"></i>
-                <input type="text" name="q" id="searchInput" placeholder="Search anime, movies..." autocomplete="off" required>
+                <input type="text" name="q" id="searchInput" placeholder="Search anime, movies..." autocomplete="off">
                 <button type="button" class="close-search-btn" onclick="closeSearch()"><i class="fas fa-times"></i></button>
             </form>
         </div>
@@ -73,16 +73,34 @@
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Floating Glass Bottom Nav -->
+    <!-- ========================================== -->
+    <!-- 🟢 UPDATED: Floating Glass Bottom Nav 🟢 -->
+    <!-- ========================================== -->
     <div class="bottom-nav-wrapper">
         <div class="glass-bottom-nav">
-            <a href="/" class="nav-item spa-link"><i class="fas fa-home"></i><span>Home</span></a>
-            <a href="/trending" class="nav-item spa-link"><i class="fas fa-fire"></i><span>Trending</span></a>
-            <a href="/categories" class="nav-item spa-link"><i class="fas fa-th-large"></i><span>Categories</span></a>
-            <a href="/top-rated" class="nav-item spa-link"><i class="fas fa-crown"></i><span>Top Rated</span></a>
-            <a href="/profile" class="nav-item spa-link"><i class="fas fa-user"></i><span>Profile</span></a>
+            <a href="/" class="nav-item spa-link {% if page_title == 'Home' or page_title == 'AnimeNest' %}active{% endif %}">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            
+            <a href="/watchlist" class="nav-item spa-link {% if page_title == 'Watchlist' %}active{% endif %}">
+                <i class="far fa-bookmark"></i>
+                <span>Watchlist</span>
+            </a>
+            
+            <a href="/my-anime" class="nav-item spa-link {% if page_title == 'My Anime' %}active{% endif %}">
+                <i class="fas fa-th-large"></i>
+                <span>My Anime</span>
+                <span class="nav-badge"></span> <!-- लाल डॉट (Notification Badge) -->
+            </a>
+            
+            <a href="/profile" class="nav-item spa-link {% if page_title == 'Profile' %}active{% endif %}">
+                <i class="far fa-user"></i>
+                <span>Profile</span>
+            </a>
         </div>
     </div>
+    <!-- ========================================== -->
 
     <!-- Splash Screen Script -->
     <script>
@@ -110,10 +128,9 @@
         }
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeSearch(); } });
 
-        // =========================================
-        // 🛠️ SPA Navigation System (No URL Change, No Reload)
-        // =========================================
-
+        // ==========================================
+        // SPA Navigation System (No URL Change, No Reload)
+        // ==========================================
         function showSpaLoader() {
             const loader = document.getElementById('spaLoader');
             if (loader) {
@@ -138,41 +155,40 @@
         document.addEventListener('click', async function(e) {
             const link = e.target.closest('a');
             if (!link) return;
-            
+
             const href = link.getAttribute('href');
-            
+
             // बाहरी लिंक, हैश लिंक, और विशेष लिंक को छोड़ो
-            if (!href || !href.startsWith('/') || href.startsWith('//')) return;
+            if (!href || href.startsWith('#') || href.startsWith('javascript')) return;
             if (link.getAttribute('target') === '_blank') return;
             if (link.classList.contains('no-spa')) return;
             if (href.startsWith('/logout')) return; // Logout पर नॉर्मल नेविगेशन चलेगा
-            if (href.startsWith('/login')) return;  // Login पर नॉर्मल नेविगेशन चलेगा
-            
+            if (href.startsWith('/login')) return; // Login पर नॉर्मल नेविगेशन चलेगा
+
             e.preventDefault();
-            
             showSpaLoader();
-            
+
             try {
                 const response = await fetch(href, {
                     headers: { 'X-Requested-With': 'XMLHttpRequest' },
                     credentials: 'same-origin'
                 });
-                
+
                 if (!response.ok) throw new Error('Fetch failed');
-                
+
                 const html = await response.text();
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
-                
-                // नए कंटेंट को निकालो (main tag)
+
+                // नया कंटेंट को निकालो (main tag)
                 const newMain = doc.querySelector('main') || doc.querySelector('#spaContent');
                 const oldMain = document.getElementById('spaContent');
-                
+
                 if (newMain && oldMain) {
                     // पुराना कंटेंट हटाओ और नया लगाओ
                     oldMain.innerHTML = newMain.innerHTML;
-                    
-                    // 🛠️ सारे <script> tags को फिर से चलाओ (क्योंकि innerHTML से scripts नहीं चलते)
+
+                    // सारे <script> tags को फिर से चलाओ (क्योंकि innerHTML से scripts नहीं चलते)
                     const scripts = oldMain.querySelectorAll('script');
                     scripts.forEach(oldScript => {
                         const newScript = document.createElement('script');
@@ -182,10 +198,10 @@
                         newScript.textContent = oldScript.textContent;
                         oldScript.parentNode.replaceChild(newScript, oldScript);
                     });
-                    
+
                     // ऊपर स्क्रॉल करो
                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                    
+
                     // बॉटम नेविगेशन में active क्लास अपडेट करो
                     document.querySelectorAll('.nav-item').forEach(nav => {
                         nav.classList.remove('active');
@@ -205,7 +221,7 @@
             }
         });
 
-        // ब्राउज़र के "Back" बटन के लिए (अभी के लिए बेसिक)
+        // ब्राउज़र के "back" बटन के लिए (अभी के लिए बेसिक)
         window.addEventListener('popstate', function() {
             window.location.reload();
         });
