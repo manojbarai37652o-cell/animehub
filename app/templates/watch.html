@@ -25,7 +25,7 @@
         <!-- 🎨 HERO BANNER (Crunchyroll Style) -->
         <div class="hero-detail hero-fade-in">
             <!-- 🛠️ पूरा पोस्टर बैकग्राउंड में -->
-            <div class="hero-detail-bg" style="background-image: url('{{ anime.image }}');"></div>
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" class="hero-bg-image" onerror="this.src='https://placehold.co/800x600/161b22/a371f7?text=Anime'">
             <div class="hero-detail-overlay"></div>
             <div class="hero-detail-content">
                 <span class="featured-badge">FEATURED</span>
@@ -42,7 +42,6 @@
                 <p class="hero-description">{{ description }}</p>
                 
                 <div class="hero-action-buttons">
-                    <!-- 🛠️ Watch Now बटन (Download button नहीं) -->
                     <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/1" class="btn-watch-now">
                         <i class="fas fa-play"></i> Watch Now
                     </a>
@@ -306,19 +305,30 @@ history.unshift(currentEpData);
 history = history.slice(0, 20);
 localStorage.setItem('animeHistory', JSON.stringify(history));
 
-// 🛠️ Sticky Player Logic (YouTube Style)
+// 🛠️ PERFECT STICKY PLAYER LOGIC (YouTube Style)
 document.addEventListener('DOMContentLoaded', function() {
     const videoWrapper = document.getElementById('videoSectionWrapper');
     if (!videoWrapper) return;
     
-    // Get the top offset of the video wrapper
-    const wrapperOffset = videoWrapper.offsetTop;
+    // Get the wrapper's original top position
+    const wrapperTop = videoWrapper.offsetTop;
+    const wrapperHeight = videoWrapper.offsetHeight;
     
     window.addEventListener('scroll', function() {
-        if (window.scrollY > wrapperOffset) {
+        const scrollY = window.scrollY;
+        
+        // When user scrolls past the video wrapper's original position
+        if (scrollY > wrapperTop) {
             videoWrapper.classList.add('sticky');
+            // Add padding to body so content doesn't jump
+            if (!document.body.dataset.hasStickyPadding) {
+                document.body.style.paddingTop = wrapperHeight + 'px';
+                document.body.dataset.hasStickyPadding = 'true';
+            }
         } else {
             videoWrapper.classList.remove('sticky');
+            document.body.style.paddingTop = '';
+            delete document.body.dataset.hasStickyPadding;
         }
     });
 });

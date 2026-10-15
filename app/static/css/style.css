@@ -3576,14 +3576,20 @@ body::before {
     font-size: 0.85rem;
 }
 /* =========================================
-   HERO BANNER (Crunchyroll Style) + STICKY PLAYER
+   PERFECT STICKY PLAYER + HERO BANNER (FINAL)
    ========================================= */
 
-/* 🎨 हीरो बैनर - पूरे पोस्टर के साथ, छोटा साइज़ */
+.watch-page {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+/* 🎨 HERO BANNER (Crunchyroll Style) - FIXED Image */
 .hero-detail {
     position: relative;
     width: 100%;
-    height: 50vh; /* छोटा और सुंदर */
+    height: 50vh;
     min-height: 320px;
     max-height: 450px;
     overflow: hidden;
@@ -3594,15 +3600,16 @@ body::before {
     box-sizing: border-box;
 }
 
-.hero-detail-bg {
+.hero-bg-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center top;
+    object-fit: cover;
+    object-position: center top;
     z-index: 1;
+    display: block;
 }
 
 .hero-detail-overlay {
@@ -3611,7 +3618,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #0b0f19 0%, rgba(11, 15, 25, 0.7) 50%, rgba(11, 15, 25, 0.2) 100%);
+    background: linear-gradient(to top, #0b0f19 0%, rgba(11, 15, 25, 0.6) 60%, rgba(11, 15, 25, 0.1) 100%);
     z-index: 2;
 }
 
@@ -3692,26 +3699,30 @@ body::before {
     flex-wrap: wrap;
 }
 
-/* 🎬 VIDEO PLAYER WRAPPER */
+/* 🎬 VIDEO SECTION WRAPPER */
 .video-section-wrapper {
     position: relative;
     width: 100%;
     margin: 0;
     padding: 0;
     z-index: 100;
+    background-color: #0b0f19;
     transition: all 0.3s ease;
-    background-color: #0b0f19; /* पीछे का कंटेंट छिपाने के लिए */
 }
 
-/* 🛠️ YouTube स्टाइल Sticky Player */
+/* 🛠️ STICKY MODE (YouTube Style) - FIXED */
 .video-section-wrapper.sticky {
     position: fixed;
-    top: 60px; /* हेडर के नीचे */
+    top: 55px; /* हेडर के ठीक नीचे */
     left: 0;
     width: 100%;
     z-index: 999;
     box-shadow: 0 5px 20px rgba(0,0,0,0.9);
     border-bottom: 2px solid rgba(163, 113, 247, 0.6);
+}
+
+.video-section-wrapper.sticky .video-info-bar {
+    padding: 8px 12px;
 }
 
 .video-player-crunchy {
@@ -3732,7 +3743,7 @@ body::before {
     display: block;
 }
 
-/* 🛠️ Video Info Bar (ToonStream Style) */
+/* 🛠️ Video Info Bar */
 .video-info-bar {
     display: flex;
     justify-content: space-between;
@@ -3744,6 +3755,7 @@ body::before {
     margin: 0;
     flex-wrap: wrap;
     gap: 8px;
+    transition: all 0.3s ease;
 }
 
 .video-info-title {
@@ -3783,24 +3795,11 @@ body::before {
     margin-right: 10px;
 }
 
-/* 📱 मोबाइल पर Info Bar */
+/* 📱 मोबाइल पर */
 @media (max-width: 480px) {
-    .hero-anime-title {
-        font-size: 1.2rem;
-    }
-    .hero-detail {
-        height: 45vh;
-    }
-    .video-info-bar {
-        padding: 10px 12px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-    .video-info-title {
-        font-size: 0.8rem;
-    }
-    .video-info-meta {
-        font-size: 0.7rem;
-    }
+    .hero-anime-title { font-size: 1.2rem; }
+    .hero-detail { height: 45vh; }
+    .video-info-bar { padding: 10px 12px; flex-direction: column; align-items: flex-start; gap: 5px; }
+    .video-info-title { font-size: 0.8rem; }
+    .video-info-meta { font-size: 0.7rem; }
 }
