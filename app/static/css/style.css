@@ -1272,8 +1272,8 @@ body {
 .ep-thumb {
     position: relative;
     flex-shrink: 0;
-    width: 150px;
-    height: 90px;
+    width: 100px;   /* 👈 150px को 100px कर दो */
+    height: 60px;   /* 👈 90px को 60px कर दो */
     border-radius: 8px;
     overflow: hidden;
 }
