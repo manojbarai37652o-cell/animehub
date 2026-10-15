@@ -161,59 +161,72 @@ def create_app(config_class=Config):
         return resp
 
     # =========================================================
-    # 🟢 FIXED: YAHAN HAI ASLI FILTERING LOGIC 🟢
+    # 🟢 AUTO-CATEGORIZATION LOGIC 🟢
     # =========================================================
     def get_filtered_anime():
         all_anime = get_all_anime()
         
-        # 1. Cartoon Keywords (In titles mein ye words honge to wo Cartoon hain)
+        # 1. Cartoon Keywords
         cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman']
         
-        # 2. Movies List (Sirf wo anime jinka pehla episode 'Full Movie' hai)
+        # 2. Movies List (Sirf 'Full Movie' waale)
         movies_list = [a for a in all_anime if a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie']
         
-        # 3. Cartoons List (Jinke title mein cartoon_keywords hain)
+        # 3. Cartoons List (Keyword match waale)
         cartoons_list = [a for a in all_anime if any(k in a['title'].lower() for k in cartoon_keywords)]
         
-        # 4. Series List (Bache hue saare anime jo na Movie hain, na Cartoon)
+        # 4. Series List (Bache hue saare anime)
         series_list = [a for a in all_anime if a not in movies_list and a not in cartoons_list]
         
-        # 5. Trending (Top 12 Series - Rating ke hisaab se)
-        trending = sorted(series_list, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)[:12]
+        # 5. Trending & Popular (Abhi ke liye full sorted list nikaal rahe hain)
+        trending_full = sorted(series_list, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)
+        popular_full = sorted(series_list, key=lambda x: len(x.get('episodes', [])), reverse=True)
         
-        # 6. Popular (Top 12 Series - Episodes ki sankhya ke hisaab se)
-        popular = sorted(series_list, key=lambda x: len(x.get('episodes', [])), reverse=True)[:12]
-        
-        # Debugging ke liye print (Render logs me dikhega)
-        print(f"Total Anime: {len(all_anime)}, Series: {len(series_list)}, Movies: {len(movies_list)}, Cartoons: {len(cartoons_list)}")
-        
-        return all_anime, trending, popular, movies_list, series_list, cartoons_list
+        return all_anime, trending_full, popular_full, movies_list, series_list, cartoons_list
     # =========================================================
 
     @app.route('/')
     def home():
         if not session.get('user_email'): return render_template('login.html')
-        all_anime, trending, popular, movies_list, series_list, cartoons_list = get_filtered_anime()
+        
+        # Poora data fetch karo
+        all_anime, trending_full, popular_full, movies_full, series_full, cartoons_full = get_filtered_anime()
+        
+        # 🟢 Home page ke liye har section se RANDOM 12 items chuno 🟢
+        # Trending: Top 50 me se random 12
+        trending = random.sample(trending_full[:50], min(len(trending_full[:50]), 12)) if trending_full else []
+        
+        # Popular: Top 50 me se random 12
+        popular = random.sample(popular_full[:50], min(len(popular_full[:50]), 12)) if popular_full else []
+        
+        # Movies: Saari movies me se random 12
+        random.shuffle(movies_full)
+        movies = movies_full[:12]
+        
+        # Cartoons: Saare cartoons me se random 12
+        random.shuffle(cartoons_full)
+        cartoons = cartoons_full[:12]
+        
         hero_anime_list = get_hero_anime_list(5)
-        return render_template('index.html', anime_list=all_anime, trending=trending, popular=popular, movies=movies_list, cartoons=cartoons_list, hero_anime_list=hero_anime_list, page_title='Home')
+        return render_template('index.html', anime_list=all_anime, trending=trending, popular=popular, movies=movies, cartoons=cartoons, hero_anime_list=hero_anime_list, page_title='Home')
 
     @app.route('/trending')
     def trending_page():
         if not session.get('user_email'): return render_template('login.html')
-        _, trending, _, _, _, _ = get_filtered_anime()
-        return render_template('index.html', anime_list=trending, page_title="Trending Anime")
+        _, trending_full, _, _, _, _ = get_filtered_anime()
+        return render_template('index.html', anime_list=trending_full, page_title="Trending Anime")
 
     @app.route('/movies')
     def movies_page():
         if not session.get('user_email'): return render_template('login.html')
-        _, _, _, movies_list, _, _ = get_filtered_anime()
-        return render_template('index.html', anime_list=movies_list, page_title="Anime Movies")
+        _, _, _, movies_full, _, _ = get_filtered_anime()
+        return render_template('index.html', anime_list=movies_full, page_title="Anime Movies")
 
     @app.route('/cartoons')
     def cartoons_page():
         if not session.get('user_email'): return render_template('login.html')
-        _, _, _, _, _, cartoons_list = get_filtered_anime()
-        return render_template('index.html', anime_list=cartoons_list, page_title="Cartoons")
+        _, _, _, _, _, cartoons_full = get_filtered_anime()
+        return render_template('index.html', anime_list=cartoons_full, page_title="Cartoons")
 
     @app.route('/categories')
     def categories_page():
