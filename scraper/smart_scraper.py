@@ -17,7 +17,7 @@ from scraper.parser import (parse_anime_homepage, parse_post_id, parse_season_ep
 MIN_YEAR = 2000
 BATCH_SIZE = 100
 SLEEP_BETWEEN = 2
-MAX_PAGES_PER_SECTION = 5
+MAX_PAGES_PER_SECTION = 50
 
 PROGRESS_FILE = os.path.join(project_root, 'database', 'progress.json')
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
