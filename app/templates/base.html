@@ -73,9 +73,7 @@
         {% block content %}{% endblock %}
     </main>
 
-    <!-- ========================================== -->
-    <!-- 🟢 UPDATED: Floating Glass Bottom Nav 🟢 -->
-    <!-- ========================================== -->
+    <!-- Bottom Nav -->
     <div class="bottom-nav-wrapper">
         <div class="glass-bottom-nav">
             <a href="/" class="nav-item spa-link {% if page_title == 'Home' or page_title == 'AnimeNest' %}active{% endif %}">
@@ -88,10 +86,11 @@
                 <span>Watchlist</span>
             </a>
             
-            <a href="/my-anime" class="nav-item spa-link {% if page_title == 'My Anime' %}active{% endif %}">
-                <i class="fas fa-th-large"></i>
-                <span>My Anime</span>
-                <span class="nav-badge"></span> <!-- लाल डॉट (Notification Badge) -->
+            <!-- 🟢 Continue Watching Tab 🟢 -->
+            <a href="/continue-watching" class="nav-item spa-link {% if page_title == 'Continue Watching' %}active{% endif %}">
+                <i class="fas fa-play-circle"></i>
+                <span>Continue</span>
+                <span class="nav-badge"></span>
             </a>
             
             <a href="/profile" class="nav-item spa-link {% if page_title == 'Profile' %}active{% endif %}">
@@ -100,9 +99,8 @@
             </a>
         </div>
     </div>
-    <!-- ========================================== -->
 
-    <!-- Splash Screen Script -->
+    <!-- Splash Screen Script & SPA Navigation (वैसा ही रखो जैसा पहले था) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById("splash-screen");
@@ -128,9 +126,6 @@
         }
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeSearch(); } });
 
-        // ==========================================
-        // SPA Navigation System (No URL Change, No Reload)
-        // ==========================================
         function showSpaLoader() {
             const loader = document.getElementById('spaLoader');
             if (loader) {
@@ -139,7 +134,6 @@
                 setTimeout(() => { loader.style.width = '70%'; }, 50);
             }
         }
-
         function hideSpaLoader() {
             const loader = document.getElementById('spaLoader');
             if (loader) {
@@ -151,44 +145,30 @@
             }
         }
 
-        // सारे अंदरूनी लिंक (जो '/' से शुरू होते हैं) को इंटरसेप्ट करो
         document.addEventListener('click', async function(e) {
             const link = e.target.closest('a');
             if (!link) return;
-
             const href = link.getAttribute('href');
-
-            // बाहरी लिंक, हैश लिंक, और विशेष लिंक को छोड़ो
             if (!href || href.startsWith('#') || href.startsWith('javascript')) return;
             if (link.getAttribute('target') === '_blank') return;
             if (link.classList.contains('no-spa')) return;
-            if (href.startsWith('/logout')) return; // Logout पर नॉर्मल नेविगेशन चलेगा
-            if (href.startsWith('/login')) return; // Login पर नॉर्मल नेविगेशन चलेगा
+            if (href.startsWith('/logout')) return;
+            if (href.startsWith('/login')) return;
 
             e.preventDefault();
             showSpaLoader();
 
             try {
-                const response = await fetch(href, {
-                    headers: { 'X-Requested-With': 'XMLHttpRequest' },
-                    credentials: 'same-origin'
-                });
-
+                const response = await fetch(href, { headers: { 'X-Requested-With': 'XMLHttpRequest' }, credentials: 'same-origin' });
                 if (!response.ok) throw new Error('Fetch failed');
-
                 const html = await response.text();
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
-
-                // नया कंटेंट को निकालो (main tag)
                 const newMain = doc.querySelector('main') || doc.querySelector('#spaContent');
                 const oldMain = document.getElementById('spaContent');
 
                 if (newMain && oldMain) {
-                    // पुराना कंटेंट हटाओ और नया लगाओ
                     oldMain.innerHTML = newMain.innerHTML;
-
-                    // सारे <script> tags को फिर से चलाओ (क्योंकि innerHTML से scripts नहीं चलते)
                     const scripts = oldMain.querySelectorAll('script');
                     scripts.forEach(oldScript => {
                         const newScript = document.createElement('script');
@@ -198,32 +178,19 @@
                         newScript.textContent = oldScript.textContent;
                         oldScript.parentNode.replaceChild(newScript, oldScript);
                     });
-
-                    // ऊपर स्क्रॉल करो
                     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-                    // बॉटम नेविगेशन में active क्लास अपडेट करो
                     document.querySelectorAll('.nav-item').forEach(nav => {
                         nav.classList.remove('active');
-                        if (nav.getAttribute('href') === href) {
-                            nav.classList.add('active');
-                        }
+                        if (nav.getAttribute('href') === href) nav.classList.add('active');
                     });
                 } else {
-                    // अगर main tag नहीं मिला (जैसे login page), तो नॉर्मल नेविगेशन करो
                     window.location.href = href;
                 }
             } catch (err) {
-                console.error('SPA navigation error:', err);
-                window.location.href = href; // Error होने पर नॉर्मल नेविगेशन
+                window.location.href = href;
             } finally {
                 hideSpaLoader();
             }
-        });
-
-        // ब्राउज़र के "back" बटन के लिए (अभी के लिए बेसिक)
-        window.addEventListener('popstate', function() {
-            window.location.reload();
         });
     </script>
 </body>
