@@ -68601,6 +68601,168 @@
                     "video_url": "https://ravok.buzz/video/2c97bbe65e7d5958a5d4960d35b14895"
                 }
             ]
+        },
+        {
+            "id": "scooby-doo-adventures-the-mystery-map",
+            "title": "Scooby-Doo! Adventures: The Mystery Map",
+            "url": "https://animesalt.cx/movies/scooby-doo-adventures-the-mystery-map/",
+            "image": "https://image.tmdb.org/t/p/w500/pulFY8KAuF6BiySNkVHgAN7cI0H.jpg",
+            "language": "Unknown",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/video/4851703a0471110c71ec7f7c8fdc073f"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/video/4851703a0471110c71ec7f7c8fdc073f"
+                }
+            ]
+        },
+        {
+            "id": "zenshu",
+            "title": "ZENSHU",
+            "url": "https://animesalt.cx/series/zenshu/",
+            "image": "https://image.tmdb.org/t/p/w500/okRnvNLpduDKPUIyZbMxJkeek8D.jpg",
+            "language": "Multi Audio",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Episode 1",
+                            "url": "https://animesalt.cx/episode/zenshu-1x1/",
+                            "video_url": "https://ravok.buzz/video/9c51a13764ca629f439f6accbb4ec413"
+                        },
+                        {
+                            "title": "Episode 2",
+                            "url": "https://animesalt.cx/episode/zenshu-1x2/",
+                            "video_url": "https://ravok.buzz/video/2d44e06a7038f2dd98f0f54c4be35e22"
+                        },
+                        {
+                            "title": "Episode 3",
+                            "url": "https://animesalt.cx/episode/zenshu-1x3/",
+                            "video_url": "https://ravok.buzz/video/4f00921114932db3f8662a41b44ee68f"
+                        },
+                        {
+                            "title": "Episode 4",
+                            "url": "https://animesalt.cx/episode/zenshu-1x4/",
+                            "video_url": "https://ravok.buzz/video/95b431e51fc53692913da5263c214162"
+                        },
+                        {
+                            "title": "Episode 5",
+                            "url": "https://animesalt.cx/episode/zenshu-1x5/",
+                            "video_url": "https://ravok.buzz/video/1f5f6ad95cc908a20bb7e30ee28a5958"
+                        },
+                        {
+                            "title": "Episode 6",
+                            "url": "https://animesalt.cx/episode/zenshu-1x6/",
+                            "video_url": "https://ravok.buzz/video/1fb36c4ccf88f7e67ead155496f02338"
+                        },
+                        {
+                            "title": "Episode 7",
+                            "url": "https://animesalt.cx/episode/zenshu-1x7/",
+                            "video_url": "https://ravok.buzz/video/bd6226970e9ffbc8305184d53e5dcd99"
+                        },
+                        {
+                            "title": "Episode 8",
+                            "url": "https://animesalt.cx/episode/zenshu-1x8/",
+                            "video_url": "https://ravok.buzz/video/fdfb747f3811c255ad0e32fce91d72df"
+                        },
+                        {
+                            "title": "Episode 9",
+                            "url": "https://animesalt.cx/episode/zenshu-1x9/",
+                            "video_url": "https://ravok.buzz/video/533d2891bb1b332f3845f7bfd09b78ef"
+                        },
+                        {
+                            "title": "Episode 10",
+                            "url": "https://animesalt.cx/episode/zenshu-1x10/",
+                            "video_url": "https://ravok.buzz/video/52f4691a4de70b3c441bca6c546979d9"
+                        },
+                        {
+                            "title": "Episode 11",
+                            "url": "https://animesalt.cx/episode/zenshu-1x11/",
+                            "video_url": "https://ravok.buzz/video/acf8b366843afe53ac7efe9af8c1b90b"
+                        },
+                        {
+                            "title": "Episode 12",
+                            "url": "https://animesalt.cx/episode/zenshu-1x12/",
+                            "video_url": "https://ravok.buzz/video/be100b06aa2c4c5164f9f1c4a4fe2781"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/zenshu-1x1/",
+                    "video_url": "https://ravok.buzz/video/9c51a13764ca629f439f6accbb4ec413"
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://animesalt.cx/episode/zenshu-1x2/",
+                    "video_url": "https://ravok.buzz/video/2d44e06a7038f2dd98f0f54c4be35e22"
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://animesalt.cx/episode/zenshu-1x3/",
+                    "video_url": "https://ravok.buzz/video/4f00921114932db3f8662a41b44ee68f"
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://animesalt.cx/episode/zenshu-1x4/",
+                    "video_url": "https://ravok.buzz/video/95b431e51fc53692913da5263c214162"
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://animesalt.cx/episode/zenshu-1x5/",
+                    "video_url": "https://ravok.buzz/video/1f5f6ad95cc908a20bb7e30ee28a5958"
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://animesalt.cx/episode/zenshu-1x6/",
+                    "video_url": "https://ravok.buzz/video/1fb36c4ccf88f7e67ead155496f02338"
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://animesalt.cx/episode/zenshu-1x7/",
+                    "video_url": "https://ravok.buzz/video/bd6226970e9ffbc8305184d53e5dcd99"
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://animesalt.cx/episode/zenshu-1x8/",
+                    "video_url": "https://ravok.buzz/video/fdfb747f3811c255ad0e32fce91d72df"
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://animesalt.cx/episode/zenshu-1x9/",
+                    "video_url": "https://ravok.buzz/video/533d2891bb1b332f3845f7bfd09b78ef"
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://animesalt.cx/episode/zenshu-1x10/",
+                    "video_url": "https://ravok.buzz/video/52f4691a4de70b3c441bca6c546979d9"
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://animesalt.cx/episode/zenshu-1x11/",
+                    "video_url": "https://ravok.buzz/video/acf8b366843afe53ac7efe9af8c1b90b"
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://animesalt.cx/episode/zenshu-1x12/",
+                    "video_url": "https://ravok.buzz/video/be100b06aa2c4c5164f9f1c4a4fe2781"
+                }
+            ]
         }
     ]
 }
