@@ -4131,667 +4131,157 @@ body::before {
     margin-bottom: 20px;
 }
 /* =========================================
-   Global Background - Beautiful & No Dark Overlay
+   Watch Page Hero Banner - Professional Redesign
    ========================================= */
-body {
-    background: url('https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed;
-    background-size: cover;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-/* Dark overlay completely removed for the beautiful sky background */
-
-/* =========================================
-   Floating Glass Header
-   ========================================= */
-.header-wrapper {
-    position: fixed;
-    top: 15px;
-    left: 0;
+.hero-detail {
+    position: relative;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    z-index: 1000;
-    pointer-events: none;
-}
-
-.glass-header {
-    pointer-events: auto;
-    width: calc(100% - 30px);
-    max-width: 500px;
-    background: rgba(255, 255, 255, 0.05); /* More transparent */
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.logo-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-}
-
-.logo-text { text-shadow: 0 0 10px rgba(255,255,255,0.2); }
-
-.header-right-icons {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.glass-icon-btn {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ccc;
-    font-size: 18px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.glass-icon-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    transform: translateY(-2px);
-}
-
-.notification-dot {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 8px;
-    height: 8px;
-    background-color: #ff4d4d;
-    border-radius: 50%;
-    border: 2px solid #140f1e;
-}
-
-.user-avatar {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* =========================================
-   Search Overlay
-   ========================================= */
-.search-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(11, 15, 25, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 2000;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 80px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-.search-overlay.active { opacity: 1; visibility: visible; }
-.search-overlay-content { width: 90%; max-width: 500px; }
-.search-form-overlay {
-    position: relative;
-    display: flex;
-    align-items: center;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 15px;
-    padding: 10px 15px;
-}
-.search-icon-overlay { color: #aaa; font-size: 18px; margin-right: 10px; }
-.search-form-overlay input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 16px;
-}
-.search-form-overlay input::placeholder { color: #888; }
-.close-search-btn {
-    background: transparent;
-    border: none;
-    color: #aaa;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-/* =========================================
-   Hero Banner
-   ========================================= */
-.hero-banner {
-    position: relative;
-    width: calc(100% - 30px);
-    margin: 90px auto 20px auto;
-    max-width: 500px;
-    height: 280px;
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.hero-slide {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+    min-height: 480px; /* बड़ा और शानदार लुक */
     display: flex;
     align-items: flex-end;
-    padding: 25px;
-    box-sizing: border-box;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: #0b0f19; /* Fallback color */
 }
 
-.hero-slide.active { opacity: 1; z-index: 2; }
-
-.hero-image {
+/* इमेज को बैकग्राउंड में सेट करने का सही तरीका */
+.hero-bg-container {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+}
+
+.hero-bg-image {
+    width: 100%; height: 100%;
     object-fit: cover;
-    z-index: -2;
+    object-position: center 20%;
 }
 
-.hero-overlay {
+/* टेक्स्ट को साफ दिखाने के लिए डार्क ग्रेडिएंट */
+.hero-overlay-gradient {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to top, rgba(11, 15, 25, 0.95) 0%, rgba(11, 15, 25, 0.4) 60%, transparent 100%);
-    z-index: -1;
+    background: linear-gradient(to bottom, rgba(11, 15, 25, 0.1) 0%, rgba(11, 15, 25, 0.7) 60%, #0b0f19 100%);
 }
 
-.hero-content { position: relative; z-index: 1; width: 100%; }
-
-.hero-badge {
-    display: inline-block;
-    background: linear-gradient(90deg, #ff4b2b, #ff416c);
-    color: #fff;
-    padding: 5px 12px;
-    border-radius: 6px;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
-}
-
-.hero-title {
-    font-size: 24px;
-    font-weight: 800;
-    margin: 0 0 5px 0;
-    color: #fff;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.hero-desc {
-    font-size: 13px;
-    color: #ccc;
-    margin: 0 0 15px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.btn-watch {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #a855f7, #7e22ce);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 13px;
-    transition: all 0.3s;
-    box-shadow: 0 5px 15px rgba(168, 85, 247, 0.4);
-}
-
-.btn-watch:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(168, 85, 247, 0.6); }
-
-.hero-dots {
-    position: absolute;
-    bottom: 15px;
-    right: 20px;
-    display: flex;
-    gap: 6px;
-    z-index: 3;
-}
-
-.dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: all 0.3s;
-}
-.dot.active { background: #a855f7; width: 20px; border-radius: 10px; }
-
-/* =========================================
-   Category Icons
-   ========================================= */
-.category-icons {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 15px 25px 15px;
-    max-width: 500px;
+.hero-detail-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    max-width: 800px;
     margin: 0 auto;
 }
 
-.cat-item {
-    display: flex;
-    flex-direction: column;
+.featured-badge {
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: #ccc;
+    gap: 6px;
+    background: linear-gradient(90deg, #a855f7, #d946ef);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
     font-size: 11px;
-    font-weight: 600;
-    transition: transform 0.2s;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
 }
 
-.cat-item:hover { transform: translateY(-3px); }
+.hero-anime-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 15px 0;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
 
-.cat-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.hero-meta-row {
     display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
     align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    transition: all 0.3s ease;
+    margin-bottom: 20px;
 }
 
-/* =========================================
-   Anime Cards
-   ========================================= */
-.app-section {
-    padding: 10px 15px;
-    max-width: 500px;
-    margin: 0 auto 20px auto;
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
+.lang-badge, .rating-badge {
+    display: inline-flex;
     align-items: center;
-    margin-bottom: 15px;
-}
-
-.section-header h2 { font-size: 18px; margin: 0; font-weight: 700; }
-.see-all { font-size: 12px; color: #a855f7; text-decoration: none; font-weight: 600; }
-
-.anime-row {
-    display: flex;
-    overflow-x: auto;
-    gap: 15px;
-    padding-bottom: 10px;
-    scrollbar-width: none;
-}
-.anime-row::-webkit-scrollbar { display: none; }
-
-.az-anime-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-    gap: 15px;
-}
-
-.anime-card {
-    position: relative;
-    width: 140px;
-    flex-shrink: 0;
-    text-decoration: none;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.az-anime-grid .anime-card { width: 100%; }
-
-.anime-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(168, 85, 247, 0.3);
-    border-color: rgba(168, 85, 247, 0.5);
-}
-
-.anime-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-}
-
-.anime-card .anime-title {
-    font-size: 12px;
-    font-weight: 600;
-    margin: 8px 10px 4px 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #fff;
-}
-
-.anime-card .anime-meta {
-    padding: 0 10px 10px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 11px;
-    color: #aaa;
-}
-
-.anime-card .rating { color: #f1c40f; font-weight: 600; }
-
-.rank-number {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 2px 8px;
-    border-radius: 6px;
-    z-index: 2;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-/* =========================================
-   Genres & A-Z Grid
-   ========================================= */
-.genre-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
-.genre-card {
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: #fff;
-    text-decoration: none;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s;
-}
-.genre-card:hover { background: rgba(255, 255, 255, 0.15); transform: scale(1.05); }
-
-.az-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-    gap: 8px;
-}
-
-.az-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 12px;
     border-radius: 8px;
-    text-decoration: none;
-    color: #ccc;
-    font-size: 14px;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-.az-btn:hover, .az-btn.active { background: #a855f7; color: #fff; border-color: #a855f7; }
-
-.alphabet-nav {
-    display: flex;
-    overflow-x: auto;
-    gap: 8px;
-    padding: 20px 10px 100px 10px;
-    justify-content: flex-start;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    margin-top: 10px;
-}
-.alphabet-nav::-webkit-scrollbar { display: none; }
-.alphabet-nav .az-btn {
-    text-decoration: none;
-    color: #ccc;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 14px;
-    transition: all 0.2s ease-in-out;
-    flex-shrink: 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.alphabet-nav .az-btn:hover,
-.alphabet-nav .az-btn.active {
-    background: #a855f7;
+    font-size: 13px;
+    font-weight: 600;
     color: #fff;
-    border-color: #a855f7;
-    transform: scale(1.05);
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* =========================================
-   Modern Floating Bottom Navigation Bar
-   ========================================= */
-.bottom-nav-wrapper {
-    position: fixed;
-    bottom: 15px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    z-index: 1000;
-    pointer-events: none;
-}
-
-.glass-bottom-nav {
-    pointer-events: auto;
-    width: calc(100% - 30px);
-    max-width: 500px;
-    background: rgba(255, 255, 255, 0.05); /* More transparent */
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 30px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 12px 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #888;
-    font-size: 11px;
+.genre-text {
+    font-size: 13px;
+    color: #a1a1aa;
     font-weight: 500;
-    position: relative;
-    padding: 5px 10px;
+}
+
+.hero-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #d4d4d8;
+    margin: 0 0 25px 0;
+    /* अब टेक्स्ट 4 लाइन तक दिखेगा, बीच में नहीं कटेगा */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 600px;
+}
+
+.hero-action-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-watch-hero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #a855f7, #7e22ce);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
     transition: all 0.3s ease;
-    flex: 1;
-}
-.nav-item i { font-size: 20px; margin-bottom: 5px; transition: all 0.3s ease; }
-.nav-item.active { color: #a855f7; }
-.nav-item.active i { transform: translateY(-4px) scale(1.15); text-shadow: 0 0 12px rgba(168, 85, 247, 0.6); }
-
-.nav-badge {
-    position: absolute;
-    top: 2px;
-    right: 22px;
-    width: 9px;
-    height: 9px;
-    background-color: #ff4d4d;
-    border-radius: 50%;
-    border: 2px solid #140f1e;
+    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.3);
 }
 
-.main-content { padding-bottom: 100px !important; }
-
-/* =========================================
-   Continue Watching Page Styles
-   ========================================= */
-.continue-grid { display: flex; flex-direction: column; gap: 15px; padding: 10px; }
-.continue-card { display: flex; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; overflow: hidden; text-decoration: none; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s; }
-.continue-card:hover { transform: scale(1.02); }
-.continue-img-wrap { position: relative; width: 140px; min-width: 140px; height: 90px; }
-.continue-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-.continue-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
-.continue-card:hover .continue-overlay { opacity: 1; }
-.continue-overlay i { font-size: 24px; color: #a855f7; background: rgba(255,255,255,0.9); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding-left: 4px; }
-.continue-info { flex: 1; padding: 10px 15px; display: flex; flex-direction: column; justify-content: center; }
-.continue-info .anime-title { font-size: 15px; font-weight: 600; margin: 0 0 5px 0; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.continue-meta { font-size: 12px; color: #aaa; margin: 0 0 10px 0; }
-.progress-bar-wrap { width: 100%; height: 4px; background: #333; border-radius: 2px; overflow: hidden; }
-.progress-bar { height: 100%; background: #a855f7; border-radius: 2px; }
-
-/* Empty State */
-.empty-state { text-align: center; padding: 50px 20px; color: #888; }
-.empty-state i { font-size: 50px; color: #a855f7; margin-bottom: 15px; }
-.empty-state p { font-size: 16px; margin-bottom: 20px; }
-
-/* =========================================
-   Watch Page Styles
-   ========================================= */
-.watch-page { padding-bottom: 80px; position: relative; }
-
-/* Hero Banner */
-.hero-detail { 
-    position: relative; 
-    height: auto; 
-    min-height: 350px; 
-    display: flex; 
-    align-items: flex-end; 
-    padding: 20px; 
-    overflow: hidden; 
-    margin-bottom: 10px;
+.btn-watch-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(168, 85, 247, 0.5);
+    background: linear-gradient(135deg, #9333ea, #6b21a8);
 }
-.hero-bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
-.hero-detail-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, #0b0f19 0%, rgba(11, 15, 25, 0.4) 60%, rgba(11, 15, 25, 0.1) 100%); z-index: -1; }
-.hero-detail-content { position: relative; z-index: 1; width: 100%; max-width: 800px; }
-.featured-badge { background: #a855f7; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: bold; letter-spacing: 1px; }
-.hero-anime-title { font-size: 28px; font-weight: 800; margin: 10px 0; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-.hero-meta-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 15px; }
-.lang-badge, .rating-badge { background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; font-size: 12px; color: #fff; backdrop-filter: blur(5px); }
-.genre-text { font-size: 12px; color: #ccc; }
-.hero-description { font-size: 14px; color: #bbb; line-height: 1.5; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.hero-action-buttons { display: flex; gap: 15px; }
-.btn-watch-hero { background: #a855f7; color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
-.btn-watch-hero:hover { background: #9333ea; transform: translateY(-2px); }
-.btn-outline-hero { background: transparent; border: 1px solid rgba(255,255,255,0.2); }
-.btn-outline-hero:hover { background: rgba(255,255,255,0.1); }
 
-/* Video Player */
-.video-section-wrapper { position: relative; width: 100%; padding-top: 56.25%; background: #000; z-index: 100; transition: all 0.3s ease; margin-top: 10px; border-top: 2px solid #a855f7; }
-.video-section-wrapper.sticky { position: fixed; top: 0; left: 0; width: 100%; z-index: 2000; box-shadow: 0 4px 20px rgba(0,0,0,0.8); }
-.video-player-crunchy { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-.video-player-crunchy iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-.video-info-bar { position: absolute; bottom: -45px; left: 0; width: 100%; height: 45px; background: #1a1a24; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; box-sizing: border-box; }
-.video-info-title { font-size: 14px; color: #fff; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.video-info-meta { font-size: 12px; color: #a855f7; font-weight: 500; }
+.btn-outline-hero {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+}
 
-/* Tabs */
-.watch-tabs { display: flex; gap: 10px; padding: 20px 15px 10px 15px; overflow-x: auto; scrollbar-width: none; }
-.watch-tabs::-webkit-scrollbar { display: none; }
-.watch-tab { background: transparent; border: none; color: #888; font-size: 14px; font-weight: 600; padding: 10px 15px; border-bottom: 2px solid transparent; cursor: pointer; transition: 0.3s; white-space: nowrap; }
-.watch-tab.active { color: #a855f7; border-bottom-color: #a855f7; }
-.tab-content { display: none; padding: 0 15px; }
-.tab-content.active { display: block; }
-
-/* Season Dropdown */
-.season-dropdown-wrapper { position: relative; margin-bottom: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 12px; border: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; }
-.season-toggle-btn { background: rgba(255, 255, 255, 0.1); color: #fff; border: none; padding: 8px 15px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; }
-.total-eps-label { font-size: 12px; color: #888; }
-.season-dropdown-menu { position: absolute; top: 100%; left: 15px; right: 15px; background: #1a1a24; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; z-index: 500; overflow: hidden; margin-top: 5px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-.dropdown-header { padding: 12px 15px; background: #252530; font-size: 12px; font-weight: bold; color: #a855f7; display: flex; align-items: center; gap: 8px; }
-.season-option { display: flex; align-items: center; padding: 12px 15px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.2s; }
-.season-option:hover { background: rgba(255,255,255,0.05); }
-.season-option img { width: 40px; height: 40px; border-radius: 6px; object-fit: cover; margin-right: 12px; }
-.season-option-info { flex: 1; display: flex; flex-direction: column; }
-.season-option-info strong { color: #fff; font-size: 14px; }
-.season-option-info span { color: #888; font-size: 11px; }
-.check-icon { color: #a855f7; font-size: 16px; }
-
-/* Episodes List */
-.episodes-list-crunchy { display: flex; flex-direction: column; gap: 12px; }
-.episode-item-crunchy { display: flex; align-items: center; background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 10px; border: 1px solid rgba(255,255,255,0.1); transition: 0.2s; }
-.episode-item-crunchy:hover { background: rgba(255, 255, 255, 0.1); }
-.episode-item-crunchy.active { border-color: #a855f7; background: rgba(168, 85, 247, 0.1); }
-.ep-thumb { position: relative; width: 100px; height: 60px; border-radius: 8px; overflow: hidden; flex-shrink: 0; }
-.ep-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.ep-thumb a { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; color: #fff; }
-.ep-thumb a i { font-size: 18px; color: #a855f7; background: rgba(255,255,255,0.9); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding-left: 3px; }
-.ep-info { flex: 1; padding: 0 15px; overflow: hidden; }
-.ep-number-title { display: flex; gap: 8px; font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ep-num { color: #a855f7; }
-.ep-meta { font-size: 11px; color: #888; display: flex; gap: 8px; }
-.ep-actions a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; color: #a855f7; text-decoration: none; }
-.no-video-msg { text-align: center; padding: 50px; color: #888; }
-
-/* Episode Navigation */
-.episode-nav-bottom { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-.episode-nav-bottom a, .nav-btn-bottom { color: #a855f7; text-decoration: none; font-weight: 600; font-size: 14px; }
-.nav-btn-bottom.disabled { color: #555; cursor: not-allowed; }
-.current-ep-label { font-size: 12px; color: #888; max-width: 150px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-/* Details Box */
-.details-box { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-.details-box h3 { margin: 0 0 10px 0; color: #fff; font-size: 18px; }
-.details-box p { color: #aaa; font-size: 14px; line-height: 1.6; }
-.details-meta { margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #ccc; }
-.rating-section { margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
-.rating-section h3 { font-size: 16px; margin-bottom: 15px; }
-.stars { display: flex; justify-content: center; gap: 10px; font-size: 24px; color: #444; cursor: pointer; }
-.stars i.active, .stars i.fas { color: #f1c40f; }
-.rating-text { font-size: 12px; color: #888; margin-top: 10px; }
-
-/* Similar Grid */
-.similar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; }
-.similar-card { text-decoration: none; color: #fff; }
-.similar-card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 8px; margin-bottom: 8px; }
-.similar-card h4 { font-size: 12px; font-weight: 500; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.btn-outline-hero:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}

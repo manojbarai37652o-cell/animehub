@@ -8,10 +8,10 @@
     <div class="hero-banner" id="hero-slider">
         {% for anime in hero_anime_list %}
         <div class="hero-slide {% if loop.first %}active{% endif %}">
-            <img src="{{ anime.image }}" alt="{{ anime.title }}" class="hero-image" onerror="this.src='https://via.placeholder.com/800x400?text=No+Poster';">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}" class="hero-image">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <span class="hero-badge">🔥 TRENDING NOW</span>
+                <span class="hero-badge">🔥 Trending Now</span>
                 <h1 class="hero-title">{{ anime.title }}</h1>
                 <p class="hero-desc">The weakest hunter becomes the strongest.</p>
                 <a href="/watch/{{ anime.id }}" class="btn-watch"><i class="fas fa-play"></i> Watch Now</a>
@@ -30,20 +30,24 @@
     {% if not search_query and page_title == 'Home' %}
     <div class="category-icons">
         <a href="/trending" class="cat-item">
-            <div class="cat-icon" style="color: #ff4b2b; box-shadow: 0 0 15px rgba(255, 75, 43, 0.4);"><i class="fas fa-fire"></i></div>
+            <div class="cat-icon" style="background: rgba(255, 75, 43, 0.2); color: #ff4b2b;"><i class="fas fa-fire"></i></div>
             <span>Trending</span>
         </a>
         <a href="/popular" class="cat-item">
-            <div class="cat-icon" style="color: #f1c40f; box-shadow: 0 0 15px rgba(241, 196, 15, 0.4);"><i class="fas fa-star"></i></div>
+            <div class="cat-icon" style="background: rgba(241, 196, 15, 0.2); color: #f1c40f;"><i class="fas fa-star"></i></div>
             <span>Popular</span>
         </a>
         <a href="/top-rated" class="cat-item">
-            <div class="cat-icon" style="color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);"><i class="fas fa-trophy"></i></div>
+            <div class="cat-icon" style="background: rgba(163, 113, 247, 0.2); color: #a371f7;"><i class="fas fa-trophy"></i></div>
             <span>Top Rated</span>
         </a>
-        <a href="/trending" class="cat-item">
-            <div class="cat-icon" style="color: #2ecc71; box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);"><i class="fas fa-clock"></i></div>
-            <span>Ongoing</span>
+        <a href="/movies" class="cat-item">
+            <div class="cat-icon" style="background: rgba(52, 152, 219, 0.2); color: #3498db;"><i class="fas fa-film"></i></div>
+            <span>Movies</span>
+        </a>
+        <a href="/cartoons" class="cat-item">
+            <div class="cat-icon" style="background: rgba(46, 204, 113, 0.2); color: #2ecc71;"><i class="fas fa-child"></i></div>
+            <span>Cartoons</span>
         </a>
     </div>
     {% endif %}
@@ -72,6 +76,9 @@
                 {% endfor %}
             </div>
 
+            <!-- ========================================== -->
+            <!-- 🟢 A-Z Navigation Bar (नीचे) 🟢 -->
+            <!-- ========================================== -->
             {% if 'Anime starting with' in page_title or page_title == '#' %}
             <div class="alphabet-nav">
                 <a href="/az/%23" class="az-btn {% if page_title == '#' %}active{% endif %}">#</a>
@@ -82,11 +89,13 @@
                 {% endfor %}
             </div>
             {% endif %}
+            <!-- ========================================== -->
 
         </div>
         {% else %}
 
         <!-- होमपेज के सारे सेक्शन्स -->
+        
         <!-- 🔥 Trending Anime -->
         {% if trending %}
         <div class="app-section">
@@ -190,7 +199,7 @@
             </div>
         </div>
 
-        <!-- 🔠 Browse A to Z -->
+        <!-- 🔠 Browse A to Z (सिर्फ होम पेज पर) -->
         <div class="app-section">
             <div class="section-header">
                 <h2>🔠 Browse A to Z</h2>
