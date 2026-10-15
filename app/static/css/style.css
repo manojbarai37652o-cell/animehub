@@ -3900,35 +3900,35 @@ body::before {
    ========================================= */
 .alphabet-nav {
     display: flex;
-    overflow-x: auto; /* मोबाइल पर स्क्रोल करने के लिए */
+    overflow-x: auto;
     gap: 8px;
-    padding: 20px 10px 100px 10px; /* नीचे थोड़ी जगह छोड़ी है ताकि बॉटम नेविगेशन से न टकराए */
+    padding: 20px 10px 100px 10px; /* नीचे थोड़ी जगह छोड़ी है */
     justify-content: flex-start;
-    scrollbar-width: none; /* फायरफॉक्स के लिए */
-    -ms-overflow-style: none; /* IE के लिए */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     margin-top: 10px;
 }
 
 .alphabet-nav::-webkit-scrollbar {
-    display: none; /* क्रोम/सफारी के लिए स्क्रोलबार हाइड */
+    display: none;
 }
 
 .alphabet-nav .az-btn {
     text-decoration: none;
     color: #ccc;
-    background: #2a2a2a; /* तुम्हारे थीम का डार्क कलर */
+    background: #2a2a2a;
     padding: 8px 14px;
     border-radius: 8px;
     font-weight: bold;
     font-size: 14px;
     transition: all 0.2s ease-in-out;
-    flex-shrink: 0; /* सिकुड़ने नहीं देना */
+    flex-shrink: 0;
     border: 1px solid #333;
 }
 
 .alphabet-nav .az-btn:hover,
 .alphabet-nav .az-btn.active {
-    background: #a855f7; /* तुम्हारे साइट का पर्पल कलर */
+    background: #a855f7;
     color: #fff;
     border-color: #a855f7;
     transform: scale(1.05);

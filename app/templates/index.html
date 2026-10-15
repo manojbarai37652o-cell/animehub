@@ -79,11 +79,11 @@
             <!-- ========================================== -->
             <!-- 🟢 NEW SECTION: A-Z Navigation Bar (नीचे) 🟢 -->
             <!-- ========================================== -->
-            {% if page_title|length == 1 or page_title == '#' %}
+            {% if 'Anime starting with' in page_title or page_title == '#' %}
             <div class="alphabet-nav">
                 <a href="/az/%23" class="az-btn {% if page_title == '#' %}active{% endif %}">#</a>
                 {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
-                    <a href="/az/{{ letter }}" class="az-btn {% if page_title == letter %}active{% endif %}">
+                    <a href="/az/{{ letter }}" class="az-btn {% if page_title.endswith(letter) %}active{% endif %}">
                         {{ letter }}
                     </a>
                 {% endfor %}
