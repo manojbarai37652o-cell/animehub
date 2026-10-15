@@ -4,7 +4,7 @@
 <div class="watch-page">
 
     {% if ep_number is not none and current_ep and current_ep.video_url %}
-    <!-- 🟢 VIDEO PLAYER SECTION (सिर्फ एपिसोड क्लिक करने पर दिखेगा) 🟢 -->
+    <!-- 🟢 VIDEO PLAYER SECTION 🟢 -->
     <div class="video-section-wrapper" id="videoSectionWrapper">
         <div class="video-player-crunchy" id="mainVideoPlayer">
             <iframe src="{{ current_ep.video_url }}"
@@ -15,36 +15,30 @@
                     allowfullscreen>
             </iframe>
         </div>
-        <!-- Video Info Bar (ToonStream Style) -->
         <div class="video-info-bar">
             <span class="video-info-title">{{ anime.title }}</span>
             <span class="video-info-meta">Season {{ current_season.season_number if current_season else 1 }} • Episode {{ ep_number }}</span>
         </div>
     </div>
     {% else %}
-    <!-- 🟡 HERO BANNER (Professional Redesign) 🟡 -->
-    <div class="hero-detail">
-        <!-- Background Image Container -->
-        <div class="hero-bg-container">
-            <img src="{{ anime.image }}" alt="{{ anime.title }}" class="hero-bg-image" onerror="this.src='https://via.placeholder.com/800x400?text=No+Poster';">
-            <div class="hero-overlay-gradient"></div>
-        </div>
-        
-        <!-- Content -->
+    <!-- 🟡 HERO BANNER 🟡 -->
+    <div class="hero-detail hero-fade-in">
+        <img src="{{ anime.image }}" alt="{{ anime.title }}" class="hero-bg-image" onerror="this.src='https://via.placeholder.com/800x400?text=No+Poster';">
+        <div class="hero-detail-overlay"></div>
         <div class="hero-detail-content">
-            <span class="featured-badge"><i class="fas fa-star"></i> FEATURED</span>
+            <span class="featured-badge">FEATURED</span>
             <h1 class="hero-anime-title">{{ anime.title }}</h1>
-            
+
             <div class="hero-meta-row">
                 {% if anime.language and anime.language != 'Unknown' %}
-                <span class="lang-badge"><i class="fas fa-globe"></i> {{ anime.language }}</span>
+                <span class="lang-badge">{{ anime.language }}</span>
                 {% endif %}
-                <span class="rating-badge"><i class="fas fa-star" style="color: #f1c40f;"></i> {{ anime.rating|default('8.0') }}</span>
+                <span class="rating-badge">★ {{ anime.rating|default('8.0') }}</span>
                 <span class="genre-text">{{ genres_text }}</span>
             </div>
-            
+
             <p class="hero-description">{{ description }}</p>
-            
+
             <div class="hero-action-buttons">
                 <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/1" class="btn-watch-hero">
                     <i class="fas fa-play"></i> Watch Now
@@ -68,7 +62,8 @@
     <div id="tab-episodes" class="tab-content active">
         {% if seasons|length > 0 %}
         <div class="season-dropdown-wrapper">
-            <button class="season-toggle-btn" onclick="toggleSeasonDropdown()">
+            <!-- 🛠️ यहाँ ID जोड़ दी है ताकि JS आसानी से पकड़ सके -->
+            <button class="season-toggle-btn" id="seasonToggleBtn">
                 <i class="fas fa-layer-group"></i>
                 <span>Season {{ current_season.season_number if current_season else 1 }}</span>
                 <i class="fas fa-chevron-down"></i>
@@ -132,7 +127,6 @@
         </div>
         {% endif %}
 
-        <!-- Episode Navigation Bottom -->
         <div class="episode-nav-bottom">
             {% if prev_ep_num %}
             <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ prev_ep_num }}">« Previous</a>
@@ -194,7 +188,7 @@
 
 </div>
 
-<!-- 🟢 JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER, & CONTINUE WATCHING 🟢 -->
+<!-- 🟢 JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER, & SEASON DROPDOWN 🟢 -->
 <script>
     const animeData = {
         id: {{ anime.id|tojson }},
@@ -207,8 +201,6 @@
     };
     const animeId = {{ anime.id|tojson }};
     const currentSeason = {{ current_season.season_number if current_season else 1|tojson }};
-    const userName = {{ (session.user_name if session.user_name else 'Guest')|tojson }};
-    const userPic = {{ (session.user_pic if session.user_pic else '')|tojson }};
 
     function switchTab(tabName, btn) {
         document.querySelectorAll('.watch-tab').forEach(t => t.classList.remove('active'));
@@ -217,20 +209,29 @@
         document.getElementById('tab-' + tabName).classList.add('active');
     }
 
-    function toggleSeasonDropdown() {
-        const menu = document.getElementById('season-dropdown-menu');
-        if (menu.style.display === 'none' || menu.style.display === '') {
-            menu.style.display = 'block';
-        } else {
-            menu.style.display = 'none';
-        }
-    }
-
-    document.addEventListener('click', function(e) {
-        const wrapper = document.querySelector('.season-dropdown-wrapper');
-        const menu = document.getElementById('season-dropdown-menu');
-        if (wrapper && menu && !wrapper.contains(e.target)) {
-            menu.style.display = 'none';
+    // 🟢 FIXED: Season Dropdown Logic using Event Listener 🟢
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.getElementById('seasonToggleBtn');
+        const dropdownMenu = document.getElementById('season-dropdown-menu');
+        
+        if (toggleBtn && dropdownMenu) {
+            // जब बटन पर क्लिक हो
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // ताकि नीचे वाला डॉक्यूमेंट क्लिक इसे तुरंत बंद न कर दे
+                if (dropdownMenu.style.display === 'block') {
+                    dropdownMenu.style.display = 'none';
+                } else {
+                    dropdownMenu.style.display = 'block';
+                }
+            });
+            
+            // जब बाहर कहीं और क्लिक हो, तो ड्रॉपडाउन बंद हो जाए
+            document.addEventListener('click', function(e) {
+                const wrapper = document.querySelector('.season-dropdown-wrapper');
+                if (wrapper && !wrapper.contains(e.target)) {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
         }
     });
 
@@ -298,7 +299,6 @@
         });
     }
 
-    // History Tracking
     const currentEpData = { id: animeData.id, title: animeData.title, image: animeData.image };
     let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
     history = history.filter(item => item.id !== currentEpData.id);
@@ -306,7 +306,6 @@
     history = history.slice(0, 20);
     localStorage.setItem('animeHistory', JSON.stringify(history));
 
-    // 🟢 CONTINUE WATCHING TRACKER 🟢
     {% if current_ep and current_ep.video_url %}
     document.addEventListener('DOMContentLoaded', function() {
         const progressData = {
@@ -316,13 +315,9 @@
             timestamp: 0,
             duration: 1
         };
-
         fetch('/api/save_progress', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
+            headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
             body: JSON.stringify(progressData)
         })
         .then(response => response.json())
@@ -331,17 +326,13 @@
     });
     {% endif %}
 
-    // Sticky Player Logic
     document.addEventListener('DOMContentLoaded', function() {
         const videoWrapper = document.getElementById('videoSectionWrapper');
         if (!videoWrapper) return;
-
         const wrapperTop = videoWrapper.offsetTop;
         const wrapperHeight = videoWrapper.offsetHeight;
-
         window.addEventListener('scroll', function() {
             const scrollY = window.scrollY;
-
             if (scrollY > wrapperTop) {
                 videoWrapper.classList.add('sticky');
                 if (!document.body.dataset.hasStickyPadding) {
