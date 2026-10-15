@@ -4010,3 +4010,123 @@ body::before {
 .main-content {
     padding-bottom: 100px !important;
 }
+/* =========================================
+   Continue Watching Page Styles
+   ========================================= */
+.continue-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}
+
+.continue-card {
+    display: flex;
+    background: #1a1a24;
+    border-radius: 15px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.continue-card:hover {
+    transform: scale(1.02);
+}
+
+.continue-img-wrap {
+    position: relative;
+    width: 140px;
+    min-width: 140px;
+    height: 90px;
+}
+
+.continue-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.continue-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.continue-card:hover .continue-overlay {
+    opacity: 1;
+}
+
+.continue-overlay i {
+    font-size: 24px;
+    color: #a855f7;
+    background: rgba(255,255,255,0.9);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4px; /* Play icon alignment fix */
+}
+
+.continue-info {
+    flex: 1;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.continue-info .anime-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.continue-meta {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0 0 10px 0;
+}
+
+.progress-bar-wrap {
+    width: 100%;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #a855f7; /* पर्पल कलर */
+    border-radius: 2px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    color: #888;
+}
+
+.empty-state i {
+    font-size: 50px;
+    color: #a855f7;
+    margin-bottom: 15px;
+}
+
+.empty-state p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}

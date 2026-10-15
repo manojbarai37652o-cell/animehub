@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, request, redirect, url_for, session
+from flask import Flask, render_template, abort, request, redirect, url_for, session, jsonify
 import random
 import json
 import os
@@ -21,6 +21,26 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(200), nullable=False)
     remember_token = db.Column(db.String(200), nullable=True)
+
+# =========================================================
+# 🟢 PROGRESS.JSON MANAGER 🟢
+# =========================================================
+PROGRESS_FILE = 'database/progress.json'
+
+def load_progress():
+    if not os.path.exists(PROGRESS_FILE):
+        return {}
+    try:
+        with open(PROGRESS_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+def save_progress_data(data):
+    os.makedirs(os.path.dirname(PROGRESS_FILE), exist_ok=True)
+    with open(PROGRESS_FILE, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4, ensure_ascii=False)
+# =========================================================
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -165,48 +185,83 @@ def create_app(config_class=Config):
     # =========================================================
     def get_filtered_anime():
         all_anime = get_all_anime()
-        
-        # 1. Cartoon Keywords
         cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman']
-        
-        # 2. Movies List (Sirf 'Full Movie' waale)
         movies_list = [a for a in all_anime if a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie']
-        
-        # 3. Cartoons List (Keyword match waale)
         cartoons_list = [a for a in all_anime if any(k in a['title'].lower() for k in cartoon_keywords)]
-        
-        # 4. Series List (Bache hue saare anime)
         series_list = [a for a in all_anime if a not in movies_list and a not in cartoons_list]
-        
-        # 5. Trending & Popular (Abhi ke liye full sorted list nikaal rahe hain)
         trending_full = sorted(series_list, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)
         popular_full = sorted(series_list, key=lambda x: len(x.get('episodes', [])), reverse=True)
-        
         return all_anime, trending_full, popular_full, movies_list, series_list, cartoons_list
+
+    # =========================================================
+    # 🟢 NEW: CONTINUE WATCHING FEATURE 🟢
+    # =========================================================
+    
+    @app.route('/api/save_progress', methods=['POST'])
+    def api_save_progress():
+        if not session.get('user_email'): return jsonify({"status": "error", "message": "Not logged in"}), 401
+        
+        data = request.json
+        user_email = session['user_email']
+        
+        progress_db = load_progress()
+        if user_email not in progress_db:
+            progress_db[user_email] = {}
+            
+        anime_id = str(data.get('anime_id'))
+        progress_db[user_email][anime_id] = {
+            "season": data.get('season', 1),
+            "episode": data.get('episode', 1),
+            "timestamp": data.get('timestamp', 0), # Kitne second tak dekha
+            "duration": data.get('duration', 0),   # Total kitne second ka hai
+            "updated_at": datetime.now().isoformat()
+        }
+        
+        save_progress_data(progress_db)
+        return jsonify({"status": "success"})
+
+    @app.route('/continue-watching')
+    def continue_watching_page():
+        if not session.get('user_email'): return render_template('login.html')
+        
+        user_email = session['user_email']
+        progress_db = load_progress()
+        user_progress = progress_db.get(user_email, {})
+        
+        continue_list = []
+        for anime_id, data in user_progress.items():
+            anime_details = get_anime_by_id(anime_id)
+            if anime_details:
+                # Progress percentage calculate karo (UI me dikhane ke liye)
+                duration = data.get('duration', 1)
+                timestamp = data.get('timestamp', 0)
+                percent = int((timestamp / duration) * 100) if duration > 0 else 0
+                
+                anime_details['resume_data'] = {
+                    'season': data.get('season', 1),
+                    'episode': data.get('episode', 1),
+                    'percent': min(percent, 100),
+                    'timestamp': timestamp
+                }
+                continue_list.append(anime_details)
+                
+        # Latest updated pehle dikhane ke liye sort karo
+        continue_list.sort(key=lambda x: user_progress[str(x['id'])].get('updated_at', ''), reverse=True)
+        
+        return render_template('continue_watching.html', anime_list=continue_list, page_title="Continue Watching")
+
     # =========================================================
 
     @app.route('/')
     def home():
         if not session.get('user_email'): return render_template('login.html')
-        
-        # Poora data fetch karo
         all_anime, trending_full, popular_full, movies_full, series_full, cartoons_full = get_filtered_anime()
-        
-        # 🟢 Home page ke liye har section se RANDOM 12 items chuno 🟢
-        # Trending: Top 50 me se random 12
         trending = random.sample(trending_full[:50], min(len(trending_full[:50]), 12)) if trending_full else []
-        
-        # Popular: Top 50 me se random 12
         popular = random.sample(popular_full[:50], min(len(popular_full[:50]), 12)) if popular_full else []
-        
-        # Movies: Saari movies me se random 12
         random.shuffle(movies_full)
         movies = movies_full[:12]
-        
-        # Cartoons: Saare cartoons me se random 12
         random.shuffle(cartoons_full)
         cartoons = cartoons_full[:12]
-        
         hero_anime_list = get_hero_anime_list(5)
         return render_template('index.html', anime_list=all_anime, trending=trending, popular=popular, movies=movies, cartoons=cartoons, hero_anime_list=hero_anime_list, page_title='Home')
 
@@ -240,7 +295,6 @@ def create_app(config_class=Config):
         all_anime, _, _, _, _, _ = get_filtered_anime()
         return render_template('index.html', anime_list=all_anime, page_title="Top Rated")
 
-    # 🔠 A-Z Browse Route
     @app.route('/az/<letter>')
     def az_page(letter):
         if not session.get('user_email'): return render_template('login.html')

@@ -1,36 +1,59 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="hero-section" style="padding: 40px 20px;">
-        <h1>My Watchlist ❤️</h1>
-        <p>Your saved anime collection</p>
+<div class="main-content-wrapper">
+    <div class="app-section">
+        <div class="section-header">
+            <h2>❤️ My Watchlist</h2>
+        </div>
+        <p style="color: #888; padding: 0 10px 20px 10px;">Your saved anime collection</p>
+        
+        <!-- यहाँ आपकी वॉचलिस्ट ग्रिड रेंडर होगी -->
+        <div class="az-anime-grid" id="watchlist-grid"></div>
+        
+        <!-- खाली होने पर दिखने वाला मैसेज -->
+        <div id="empty-msg" style="text-align: center; padding: 100px 20px; display: none;">
+            <i class="fas fa-heart-broken" style="font-size: 50px; color: #a855f7; margin-bottom: 20px;"></i>
+            <h2 style="color: #fff; font-size: 20px;">Your watchlist is empty! 😔</h2>
+            <p style="color: #888; margin-top: 10px;">Go add some anime from the home page.</p>
+            <a href="/" class="btn-watch" style="display: inline-block; margin-top: 20px; text-decoration: none; background: #a855f7; color: #fff; padding: 10px 20px; border-radius: 8px;">Go to Home</a>
+        </div>
     </div>
+</div>
 
-    <div class="anime-grid" id="watchlist-grid"></div>
-    
-    <div id="empty-msg" style="text-align: center; padding: 100px 20px; display: none;">
-        <h2 style="color: #00a8e1;">Your watchlist is empty! 😢</h2>
-        <p style="color: #b0b0b0; margin-top: 10px;">Go add some anime from the home page.</p>
-        <a href="/" class="page-btn" style="display: inline-block; margin-top: 20px;">← Go to Home</a>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
-            const grid = document.getElementById('watchlist-grid');
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // LocalStorage से वॉचलिस्ट निकालो
+        let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
+        const grid = document.getElementById('watchlist-grid');
+        const emptyMsg = document.getElementById('empty-msg');
+        
+        if (watchlist.length === 0) {
+            emptyMsg.style.display = 'block';
+            grid.style.display = 'none';
+        } else {
+            emptyMsg.style.display = 'none';
+            grid.style.display = 'grid';
             
-            if (watchlist.length === 0) {
-                document.getElementById('empty-msg').style.display = 'block';
-            } else {
-                watchlist.forEach(item => {
-                    grid.innerHTML += `
-                        <a href="/watch/${item.id}" class="anime-card">
-                            <img src="${item.image}" alt="${item.title}" loading="lazy">
-                            <h3>${item.title}</h3>
-                        </a>
-                    `;
-                });
-            }
-        });
-    </script>
+            // अगर कोई एनीमे दो बार सेव हो गया हो तो उसे हटाओ
+            const uniqueWatchlist = watchlist.filter((item, index, self) =>
+                index === self.findIndex((t) => t.id === item.id)
+            );
+            
+            // हर एनीमे के लिए कार्ड बनाओ
+            uniqueWatchlist.forEach((item, index) => {
+                grid.innerHTML += `
+                    <a href="/watch/${item.id}" class="anime-card">
+                        <span class="rank-number">${index + 1}</span>
+                        <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                        <h3 class="anime-title">${item.title}</h3>
+                        <div class="anime-meta">
+                            <span class="rating">★ ${item.rating || '8.0'}</span>
+                        </div>
+                    </a>
+                `;
+            });
+        }
+    });
+</script>
 {% endblock %}
