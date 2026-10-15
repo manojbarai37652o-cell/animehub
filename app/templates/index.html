@@ -3,7 +3,7 @@
 {% block content %}
 <div class="main-content-wrapper">
 
-    <!-- 1. Hero Banner Section -->
+    <!-- 1. Hero Banner Section (सिर्फ होम पेज पर) -->
     {% if hero_anime_list and not search_query and page_title == 'Home' %}
     <div class="hero-banner" id="hero-slider">
         {% for anime in hero_anime_list %}
@@ -26,7 +26,7 @@
     </div>
     {% endif %}
 
-    <!-- 2. Category Icons Section -->
+    <!-- 2. Category Icons Section (सिर्फ होम पेज पर) -->
     {% if not search_query and page_title == 'Home' %}
     <div class="category-icons">
         <a href="/trending" class="cat-item">
@@ -55,7 +55,7 @@
     <!-- 3. Anime Sections -->
     {% if not search_query %}
     
-    <!-- पेज टाइटल (अगर "See All" किया है तो) -->
+    <!-- पेज टाइटल (अगर "See All" या "A-Z" किया है तो) -->
     {% if page_title != 'Home' %}
     <div class="app-section">
         <div class="section-header">
@@ -71,6 +71,8 @@
                     <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
                 </div>
             </a>
+            {% else %}
+            <p style="text-align: center; width: 100%; padding: 20px; color: #8b949e;">कोई एनीमे नहीं मिला।</p>
             {% endfor %}
         </div>
     </div>
@@ -122,7 +124,7 @@
     </div>
     {% endif %}
 
-    <!-- 🎬 Anime Movies (FIXED) -->
+    <!-- 🎬 Anime Movies -->
     {% if movies %}
     <div class="app-section">
         <div class="section-header">
@@ -196,11 +198,22 @@
                     <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
                 </div>
             </a>
-            {% else %}
-            <p style="text-align: center; width: 100%; padding: 20px; color: #8b949e;">कोई एनीमे नहीं मिला।</p>
             {% endfor %}
         </div>
     </div>
+
+    <!-- 🛠️ NEW: Browse A to Z (सिर्फ होम पेज पर) -->
+    <div class="app-section">
+        <div class="section-header">
+            <h2>🔤 Browse A to Z</h2>
+        </div>
+        <div class="az-grid">
+            {% for letter in ['#', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %}
+            <a href="/az/{{ letter }}" class="az-btn {% if current_letter == letter %}active{% endif %}">{{ letter }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
     {% endif %}
 
     {% else %}

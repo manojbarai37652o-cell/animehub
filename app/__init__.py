@@ -213,6 +213,18 @@ def create_app(config_class=Config):
         all_anime, _, _, _, _, _ = get_filtered_anime()
         return render_template('index.html', anime_list=all_anime, page_title="Top Rated")
 
+    # 🛠️ नया: A-Z Browse Route
+    @app.route('/az/<letter>')
+    def az_page(letter):
+        if not session.get('user_email'): return render_template('login.html')
+        letter = letter.upper()
+        all_anime = get_all_anime()
+        # उन सारे एनीमे को फ़िल्टर करो जो उस लेटर से शुरू होते हैं
+        filtered = [a for a in all_anime if a['title'].upper().startswith(letter)]
+        # टाइटल के हिसाब से सॉर्ट करो
+        filtered.sort(key=lambda x: x['title'].lower())
+        return render_template('index.html', anime_list=filtered, page_title=f"Anime starting with '{letter}'", current_letter=letter)
+
     @app.route('/profile')
     def profile():
         if not session.get('user_email'): return render_template('login.html')
@@ -297,7 +309,6 @@ def create_app(config_class=Config):
         description = f"Watch the amazing story of {anime['title']}. An unforgettable journey filled with action, emotion, and incredible characters!"
         related_anime = get_random_anime(anime_id, count=4)
 
-        # 🛠️ FIX: ep_number को template को pass किया गया
         return render_template('watch.html', anime=anime, seasons=seasons, current_season=current_season,
                                episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num,
                                related_anime=related_anime, genres_text=genres_text, description=description,

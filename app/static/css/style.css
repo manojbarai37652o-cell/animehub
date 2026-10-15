@@ -3803,3 +3803,44 @@ body::before {
     .video-info-title { font-size: 0.8rem; }
     .video-info-meta { font-size: 0.7rem; }
 }
+/* =========================================
+   BROWSE A TO Z GRID
+   ========================================= */
+
+.az-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+    gap: 8px;
+    padding: 0 5px;
+}
+
+.az-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    background: rgba(22, 27, 34, 0.7);
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.az-btn:hover {
+    background: #a371f7;
+    color: #ffffff;
+    border-color: #a371f7;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(163, 113, 247, 0.4);
+}
+
+.az-btn.active {
+    background: linear-gradient(135deg, #a371f7, #3b82f6);
+    color: #ffffff;
+    border-color: #a371f7;
+    box-shadow: 0 5px 15px rgba(163, 113, 247, 0.5);
+}
