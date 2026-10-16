@@ -34,7 +34,6 @@
 
     <!-- Floating Glass Header -->
     <div class="header-wrapper">
-        <!-- 🛠️ FIX: Padding wapas normal (20px) kar di -->
         <header class="glass-header" style="padding: 12px 20px !important;">
             <div class="logo-left">
                 <a href="/" class="logo-link spa-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
@@ -49,21 +48,92 @@
                     <i class="fas fa-bell"></i>
                     <span class="notification-dot"></span>
                 </a>
-                
-                <!-- 🛠️ PROFILE ICON YAHAN SE HATA DIYA GAYA HAI -->
-                
             </div>
         </header>
     </div>
 
-    <!-- Search Overlay -->
-    <div id="searchOverlay" class="search-overlay">
-        <div class="search-overlay-content">
-            <form action="/search" method="GET" class="search-form-overlay">
-                <i class="fas fa-search search-icon-overlay"></i>
-                <input type="text" name="q" id="searchInput" placeholder="Search anime, movies..." autocomplete="off">
+    <!-- 🟢 PREMIUM SEARCH OVERLAY 🟢 -->
+    <div id="searchOverlay" class="premium-search-overlay">
+        <div class="premium-search-content">
+            
+            <!-- Glowing Search Bar -->
+            <div class="premium-search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search anime, movies, characters..." autocomplete="off">
                 <button type="button" class="close-search-btn" onclick="closeSearch()"><i class="fas fa-times"></i></button>
-            </form>
+            </div>
+
+            <!-- Search Results Container (This will be populated by JS) -->
+            <div id="searchResultsContainer" style="display: none;"></div>
+
+            <!-- Default Content (Recent, Trending, Popular) -->
+            <div id="defaultSearchContent">
+                <!-- Recent Searches -->
+                <div class="search-section">
+                    <div class="search-section-header">
+                        <h3><i class="fas fa-history"></i> Recent Searches</h3>
+                        <a href="javascript:void(0)" onclick="clearRecentSearches()">Clear All</a>
+                    </div>
+                    <div class="pill-tags" id="recentSearchesContainer">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Trending Searches -->
+                <div class="search-section">
+                    <div class="search-section-header">
+                        <h3><i class="fas fa-fire" style="color: #a855f7;"></i> Trending Searches</h3>
+                    </div>
+                    <div class="pill-tags">
+                        <a href="/search?q=Demon+Slayer" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> Demon Slayer</a>
+                        <a href="/search?q=One+Piece" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> One Piece</a>
+                        <a href="/search?q=Jujutsu+Kaisen" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> Jujutsu Kaisen</a>
+                        <a href="/search?q=Solo+Leveling" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> Solo Leveling</a>
+                        <a href="/search?q=Naruto" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> Naruto</a>
+                        <a href="/search?q=Attack+on+Titan" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> Attack on Titan</a>
+                    </div>
+                </div>
+
+                <!-- Popular Anime -->
+                <div class="search-section">
+                    <div class="search-section-header">
+                        <h3><i class="fas fa-star" style="color: #f1c40f;"></i> Popular Anime</h3>
+                        <a href="/popular">See All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="search-horizontal-scroll">
+                        {% for anime in popular_anime_overlay %}
+                        <a href="/watch/{{ anime.id }}" class="search-anime-card">
+                            <img src="{{ anime.image }}" alt="{{ anime.title }}" onerror="this.src='https://via.placeholder.com/120x160?text=No+Image';">
+                            <h4>{{ anime.title }}</h4>
+                            <div class="search-anime-meta">
+                                <span>S{{ anime.seasons[0].season_number if anime.seasons else 1 }} • {{ anime.seasons[0].episodes|length if anime.seasons else 0 }} Episodes</span>
+                                <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Top Rated Anime -->
+                <div class="search-section">
+                    <div class="search-section-header">
+                        <h3><i class="fas fa-crown" style="color: #f1c40f;"></i> Top Rated Anime</h3>
+                        <a href="/top-rated">See All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="search-horizontal-scroll">
+                        {% for anime in top_rated_anime_overlay %}
+                        <a href="/watch/{{ anime.id }}" class="search-anime-card">
+                            <img src="{{ anime.image }}" alt="{{ anime.title }}" onerror="this.src='https://via.placeholder.com/120x160?text=No+Image';">
+                            <h4>{{ anime.title }}</h4>
+                            <div class="search-anime-meta">
+                                <span>S{{ anime.seasons[0].season_number if anime.seasons else 1 }} • {{ anime.seasons[0].episodes|length if anime.seasons else 0 }} Episodes</span>
+                                <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -98,9 +168,10 @@
         </div>
     </div>
 
-    <!-- Splash Screen Script & SPA Navigation -->
+    <!-- Splash Screen Script & SPA Navigation & Search Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- Splash Screen ---
             const splash = document.getElementById("splash-screen");
             if (!splash) return;
             if (sessionStorage.getItem('splashShown')) {
@@ -112,18 +183,78 @@
                     setTimeout(() => { splash.style.display = 'none'; }, 500);
                 }, 1500);
             }
+
+            // --- Search Overlay Logic ---
+            renderRecentSearches();
         });
 
         function openSearch() {
             document.getElementById('searchOverlay').classList.add('active');
             setTimeout(() => { document.getElementById('searchInput').focus(); }, 100);
+            document.getElementById('searchResultsContainer').style.display = 'none';
+            document.getElementById('defaultSearchContent').style.display = 'block';
         }
+        
         function closeSearch() {
             document.getElementById('searchOverlay').classList.remove('active');
             document.getElementById('searchInput').value = '';
         }
-        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeSearch(); } });
 
+        document.addEventListener('keydown', function(e) { 
+            if (e.key === 'Escape') { closeSearch(); } 
+        });
+
+        // --- Recent Searches Logic ---
+        function renderRecentSearches() {
+            const container = document.getElementById('recentSearchesContainer');
+            let recent = JSON.parse(localStorage.getItem('recentSearches')) || [];
+            
+            if (recent.length === 0) {
+                container.innerHTML = '<p style="color: #888; font-size: 13px; padding: 5px 0;">No recent searches</p>';
+                return;
+            }
+            
+            container.innerHTML = recent.map(query => `
+                <a href="/search?q=${encodeURIComponent(query)}" class="pill-tag recent">
+                    <i class="fas fa-clock"></i> ${query}
+                    <span onclick="event.preventDefault(); removeRecentSearch('${query}')" style="margin-left: 5px; color: #888;"><i class="fas fa-times"></i></span>
+                </a>
+            `).join('');
+        }
+
+        function addRecentSearch(query) {
+            if (!query) return;
+            let recent = JSON.parse(localStorage.getItem('recentSearches')) || [];
+            recent = recent.filter(q => q.toLowerCase() !== query.toLowerCase());
+            recent.unshift(query);
+            recent = recent.slice(0, 6); // Keep only last 6
+            localStorage.setItem('recentSearches', JSON.stringify(recent));
+        }
+
+        function removeRecentSearch(query) {
+            let recent = JSON.parse(localStorage.getItem('recentSearches')) || [];
+            recent = recent.filter(q => q.toLowerCase() !== query.toLowerCase());
+            localStorage.setItem('recentSearches', JSON.stringify(recent));
+            renderRecentSearches();
+        }
+
+        function clearRecentSearches() {
+            localStorage.removeItem('recentSearches');
+            renderRecentSearches();
+        }
+
+        // Handle search form submission
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.trim();
+                if (query) {
+                    addRecentSearch(query);
+                    window.location.href = `/search?q=${encodeURIComponent(query)}`;
+                }
+            }
+        });
+
+        // --- SPA Navigation ---
         function showSpaLoader() {
             const loader = document.getElementById('spaLoader');
             if (loader) {
