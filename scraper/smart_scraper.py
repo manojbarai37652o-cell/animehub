@@ -8,24 +8,20 @@ import argparse
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
-# प्रोजेक्ट रूट सेट करें
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
 from scraper.parser import (parse_post_id, parse_season_episodes,
-                            parse_video_link, parse_release_year, extract_language_from_detail)
+                            parse_video_link, extract_language_from_detail)
 
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
 BASE_URL = "https://animesalt.cx"
 
-# =========================================================
-# 🛠️ सेटिंग्स
-# =========================================================
 MIN_YEAR = 1950
 BATCH_SIZE = 10000
 SLEEP_BETWEEN = 2
-MAX_PAGES_PER_SECTION = 10
+MAX_PAGES_PER_SECTION = 5
 MAX_CONSECUTIVE_EMPTY_PAGES = 3
 
 def load_db():
@@ -40,7 +36,7 @@ def save_db(data):
         json.dump(data, f, indent=4, ensure_ascii=False)
 
 def extract_anime_list_from_html(html):
-    """HTML से एनीमे लिस्ट निकालें (इमेज URL फिक्स के साथ)"""
+    """🛠️ FIX 4: इमेज URL का पक्का फिक्स"""
     soup = BeautifulSoup(html, 'html.parser')
     anime_list = []
     items = soup.find_all('li', class_=re.compile(r'\bpost\b'))
@@ -59,15 +55,17 @@ def extract_anime_list_from_html(html):
             if '/movies/' in href: anime_type = "Movie"
             elif '/series/' in href: anime_type = "Series"
             
-            # 🛠️ इमेज URL फिक्स: // से शुरू होने पर https: लगाओ
             img_tag = item.find('img')
             image = ""
             if img_tag:
                 image = img_tag.get('data-src') or img_tag.get('src') or ""
-                if image.startswith('//'):
+                if image.startswith('//'): 
                     image = 'https:' + image
-                elif image.startswith('/'):
+                elif image.startswith('/'): 
                     image = BASE_URL + image
+                # 🛠️ टूटे हुए URL को साफ़ करो
+                if 'animesalt.cx' in image and 'tmdb' in image.lower():
+                    image = ""
 
             if not any(a['url'] == href for a in anime_list):
                 anime_list.append({'title': title, 'url': href, 'image': image, 'type': anime_type})
@@ -161,25 +159,9 @@ if __name__ == '__main__':
 
                 # 1. डिटेल्स निकालें
                 anime['language'] = extract_language_from_detail(html)
-                
-                # 🛠️ ID निकालने का पक्का तरीका
                 post_id = parse_post_id(html)
-                if not post_id:
-                    post_id_match = re.search(r'post-(\d+)', html) or re.search(r'postid-(\d+)', html)
-                    if post_id_match:
-                        post_id = post_id_match.group(1)
-                
-                if post_id:
-                    anime['id'] = post_id
-                else:
-                    anime['id'] = str(abs(hash(anime['url'])))
-                
+                anime['id'] = str(post_id) if post_id else str(abs(hash(anime['url'])))
                 print(f"   🌐 Language: {anime['language']} | 📌 ID: {anime['id']}")
-
-                year = parse_release_year(html)
-                if year and year < MIN_YEAR:
-                    print(f"   ⚠️ बहुत पुराना ({year}), skip")
-                    continue
 
                 anime_seasons = []
 

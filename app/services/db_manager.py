@@ -4,7 +4,7 @@ import random
 import requests
 
 # ✅ GitHub से ताजा डेटा
-GITHUB_RAW_URL = "https://raw.githubusercontent.com/manojbarai37652o-cell/animehub/main/database/storage.json"
+GITHUB_RAW_URL = "https://raw.githubusercontent.com/manojbarai376520-cell/animehub/main/database/storage.json"
 DB_PATH = os.path.join(os.getcwd(), 'database', 'storage.json')
 
 
@@ -28,8 +28,11 @@ def get_all_anime():
 
 
 def get_anime_by_id(anime_id):
+    """🛠️ FIX: ID को स्ट्रिंग और इंटीजर दोनों तरह से मैच करे (404 एरर खत्म)"""
+    anime_id_str = str(anime_id)
     for anime in get_all_anime():
-        if anime['id'] == anime_id:
+        # दोनों को स्ट्रिंग में बदलकर तुलना करो
+        if str(anime.get('id')) == anime_id_str:
             return anime
     return None
 
@@ -43,7 +46,8 @@ def search_anime(query):
 
 def get_random_anime(exclude_id, count=6):
     anime_list = get_all_anime()
-    filtered = [a for a in anime_list if a['id'] != exclude_id]
+    exclude_id_str = str(exclude_id)
+    filtered = [a for a in anime_list if str(a.get('id')) != exclude_id_str]
     if len(filtered) <= count:
         return filtered
     return random.sample(filtered, count)
@@ -108,8 +112,9 @@ def save_anime_list(anime_list):
 
 def update_anime_episodes(anime_id, episodes):
     anime_list = get_all_anime()
+    anime_id_str = str(anime_id)
     for anime in anime_list:
-        if anime['id'] == anime_id:
+        if str(anime.get('id')) == anime_id_str:
             anime['episodes'] = episodes
             break
     save_anime_list(anime_list)
