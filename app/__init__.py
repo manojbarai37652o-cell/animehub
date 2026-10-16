@@ -76,7 +76,7 @@ def create_app(config_class=Config):
     # 🛠️ GOOGLE VERIFICATION ROUTE
     @app.route('/google284a1cf6abd21b7d.html')
     def google_verification():
-        return send_from_directory('app/static', 'google284a1cf6abd21b7d.html')
+        return send_from_directory(app.static_folder, 'google284a1cf6abd21b7d.html')
 
     @app.before_request
     def auto_login():
