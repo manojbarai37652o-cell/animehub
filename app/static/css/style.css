@@ -4290,20 +4290,25 @@ body::before {
     box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
 }
 /* =========================================
-   FIX: Profile Icon Overflow Issue
+   FIX: Profile Icon Overflow (Strict Fix)
    ========================================= */
-.profile-icon {
-    overflow: hidden !important; /* इमेज को बटन के अंदर ही रोकने के लिए */
-    padding: 0 !important;       /* अंदर की खाली जगह हटाने के लिए */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.glass-icon-btn.profile-icon {
+    overflow: hidden !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 42px !important;   /* बटन की साइज़ फिक्स कर दी */
+    height: 42px !important;  /* बटन की साइज़ फिक्स कर दी */
 }
 
-.profile-icon .user-avatar {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;           /* इमेज को सही से फिट करने के लिए */
-    border-radius: 50%;
-    display: block;
+.glass-icon-btn.profile-icon img.user-avatar {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
