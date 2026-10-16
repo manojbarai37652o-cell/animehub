@@ -79,18 +79,15 @@
                     </div>
                 </div>
 
-                <!-- Trending Searches -->
+                <!-- 🛠️ Trending Searches - Ab Dynamic Hai -->
                 <div class="search-section">
                     <div class="search-section-header">
                         <h3><i class="fas fa-fire" style="color: #a855f7;"></i> Trending Searches</h3>
                     </div>
                     <div class="pill-tags">
-                        <a href="/search?q=Demon+Slayer" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> Demon Slayer</a>
-                        <a href="/search?q=One+Piece" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> One Piece</a>
-                        <a href="/search?q=Jujutsu+Kaisen" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> Jujutsu Kaisen</a>
-                        <a href="/search?q=Solo+Leveling" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> Solo Leveling</a>
-                        <a href="/search?q=Naruto" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> Naruto</a>
-                        <a href="/search?q=Attack+on+Titan" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> Attack on Titan</a>
+                        {% for term in trending_searches %}
+                        <a href="/search?q={{ term|urlencode }}" class="pill-tag trending"><i class="fas fa-arrow-trend-up"></i> {{ term }}</a>
+                        {% endfor %}
                     </div>
                 </div>
 

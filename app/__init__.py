@@ -177,9 +177,6 @@ def create_app(config_class=Config):
         resp.set_cookie('saved_email', '', expires=0)
         return resp
 
-    # =========================================================
-    # 🟢 AUTO-CATEGORIZATION LOGIC 🟢
-    # =========================================================
     def get_filtered_anime():
         all_anime = get_all_anime()
         cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman']
@@ -190,16 +187,22 @@ def create_app(config_class=Config):
         popular_full = sorted(series_list, key=lambda x: len(x.get('episodes', [])), reverse=True)
         return all_anime, trending_full, popular_full, movies_list, series_list, cartoons_list
 
-    # 🟢 Search Overlay ke liye Popular aur Top Rated data
+    # 🟢 Search Overlay ke liye Popular, Top Rated aur Trending Searches ka data
     @app.context_processor
     def inject_search_data():
         try:
             all_anime = get_all_anime()
             popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)[:10]
             top_rated = sorted(all_anime, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)[:10]
-            return dict(popular_anime_overlay=popular, top_rated_anime_overlay=top_rated)
+            # 🛠️ Trending searches ke liye top 6 anime titles le rahe hain
+            trending_searches = [a['title'] for a in popular[:6]] 
+            return dict(
+                popular_anime_overlay=popular, 
+                top_rated_anime_overlay=top_rated,
+                trending_searches=trending_searches
+            )
         except:
-            return dict(popular_anime_overlay=[], top_rated_anime_overlay=[])
+            return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
     # =========================================================
     # 🟢 CONTINUE WATCHING FEATURE 🟢
