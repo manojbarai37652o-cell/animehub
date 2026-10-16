@@ -5,14 +5,13 @@
 
     <!-- 1. Cover Photo Section -->
     <div class="profile-cover">
-        <!-- यहाँ अपनी पसंद का कवर फोटो लगा सकते हैं -->
         <div class="cover-overlay"></div>
     </div>
 
     <!-- 2. Profile Header (Avatar, Name, Edit Button) -->
     <div class="profile-header">
-        <div class="avatar-container">
-            <img src="{{ session.user_pic|default('https://placeholder.co/100x100/161b22/a855f7?text=User') }}" alt="Profile Picture">
+        <div class="avatar-container" style="border-radius: 50% !important; overflow: hidden !important; width: 85px; height: 85px; border: 4px solid #0b0f19; background: #333; flex-shrink: 0;">
+            <img src="{{ session.user_pic|default('https://placeholder.co/100x100/161b22/a855f7?text=User') }}" alt="Profile Picture" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="profile-info">
             <h2>{{ session.user_name|default('Manoj') }}</h2>
@@ -21,12 +20,8 @@
         <button class="edit-profile-btn" onclick="alert('Edit Profile feature coming soon!')"><i class="fas fa-pen"></i> Edit Profile</button>
     </div>
 
-    <!-- ❌ Stats Bar (Following, Followers, Saved) यहाँ से हटा दिया गया है ❌ -->
-
-    <!-- 3. Settings List (सिर्फ 2 आइटम्स बचे हैं) -->
+    <!-- 3. Settings List -->
     <div class="settings-list">
-        
-        <!-- Account Information -->
         <a href="/settings/account" class="setting-item">
             <div class="setting-icon" style="background: rgba(52, 152, 219, 0.15); color: #3498db;">
                 <i class="fas fa-user"></i>
@@ -38,7 +33,6 @@
             <i class="fas fa-chevron-right setting-arrow"></i>
         </a>
 
-        <!-- Playback Settings -->
         <a href="/settings/playback" class="setting-item">
             <div class="setting-icon" style="background: rgba(163, 113, 247, 0.15); color: #a855f7;">
                 <i class="fas fa-play"></i>
@@ -49,9 +43,6 @@
             </div>
             <i class="fas fa-chevron-right setting-arrow"></i>
         </a>
-
-        <!-- ❌ Notifications, Appearance, Privacy, Help, About यहाँ से हटा दिए गए हैं ❌ -->
-
     </div>
 
     <!-- 4. Logout Button -->
@@ -61,5 +52,24 @@
 
 </div>
 
-<!-- ❌ Appearance Toggle (Dark/Light mode) का JavaScript यहाँ से हटा दिया गया है ❌ -->
+<!-- 🟢 इस पेज के लिए जरूरी CSS (सिर्फ इसी पेज पर लागू होगा) 🟢 -->
+<style>
+    .profile-wrapper { max-width: 500px; margin: 0 auto; padding: 90px 15px 100px 15px; box-sizing: border-box; }
+    .profile-cover { position: relative; height: 180px; width: 100%; overflow: hidden; border-radius: 20px 20px 0 0 !important; background: #1a1a24; }
+    .profile-cover::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, #0b0f19 0%, transparent 100%); }
+    .profile-header { display: flex; align-items: flex-end; padding: 0 15px; margin-top: -45px; position: relative; z-index: 10; }
+    .profile-info { flex: 1; margin-left: 12px; padding-bottom: 5px; }
+    .profile-info h2 { font-size: 18px; font-weight: 800; margin: 0 0 2px 0; color: #fff; }
+    .profile-info p { font-size: 13px; color: #a855f7; margin: 0; font-weight: 500; }
+    .edit-profile-btn { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 8px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 5px; margin-bottom: 5px; }
+    .settings-list { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
+    .setting-item { display: flex; align-items: center; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 15px; padding: 15px; text-decoration: none; color: #fff; transition: 0.3s; }
+    .setting-item:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
+    .setting-icon { width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-right: 15px; flex-shrink: 0; }
+    .setting-text { flex: 1; }
+    .setting-text h3 { margin: 0 0 4px 0; font-size: 15px; font-weight: 700; color: #fff; }
+    .setting-text p { margin: 0; font-size: 12px; color: #888; line-height: 1.3; }
+    .setting-arrow { color: #555; font-size: 16px; margin-left: 10px; }
+    .logout-btn { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 30px; width: 100%; padding: 15px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff; border-radius: 15px; text-decoration: none; font-weight: 700; font-size: 15px; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3); }
+</style>
 {% endblock %}

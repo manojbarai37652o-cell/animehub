@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, request, redirect, url_for, session, jsonify
+from flask import Flask, render_template, abort, request, redirect, url_for, session, jsonify, flash
 import random
 import json
 import os
@@ -23,7 +23,7 @@ class User(db.Model):
     remember_token = db.Column(db.String(200), nullable=True)
 
 # =========================================================
-# 🟢 PROGRESS.JSON MANAGER 🟢
+# 🟢 PROGRESS.JSON MANAGER (Continue Watching ke liye) 🟢
 # =========================================================
 PROGRESS_FILE = 'database/progress.json'
 
@@ -40,7 +40,6 @@ def save_progress_data(data):
     os.makedirs(os.path.dirname(PROGRESS_FILE), exist_ok=True)
     with open(PROGRESS_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
-# =========================================================
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -65,6 +64,7 @@ def create_app(config_class=Config):
         try:
             db.session.execute(db.text('ALTER TABLE user ADD COLUMN remember_token VARCHAR(200)'))
             db.session.commit()
+            print("✅ remember_token कॉलम जोड़ दिया गया।")
         except Exception:
             db.session.rollback()
             
@@ -91,6 +91,7 @@ def create_app(config_class=Config):
     @app.route('/login')
     def login():
         if session.get('user_email'):
+            session.permanent = True
             return redirect(url_for('home'))
         if not google.authorized:
             return render_template('login.html')
@@ -107,6 +108,7 @@ def create_app(config_class=Config):
                 session.clear()
                 return render_template('login.html')
         except Exception as e:
+            print(f"Error: {e}")
             session.clear()
             return render_template('login.html')
 
@@ -177,6 +179,9 @@ def create_app(config_class=Config):
         resp.set_cookie('saved_email', '', expires=0)
         return resp
 
+    # =========================================================
+    # 🟢 AUTO-CATEGORIZATION LOGIC (Trending, Popular, Movies, Cartoons) 🟢
+    # =========================================================
     def get_filtered_anime():
         all_anime = get_all_anime()
         cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman']
@@ -190,7 +195,6 @@ def create_app(config_class=Config):
     # =========================================================
     # 🟢 CONTINUE WATCHING FEATURE 🟢
     # =========================================================
-    
     @app.route('/api/save_progress', methods=['POST'])
     def api_save_progress():
         if not session.get('user_email'): return jsonify({"status": "error", "message": "Not logged in"}), 401
@@ -242,6 +246,9 @@ def create_app(config_class=Config):
         
         return render_template('continue_watching.html', anime_list=continue_list, page_title="Continue Watching")
 
+    # =========================================================
+    # 🟢 MAIN ROUTES 🟢
+    # =========================================================
     @app.route('/')
     def home():
         if not session.get('user_email'): return render_template('login.html')
@@ -298,6 +305,45 @@ def create_app(config_class=Config):
     def profile():
         if not session.get('user_email'): return render_template('login.html')
         return render_template('profile.html')
+
+    # 👇👇 नए जोड़े गए राउट्स (Settings के लिए) 👇👇
+    @app.route('/settings/account')
+    def settings_account():
+        if not session.get('user_email'): return render_template('login.html')
+        return render_template('settings.html', page_title='Account Information')
+
+    @app.route('/settings/playback')
+    def settings_playback():
+        if not session.get('user_email'): return render_template('login.html')
+        return render_template('settings.html', page_title='Playback Settings')
+
+    @app.route('/settings/update_profile', methods=['POST'])
+    def update_profile():
+        if not session.get('user_email'): return redirect(url_for('login'))
+        new_name = request.form.get('name')
+        user = User.query.filter_by(email=session['user_email']).first()
+        if user and new_name:
+            user.name = new_name
+            session['user_name'] = new_name
+            db.session.commit()
+            flash('प्रोफाइल नाम सफलतापूर्वक अपडेट हो गया!', 'success')
+        return redirect(url_for('settings_account'))
+
+    @app.route('/settings/update_password', methods=['POST'])
+    def update_password():
+        if not session.get('user_email'): return redirect(url_for('login'))
+        current_password = request.form.get('current_password')
+        new_password = request.form.get('new_password')
+        user = User.query.filter_by(email=session['user_email']).first()
+        
+        if user and check_password_hash(user.password_hash, current_password):
+            user.password_hash = generate_password_hash(new_password)
+            db.session.commit()
+            flash('पासवर्ड सफलतापूर्वक बदल दिया गया!', 'success')
+        else:
+            flash('गलत पुराना पासवर्ड! कृपया पुनः प्रयास करें।', 'error')
+        return redirect(url_for('settings_account'))
+    # 👆👆 नए जोड़े गए राउट्स यहाँ तक 👆👆
 
     @app.route('/search')
     def search():
