@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, request, redirect, url_for, session, jsonify, flash, send_from_directory
+from flask import Flask, render_template, abort, request, redirect, url_for, session, jsonify, flash, send_from_directory, Response
 import random
 import json
 import os
@@ -73,10 +73,46 @@ def create_app(config_class=Config):
     )
     app.register_blueprint(google_bp, url_prefix="/login")
 
-    # 🛠️ GOOGLE VERIFICATION ROUTE
+    # =========================================================
+    # 🟢 GOOGLE VERIFICATION & SITEMAP ROUTES 🟢
+    # =========================================================
     @app.route('/google284a1cf6abd21b7d.html')
     def google_verification():
         return send_from_directory(app.static_folder, 'google284a1cf6abd21b7d.html')
+
+    @app.route('/sitemap.xml', methods=['GET'])
+    def sitemap():
+        try:
+            all_anime = get_all_anime()
+            base_url = request.url_root.rstrip('/')
+            
+            xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+            xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            
+            # Static Pages
+            static_pages = ['/', '/trending', '/movies', '/cartoons', '/top-rated', '/popular', '/categories']
+            for page in static_pages:
+                xml += f'  <url>\n    <loc>{base_url}{page}</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n'
+            
+            # Anime & Movies
+            for anime in all_anime:
+                anime_url = f"{base_url}/watch/{anime.get('id', '')}"
+                xml += f'  <url>\n    <loc>{anime_url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n'
+                
+                # Episodes
+                for season in anime.get('seasons', []):
+                    season_num = season.get('season_number', 1)
+                    for ep in season.get('episodes', []):
+                        ep_num = ep.get('ep_num', '1')
+                        ep_url = f"{base_url}/watch/{anime.get('id', '')}/{season_num}/{ep_num}"
+                        xml += f'  <url>\n    <loc>{ep_url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>\n'
+            
+            xml += '</urlset>'
+            
+            return Response(xml, mimetype='application/xml')
+        except Exception as e:
+            print(f"Sitemap error: {e}")
+            return Response("Error generating sitemap", status=500)
 
     @app.before_request
     def auto_login():
