@@ -68789,6 +68789,87 @@
                     "video_url": "https://ravok.buzz/video/f1b3192eb719b96fd0f4ae89e0c97476"
                 }
             ]
+        },
+        {
+            "title": "Scooby-Doo! and the Loch Ness Monster",
+            "url": "https://animesalt.cx/movies/scooby-doo-and-the-loch-ness-monster/",
+            "image": "https://image.tmdb.org/t/p/w500/hmeJnofknkSnczzN3J7Wvfn7OGI.jpg",
+            "type": "Movie",
+            "language": "Unknown",
+            "id": 2412,
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/video/daccd87747bf3626e603e5750195c368"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/video/daccd87747bf3626e603e5750195c368"
+                }
+            ]
+        },
+        {
+            "title": "Scooby-Doo! and the Monster of Mexico",
+            "url": "https://animesalt.cx/movies/scooby-doo-and-the-monster-of-mexico/",
+            "image": "https://image.tmdb.org/t/p/w500/fv4e6pGhl4fDUdRt2WIDLDgEq7e.jpg",
+            "type": "Movie",
+            "language": "Unknown",
+            "id": 2409,
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/video/06ab8d9df63b836129099247301c038b"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/video/06ab8d9df63b836129099247301c038b"
+                }
+            ]
+        },
+        {
+            "title": "Scooby-Doo! and the Samurai Sword",
+            "url": "https://animesalt.cx/movies/scooby-doo-and-the-samurai-sword/",
+            "image": "https://image.tmdb.org/t/p/w500/qJ0UlWWrBn2fnAg4SifTJbDUuaf.jpg",
+            "type": "Movie",
+            "language": "Unknown",
+            "id": 2415,
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "ep_num": "1",
+                            "video_url": "https://ravok.buzz/video/89588adb3079c3445d0da2882399365d"
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "ep_num": "1",
+                    "video_url": "https://ravok.buzz/video/89588adb3079c3445d0da2882399365d"
+                }
+            ]
         }
     ]
 }

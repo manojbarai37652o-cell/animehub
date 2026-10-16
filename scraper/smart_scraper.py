@@ -25,7 +25,7 @@ BASE_URL = "https://animesalt.cx"
 MIN_YEAR = 1950
 BATCH_SIZE = 10000
 SLEEP_BETWEEN = 2
-MAX_PAGES_PER_SECTION = 50
+MAX_PAGES_PER_SECTION = 10
 MAX_CONSECUTIVE_EMPTY_PAGES = 3
 
 def load_db():
@@ -40,11 +40,9 @@ def save_db(data):
         json.dump(data, f, indent=4, ensure_ascii=False)
 
 def extract_anime_list_from_html(html):
-    """HTML से एनीमे लिस्ट निकालें (Torofilm थीम के हिसाब से)"""
+    """HTML से एनीमे लिस्ट निकालें (इमेज URL फिक्स के साथ)"""
     soup = BeautifulSoup(html, 'html.parser')
     anime_list = []
-    
-    # 'post' क्लास वाले सारे li टैग्स ढूंढो
     items = soup.find_all('li', class_=re.compile(r'\bpost\b'))
     
     for item in items:
@@ -57,16 +55,19 @@ def extract_anime_list_from_html(html):
             href = link_tag['href']
             if not href.startswith('http'): href = BASE_URL + href
             
-            # 🛠️ URL से टाइप पक्का करें
             anime_type = "Series"
-            if '/movies/' in href: 
-                anime_type = "Movie"
-            elif '/series/' in href: 
-                anime_type = "Series"
+            if '/movies/' in href: anime_type = "Movie"
+            elif '/series/' in href: anime_type = "Series"
             
+            # 🛠️ इमेज URL फिक्स: // से शुरू होने पर https: लगाओ
             img_tag = item.find('img')
-            image = img_tag.get('data-src') or img_tag.get('src') if img_tag else ""
-            if image and not image.startswith('http'): image = BASE_URL + image
+            image = ""
+            if img_tag:
+                image = img_tag.get('data-src') or img_tag.get('src') or ""
+                if image.startswith('//'):
+                    image = 'https:' + image
+                elif image.startswith('/'):
+                    image = BASE_URL + image
 
             if not any(a['url'] == href for a in anime_list):
                 anime_list.append({'title': title, 'url': href, 'image': image, 'type': anime_type})
@@ -76,7 +77,6 @@ def extract_anime_list_from_html(html):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="AnimeNest Smart Scraper")
     parser.add_argument('--letter', type=str, default='all', help="Letter to scrape (e.g., S, A, B) or 'all'")
-    parser.add_argument('--all', action='store_true', help="Scrape all letters from A to Z.")
     args = parser.parse_args()
 
     print("=" * 60)
@@ -89,7 +89,6 @@ if __name__ == '__main__':
     updated_list = existing_anime.copy()
     new_anime = []
 
-    # 🛠️ पूरे स्क्रैपिंग को Playwright के अंदर चलाएंगे
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--disable-ipv6", "--no-sandbox"])
         context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
@@ -97,7 +96,7 @@ if __name__ == '__main__':
         page.set_default_timeout(60000)
 
         # --- स्टेप 1: लिस्ट निकालना ---
-        if args.letter.lower() == 'all' or args.all:
+        if args.letter.lower() == 'all':
             letters = ['home'] + list(string.ascii_uppercase)
         else:
             letters = [args.letter.upper()]
@@ -156,16 +155,26 @@ if __name__ == '__main__':
             print(f"\n[{idx + 1}/{len(new_anime)}] {anime['title']} ({anime['type']})")
             
             try:
-                # 🛠️ हर एनीमे के पेज को Playwright से लोड करें (100% असली HTML मिलेगा)
                 page.goto(anime['url'], wait_until="domcontentloaded", timeout=60000)
                 page.wait_for_timeout(3000)
                 html = page.content()
 
                 # 1. डिटेल्स निकालें
                 anime['language'] = extract_language_from_detail(html)
-                anime['post_id'] = parse_post_id(html)
-                if anime['post_id']: anime['id'] = anime['post_id']
-                print(f"   🌐 Language: {anime['language']} | 📌 ID: {anime['post_id']}")
+                
+                # 🛠️ ID निकालने का पक्का तरीका
+                post_id = parse_post_id(html)
+                if not post_id:
+                    post_id_match = re.search(r'post-(\d+)', html) or re.search(r'postid-(\d+)', html)
+                    if post_id_match:
+                        post_id = post_id_match.group(1)
+                
+                if post_id:
+                    anime['id'] = post_id
+                else:
+                    anime['id'] = str(abs(hash(anime['url'])))
+                
+                print(f"   🌐 Language: {anime['language']} | 📌 ID: {anime['id']}")
 
                 year = parse_release_year(html)
                 if year and year < MIN_YEAR:
@@ -244,7 +253,6 @@ if __name__ == '__main__':
                         print("   ⚠️ मूवी का iframe नहीं मिला, स्किप कर रहे हैं।")
                         continue
 
-                # हर 3 एनीमे के बाद सेव करें
                 if scraped_this_run % 3 == 0 and scraped_this_run > 0:
                     db_data['anime_list'] = updated_list
                     save_db(db_data)
