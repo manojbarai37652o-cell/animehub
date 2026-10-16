@@ -23,9 +23,6 @@ class User(db.Model):
     password_hash = db.Column(db.String(200), nullable=False)
     remember_token = db.Column(db.String(200), nullable=True)
 
-# =========================================================
-# 🟢 PROGRESS.JSON MANAGER (Continue Watching ke liye) 🟢
-# =========================================================
 PROGRESS_FILE = 'database/progress.json'
 
 def load_progress():
@@ -172,7 +169,7 @@ def create_app(config_class=Config):
         session.clear()
         session.pop('google_token', None)
         session.pop('google_oauth_token', None)
-        resp = redirect(url_for('login'))
+        resp = redirect(url_for('home'))
         resp.set_cookie('remember_token', '', expires=0)
         resp.set_cookie('saved_email', '', expires=0)
         return resp
@@ -187,14 +184,12 @@ def create_app(config_class=Config):
         popular_full = sorted(series_list, key=lambda x: len(x.get('episodes', [])), reverse=True)
         return all_anime, trending_full, popular_full, movies_list, series_list, cartoons_list
 
-    # 🟢 Search Overlay ke liye Popular, Top Rated aur Trending Searches ka data
     @app.context_processor
     def inject_search_data():
         try:
             all_anime = get_all_anime()
             popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)[:10]
             top_rated = sorted(all_anime, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)[:10]
-            # 🛠️ Trending searches ke liye top 6 anime titles le rahe hain
             trending_searches = [a['title'] for a in popular[:6]] 
             return dict(
                 popular_anime_overlay=popular, 
@@ -204,9 +199,6 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # =========================================================
-    # 🟢 CONTINUE WATCHING FEATURE 🟢
-    # =========================================================
     @app.route('/api/save_progress', methods=['POST'])
     def api_save_progress():
         if not session.get('user_email'): return jsonify({"status": "error", "message": "Not logged in"}), 401
@@ -259,11 +251,10 @@ def create_app(config_class=Config):
         return render_template('continue_watching.html', anime_list=continue_list, page_title="Continue Watching")
 
     # =========================================================
-    # 🟢 MAIN ROUTES 🟢
+    # 🟢 PUBLIC ROUTES (अब लॉगिन की जरूरत नहीं) 🟢
     # =========================================================
     @app.route('/')
     def home():
-        if not session.get('user_email'): return render_template('login.html')
         all_anime, trending_full, popular_full, movies_full, series_full, cartoons_full = get_filtered_anime()
         trending = random.sample(trending_full[:50], min(len(trending_full[:50]), 12)) if trending_full else []
         popular = random.sample(popular_full[:50], min(len(popular_full[:50]), 12)) if popular_full else []
@@ -276,43 +267,124 @@ def create_app(config_class=Config):
 
     @app.route('/trending')
     def trending_page():
-        if not session.get('user_email'): return render_template('login.html')
         _, trending_full, _, _, _, _ = get_filtered_anime()
         return render_template('index.html', anime_list=trending_full, page_title="Trending Anime")
 
     @app.route('/movies')
     def movies_page():
-        if not session.get('user_email'): return render_template('login.html')
         _, _, _, movies_full, _, _ = get_filtered_anime()
         return render_template('index.html', anime_list=movies_full, page_title="Anime Movies")
 
     @app.route('/cartoons')
     def cartoons_page():
-        if not session.get('user_email'): return render_template('login.html')
         _, _, _, _, _, cartoons_full = get_filtered_anime()
         return render_template('index.html', anime_list=cartoons_full, page_title="Cartoons")
 
     @app.route('/categories')
     def categories_page():
-        if not session.get('user_email'): return render_template('login.html')
         all_anime, _, _, _, _, _ = get_filtered_anime()
         return render_template('index.html', anime_list=all_anime, page_title="All Categories")
 
     @app.route('/top-rated')
     def top_rated_page():
-        if not session.get('user_email'): return render_template('login.html')
         all_anime, _, _, _, _, _ = get_filtered_anime()
         return render_template('index.html', anime_list=all_anime, page_title="Top Rated")
 
+    @app.route('/popular')
+    def popular_page():
+        _, _, popular_full, _, _, _ = get_filtered_anime()
+        return render_template('index.html', anime_list=popular_full, page_title="Popular Anime")
+
     @app.route('/az/<letter>')
     def az_page(letter):
-        if not session.get('user_email'): return render_template('login.html')
         letter = letter.upper()
         all_anime = get_all_anime()
         filtered = [a for a in all_anime if a['title'].upper().startswith(letter)]
         filtered.sort(key=lambda x: x['title'].lower())
         return render_template('index.html', anime_list=filtered, page_title=f"Anime starting with '{letter}'")
 
+    @app.route('/search')
+    def search():
+        query = request.args.get('q', '')
+        anime_list = search_anime(query) if query else get_all_anime()
+        return render_template('index.html', anime_list=anime_list, search_query=query, page_title=f"Search Results")
+
+    @app.route('/random')
+    def random_anime():
+        anime = get_single_random_anime()
+        if anime: return redirect(f"/watch/{anime['id']}")
+        return redirect('/')
+
+    @app.route('/watch/<anime_id>')
+    @app.route('/watch/<anime_id>/<int:season_number>')
+    @app.route('/watch/<anime_id>/<int:season_number>/<ep_number>')
+    def watch(anime_id, season_number=1, ep_number=None):
+        anime = get_anime_by_id(anime_id)
+        if not anime: abort(404)
+        
+        seasons = anime.get('seasons', [])
+        if not seasons:
+            episodes = anime.get('episodes', [])
+            if episodes:
+                seasons = [{"season_number": 1, "episodes": episodes}]
+                
+        current_season = next((s for s in seasons if s['season_number'] == season_number), None)
+        if not current_season and seasons:
+            current_season = seasons[0]
+            season_number = current_season['season_number']
+            
+        episodes = current_season['episodes'] if current_season else []
+        
+        current_ep, current_index = None, 0
+        if episodes:
+            if ep_number is None:
+                current_ep = episodes[0]
+                current_index = 0
+            else:
+                match = re.search(r'(\d+)$', str(ep_number))
+                actual_ep_num = match.group(1) if match else str(ep_number)
+                
+                for i, ep in enumerate(episodes):
+                    if f"Episode {actual_ep_num}" in ep.get('title', '') or str(ep.get('ep_num')) == actual_ep_num:
+                        current_ep = ep
+                        current_index = i
+                        break
+            if not current_ep:
+                current_ep = episodes[0]
+                current_index = 0
+                
+        prev_ep_num, next_ep_num = None, None
+        if episodes:
+            if current_index > 0:
+                prev_match = episodes[current_index - 1]['title'].split(' ')[-1]
+                if prev_match.isdigit(): prev_ep_num = prev_match
+            if current_index < len(episodes) - 1:
+                next_match = episodes[current_index + 1]['title'].split(' ')[-1]
+                if next_match.isdigit(): next_ep_num = next_match
+                
+        title_lower = anime['title'].lower()
+        if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan']):
+            genres_text = "Action • Adventure • Fantasy"
+        elif any(k in title_lower for k in ['love', 'romance', 'couple', 'girlfriend', 'kaguya']):
+            genres_text = "Romance • Comedy • Drama"
+        elif any(k in title_lower for k in ['reincarnated', 'isekai', 'magic', 'dungeon', 'king']):
+            genres_text = "Fantasy • Isekai • Adventure"
+        elif any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy']):
+            genres_text = "Comedy • Slice of Life • Drama"
+        else:
+            genres_text = "Action • Adventure • Drama"
+            
+        description = f"Watch the amazing story of {anime['title']}. An unforgettable journey filled..."
+        related_anime = get_random_anime(anime_id, count=4)
+        
+        return render_template('watch.html', anime=anime, seasons=seasons, current_season=current_season,
+                               episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num,
+                               related_anime=related_anime, genres_text=genres_text, description=description,
+                               ep_number=ep_number)
+
+    # =========================================================
+    # 🟢 PROTECTED ROUTES (लॉगिन जरूरी है) 🟢
+    # =========================================================
     @app.route('/profile')
     def profile():
         if not session.get('user_email'): return render_template('login.html')
@@ -355,96 +427,10 @@ def create_app(config_class=Config):
             flash('गलत पुराना पासवर्ड! कृपया पुनः प्रयास करें।', 'error')
         return redirect(url_for('settings_account'))
 
-    @app.route('/search')
-    def search():
-        if not session.get('user_email'): return render_template('login.html')
-        query = request.args.get('q', '')
-        anime_list = search_anime(query) if query else get_all_anime()
-        return render_template('index.html', anime_list=anime_list, search_query=query, page_title=f"Search Results")
-
-    @app.route('/random')
-    def random_anime():
-        if not session.get('user_email'): return render_template('login.html')
-        anime = get_single_random_anime()
-        if anime: return redirect(f"/watch/{anime['id']}")
-        return redirect('/')
-
     @app.route('/watchlist')
     def watchlist():
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
-
-    # =========================================================
-    # 🟢 WATCH ROUTE (FIXED FOR 404 ERROR) 🟢
-    # =========================================================
-    @app.route('/watch/<anime_id>')
-    @app.route('/watch/<anime_id>/<int:season_number>')
-    @app.route('/watch/<anime_id>/<int:season_number>/<ep_number>')
-    def watch(anime_id, season_number=1, ep_number=None):
-        if not session.get('user_email'): return render_template('login.html')
-        anime = get_anime_by_id(anime_id)
-        if not anime: abort(404)
-        
-        seasons = anime.get('seasons', [])
-        if not seasons:
-            episodes = anime.get('episodes', [])
-            if episodes:
-                seasons = [{"season_number": 1, "episodes": episodes}]
-                
-        current_season = next((s for s in seasons if s['season_number'] == season_number), None)
-        if not current_season and seasons:
-            current_season = seasons[0]
-            season_number = current_season['season_number']
-            
-        episodes = current_season['episodes'] if current_season else []
-        
-        current_ep, current_index = None, 0
-        if episodes:
-            if ep_number is None:
-                current_ep = episodes[0]
-                current_index = 0
-            else:
-                # 🛠️ FIX: Extract the numerical part from ep_number (e.g., '1x1' -> '1', '1' -> '1')
-                match = re.search(r'(\d+)$', str(ep_number))
-                actual_ep_num = match.group(1) if match else str(ep_number)
-                
-                for i, ep in enumerate(episodes):
-                    if f"Episode {actual_ep_num}" in ep.get('title', '') or str(ep.get('ep_num')) == actual_ep_num:
-                        current_ep = ep
-                        current_index = i
-                        break
-            if not current_ep:
-                current_ep = episodes[0]
-                current_index = 0
-                
-        prev_ep_num, next_ep_num = None, None
-        if episodes:
-            if current_index > 0:
-                prev_match = episodes[current_index - 1]['title'].split(' ')[-1]
-                if prev_match.isdigit(): prev_ep_num = prev_match
-            if current_index < len(episodes) - 1:
-                next_match = episodes[current_index + 1]['title'].split(' ')[-1]
-                if next_match.isdigit(): next_ep_num = next_match
-                
-        title_lower = anime['title'].lower()
-        if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan']):
-            genres_text = "Action • Adventure • Fantasy"
-        elif any(k in title_lower for k in ['love', 'romance', 'couple', 'girlfriend', 'kaguya']):
-            genres_text = "Romance • Comedy • Drama"
-        elif any(k in title_lower for k in ['reincarnated', 'isekai', 'magic', 'dungeon', 'king']):
-            genres_text = "Fantasy • Isekai • Adventure"
-        elif any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy']):
-            genres_text = "Comedy • Slice of Life • Drama"
-        else:
-            genres_text = "Action • Adventure • Drama"
-            
-        description = f"Watch the amazing story of {anime['title']}. An unforgettable journey filled..."
-        related_anime = get_random_anime(anime_id, count=4)
-        
-        return render_template('watch.html', anime=anime, seasons=seasons, current_season=current_season,
-                               episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num,
-                               related_anime=related_anime, genres_text=genres_text, description=description,
-                               ep_number=ep_number)
 
     @app.errorhandler(404)
     def page_not_found(e): return render_template('404.html'), 404
