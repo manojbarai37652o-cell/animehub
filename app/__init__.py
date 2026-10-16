@@ -2,6 +2,7 @@ from flask import Flask, render_template, abort, request, redirect, url_for, ses
 import random
 import json
 import os
+import re
 import secrets
 from datetime import timedelta, datetime
 from config import Config
@@ -64,7 +65,6 @@ def create_app(config_class=Config):
         try:
             db.session.execute(db.text('ALTER TABLE user ADD COLUMN remember_token VARCHAR(200)'))
             db.session.commit()
-            print("✅ remember_token कॉलम जोड़ दिया गया।")
         except Exception:
             db.session.rollback()
             
@@ -91,7 +91,6 @@ def create_app(config_class=Config):
     @app.route('/login')
     def login():
         if session.get('user_email'):
-            session.permanent = True
             return redirect(url_for('home'))
         if not google.authorized:
             return render_template('login.html')
@@ -108,7 +107,6 @@ def create_app(config_class=Config):
                 session.clear()
                 return render_template('login.html')
         except Exception as e:
-            print(f"Error: {e}")
             session.clear()
             return render_template('login.html')
 
@@ -179,9 +177,6 @@ def create_app(config_class=Config):
         resp.set_cookie('saved_email', '', expires=0)
         return resp
 
-    # =========================================================
-    # 🟢 AUTO-CATEGORIZATION LOGIC (Trending, Popular, Movies, Cartoons) 🟢
-    # =========================================================
     def get_filtered_anime():
         all_anime = get_all_anime()
         cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman']
@@ -306,7 +301,6 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         return render_template('profile.html')
 
-    # 👇👇 नए जोड़े गए राउट्स (Settings के लिए) 👇👇
     @app.route('/settings/account')
     def settings_account():
         if not session.get('user_email'): return render_template('login.html')
@@ -343,7 +337,6 @@ def create_app(config_class=Config):
         else:
             flash('गलत पुराना पासवर्ड! कृपया पुनः प्रयास करें।', 'error')
         return redirect(url_for('settings_account'))
-    # 👆👆 नए जोड़े गए राउट्स यहाँ तक 👆👆
 
     @app.route('/search')
     def search():
@@ -364,9 +357,12 @@ def create_app(config_class=Config):
         if not session.get('user_email'): return render_template('login.html')
         return render_template('watchlist.html')
 
+    # =========================================================
+    # 🟢 WATCH ROUTE (FIXED FOR 404 ERROR) 🟢
+    # =========================================================
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')
-    @app.route('/watch/<anime_id>/<int:season_number>/<int:ep_number>')
+    @app.route('/watch/<anime_id>/<int:season_number>/<ep_number>')
     def watch(anime_id, season_number=1, ep_number=None):
         if not session.get('user_email'): return render_template('login.html')
         anime = get_anime_by_id(anime_id)
@@ -391,8 +387,12 @@ def create_app(config_class=Config):
                 current_ep = episodes[0]
                 current_index = 0
             else:
+                # 🛠️ FIX: Extract the numerical part from ep_number (e.g., '1x1' -> '1', '1' -> '1')
+                match = re.search(r'(\d+)$', str(ep_number))
+                actual_ep_num = match.group(1) if match else str(ep_number)
+                
                 for i, ep in enumerate(episodes):
-                    if f"Episode {ep_number}" in ep.get('title', ''):
+                    if f"Episode {actual_ep_num}" in ep.get('title', '') or str(ep.get('ep_num')) == actual_ep_num:
                         current_ep = ep
                         current_index = i
                         break
