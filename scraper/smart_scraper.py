@@ -19,7 +19,7 @@ DB_FILE = os.path.join(project_root, 'database', 'storage.json')
 BASE_URL = "https://animesalt.cx"
 
 MIN_YEAR = 1950
-BATCH_SIZE = 10000
+BATCH_SIZE = 100
 SLEEP_BETWEEN = 2
 MAX_PAGES_PER_SECTION = 5
 MAX_CONSECUTIVE_EMPTY_PAGES = 3
