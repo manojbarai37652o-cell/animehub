@@ -63,10 +63,10 @@
                 <button type="button" class="close-search-btn" onclick="closeSearch()"><i class="fas fa-times"></i></button>
             </div>
 
-            <!-- Search Results Container (This will be populated by JS) -->
+            <!-- Search Results Container -->
             <div id="searchResultsContainer" style="display: none;"></div>
 
-            <!-- Default Content (Recent, Trending, Popular) -->
+            <!-- Default Content -->
             <div id="defaultSearchContent">
                 <!-- Recent Searches -->
                 <div class="search-section">
@@ -79,7 +79,7 @@
                     </div>
                 </div>
 
-                <!-- 🛠️ Trending Searches - Ab Dynamic Hai -->
+                <!-- Trending Searches -->
                 <div class="search-section">
                     <div class="search-section-header">
                         <h3><i class="fas fa-fire" style="color: #a855f7;"></i> Trending Searches</h3>
@@ -168,7 +168,6 @@
     <!-- Splash Screen Script & SPA Navigation & Search Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Splash Screen ---
             const splash = document.getElementById("splash-screen");
             if (!splash) return;
             if (sessionStorage.getItem('splashShown')) {
@@ -180,8 +179,6 @@
                     setTimeout(() => { splash.style.display = 'none'; }, 500);
                 }, 1500);
             }
-
-            // --- Search Overlay Logic ---
             renderRecentSearches();
         });
 
@@ -201,6 +198,15 @@
             if (e.key === 'Escape') { closeSearch(); } 
         });
 
+        // 🛠️ FIX: Search overlay ke andar kisi bhi link par click karne se overlay band ho jaye
+        document.getElementById('searchOverlay').addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (link && link.getAttribute('href')) {
+                // Overlay ko band kar do, SPA navigation khud handle kar lega
+                closeSearch();
+            }
+        });
+
         // --- Recent Searches Logic ---
         function renderRecentSearches() {
             const container = document.getElementById('recentSearchesContainer');
@@ -214,7 +220,7 @@
             container.innerHTML = recent.map(query => `
                 <a href="/search?q=${encodeURIComponent(query)}" class="pill-tag recent">
                     <i class="fas fa-clock"></i> ${query}
-                    <span onclick="event.preventDefault(); removeRecentSearch('${query}')" style="margin-left: 5px; color: #888;"><i class="fas fa-times"></i></span>
+                    <span onclick="event.preventDefault(); event.stopPropagation(); removeRecentSearch('${query}')" style="margin-left: 5px; color: #888;"><i class="fas fa-times"></i></span>
                 </a>
             `).join('');
         }
@@ -224,7 +230,7 @@
             let recent = JSON.parse(localStorage.getItem('recentSearches')) || [];
             recent = recent.filter(q => q.toLowerCase() !== query.toLowerCase());
             recent.unshift(query);
-            recent = recent.slice(0, 6); // Keep only last 6
+            recent = recent.slice(0, 6);
             localStorage.setItem('recentSearches', JSON.stringify(recent));
         }
 
@@ -240,12 +246,12 @@
             renderRecentSearches();
         }
 
-        // Handle search form submission
         document.getElementById('searchInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 const query = this.value.trim();
                 if (query) {
                     addRecentSearch(query);
+                    closeSearch();
                     window.location.href = `/search?q=${encodeURIComponent(query)}`;
                 }
             }
