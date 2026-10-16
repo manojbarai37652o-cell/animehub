@@ -34,25 +34,24 @@
 
     <!-- Floating Glass Header -->
     <div class="header-wrapper">
-        <header class="glass-header">
+        <!-- 🛠️ FIX: Right padding thodi badha di (25px) taaki profile icon edge se chipke nahi -->
+        <header class="glass-header" style="padding: 12px 25px !important;">
             <div class="logo-left">
                 <a href="/" class="logo-link spa-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
-                    <!-- 🛠️ HEADER LOGO: Inline style se fix kiya -->
                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest Logo" style="height: 38px; width: 38px; border-radius: 50%; object-fit: cover; border: 2px solid #a855f7; box-shadow: 0 0 10px rgba(168, 85, 247, 0.4); display: block;">
                     <span class="logo-text" style="font-size: 20px; font-weight: 800; color: #fff;">Anime<span style="color: #a855f7;">Nest</span></span>
                 </a>
             </div>
 
-            <div class="header-right-icons" style="display: flex; align-items: center; gap: 10px;">
+            <div class="header-right-icons" style="display: flex; align-items: center; gap: 12px;">
                 <a href="javascript:void(0)" onclick="openSearch()" class="glass-icon-btn" style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fas fa-search"></i></a>
                 <a href="#" class="glass-icon-btn bell-icon" style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; position: relative;">
                     <i class="fas fa-bell"></i>
                     <span class="notification-dot"></span>
                 </a>
                 
-                <!-- 🛠️ PROFILE ICON: Inline style se fix kiya (overflow hidden) -->
                 {% if session.user_pic %}
-                <a href="/profile" class="glass-icon-btn profile-icon spa-link" style="width: 40px; height: 40px; min-width: 40px; min-height: 40px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 0; text-decoration: none;">
+                <a href="/profile" class="glass-icon-btn profile-icon spa-link" style="width: 40px; height: 40px; min-width: 40px; min-height: 40px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 0; text-decoration: none; border: 2px solid #a855f7;">
                     <img src="{{ session.user_pic }}" alt="Profile" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block;">
                 </a>
                 {% else %}
