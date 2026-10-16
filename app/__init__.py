@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, request, redirect, url_for, session, jsonify, flash
+from flask import Flask, render_template, abort, request, redirect, url_for, session, jsonify, flash, send_from_directory
 import random
 import json
 import os
@@ -72,6 +72,11 @@ def create_app(config_class=Config):
         redirect_url="/login"
     )
     app.register_blueprint(google_bp, url_prefix="/login")
+
+    # 🛠️ GOOGLE VERIFICATION ROUTE
+    @app.route('/google284a1cf6abd21b7d.html')
+    def google_verification():
+        return send_from_directory('app/static', 'google284a1cf6abd21b7d.html')
 
     @app.before_request
     def auto_login():
@@ -251,7 +256,7 @@ def create_app(config_class=Config):
         return render_template('continue_watching.html', anime_list=continue_list, page_title="Continue Watching")
 
     # =========================================================
-    # 🟢 PUBLIC ROUTES (अब लॉगिन की जरूरत नहीं) 🟢
+    # 🟢 PUBLIC ROUTES (बिना लॉगिन के) 🟢
     # =========================================================
     @app.route('/')
     def home():
@@ -383,7 +388,7 @@ def create_app(config_class=Config):
                                ep_number=ep_number)
 
     # =========================================================
-    # 🟢 PROTECTED ROUTES (लॉगिन जरूरी है) 🟢
+    # 🟢 PROTECTED ROUTES (लॉगिन जरूरी) 🟢
     # =========================================================
     @app.route('/profile')
     def profile():
