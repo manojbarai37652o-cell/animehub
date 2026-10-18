@@ -23,10 +23,9 @@ BASE_URL = "https://animesalt.cx"
 # =========================================================
 MIN_YEAR = 1950
 BATCH_SIZE = 999999          
-SLEEP_BETWEEN = 2
-
-MAX_PAGES_PER_SECTION = 10        # हर लेटर के 10 पेज चेक करेगा
-MAX_CONSECUTIVE_EMPTY_PAGES = 10  # लगातार 10 पेज खाली मिलने पर रुकेगा
+SLEEP_BETWEEN = 3  # 🛠️ स्लीप टाइम बढ़ा दिया ताकि ब्लॉक न हो
+MAX_PAGES_PER_SECTION = 10        
+MAX_CONSECUTIVE_EMPTY_PAGES = 10  
 
 def load_db():
     if os.path.exists(DB_FILE):
@@ -42,7 +41,9 @@ def save_db(data):
 def extract_anime_list_from_html(html):
     soup = BeautifulSoup(html, 'html.parser')
     anime_list = []
-    items = soup.find_all('li', class_=re.compile(r'\bpost\b'))
+    
+    # 🛠️ FIX: सही तरीके से li टैग ढूंढना (id="post-")
+    items = soup.find_all('li', id=re.compile(r'^post-\d+'))
     
     for item in items:
         try:
@@ -80,8 +81,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     print("=" * 60)
-    print("📺 SMART SCRAPER चालू (10 PAGES PER LETTER MODE)")
-    print("🛑 रोकने के लिए Ctrl + C दबाओ (डेटा सेव हो जाएगा)")
+    print("📺 SMART SCRAPER चालू (ANTI-BLOCK MODE)")
+    print("🛑 रोकने के लिए Ctrl + C दबाओ")
     print("=" * 60)
 
     db_data = load_db()
@@ -92,10 +93,12 @@ if __name__ == '__main__':
 
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True, args=["--disable-ipv6", "--no-sandbox"])
-            context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+            # 🛠️ headless=False करने से Cloudflare जल्दी बायपास होता है (लेकिन ब्राउज़र खुलेगा)
+            # अगर तुम्हें ब्राउज़र नहीं खुला चाहिए, तो headless=True कर दो, लेकिन ब्लॉक होने के चांस बढ़ जाएंगे।
+            browser = p.chromium.launch(headless=True, args=["--disable-ipv6", "--no-sandbox", "--disable-blink-features=AutomationControlled"])
+            context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36")
             page = context.new_page()
-            page.set_default_timeout(60000)
+            page.set_default_timeout(90000) # 🛠️ 90 सेकंड का टाइमआउट
 
             # --- स्टेप 1: लिस्ट निकालना ---
             if args.letter.lower() == 'all':
@@ -108,19 +111,27 @@ if __name__ == '__main__':
                 
                 if letter == 'home':
                     base_url_pattern = f"{BASE_URL}/page/{{}}/"
-                    print(f"\n🏠 होमपेज चेक कर रहे हैं...")
                 else:
                     base_url_pattern = f"{BASE_URL}/letter/{letter}/page/{{}}/"
-                    print(f"\n🔍 Letter {letter} चेक कर रहे हैं...")
                 
+                print(f"\n🔍 Letter {letter} चेक कर रहे हैं...")
                 page_num = 1
                 consecutive_empty = 0
+                
                 while page_num <= MAX_PAGES_PER_SECTION:
                     base_url = base_url_pattern.format(page_num)
                     try:
                         print(f"   🌐 Loading: {base_url}")
-                        page.goto(base_url, wait_until="domcontentloaded", timeout=60000)
-                        page.wait_for_timeout(3000)
+                        
+                        # 🛠️ Cloudflare को हैंडल करने के लिए extra wait
+                        page.goto(base_url, wait_until="domcontentloaded", timeout=90000)
+                        page.wait_for_timeout(5000) 
+                        
+                        # अगर Cloudflare का चैलेंज आ रहा है
+                        if "Just a moment" in page.title() or "Cloudflare" in page.title():
+                            print("   ⏳ Cloudflare चेक हो रहा है, 10 सेकंड इंतज़ार...")
+                            page.wait_for_timeout(10000)
+
                         page_anime = extract_anime_list_from_html(page.content())
                         
                         if not page_anime:
@@ -138,22 +149,20 @@ if __name__ == '__main__':
                                     added_count += 1
                             print(f"   📊 पेज {page_num} पर {added_count} नए एनीमे मिले (कुल: {len(new_anime)})")
                         
-                        if len(new_anime) >= BATCH_SIZE: break
                         page_num += 1
-                        time.sleep(1)
+                        time.sleep(SLEEP_BETWEEN)
                     except Exception as e:
                         print(f"   ❌ Page {page_num} एरर: {e}")
                         consecutive_empty += 1
                         if consecutive_empty >= MAX_CONSECUTIVE_EMPTY_PAGES: break
                         page_num += 1
 
-            # 🛠️ ब्राउज़र को सुरक्षित तरीके से बंद करो
             try: browser.close()
             except: pass
 
             if not new_anime:
                 print("\n👋 कोई नया एनीमे नहीं मिला।")
-                exit()
+                sys.exit(0)
 
             print(f"\n✅ कुल {len(new_anime)} नए एनीमे मिले। डिटेल निकाल रहे हैं...\n")
             scraped_this_run = 0
@@ -166,9 +175,9 @@ if __name__ == '__main__':
                     with sync_playwright() as p_inner:
                         browser_inner = p_inner.chromium.launch(headless=True, args=["--disable-ipv6", "--no-sandbox"])
                         page_inner = browser_inner.new_page()
-                        page_inner.set_default_timeout(60000)
+                        page_inner.set_default_timeout(90000)
 
-                        page_inner.goto(anime['url'], wait_until="domcontentloaded", timeout=60000)
+                        page_inner.goto(anime['url'], wait_until="domcontentloaded", timeout=90000)
                         page_inner.wait_for_timeout(3000)
                         html = page_inner.content()
 
@@ -180,7 +189,6 @@ if __name__ == '__main__':
                         anime_seasons = []
 
                         if anime['type'] == 'Series':
-                            print("   ⚙️ सीरीज़ का डेटा निकाला जा रहा है...")
                             season_btns = page_inner.query_selector_all('.season-btn')
                             
                             if not season_btns:
@@ -189,7 +197,7 @@ if __name__ == '__main__':
                                     print(f"   📺 Season 1: {len(episodes)} episodes")
                                     for ep in episodes:
                                         try:
-                                            page_inner.goto(ep['url'], wait_until="domcontentloaded", timeout=30000)
+                                            page_inner.goto(ep['url'], wait_until="domcontentloaded", timeout=90000)
                                             page_inner.wait_for_timeout(2000)
                                             ep['video_url'] = parse_video_link(page_inner.content(), ep['url'])
                                         except: ep['video_url'] = ""
@@ -209,7 +217,7 @@ if __name__ == '__main__':
                                             print(f"   📺 Season {season_num}: {len(episodes)} episodes")
                                             for ep in episodes:
                                                 try:
-                                                    page_inner.goto(ep['url'], wait_until="domcontentloaded", timeout=30000)
+                                                    page_inner.goto(ep['url'], wait_until="domcontentloaded", timeout=90000)
                                                     page_inner.wait_for_timeout(2000)
                                                     ep['video_url'] = parse_video_link(page_inner.content(), ep['url'])
                                                 except: ep['video_url'] = ""
@@ -218,18 +226,15 @@ if __name__ == '__main__':
                             if anime_seasons:
                                 anime['seasons'] = anime_seasons
                                 anime['episodes'] = anime_seasons[0]['episodes']
-                                print(f"   💾 Save (Series)! {len(anime_seasons)} Season(s)")
+                                print(f"   💾 Save (Series)!")
                                 updated_list.append(anime)
                                 scraped_this_run += 1
                             else:
-                                print("   ⚠️ सीरीज़ के एपिसोड नहीं मिले, स्किप कर रहे हैं।")
-                                # 🛠️ ब्राउज़र बंद करना सुरक्षित करो
                                 try: browser_inner.close()
                                 except: pass
                                 continue
 
                         elif anime['type'] == 'Movie':
-                            print("   🎬 मूवी का iframe निकाला जा रहा है...")
                             movie_iframe = ""
                             iframes = page_inner.query_selector_all('iframe')
                             for iframe in iframes:
@@ -243,38 +248,33 @@ if __name__ == '__main__':
                             if movie_iframe:
                                 anime['seasons'] = [{"season_number": 1, "episodes": [{"title": "Full Movie", "ep_num": "1", "video_url": movie_iframe}]}]
                                 anime['episodes'] = anime['seasons'][0]['episodes']
-                                print(f"   💾 Save (Movie)! iframe मिल गया।")
+                                print(f"   💾 Save (Movie)!")
                                 updated_list.append(anime)
                                 scraped_this_run += 1
                             else:
-                                print("   ⚠️ मूवी का iframe नहीं मिला, स्किप कर रहे हैं।")
                                 try: browser_inner.close()
                                 except: pass
                                 continue
 
-                        # 🛠️ ब्राउज़र बंद करना सुरक्षित करो
                         try: browser_inner.close()
                         except: pass
 
-                    # हर एनीमे के बाद डेटा सेव करें
                     db_data['anime_list'] = updated_list
                     save_db(db_data)
-
                     time.sleep(SLEEP_BETWEEN)
                     
                 except Exception as e:
                     print(f"   ❌ एरर: {e}")
                     continue
             
-            # 🛠️ ब्राउज़र को सुरक्षित तरीके से बंद करो
             try: browser.close()
             except: pass
 
     except KeyboardInterrupt:
-        print("\n\n🛑 स्क्रैपिंग यूज़र द्वारा रोक दी गई!")
-        print("💾 डेटा सेव किया जा रहा है...")
+        print("\n\n🛑 स्क्रैपिंग यूजर द्वारा रोक दी गई!")
 
     db_data['anime_list'] = updated_list
     save_db(db_data)
     print(f"\n🎉 कुल {len(updated_list)} एनीमे डेटाबेस में सेव हैं!")
     print("=" * 60)
+    sys.exit(0)
