@@ -18,11 +18,15 @@ from scraper.parser import (parse_post_id, parse_season_episodes,
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
 BASE_URL = "https://animesalt.cx"
 
+# =========================================================
+# 🛠️ सेटिंग्स
+# =========================================================
 MIN_YEAR = 1950
-BATCH_SIZE = 100
+BATCH_SIZE = 999999          
 SLEEP_BETWEEN = 2
-MAX_PAGES_PER_SECTION = 10
-MAX_CONSECUTIVE_EMPTY_PAGES = 10
+
+MAX_PAGES_PER_SECTION = 10        # हर लेटर के 10 पेज चेक करेगा
+MAX_CONSECUTIVE_EMPTY_PAGES = 10  # लगातार 10 पेज खाली मिलने पर रुकेगा
 
 def load_db():
     if os.path.exists(DB_FILE):
@@ -36,7 +40,6 @@ def save_db(data):
         json.dump(data, f, indent=4, ensure_ascii=False)
 
 def extract_anime_list_from_html(html):
-    """🛠️ FIX 4: इमेज URL का पक्का फिक्स"""
     soup = BeautifulSoup(html, 'html.parser')
     anime_list = []
     items = soup.find_all('li', class_=re.compile(r'\bpost\b'))
@@ -63,7 +66,6 @@ def extract_anime_list_from_html(html):
                     image = 'https:' + image
                 elif image.startswith('/'): 
                     image = BASE_URL + image
-                # 🛠️ टूटे हुए URL को साफ़ करो
                 if 'animesalt.cx' in image and 'tmdb' in image.lower():
                     image = ""
 
@@ -78,7 +80,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     print("=" * 60)
-    print("📺 SMART SCRAPER चालू (सारे सीज़न और एपिसोड के साथ)")
+    print("📺 SMART SCRAPER चालू (10 PAGES PER LETTER MODE)")
+    print("🛑 रोकने के लिए Ctrl + C दबाओ (डेटा सेव हो जाएगा)")
     print("=" * 60)
 
     db_data = load_db()
@@ -87,170 +90,191 @@ if __name__ == '__main__':
     updated_list = existing_anime.copy()
     new_anime = []
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True, args=["--disable-ipv6", "--no-sandbox"])
-        context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-        page = context.new_page()
-        page.set_default_timeout(60000)
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True, args=["--disable-ipv6", "--no-sandbox"])
+            context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+            page = context.new_page()
+            page.set_default_timeout(60000)
 
-        # --- स्टेप 1: लिस्ट निकालना ---
-        if args.letter.lower() == 'all':
-            letters = ['home'] + list(string.ascii_uppercase)
-        else:
-            letters = [args.letter.upper()]
-
-        for letter in letters:
-            if len(new_anime) >= BATCH_SIZE: break
-            
-            if letter == 'home':
-                base_url_pattern = f"{BASE_URL}/page/{{}}/"
+            # --- स्टेप 1: लिस्ट निकालना ---
+            if args.letter.lower() == 'all':
+                letters = ['home'] + list(string.ascii_uppercase)
             else:
-                base_url_pattern = f"{BASE_URL}/letter/{letter}/page/{{}}/"
-            
-            page_num = 1
-            consecutive_empty = 0
-            while page_num <= MAX_PAGES_PER_SECTION:
-                base_url = base_url_pattern.format(page_num)
-                try:
-                    print(f"   🌐 Loading: {base_url}")
-                    page.goto(base_url, wait_until="domcontentloaded", timeout=60000)
-                    page.wait_for_timeout(3000)
-                    page_anime = extract_anime_list_from_html(page.content())
-                    
-                    if not page_anime:
-                        consecutive_empty += 1
-                        print(f"   ⚠️ पेज {page_num} खाली है (लगातार {consecutive_empty} पेज खाली)")
-                        if consecutive_empty >= MAX_CONSECUTIVE_EMPTY_PAGES: 
-                            print(f"   🛑 लगातार {MAX_CONSECUTIVE_EMPTY_PAGES} पेज खाली, Letter {letter} रोक रहे हैं।")
-                            break
-                    else:
-                        consecutive_empty = 0
-                        added_count = 0
-                        for a in page_anime:
-                            if a['url'] not in existing_urls and a['url'] not in [x['url'] for x in new_anime]:
-                                new_anime.append(a)
-                                added_count += 1
-                        print(f"   📊 पेज {page_num} पर {added_count} नए एनीमे मिले (कुल: {len(new_anime)})")
-                    
-                    if len(new_anime) >= BATCH_SIZE: break
-                    page_num += 1
-                    time.sleep(1)
-                except Exception as e:
-                    print(f"   ❌ Page {page_num} एरर: {e}")
-                    consecutive_empty += 1
-                    if consecutive_empty >= MAX_CONSECUTIVE_EMPTY_PAGES: break
-                    page_num += 1
+                letters = [args.letter.upper()]
 
-        if not new_anime:
-            print("\n👋 कोई नया एनीमे नहीं मिला।")
-            exit()
-
-        print(f"\n✅ {len(new_anime)} नए एनीमे चेक कर रहे हैं...\n")
-        scraped_this_run = 0
-
-        # --- स्टेप 2: डिटेल्स और iframe निकालना ---
-        for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
-            print(f"\n[{idx + 1}/{len(new_anime)}] {anime['title']} ({anime['type']})")
-            
-            try:
-                page.goto(anime['url'], wait_until="domcontentloaded", timeout=60000)
-                page.wait_for_timeout(3000)
-                html = page.content()
-
-                # 1. डिटेल्स निकालें
-                anime['language'] = extract_language_from_detail(html)
-                post_id = parse_post_id(html)
-                anime['id'] = str(post_id) if post_id else str(abs(hash(anime['url'])))
-                print(f"   🌐 Language: {anime['language']} | 📌 ID: {anime['id']}")
-
-                anime_seasons = []
-
-                # 2. अगर सीरीज़ है
-                if anime['type'] == 'Series':
-                    print("   ⚙️ सीरीज़ का डेटा निकाला जा रहा है...")
-                    season_btns = page.query_selector_all('.season-btn')
-                    
-                    if not season_btns:
-                        episodes = parse_season_episodes(html, anime['url'])
-                        if episodes:
-                            print(f"   📺 Season 1: {len(episodes)} episodes")
-                            for ep in episodes:
-                                try:
-                                    page.goto(ep['url'], wait_until="domcontentloaded", timeout=30000)
-                                    page.wait_for_timeout(2000)
-                                    ep['video_url'] = parse_video_link(page.content(), ep['url'])
-                                except: ep['video_url'] = ""
-                            anime_seasons.append({"season_number": 1, "episodes": episodes})
-                    else:
-                        season_nums = sorted(list(set([int(btn.get_attribute('data-season')) for btn in season_btns if btn.get_attribute('data-season')])))
-                        print(f"   📺 पाए गए सीज़न: {season_nums}")
+            for letter in letters:
+                if len(new_anime) >= BATCH_SIZE: break
+                
+                if letter == 'home':
+                    base_url_pattern = f"{BASE_URL}/page/{{}}/"
+                    print(f"\n🏠 होमपेज चेक कर रहे हैं...")
+                else:
+                    base_url_pattern = f"{BASE_URL}/letter/{letter}/page/{{}}/"
+                    print(f"\n🔍 Letter {letter} चेक कर रहे हैं...")
+                
+                page_num = 1
+                consecutive_empty = 0
+                while page_num <= MAX_PAGES_PER_SECTION:
+                    base_url = base_url_pattern.format(page_num)
+                    try:
+                        print(f"   🌐 Loading: {base_url}")
+                        page.goto(base_url, wait_until="domcontentloaded", timeout=60000)
+                        page.wait_for_timeout(3000)
+                        page_anime = extract_anime_list_from_html(page.content())
                         
-                        for season_num in season_nums:
-                            btn = page.query_selector(f'.season-btn[data-season="{season_num}"]')
-                            if btn:
-                                btn.click()
-                                page.wait_for_timeout(3000)
-                                season_html = page.content()
-                                episodes = parse_season_episodes(season_html, anime['url'])
+                        if not page_anime:
+                            consecutive_empty += 1
+                            print(f"   ⚠️ पेज {page_num} खाली है (लगातार {consecutive_empty} पेज खाली)")
+                            if consecutive_empty >= MAX_CONSECUTIVE_EMPTY_PAGES: 
+                                print(f"   ✅ Letter {letter} के सारे पेज चेक हो गए।")
+                                break
+                        else:
+                            consecutive_empty = 0
+                            added_count = 0
+                            for a in page_anime:
+                                if a['url'] not in existing_urls and a['url'] not in [x['url'] for x in new_anime]:
+                                    new_anime.append(a)
+                                    added_count += 1
+                            print(f"   📊 पेज {page_num} पर {added_count} नए एनीमे मिले (कुल: {len(new_anime)})")
+                        
+                        if len(new_anime) >= BATCH_SIZE: break
+                        page_num += 1
+                        time.sleep(1)
+                    except Exception as e:
+                        print(f"   ❌ Page {page_num} एरर: {e}")
+                        consecutive_empty += 1
+                        if consecutive_empty >= MAX_CONSECUTIVE_EMPTY_PAGES: break
+                        page_num += 1
+
+            # 🛠️ ब्राउज़र को सुरक्षित तरीके से बंद करो
+            try: browser.close()
+            except: pass
+
+            if not new_anime:
+                print("\n👋 कोई नया एनीमे नहीं मिला।")
+                exit()
+
+            print(f"\n✅ कुल {len(new_anime)} नए एनीमे मिले। डिटेल निकाल रहे हैं...\n")
+            scraped_this_run = 0
+
+            # --- स्टेप 2: डिटेल्स और iframe निकालना ---
+            for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
+                print(f"\n[{idx + 1}/{len(new_anime)}] {anime['title']} ({anime['type']})")
+                
+                try:
+                    with sync_playwright() as p_inner:
+                        browser_inner = p_inner.chromium.launch(headless=True, args=["--disable-ipv6", "--no-sandbox"])
+                        page_inner = browser_inner.new_page()
+                        page_inner.set_default_timeout(60000)
+
+                        page_inner.goto(anime['url'], wait_until="domcontentloaded", timeout=60000)
+                        page_inner.wait_for_timeout(3000)
+                        html = page_inner.content()
+
+                        anime['language'] = extract_language_from_detail(html)
+                        post_id = parse_post_id(html)
+                        anime['id'] = str(post_id) if post_id else str(abs(hash(anime['url'])))
+                        print(f"   🌐 Language: {anime['language']} | 📌 ID: {anime['id']}")
+
+                        anime_seasons = []
+
+                        if anime['type'] == 'Series':
+                            print("   ⚙️ सीरीज़ का डेटा निकाला जा रहा है...")
+                            season_btns = page_inner.query_selector_all('.season-btn')
+                            
+                            if not season_btns:
+                                episodes = parse_season_episodes(html, anime['url'])
                                 if episodes:
-                                    print(f"   📺 Season {season_num}: {len(episodes)} episodes")
+                                    print(f"   📺 Season 1: {len(episodes)} episodes")
                                     for ep in episodes:
                                         try:
-                                            page.goto(ep['url'], wait_until="domcontentloaded", timeout=30000)
-                                            page.wait_for_timeout(2000)
-                                            ep['video_url'] = parse_video_link(page.content(), ep['url'])
+                                            page_inner.goto(ep['url'], wait_until="domcontentloaded", timeout=30000)
+                                            page_inner.wait_for_timeout(2000)
+                                            ep['video_url'] = parse_video_link(page_inner.content(), ep['url'])
                                         except: ep['video_url'] = ""
-                                    anime_seasons.append({"season_number": season_num, "episodes": episodes})
-                    
-                    if anime_seasons:
-                        anime['seasons'] = anime_seasons
-                        anime['episodes'] = anime_seasons[0]['episodes']
-                        print(f"   💾 Save (Series)! {len(anime_seasons)} Season(s)")
-                        updated_list.append(anime)
-                        scraped_this_run += 1
-                    else:
-                        print("   ⚠️ सीरीज़ के एपिसोड नहीं मिले, स्किप कर रहे हैं।")
-                        continue
+                                    anime_seasons.append({"season_number": 1, "episodes": episodes})
+                            else:
+                                season_nums = sorted(list(set([int(btn.get_attribute('data-season')) for btn in season_btns if btn.get_attribute('data-season')])))
+                                print(f"   📺 पाए गए सीज़न: {season_nums}")
+                                
+                                for season_num in season_nums:
+                                    btn = page_inner.query_selector(f'.season-btn[data-season="{season_num}"]')
+                                    if btn:
+                                        btn.click()
+                                        page_inner.wait_for_timeout(3000)
+                                        season_html = page_inner.content()
+                                        episodes = parse_season_episodes(season_html, anime['url'])
+                                        if episodes:
+                                            print(f"   📺 Season {season_num}: {len(episodes)} episodes")
+                                            for ep in episodes:
+                                                try:
+                                                    page_inner.goto(ep['url'], wait_until="domcontentloaded", timeout=30000)
+                                                    page_inner.wait_for_timeout(2000)
+                                                    ep['video_url'] = parse_video_link(page_inner.content(), ep['url'])
+                                                except: ep['video_url'] = ""
+                                            anime_seasons.append({"season_number": season_num, "episodes": episodes})
+                            
+                            if anime_seasons:
+                                anime['seasons'] = anime_seasons
+                                anime['episodes'] = anime_seasons[0]['episodes']
+                                print(f"   💾 Save (Series)! {len(anime_seasons)} Season(s)")
+                                updated_list.append(anime)
+                                scraped_this_run += 1
+                            else:
+                                print("   ⚠️ सीरीज़ के एपिसोड नहीं मिले, स्किप कर रहे हैं।")
+                                # 🛠️ ब्राउज़र बंद करना सुरक्षित करो
+                                try: browser_inner.close()
+                                except: pass
+                                continue
 
-                # 3. अगर मूवी है
-                elif anime['type'] == 'Movie':
-                    print("   🎬 मूवी का iframe निकाला जा रहा है...")
-                    movie_iframe = ""
-                    iframes = page.query_selector_all('iframe')
-                    for iframe in iframes:
-                        src = iframe.get_attribute('src')
-                        if src:
-                            if src.startswith('//'): src = 'https:' + src
-                            if 'ravok.buzz' in src or 'video' in src.lower() or 'player' in src.lower():
-                                movie_iframe = src
-                                break
-                    
-                    if movie_iframe:
-                        anime['seasons'] = [{"season_number": 1, "episodes": [{"title": "Full Movie", "ep_num": "1", "video_url": movie_iframe}]}]
-                        anime['episodes'] = anime['seasons'][0]['episodes']
-                        print(f"   💾 Save (Movie)! iframe मिल गया।")
-                        updated_list.append(anime)
-                        scraped_this_run += 1
-                    else:
-                        print("   ⚠️ मूवी का iframe नहीं मिला, स्किप कर रहे हैं।")
-                        continue
+                        elif anime['type'] == 'Movie':
+                            print("   🎬 मूवी का iframe निकाला जा रहा है...")
+                            movie_iframe = ""
+                            iframes = page_inner.query_selector_all('iframe')
+                            for iframe in iframes:
+                                src = iframe.get_attribute('src')
+                                if src:
+                                    if src.startswith('//'): src = 'https:' + src
+                                    if 'ravok.buzz' in src or 'video' in src.lower() or 'player' in src.lower():
+                                        movie_iframe = src
+                                        break
+                            
+                            if movie_iframe:
+                                anime['seasons'] = [{"season_number": 1, "episodes": [{"title": "Full Movie", "ep_num": "1", "video_url": movie_iframe}]}]
+                                anime['episodes'] = anime['seasons'][0]['episodes']
+                                print(f"   💾 Save (Movie)! iframe मिल गया।")
+                                updated_list.append(anime)
+                                scraped_this_run += 1
+                            else:
+                                print("   ⚠️ मूवी का iframe नहीं मिला, स्किप कर रहे हैं।")
+                                try: browser_inner.close()
+                                except: pass
+                                continue
 
-                if scraped_this_run % 3 == 0 and scraped_this_run > 0:
+                        # 🛠️ ब्राउज़र बंद करना सुरक्षित करो
+                        try: browser_inner.close()
+                        except: pass
+
+                    # हर एनीमे के बाद डेटा सेव करें
                     db_data['anime_list'] = updated_list
                     save_db(db_data)
 
-                time.sleep(SLEEP_BETWEEN)
-                
-            except Exception as e:
-                print(f"   ❌ एरर: {e}")
-                continue
-        
-        browser.close()
+                    time.sleep(SLEEP_BETWEEN)
+                    
+                except Exception as e:
+                    print(f"   ❌ एरर: {e}")
+                    continue
+            
+            # 🛠️ ब्राउज़र को सुरक्षित तरीके से बंद करो
+            try: browser.close()
+            except: pass
 
-    if scraped_this_run > 0:
-        db_data['anime_list'] = updated_list
-        save_db(db_data)
-        print(f"\n🎉 {scraped_this_run} नए एनीमे सेव हुए!")
-    else:
-        print("\n⚠️ कोई नया एनीमे सेव नहीं हुआ।")
+    except KeyboardInterrupt:
+        print("\n\n🛑 स्क्रैपिंग यूज़र द्वारा रोक दी गई!")
+        print("💾 डेटा सेव किया जा रहा है...")
+
+    db_data['anime_list'] = updated_list
+    save_db(db_data)
+    print(f"\n🎉 कुल {len(updated_list)} एनीमे डेटाबेस में सेव हैं!")
     print("=" * 60)

@@ -15,7 +15,22 @@
     
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
-    
+
+    <!-- 🛠️ GOOGLE SEARCH SITE NAME FIX (Render ki jagah AnimeNest dikhane ke liye) -->
+    <meta property="og:site_name" content="AnimeNest">
+    <meta property="og:title" content="AnimeNest - Watch Anime Free">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AnimeNest",
+      "alternateName": ["AnimeNest", "Anime Nest", "AnimeNest Official"],
+      "url": "https://animenest-zmbl.onrender.com/"
+    }
+    </script>
+    <!-- 🛠️ FIX END -->
+
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
 </head>
 <body>
@@ -198,11 +213,9 @@
             if (e.key === 'Escape') { closeSearch(); } 
         });
 
-        // 🛠️ FIX: Search overlay ke andar kisi bhi link par click karne se overlay band ho jaye
         document.getElementById('searchOverlay').addEventListener('click', function(e) {
             const link = e.target.closest('a');
             if (link && link.getAttribute('href')) {
-                // Overlay ko band kar do, SPA navigation khud handle kar lega
                 closeSearch();
             }
         });

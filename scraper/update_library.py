@@ -10,8 +10,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
-from scraper.parser import (parse_season_episodes, parse_video_link,
-                            extract_language_from_detail)
+from scraper.parser import (parse_season_episodes, parse_video_link)
 
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
 FAILED_FILE = os.path.join(project_root, 'database', 'failed_updates.json')
@@ -47,12 +46,11 @@ def fetch_page(url):
         return response.text
     except: return None
 
-
 def check_anime_for_updates(anime):
-    """एक एनीमे को चेक करता है और नया सीज़न/एपिसोड मिलने पर True return करता है"""
+    """एक एनीमे को चेक करता है और अधूरे सीज़न/एपिसोड पूरे करता है"""
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True, args=["--disable-ipv6"])
+            browser = p.chromium.launch(headless=True, args=["--disable-ipv6", "--no-sandbox"])
             page = browser.new_page()
             page.goto(anime['url'], timeout=60000, wait_until="domcontentloaded")
             page.wait_for_timeout(3000)
@@ -72,7 +70,7 @@ def check_anime_for_updates(anime):
 
             new_found = False
 
-            # 1. नया सीज़न चेक करो
+            # 1. नया सीज़न चेक करो (जो डेटाबेस में नहीं है)
             for season_num in website_season_nums:
                 if season_num not in existing_season_nums:
                     print(f"   🆕 नया सीज़न मिला: Season {season_num}")
@@ -91,7 +89,7 @@ def check_anime_for_updates(anime):
                             anime['seasons'].append({"season_number": season_num, "episodes": episodes})
                             new_found = True
 
-            # 2. पुराने सीज़न में नए एपिसोड चेक करो
+            # 2. पुराने सीज़न में अधूरे/नए एपिसोड चेक करो
             for season in anime.get('seasons', []):
                 season_num = season['season_number']
                 try:
@@ -105,7 +103,7 @@ def check_anime_for_updates(anime):
                             existing_ep_urls = set(ep['url'] for ep in season['episodes'])
                             new_eps = [ep for ep in website_episodes if ep['url'] not in existing_ep_urls]
                             if new_eps:
-                                print(f"   🆕 Season {season_num} में {len(new_eps)} नए एपिसोड मिले!")
+                                print(f"   🆕 Season {season_num} में {len(new_eps)} अधूरे/नए एपिसोड मिले!")
                                 for ep in new_eps:
                                     ep_html = fetch_page(ep['url'])
                                     ep['video_url'] = parse_video_link(ep_html, ep['url']) if ep_html else ""
@@ -114,17 +112,21 @@ def check_anime_for_updates(anime):
                                 new_found = True
                 except: pass
 
-            browser.close()
+            # 🛠️ सुरक्षित ब्राउज़र बंद करना
+            try: browser.close()
+            except: pass
+            
             return new_found
 
     except Exception as e:
         print(f"   ❌ Error: {e}")
-        return None  # None means FAILED (error), True means new found, False means nothing new
-
+        try: browser.close()
+        except: pass
+        return None 
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🔄 UPDATE LIBRARY: पुराने एनीमे में नया सीज़न/एपिसोड चेक कर रहे हैं...")
+    print("🔄 UPDATE LIBRARY: अधूरे और नए सीज़न/एपिसोड चेक कर रहे हैं...")
     print("=" * 60)
 
     db_data = load_db()
@@ -146,31 +148,26 @@ if __name__ == '__main__':
 
         print(f"\n[{idx+1}/{len(anime_list)}] {anime['title']}...")
 
-        # 3 बार रीट्राई करो
         result = None
         for attempt in range(3):
             result = check_anime_for_updates(anime)
-            if result is not None:  # अगर सफल हुआ (error नहीं आया)
+            if result is not None: 
                 break
             print(f"   🔄 Retry {attempt+1}/3...")
             time.sleep(3)
 
         if result is None:
-            # तीनों बार फेल हुआ
             print(f"   ❌ तीनों बार फेल हुआ, बाद के लिए रख रहे हैं।")
             new_failed_ids.append(anime['id'])
             failed_count += 1
         elif result is True:
-            # नया मिला
             updated_count += 1
             print(f"   💾 {anime['title']} अपडेट हो गया!")
-            # 🛠️ हर अपडेट के बाद डेटाबेस सेव करो
             db_data['anime_list'] = anime_list
             save_db(db_data)
         else:
             print("   ✅ कोई नया नहीं मिला।")
 
-        # 🛠️ हर 5 एनीमे के बाद डेटाबेस सेव करो और थोड़ा रुको
         if (idx + 1) % 5 == 0:
             db_data['anime_list'] = anime_list
             save_db(db_data)
@@ -179,7 +176,6 @@ if __name__ == '__main__':
 
         time.sleep(1)
 
-    # फाइनल सेव
     db_data['anime_list'] = anime_list
     save_db(db_data)
     failed_data['failed_ids'] = new_failed_ids
