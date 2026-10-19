@@ -25,7 +25,7 @@
     {% if current_ep.servers and current_ep.servers|length > 1 %}
     <div class="server-selection-wrapper">
         {% for server in current_ep.servers %}
-        <button class="server-btn" onclick="changeServer('{{ server.url }}', this)">
+        <button class="server-btn" onclick="window.changeServer('{{ server.url }}', this)">
             <i class="fas fa-server"></i> {{ server.name }}
         </button>
         {% endfor %}
@@ -75,7 +75,7 @@
         {% if seasons|length > 0 %}
         <!-- 🛠️ SEASON DROPDOWN -->
         <div class="season-dropdown-wrapper" id="seasonWrapper">
-            <button class="season-toggle-btn" onclick="event.stopPropagation(); toggleSeasonDropdown();" type="button">
+            <button class="season-toggle-btn" onclick="event.preventDefault(); event.stopPropagation(); window.toggleSeasonDropdown();" type="button">
                 <i class="fas fa-layer-group"></i>
                 <span>Season {{ current_season.season_number if current_season else 1 }}</span>
                 <i class="fas fa-chevron-down"></i>
@@ -202,19 +202,18 @@
 
 <!-- 🟢 JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER, SERVERS 🟢 -->
 <script>
-    const animeData = {
-        id: {{ anime.id|tojson }},
-        title: {{ anime.title|tojson }},
-        image: {{ anime.image|tojson }}
+    // 🛠️ 1. Global Functions (SPA ke liye zaroori hai)
+    window.toggleSeasonDropdown = function() {
+        const menu = document.getElementById('season-dropdown-menu');
+        if (menu) {
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
+        }
     };
-    const currentEp = {
-        title: {{ current_ep.title if current_ep else 'Episode 1'|tojson }},
-        num: {{ current_ep.title.split(' ')[-1] if current_ep else '1'|tojson }}
-    };
-    const animeId = {{ anime.id|tojson }};
-    const currentSeason = {{ current_season.season_number if current_season else 1|tojson }};
 
-    // 🛠️ Server Change Function
     window.changeServer = function(url, btn) {
         const iframe = document.getElementById('videoIframe');
         if(iframe) iframe.src = url;
@@ -237,30 +236,32 @@
         }
     };
 
-    // Default pehle server button ko active karo
-    document.addEventListener('DOMContentLoaded', function() {
-        const firstBtn = document.querySelector('.server-btn');
-        if(firstBtn) firstBtn.click();
-    });
-
-    // 🛠️ Season Dropdown Logic
-    window.toggleSeasonDropdown = function() {
-        const menu = document.getElementById('season-dropdown-menu');
-        if (menu) {
-            if (menu.style.display === 'none' || menu.style.display === '') {
-                menu.style.display = 'block';
-            } else {
-                menu.style.display = 'none';
-            }
-        }
+    // 🛠️ 2. Baaki Logic (Same as before)
+    const animeData = {
+        id: {{ anime.id|tojson }},
+        title: {{ anime.title|tojson }},
+        image: {{ anime.image|tojson }}
     };
+    const currentEp = {
+        title: {{ (current_ep.title if current_ep and current_ep.title else 'Episode 1')|tojson }},
+        num: {{ (current_ep.title.split(' ')[-1] if current_ep and current_ep.title else '1')|tojson }}
+    };
+    const animeId = {{ anime.id|tojson }};
+    const currentSeason = {{ (current_season.season_number if current_season else 1)|tojson }};
 
+    // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
         const wrapper = document.getElementById('seasonWrapper');
         const menu = document.getElementById('season-dropdown-menu');
         if (wrapper && menu && !wrapper.contains(e.target)) {
             menu.style.display = 'none';
         }
+    });
+
+    // Default pehle server button ko active karo
+    document.addEventListener('DOMContentLoaded', function() {
+        const firstBtn = document.querySelector('.server-btn');
+        if(firstBtn) firstBtn.click();
     });
 
     // Tabs Logic
@@ -387,9 +388,8 @@
     }
 </script>
 
-<!-- 🛠️ CSS FIXES FOR SERVERS AND SCROLLABLE SEASON DROPDOWN -->
+<!-- 🛠️ CSS FIXES -->
 <style>
-/* Server Buttons */
 .server-selection-wrapper {
     display: flex;
     justify-content: center;
@@ -397,7 +397,6 @@
     margin: 20px 15px;
     flex-wrap: wrap;
 }
-
 .server-btn {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -412,18 +411,15 @@
     align-items: center;
     gap: 8px;
 }
-
 .server-btn i { font-size: 12px; }
 .server-btn:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
 .server-btn.active { background: #a855f7 !important; color: #fff !important; border-color: #a855f7 !important; box-shadow: 0 0 15px rgba(168, 85, 247, 0.4) !important; }
 
-/* Scrollable Season Dropdown */
 .season-dropdown-wrapper {
     position: relative;
     z-index: 100;
     margin-bottom: 20px;
 }
-
 .season-dropdown-menu {
     position: absolute;
     top: 100%;
@@ -433,13 +429,11 @@
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px;
     z-index: 9999;
-    overflow-y: auto; /* 🛠️ स्क्रॉल के लिए */
-    max-height: 250px; /* 🛠️ मैक्स हाइट ताकि स्क्रीन से बाहर न जाए */
+    overflow-y: auto;
+    max-height: 250px;
     margin-top: 5px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
-
-/* Scrollbar Styling */
 .season-dropdown-menu::-webkit-scrollbar { width: 6px; }
 .season-dropdown-menu::-webkit-scrollbar-track { background: #1a1a24; }
 .season-dropdown-menu::-webkit-scrollbar-thumb { background: #a855f7; border-radius: 10px; }
