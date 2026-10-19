@@ -7,13 +7,24 @@ import requests
 GITHUB_RAW_URL = "https://raw.githubusercontent.com/manojbarai376520-cell/animehub/main/database/storage.json"
 DB_PATH = os.path.join(os.getcwd(), 'database', 'storage.json')
 
+# 🛠️ CACHE VARIABLE: यह डेटा को सर्वर की मेमोरी (RAM) में सेव रखेगा
+_cached_anime_list = None
+
 
 def get_all_anime():
-    """GitHub से ताजा डेटा लाओ"""
+    """GitHub से ताजा डेटा लाओ (सिर्फ पहली बार, फिर मेमोरी से दो)"""
+    global _cached_anime_list
+    
+    # अगर डेटा पहले से मेमोरी में है, तो सीधे वापस कर दो (बिजली की स्पीड)
+    if _cached_anime_list is not None:
+        return _cached_anime_list
+
+    # अगर मेमोरी खाली है, तो डेटा लोड करो
     try:
         response = requests.get(GITHUB_RAW_URL, timeout=10)
         if response.status_code == 200:
-            return response.json().get('anime_list', [])
+            _cached_anime_list = response.json().get('anime_list', [])
+            return _cached_anime_list
     except Exception as e:
         print(f"⚠️ GitHub fetch error: {e}")
     
@@ -22,7 +33,8 @@ def get_all_anime():
         return []
     try:
         with open(DB_PATH, 'r', encoding='utf-8') as f:
-            return json.load(f).get('anime_list', [])
+            _cached_anime_list = json.load(f).get('anime_list', [])
+            return _cached_anime_list
     except:
         return []
 
@@ -102,6 +114,8 @@ def get_single_random_anime():
 
 
 def save_anime_list(anime_list):
+    global _cached_anime_list
+    _cached_anime_list = anime_list # 🛠️ कैश (मेमोरी) को भी अपडेट करो ताकि पुराना डेटा न दिखे
     data = {"anime_list": anime_list}
     try:
         with open(DB_PATH, 'w', encoding='utf-8') as f:
