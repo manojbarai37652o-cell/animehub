@@ -9,7 +9,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
-from scraper.parser import (parse_season_episodes, parse_video_servers, extract_language_from_detail)
+from scraper.parser import (parse_season_episodes, parse_video_servers)
 
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
 FAILED_FILE = os.path.join(project_root, 'database', 'failed_updates.json')
@@ -40,20 +40,20 @@ def update_anime_servers(page, anime):
     """एक एनीमे/मूवी के सभी सर्वर अपडेट करता है"""
     try:
         page.goto(anime['url'], wait_until="domcontentloaded", timeout=90000)
-        page.wait_for_timeout(3000)
+        page.wait_for_timeout(1000) # 🛠️ टाइम कम किया
         html = page.content()
 
         updated = False
 
         # अगर मूवी है
         if anime.get('episodes') and len(anime['episodes']) > 0 and anime['episodes'][0].get('title') == 'Full Movie':
-            servers = parse_video_servers(html, anime['url'])
-            if servers:
-                anime['episodes'][0]['servers'] = servers
-                anime['episodes'][0]['video_url'] = servers[0]['url'] if servers else ""
-                anime['seasons'][0]['episodes'] = anime['episodes']
-                updated = True
-                print(f"   🎬 Movie Servers Updated: {len(servers)}")
+            if not anime['episodes'][0].get('servers'):
+                servers = parse_video_servers(html, anime['url'])
+                if servers:
+                    anime['episodes'][0]['servers'] = servers
+                    anime['episodes'][0]['video_url'] = servers[0]['url'] if servers else ""
+                    anime['seasons'][0]['episodes'] = anime['episodes']
+                    updated = True
         
         # अगर सीरीज़ है
         else:
@@ -62,10 +62,10 @@ def update_anime_servers(page, anime):
                 # सिंगल सीज़न
                 episodes = anime.get('episodes', [])
                 for ep in episodes:
-                    if not ep.get('servers'): # सिर्फ तभी अपडेट करो जब पहले से न हो
+                    if not ep.get('servers'): # 🛠️ सिर्फ तभी अपडेट करो जब सर्वर न हो
                         try:
                             page.goto(ep['url'], wait_until="domcontentloaded", timeout=60000)
-                            page.wait_for_timeout(1500)
+                            page.wait_for_timeout(500) # 🛠️ टाइम कम किया
                             ep_html = page.content()
                             servers = parse_video_servers(ep_html, ep['url'])
                             ep['servers'] = servers
@@ -82,13 +82,12 @@ def update_anime_servers(page, anime):
                         btn = page.query_selector(f'.season-btn[data-season="{season_num}"]')
                         if btn:
                             btn.click()
-                            page.wait_for_timeout(2000)
-                            # यहाँ से हम सीधे डेटाबेस वाले एपिसोड्स को अपडेट करेंगे
+                            page.wait_for_timeout(1000) # 🛠️ टाइम कम किया
                             for ep in season['episodes']:
-                                if not ep.get('servers'):
+                                if not ep.get('servers'): # 🛠️ सिर्फ तभी अपडेट करो जब सर्वर न हो
                                     try:
                                         page.goto(ep['url'], wait_until="domcontentloaded", timeout=60000)
-                                        page.wait_for_timeout(1500)
+                                        page.wait_for_timeout(500) # 🛠️ टाइम कम किया
                                         ep_html = page.content()
                                         servers = parse_video_servers(ep_html, ep['url'])
                                         ep['servers'] = servers
@@ -96,20 +95,18 @@ def update_anime_servers(page, anime):
                                         updated = True
                                     except: pass
                             
-                            # ब्राउज़र को वापस एनीमे पेज पर लाओ ताकि अगला सीज़न क्लिक कर सकें
                             page.goto(anime['url'], wait_until="domcontentloaded", timeout=60000)
-                            page.wait_for_timeout(2000)
+                            page.wait_for_timeout(1000) # 🛠️ टाइम कम किया
 
         return updated
-
     except Exception as e:
         print(f"   ❌ Error: {e}")
-        return None # Error
+        return None 
 
 if __name__ == '__main__':
     print("=" * 60)
     print("🔄 SERVER UPDATER: पुराने एनीमे में Server 2 जोड़ रहे हैं...")
-    print("🛑 रोकने के लिए Ctrl + C दबाओ")
+    print("🛑 रोकने के लिए Ctrl + C दबाओ (डेटा सुरक्षित रहेगा)")
     print("=" * 60)
 
     db_data = load_db()
@@ -131,20 +128,28 @@ if __name__ == '__main__':
             page.set_default_timeout(90000)
 
             for idx, anime in enumerate(anime_list):
-                # अगर पहले से अपडेटेड है तो स्किप करो (चेक करने के लिए पहला एपिसोड देखो)
-                first_ep = anime.get('episodes', [{}])[0]
-                if first_ep.get('servers') and len(first_ep.get('servers', [])) > 0:
-                    continue
+                # 🛠️ FIX: अब यह चेक करेगा कि क्या सभी एपिसोड में सर्वर हैं
+                all_episodes_have_servers = True
+                for season in anime.get('seasons', []):
+                    for ep in season.get('episodes', []):
+                        if not ep.get('servers'):
+                            all_episodes_have_servers = False
+                            break
+                    if not all_episodes_have_servers:
+                        break
+                
+                if all_episodes_have_servers:
+                    continue # स्किप करो अगर सब में सर्वर पहले से है
 
                 print(f"\n[{idx+1}/{len(anime_list)}] {anime['title']} अपडेट कर रहे हैं...")
 
                 result = None
-                for attempt in range(2): # 2 बार ट्राई करो
+                for attempt in range(2): 
                     result = update_anime_servers(page, anime)
                     if result is not None:
                         break
                     print(f"   🔄 Retry {attempt+1}/2...")
-                    time.sleep(3)
+                    time.sleep(1) # 🛠️ टाइम कम किया
 
                 if result is None:
                     new_failed_ids.append(anime['id'])
@@ -160,7 +165,7 @@ if __name__ == '__main__':
                 if (idx + 1) % 5 == 0:
                     db_data['anime_list'] = anime_list
                     save_db(db_data)
-                    time.sleep(2)
+                    time.sleep(1) # 🛠️ टाइम कम किया
 
             try: browser.close()
             except: pass
@@ -175,6 +180,6 @@ if __name__ == '__main__':
 
     print("\n" + "=" * 60)
     print(f"🎉 कुल {updated_count} एनीमे अपडेट हुए!")
-    print(f"⚠️ {failed_count} एनीमे फेल हुए (अगली बार फिर ट्राई करेंगे)।")
+    print(f"⚠️ {failed_count} एनीमे फेल हुए।")
     print("=" * 60)
     sys.exit(0)
