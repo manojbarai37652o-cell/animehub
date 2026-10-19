@@ -37,24 +37,18 @@ def parse_post_id(html_content):
     if not html_content: return None
     soup = BeautifulSoup(html_content, 'html.parser')
     
-    # 🛠️ FIX 1: सबसे पहले <script> के अंदर 'let postID' ढूंढो
     match = re.search(r'let postID = "(\d+)"', html_content)
-    if match: 
-        return str(match.group(1))
+    if match: return str(match.group(1))
     
-    # अगर वो नहीं मिला तो body क्लास से ढूंढो
     body = soup.find('body')
     if body and body.get('class'):
         for cls in body.get('class'):
             if cls.startswith('postid-') or cls.startswith('post-'):
-                try: 
-                    return str(cls.split('-')[-1])
+                try: return str(cls.split('-')[-1])
                 except: pass
     
-    # अगर वो भी नहीं मिला तो data-post-id एट्रिब्यूट से ढूंढो
     for tag in soup.find_all(attrs={'data-post-id': True}):
-        try: 
-            return str(tag['data-post-id'])
+        try: return str(tag['data-post-id'])
         except: pass
         
     return None
@@ -78,7 +72,6 @@ def extract_seasons_from_html(html_content):
     return seasons
 
 def parse_season_episodes(html_content, base_url):
-    """🛠️ FIX 2: Torofilm थीम के हिसाब से एपिसोड निकालें"""
     if not html_content: return []
     soup = BeautifulSoup(html_content, 'html.parser')
     episodes = []
@@ -109,34 +102,29 @@ def parse_season_episodes(html_content, base_url):
                 "title": title,
                 "ep_num": ep_num,
                 "url": href,
-                "video_url": ""
+                "video_url": "",
+                "servers": [] # 🛠️ नया फील्ड
             })
     return episodes
 
-def parse_video_link(html_content, base_url):
-    if not html_content: return ""
+def parse_video_servers(html_content, base_url):
+    """🛠️ नया फंक्शन: सारे सर्वर (iframes) निकालने के लिए"""
+    if not html_content: return []
     soup = BeautifulSoup(html_content, 'html.parser')
+    servers = []
+    
+    # वेबसाइट के हिसाब से iframes की लिस्ट
     iframes = soup.find_all('iframe')
-    
-    for iframe in iframes:
-        src = iframe.get('src')
-        if src and 'ravok.buzz' in src:
-            if src.startswith('//'): src = 'https:' + src
-            return src
-    
-    for iframe in iframes:
-        src = iframe.get('data-src')
+    for i, iframe in enumerate(iframes):
+        src = iframe.get('src') or iframe.get('data-src')
         if src:
             if src.startswith('//'): src = 'https:' + src
-            return src
+            servers.append({
+                "name": f"Server {i+1}",
+                "url": src
+            })
             
-    if iframes:
-        src = iframes[0].get('src') or iframes[0].get('data-src')
-        if src:
-            if src.startswith('//'): src = 'https:' + src
-            return src
-            
-    return ""
+    return servers
 
 def parse_release_year(html_content):
     if not html_content: return None
@@ -151,7 +139,6 @@ def parse_release_year(html_content):
     return None
 
 def extract_language_from_detail(detail_html):
-    """🛠️ FIX 3: भाषा निकालने का बेहतर तरीका (base64 डेटा से)"""
     if not detail_html: return "Unknown"
     
     match = re.search(r'data-src="[^"]*?data=([^"&]+)"', detail_html)

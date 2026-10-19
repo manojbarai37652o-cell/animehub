@@ -13,14 +13,11 @@ project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
 from scraper.parser import (parse_post_id, parse_season_episodes,
-                            parse_video_link, extract_language_from_detail)
+                            parse_video_servers, extract_language_from_detail)
 
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
 BASE_URL = "https://animesalt.cx"
 
-# =========================================================
-# 🛠️ सेटिंग्स
-# =========================================================
 MIN_YEAR = 1950
 BATCH_SIZE = 999999          
 SLEEP_BETWEEN = 3  
@@ -79,7 +76,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     print("=" * 60)
-    print("📺 SMART SCRAPER चालू (FULL MASTER MODE)")
+    print("📺 SMART SCRAPER चालू (MULTI-SERVER MODE)")
     print("🛑 रोकने के लिए Ctrl + C दबाओ")
     print("=" * 60)
 
@@ -90,14 +87,12 @@ if __name__ == '__main__':
     new_anime = []
 
     try:
-        # 🛠️ अब पूरा कोड सिर्फ एक ही Playwright ब्राउज़र के अंदर चलेगा
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=False, args=["--disable-ipv6", "--no-sandbox"])
             context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36")
             page = context.new_page()
             page.set_default_timeout(90000)
 
-            # --- स्टेप 1: लिस्ट निकालना ---
             if args.letter.lower() == 'all':
                 letters = ['home'] + list(string.ascii_uppercase)
             else:
@@ -117,7 +112,6 @@ if __name__ == '__main__':
                 
                 while page_num <= MAX_PAGES_PER_SECTION:
                     if letter == 'home' and page_num > 1:
-                        print(f"   ✅ होमपेज का सिर्फ 1 पेज होता है, अगले लेटर पर जा रहे हैं।")
                         break
 
                     base_url = base_url_pattern.format(page_num)
@@ -126,7 +120,6 @@ if __name__ == '__main__':
                         response = page.goto(base_url, wait_until="domcontentloaded", timeout=90000)
                         
                         if response and response.status == 404:
-                            print(f"   ⚠️ पेज {page_num} मौजूद नहीं है (404 Not Found)।")
                             break
 
                         try:
@@ -169,7 +162,6 @@ if __name__ == '__main__':
             print(f"\n✅ कुल {len(new_anime)} नए एनीमे मिले। डिटेल निकाल रहे हैं...\n")
             scraped_this_run = 0
 
-            # --- स्टेप 2: डिटेल्स और iframe निकालना (उसी ब्राउज़र का इस्तेमाल करके) ---
             for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
                 print(f"\n[{idx + 1}/{len(new_anime)}] {anime['title']} ({anime['type']})")
                 
@@ -196,7 +188,10 @@ if __name__ == '__main__':
                                     try:
                                         page.goto(ep['url'], wait_until="domcontentloaded", timeout=90000)
                                         page.wait_for_timeout(1500)
-                                        ep['video_url'] = parse_video_link(page.content(), ep['url'])
+                                        ep_html = page.content()
+                                        # 🛠️ सारे सर्वर निकालो
+                                        ep['servers'] = parse_video_servers(ep_html, ep['url'])
+                                        ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
                                     except: ep['video_url'] = ""
                                 anime_seasons.append({"season_number": 1, "episodes": episodes})
                         else:
@@ -216,7 +211,10 @@ if __name__ == '__main__':
                                             try:
                                                 page.goto(ep['url'], wait_until="domcontentloaded", timeout=90000)
                                                 page.wait_for_timeout(1500)
-                                                ep['video_url'] = parse_video_link(page.content(), ep['url'])
+                                                ep_html = page.content()
+                                                # 🛠️ सारे सर्वर निकालो
+                                                ep['servers'] = parse_video_servers(ep_html, ep['url'])
+                                                ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
                                             except: ep['video_url'] = ""
                                         anime_seasons.append({"season_number": season_num, "episodes": episodes})
                         
@@ -230,20 +228,13 @@ if __name__ == '__main__':
                             continue
 
                     elif anime['type'] == 'Movie':
-                        movie_iframe = ""
-                        iframes = page.query_selector_all('iframe')
-                        for iframe in iframes:
-                            src = iframe.get_attribute('src')
-                            if src:
-                                if src.startswith('//'): src = 'https:' + src
-                                if 'ravok.buzz' in src or 'video' in src.lower() or 'player' in src.lower():
-                                    movie_iframe = src
-                                    break
+                        # मूवी के लिए भी सर्वर निकालो
+                        movie_servers = parse_video_servers(html, anime['url'])
                         
-                        if movie_iframe:
-                            anime['seasons'] = [{"season_number": 1, "episodes": [{"title": "Full Movie", "ep_num": "1", "video_url": movie_iframe}]}]
+                        if movie_servers:
+                            anime['seasons'] = [{"season_number": 1, "episodes": [{"title": "Full Movie", "ep_num": "1", "video_url": movie_servers[0]['url'], "servers": movie_servers}]}]
                             anime['episodes'] = anime['seasons'][0]['episodes']
-                            print(f"   💾 Save (Movie)!")
+                            print(f"   💾 Save (Movie)! {len(movie_servers)} servers मिले।")
                             updated_list.append(anime)
                             scraped_this_run += 1
                         else:

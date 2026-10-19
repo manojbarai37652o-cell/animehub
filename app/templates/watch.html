@@ -7,7 +7,7 @@
     <!-- 🟢 VIDEO PLAYER SECTION 🟢 -->
     <div class="video-section-wrapper" id="videoSectionWrapper">
         <div class="video-player-crunchy" id="mainVideoPlayer">
-            <iframe src="{{ current_ep.video_url }}"
+            <iframe id="videoIframe" src="{{ current_ep.video_url }}"
                     width="100%"
                     height="100%"
                     frameborder="0"
@@ -20,6 +20,18 @@
             <span class="video-info-meta">Season {{ current_season.season_number if current_season else 1 }} • Episode {{ ep_number }}</span>
         </div>
     </div>
+
+    <!-- 🟢 SERVER SELECTION BUTTONS 🟢 -->
+    {% if current_ep.servers and current_ep.servers|length > 1 %}
+    <div style="display: flex; justify-content: center; gap: 10px; margin: 20px 15px;">
+        {% for server in current_ep.servers %}
+        <button class="server-btn" onclick="changeServer('{{ server.url }}', this)">
+            {{ server.name }}
+        </button>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
     {% else %}
     <!-- 🟡 HERO BANNER 🟡 -->
     <div class="hero-detail hero-fade-in">
@@ -28,7 +40,6 @@
         <div class="hero-detail-content">
             <span class="featured-badge">FEATURED</span>
             <h1 class="hero-anime-title">{{ anime.title }}</h1>
-
             <div class="hero-meta-row">
                 {% if anime.language and anime.language != 'Unknown' %}
                 <span class="lang-badge">{{ anime.language }}</span>
@@ -36,9 +47,7 @@
                 <span class="rating-badge">★ {{ anime.rating|default('8.0') }}</span>
                 <span class="genre-text">{{ genres_text }}</span>
             </div>
-
             <p class="hero-description">{{ description }}</p>
-
             <div class="hero-action-buttons">
                 <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/1" class="btn-watch-hero">
                     <i class="fas fa-play"></i> Watch Now
@@ -75,8 +84,7 @@
                 </div>
                 {% for season in seasons %}
                 <a href="/watch/{{ anime.id }}/{{ season.season_number }}" class="season-option">
-                    <!-- 🛠️ FIX: Yahan class="season-thumb" add kar diya gaya hai -->
-                    <img src="{{ anime.image }}" class="season-thumb" alt="Season {{ season.season_number }}">
+                    <img src="{{ anime.image }}" alt="Season {{ season.season_number }}" class="season-thumb">
                     <div class="season-option-info">
                         <strong>Season {{ season.season_number }}</strong>
                         <span>{{ season.episodes|length }} Episodes</span>
@@ -188,7 +196,7 @@
 
 </div>
 
-<!-- 🟢 JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, SEASON DROPDOWN 🟢 -->
+<!-- 🟢 JAVASCRIPT 🟢 -->
 <script>
     const animeData = {
         id: {{ anime.id|tojson }},
@@ -196,11 +204,28 @@
         image: {{ anime.image|tojson }}
     };
     const currentEp = {
-        title: {{ (current_ep.title if current_ep and current_ep.title else 'Episode 1')|tojson }},
-        num: {{ (current_ep.title.split(' ')[-1] if current_ep and current_ep.title else '1')|tojson }}
+        title: {{ current_ep.title if current_ep else 'Episode 1'|tojson }},
+        num: {{ current_ep.title.split(' ')[-1] if current_ep else '1'|tojson }}
     };
     const animeId = {{ anime.id|tojson }};
-    const currentSeason = {{ (current_season.season_number if current_season and current_season.season_number else 1)|tojson }};
+    const currentSeason = {{ current_season.season_number if current_season else 1|tojson }};
+
+    // 🛠️ Server Change Function
+    function changeServer(url, btn) {
+        // Change iframe source
+        document.getElementById('videoIframe').src = url;
+        
+        // Update button styles
+        const btns = document.querySelectorAll('.server-btn');
+        btns.forEach(b => b.classList.remove('active'));
+        if(btn) btn.classList.add('active');
+    }
+
+    // Default pehle button ko active karo
+    document.addEventListener('DOMContentLoaded', function() {
+        const firstBtn = document.querySelector('.server-btn');
+        if(firstBtn) firstBtn.classList.add('active');
+    });
 
     function switchTab(tabName, btn) {
         document.querySelectorAll('.watch-tab').forEach(t => t.classList.remove('active'));
@@ -228,6 +253,7 @@
         }
     });
 
+    // Watchlist, Rating & History Logic (Same as before) ...
     let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
     const btn = document.getElementById('watchlist-btn');
     const inList = watchlist.some(item => item.id === animeData.id);
@@ -267,29 +293,30 @@
             else text.innerText = 'Click on a star to rate';
         }
     }
-    renderStars(currentRating);
-
-    starElements.forEach(star => {
-        star.addEventListener('click', function() {
-            const rating = parseInt(this.getAttribute('data-rating'));
-            ratings[animeData.id] = rating;
-            localStorage.setItem('animeRatings', JSON.stringify(ratings));
-            currentRating = rating;
-            renderStars(rating);
-        });
-        star.addEventListener('mouseover', function() {
-            const rating = parseInt(this.getAttribute('data-rating'));
-            starElements.forEach((s, i) => {
-                if (i < rating) s.className = 'fas fa-star';
-                else s.className = 'far fa-star';
+    if(starElements.length > 0) {
+        renderStars(currentRating);
+        starElements.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                ratings[animeData.id] = rating;
+                localStorage.setItem('animeRatings', JSON.stringify(ratings));
+                currentRating = rating;
+                renderStars(rating);
+            });
+            star.addEventListener('mouseover', function() {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                starElements.forEach((s, i) => {
+                    if (i < rating) s.className = 'fas fa-star';
+                    else s.className = 'far fa-star';
+                });
             });
         });
-    });
-    const sr = document.getElementById('star-rating');
-    if (sr) {
-        sr.addEventListener('mouseleave', function() {
-            renderStars(currentRating);
-        });
+        const sr = document.getElementById('star-rating');
+        if (sr) {
+            sr.addEventListener('mouseleave', function() {
+                renderStars(currentRating);
+            });
+        }
     }
 
     const currentEpData = { id: animeData.id, title: animeData.title, image: animeData.image };
@@ -337,4 +364,27 @@
         });
     }
 </script>
+
+<style>
+/* 🛠️ Server Buttons Style */
+.server-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ccc;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.server-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.server-btn.active {
+    background: #a855f7;
+    color: #fff;
+    border-color: #a855f7;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+</style>
 {% endblock %}
