@@ -11,6 +11,17 @@ DB_PATH = os.path.join(os.getcwd(), 'database', 'storage.json')
 _cached_anime_list = None
 
 
+# 🛠️ नया फंक्शन: इमेजेस को हल्का (Optimize) करने के लिए
+def optimize_image_url(url):
+    """TMDB की बड़ी इमेजेस को छोटा करके स्पीड बढ़ाना"""
+    if not url: 
+        return url
+    # अगर इमेज TMDB से है, तो साइज़ कम कर दो
+    if 'image.tmdb.org' in url:
+        return url.replace('/w500/', '/w300/').replace('/w1280/', '/w780/')
+    return url
+
+
 def get_all_anime():
     """GitHub से ताजा डेटा लाओ (सिर्फ पहली बार, फिर मेमोरी से दो)"""
     global _cached_anime_list
@@ -23,7 +34,14 @@ def get_all_anime():
     try:
         response = requests.get(GITHUB_RAW_URL, timeout=10)
         if response.status_code == 200:
-            _cached_anime_list = response.json().get('anime_list', [])
+            data = response.json().get('anime_list', [])
+            
+            # 🛠️ लोड होते ही सारी इमेजेस को ऑप्टिमाइज़ कर दो
+            for anime in data:
+                if 'image' in anime:
+                    anime['image'] = optimize_image_url(anime['image'])
+                    
+            _cached_anime_list = data
             return _cached_anime_list
     except Exception as e:
         print(f"⚠️ GitHub fetch error: {e}")
@@ -33,7 +51,14 @@ def get_all_anime():
         return []
     try:
         with open(DB_PATH, 'r', encoding='utf-8') as f:
-            _cached_anime_list = json.load(f).get('anime_list', [])
+            data = json.load(f).get('anime_list', [])
+            
+            # 🛠️ लोकल फाइल से लोड होते ही इमेजेस ऑप्टिमाइज़ कर दो
+            for anime in data:
+                if 'image' in anime:
+                    anime['image'] = optimize_image_url(anime['image'])
+                    
+            _cached_anime_list = data
             return _cached_anime_list
     except:
         return []
