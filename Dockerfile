@@ -15,4 +15,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Render के लिए Gunicorn कमांड
-CMD gunicorn -b 0.0.0.0:$PORT run:app
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "--timeout", "120", "--workers", "1", "app:create_app()"]
