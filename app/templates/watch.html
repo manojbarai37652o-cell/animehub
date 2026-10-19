@@ -23,9 +23,9 @@
 
     <!-- 🟢 SERVER BUTTONS 🟢 -->
     {% if current_ep.servers and current_ep.servers|length > 1 %}
-    <div class="server-selection-wrapper" style="display: flex; justify-content: center; gap: 12px; margin: 20px 15px; flex-wrap: wrap;">
+    <div class="server-selection-wrapper">
         {% for server in current_ep.servers %}
-        <button class="server-btn" onclick="changeServer('{{ server.url }}', this)" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #aaa; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.3s ease;">
+        <button class="server-btn" onclick="changeServer('{{ server.url }}', this)">
             <i class="fas fa-server"></i> {{ server.name }}
         </button>
         {% endfor %}
@@ -73,7 +73,7 @@
     <!-- 🟢 EPISODES TAB 🟢 -->
     <div id="tab-episodes" class="tab-content active">
         {% if seasons|length > 0 %}
-        <!-- 🛠️ SEASON DROPDOWN FIXED HERE -->
+        <!-- 🛠️ SEASON DROPDOWN -->
         <div class="season-dropdown-wrapper" id="seasonWrapper">
             <button class="season-toggle-btn" onclick="event.stopPropagation(); toggleSeasonDropdown();" type="button">
                 <i class="fas fa-layer-group"></i>
@@ -200,30 +200,21 @@
 
 </div>
 
-<!-- 🟢 JAVASCRIPT FOR SEASON DROPDOWN & SERVERS 🟢 -->
+<!-- 🟢 JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER, SERVERS 🟢 -->
 <script>
-    // 🛠️ SEASON DROPDOWN LOGIC (Global function so it works with SPA)
-    window.toggleSeasonDropdown = function() {
-        const menu = document.getElementById('season-dropdown-menu');
-        if (menu) {
-            if (menu.style.display === 'none' || menu.style.display === '') {
-                menu.style.display = 'block';
-            } else {
-                menu.style.display = 'none';
-            }
-        }
+    const animeData = {
+        id: {{ anime.id|tojson }},
+        title: {{ anime.title|tojson }},
+        image: {{ anime.image|tojson }}
     };
+    const currentEp = {
+        title: {{ current_ep.title if current_ep else 'Episode 1'|tojson }},
+        num: {{ current_ep.title.split(' ')[-1] if current_ep else '1'|tojson }}
+    };
+    const animeId = {{ anime.id|tojson }};
+    const currentSeason = {{ current_season.season_number if current_season else 1|tojson }};
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        const wrapper = document.getElementById('seasonWrapper');
-        const menu = document.getElementById('season-dropdown-menu');
-        if (wrapper && menu && !wrapper.contains(e.target)) {
-            menu.style.display = 'none';
-        }
-    });
-
-    // 🛠️ SERVER CHANGE LOGIC
+    // 🛠️ Server Change Function
     window.changeServer = function(url, btn) {
         const iframe = document.getElementById('videoIframe');
         if(iframe) iframe.src = url;
@@ -234,6 +225,7 @@
             b.style.background = 'rgba(255, 255, 255, 0.05)';
             b.style.color = '#aaa';
             b.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            b.style.boxShadow = 'none';
         });
         
         if(btn) {
@@ -245,10 +237,30 @@
         }
     };
 
-    // Make first server active by default
+    // Default pehle server button ko active karo
     document.addEventListener('DOMContentLoaded', function() {
         const firstBtn = document.querySelector('.server-btn');
         if(firstBtn) firstBtn.click();
+    });
+
+    // 🛠️ Season Dropdown Logic
+    window.toggleSeasonDropdown = function() {
+        const menu = document.getElementById('season-dropdown-menu');
+        if (menu) {
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
+        }
+    };
+
+    document.addEventListener('click', function(e) {
+        const wrapper = document.getElementById('seasonWrapper');
+        const menu = document.getElementById('season-dropdown-menu');
+        if (wrapper && menu && !wrapper.contains(e.target)) {
+            menu.style.display = 'none';
+        }
     });
 
     // Tabs Logic
@@ -258,15 +270,160 @@
         btn.classList.add('active');
         document.getElementById('tab-' + tabName).classList.add('active');
     }
+
+    // Watchlist Logic
+    let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
+    const btn = document.getElementById('watchlist-btn');
+    const inList = watchlist.some(item => item.id === animeData.id);
+    if (btn && inList) {
+        btn.innerHTML = '<i class="fas fa-check"></i> In My List';
+        btn.classList.add('active');
+    }
+
+    function toggleWatchlist() {
+        let list = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
+        const index = list.findIndex(item => item.id === animeData.id);
+        const btn = document.getElementById('watchlist-btn');
+        if (index > -1) {
+            list.splice(index, 1);
+            btn.innerHTML = '<i class="fas fa-plus"></i> My List';
+            btn.classList.remove('active');
+        } else {
+            list.push({ id: animeData.id, title: animeData.title, image: animeData.image });
+            btn.innerHTML = '<i class="fas fa-check"></i> In My List';
+            btn.classList.add('active');
+        }
+        localStorage.setItem('animeWatchlist', JSON.stringify(list));
+    }
+
+    // Ratings Logic
+    let ratings = JSON.parse(localStorage.getItem('animeRatings')) || {};
+    let currentRating = ratings[animeData.id] || 0;
+    const starElements = document.querySelectorAll('#star-rating i');
+
+    function renderStars(rating) {
+        starElements.forEach((s, i) => {
+            if (i < rating) s.className = 'fas fa-star';
+            else s.className = 'far fa-star';
+        });
+        const text = document.getElementById('rating-text');
+        if (text) {
+            if (rating > 0) text.innerText = 'You rated this ' + rating + '/5';
+            else text.innerText = 'Click on a star to rate';
+        }
+    }
+    if(starElements.length > 0) {
+        renderStars(currentRating);
+        starElements.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                ratings[animeData.id] = rating;
+                localStorage.setItem('animeRatings', JSON.stringify(ratings));
+                currentRating = rating;
+                renderStars(rating);
+            });
+            star.addEventListener('mouseover', function() {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                starElements.forEach((s, i) => {
+                    if (i < rating) s.className = 'fas fa-star';
+                    else s.className = 'far fa-star';
+                });
+            });
+        });
+        const sr = document.getElementById('star-rating');
+        if (sr) {
+            sr.addEventListener('mouseleave', function() {
+                renderStars(currentRating);
+            });
+        }
+    }
+
+    // History Logic
+    const currentEpData = { id: animeData.id, title: animeData.title, image: animeData.image };
+    let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
+    history = history.filter(item => item.id !== currentEpData.id);
+    history.unshift(currentEpData);
+    history = history.slice(0, 20);
+    localStorage.setItem('animeHistory', JSON.stringify(history));
+
+    // Continue Watching Tracker
+    {% if current_ep and current_ep.video_url %}
+    const progressData = {
+        anime_id: animeId,
+        season: currentSeason,
+        episode: currentEp.num,
+        timestamp: 0,
+        duration: 1
+    };
+    fetch('/api/save_progress', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+        body: JSON.stringify(progressData)
+    })
+    .then(response => response.json())
+    .then(data => console.log('Progress saved:', data))
+    .catch(error => console.error('Error saving progress:', error));
+    {% endif %}
+
+    // Sticky Player Logic
+    const videoWrapper = document.getElementById('videoSectionWrapper');
+    if (videoWrapper) {
+        const wrapperTop = videoWrapper.offsetTop;
+        const wrapperHeight = videoWrapper.offsetHeight;
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            if (scrollY > wrapperTop) {
+                videoWrapper.classList.add('sticky');
+                if (!document.body.dataset.hasStickyPadding) {
+                    document.body.style.paddingTop = wrapperHeight + 'px';
+                    document.body.dataset.hasStickyPadding = 'true';
+                }
+            } else {
+                videoWrapper.classList.remove('sticky');
+                document.body.style.paddingTop = '';
+                delete document.body.dataset.hasStickyPadding;
+            }
+        });
+    }
 </script>
 
-<!-- 🛠️ CSS to ensure dropdown works perfectly -->
+<!-- 🛠️ CSS FIXES FOR SERVERS AND SCROLLABLE SEASON DROPDOWN -->
 <style>
+/* Server Buttons */
+.server-selection-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 15px;
+    flex-wrap: wrap;
+}
+
+.server-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    padding: 10px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.server-btn i { font-size: 12px; }
+.server-btn:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.server-btn.active { background: #a855f7 !important; color: #fff !important; border-color: #a855f7 !important; box-shadow: 0 0 15px rgba(168, 85, 247, 0.4) !important; }
+
+/* Scrollable Season Dropdown */
 .season-dropdown-wrapper {
     position: relative;
     z-index: 100;
     margin-bottom: 20px;
 }
+
 .season-dropdown-menu {
     position: absolute;
     top: 100%;
@@ -276,15 +433,15 @@
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px;
     z-index: 9999;
-    overflow: hidden;
+    overflow-y: auto; /* 🛠️ स्क्रॉल के लिए */
+    max-height: 250px; /* 🛠️ मैक्स हाइट ताकि स्क्रीन से बाहर न जाए */
     margin-top: 5px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
-.server-btn.active {
-    background: #a855f7 !important;
-    color: #fff !important;
-    border-color: #a855f7 !important;
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4) !important;
-}
+
+/* Scrollbar Styling */
+.season-dropdown-menu::-webkit-scrollbar { width: 6px; }
+.season-dropdown-menu::-webkit-scrollbar-track { background: #1a1a24; }
+.season-dropdown-menu::-webkit-scrollbar-thumb { background: #a855f7; border-radius: 10px; }
 </style>
 {% endblock %}
