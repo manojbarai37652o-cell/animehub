@@ -7,6 +7,7 @@
     <!-- 🟢 VIDEO PLAYER SECTION 🟢 -->
     <div class="video-section-wrapper" id="videoSectionWrapper">
         <div class="video-player-crunchy" id="mainVideoPlayer">
+            <!-- 🛠️ यहाँ id="videoIframe" जोड़ा गया है ताकि सर्वर बदल सकें -->
             <iframe id="videoIframe" src="{{ current_ep.video_url }}"
                     width="100%"
                     height="100%"
@@ -21,12 +22,12 @@
         </div>
     </div>
 
-    <!-- 🟢 SERVER SELECTION BUTTONS 🟢 -->
+    <!-- 🟢 MULTI-SERVER BUTTONS 🟢 -->
     {% if current_ep.servers and current_ep.servers|length > 1 %}
-    <div style="display: flex; justify-content: center; gap: 10px; margin: 20px 15px;">
+    <div class="server-selection-wrapper">
         {% for server in current_ep.servers %}
         <button class="server-btn" onclick="changeServer('{{ server.url }}', this)">
-            {{ server.name }}
+            <i class="fas fa-server"></i> {{ server.name }}
         </button>
         {% endfor %}
     </div>
@@ -40,6 +41,7 @@
         <div class="hero-detail-content">
             <span class="featured-badge">FEATURED</span>
             <h1 class="hero-anime-title">{{ anime.title }}</h1>
+
             <div class="hero-meta-row">
                 {% if anime.language and anime.language != 'Unknown' %}
                 <span class="lang-badge">{{ anime.language }}</span>
@@ -47,7 +49,9 @@
                 <span class="rating-badge">★ {{ anime.rating|default('8.0') }}</span>
                 <span class="genre-text">{{ genres_text }}</span>
             </div>
+
             <p class="hero-description">{{ description }}</p>
+
             <div class="hero-action-buttons">
                 <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/1" class="btn-watch-hero">
                     <i class="fas fa-play"></i> Watch Now
@@ -196,7 +200,7 @@
 
 </div>
 
-<!-- 🟢 JAVASCRIPT 🟢 -->
+<!-- 🟢 JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER, SERVERS 🟢 -->
 <script>
     const animeData = {
         id: {{ anime.id|tojson }},
@@ -212,28 +216,19 @@
 
     // 🛠️ Server Change Function
     function changeServer(url, btn) {
-        // Change iframe source
         document.getElementById('videoIframe').src = url;
-        
-        // Update button styles
         const btns = document.querySelectorAll('.server-btn');
         btns.forEach(b => b.classList.remove('active'));
         if(btn) btn.classList.add('active');
     }
 
-    // Default pehle button ko active karo
+    // Default pehle server button ko active karo
     document.addEventListener('DOMContentLoaded', function() {
         const firstBtn = document.querySelector('.server-btn');
         if(firstBtn) firstBtn.classList.add('active');
     });
 
-    function switchTab(tabName, btn) {
-        document.querySelectorAll('.watch-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('tab-' + tabName).classList.add('active');
-    }
-
+    // Season Dropdown Logic
     function toggleSeasonDropdown() {
         const menu = document.getElementById('season-dropdown-menu');
         if (menu) {
@@ -253,7 +248,15 @@
         }
     });
 
-    // Watchlist, Rating & History Logic (Same as before) ...
+    // Tabs Logic
+    function switchTab(tabName, btn) {
+        document.querySelectorAll('.watch-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + tabName).classList.add('active');
+    }
+
+    // Watchlist Logic
     let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
     const btn = document.getElementById('watchlist-btn');
     const inList = watchlist.some(item => item.id === animeData.id);
@@ -278,6 +281,7 @@
         localStorage.setItem('animeWatchlist', JSON.stringify(list));
     }
 
+    // Ratings Logic
     let ratings = JSON.parse(localStorage.getItem('animeRatings')) || {};
     let currentRating = ratings[animeData.id] || 0;
     const starElements = document.querySelectorAll('#star-rating i');
@@ -319,6 +323,7 @@
         }
     }
 
+    // History Logic
     const currentEpData = { id: animeData.id, title: animeData.title, image: animeData.image };
     let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
     history = history.filter(item => item.id !== currentEpData.id);
@@ -326,6 +331,7 @@
     history = history.slice(0, 20);
     localStorage.setItem('animeHistory', JSON.stringify(history));
 
+    // Continue Watching Tracker
     {% if current_ep and current_ep.video_url %}
     const progressData = {
         anime_id: animeId,
@@ -344,6 +350,7 @@
     .catch(error => console.error('Error saving progress:', error));
     {% endif %}
 
+    // Sticky Player Logic
     const videoWrapper = document.getElementById('videoSectionWrapper');
     if (videoWrapper) {
         const wrapperTop = videoWrapper.offsetTop;
@@ -365,26 +372,45 @@
     }
 </script>
 
+<!-- 🛠️ Server Buttons CSS -->
 <style>
-/* 🛠️ Server Buttons Style */
+.server-selection-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 15px;
+    flex-wrap: wrap;
+}
+
 .server-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ccc;
-    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    padding: 10px 24px;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    transition: 0.3s;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
+
+.server-btn i {
+    font-size: 12px;
+}
+
 .server-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
+
 .server-btn.active {
     background: #a855f7;
     color: #fff;
     border-color: #a855f7;
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
 }
 </style>
 {% endblock %}
