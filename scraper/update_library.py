@@ -62,7 +62,8 @@ def check_anime_updates(page, anime):
             if not anime['episodes'][0].get('servers'):
                 servers = parse_video_servers(html, anime['url'])
                 if servers:
-                    anime['episodes'][0]['servers'] = servers
+                    # 🛠️ FIX: सिर्फ 2 सर्वर रखो
+                    anime['episodes'][0]['servers'] = servers[:2]
                     anime['episodes'][0]['video_url'] = servers[0]['url'] if servers else ""
                     anime['seasons'][0]['episodes'] = anime['episodes']
                     updated = True
@@ -106,7 +107,9 @@ def check_anime_updates(page, anime):
                             try:
                                 page.goto(ep['url'], wait_until="domcontentloaded", timeout=60000)
                                 page.wait_for_timeout(500)
-                                ep['servers'] = parse_video_servers(page.content(), ep['url'])
+                                servers = parse_video_servers(page.content(), ep['url'])
+                                # 🛠️ FIX: सिर्फ 2 सर्वर रखो
+                                ep['servers'] = servers[:2]
                                 ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
                             except: ep['video_url'] = ""
                         anime['seasons'].append({"season_number": sn, "episodes": episodes})
@@ -142,7 +145,9 @@ def check_anime_updates(page, anime):
                             try:
                                 page.goto(ep['url'], wait_until="domcontentloaded", timeout=60000)
                                 page.wait_for_timeout(500)
-                                ep['servers'] = parse_video_servers(page.content(), ep['url'])
+                                servers = parse_video_servers(page.content(), ep['url'])
+                                # 🛠️ FIX: सिर्फ 2 सर्वर रखो
+                                ep['servers'] = servers[:2]
                                 ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
                             except: ep['video_url'] = ""
                             season['episodes'].append(ep)
@@ -154,7 +159,9 @@ def check_anime_updates(page, anime):
                             try:
                                 page.goto(ep['url'], wait_until="domcontentloaded", timeout=60000)
                                 page.wait_for_timeout(500)
-                                ep['servers'] = parse_video_servers(page.content(), ep['url'])
+                                servers = parse_video_servers(page.content(), ep['url'])
+                                # 🛠️ FIX: सिर्फ 2 सर्वर रखो
+                                ep['servers'] = servers[:2]
                                 ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
                                 updated = True
                             except: pass
@@ -194,6 +201,11 @@ if __name__ == '__main__':
             page.set_default_timeout(90000)
 
             for idx, anime in enumerate(anime_list):
+                # 0. 🛑 NEW FIX: ToonStream वाले एनीमे को स्किप करो 
+                # (क्योंकि उनके लिए update_toonstream.py है)
+                if 'toonstream' in anime.get('url', '').lower():
+                    continue
+
                 # 1. SKIP LIST CHECK
                 if any(skip_title.lower() in anime['title'].lower() for skip_title in SKIP_ANIME_TITLES):
                     print(f"\n[{idx+1}/{len(anime_list)}] {anime['title']} -> ⏭️ SKIPPED (Skip list में है)")
