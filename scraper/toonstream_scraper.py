@@ -43,6 +43,29 @@ def extract_description(soup):
     if meta_desc: return meta_desc.get('content')
     return "No description available."
 
+def parse_episodes_from_current_page(page):
+    episodes = []
+    detail_soup = BeautifulSoup(page.content(), 'html.parser')
+    ep_container = detail_soup.find('ul', id='episode_by_temp')
+    
+    if ep_container:
+        for li in ep_container.find_all('li'):
+            ep_link = li.find('a', class_='lnk-blk') or li.find('a', href=True)
+            if ep_link:
+                ep_title = li.find('h2', class_='entry-title') or li.find('span', class_='num-epi')
+                ep_title_text = ep_title.get_text(strip=True) if ep_title else "Episode"
+                ep_url = BASE_URL + ep_link['href'] if not ep_link['href'].startswith('http') else ep_link['href']
+                episodes.append({'title': ep_title_text, 'url': ep_url, 'video_url': '', 'servers': []})
+                
+    if len(episodes) == 0:
+        for a_tag in detail_soup.find_all('a', href=True):
+            if '/episode/' in a_tag['href']:
+                ep_title = a_tag.get_text(strip=True) or a_tag['href'].split('/')[-2]
+                ep_url = a_tag['href'] if a_tag['href'].startswith('http') else BASE_URL + a_tag['href']
+                if not any(ep['url'] == ep_url for ep in episodes):
+                    episodes.append({'title': ep_title, 'url': ep_url, 'video_url': '', 'servers': []})
+    return episodes
+
 def process_anime_card(page, card, existing_titles, anime_list):
     try:
         title_tag = card.find('h2', class_='entry-title') or card.find('h2')
@@ -88,47 +111,52 @@ def process_anime_card(page, card, existing_titles, anime_list):
         description = extract_description(detail_soup)
         print(f"      🌐 Audio: {language}")
         
-        # 🛠️ SEASON LOGIC: एपिसोड्स को सीज़न के हिसाब से ग्रुप करने के लिए डिक्शनरी
         seasons_dict = {}
+        season_btns = page.query_selector_all('.season-btn')
         
-        ep_container = detail_soup.find('ul', id='episode_by_temp')
-        if ep_container:
-            for li in ep_container.find_all('li'):
-                ep_link = li.find('a', class_='lnk-blk') or li.find('a', href=True)
-                if ep_link:
-                    ep_title = li.find('h2', class_='entry-title') or li.find('span', class_='num-epi')
-                    ep_title_text = ep_title.get_text(strip=True) if ep_title else "Episode"
-                    ep_url = BASE_URL + ep_link['href'] if not ep_link['href'].startswith('http') else ep_link['href']
+        if season_btns:
+            season_nums = []
+            for btn in season_btns:
+                try:
+                    sn = int(btn.get_attribute('data-season'))
+                    if sn not in season_nums:
+                        season_nums.append(sn)
+                except:
+                    pass
+            
+            print(f"      🔄 इस एनीमे में {len(season_nums)} सीज़न मिले हैं। सभी को स्क्रैप कर रहे हैं...")
+            
+            for sn in season_nums:
+                try:
+                    # 🛠️ FIX: क्लिक करने से पहले पारदर्शी परत (overlay) को हटाओ
+                    page.evaluate("""() => {
+                        const overlay = document.getElementById('dontfoid');
+                        if (overlay) overlay.remove();
+                    }""")
                     
-                    # टाइटल से सीज़न नंबर निकालो (जैसे 1x5 में से 1, या 17x362 में से 17)
-                    season_num = 1
-                    match = re.search(r'(\d+)x(\d+)', ep_title_text)
-                    if match:
-                        season_num = int(match.group(1))
+                    # अब बटन को क्लिक करो
+                    btn_to_click = page.query_selector(f'.season-btn[data-season="{sn}"]')
+                    if btn_to_click:
+                        btn_to_click.click()
+                        page.wait_for_timeout(2500) # सर्वर से एपिसोड लोड होने का इंतज़ार
                     
-                    if season_num not in seasons_dict:
-                        seasons_dict[season_num] = []
-                        
-                    seasons_dict[season_num].append({'title': ep_title_text, 'url': ep_url, 'video_url': '', 'servers': []})
-        
-        # अगर ऊपर वाले डिब्बे से नहीं मिला, तो fallback (सब कुछ Season 1 में)
-        if len(seasons_dict) == 0:
-            seasons_dict[1] = []
-            for a_tag in detail_soup.find_all('a', href=True):
-                if '/episode/' in a_tag['href']:
-                    ep_title = a_tag.get_text(strip=True) or a_tag['href'].split('/')[-2]
-                    ep_url = a_tag['href'] if a_tag['href'].startswith('http') else BASE_URL + a_tag['href']
-                    if not any(ep['url'] == ep_url for ep in seasons_dict[1]):
-                        seasons_dict[1].append({'title': ep_title, 'url': ep_url, 'video_url': '', 'servers': []})
-        
-        # फाइनल सीज़न लिस्ट तैयार करो
+                    season_eps = parse_episodes_from_current_page(page)
+                    if season_eps:
+                        seasons_dict[sn] = season_eps
+                        print(f"         📺 Season {sn} में {len(season_eps)} एपिसोड मिले।")
+                except Exception as e:
+                    print(f"         ⚠️ सीज़न {sn} बटन क्लिक करने में दिक्कत: {e}")
+        else:
+            season_eps = parse_episodes_from_current_page(page)
+            if season_eps:
+                seasons_dict[1] = season_eps
+                print(f"      📺 Season 1 में {len(season_eps)} एपिसोड मिले।")
+
         final_seasons = []
-        all_episodes_flat = [] # वेबसाइट के 'episodes' फील्ड के लिए
+        all_episodes_flat = []
         
         for s_num in sorted(seasons_dict.keys()):
             eps = seasons_dict[s_num]
-            print(f"      📺 Season {s_num} में कुल {len(eps)} एपिसोड मिले।")
-            
             for ep in eps[:MAX_EPISODES_TO_CHECK]:
                 print(f"         🎬 चेक: {ep['title']}")
                 try:
@@ -162,13 +190,13 @@ def process_anime_card(page, card, existing_titles, anime_list):
             'id': str(abs(hash(href))),
             'language': language, 
             'description': description,
-            'seasons': final_seasons, # ✅ अब मल्टीपल सीज़न सेव होंगे
+            'seasons': final_seasons, 
             'episodes': all_episodes_flat
         }
         
         anime_list.append(new_anime_data)
         existing_titles.add(clean_t)
-        print(f"      💾 सेव हो गया! (कुल {len(final_seasons)} सीज़न)")
+        print(f"      💾 सेव हो गया! (कुल {len(final_seasons)} सीज़न पूरी तरह स्क्रैप हुए)")
         return 1
     except Exception as e:
         print(f"   ❌ एरर: {e}")
@@ -176,7 +204,7 @@ def process_anime_card(page, card, existing_titles, anime_list):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🔥 TOONSTREAM SCRAPER (SEASONS & 100 ANIME MODE)")
+    print("🔥 TOONSTREAM SCRAPER (ALL SEASONS FIXED & 100 ANIME MODE)")
     print("=" * 60)
 
     db_data = load_db()
