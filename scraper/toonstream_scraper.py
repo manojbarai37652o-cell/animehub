@@ -9,6 +9,7 @@ BASE_URL = "https://toonstream.us"
 HOME_URL = "https://toonstream.us/home"
 
 DB_FILE = "toonstream_data.json" 
+LIVE_DB_FILE = "database/storage.json" # 🛠️ लाइव डेटाबेस (ताकि पुराने एनीमे स्किप हों)
 
 MAX_ANIME_TO_TEST = 100  
 MAX_EPISODES_TO_CHECK = 9999 
@@ -16,6 +17,12 @@ MAX_EPISODES_TO_CHECK = 9999
 def load_db():
     if os.path.exists(DB_FILE):
         with open(DB_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {"anime_list": []}
+
+def load_live_db():
+    if os.path.exists(LIVE_DB_FILE):
+        with open(LIVE_DB_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
     return {"anime_list": []}
 
@@ -75,8 +82,9 @@ def process_anime_card(page, card, existing_titles, anime_list):
         title = title_tag.get_text(strip=True)
         clean_t = clean_title(title)
         
+        # 🛑 अगर एनीमे पहले से toonstream_data.json या storage.json में है, तो स्किप करो
         if clean_t in existing_titles:
-            print(f"   ⏭️ स्किप: {title}")
+            print(f"   ⏭️ स्किप (पहले से है): {title}")
             return 0
         
         original_href = link_tag['href']
@@ -256,13 +264,19 @@ def process_anime_card(page, card, existing_titles, anime_list):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🔥 TOONSTREAM SCRAPER (ALL SEASONS + MOVIES MODE)")
+    print("🔥 TOONSTREAM SCRAPER (ALL SEASONS + MOVIES + SKIP LIVE DB)")
     print("=" * 60)
 
     db_data = load_db()
+    live_db_data = load_live_db() # 🛠️ लाइव डेटा लोड करो
+
     anime_list = db_data.get('anime_list', [])
+    
+    # 🛠️ FIX: दोनों डेटाबेस से टाइटल इकट्ठा करो (ताकि जो पहले से वेबसाइट पर है, वो दोबारा स्क्रैप न हो)
     existing_titles = set(clean_title(anime.get('title', '')) for anime in anime_list)
-    print(f"📊 DB में पहले से {len(existing_titles)} एनीमे/मूवी हैं।\n")
+    existing_titles.update(set(clean_title(anime.get('title', '')) for anime in live_db_data.get('anime_list', [])))
+    
+    print(f"📊 टोटल स्किप लिस्ट (ToonStream + Live DB) में {len(existing_titles)} एनीमे हैं।\n")
     new_anime_added = 0
 
     try:
