@@ -83,6 +83,63 @@ def process_anime_card(page, card, existing_titles, anime_list):
         if not original_href.startswith('http'):
             original_href = BASE_URL + original_href if original_href.startswith('/') else BASE_URL + '/' + original_href
         
+        img_tag = card.find('img')
+        image = img_tag.get('src') if img_tag else ""
+        if image.startswith('//'): image = 'https:' + image
+        elif image.startswith('/'): image = BASE_URL + image
+
+        # ==========================================
+        # 🎬 मूवी का लॉजिक (अगर URL में /movies/ है)
+        # ==========================================
+        if '/movies/' in original_href or '/movie/' in original_href:
+            print(f"\n   🎬 नई मूवी मिली: {title}")
+            page.goto(original_href, wait_until="domcontentloaded")
+            page.wait_for_timeout(3000)
+            
+            detail_soup = BeautifulSoup(page.content(), 'html.parser')
+            language = extract_language(detail_soup)
+            description = extract_description(detail_soup)
+            
+            valid_srcs = []
+            player_area = detail_soup.find('aside', id='aa-options') or detail_soup
+            for iframe in player_area.find_all('iframe'):
+                src = iframe.get('data-src') or iframe.get('src')
+                if src and not src.startswith('javascript:'):
+                    if src.startswith('//'): src = 'https:' + src
+                    elif src.startswith('/'): src = BASE_URL + src
+                    if src not in valid_srcs:
+                        valid_srcs.append(src)
+                    if len(valid_srcs) >= 2: break # सिर्फ 2 सर्वर
+            
+            servers = [{"server": f"Server {j+1}", "url": u} for j, u in enumerate(valid_srcs)]
+            print(f"      🌐 Audio: {language} | ✅ {len(servers)} iframe मिले")
+            
+            movie_episode = {
+                'title': 'Full Movie',
+                'url': original_href,
+                'video_url': servers[0]['url'] if servers else "",
+                'servers': servers
+            }
+            
+            new_anime_data = {
+                'title': title, 
+                'url': original_href, 
+                'image': image, 
+                'id': str(abs(hash(original_href))),
+                'language': language, 
+                'description': description,
+                'seasons': [{"season_number": 1, "episodes": [movie_episode]}], 
+                'episodes': [movie_episode]
+            }
+            
+            anime_list.append(new_anime_data)
+            existing_titles.add(clean_t)
+            print(f"      💾 मूवी सेव हो गई!")
+            return 1
+
+        # ==========================================
+        # 📺 सीरीज़ का लॉजिक
+        # ==========================================
         print(f"\n   🆕 नया एनीमे: {title}")
         
         href = original_href
@@ -95,11 +152,6 @@ def process_anime_card(page, card, existing_titles, anime_list):
                 href = series_link_tag['href']
                 if not href.startswith('http'):
                     href = BASE_URL + href if href.startswith('/') else BASE_URL + '/' + href
-        
-        img_tag = card.find('img')
-        image = img_tag.get('src') if img_tag else ""
-        if image.startswith('//'): image = 'https:' + image
-        elif image.startswith('/'): image = BASE_URL + image
 
         page.goto(href, wait_until="domcontentloaded")
         page.wait_for_timeout(3000)
@@ -204,13 +256,13 @@ def process_anime_card(page, card, existing_titles, anime_list):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🔥 TOONSTREAM SCRAPER (ALL SEASONS FIXED & 100 ANIME MODE)")
+    print("🔥 TOONSTREAM SCRAPER (ALL SEASONS + MOVIES MODE)")
     print("=" * 60)
 
     db_data = load_db()
     anime_list = db_data.get('anime_list', [])
     existing_titles = set(clean_title(anime.get('title', '')) for anime in anime_list)
-    print(f"📊 DB में पहले से {len(existing_titles)} एनीमे हैं।\n")
+    print(f"📊 DB में पहले से {len(existing_titles)} एनीमे/मूवी हैं।\n")
     new_anime_added = 0
 
     try:
@@ -240,4 +292,4 @@ if __name__ == '__main__':
         print("\n🛑 रोक दिया गया!")
 
     save_db({"anime_list": anime_list})
-    print(f"\n🎉 स्क्रैपिंग पूरी! कुल {new_anime_added} नए एनीमे सेव हुए।")
+    print(f"\n🎉 स्क्रैपिंग पूरी! कुल {new_anime_added} नए एनीमे/मूवी सेव हुए।")
