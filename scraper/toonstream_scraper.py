@@ -11,7 +11,7 @@ HOME_URL = "https://toonstream.us/home"
 DB_FILE = "toonstream_data.json" 
 LIVE_DB_FILE = "database/storage.json" # 🛠️ लाइव डेटाबेस (ताकि पुराने एनीमे स्किप हों)
 
-# 🛑 यहाँ इसे 100 कर दिया है (यानी एक बार में सिर्फ 100 नए एनीमे स्क्रैप होंगे)
+# 🛑 एक बार में सिर्फ 100 नए एनीमे स्क्रैप होंगे
 MAX_ANIME_TO_TEST = 100  
 MAX_EPISODES_TO_CHECK = 9999 
 
@@ -265,7 +265,7 @@ def process_anime_card(page, card, existing_titles, anime_list):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🔥 TOONSTREAM SCRAPER (100 ANIME PER RUN + A-Z 18 PAGES)")
+    print("🔥 TOONSTREAM SCRAPER (100 ANIME PER RUN + CORRECT A-Z)")
     print("=" * 60)
 
     db_data = load_db()
@@ -321,8 +321,8 @@ if __name__ == '__main__':
                     for page_num in range(1, 19):
                         if new_anime_added >= MAX_ANIME_TO_TEST: break
                         
-                        # पेजिनेशन के लिए URL (पेज 1 के लिए सिर्फ लेटर, बाकी के लिए /page/X/)
-                        az_url = f"{BASE_URL}/az-list/{letter}/" if page_num == 1 else f"{BASE_URL}/az-list/{letter}/page/{page_num}/"
+                        # 🛠️ FIX: सही URL /letter/A/ और पेजिनेशन /letter/A/page/2/
+                        az_url = f"{BASE_URL}/letter/{letter.upper()}/" if page_num == 1 else f"{BASE_URL}/letter/{letter.upper()}/page/{page_num}/"
                         
                         print(f"\n🌐 लेटर '{letter.upper()}' - पेज {page_num} पर जा रहे हैं: {az_url}")
                         
