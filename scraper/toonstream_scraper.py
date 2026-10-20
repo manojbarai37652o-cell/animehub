@@ -11,6 +11,7 @@ HOME_URL = "https://toonstream.us/home"
 DB_FILE = "toonstream_data.json" 
 LIVE_DB_FILE = "database/storage.json" # 🛠️ लाइव डेटाबेस (ताकि पुराने एनीमे स्किप हों)
 
+# 🛑 यहाँ इसे 100 कर दिया है (यानी एक बार में सिर्फ 100 नए एनीमे स्क्रैप होंगे)
 MAX_ANIME_TO_TEST = 100  
 MAX_EPISODES_TO_CHECK = 9999 
 
@@ -264,7 +265,7 @@ def process_anime_card(page, card, existing_titles, anime_list):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🔥 TOONSTREAM SCRAPER (ALL SEASONS + MOVIES + SKIP LIVE DB)")
+    print("🔥 TOONSTREAM SCRAPER (100 ANIME PER RUN + A-Z 18 PAGES)")
     print("=" * 60)
 
     db_data = load_db()
@@ -277,6 +278,7 @@ if __name__ == '__main__':
     existing_titles.update(set(clean_title(anime.get('title', '')) for anime in live_db_data.get('anime_list', [])))
     
     print(f"📊 टोटल स्किप लिस्ट (ToonStream + Live DB) में {len(existing_titles)} एनीमे हैं।\n")
+    print(f"🎯 इस रन में सिर्फ {MAX_ANIME_TO_TEST} नए एनीमे स्क्रैप होंगे।\n")
     new_anime_added = 0
 
     try:
@@ -286,6 +288,9 @@ if __name__ == '__main__':
             page = context.new_page()
             page.set_default_timeout(60000)
 
+            # ==========================================
+            # चरण 1: होम पेज स्क्रैपिंग
+            # ==========================================
             print(f"🌐 होमपेज: {HOME_URL}")
             page.goto(HOME_URL, wait_until="domcontentloaded")
             page.wait_for_timeout(4000) 
@@ -300,6 +305,51 @@ if __name__ == '__main__':
                     new_anime_added += added
                     save_db({"anime_list": anime_list})
                     time.sleep(1)
+
+            # ==========================================
+            # चरण 2: A से Z तक (हर लेटर के 18 पेज तक) स्क्रैपिंग
+            # ==========================================
+            if new_anime_added < MAX_ANIME_TO_TEST:
+                print("\n" + "=" * 60)
+                print("🔤 अब A से Z तक के पेज (हर लेटर के 18 पेज) स्क्रैप कर रहे हैं...")
+                print("=" * 60)
+
+                for letter in "abcdefghijklmnopqrstuvwxyz":
+                    if new_anime_added >= MAX_ANIME_TO_TEST: break
+                    
+                    # 🛠️ FIX: पेज 1 से शुरू करके 18 तक जाएगा
+                    for page_num in range(1, 19):
+                        if new_anime_added >= MAX_ANIME_TO_TEST: break
+                        
+                        # पेजिनेशन के लिए URL (पेज 1 के लिए सिर्फ लेटर, बाकी के लिए /page/X/)
+                        az_url = f"{BASE_URL}/az-list/{letter}/" if page_num == 1 else f"{BASE_URL}/az-list/{letter}/page/{page_num}/"
+                        
+                        print(f"\n🌐 लेटर '{letter.upper()}' - पेज {page_num} पर जा रहे हैं: {az_url}")
+                        
+                        try:
+                            page.goto(az_url, wait_until="domcontentloaded")
+                            page.wait_for_timeout(3000)
+                            
+                            az_soup = BeautifulSoup(page.content(), 'html.parser')
+                            az_cards = az_soup.find_all('article', class_='post') or az_soup.find_all('li', id=re.compile(r'^post-\d+'))
+                            
+                            if not az_cards:
+                                print(f"   ⚠️ पेज {page_num} पर कोई कार्ड नहीं मिला (पेज खत्म)। अगले लेटर पर जा रहे हैं।")
+                                break # बाहर निकलो, अगले लेटर पर जाओ
+                                
+                            print(f"   🔍 पेज {page_num} पर {len(az_cards)} कार्ड्स मिले।")
+                            
+                            for card in az_cards:
+                                if new_anime_added >= MAX_ANIME_TO_TEST: break
+                                added = process_anime_card(page, card, existing_titles, anime_list)
+                                if added:
+                                    new_anime_added += added
+                                    save_db({"anime_list": anime_list})
+                                    time.sleep(1)
+                                    
+                        except Exception as e:
+                            print(f"   ❌ लेटर {letter.upper()} - पेज {page_num} पर एरर: {e}")
+                            break # एरर आने पर अगले लेटर पर जाओ
 
             browser.close()
     except KeyboardInterrupt:
