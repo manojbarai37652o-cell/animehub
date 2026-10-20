@@ -1,38 +1,47 @@
-const CACHE_NAME = 'mag-anime-v1';
-const urlsToCache = [
-  '/',
-  '/static/css/style.css',
-  '/static/manifest.json'
+// =========================================
+// 🛑 SERVICE WORKER: IFRAME AD-BLOCKER
+// =========================================
+
+const AD_DOMAINS = [
+    "doubleclick.net",
+    "googleadservices.com",
+    "googlesyndication.com",
+    "popads.net",
+    "propellerads.com",
+    "adsterra.com",
+    "exoclick.com",
+    "hilltopads.net",
+    "onclickads.net",
+    "zr.pourrispodzols.com",
+    "kq.modalclonism.com"
 ];
 
-// Install
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
-  );
-  self.skipWaiting();
+self.addEventListener('install', (event) => {
+    self.skipWaiting();
 });
 
-// Activate
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(names => Promise.all(
-      names.filter(n => n !== CACHE_NAME).map(n => caches.delete(n))
-    ))
-  );
-  self.clients.claim();
+self.addEventListener('activate', (event) => {
+    event.waitUntil(clients.claim());
 });
 
-// Fetch (network first, cache fallback)
-self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET') return;
-  event.respondWith(
-    fetch(event.request)
-      .then(response => {
-        const clone = response.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
-        return response;
-      })
-      .catch(() => caches.match(event.request))
-  );
+self.addEventListener('fetch', (event) => {
+    const url = event.request.url.toLowerCase();
+
+    // चेक करो कि क्या रिक्वेस्ट किसी ऐड डोमेन पर जा रही है
+    const isAd = AD_DOMAINS.some(domain => url.includes(domain));
+
+    if (isAd) {
+        // अगर ऐड है, तो उसे ब्लॉक करके खाली रिस्पॉन्स भेज दो
+        console.log('🚫 Ad Blocked:', url);
+        event.respondWith(
+            new Response('', {
+                status: 200,
+                statusText: 'OK',
+                headers: new Headers({ 'Content-Type': 'text/plain' })
+            })
+        );
+    } else {
+        // अगर ऐड नहीं है, तो सामान्य रूप से लोड होने दो
+        event.respondWith(fetch(event.request));
+    }
 });

@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
 
-    <!-- 🛠️ GOOGLE SEARCH SITE NAME FIX (Render ki jagah AnimeNest dikhane ke liye) -->
+    <!-- 🛠️ GOOGLE SEARCH SITE NAME FIX -->
     <meta property="og:site_name" content="AnimeNest">
     <meta property="og:title" content="AnimeNest - Watch Anime Free">
     <meta property="og:type" content="website">
@@ -29,7 +29,6 @@
       "url": "https://animenest-zmbl.onrender.com/"
     }
     </script>
-    <!-- 🛠️ FIX END -->
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
 </head>
@@ -182,6 +181,9 @@
 
     <!-- Splash Screen Script & SPA Navigation & Search Script -->
     <script>
+        // 🛠️ FIX 1: Initial State set karo taaki back button ko pata chale
+        history.replaceState({ url: window.location.pathname }, '', window.location.pathname);
+
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById("splash-screen");
             if (!splash) return;
@@ -290,19 +292,9 @@
             }
         }
 
-        document.addEventListener('click', async function(e) {
-            const link = e.target.closest('a');
-            if (!link) return;
-            const href = link.getAttribute('href');
-            if (!href || href.startsWith('#') || href.startsWith('javascript')) return;
-            if (link.getAttribute('target') === '_blank') return;
-            if (link.classList.contains('no-spa')) return;
-            if (href.startsWith('/logout')) return;
-            if (href.startsWith('/login')) return;
-
-            e.preventDefault();
+        // 🛠️ FIX 2: Ek function banaya jisse page load hoga
+        async function loadPageContent(href, pushState = true) {
             showSpaLoader();
-
             try {
                 const response = await fetch(href, { headers: { 'X-Requested-With': 'XMLHttpRequest' }, credentials: 'same-origin' });
                 if (!response.ok) throw new Error('Fetch failed');
@@ -328,6 +320,11 @@
                         nav.classList.remove('active');
                         if (nav.getAttribute('href') === href) nav.classList.add('active');
                     });
+
+                    // 🛠️ FIX 3: History me push karo taaki back button kaam kare
+                    if (pushState) {
+                        history.pushState({ url: href }, '', href);
+                    }
                 } else {
                     window.location.href = href;
                 }
@@ -336,7 +333,47 @@
             } finally {
                 hideSpaLoader();
             }
+        }
+
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (!link) return;
+            const href = link.getAttribute('href');
+            if (!href || href.startsWith('#') || href.startsWith('javascript')) return;
+            if (link.getAttribute('target') === '_blank') return;
+            if (link.classList.contains('no-spa')) return;
+            if (href.startsWith('/logout')) return;
+            if (href.startsWith('/login')) return;
+
+            e.preventDefault();
+            loadPageContent(href, true); // true matlab naya page, history me add karo
+        });
+
+        // 🛠️ FIX 4: Back button dabane par purana page load karo
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.url) {
+                loadPageContent(e.state.url, false); // false matlab back button, history me wapas add mat karo
+            } else {
+                // Agar state nahi hai, to URL ke hisaab se load karo
+                loadPageContent(window.location.pathname, false);
+            }
         });
     </script>
+
+    <!-- 🛠️ SERVICE WORKER REGISTRATION FOR AD BLOCKING 🛠️ -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/static/js/service-worker.js')
+                    .then(registration => {
+                        console.log('✅ Ad-Blocker ServiceWorker registered:', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('❌ ServiceWorker registration failed:', err);
+                    });
+            });
+        }
+    </script>
+
 </body>
 </html>

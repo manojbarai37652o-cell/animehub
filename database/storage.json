@@ -376,6 +376,18 @@
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvajc1QmxVcDVTIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9DLVNLcmhWT0IifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94MFRST0FDODEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaXhNUlhEZEdUIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kV0JZWjgya1QifV0%3D"
                                 }
                             ]
+                        },
+                        {
+                            "title": "LIAR GAME 1x26",
+                            "ep_num": "26",
+                            "url": "https://animesalt.cx/episode/liar-game-1x26/",
+                            "video_url": "https://ravok.buzz/video/f0bc49a48370642aac2e13d6db960830",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/f0bc49a48370642aac2e13d6db960830"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1046,6 +1058,18 @@
                                 {
                                     "name": "Server 2",
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvT0hJWFhhRU9tIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9UTE4wVnpYYlAifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Grand Blue Dreaming 3x8",
+                            "ep_num": "8",
+                            "url": "https://animesalt.cx/episode/grand-blue-dreaming-3x8/",
+                            "video_url": "https://ravok.buzz/video/fd068634f56443e7ef424870db309a61",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/fd068634f56443e7ef424870db309a61"
                                 }
                             ]
                         }
@@ -2057,6 +2081,18 @@
                                 {
                                     "name": "Server 2",
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRWNCbU5FRkUzIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ENmJRTFQ2RGgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC91TFlrejBNSFcifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveGJOVkNtVDdrIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TbzM0UFpOWjEifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Mushoku Tensei: Jobless Reincarnation 3x8",
+                            "ep_num": "8",
+                            "url": "https://animesalt.cx/episode/mushoku-tensei-jobless-reincarnation-3x8/",
+                            "video_url": "https://ravok.buzz/video/65da3129d9d71cc4ae2dc09b9b3a43ea",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/65da3129d9d71cc4ae2dc09b9b3a43ea"
                                 }
                             ]
                         }
@@ -322491,6 +322527,1009 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "season_number": 2,
+                    "episodes": [
+                        {
+                            "title": "The Siege of Lothal",
+                            "ep_num": "1",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x1/",
+                            "video_url": "https://ravok.buzz/video/1aa3d9c6ce672447e1e5d0f1b5207e85",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/1aa3d9c6ce672447e1e5d0f1b5207e85"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVG9PV0pWR2FwIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9xWmNqbFIwR1oifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95R2hRZWtIUloifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd3doQUJMRW5pIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Siege of Lothal",
+                            "ep_num": "2",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x2/",
+                            "video_url": "https://ravok.buzz/video/e16e74a63567ecb44ade5c87002bb1d9",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/e16e74a63567ecb44ade5c87002bb1d9"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYUxrd2h2MmNfIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9PYWpFN3Q4ZFEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC96aU5MMVdvMDVLIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1RoaTM4d0VSTyJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Lost Commanders",
+                            "ep_num": "3",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x3/",
+                            "video_url": "https://ravok.buzz/video/44feb0096faa8326192570788b38c1d1",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/44feb0096faa8326192570788b38c1d1"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdnY0ZkdENE0zIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC96V1RvWlQycm8ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9tZUprWmlCVG4ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOGprMWhQNEdZYSJ9XQ%3D%3D"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/u1kbzldttebw"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Relics of the Old Republic",
+                            "ep_num": "4",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x4/",
+                            "video_url": "https://ravok.buzz/video/34306d99c63613fad5b2a140398c0420",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/34306d99c63613fad5b2a140398c0420"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWFFVM2xzazZLIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9GVGp2dklUME0ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84RVlJSHA2a04ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRDd0S09QZy15In1d"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/46uf44yz2l60"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Always Two There Are",
+                            "ep_num": "5",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x5/",
+                            "video_url": "https://ravok.buzz/video/f3175210f90bfc7ea82901db0ef7452f",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/f3175210f90bfc7ea82901db0ef7452f"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRjhhWTNnM0J2In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC91b0M1WUh5VnQifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9YX2xaeE51VzQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLWMtbjJfMjhZIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Brothers of the Broken Horn",
+                            "ep_num": "6",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x6/",
+                            "video_url": "https://ravok.buzz/video/deb74a85a4a68465b75c721d45db5d3b",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/deb74a85a4a68465b75c721d45db5d3b"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSF9FQTBRSE1DIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9NeGRjTmYtUGQifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9SVVdoUWtmdXkifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcjhjYWcxN2tSIn1d"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/xo9lp58y2gko"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Wings of the Master",
+                            "ep_num": "7",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x7/",
+                            "video_url": "https://ravok.buzz/video/335d3d1cd7ef05ec77714a215134914c",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/335d3d1cd7ef05ec77714a215134914c"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVXdfX1BZN2d2In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9lMkJ3SlcyN2MifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8xRlc4SnpaYW8ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbE96QU9Ldk85In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Blood Sisters",
+                            "ep_num": "8",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x8/",
+                            "video_url": "https://ravok.buzz/video/e73fecc08ee9b0e1a876614ec3178bac",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/e73fecc08ee9b0e1a876614ec3178bac"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNmZBYjJzaVBnIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8yOVdWbWoyX2EifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aQ2JxNmpmS28ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb19lb3JrX2NVIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Stealth Strike",
+                            "ep_num": "9",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x9/",
+                            "video_url": "https://ravok.buzz/video/690bb330e5e7e3e07867fafc4d32ec82",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/690bb330e5e7e3e07867fafc4d32ec82"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSC1BVFROQ3pJIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC80Y2FtTi1zSVIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC80bmpRNWFhMUcifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcnc5WUtTNlpLQyJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Future of the Force",
+                            "ep_num": "10",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x10/",
+                            "video_url": "https://ravok.buzz/video/4ecb679fd35dcfd0f0894c399590be1a",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/4ecb679fd35dcfd0f0894c399590be1a"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZi1FQ0l6UzF1In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC82SGE3X0pMbUsifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81YjdlWGNMZmEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQjBZcjJyMjBSIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Legacy",
+                            "ep_num": "11",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x11/",
+                            "video_url": "https://ravok.buzz/video/c157297d1a1ff043255bfb18530caaa2",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/c157297d1a1ff043255bfb18530caaa2"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUDZ6aFBMZGFKIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9JV3JmUlpla1oifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC92TXktRktqRzcifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYllsTk4yLWIxIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "A Princess on Lothal",
+                            "ep_num": "12",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x12/",
+                            "video_url": "https://ravok.buzz/video/916d3891a243c10fede49f9c276f1a20",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/916d3891a243c10fede49f9c276f1a20"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvM1ZEdGhVa09WIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kQjVVYlphZmoifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9GQ0YyQ0hSRjYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveTVqWEx1S0xJIn1d"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/iuw6t04hz8kp"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Protector of Concord Dawn",
+                            "ep_num": "13",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x13/",
+                            "video_url": "https://ravok.buzz/video/42547f5a44d87da3bc40ee5d09624606",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/42547f5a44d87da3bc40ee5d09624606"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcVJIQl9mQ0dzIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9DczZZd3lJZkUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aeDNRNmdvU0UifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveUVDY1dhTnRYIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Legends of the Lasat",
+                            "ep_num": "14",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x14/",
+                            "video_url": "https://ravok.buzz/video/41c542dfe6e4fc3deb251d64cf6ed2e4",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/41c542dfe6e4fc3deb251d64cf6ed2e4"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTTBGbjA4NUdRIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9mZUhhOTVTelAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC85SGFjczNXTXMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNXlIS2pxNTZfIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Call",
+                            "ep_num": "15",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x15/",
+                            "video_url": "https://ravok.buzz/video/36072923bfc3cf47745d704feb489480",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/36072923bfc3cf47745d704feb489480"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWnpNaFVZNmZ5In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9nR3NqN3I3Q1MifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9xNDNmMjVQTTIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvR2MyMVF6SF9TIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Homecoming",
+                            "ep_num": "16",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x16/",
+                            "video_url": "https://ravok.buzz/video/c82836ed448c41094025b4a872c5341e",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/c82836ed448c41094025b4a872c5341e"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZWU3Vzc4ZzNXIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9SMEI5R09JNnUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aRzlRSl9GaUQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQnVwd0tENkx5In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Honorable Ones",
+                            "ep_num": "17",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x17/",
+                            "video_url": "https://ravok.buzz/video/58521e4e2bd3d4b988cbd17d7365df3c",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/58521e4e2bd3d4b988cbd17d7365df3c"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOWhzWHp3ekJVIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9tWUQxQnV6WncifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84eWlaNkdnbEtsIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2FJNGZDeTYzdiJ9XQ%3D%3D"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/iscjz6vcx7k1"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Shroud of Darkness",
+                            "ep_num": "18",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x18/",
+                            "video_url": "https://ravok.buzz/video/63c6598e9ddd2961e7dfa4d4eb8144a1",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/63c6598e9ddd2961e7dfa4d4eb8144a1"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOVQ2MmI1a01CIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC93VHgyWm9hdUcifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9PVnlrVnFSQXMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcUdoR3d1aUpYIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Forgotten Droid",
+                            "ep_num": "19",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x19/",
+                            "video_url": "https://ravok.buzz/video/95323660ed2124450caaac2c46b5ed90",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/95323660ed2124450caaac2c46b5ed90"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvV2syT29DRkdkIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9UanBjalloaHMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ILWhiWEVQSGYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveG4tVXV5NFF6In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Mystery of Chopper Base",
+                            "ep_num": "20",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x20/",
+                            "video_url": "https://ravok.buzz/video/d3614f463b2d42aba2700556d42740d0",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/d3614f463b2d42aba2700556d42740d0"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvX3ozdzBIRmNCIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9SSzR1c2N4TW0ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9wNXduSWdZRTIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvanZHdDJsRmx6In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Twilight of the Apprentice",
+                            "ep_num": "21",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x21/",
+                            "video_url": "https://ravok.buzz/video/e97399278d24e6bbf3a2d5e9c8d34262",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/e97399278d24e6bbf3a2d5e9c8d34262"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVi1BWFBsZlpSIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83ekdobjNjN2QifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94RU1qMDgxU3MifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMmZLbUJwajJKIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Twilight of the Apprentice",
+                            "ep_num": "22",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-2x22/",
+                            "video_url": "https://ravok.buzz/video/37968ad196a5085f5ed91e58df8c2cef",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/37968ad196a5085f5ed91e58df8c2cef"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOERDd2FqRklDIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94NkU4N2t4M0gifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9iUVRBWUZnZWcifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdHRSNG0yc1lJIn1d"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "season_number": 3,
+                    "episodes": [
+                        {
+                            "title": "Steps Into Shadow",
+                            "ep_num": "1",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x1/",
+                            "video_url": "https://ravok.buzz/video/092cb13c22d51c22b9035a2b4fe76b00",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/092cb13c22d51c22b9035a2b4fe76b00"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMWh2U2gxWXRGIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9nYUZjNW5PR2wifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hZmpncWFoNFYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvS1BEMXJKMHdfWCJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Steps Into Shadow",
+                            "ep_num": "2",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x2/",
+                            "video_url": "https://ravok.buzz/video/9332c513ef44b682e9347822c2e457ac",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/9332c513ef44b682e9347822c2e457ac"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQmp0bFBsVms2In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hOHJTSk02MUNEIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcTRzejFYRUhFIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1k3cUlxLU9JLXEifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Holocrons of Fate",
+                            "ep_num": "3",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x3/",
+                            "video_url": "https://ravok.buzz/video/7ba6d33c373fea56b7258003b16c68e5",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/7ba6d33c373fea56b7258003b16c68e5"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZ0kwQ3Utb0V6ViJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMmZFNXMyTXFmIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMG50bzRJMk9sIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3hINl9DVWk0LSJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Antilles Extraction",
+                            "ep_num": "4",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x4/",
+                            "video_url": "https://ravok.buzz/video/641d77dd5271fca28764612a028d9c8e",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/641d77dd5271fca28764612a028d9c8e"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWG15bWh6el9nIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC85X3cwVm5qWmQifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC85aExBd1RBbl8ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvV0NKWGRmeUNTIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Hera's Heroes",
+                            "ep_num": "5",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x5/",
+                            "video_url": "https://ravok.buzz/video/211a7a84d3d5ce4d80347da11e0c85ed",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/211a7a84d3d5ce4d80347da11e0c85ed"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRmUyMDM3U0xRIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC96aDUxaWlidG4ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9IMHNqVGRHVjYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd21IZnJCWnFEIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Last Battle",
+                            "ep_num": "6",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x6/",
+                            "video_url": "https://ravok.buzz/video/79cae1be0fbae74dafbf8399ee2209cb",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/79cae1be0fbae74dafbf8399ee2209cb"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQXlMN0hVZEotIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TekNETWtTX1UifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ucmpVQUt2WmMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvelJFcjBzOTFZIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Imperial Supercommandos",
+                            "ep_num": "7",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x7/",
+                            "video_url": "https://ravok.buzz/video/d74cb35426f3d808325876f45b69dbf1",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/d74cb35426f3d808325876f45b69dbf1"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdXpPdmw4UEhiIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ONkwxTFptMXgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8zMGxQSk12TksifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYlZkVU9GLVNONiJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Iron Squadron",
+                            "ep_num": "8",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x8/",
+                            "video_url": "https://ravok.buzz/video/28d437661d95291767e7402dfe969962",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/28d437661d95291767e7402dfe969962"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvM0VRenhtbGxVIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WdG9ULXZyMlMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9BMXdHUkVkSVYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbGNYbjZzY21oIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Wynkahthu Job",
+                            "ep_num": "9",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x9/",
+                            "video_url": "https://ravok.buzz/video/4625d8e31dad7d1c4c83399a6eb62f0c",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/4625d8e31dad7d1c4c83399a6eb62f0c"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvc1prVTY3RzlOIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TNmdjTlo1dmUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC80dk9SaUJvTEQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSmtlZnBUOWhIIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "An Inside Man",
+                            "ep_num": "10",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x10/",
+                            "video_url": "https://ravok.buzz/video/7f6caf1f0ba788cd7953d817724c2b6e",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/7f6caf1f0ba788cd7953d817724c2b6e"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNGVKa0x4N1JOIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9CQ01SYjlGVTEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9BR3J3NmZIOXoifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvclJldy1BZ1dWIn1d"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/9rx0bq6qnktj"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Visions and Voices",
+                            "ep_num": "11",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x11/",
+                            "video_url": "https://ravok.buzz/video/201e5bacd665709851b77148e225b332",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/201e5bacd665709851b77148e225b332"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcndxSUhQYWlrIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9FSzYxX2FoSTNqIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUl9CZXoxdjJMIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2t3YzAyLVdaeSJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Ghosts of Geonosis",
+                            "ep_num": "12",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x12/",
+                            "video_url": "https://ravok.buzz/video/83ddfbd1c4f871159c148d7a010e69be",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/83ddfbd1c4f871159c148d7a010e69be"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMVhySUZDeWNYIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9GU2EwRUV2X04ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hVjJNaUE5THgifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVmt3aS1EVV95In1d"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/o43foz5kiobe"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Ghosts of Geonosis",
+                            "ep_num": "13",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x13/",
+                            "video_url": "https://ravok.buzz/video/5c151c2a9b76f9ef26d7e0f0d00c9a89",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/5c151c2a9b76f9ef26d7e0f0d00c9a89"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZWlvTzNBLUhzIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9qa25NTkxCTUMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TSUtBSjcxUXIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvenk5dm1lTFA0NiJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Warhead",
+                            "ep_num": "14",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x14/",
+                            "video_url": "https://ravok.buzz/video/73f104c9fba50050eea11d9d075247cc",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/73f104c9fba50050eea11d9d075247cc"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQUxwOXNBMXJCIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9HQ0lmZWNFQm0ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9icTZwUE4wNDgifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUXMwNzJxaGlBIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Trials of the Darksaber",
+                            "ep_num": "15",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x15/",
+                            "video_url": "https://ravok.buzz/video/f2b93ce08763fddf54bcb7beb62a2c74",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/f2b93ce08763fddf54bcb7beb62a2c74"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZUQ3a083dFVwIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8zeHNfSDdwUEwifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9QRXlFVlNuMXYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSFJDcGdoSng0In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Legacy of Mandalore",
+                            "ep_num": "16",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x16/",
+                            "video_url": "https://ravok.buzz/video/2119b8d43eafcf353e07d7cb5554170b",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/2119b8d43eafcf353e07d7cb5554170b"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvalhIOTVTQTNQMiJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMXVkOC1GWVp5In0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSDBNNFpIZXB4In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0F3QW9rVGZocSJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Through Imperial Eyes",
+                            "ep_num": "17",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x17/",
+                            "video_url": "https://ravok.buzz/video/add7a048049671970976f3e18f21ade3",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/add7a048049671970976f3e18f21ade3"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbUIxdzF2S2gyIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jYk5hVUdvc3QifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hM3Y2MnRyemgifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvR1FBZnRGNjRCIn1d"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/i4kpsykvnivn"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Secret Cargo",
+                            "ep_num": "18",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x18/",
+                            "video_url": "https://ravok.buzz/video/cab070d53bd0d200746fb852a922064a",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/cab070d53bd0d200746fb852a922064a"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRWhtMGphZ2NQIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94M2RDbUkzRDYifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94Q0FOOFVoLUsifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYVI0TTUtdTZnIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Double Agent Droid",
+                            "ep_num": "19",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x19/",
+                            "video_url": "https://ravok.buzz/video/8ce87bdda85cd44f14de9afb86491884",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/8ce87bdda85cd44f14de9afb86491884"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva2h6clhMX2JnIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9uVExWT0t6SF8ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9LMDRMa0d2Q2kifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWHV4V1ZVR2NjIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Twin Suns",
+                            "ep_num": "20",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x20/",
+                            "video_url": "https://ravok.buzz/video/3569df159ec477451530c4455b2a9e86",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/3569df159ec477451530c4455b2a9e86"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMDV3dWxyZGtMIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aUGk0c2tTS1UifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9NUW5rbDc1U0IifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdUJZQ0RvVTVFIn1d"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/pz8npw8art3w"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Zero Hour",
+                            "ep_num": "21",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x21/",
+                            "video_url": "https://ravok.buzz/video/9fc664916bce863561527f06a96f5ff3",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/9fc664916bce863561527f06a96f5ff3"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbEdXY0Y4UEtnIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83dENoV0ZmdkUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WWlVwS243S2UifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY2x3OEt4YXl3In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Zero Hour",
+                            "ep_num": "22",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-3x22/",
+                            "video_url": "https://ravok.buzz/video/f87e955fd6b89f8963b6934beb077d6e",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/f87e955fd6b89f8963b6934beb077d6e"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvemZIMld6dlp3In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC93V2F1VWg5SGYifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9mMXJEX2VWeXYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQWhyTS1ZOFNvIn1d"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "season_number": 4,
+                    "episodes": [
+                        {
+                            "title": "Heroes of Mandalore",
+                            "ep_num": "1",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x1/",
+                            "video_url": "https://ravok.buzz/video/e8542a04d734d0cae36d648b3f519e5c",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/e8542a04d734d0cae36d648b3f519e5c"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSkJCbV80X24tIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9Da3UzYWpYZm8ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9LcV9lUW45bWQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRjJVVjFFQ0JjIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Heroes of Mandalore",
+                            "ep_num": "2",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x2/",
+                            "video_url": "https://ravok.buzz/video/d8847be3f7cc1b14e9173908bebb2106",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/d8847be3f7cc1b14e9173908bebb2106"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUmxRMzdzWWljIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9KYjZfaWVSNGMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9PcXE2YjdLUmgifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQ1cySEczQThDIn1d"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/i93bquejpobn"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "In the Name of the Rebellion",
+                            "ep_num": "3",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x3/",
+                            "video_url": "https://ravok.buzz/video/aaaccd2766ec67aecbe26459bb828d81",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/aaaccd2766ec67aecbe26459bb828d81"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvekwyaGlFV2gzSiJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvM0R1YmtYZnRhIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY0JSSVFSTVdMIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL09JaXRybjQzTSJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "In the Name of the Rebellion",
+                            "ep_num": "4",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x4/",
+                            "video_url": "https://ravok.buzz/video/f9beb1e831faf6aaec2a5cecaf1af293",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/f9beb1e831faf6aaec2a5cecaf1af293"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVVE5VjUxMzg4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9BLVJuY3Q4Y2oifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94aVBlQ2N5WFcifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRGNkTHFEOE9JIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Occupation",
+                            "ep_num": "5",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x5/",
+                            "video_url": "https://ravok.buzz/video/685ac8cadc1be5ac98da9556bc1c8d9e",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/685ac8cadc1be5ac98da9556bc1c8d9e"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRzJ1UWhfMTBmIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9SdnNPb0FScmkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9abGVnM2YxLUEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdGVZVTNQbDE3In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Flight of the Defender",
+                            "ep_num": "6",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x6/",
+                            "video_url": "https://ravok.buzz/video/21ce689121e39821d07d04faab328370",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/21ce689121e39821d07d04faab328370"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNHVfOUl0R3hMIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9maXRkMzZOYTgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9CUTE5Y19YaEkifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVUdySkZ1bDBaIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Kindred",
+                            "ep_num": "7",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x7/",
+                            "video_url": "https://ravok.buzz/video/48df7b8e8d586a55cf3e7054a4c85b30",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/48df7b8e8d586a55cf3e7054a4c85b30"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvU3IwR2VBSlVHIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9rRF9JY25zZzYifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9HTmZLdVcyTnMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvXzhoaXFhSTJsIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Crawler Commandeers",
+                            "ep_num": "8",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x8/",
+                            "video_url": "https://ravok.buzz/video/258e130476290221f597c56d351224b6",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/258e130476290221f597c56d351224b6"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVTRSb3E5SUE4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9OMkRrTEd0VDIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oT3pyMndDblQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZm5xaFMxSXhaIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Rebel Assault",
+                            "ep_num": "9",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x9/",
+                            "video_url": "https://ravok.buzz/video/2e3d2c4f33a7a1f58bc6c81cacd21e9c",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/2e3d2c4f33a7a1f58bc6c81cacd21e9c"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRHdpMTRCbEs0In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WSVlZM3Q5YkkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9uUF80QWR5YmkifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN0pQY2VMS1FBIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Jedi Night",
+                            "ep_num": "10",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x10/",
+                            "video_url": "https://ravok.buzz/video/cd3bbc2d7ca1bbdc055acf58609e6c24",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/cd3bbc2d7ca1bbdc055acf58609e6c24"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY1NucG5iNHBUIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9YNTlmN2VaZ0gifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9tMzhFakUyZFIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVVNqRUMybFlKIn1d"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/592zba34ca6n"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "DUME",
+                            "ep_num": "11",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x11/",
+                            "video_url": "https://ravok.buzz/video/91f9fec9b080c74297a55c392b5f40a4",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/91f9fec9b080c74297a55c392b5f40a4"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdV9MRU1WNjY0In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84RTdONW12aThCIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVTlGZmNfTVNtIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3dLV3pzZnZTOSJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Wolves and a Door",
+                            "ep_num": "12",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x12/",
+                            "video_url": "https://ravok.buzz/video/b4affa4f6b27df047d63d66fe4ac5600",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/b4affa4f6b27df047d63d66fe4ac5600"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveENGUnFGNWVjIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQk85eUdsbS1hIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2F1bnAzMUFiTyJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "A World Between Worlds",
+                            "ep_num": "13",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x13/",
+                            "video_url": "https://ravok.buzz/video/3df07fdae1ab273a967aaa1d355b8bb6",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/3df07fdae1ab273a967aaa1d355b8bb6"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZGxaVnVDQkFSIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8zRmx4LTJwbWMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9LT0lKZ1RHWHEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvalhkSU43TGJiIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "A Fool's Hope",
+                            "ep_num": "14",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x14/",
+                            "video_url": "https://ravok.buzz/video/cbf22ab286e2ad4900bdf5d6a2e47009",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/cbf22ab286e2ad4900bdf5d6a2e47009"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvajhVNGo0Q1cxIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WUEFQZjJZZklfIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvc1pxN2tSVGlaIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2dxRk81RERnRiJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Family Reunion – and Farewell",
+                            "ep_num": "15",
+                            "url": "https://animesalt.cx/episode/star-wars-rebels-4x15/",
+                            "video_url": "https://ravok.buzz/video/27e8e17134dd7083b050476733207ea1",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/27e8e17134dd7083b050476733207ea1"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVFVSRUxDNjk2In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9KODBqUkhPWXgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95SWVjOUc1Z1oifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZExTV0ZPSGpJIn1d"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ],
             "episodes": [
@@ -323766,8 +324805,21 @@
                             "title": "Beautiful Gaming",
                             "ep_num": "12",
                             "url": "https://animesalt.cx/episode/supa-strikas-rookie-season-2x12/",
-                            "video_url": "",
-                            "servers": []
+                            "video_url": "https://ravok.buzz/video/74378afe5e8b20910cf1f939e57f0480",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/74378afe5e8b20910cf1f939e57f0480"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveEU3VGRicGRFIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2o1TEF5OGQzUCJ9XQ%3D%3D"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/1ximtz0yczxh"
+                                }
+                            ]
                         },
                         {
                             "title": "Bringing Down the House",
@@ -324147,7 +325199,21 @@
                             "title": "Cuju Be Loved",
                             "ep_num": "6",
                             "url": "https://animesalt.cx/episode/supa-strikas-rookie-season-4x6/",
-                            "video_url": "https://ravok.buzz/video/370bfb31abd222b582245b977ea5f25a"
+                            "video_url": "https://ravok.buzz/video/370bfb31abd222b582245b977ea5f25a",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/370bfb31abd222b582245b977ea5f25a"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZmZ5RDJvbXVvIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2p5QmVHU09NNCJ9XQ%3D%3D"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/qel1z09z3jau"
+                                }
+                            ]
                         },
                         {
                             "title": "Klaus Encounters of the Nerd Kind",
@@ -324314,7 +325380,17 @@
                             "title": "Man in the Iron Tank Mask",
                             "ep_num": "2",
                             "url": "https://animesalt.cx/episode/supa-strikas-rookie-season-5x2/",
-                            "video_url": "https://ravok.buzz/video/1006ff12c465532f8c574aeaa4461b16"
+                            "video_url": "https://ravok.buzz/video/1006ff12c465532f8c574aeaa4461b16",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/1006ff12c465532f8c574aeaa4461b16"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOW5kVnNvOEVBIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1NqandCaUFsSyJ9XQ%3D%3D"
+                                }
+                            ]
                         },
                         {
                             "title": "Depth Charge",
@@ -325463,8 +326539,17 @@
                             "title": "Super Shiro 1x47",
                             "ep_num": "47",
                             "url": "https://animesalt.cx/episode/super-shiro-1x47/",
-                            "video_url": "",
-                            "servers": []
+                            "video_url": "https://ravok.buzz/video/091bc5440296cc0e41dd60ce22fbaf88",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/091bc5440296cc0e41dd60ce22fbaf88"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcEJ6ZGdtRjNoIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2RrNVVCbHBNSyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbjFvcGk0emR6In1d"
+                                }
+                            ]
                         },
                         {
                             "title": "Super Shiro 1x48",
@@ -326340,8 +327425,17 @@
                             "title": "The Amazing World of Gumball 2x13",
                             "ep_num": "13",
                             "url": "https://animesalt.cx/episode/the-amazing-world-of-gumball-2x13/",
-                            "video_url": "",
-                            "servers": []
+                            "video_url": "https://ravok.buzz/video/dfa92d8f817e5b08fcaafb50d03763cf",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/dfa92d8f817e5b08fcaafb50d03763cf"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYVdadnMzamZvIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzRuVVBiV2xXTyJ9XQ%3D%3D"
+                                }
+                            ]
                         },
                         {
                             "title": "The Amazing World of Gumball 2x14",
@@ -329675,6 +330769,203 @@
                                 {
                                     "name": "Server 2",
                                     "url": "https://megaplay.buzz/stream/s-2/141086/dub"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "season_number": 2,
+                    "episodes": [
+                        {
+                            "title": "The Beginning After the End 2x1",
+                            "ep_num": "1",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x1/",
+                            "video_url": "https://ravok.buzz/video/d1aad48723acc40982b008f41d334de0",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/d1aad48723acc40982b008f41d334de0"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOVNrcXVoUURuIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL194b0xXOHNBNSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvemRVWENrUGNhIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Beginning After the End 2x2",
+                            "ep_num": "2",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x2/",
+                            "video_url": "https://ravok.buzz/video/cb06cacdc67e0e6166ffbd26108a268e",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/cb06cacdc67e0e6166ffbd26108a268e"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVnZEbm1rZzBnIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2F6V3ptRkdhTiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveGkxdFFXVlNWIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Beginning After the End 2x3",
+                            "ep_num": "3",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x3/",
+                            "video_url": "https://ravok.buzz/video/341cd8064bf4c9916fd60639ee7a5a9b",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/341cd8064bf4c9916fd60639ee7a5a9b"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd1NzM0hZcy1xIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2FZV2JiemdhYyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveXJlb2d3ZlpJIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Beginning After the End 2x4",
+                            "ep_num": "4",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x4/",
+                            "video_url": "https://ravok.buzz/video/416d82333549f01f83244e2439bedc6f",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/416d82333549f01f83244e2439bedc6f"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb2NqZUtic0pUIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3l2SHRRaFZBZSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvamZfZU9yaGJ6In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Beginning After the End 2x5",
+                            "ep_num": "5",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x5/",
+                            "video_url": "https://ravok.buzz/video/e836b5ebd3143577c69cda6109cc209e",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/e836b5ebd3143577c69cda6109cc209e"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUUtSRW9Ma2VYIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzNodUU5eWFyeSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb0l3RlFOdzhQIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Beginning After the End 2x6",
+                            "ep_num": "6",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x6/",
+                            "video_url": "https://ravok.buzz/video/597e056a5873db884c0fe266918c9f07",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/597e056a5873db884c0fe266918c9f07"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbnJkWjFiVFJaIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzh0N1FjX0QzLSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN0pwZExOcm83In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Beginning After the End 2x7",
+                            "ep_num": "7",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x7/",
+                            "video_url": "https://ravok.buzz/video/226c83c0e446949220eda1fca3401803",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/226c83c0e446949220eda1fca3401803"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNmt6bDktNXpEIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3FnSkF3SExQXyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSHZBR3VXNlVUIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Beginning After the End 2x8",
+                            "ep_num": "8",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x8/",
+                            "video_url": "https://ravok.buzz/video/3ef430bcac19166ddf205dd8cdf4edca",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/3ef430bcac19166ddf205dd8cdf4edca"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdVN5WndVdGk2In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1ZCUE5GTUN3YiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZWUwWGFGNk1JIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Beginning After the End 2x9",
+                            "ep_num": "9",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x9/",
+                            "video_url": "https://ravok.buzz/video/fbcb037387e821a6b1898467b076c0d5",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/fbcb037387e821a6b1898467b076c0d5"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLUdSQUhwUDNaIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1lDOHJkME1yUCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbFNkTHlJZTJpIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Beginning After the End 2x10",
+                            "ep_num": "10",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x10/",
+                            "video_url": "https://ravok.buzz/video/2a3eac42d756ec782ecca7dcd94259d7",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/2a3eac42d756ec782ecca7dcd94259d7"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOE9zWTZqZFlpIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL29aLXNoTmJQayJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSWlPZUZDYUY0In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Beginning After the End 2x11",
+                            "ep_num": "11",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x11/",
+                            "video_url": "https://ravok.buzz/video/7b71cd05d1201966672ed91687adaa03",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/7b71cd05d1201966672ed91687adaa03"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvREJFOFJlT09vIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1FRaU5zUFNsXyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYnJudXlXMWlLQiJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Beginning After the End 2x12",
+                            "ep_num": "12",
+                            "url": "https://animesalt.cx/episode/the-beginning-after-the-end-2x12/",
+                            "video_url": "https://ravok.buzz/video/ecc63deecec609482911c7e614a83e87",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/ecc63deecec609482911c7e614a83e87"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZ2p2dkhyZGlIIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2VnU3R0bzJXdSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvX05ZcWhkZEpmIn1d"
                                 }
                             ]
                         }
@@ -335253,7 +336544,21 @@
                             "title": "A Child in Need",
                             "ep_num": "5",
                             "url": "https://animesalt.cx/episode/the-incredible-hulk-2x5/",
-                            "video_url": "https://ravok.buzz/video/4b86ca48d90bd5f0978afa3a012503a4"
+                            "video_url": "https://ravok.buzz/video/4b86ca48d90bd5f0978afa3a012503a4",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/4b86ca48d90bd5f0978afa3a012503a4"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9laEtSNWJLeTYifV0%3D"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/66glgvmyishe"
+                                }
+                            ]
                         },
                         {
                             "title": "Another Path",
@@ -336478,6 +337783,247 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "season_number": 2,
+                    "episodes": [
+                        {
+                            "title": "Rebel Spirit",
+                            "ep_num": "1",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x1/",
+                            "video_url": "https://ravok.buzz/video/69b09198d4248b8f24494f27a01367b9",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/69b09198d4248b8f24494f27a01367b9"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9zY1ZBSDhxVW0ifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Southern Lights",
+                            "ep_num": "2",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x2/",
+                            "video_url": "https://ravok.buzz/video/22b1cd168ec628442b3d4dc00fca434b",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/22b1cd168ec628442b3d4dc00fca434b"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZX3B2c1F6RXYifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Civil Wars",
+                            "ep_num": "3",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x3/",
+                            "video_url": "https://ravok.buzz/video/656f0dbf9392657eed7feefc486781fb",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/656f0dbf9392657eed7feefc486781fb"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC91X2pJang5ak8ifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Voice in the Night",
+                            "ep_num": "4",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x4/",
+                            "video_url": "https://ravok.buzz/video/51da85a3c3dfa1f360b48852b64218b2",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/51da85a3c3dfa1f360b48852b64218b2"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9tQkFDTi1aREMifV0%3D"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/xnpg5yd5t0mq"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Spirit of Competition",
+                            "ep_num": "5",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x5/",
+                            "video_url": "https://ravok.buzz/video/285a25c17f351708754cdb6d56f3962e",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/285a25c17f351708754cdb6d56f3962e"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9RbTM3WEZpaDI2In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "And the Winner Is...",
+                            "ep_num": "6",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x6/",
+                            "video_url": "https://ravok.buzz/video/f11bec1411101c743f64df596773d0b2",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/f11bec1411101c743f64df596773d0b2"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ENWstTXBaWDgifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Aftermath",
+                            "ep_num": "7",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x7/",
+                            "video_url": "https://ravok.buzz/video/0ae1dd3954ee840075de1395771b6c9c",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/0ae1dd3954ee840075de1395771b6c9c"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9SNjZaNElEdmQifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "When Extremes Meet",
+                            "ep_num": "8",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x8/",
+                            "video_url": "https://ravok.buzz/video/414a7497190eaef6b5d75d5a6a11afcf",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/414a7497190eaef6b5d75d5a6a11afcf"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9feV9NcHdZMi0ifV0%3D"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/v1tinrgb9xnm"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Out of the Past",
+                            "ep_num": "9",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x9/",
+                            "video_url": "https://ravok.buzz/video/ebf12cb74e96e67e63783d93c534ef27",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/ebf12cb74e96e67e63783d93c534ef27"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9VRURJVzVnOHEifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Turning the Tides",
+                            "ep_num": "10",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x10/",
+                            "video_url": "https://ravok.buzz/video/d04d42cdf14579cd294e5079e0745411",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/d04d42cdf14579cd294e5079e0745411"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8wbUtTTlNrYlEifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Skeletons in the Closet",
+                            "ep_num": "11",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x11/",
+                            "video_url": "https://ravok.buzz/video/05edf455cb266ccb3ea3ac2715f87326",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/05edf455cb266ccb3ea3ac2715f87326"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jN0NsT3p2bmMifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Endgame",
+                            "ep_num": "12",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x12/",
+                            "video_url": "https://ravok.buzz/video/e6e713296627dff6475085cc6a224464",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/e6e713296627dff6475085cc6a224464"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9vTndGVUo2cUwifV0%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Beginnings",
+                            "ep_num": "13",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x13/",
+                            "video_url": "https://ravok.buzz/video/6346dc723395e1ee8ef57f4883be4cb4",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/6346dc723395e1ee8ef57f4883be4cb4"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8zUi1JVjJzVnYifV0%3D"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/imxou7hta9tx"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Guide",
+                            "ep_num": "14",
+                            "url": "https://animesalt.cx/episode/the-legend-of-korra-2x14/",
+                            "video_url": "https://ravok.buzz/video/dccab9bd9e0b69c49302025efdf19702",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/dccab9bd9e0b69c49302025efdf19702"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81QUxodmxBV2kifV0%3D"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ],
             "episodes": [
@@ -336827,8 +338373,17 @@
                             "title": "The Legend of Vox Machina 2x4",
                             "ep_num": "4",
                             "url": "https://animesalt.cx/episode/the-legend-of-vox-machina-2x4/",
-                            "video_url": "",
-                            "servers": []
+                            "video_url": "https://ravok.buzz/video/62d75fb2e3075506e8837d8f55021ab1",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/62d75fb2e3075506e8837d8f55021ab1"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYkhjRncydkxhIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3VENm5qWkhwaSJ9XQ%3D%3D"
+                                }
+                            ]
                         },
                         {
                             "title": "The Legend of Vox Machina 2x5",
@@ -342315,7 +343870,17 @@
                             "title": "The Unaware Atelier Meister 1x9",
                             "ep_num": "9",
                             "url": "https://animesalt.cx/episode/the-unaware-atelier-meister-1x9/",
-                            "video_url": "https://ravok.buzz/video/185afe2ab60395b0fb41349aa1469a7f"
+                            "video_url": "https://ravok.buzz/video/185afe2ab60395b0fb41349aa1469a7f",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/185afe2ab60395b0fb41349aa1469a7f"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcXhDS2w1X2ZuIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3kxajRKZ3hwZyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvU25hUWROWXUzIn1d"
+                                }
+                            ]
                         },
                         {
                             "title": "The Unaware Atelier Meister 1x10",
@@ -344671,8 +346236,21 @@
                             "title": "Isle Find Out",
                             "ep_num": "6",
                             "url": "https://animesalt.cx/episode/timon-and-pumbaa-2x6/",
-                            "video_url": "",
-                            "servers": []
+                            "video_url": "https://ravok.buzz/video/220a7f49d42406598587a66f02584ac3",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/220a7f49d42406598587a66f02584ac3"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcWlTOW0zTXRZIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9pdHBNa3NCSzgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9sM1puU2p3UE0ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQTFTbS1sLV85In1d"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/a8ca00piojha"
+                                }
+                            ]
                         },
                         {
                             "title": "Wide Awake in Wonderland",
@@ -351146,8 +352724,21 @@
                             "title": "Tip of the Iceberg",
                             "ep_num": "4",
                             "url": "https://animesalt.cx/episode/transformers-rescue-bots-2x4/",
-                            "video_url": "",
-                            "servers": []
+                            "video_url": "https://ravok.buzz/video/96c974552b3f2839fcc751e7f12679ce",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/96c974552b3f2839fcc751e7f12679ce"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvX0pmazgzSEdhIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL09IM0NfUGxEeCJ9XQ%3D%3D"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/ew82a4q05z21"
+                                }
+                            ]
                         },
                         {
                             "title": "A Virtual Disaster",
@@ -352070,8 +353661,21 @@
                             "title": "Now and Then",
                             "ep_num": "27",
                             "url": "https://animesalt.cx/episode/transformers-rescue-bots-3x27/",
-                            "video_url": "",
-                            "servers": []
+                            "video_url": "https://ravok.buzz/video/73634c1dcbe056c1f7dcf5969da406c8",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/73634c1dcbe056c1f7dcf5969da406c8"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcF92bFR1X3N0In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL011alFDSGdWNCJ9XQ%3D%3D"
+                                },
+                                {
+                                    "name": "Server 3",
+                                    "url": "https://cybervynx.com/e/i0tugviwqopi"
+                                }
+                            ]
                         },
                         {
                             "title": "Today and Forever",
@@ -356969,8 +358573,17 @@
                             "title": "TRIGUN STAMPEDE 2x6",
                             "ep_num": "6",
                             "url": "https://animesalt.cx/episode/trigun-stampede-2x6/",
-                            "video_url": "",
-                            "servers": []
+                            "video_url": "https://ravok.buzz/video/bc9896c35a1d00719db5cfcbeec66f5b",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/bc9896c35a1d00719db5cfcbeec66f5b"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMnlfQVNzQ1BrIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9sbmJJRGpxZjZ3RSJ9LHsibGFuZ3VhZ2UiOiJUZWx1Z3UiLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2JUNDR5OHY5byJ9LHsibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9fQ2hQQmt2RXYifSx7Imxhbmd1YWdlIjoiSmFwYW5lc2UiLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0o2emN5SHRZaCJ9XQ%3D%3D"
+                                }
+                            ]
                         },
                         {
                             "title": "TRIGUN STAMPEDE 2x7",
@@ -357020,7 +358633,17 @@
                             "title": "TRIGUN STAMPEDE 2x10",
                             "ep_num": "10",
                             "url": "https://animesalt.cx/episode/trigun-stampede-2x10/",
-                            "video_url": "https://ravok.buzz/video/98c2458a2f3407013b6765bde3b71af6"
+                            "video_url": "https://ravok.buzz/video/98c2458a2f3407013b6765bde3b71af6",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/98c2458a2f3407013b6765bde3b71af6"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVmFtUzZ4YkNSIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9idUg3c18wdXUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ucFBoZURRQlcifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUDJCc2Y5RG84In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9QTmlueW5QQlIifV0%3D"
+                                }
+                            ]
                         },
                         {
                             "title": "TRIGUN STAMPEDE 2x11",

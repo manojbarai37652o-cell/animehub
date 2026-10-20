@@ -2,7 +2,7 @@ import sys
 import os
 import time
 import json
-import gc  # 🛠️ RAM (Memory) साफ करने के लिए (नया जोड़ा गया)
+import gc
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
@@ -19,8 +19,8 @@ FAILED_FILE = os.path.join(project_root, 'database', 'failed_updates.json')
 # 🛠️ SKIP LIST: यहाँ उन एनीमे के नाम लिखो जिन्हें स्किप करना है
 # =========================================================
 SKIP_ANIME_TITLES = [           
-     "cartoon",           # उदाहरण: अगर cartoon स्किप करना है तो यहाँ से # हटा दो
-     "Power rangers",     # उदाहरण: अगर Power rangers स्किप करना है तो यहाँ से # हटा दो
+     "cartoon",           
+     "Power rangers",     
 ]
 # =========================================================
 
@@ -46,12 +46,14 @@ def save_failed(data):
     with open(FAILED_FILE, 'w') as f:
         json.dump(data, f, indent=4)
 
-def update_anime_servers(page, anime):
-    """एक एनीमे/मूवी के सभी सर्वर अपडेट करता है"""
+
+def check_anime_updates(page, anime):
+    """एक एनीमे में नया सीज़न/एपिसोड या गायब सर्वर चेक करता है"""
     try:
         page.goto(anime['url'], wait_until="domcontentloaded", timeout=90000)
         page.wait_for_timeout(1000) 
         html = page.content()
+        soup = BeautifulSoup(html, 'html.parser')
 
         updated = False
 
@@ -68,54 +70,108 @@ def update_anime_servers(page, anime):
         # अगर सीरीज़ है
         else:
             season_btns = page.query_selector_all('.season-btn')
-            if not season_btns:
-                # सिंगल सीज़न
-                episodes = anime.get('episodes', [])
-                for ep in episodes:
-                    if not ep.get('servers'): 
-                        try:
-                            page.goto(ep['url'], wait_until="domcontentloaded", timeout=60000)
-                            page.wait_for_timeout(500) 
-                            ep_html = page.content()
-                            servers = parse_video_servers(ep_html, ep['url'])
-                            ep['servers'] = servers
-                            ep['video_url'] = servers[0]['url'] if servers else ""
-                            updated = True
-                        except: pass
-                anime['seasons'][0]['episodes'] = episodes
+            
+            # 1. वेबसाइट से मौजूदा सीज़न की लिस्ट निकालो
+            website_seasons = []
+            if season_btns:
+                for btn in season_btns:
+                    try:
+                        sn = int(btn.get_attribute('data-season'))
+                        if sn not in website_seasons:
+                            website_seasons.append(sn)
+                    except: pass
+                website_seasons.sort()
             else:
-                # मल्टीपल सीज़न
-                season_nums = sorted(list(set([int(btn.get_attribute('data-season')) for btn in season_btns if btn.get_attribute('data-season')])))
-                for season in anime.get('seasons', []):
-                    season_num = season['season_number']
-                    if season_num in season_nums:
-                        btn = page.query_selector(f'.season-btn[data-season="{season_num}"]')
+                website_seasons = [1] # सिंगल सीज़न
+
+            existing_seasons = anime.get('seasons', [])
+            existing_season_nums = [s['season_number'] for s in existing_seasons]
+
+            # 2. नया सीज़न चेक करो
+            for sn in website_seasons:
+                if sn not in existing_season_nums:
+                    print(f"      🆕 नया सीज़न मिला: Season {sn}")
+                    if season_btns:
+                        btn = page.query_selector(f'.season-btn[data-season="{sn}"]')
                         if btn:
                             btn.click()
-                            page.wait_for_timeout(1000) 
-                            for ep in season['episodes']:
-                                if not ep.get('servers'): 
-                                    try:
-                                        page.goto(ep['url'], wait_until="domcontentloaded", timeout=60000)
-                                        page.wait_for_timeout(500) 
-                                        ep_html = page.content()
-                                        servers = parse_video_servers(ep_html, ep['url'])
-                                        ep['servers'] = servers
-                                        ep['video_url'] = servers[0]['url'] if servers else ""
-                                        updated = True
-                                    except: pass
+                            page.wait_for_timeout(2000)
+                            season_html = page.content()
+                    else:
+                        season_html = html
+
+                    episodes = parse_season_episodes(season_html, anime['url'])
+                    if episodes:
+                        for ep in episodes:
+                            try:
+                                page.goto(ep['url'], wait_until="domcontentloaded", timeout=60000)
+                                page.wait_for_timeout(500)
+                                ep['servers'] = parse_video_servers(page.content(), ep['url'])
+                                ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
+                            except: ep['video_url'] = ""
+                        anime['seasons'].append({"season_number": sn, "episodes": episodes})
+                        updated = True
+                    
+                    # वापस एनीमे पेज पर आओ
+                    page.goto(anime['url'], wait_until="domcontentloaded", timeout=90000)
+                    page.wait_for_timeout(1000)
+
+            # 3. पुराने सीज़न में नया एपिसोड या गायब सर्वर चेक करो
+            for season in anime.get('seasons', []):
+                sn = season['season_number']
+                if sn in website_seasons:
+                    # वेबसाइट से उस सीज़न के ताज़ा एपिसोड निकालो
+                    if season_btns:
+                        btn = page.query_selector(f'.season-btn[data-season="{sn}"]')
+                        if btn:
+                            btn.click()
+                            page.wait_for_timeout(2000)
+                            season_html = page.content()
+                    else:
+                        season_html = html
+                        
+                    website_episodes = parse_season_episodes(season_html, anime['url'])
+                    existing_ep_urls = set(ep['url'] for ep in season['episodes'])
+
+                    # नए एपिसोड ढूंढो
+                    new_eps = [ep for ep in website_episodes if ep['url'] not in existing_ep_urls]
+                    
+                    if new_eps:
+                        print(f"      🆕 Season {sn} में {len(new_eps)} नए एपिसोड मिले!")
+                        for ep in new_eps:
+                            try:
+                                page.goto(ep['url'], wait_until="domcontentloaded", timeout=60000)
+                                page.wait_for_timeout(500)
+                                ep['servers'] = parse_video_servers(page.content(), ep['url'])
+                                ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
+                            except: ep['video_url'] = ""
+                            season['episodes'].append(ep)
+                        updated = True
+                    
+                    # गायब सर्वर अपडेट करो (पुराने एपिसोड के लिए)
+                    for ep in season['episodes']:
+                        if not ep.get('servers'):
+                            try:
+                                page.goto(ep['url'], wait_until="domcontentloaded", timeout=60000)
+                                page.wait_for_timeout(500)
+                                ep['servers'] = parse_video_servers(page.content(), ep['url'])
+                                ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
+                                updated = True
+                            except: pass
                             
-                            page.goto(anime['url'], wait_until="domcontentloaded", timeout=60000)
-                            page.wait_for_timeout(1000) 
+                    if season_btns:
+                        page.goto(anime['url'], wait_until="domcontentloaded", timeout=90000)
+                        page.wait_for_timeout(1000)
 
         return updated
     except Exception as e:
         print(f"   ❌ Error: {e}")
         return None 
 
+
 if __name__ == '__main__':
     print("=" * 60)
-    print("🔄 SERVER UPDATER: पुराने एनीमे में Server 2 जोड़ रहे हैं...")
+    print("🔄 UPDATE LIBRARY: नया सीज़न/एपिसोड चेक कर रहे हैं...")
     print("🛑 रोकने के लिए Ctrl + C दबाओ (डेटा सुरक्षित रहेगा)")
     print("=" * 60)
 
@@ -138,29 +194,16 @@ if __name__ == '__main__':
             page.set_default_timeout(90000)
 
             for idx, anime in enumerate(anime_list):
-                # 🛠️ 1. SKIP LIST CHECK (अगर नाम स्किप लिस्ट में है तो छोड़ दो)
+                # 1. SKIP LIST CHECK
                 if any(skip_title.lower() in anime['title'].lower() for skip_title in SKIP_ANIME_TITLES):
                     print(f"\n[{idx+1}/{len(anime_list)}] {anime['title']} -> ⏭️ SKIPPED (Skip list में है)")
                     continue
 
-                # 2. CHECK IF ALREADY UPDATED
-                all_episodes_have_servers = True
-                for season in anime.get('seasons', []):
-                    for ep in season.get('episodes', []):
-                        if not ep.get('servers'):
-                            all_episodes_have_servers = False
-                            break
-                    if not all_episodes_have_servers:
-                        break
-                
-                if all_episodes_have_servers:
-                    continue 
-
-                print(f"\n[{idx+1}/{len(anime_list)}] {anime['title']} अपडेट कर रहे हैं...")
+                print(f"\n[{idx+1}/{len(anime_list)}] {anime['title']} चेक कर रहे हैं...")
 
                 result = None
                 for attempt in range(2): 
-                    result = update_anime_servers(page, anime)
+                    result = check_anime_updates(page, anime)
                     if result is not None:
                         break
                     print(f"   🔄 Retry {attempt+1}/2...")
@@ -175,13 +218,13 @@ if __name__ == '__main__':
                     save_db(db_data)
                     print(f"   💾 अपडेट हो गया!")
                 else:
-                    print("   ✅ पहले से अपडेटेड है।")
+                    print("   ✅ कोई नया नहीं मिला।")
 
-                # 🛠️ 3. RAM MANAGEMENT (हर 5 एनीमे के बाद रैम साफ करो)
+                # 2. RAM MANAGEMENT (हर 5 एनीमे के बाद रैम साफ करो)
                 if (idx + 1) % 5 == 0:
                     db_data['anime_list'] = anime_list
                     save_db(db_data)
-                    gc.collect()  # 🛠️ यह लाइन RAM को खाली करती है
+                    gc.collect()  
                     time.sleep(1) 
 
             try: browser.close()
