@@ -31,11 +31,16 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
+
+    <!-- 🛠️ SPLASH SCREEN FIX CSS (Taaki reload pe turant hide ho jaye) -->
+    <style>
+        .splash-hidden { display: none !important; }
+    </style>
 </head>
 <body>
 
     <!-- Splash Screen -->
-    <div id="splash-screen">
+    <div id="splash-screen" class="splash-hidden">
         <div class="splash-logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);">
         </div>
@@ -181,20 +186,31 @@
 
     <!-- Splash Screen Script & SPA Navigation & Search Script -->
     <script>
-        // 🛠️ FIX 1: Initial State set karo taaki back button ko pata chale
+        // 🛠️ FIX 1: History push state setup
         history.replaceState({ url: window.location.pathname }, '', window.location.pathname);
+
+        // 🛠️ FIX 2: Splash Screen ko turant hide karne ka function
+        function hideSplashScreen() {
+            const splash = document.getElementById("splash-screen");
+            if (splash) {
+                splash.style.opacity = '0';
+                setTimeout(() => { splash.style.display = 'none'; }, 500);
+            }
+        }
 
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById("splash-screen");
-            if (!splash) return;
-            if (sessionStorage.getItem('splashShown')) {
-                splash.style.display = 'none';
-            } else {
-                sessionStorage.setItem('splashShown', 'true');
-                setTimeout(() => {
-                    splash.style.opacity = '0';
-                    setTimeout(() => { splash.style.display = 'none'; }, 500);
-                }, 1500);
+            // Agar session storage me splash dikh chuka hai, to turant hata do
+            if (splash) {
+                if (sessionStorage.getItem('splashShown')) {
+                    splash.classList.add('splash-hidden'); // CSS se hide
+                    splash.style.display = 'none';
+                } else {
+                    sessionStorage.setItem('splashShown', 'true');
+                    setTimeout(() => {
+                        hideSplashScreen();
+                    }, 1500);
+                }
             }
             renderRecentSearches();
         });
@@ -292,7 +308,7 @@
             }
         }
 
-        // 🛠️ FIX 2: Ek function banaya jisse page load hoga
+        // 🛠️ FIX 3: Page load function
         async function loadPageContent(href, pushState = true) {
             showSpaLoader();
             try {
@@ -321,17 +337,21 @@
                         if (nav.getAttribute('href') === href) nav.classList.add('active');
                     });
 
-                    // 🛠️ FIX 3: History me push karo taaki back button kaam kare
                     if (pushState) {
                         history.pushState({ url: href }, '', href);
                     }
                 } else {
+                    // Fallback: agar main tag nahi mila to direct navigate karo
                     window.location.href = href;
                 }
             } catch (err) {
+                // Error aane par direct navigate karo
                 window.location.href = href;
             } finally {
                 hideSpaLoader();
+                // SPA me navigate karte waqt bhi splash hide rakho
+                const splash = document.getElementById("splash-screen");
+                if(splash) splash.style.display = 'none';
             }
         }
 
@@ -346,15 +366,14 @@
             if (href.startsWith('/login')) return;
 
             e.preventDefault();
-            loadPageContent(href, true); // true matlab naya page, history me add karo
+            loadPageContent(href, true);
         });
 
         // 🛠️ FIX 4: Back button dabane par purana page load karo
         window.addEventListener('popstate', function(e) {
             if (e.state && e.state.url) {
-                loadPageContent(e.state.url, false); // false matlab back button, history me wapas add mat karo
+                loadPageContent(e.state.url, false); 
             } else {
-                // Agar state nahi hai, to URL ke hisaab se load karo
                 loadPageContent(window.location.pathname, false);
             }
         });
