@@ -2,10 +2,10 @@ import os
 import json
 import re
 
-# 🛠️ तुम्हारे प्रोजेक्ट के हिसाब से पाथ
+# 🛠️ तुम्हारे प्रोजेक्ट के हिसाब से पाथ (अब ये toonstream_data.json को पढ़ेगा)
 LIVE_DB_FILE = "database/storage.json"
-TEST_DB_FILE = "test_storage.json"
-OUTPUT_DB_FILE = "database/storage_new.json" # ये नई फाइल बनेगी
+TOONSTREAM_DB_FILE = "toonstream_data.json" 
+OUTPUT_DB_FILE = "database/storage_new.json" 
 
 def load_json(filepath):
     if os.path.exists(filepath):
@@ -25,12 +25,12 @@ def clean_title(title):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🔗 TOONSTREAM SAFE DATA MERGER")
+    print("🔗 TOONSTREAM SAFE DATA MERGER (FINAL)")
     print("=" * 60)
 
     # 1. पुराना डेटा और नया डेटा लोड करो
     live_data = load_json(LIVE_DB_FILE)
-    test_data = load_json(TEST_DB_FILE)
+    test_data = load_json(TOONSTREAM_DB_FILE)
 
     live_anime_list = live_data.get('anime_list', [])
     test_anime_list = test_data.get('anime_list', [])
