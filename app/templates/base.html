@@ -35,6 +35,11 @@
     <!-- 🛠️ SPLASH SCREEN FIX CSS (Taaki reload pe turant hide ho jaye) -->
     <style>
         .splash-hidden { display: none !important; }
+        
+        /* 🛡️ AD GUARD: ऐड को बीच में आने से रोकने के लिए */
+        iframe[id*="google_ads"], iframe[src*="bancadeltempoidea"], div[class*="push"], div[id*="push"] {
+            z-index: 99999 !important;
+        }
     </style>
 </head>
 <body>
