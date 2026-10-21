@@ -32,7 +32,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
 
-    <!-- 🛠️ SPLASH SCREEN FIX CSS (Taaki reload pe turant hide ho jaye) -->
+    <!-- 🛠️ SPLASH SCREEN FIX CSS -->
     <style>
         .splash-hidden { display: none !important; }
         
@@ -380,10 +380,13 @@
         });
     </script>
 
-    <!-- 🛠️ BRAVE STYLE SHIELD (Popup Blocker + DOM Scrubber) 🛠️ -->
+    <!-- 🛡️ BRAVE STYLE SHIELD (Popup Blocker + DOM Scrubber) 🛠️ -->
     <script>
-        // 1. Popup Blocker (iframe se naya tab/popup kholna band)
-        window.open = function() { return null; };
+        // 1. Popup Blocker (iframe se naya tab/popup kholna band - YouTube redirects etc)
+        window.open = function() { 
+            console.log('🛡️ Popup Blocked by AnimeNest Shield');
+            return null; 
+        };
 
         // 2. DOM Scrubber (Page par aane wale third-party ads ko delete karega)
         setInterval(() => {
@@ -400,12 +403,8 @@
             
             adSelectors.forEach(selector => {
                 document.querySelectorAll(selector).forEach(el => {
-                    // Agar hamara khud ka Adsterra ad hai, to use na hatao
                     if (el.src && el.src.includes('bancadeltempoidea.org')) return;
-                    
-                    // Agar video player ka wrapper hai, to use na hatao
                     if (el.closest('#videoSectionWrapper')) return;
-
                     el.style.display = 'none'; 
                     el.remove(); 
                 });
