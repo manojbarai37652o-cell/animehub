@@ -19,9 +19,10 @@
         <script src="https://bancadeltempoidea.org/22/8d212b532b09c0a5028a18cca3b5e236"></script>
     </div>
 
-    <!-- 🟢 VIDEO PLAYER SECTION (Sandbox REMOVED so video works) 🟢 -->
+    <!-- 🟢 VIDEO PLAYER SECTION (No Sandbox) 🟢 -->
     <div class="video-section-wrapper" id="videoSectionWrapper">
         <div class="video-player-crunchy" id="mainVideoPlayer">
+            <!-- ध्यान दें: sandbox हटा दिया गया है ताकि वीडियो चले -->
             <iframe id="videoIframe" src="{{ current_ep.video_url }}"
                     width="100%"
                     height="100%"
@@ -217,6 +218,26 @@
 
 <!-- 🟢 JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER, SERVERS 🟢 -->
 <script>
+    // 🛠️ ANTI-REDIRECT TRICK: अगर कोई वीडियो हमें कहीं और भेजने की कोशिश करे, तो वापस आ जाओ
+    let isNavigatingAway = false;
+    window.addEventListener('beforeunload', function (e) {
+        if (!isNavigatingAway) {
+            // अगर वीडियो सर्वर हमें रीडायरेक्ट करने की कोशिश कर रहा है
+            console.log('🛡️ Anti-Redirect Shield Triggered');
+            
+            // ब्राउज़र को रोकने के लिए (हालाँकि कुछ ब्राउज़र इसे ब्लॉक कर देते हैं)
+            e.preventDefault();
+            e.returnValue = ''; 
+            
+            // तुरंत वापस पिछले पेज पर भेज दो
+            setTimeout(() => {
+                if (window.location.href !== "{{ request.url }}") {
+                    window.history.back();
+                }
+            }, 100);
+        }
+    });
+
     window.toggleSeasonDropdown = function() {
         const menu = document.getElementById('season-dropdown-menu');
         if (menu) {
