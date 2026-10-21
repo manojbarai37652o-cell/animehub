@@ -205,10 +205,9 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById("splash-screen");
-            // Agar session storage me splash dikh chuka hai, to turant hata do
             if (splash) {
                 if (sessionStorage.getItem('splashShown')) {
-                    splash.classList.add('splash-hidden'); // CSS se hide
+                    splash.classList.add('splash-hidden'); 
                     splash.style.display = 'none';
                 } else {
                     sessionStorage.setItem('splashShown', 'true');
@@ -346,15 +345,12 @@
                         history.pushState({ url: href }, '', href);
                     }
                 } else {
-                    // Fallback: agar main tag nahi mila to direct navigate karo
                     window.location.href = href;
                 }
             } catch (err) {
-                // Error aane par direct navigate karo
                 window.location.href = href;
             } finally {
                 hideSpaLoader();
-                // SPA me navigate karte waqt bhi splash hide rakho
                 const splash = document.getElementById("splash-screen");
                 if(splash) splash.style.display = 'none';
             }
@@ -384,22 +380,55 @@
         });
     </script>
 
+    <!-- 🛠️ BRAVE STYLE SHIELD (Popup Blocker + DOM Scrubber) 🛠️ -->
+    <script>
+        // 1. Popup Blocker (iframe se naya tab/popup kholna band)
+        window.open = function() { return null; };
+
+        // 2. DOM Scrubber (Page par aane wale third-party ads ko delete karega)
+        setInterval(() => {
+            const adSelectors = [
+                'iframe[src*="popads"]', 
+                'iframe[src*="propellerads"]', 
+                'iframe[src*="onclickads"]',
+                'div[id^="dontfoid"]',
+                'div[class*="fake-player"]',
+                'iframe[name="google_video_inner_static_iframe"]',
+                'div[id*="push-ad"]',
+                'div[class*="push-ad"]'
+            ];
+            
+            adSelectors.forEach(selector => {
+                document.querySelectorAll(selector).forEach(el => {
+                    // Agar hamara khud ka Adsterra ad hai, to use na hatao
+                    if (el.src && el.src.includes('bancadeltempoidea.org')) return;
+                    
+                    // Agar video player ka wrapper hai, to use na hatao
+                    if (el.closest('#videoSectionWrapper')) return;
+
+                    el.style.display = 'none'; 
+                    el.remove(); 
+                });
+            });
+        }, 1000);
+    </script>
+
     <!-- 🛠️ SERVICE WORKER REGISTRATION FOR AD BLOCKING 🛠️ -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/static/js/service-worker.js')
                     .then(registration => {
-                        console.log('✅ Ad-Blocker ServiceWorker registered:', registration.scope);
+                        console.log('✅ AnimeNest Shield Active:', registration.scope);
                     })
                     .catch(err => {
-                        console.log('❌ ServiceWorker registration failed:', err);
+                        console.log('❌ Shield Error:', err);
                     });
             });
         }
     </script>
 
-    <!-- 🛠️ ADSTERRA SOCIAL BAR SCRIPT -->
+    <!-- 🛠️ ADSTERRA SOCIAL BAR SCRIPT (हमारा खुद का ऐड) -->
     <script data-cfasync="false" src="https://bancadeltempoidea.org/14/19ddf2470e2e3cb293dfda3dc91de5d1"></script>
 
 </body>
