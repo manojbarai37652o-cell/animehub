@@ -19,13 +19,14 @@
         <script src="https://bancadeltempoidea.org/22/8d212b532b09c0a5028a18cca3b5e236"></script>
     </div>
 
-    <!-- 🟢 VIDEO PLAYER SECTION 🟢 -->
+    <!-- 🟢 VIDEO PLAYER SECTION (With Sandbox to stop redirects) 🟢 -->
     <div class="video-section-wrapper" id="videoSectionWrapper">
         <div class="video-player-crunchy" id="mainVideoPlayer">
             <iframe id="videoIframe" src="{{ current_ep.video_url }}"
                     width="100%"
                     height="100%"
                     frameborder="0"
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"
                     allow="autoplay; fullscreen; encrypted-media"
                     allowfullscreen>
             </iframe>
