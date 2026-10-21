@@ -11,8 +11,8 @@ HOME_URL = "https://toonstream.us/home"
 DB_FILE = "toonstream_data.json" 
 LIVE_DB_FILE = "database/storage.json" # 🛠️ लाइव डेटाबेस (ताकि पुराने एनीमे स्किप हों)
 
-# 🛑 एक बार में सिर्फ 100 नए एनीमे स्क्रैप होंगे
-MAX_ANIME_TO_TEST = 100  
+# 🛑 एक बार में सिर्फ 200 नए एनीमे स्क्रैप होंगे
+MAX_ANIME_TO_TEST = 200 
 MAX_EPISODES_TO_CHECK = 9999 
 
 # 🚫 BLACKLIST: यहाँ उन सर्वर्स के नाम लिखो जो बहुत ज्यादा ऐड दिखाते हैं या रीडायरेक्ट करते हैं

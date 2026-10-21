@@ -16,9 +16,16 @@
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
 
+    <!-- 🛠️ GOOGLE SEARCH SITE NAME FIX -->
     <meta property="og:site_name" content="AnimeNest">
     <meta property="og:title" content="AnimeNest - Watch Anime Free">
     <meta property="og:type" content="website">
+    
+    <!-- 🛠️ TELEGRAM LINK PREVIEW FIX (AnimeNest Logo) -->
+    <meta property="og:image" content="https://animenest-zmbl.onrender.com/static/images/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://animenest-zmbl.onrender.com/static/images/logo.png">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,6 +42,31 @@
         .splash-hidden { display: none !important; }
         iframe[id*="google_ads"], iframe[src*="bancadeltempoidea"], div[class*="push"], div[id*="push"] {
             z-index: 99999 !important;
+        }
+
+        /* 🛠️ TELEGRAM FLOATING BUTTON CSS */
+        .telegram-float-btn {
+            position: fixed;
+            bottom: 90px; /* Bottom nav se thoda upar */
+            right: 20px;
+            background-color: #0088cc;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
+            z-index: 10000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .telegram-float-btn:hover {
+            transform: scale(1.1);
+            background-color: #0099e6;
+            color: white;
         }
     </style>
 </head>
@@ -160,6 +192,12 @@
             </a>
         </div>
     </div>
+
+    <!-- 🛠️ TELEGRAM FLOATING BUTTON -->
+    <!-- यहाँ अपने चैनल का लिंक डालना (YOUR_CHANNEL_LINK_HERE को बदलें) -->
+    <a href="https://t.me/AnimeNest_Official" target="_blank" class="telegram-float-btn no-spa" title="Join our Telegram for Updates!"></a>
+        <i class="fab fa-telegram-plane"></i>
+    </a>
 
     <script>
         history.replaceState({ url: window.location.pathname }, '', window.location.pathname);
