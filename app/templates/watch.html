@@ -5,6 +5,7 @@
 
     {% if ep_number is not none and current_ep and current_ep.video_url %}
     
+    <!-- 🛠️ ADSTERRA BANNER AD (Video ke upar) -->
     <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 10px 0; margin-bottom: 5px;">
         <script>
           atOptions = {
@@ -18,19 +19,13 @@
         <script src="https://bancadeltempoidea.org/22/8d212b532b09c0a5028a18cca3b5e236"></script>
     </div>
 
-    <!-- 🟢 VIDEO PLAYER SECTION (High-Tech Sandbox) 🟢 -->
+    <!-- 🟢 VIDEO PLAYER SECTION (No Sandbox) 🟢 -->
     <div class="video-section-wrapper" id="videoSectionWrapper">
         <div class="video-player-crunchy" id="mainVideoPlayer">
-            <!-- 
-              🛠️ DYNAMIC SANDBOX: 
-              allow-scripts, allow-same-origin, allow-forms, allow-presentation 
-              ये वीडियो को चलने देगा, लेकिन allow-top-navigation नहीं देगा जिससे वेबसाइट चेंज नहीं होगी!
-            -->
             <iframe id="videoIframe" src="{{ current_ep.video_url }}"
                     width="100%"
                     height="100%"
                     frameborder="0"
-                    sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"
                     allow="autoplay; fullscreen; encrypted-media"
                     allowfullscreen>
             </iframe>
@@ -41,6 +36,12 @@
         </div>
     </div>
 
+    <!-- ⚠️ यूजर के लिए चेतावनी -->
+    <div style="text-align: center; font-size: 12px; color: #888; margin-top: 5px; margin-bottom: 15px;">
+        <p>⚠️ Note: If the video redirects you to another site, please press the <b>"Back"</b> button.</p>
+    </div>
+
+    <!-- 🟢 SERVER BUTTONS 🟢 -->
     {% if current_ep.servers and current_ep.servers|length > 1 %}
     <div class="server-selection-wrapper">
         {% for server in current_ep.servers %}
@@ -52,6 +53,7 @@
     {% endif %}
     
     {% else %}
+    <!-- 🟡 HERO BANNER 🟡 -->
     <div class="hero-detail hero-fade-in">
         <img src="{{ anime.image }}" alt="{{ anime.title }}" class="hero-bg-image" onerror="this.src='https://via.placeholder.com/800x400?text=No+Poster';">
         <div class="hero-detail-overlay"></div>
@@ -81,14 +83,17 @@
     </div>
     {% endif %}
 
+    <!-- 🟢 TABS 🟢 -->
     <div class="watch-tabs">
         <button class="watch-tab active" onclick="switchTab('episodes', this)">Episodes</button>
         <button class="watch-tab" onclick="switchTab('details', this)">Details</button>
         <button class="watch-tab" onclick="switchTab('similar', this)">Similar</button>
     </div>
 
+    <!-- 🟢 EPISODES TAB 🟢 -->
     <div id="tab-episodes" class="tab-content active">
         {% if seasons|length > 0 %}
+        <!-- 🛠️ SEASON DROPDOWN -->
         <div class="season-dropdown-wrapper" id="seasonWrapper">
             <button class="season-toggle-btn" onclick="event.preventDefault(); event.stopPropagation(); window.toggleSeasonDropdown();" type="button">
                 <i class="fas fa-layer-group"></i>
@@ -171,6 +176,7 @@
         </div>
     </div>
 
+    <!-- 🟢 DETAILS TAB 🟢 -->
     <div id="tab-details" class="tab-content">
         <div class="details-box">
             <h3>About {{ anime.title }}</h3>
@@ -198,6 +204,7 @@
         </div>
     </div>
 
+    <!-- 🟢 SIMILAR TAB 🟢 -->
     <div id="tab-similar" class="tab-content">
         {% if related_anime %}
         <div class="similar-grid">
@@ -213,12 +220,16 @@
 
 </div>
 
+<!-- 🟢 JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER, SERVERS 🟢 -->
 <script>
     window.toggleSeasonDropdown = function() {
         const menu = document.getElementById('season-dropdown-menu');
         if (menu) {
-            if (menu.style.display === 'none' || menu.style.display === '') { menu.style.display = 'block'; } 
-            else { menu.style.display = 'none'; }
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
         }
     };
 
@@ -244,15 +255,24 @@
         }
     };
 
-    const animeData = { id: {{ anime.id|tojson }}, title: {{ anime.title|tojson }}, image: {{ anime.image|tojson }} };
-    const currentEp = { title: {{ (current_ep.title if current_ep and current_ep.title else 'Episode 1')|tojson }}, num: {{ (current_ep.title.split(' ')[-1] if current_ep and current_ep.title else '1')|tojson }} };
+    const animeData = {
+        id: {{ anime.id|tojson }},
+        title: {{ anime.title|tojson }},
+        image: {{ anime.image|tojson }}
+    };
+    const currentEp = {
+        title: {{ (current_ep.title if current_ep and current_ep.title else 'Episode 1')|tojson }},
+        num: {{ (current_ep.title.split(' ')[-1] if current_ep and current_ep.title else '1')|tojson }}
+    };
     const animeId = {{ anime.id|tojson }};
     const currentSeason = {{ (current_season.season_number if current_season else 1)|tojson }};
 
     document.addEventListener('click', function(e) {
         const wrapper = document.getElementById('seasonWrapper');
         const menu = document.getElementById('season-dropdown-menu');
-        if (wrapper && menu && !wrapper.contains(e.target)) { menu.style.display = 'none'; }
+        if (wrapper && menu && !wrapper.contains(e.target)) {
+            menu.style.display = 'none';
+        }
     });
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -340,7 +360,13 @@
     localStorage.setItem('animeHistory', JSON.stringify(history));
 
     {% if current_ep and current_ep.video_url %}
-    const progressData = { anime_id: animeId, season: currentSeason, episode: currentEp.num, timestamp: 0, duration: 1 };
+    const progressData = {
+        anime_id: animeId,
+        season: currentSeason,
+        episode: currentEp.num,
+        timestamp: 0,
+        duration: 1
+    };
     fetch('/api/save_progress', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
@@ -372,14 +398,52 @@
     }
 </script>
 
+<!-- 🛠️ CSS FIXES -->
 <style>
-.server-selection-wrapper { display: flex; justify-content: center; gap: 12px; margin: 20px 15px; flex-wrap: wrap; }
-.server-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #aaa; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; }
+.server-selection-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 15px;
+    flex-wrap: wrap;
+}
+.server-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    padding: 10px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 .server-btn i { font-size: 12px; }
 .server-btn:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
 .server-btn.active { background: #a855f7 !important; color: #fff !important; border-color: #a855f7 !important; box-shadow: 0 0 15px rgba(168, 85, 247, 0.4) !important; }
-.season-dropdown-wrapper { position: relative; z-index: 100; margin-bottom: 20px; }
-.season-dropdown-menu { position: absolute; top: 100%; left: 15px; right: 15px; background: #1a1a24; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; z-index: 9999; overflow-y: auto; max-height: 250px; margin-top: 5px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+
+.season-dropdown-wrapper {
+    position: relative;
+    z-index: 100;
+    margin-bottom: 20px;
+}
+.season-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 15px;
+    right: 15px;
+    background: #1a1a24;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    z-index: 9999;
+    overflow-y: auto;
+    max-height: 250px;
+    margin-top: 5px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
 .season-dropdown-menu::-webkit-scrollbar { width: 6px; }
 .season-dropdown-menu::-webkit-scrollbar-track { background: #1a1a24; }
 .season-dropdown-menu::-webkit-scrollbar-thumb { background: #a855f7; border-radius: 10px; }

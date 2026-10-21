@@ -1,14 +1,14 @@
 // =========================================
-// 🛑 BRAVE STYLE SERVICE WORKER: HIGH-TECH STEALTH MODE
+// 🛑 BRAVE STYLE SERVICE WORKER: AD SPOOFER & NAVIGATION TRAP
 // =========================================
 
-// ये सारे बड़े ऐड नेटवर्क्स हैं
 const AD_DOMAINS = [
     "doubleclick.net", "googleadservices.com", "googlesyndication.com",
     "popads.net", "propellerads.com", "exoclick.com", "hilltopads.net",
     "onclickads.net", "popcash.net", "adcash.com", "juicyads.com",
     "mgid.com", "taboola.com", "outbrain.com", "adsterra.com",
-    "profitablecpmrate.com", "adf.ly", "shorte.st", "clkmon.com"
+    "profitablecpmrate.com", "adf.ly", "shorte.st", "clkmon.com",
+    "tsyndicate.com", "trafficjunky.com", "adnium.com"
 ];
 
 const WHITELIST_DOMAINS = [
@@ -24,15 +24,12 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-    // 🛡️ 1. NAVIGATION TRAP (अंपायर को धोखा देने का तरीका)
+    // 🛡️ 1. NAVIGATION TRAP (वेबसाइट बदलने से रोकने के लिए)
     if (event.request.mode === 'navigate') {
         const url = new URL(event.request.url);
         
-        // अगर रीडायरेक्ट हमारी वेबसाइट (animenest) से बाहर हो रहा है
         if (url.origin !== self.location.origin) {
-            console.log('🛡️ Stealth Trap: Redirect intercepted to', url.href);
-            
-            // हम रीडायरेक्ट को रोक कर वापस उसी पेज पर भेज देंगे
+            console.log('🛡️ Trap: Redirect intercepted to', url.href);
             const safeUrl = event.request.referrer && event.request.referrer.startsWith(self.location.origin) 
                             ? event.request.referrer 
                             : self.location.origin;
@@ -42,7 +39,7 @@ self.addEventListener('fetch', (event) => {
         }
     }
 
-    // 🛡️ 2. AD SPOOFING (नकली ऐड भेजना ताकि उसे शक न हो)
+    // 🛡️ 2. FAKE DETECTIVE (नकली जासूस भेजना ताकि सर्वर धोखा खाए)
     if (event.request.method !== 'GET') return;
 
     const url = event.request.url.toLowerCase();
@@ -50,14 +47,20 @@ self.addEventListener('fetch', (event) => {
     const isWhitelisted = WHITELIST_DOMAINS.some(domain => url.includes(domain));
 
     if (isAd && !isWhitelisted) {
+        console.log('🛡️ Fake Detective Sent for:', url);
+        
         const fakeAdScript = `
             console.log("Ad Rendered Successfully");
-            window.adBlockDetected = false; // अंपायर को लगेगा सब ठीक है
+            window.adBlockDetected = false;
         `;
+        
         event.respondWith(
             new Response(fakeAdScript, {
-                status: 200,
-                headers: new Headers({ 'Content-Type': 'application/javascript' })
+                status: 200, 
+                headers: new Headers({ 
+                    'Content-Type': 'application/javascript',
+                    'Access-Control-Allow-Origin': '*' 
+                })
             })
         );
     } else {
