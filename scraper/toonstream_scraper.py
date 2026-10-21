@@ -15,6 +15,13 @@ LIVE_DB_FILE = "database/storage.json" # 🛠️ लाइव डेटाबे
 MAX_ANIME_TO_TEST = 100  
 MAX_EPISODES_TO_CHECK = 9999 
 
+# 🚫 BLACKLIST: यहाँ उन सर्वर्स के नाम लिखो जो बहुत ज्यादा ऐड दिखाते हैं या रीडायरेक्ट करते हैं
+BAD_SERVERS = [
+    "ravok.buzz",
+    "rubystm.com",
+    "filesforever.link"
+]
+
 def load_db():
     if os.path.exists(DB_FILE):
         with open(DB_FILE, 'r', encoding='utf-8') as f:
@@ -116,12 +123,18 @@ def process_anime_card(page, card, existing_titles, anime_list):
                 if src and not src.startswith('javascript:'):
                     if src.startswith('//'): src = 'https:' + src
                     elif src.startswith('/'): src = BASE_URL + src
+                    
+                    # 🚫 खराब सर्वर चेक
+                    if any(bad in src for bad in BAD_SERVERS):
+                        print(f"         ❌ बैड सर्वर स्किप: {src[:40]}...")
+                        continue
+                        
                     if src not in valid_srcs:
                         valid_srcs.append(src)
                     if len(valid_srcs) >= 2: break # सिर्फ 2 सर्वर
             
             servers = [{"server": f"Server {j+1}", "url": u} for j, u in enumerate(valid_srcs)]
-            print(f"      🌐 Audio: {language} | ✅ {len(servers)} iframe मिले")
+            print(f"      🌐 Audio: {language} | ✅ {len(servers)} साफ iframe मिले")
             
             movie_episode = {
                 'title': 'Full Movie',
@@ -231,6 +244,12 @@ def process_anime_card(page, card, existing_titles, anime_list):
                         if src and not src.startswith('javascript:'):
                             if src.startswith('//'): src = 'https:' + src
                             elif src.startswith('/'): src = BASE_URL + src
+                            
+                            # 🚫 खराब सर्वर चेक (सीरीज़ के लिए)
+                            if any(bad in src for bad in BAD_SERVERS):
+                                print(f"            ❌ बैड सर्वर स्किप: {src[:40]}...")
+                                continue
+                                
                             if src not in valid_srcs:
                                 valid_srcs.append(src)
                             if len(valid_srcs) >= 2: break # सिर्फ 2 सर्वर
@@ -238,6 +257,7 @@ def process_anime_card(page, card, existing_titles, anime_list):
                     if valid_srcs:
                         ep['video_url'] = valid_srcs[0] 
                         ep['servers'] = [{"server": f"Server {j+1}", "url": u} for j, u in enumerate(valid_srcs)]
+                        print(f"            ✅ {len(valid_srcs)} साफ सर्वर मिले")
                 except Exception as e:
                     pass
             
@@ -265,7 +285,7 @@ def process_anime_card(page, card, existing_titles, anime_list):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🔥 TOONSTREAM SCRAPER (100 ANIME PER RUN + CORRECT A-Z)")
+    print("🔥 TOONSTREAM SCRAPER (100 ANIME PER RUN + CORRECT A-Z + BAD SERVER FILTER)")
     print("=" * 60)
 
     db_data = load_db()
