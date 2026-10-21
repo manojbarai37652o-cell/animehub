@@ -19,14 +19,13 @@
         <script src="https://bancadeltempoidea.org/22/8d212b532b09c0a5028a18cca3b5e236"></script>
     </div>
 
-    <!-- 🟢 VIDEO PLAYER SECTION (With Sandbox to stop redirects) 🟢 -->
+    <!-- 🟢 VIDEO PLAYER SECTION (Sandbox REMOVED so video works) 🟢 -->
     <div class="video-section-wrapper" id="videoSectionWrapper">
         <div class="video-player-crunchy" id="mainVideoPlayer">
             <iframe id="videoIframe" src="{{ current_ep.video_url }}"
                     width="100%"
                     height="100%"
                     frameborder="0"
-                    sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"
                     allow="autoplay; fullscreen; encrypted-media"
                     allowfullscreen>
             </iframe>
@@ -218,7 +217,6 @@
 
 <!-- 🟢 JAVASCRIPT FOR TABS, WATCHLIST, RATINGS, STICKY PLAYER, SERVERS 🟢 -->
 <script>
-    // 🛠️ 1. Global Functions (SPA ke liye zaroori hai)
     window.toggleSeasonDropdown = function() {
         const menu = document.getElementById('season-dropdown-menu');
         if (menu) {
@@ -252,7 +250,6 @@
         }
     };
 
-    // 🛠️ 2. Baaki Logic (Same as before)
     const animeData = {
         id: {{ anime.id|tojson }},
         title: {{ anime.title|tojson }},
@@ -265,7 +262,6 @@
     const animeId = {{ anime.id|tojson }};
     const currentSeason = {{ (current_season.season_number if current_season else 1)|tojson }};
 
-    // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
         const wrapper = document.getElementById('seasonWrapper');
         const menu = document.getElementById('season-dropdown-menu');
@@ -274,13 +270,11 @@
         }
     });
 
-    // Default pehle server button ko active karo
     document.addEventListener('DOMContentLoaded', function() {
         const firstBtn = document.querySelector('.server-btn');
         if(firstBtn) firstBtn.click();
     });
 
-    // Tabs Logic
     window.switchTab = function(tabName, btn) {
         document.querySelectorAll('.watch-tab').forEach(t => t.classList.remove('active'));
         document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
@@ -288,7 +282,6 @@
         document.getElementById('tab-' + tabName).classList.add('active');
     }
 
-    // Watchlist Logic
     let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
     const btn = document.getElementById('watchlist-btn');
     const inList = watchlist.some(item => item.id === animeData.id);
@@ -313,7 +306,6 @@
         localStorage.setItem('animeWatchlist', JSON.stringify(list));
     }
 
-    // Ratings Logic
     let ratings = JSON.parse(localStorage.getItem('animeRatings')) || {};
     let currentRating = ratings[animeData.id] || 0;
     const starElements = document.querySelectorAll('#star-rating i');
@@ -355,7 +347,6 @@
         }
     }
 
-    // History Logic
     const currentEpData = { id: animeData.id, title: animeData.title, image: animeData.image };
     let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
     history = history.filter(item => item.id !== currentEpData.id);
@@ -363,7 +354,6 @@
     history = history.slice(0, 20);
     localStorage.setItem('animeHistory', JSON.stringify(history));
 
-    // Continue Watching Tracker
     {% if current_ep and current_ep.video_url %}
     const progressData = {
         anime_id: animeId,
@@ -382,7 +372,6 @@
     .catch(error => console.error('Error saving progress:', error));
     {% endif %}
 
-    // Sticky Player Logic
     const videoWrapper = document.getElementById('videoSectionWrapper');
     if (videoWrapper) {
         const wrapperTop = videoWrapper.offsetTop;
