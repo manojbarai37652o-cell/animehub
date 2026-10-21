@@ -32,11 +32,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
 
-    <!-- 🛠️ SPLASH SCREEN FIX CSS -->
     <style>
         .splash-hidden { display: none !important; }
-        
-        /* 🛡️ AD GUARD: ऐड को बीच में आने से रोकने के लिए */
         iframe[id*="google_ads"], iframe[src*="bancadeltempoidea"], div[class*="push"], div[id*="push"] {
             z-index: 99999 !important;
         }
@@ -44,7 +41,6 @@
 </head>
 <body>
 
-    <!-- Splash Screen -->
     <div id="splash-screen" class="splash-hidden">
         <div class="splash-logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);">
@@ -53,10 +49,8 @@
         <p class="splash-text">Loading your anime...</p>
     </div>
 
-    <!-- SPA Top Loading Bar -->
     <div id="spaLoader" class="spa-loader"></div>
 
-    <!-- Floating Glass Header -->
     <div class="header-wrapper">
         <header class="glass-header" style="padding: 12px 20px !important;">
             <div class="logo-left">
@@ -76,34 +70,22 @@
         </header>
     </div>
 
-    <!-- 🟢 PREMIUM SEARCH OVERLAY 🟢 -->
     <div id="searchOverlay" class="premium-search-overlay">
         <div class="premium-search-content">
-            
-            <!-- Glowing Search Bar -->
             <div class="premium-search-bar">
                 <i class="fas fa-search search-icon"></i>
                 <input type="text" id="searchInput" placeholder="Search anime, movies, characters..." autocomplete="off">
                 <button type="button" class="close-search-btn" onclick="closeSearch()"><i class="fas fa-times"></i></button>
             </div>
-
-            <!-- Search Results Container -->
             <div id="searchResultsContainer" style="display: none;"></div>
-
-            <!-- Default Content -->
             <div id="defaultSearchContent">
-                <!-- Recent Searches -->
                 <div class="search-section">
                     <div class="search-section-header">
                         <h3><i class="fas fa-history"></i> Recent Searches</h3>
                         <a href="javascript:void(0)" onclick="clearRecentSearches()">Clear All</a>
                     </div>
-                    <div class="pill-tags" id="recentSearchesContainer">
-                        <!-- Populated by JS -->
-                    </div>
+                    <div class="pill-tags" id="recentSearchesContainer"></div>
                 </div>
-
-                <!-- Trending Searches -->
                 <div class="search-section">
                     <div class="search-section-header">
                         <h3><i class="fas fa-fire" style="color: #a855f7;"></i> Trending Searches</h3>
@@ -114,8 +96,6 @@
                         {% endfor %}
                     </div>
                 </div>
-
-                <!-- Popular Anime -->
                 <div class="search-section">
                     <div class="search-section-header">
                         <h3><i class="fas fa-star" style="color: #f1c40f;"></i> Popular Anime</h3>
@@ -134,8 +114,6 @@
                         {% endfor %}
                     </div>
                 </div>
-
-                <!-- Top Rated Anime -->
                 <div class="search-section">
                     <div class="search-section-header">
                         <h3><i class="fas fa-crown" style="color: #f1c40f;"></i> Top Rated Anime</h3>
@@ -158,30 +136,25 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <main class="main-content" id="spaContent">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Bottom Nav -->
     <div class="bottom-nav-wrapper">
         <div class="glass-bottom-nav">
             <a href="/" class="nav-item spa-link {% if page_title == 'Home' or page_title == 'AnimeNest' %}active{% endif %}">
                 <i class="fas fa-home"></i>
                 <span>Home</span>
             </a>
-            
             <a href="/watchlist" class="nav-item spa-link {% if page_title == 'Watchlist' %}active{% endif %}">
                 <i class="far fa-bookmark"></i>
                 <span>Watchlist</span>
             </a>
-            
             <a href="/continue-watching" class="nav-item spa-link {% if page_title == 'Continue Watching' %}active{% endif %}">
                 <i class="fas fa-play-circle"></i>
                 <span>Continue</span>
                 <span class="nav-badge"></span>
             </a>
-            
             <a href="/profile" class="nav-item spa-link {% if page_title == 'Profile' %}active{% endif %}">
                 <i class="far fa-user"></i>
                 <span>Profile</span>
@@ -189,12 +162,9 @@
         </div>
     </div>
 
-    <!-- Splash Screen Script & SPA Navigation & Search Script -->
     <script>
-        // 🛠️ FIX 1: History push state setup
         history.replaceState({ url: window.location.pathname }, '', window.location.pathname);
 
-        // 🛠️ FIX 2: Splash Screen ko turant hide karne ka function
         function hideSplashScreen() {
             const splash = document.getElementById("splash-screen");
             if (splash) {
@@ -211,9 +181,7 @@
                     splash.style.display = 'none';
                 } else {
                     sessionStorage.setItem('splashShown', 'true');
-                    setTimeout(() => {
-                        hideSplashScreen();
-                    }, 1500);
+                    setTimeout(() => { hideSplashScreen(); }, 1500);
                 }
             }
             renderRecentSearches();
@@ -231,27 +199,19 @@
             document.getElementById('searchInput').value = '';
         }
 
-        document.addEventListener('keydown', function(e) { 
-            if (e.key === 'Escape') { closeSearch(); } 
-        });
-
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeSearch(); } });
         document.getElementById('searchOverlay').addEventListener('click', function(e) {
             const link = e.target.closest('a');
-            if (link && link.getAttribute('href')) {
-                closeSearch();
-            }
+            if (link && link.getAttribute('href')) { closeSearch(); }
         });
 
-        // --- Recent Searches Logic ---
         function renderRecentSearches() {
             const container = document.getElementById('recentSearchesContainer');
             let recent = JSON.parse(localStorage.getItem('recentSearches')) || [];
-            
             if (recent.length === 0) {
                 container.innerHTML = '<p style="color: #888; font-size: 13px; padding: 5px 0;">No recent searches</p>';
                 return;
             }
-            
             container.innerHTML = recent.map(query => `
                 <a href="/search?q=${encodeURIComponent(query)}" class="pill-tag recent">
                     <i class="fas fa-clock"></i> ${query}
@@ -276,43 +236,27 @@
             renderRecentSearches();
         }
 
-        function clearRecentSearches() {
-            localStorage.removeItem('recentSearches');
-            renderRecentSearches();
-        }
+        function clearRecentSearches() { localStorage.removeItem('recentSearches'); renderRecentSearches(); }
 
         document.getElementById('searchInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 const query = this.value.trim();
-                if (query) {
-                    addRecentSearch(query);
-                    closeSearch();
-                    window.location.href = `/search?q=${encodeURIComponent(query)}`;
-                }
+                if (query) { addRecentSearch(query); closeSearch(); window.location.href = `/search?q=${encodeURIComponent(query)}`; }
             }
         });
 
-        // --- SPA Navigation ---
         function showSpaLoader() {
             const loader = document.getElementById('spaLoader');
-            if (loader) {
-                loader.style.width = '0%';
-                loader.style.opacity = '1';
-                setTimeout(() => { loader.style.width = '70%'; }, 50);
-            }
+            if (loader) { loader.style.width = '0%'; loader.style.opacity = '1'; setTimeout(() => { loader.style.width = '70%'; }, 50); }
         }
         function hideSpaLoader() {
             const loader = document.getElementById('spaLoader');
             if (loader) {
                 loader.style.width = '100%';
-                setTimeout(() => {
-                    loader.style.opacity = '0';
-                    setTimeout(() => { loader.style.width = '0%'; }, 300);
-                }, 200);
+                setTimeout(() => { loader.style.opacity = '0'; setTimeout(() => { loader.style.width = '0%'; }, 300); }, 200);
             }
         }
 
-        // 🛠️ FIX 3: Page load function
         async function loadPageContent(href, pushState = true) {
             showSpaLoader();
             try {
@@ -329,9 +273,7 @@
                     const scripts = oldMain.querySelectorAll('script');
                     scripts.forEach(oldScript => {
                         const newScript = document.createElement('script');
-                        Array.from(oldScript.attributes).forEach(attr => {
-                            newScript.setAttribute(attr.name, attr.value);
-                        });
+                        Array.from(oldScript.attributes).forEach(attr => { newScript.setAttribute(attr.name, attr.value); });
                         newScript.textContent = oldScript.textContent;
                         oldScript.parentNode.replaceChild(newScript, oldScript);
                     });
@@ -340,16 +282,9 @@
                         nav.classList.remove('active');
                         if (nav.getAttribute('href') === href) nav.classList.add('active');
                     });
-
-                    if (pushState) {
-                        history.pushState({ url: href }, '', href);
-                    }
-                } else {
-                    window.location.href = href;
-                }
-            } catch (err) {
-                window.location.href = href;
-            } finally {
+                    if (pushState) { history.pushState({ url: href }, '', href); }
+                } else { window.location.href = href; }
+            } catch (err) { window.location.href = href; } finally {
                 hideSpaLoader();
                 const splash = document.getElementById("splash-screen");
                 if(splash) splash.style.display = 'none';
@@ -363,44 +298,26 @@
             if (!href || href.startsWith('#') || href.startsWith('javascript')) return;
             if (link.getAttribute('target') === '_blank') return;
             if (link.classList.contains('no-spa')) return;
-            if (href.startsWith('/logout')) return;
-            if (href.startsWith('/login')) return;
-
+            if (href.startsWith('/logout') || href.startsWith('/login')) return;
             e.preventDefault();
             loadPageContent(href, true);
         });
 
-        // 🛠️ FIX 4: Back button dabane par purana page load karo
         window.addEventListener('popstate', function(e) {
-            if (e.state && e.state.url) {
-                loadPageContent(e.state.url, false); 
-            } else {
-                loadPageContent(window.location.pathname, false);
-            }
+            if (e.state && e.state.url) { loadPageContent(e.state.url, false); } 
+            else { loadPageContent(window.location.pathname, false); }
         });
     </script>
 
-    <!-- 🛡️ BRAVE STYLE SHIELD (Popup Blocker + DOM Scrubber) 🛠️ -->
+    <!-- 🛡️ HIGH-TECH SHIELD (Popup Blocker + DOM Scrubber) 🛠️ -->
     <script>
-        // 1. Popup Blocker (iframe se naya tab/popup kholna band - YouTube redirects etc)
-        window.open = function() { 
-            console.log('🛡️ Popup Blocked by AnimeNest Shield');
-            return null; 
-        };
-
-        // 2. DOM Scrubber (Page par aane wale third-party ads ko delete karega)
+        window.open = function() { return null; };
         setInterval(() => {
             const adSelectors = [
-                'iframe[src*="popads"]', 
-                'iframe[src*="propellerads"]', 
-                'iframe[src*="onclickads"]',
-                'div[id^="dontfoid"]',
-                'div[class*="fake-player"]',
-                'iframe[name="google_video_inner_static_iframe"]',
-                'div[id*="push-ad"]',
-                'div[class*="push-ad"]'
+                'iframe[src*="popads"]', 'iframe[src*="propellerads"]', 'iframe[src*="onclickads"]',
+                'div[id^="dontfoid"]', 'div[class*="fake-player"]', 'iframe[name="google_video_inner_static_iframe"]',
+                'div[id*="push-ad"]', 'div[class*="push-ad"]'
             ];
-            
             adSelectors.forEach(selector => {
                 document.querySelectorAll(selector).forEach(el => {
                     if (el.src && el.src.includes('bancadeltempoidea.org')) return;
@@ -412,22 +329,16 @@
         }, 1000);
     </script>
 
-    <!-- 🛠️ SERVICE WORKER REGISTRATION FOR AD BLOCKING 🛠️ -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/static/js/service-worker.js')
-                    .then(registration => {
-                        console.log('✅ AnimeNest Shield Active:', registration.scope);
-                    })
-                    .catch(err => {
-                        console.log('❌ Shield Error:', err);
-                    });
+                    .then(registration => { console.log('✅ AnimeNest Shield Active:', registration.scope); })
+                    .catch(err => { console.log('❌ Shield Error:', err); });
             });
         }
     </script>
 
-    <!-- 🛠️ ADSTERRA SOCIAL BAR SCRIPT (हमारा खुद का ऐड) -->
     <script data-cfasync="false" src="https://bancadeltempoidea.org/14/19ddf2470e2e3cb293dfda3dc91de5d1"></script>
 
 </body>

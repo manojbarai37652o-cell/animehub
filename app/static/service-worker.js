@@ -1,22 +1,18 @@
 // =========================================
-// 🛑 BRAVE STYLE SERVICE WORKER: AD SPOOFER & BLOCKER
+// 🛑 BRAVE STYLE SERVICE WORKER: HIGH-TECH STEALTH MODE
 // =========================================
 
-// ये सारे बड़े ऐड नेटवर्क्स हैं जो वीडियो के अंदर ऐड दिखाते हैं
+// ये सारे बड़े ऐड नेटवर्क्स हैं
 const AD_DOMAINS = [
     "doubleclick.net", "googleadservices.com", "googlesyndication.com",
     "popads.net", "propellerads.com", "exoclick.com", "hilltopads.net",
     "onclickads.net", "popcash.net", "adcash.com", "juicyads.com",
     "mgid.com", "taboola.com", "outbrain.com", "adsterra.com",
-    "profitablecpmrate.com", "adf.ly", "shorte.st", "clkmon.com",
-    "tsyndicate.com", "trafficjunky.com", "adnium.com"
+    "profitablecpmrate.com", "adf.ly", "shorte.st", "clkmon.com"
 ];
 
-// 🛡️ WHITELIST: हमारी खुद की वेबसाइट के ऐड्स (इन्हें ब्लॉक नहीं करना है)
 const WHITELIST_DOMAINS = [
-    "bancadeltempoidea.org", // Adsterra Banner
-    "nap5k.com",             // Monetag
-    "n6wxm.com"              // Monetag
+    "bancadeltempoidea.org", "nap5k.com", "n6wxm.com"
 ];
 
 self.addEventListener('install', (event) => {
@@ -28,6 +24,25 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+    // 🛡️ 1. NAVIGATION TRAP (अंपायर को धोखा देने का तरीका)
+    if (event.request.mode === 'navigate') {
+        const url = new URL(event.request.url);
+        
+        // अगर रीडायरेक्ट हमारी वेबसाइट (animenest) से बाहर हो रहा है
+        if (url.origin !== self.location.origin) {
+            console.log('🛡️ Stealth Trap: Redirect intercepted to', url.href);
+            
+            // हम रीडायरेक्ट को रोक कर वापस उसी पेज पर भेज देंगे
+            const safeUrl = event.request.referrer && event.request.referrer.startsWith(self.location.origin) 
+                            ? event.request.referrer 
+                            : self.location.origin;
+            
+            event.respondWith(Response.redirect(safeUrl, 302));
+            return;
+        }
+    }
+
+    // 🛡️ 2. AD SPOOFING (नकली ऐड भेजना ताकि उसे शक न हो)
     if (event.request.method !== 'GET') return;
 
     const url = event.request.url.toLowerCase();
@@ -35,16 +50,10 @@ self.addEventListener('fetch', (event) => {
     const isWhitelisted = WHITELIST_DOMAINS.some(domain => url.includes(domain));
 
     if (isAd && !isWhitelisted) {
-        // 🛠️ SPOOFING: ऐड को ब्लॉक करने के बजाय एक नकली खाली स्क्रिप्ट भेजो
-        // इससे वीडियो सर्वर को लगेगा कि ऐड चल गया, लेकिन वो कुछ नहीं करेगा
-        console.log('🛡️ Fake Ad Served to bypass Anti-Adblock:', url);
-        
         const fakeAdScript = `
-            // नकली ऐड स्क्रिप्ट (कुछ नहीं करती, बस वीडियो सर्वर को धोखा देती है)
-            console.log("Ad Space Rendered Successfully");
-            window.adBlockDetected = false;
+            console.log("Ad Rendered Successfully");
+            window.adBlockDetected = false; // अंपायर को लगेगा सब ठीक है
         `;
-        
         event.respondWith(
             new Response(fakeAdScript, {
                 status: 200,
@@ -52,7 +61,6 @@ self.addEventListener('fetch', (event) => {
             })
         );
     } else {
-        // बाकी सब कुछ सामान्य रूप से लोड होने दो
         event.respondWith(fetch(event.request));
     }
 });
