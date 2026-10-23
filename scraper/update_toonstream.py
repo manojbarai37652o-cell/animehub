@@ -7,8 +7,7 @@ from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
 BASE_URL = "https://toonstream.us"
-DB_FILE = "database/storage.json"
-PROGRESS_FILE = "database/update_toon_progress.json" # नया चेकपॉइंट
+DB_FILE = "database/storage.json" # ये सीधे तुम्हारे असली डेटाबेस को अपडेट करेगा
 
 def load_db():
     if os.path.exists(DB_FILE):
@@ -19,16 +18,6 @@ def load_db():
 def save_db(data):
     with open(DB_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
-
-def load_progress():
-    if os.path.exists(PROGRESS_FILE):
-        with open(PROGRESS_FILE, 'r') as f:
-            return json.load(f)
-    return {"completed_ids": []}
-
-def save_progress(data):
-    with open(PROGRESS_FILE, 'w') as f:
-        json.dump(data, f)
 
 def extract_language(soup):
     page_text = soup.get_text(separator=' ').lower()
@@ -41,18 +30,16 @@ def extract_language(soup):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🔄 TOONSTREAM UPDATE LIBRARY (MEGA UPDATE MODE)")
+    print("🔄 TOONSTREAM UPDATE LIBRARY (नए एपिसोड चेक करने के लिए)")
     print("=" * 60)
 
     db_data = load_db()
     anime_list = db_data.get('anime_list', [])
-    progress_data = load_progress()
-    completed_ids = set(progress_data.get('completed_ids', []))
     
-    # सिर्फ वही एनीमे चुनो जो ToonStream के हैं और जो अभी तक चेक नहीं हुए
-    toonstream_animes = [a for a in anime_list if 'toonstream.us' in a.get('url', '') and a.get('id') not in completed_ids]
+    # सिर्फ वही एनीमे चुनो जो ToonStream के हैं
+    toonstream_animes = [a for a in anime_list if 'toonstream.us' in a.get('url', '')]
     
-    print(f"📊 कुल {len(anime_list)} एनीमे में से, {len(toonstream_animes)} एनीमे अभी बाकी हैं।")
+    print(f"📊 कुल {len(anime_list)} एनीमे में से, {len(toonstream_animes)} एनीमे ToonStream के हैं।")
     print("🔍 अब इन सबको एक-एक करके चेक किया जाएगा...\n")
 
     updated_count = 0
@@ -65,7 +52,6 @@ if __name__ == '__main__':
             page.set_default_timeout(60000)
 
             for index, anime in enumerate(toonstream_animes):
-                anime_id = anime.get('id')
                 title = anime.get('title', 'Unknown')
                 series_url = anime.get('url', '')
                 
@@ -74,13 +60,15 @@ if __name__ == '__main__':
                 print(f"[{index+1}/{len(toonstream_animes)}] 🔎 चेक कर रहे हैं: {title}")
 
                 try:
+                    # सीरीज़ पेज पर जाओ
                     page.goto(series_url, wait_until="domcontentloaded")
-                    page.wait_for_timeout(2000)
+                    page.wait_for_timeout(3000)
                     page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                    page.wait_for_timeout(1000)
+                    page.wait_for_timeout(1500)
 
                     detail_soup = BeautifulSoup(page.content(), 'html.parser')
                     
+                    # नए एपिसोड्स की लिस्ट निकालो
                     live_episodes = []
                     ep_container = detail_soup.find('ul', id='episode_by_temp')
                     if ep_container:
@@ -91,23 +79,34 @@ if __name__ == '__main__':
                                 ep_title_text = ep_title.get_text(strip=True) if ep_title else "Episode"
                                 ep_url = BASE_URL + ep_link['href'] if not ep_link['href'].startswith('http') else ep_link['href']
                                 
+                                # पुराने डेटाबेस में इस एपिसोड को ढूंढो
                                 existing_ep = next((e for e in anime.get('episodes', []) if e['url'] == ep_url), None)
                                 
                                 if existing_ep:
+                                    # अगर पहले से है, तो उसे वैसे ही रखो
                                     live_episodes.append(existing_ep)
                                 else:
-                                    live_episodes.append({'title': ep_title_text, 'url': ep_url, 'video_url': '', 'servers': []})
+                                    # अगर नया है, तो उसे जोड़ो (बाद में iframe निकालेंगे)
+                                    live_episodes.append({
+                                        'title': ep_title_text,
+                                        'url': ep_url,
+                                        'video_url': '',
+                                        'servers': []
+                                    })
 
+                    # अब चेक करो कि क्या सच में नया एपिसोड आया है?
                     old_ep_count = len(anime.get('episodes', []))
                     new_ep_count = len(live_episodes)
                     
                     if new_ep_count > old_ep_count:
                         print(f"   🎉 नया एपिसोड मिला! (पहले {old_ep_count} थे, अब {new_ep_count} हैं)")
                         
+                        # नए एपिसोड्स के अंदर जाकर iframe निकालो
                         for ep in live_episodes:
-                            if ep['video_url'] == '': 
+                            if ep['video_url'] == '': # सिर्फ नए एपिसोड के लिए
+                                print(f"      🎬 स्क्रैपिंग: {ep['title']}")
                                 page.goto(ep['url'], wait_until="domcontentloaded")
-                                page.wait_for_timeout(1500)
+                                page.wait_for_timeout(2000)
                                 
                                 ep_soup = BeautifulSoup(page.content(), 'html.parser')
                                 valid_srcs = []
@@ -126,42 +125,32 @@ if __name__ == '__main__':
                                     ep['video_url'] = valid_srcs[0] 
                                     ep['servers'] = [{"server": f"Server {j+1}", "url": u} for j, u in enumerate(valid_srcs)]
                         
+                        # डेटाबेस में अपडेट करो
                         anime['episodes'] = live_episodes
                         if 'seasons' in anime and len(anime['seasons']) > 0:
                             anime['seasons'][0]['episodes'] = live_episodes
                         else:
                             anime['seasons'] = [{"season_number": 1, "episodes": live_episodes}]
                         
+                        # नई लैंग्वेज भी चेक करके अपडेट कर सकते हैं
                         anime['language'] = extract_language(detail_soup)
 
+                        # तुरंत सेव करो
                         save_db({"anime_list": anime_list})
                         updated_count += 1
                         print(f"   💾 डेटाबेस अपडेट हो गया!")
                     else:
-                        print(f"   ✅ कोई नया एपिसोड नहीं आया।")
+                        print(f"   ✅ कोई नया एपिसोड नहीं आया। ({new_ep_count} एपिसोड्स अप टू डेट हैं)।")
 
                 except Exception as e:
                     print(f"   ❌ एरर आया: {e}")
                 
-                # चेकपॉइंट सेव करो
-                completed_ids.add(anime_id)
-                progress_data['completed_ids'] = list(completed_ids)
-                save_progress(progress_data)
-
-                # 🛠️ हर 50 एनीमे के बाद ब्राउज़र रीस्टार्ट और रैम सफाई
-                if (index + 1) % 50 == 0:
-                    print("\n   🧹 रैम (RAM) साफ की जा रही है और ब्राउज़र रीस्टार्ट हो रहा है...")
-                    context.close()
-                    browser.close()
+                # हर 5 एनीमे के बाद RAM साफ करो (OOM से बचने के लिए)
+                if (index + 1) % 5 == 0:
                     gc.collect()
-                    time.sleep(2)
-                    
-                    browser = p.chromium.launch(headless=False, args=["--disable-ipv6", "--no-sandbox"])
-                    context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36")
-                    page = context.new_page()
-                    page.set_default_timeout(60000)
+                    print("   🧹 रैम (RAM) साफ की गई...")
                 
-                time.sleep(1.5)
+                time.sleep(2)
 
             browser.close()
 
