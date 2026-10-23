@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AnimeNest - Watch Anime Free</title>
+    
+    <!-- 🛠️ META TAGS FOR SITE NAME -->
+    <meta name="application-name" content="AnimeNest">
+    <meta name="apple-mobile-web-app-title" content="AnimeNest">
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -11,7 +16,6 @@
     <meta name="theme-color" content="#0b0f19">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="AnimeNest">
     
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
@@ -29,13 +33,27 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://animenest-zmbl.onrender.com/static/images/logo.png">
 
+    <!-- 🛠️ JSON-LD SCHEMA FOR GOOGLE (CRITICAL FOR SITE NAME) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "AnimeNest",
-      "alternateName": ["AnimeNest", "Anime Nest", "AnimeNest Official"],
-      "url": "https://animenest-zmbl.onrender.com/"
+      "alternateName": ["AnimeNest", "Anime Nest", "AnimeNest Official", "AnimeNest Hindi"],
+      "url": "https://animenest-zmbl.onrender.com/",
+      "logo": "https://animenest-zmbl.onrender.com/static/images/logo.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "AnimeNest",
+      "url": "https://animenest-zmbl.onrender.com/",
+      "logo": "https://animenest-zmbl.onrender.com/static/images/logo.png",
+      "sameAs": [
+        "https://t.me/AnimeNest_Official"
+      ]
     }
     </script>
 
@@ -74,6 +92,15 @@
             transform: scale(1.1);
             background-color: #0099e6;
         }
+        
+        /* SEO Fix for H1 */
+        .logo-text {
+            font-size: 20px; 
+            font-weight: 800; 
+            color: #fff; 
+            margin: 0; 
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -93,7 +120,8 @@
             <div class="logo-left">
                 <a href="/" class="logo-link spa-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest Logo" style="height: 38px; width: 38px; border-radius: 50%; object-fit: cover; border: 2px solid #a855f7; box-shadow: 0 0 10px rgba(168, 85, 247, 0.4); display: block;">
-                    <span class="logo-text" style="font-size: 20px; font-weight: 800; color: #fff;">Anime<span style="color: #a855f7;">Nest</span></span>
+                    <!-- 🛠️ Changed span to h1 for SEO -->
+                    <h1 class="logo-text">Anime<span style="color: #a855f7;">Nest</span></h1>
                 </a>
             </div>
 
