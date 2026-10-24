@@ -4973,6 +4973,18 @@
                                     "url": "https://ravok.buzz/video/92a05f3584af93d17968cc842716fd4c"
                                 }
                             ]
+                        },
+                        {
+                            "title": "The Elusive Samurai 2x12",
+                            "ep_num": "12",
+                            "url": "https://animesalt.cx/episode/the-elusive-samurai-2x12/",
+                            "video_url": "https://ravok.buzz/video/8a8da2b4f4dda685a0fa2635e3bb3e96",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/8a8da2b4f4dda685a0fa2635e3bb3e96"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -4981,67 +4993,390 @@
                 {
                     "title": "Episode 1",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x1/",
-                    "video_url": "https://ravok.buzz/video/2cd4e8a2ce081c3d7c32c3cde4312ef7"
+                    "video_url": "https://ravok.buzz/video/2cd4e8a2ce081c3d7c32c3cde4312ef7",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/2cd4e8a2ce081c3d7c32c3cde4312ef7"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcWprZ3hHSVdiIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL29UU1JKLXE1TiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveVlRVzRzMlcyIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 2",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x2/",
-                    "video_url": "https://ravok.buzz/video/194cf6c2de8e00c05fcf16c498adc7bf"
+                    "video_url": "https://ravok.buzz/video/194cf6c2de8e00c05fcf16c498adc7bf",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/194cf6c2de8e00c05fcf16c498adc7bf"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY1JGSW5RYUt3In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9IMzkySlF3ejMifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 3",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x3/",
-                    "video_url": "https://ravok.buzz/video/a03fa30821986dff10fc66647c84c9c3"
+                    "video_url": "https://ravok.buzz/video/a03fa30821986dff10fc66647c84c9c3",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/a03fa30821986dff10fc66647c84c9c3"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNFBrR1NQMjRIIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9HZ2Zwb2dLcTYifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 4",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x4/",
-                    "video_url": "https://ravok.buzz/video/a1d7311f2a312426d710e1c617fcbc8c"
+                    "video_url": "https://ravok.buzz/video/a1d7311f2a312426d710e1c617fcbc8c",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/a1d7311f2a312426d710e1c617fcbc8c"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvc29xalBvXzg5In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9BSng0a1hfaEEifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 5",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x5/",
-                    "video_url": "https://ravok.buzz/video/978d76676f5e7918f81d28e7d092ca0d"
+                    "video_url": "https://ravok.buzz/video/978d76676f5e7918f81d28e7d092ca0d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/978d76676f5e7918f81d28e7d092ca0d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvX3RCbE5GVmpUIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC90VU1GZEdtLTcifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 6",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x6/",
-                    "video_url": "https://ravok.buzz/video/83f97f4825290be4cb794ec6a234595f"
+                    "video_url": "https://ravok.buzz/video/83f97f4825290be4cb794ec6a234595f",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/83f97f4825290be4cb794ec6a234595f"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveVdLNWVyQTZ2In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84VUtWTTY4QWkifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 7",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x7/",
-                    "video_url": "https://ravok.buzz/video/7d771e0e8f3633ab54856925ecdefc5d"
+                    "video_url": "https://ravok.buzz/video/7d771e0e8f3633ab54856925ecdefc5d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/7d771e0e8f3633ab54856925ecdefc5d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZkF1a0k4NFNaIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9mVWxmaVF6NlYifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 8",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x8/",
-                    "video_url": "https://ravok.buzz/video/dabd8d2ce74e782c65a973ef76fd540b"
+                    "video_url": "https://ravok.buzz/video/dabd8d2ce74e782c65a973ef76fd540b",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/dabd8d2ce74e782c65a973ef76fd540b"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvR0ZzXzE4WHpaIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kZ3NfUnFmNE4ifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 9",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x9/",
-                    "video_url": "https://ravok.buzz/video/2cad8fa47bbef282badbb8de5374b894"
+                    "video_url": "https://ravok.buzz/video/2cad8fa47bbef282badbb8de5374b894",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/2cad8fa47bbef282badbb8de5374b894"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb25keDk3czZ6In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9MN21TaGdrVDgifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 10",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-2x10/",
-                    "video_url": "https://ravok.buzz/video/2da37507d2177cbb5af17795db30fd1e"
+                    "video_url": "https://ravok.buzz/video/2da37507d2177cbb5af17795db30fd1e",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/2da37507d2177cbb5af17795db30fd1e"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN3hqVTJqYlBEIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jR3RlSGpYOHgifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 10",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x10/",
-                    "video_url": "https://ravok.buzz/video/c5866e93cab1776890fe343c9e7063fb"
+                    "video_url": "https://ravok.buzz/video/c5866e93cab1776890fe343c9e7063fb",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c5866e93cab1776890fe343c9e7063fb"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveXpzeWJoSUpPIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9KLU9kWUlaMkYifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 11",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x11/",
-                    "video_url": "https://ravok.buzz/video/bf201d5407a6509fa536afc4b380577e"
+                    "video_url": "https://ravok.buzz/video/bf201d5407a6509fa536afc4b380577e",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/bf201d5407a6509fa536afc4b380577e"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTmkwWXZuYlItIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9iSnJpOXRuRUUifV0%3D"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/q7szuu6nod7f"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 12",
                     "url": "https://animesalt.cx/episode/the-elusive-samurai-1x12/",
-                    "video_url": "https://ravok.buzz/video/052335232b11864986bb2fa20fa38748"
+                    "video_url": "https://ravok.buzz/video/052335232b11864986bb2fa20fa38748",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/052335232b11864986bb2fa20fa38748"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUm9nZlN5emEzIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC90N0NOY0JGVWcifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-1x1/",
+                    "video_url": "https://ravok.buzz/video/2cd4e8a2ce081c3d7c32c3cde4312ef7",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/2cd4e8a2ce081c3d7c32c3cde4312ef7"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcWprZ3hHSVdiIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL29UU1JKLXE1TiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveVlRVzRzMlcyIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x1/",
+                    "video_url": "https://ravok.buzz/video/f0ff2eaef41dd9e6e3dcb49d53c1bf11",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/f0ff2eaef41dd9e6e3dcb49d53c1bf11"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTUc0Z0lmbWhNZSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUktFbm5oOFJSIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x2/",
+                    "video_url": "https://ravok.buzz/video/4197c77706a5d5610d83f009209b00fe",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4197c77706a5d5610d83f009209b00fe"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvc1d6NWdTdGdxIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ac0NIVElydFcifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x3/",
+                    "video_url": "https://ravok.buzz/video/8995a6c234df0504e73ff81dd3af8ff5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/8995a6c234df0504e73ff81dd3af8ff5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLTlVZmIzVHRXIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9sSU4zMHJ4c2lLIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x4/",
+                    "video_url": "https://ravok.buzz/video/65b5fc46fc82087ba24609b14f2dc4ff",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/65b5fc46fc82087ba24609b14f2dc4ff"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLWRYcUpaWjlSYyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdGw0c3gtdGZzIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x5/",
+                    "video_url": "https://ravok.buzz/video/8d4965eaf92972d652fd44ece6f79533",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/8d4965eaf92972d652fd44ece6f79533"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcGpubmxtb2RLIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9QeVNWNmRSZDUifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x6/",
+                    "video_url": "https://ravok.buzz/video/bdbe575de5ecbc20be758c6f4e105da6",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/bdbe575de5ecbc20be758c6f4e105da6"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvc0xqdWFkX3NvIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WbWY3RV92QXEifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x7/",
+                    "video_url": "https://ravok.buzz/video/8c2a6cec60863b5ffd776ad9ff57495a",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/8c2a6cec60863b5ffd776ad9ff57495a"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWS13NDZFOG1OIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9nSkxLYzV5OVcifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x8/",
+                    "video_url": "https://ravok.buzz/video/2c0c63b0449c63fe70737d064f3c43bb",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/2c0c63b0449c63fe70737d064f3c43bb"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQ1hDeFZkNl81In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jZVdEdDBud0sifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x9/",
+                    "video_url": "https://ravok.buzz/video/bfd1269f6ca371debca250799daabb02",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/bfd1269f6ca371debca250799daabb02"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSllLdkhWT3lrIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95LWZ4RW9FTjNqIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x10/",
+                    "video_url": "https://ravok.buzz/video/2da37507d2177cbb5af17795db30fd1e",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/2da37507d2177cbb5af17795db30fd1e"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN3hqVTJqYlBEIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jR3RlSGpYOHgifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Elusive Samurai 2x11",
+                    "ep_num": "11",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x11/",
+                    "video_url": "https://ravok.buzz/video/92a05f3584af93d17968cc842716fd4c",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/92a05f3584af93d17968cc842716fd4c"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Elusive Samurai 2x12",
+                    "ep_num": "12",
+                    "url": "https://animesalt.cx/episode/the-elusive-samurai-2x12/",
+                    "video_url": "https://ravok.buzz/video/8a8da2b4f4dda685a0fa2635e3bb3e96",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/8a8da2b4f4dda685a0fa2635e3bb3e96"
+                        }
+                    ]
                 }
             ]
         },
@@ -6603,6 +6938,18 @@
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveDRuM09oanhPIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8xdThVdkpEMWEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9IYURXYy1oejYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTURuRHBQREhRYiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTFowTEpSeXk1In1d"
                                 }
                             ]
+                        },
+                        {
+                            "title": "That Time I Got Reincarnated as a Slime 4x22",
+                            "ep_num": "22",
+                            "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x22/",
+                            "video_url": "https://ravok.buzz/video/3ff55afdf16fea13cf00f29dddc53948",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/3ff55afdf16fea13cf00f29dddc53948"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -6611,127 +6958,1548 @@
                 {
                     "title": "Episode 1",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x1/",
-                    "video_url": "https://ravok.buzz/video/fb87582825f9d28a8d42c5e5e5e8b23d"
+                    "video_url": "https://ravok.buzz/video/fb87582825f9d28a8d42c5e5e5e8b23d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/fb87582825f9d28a8d42c5e5e5e8b23d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva0tNVVZTcDN4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC85Qzl3ZXMzb0wifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9MZC1rck9xNi1CIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzF3aXlPdEFEZCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTHNvaG9USHJQIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 2",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x2/",
-                    "video_url": "https://ravok.buzz/video/1e4d36177d71bbb3558e43af9577d70e"
+                    "video_url": "https://ravok.buzz/video/1e4d36177d71bbb3558e43af9577d70e",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/1e4d36177d71bbb3558e43af9577d70e"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRlhfRE44TTljIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9tR00taFNoR28ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9HYkx3Q2ZZanMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNGJsbXlXVUhqIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9XdV9QREUxMlkifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 3",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x3/",
-                    "video_url": "https://ravok.buzz/video/1b36ea1c9b7a1c3ad668b8bb5df7963f"
+                    "video_url": "https://ravok.buzz/video/1b36ea1c9b7a1c3ad668b8bb5df7963f",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/1b36ea1c9b7a1c3ad668b8bb5df7963f"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdzFhWE92bGJBIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9IOFZNR3BRWGoifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81ZnpXR2piMHYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQjdONHBqOW9xIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9JdGo4c25rNVUifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 4",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x4/",
-                    "video_url": "https://ravok.buzz/video/1f36c15d6a3d18d52e8d493bc8187cb9"
+                    "video_url": "https://ravok.buzz/video/1f36c15d6a3d18d52e8d493bc8187cb9",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/1f36c15d6a3d18d52e8d493bc8187cb9"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY2IySnpaYWd6In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9xLU9jRFpadHR2In0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvV3FlbVU5amNzIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0hzRTM4Sm4tRSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSVU4OHF4YjZEIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 5",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x5/",
-                    "video_url": "https://ravok.buzz/video/8c249675aea6c3cbd91661bbae767ff1"
+                    "video_url": "https://ravok.buzz/video/8c249675aea6c3cbd91661bbae767ff1",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/8c249675aea6c3cbd91661bbae767ff1"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcVpDbV9CZzlKIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC92aXJIdTNKTU5qIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY1dlLXNSMnJjIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL25sUHdhTHEtRiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbnRZc1pOTU96In1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 6",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x6/",
-                    "video_url": "https://ravok.buzz/video/d68a18275455ae3eaa2c291eebb46e6d"
+                    "video_url": "https://ravok.buzz/video/d68a18275455ae3eaa2c291eebb46e6d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d68a18275455ae3eaa2c291eebb46e6d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZkNlVWxvN0FZIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hYVoxRUgxRkcifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC90NjQ2eWtsQXQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVjc5SGxCbEtnIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZcF8zT1Vzc0kifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 7",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x7/",
-                    "video_url": "https://ravok.buzz/video/9d7311ba459f9e45ed746755a32dcd11"
+                    "video_url": "https://ravok.buzz/video/9d7311ba459f9e45ed746755a32dcd11",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/9d7311ba459f9e45ed746755a32dcd11"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMnVSdFRRbGVvIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81ZzI5blUxZnd6In0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTnVzOTRxd012In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2xxb0JEMktTayJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOWo4akhfdmJ4In1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 8",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x8/",
-                    "video_url": "https://ravok.buzz/video/4a3e00961a08879c34f91ca0070ea2f5"
+                    "video_url": "https://ravok.buzz/video/4a3e00961a08879c34f91ca0070ea2f5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4a3e00961a08879c34f91ca0070ea2f5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTEZpQW1pZ01FIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9mZU1lYTR3eWkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8yY1JpSy1Rb2gifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvajIyNkNTSks3In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9mWHJJTGFnOTYifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 9",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x9/",
-                    "video_url": "https://ravok.buzz/video/dc513ea4fbdaa7a14786ffdebc4ef64e"
+                    "video_url": "https://ravok.buzz/video/dc513ea4fbdaa7a14786ffdebc4ef64e",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/dc513ea4fbdaa7a14786ffdebc4ef64e"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva0lxeWwwdG56In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9RN2JKWi1JSHEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95Q1VGVjUybVEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd3FDTVdTUEtrIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83TjZmazcxZ2gifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 10",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x10/",
-                    "video_url": "https://ravok.buzz/video/96055f5b06bf9381ac43879351642cf5"
+                    "video_url": "https://ravok.buzz/video/96055f5b06bf9381ac43879351642cf5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/96055f5b06bf9381ac43879351642cf5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOGNoeElsN2ZPIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jZmM2MU45V1gifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oYVZON3VQRGYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdlluekh0em1JIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84QjliemFMVVMifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 11",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x11/",
-                    "video_url": "https://ravok.buzz/video/d5c186983b52c4551ee00f72316c6eaa"
+                    "video_url": "https://ravok.buzz/video/d5c186983b52c4551ee00f72316c6eaa",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d5c186983b52c4551ee00f72316c6eaa"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvR1M5U3RBZFZOIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9xX1cxTkRGNjcifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9QNWRjaVFaNFYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN2FOdkE0VElMIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oZy03azIxdFMifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 12",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x12/",
-                    "video_url": "https://ravok.buzz/video/c5a4e7e6882845ea7bb4d9462868219b"
+                    "video_url": "https://ravok.buzz/video/c5a4e7e6882845ea7bb4d9462868219b",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c5a4e7e6882845ea7bb4d9462868219b"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYnc5TE1DRkhtIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9Wa0VBYUlzZjIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8tYWEtc2hPbnkifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvazJHSzg5Q1R3In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC91OHVFQlVLZjcifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 13",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x13/",
-                    "video_url": "https://ravok.buzz/video/008bd5ad93b754d500338c253d9c1770"
+                    "video_url": "https://ravok.buzz/video/008bd5ad93b754d500338c253d9c1770",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/008bd5ad93b754d500338c253d9c1770"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvT2V0cHd6ZXNHIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9HaDNmUk1IdGcifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aSExrc19KSTEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbkR4cmRNLWZ5In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9mbFktUjZEcVQifV0%3D"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/qzzakwnxk24t"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 14",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x14/",
-                    "video_url": "https://ravok.buzz/video/3f088ebeda03513be71d34d214291986"
+                    "video_url": "https://ravok.buzz/video/3f088ebeda03513be71d34d214291986",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3f088ebeda03513be71d34d214291986"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVDNnRzA3TUh2In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC82ZmViSjJ3S2QifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9nMl90a3ViNzMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZDVpdkNXbHlLIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9NRWJFRjdUS2QifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 15",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x15/",
-                    "video_url": "https://ravok.buzz/video/6351bf9dce654515bf1ddbd6426dfa97"
+                    "video_url": "https://ravok.buzz/video/6351bf9dce654515bf1ddbd6426dfa97",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6351bf9dce654515bf1ddbd6426dfa97"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvakJWNlV3WUdwIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kTkFiQ1c0a0kifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9vUlM5RUZlblcifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMVVLdV9henhLIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9qaDJReFJYSlQifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 16",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x16/",
-                    "video_url": "https://ravok.buzz/video/06964dce9addb1c5cb5d6e3d9838f733"
+                    "video_url": "https://ravok.buzz/video/06964dce9addb1c5cb5d6e3d9838f733",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/06964dce9addb1c5cb5d6e3d9838f733"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvU0c4RmptRVpKIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC96c0xheFN3RFFQIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb3FDRUFpS3JBIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3FOYnc1M1ZlSSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNmhaVWY0cldHTCJ9XQ%3D%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 17",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x17/",
-                    "video_url": "https://ravok.buzz/video/c5b2cebf15b205503560c4e8e6d1ea78"
+                    "video_url": "https://ravok.buzz/video/c5b2cebf15b205503560c4e8e6d1ea78",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c5b2cebf15b205503560c4e8e6d1ea78"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveFBsS21YR1d3In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9QalJwcGZ6R1UifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9DYzVFUnZpRm8ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZ0V3eTBhQ0xwIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9DZlhOLVpNUU8ifV0%3D"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/i4vny7pgy48w"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 18",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x18/",
-                    "video_url": "https://ravok.buzz/video/5ec829debe54b19a5f78d9a65b900a39"
+                    "video_url": "https://ravok.buzz/video/5ec829debe54b19a5f78d9a65b900a39",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5ec829debe54b19a5f78d9a65b900a39"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcmY0YkxvOEZvIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8zWXJFQzJoVDVXIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvS05OSk8tbElaIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0VYRUFiX0Z4TSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN2JwN1d1TDI3In1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 19",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x19/",
-                    "video_url": "https://ravok.buzz/video/08f90c1a417155361a5c4b8d297e0d78"
+                    "video_url": "https://ravok.buzz/video/08f90c1a417155361a5c4b8d297e0d78",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/08f90c1a417155361a5c4b8d297e0d78"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTzh2bkc5dC1nIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94TWpjNWRSc2UifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9CX2lPNkJ5S1MifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTXFOZnNVSEhZIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9GUkVXR0t3MkIifV0%3D"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/iwsbc0uiet56"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 20",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x20/",
-                    "video_url": "https://ravok.buzz/video/4d951e4a84953a9cbd85cfcbede14509"
+                    "video_url": "https://ravok.buzz/video/4d951e4a84953a9cbd85cfcbede14509",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4d951e4a84953a9cbd85cfcbede14509"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVDJFM2Q1Um5iIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC90cFVWcHZWbHUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9UMUdWMHBVSlQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNUR1QzdjX1ZJIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9qd09PbThNLW4ifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 20",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x20/",
-                    "video_url": "https://ravok.buzz/video/d0fb963ff976f9c37fc81fe03c21ea7b"
+                    "video_url": "https://ravok.buzz/video/d0fb963ff976f9c37fc81fe03c21ea7b",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d0fb963ff976f9c37fc81fe03c21ea7b"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUVAtM0NEaHZfIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8wVDlFWkVaRjAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9JVWFsVS1hU3gifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveGhnQkxpaXB5In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kNURFanRkZmoifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 21",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x21/",
-                    "video_url": "https://ravok.buzz/video/4ba29b9f9e5732ed33761840f4ba6c53"
+                    "video_url": "https://ravok.buzz/video/4ba29b9f9e5732ed33761840f4ba6c53",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4ba29b9f9e5732ed33761840f4ba6c53"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZHhCUjZFeDAwIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9pQXVKbW5pazgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9iZU1MX1NuUTkifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTFpCUEFBUW9ZIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9NVUdVLU9GaWUifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 22",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x22/",
-                    "video_url": "https://ravok.buzz/video/a591024321c5e2bdbd23ed35f0574dde"
+                    "video_url": "https://ravok.buzz/video/a591024321c5e2bdbd23ed35f0574dde",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/a591024321c5e2bdbd23ed35f0574dde"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN0swaVN0UThIIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oVXFjNHJNelkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9nTVRDV0NRTXQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWWZGTl81OUF2In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9DM0Y5WnRKQmkifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 23",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x23/",
-                    "video_url": "https://ravok.buzz/video/b8b4b727d6f5d1b61fff7be687f7970f"
+                    "video_url": "https://ravok.buzz/video/b8b4b727d6f5d1b61fff7be687f7970f",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/b8b4b727d6f5d1b61fff7be687f7970f"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY3ppczlsWE9OIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC91ZXZleXRURGIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hU2JmVHJLWHIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva1JGVGRncUMxIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9pRXhnLTdydVEifV0%3D"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/e22f58j8rhgg"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 24",
                     "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x24/",
-                    "video_url": "https://ravok.buzz/video/d47268e9db2e9aa3827bba3afb7ff94a"
+                    "video_url": "https://ravok.buzz/video/d47268e9db2e9aa3827bba3afb7ff94a",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d47268e9db2e9aa3827bba3afb7ff94a"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY01NY0FiSE1xIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83cDIzbWt0VGQifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC85S3VwNUJYR0IifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb0JCOHFteUFTMCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQWhRTWhmeTlnIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x1/",
+                    "video_url": "https://ravok.buzz/video/fb87582825f9d28a8d42c5e5e5e8b23d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/fb87582825f9d28a8d42c5e5e5e8b23d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva0tNVVZTcDN4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC85Qzl3ZXMzb0wifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9MZC1rck9xNi1CIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzF3aXlPdEFEZCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTHNvaG9USHJQIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x1/",
+                    "video_url": "https://ravok.buzz/video/d77f00766fd3be3f2189c843a6af3fb2",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d77f00766fd3be3f2189c843a6af3fb2"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYjRBQmF3TTE3In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9vWHpJZzBDOWkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9EMndpRnlCUi1jIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0E0VFFEOHNSaCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd1k4WkhQbDNlIn1d"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/t8cxcoatxiw0"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x2/",
+                    "video_url": "https://ravok.buzz/video/e4dd5528f7596dcdf871aa55cfccc53c",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/e4dd5528f7596dcdf871aa55cfccc53c"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvODNUejdFa3Z6In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8zaFRWbHNsVVoifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84YTlBTnlTYm8ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY29qd01MMlM1In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95UGlpZk1VV0YifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x3/",
+                    "video_url": "https://ravok.buzz/video/7f16109f1619fd7a733daf5a84c708c1",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/7f16109f1619fd7a733daf5a84c708c1"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUWU1NDVsb2N6In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8wU3hVNGlza2oifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9meWUxZ2pJNUMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYVFQdlh4WGFiIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9VWF9Xa0FfbzAifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x4/",
+                    "video_url": "https://ravok.buzz/video/f106b7f99d2cb30c3db1c3cc0fde9ccb",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/f106b7f99d2cb30c3db1c3cc0fde9ccb"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb1pjTm9WNy02In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9XMU9ZbTlOamEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9LM2dla1U1RlAifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVWxocVd6dWNiIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8xZGhGVk5lZFoifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x5/",
+                    "video_url": "https://ravok.buzz/video/95f6870ff3dcd442254e334a9033d349",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/95f6870ff3dcd442254e334a9033d349"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaTVzWFlNc3FpIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC80YS0xQS0xSGEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC85ZkNWQ2hBSFAifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWk1IR3U2QnBqIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9LRGUwRDFHWGsifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x6/",
+                    "video_url": "https://ravok.buzz/video/c215b446bcdf956d848a8419c1b5a920",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c215b446bcdf956d848a8419c1b5a920"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRWdyLUtPS0NnIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8xeTUxRXZwXzgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC90cFR1MWhJeDcifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdVE0M3FzOVc0In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81U1hGNEVha18ifV0%3D"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/twq6o8yz3wem"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x7/",
+                    "video_url": "https://ravok.buzz/video/39dcaf7a053dc372fbc391d4e6b5d693",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/39dcaf7a053dc372fbc391d4e6b5d693"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNVZPWGh0ZFBJIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ndWxhXzRmZWwifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jRzZxbmxmck4ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvamQxdzFHckpNIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81R3dIeno3OVAifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x8/",
+                    "video_url": "https://ravok.buzz/video/d46e1fcf4c07ce4a69ee07e4134bcef1",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d46e1fcf4c07ce4a69ee07e4134bcef1"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNkpUeldhWHM2In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9iaU9pNFd1OXcifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9rTDRrNmVNVmoifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvemNDeHFqalA4In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kOW9lanhDdkcifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x9/",
+                    "video_url": "https://ravok.buzz/video/3683af9d6f6c06acee72992f2977f67e",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3683af9d6f6c06acee72992f2977f67e"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSXlYMXA3VWdEIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC96WmYtaHZmTlIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9xZ0pKNlJtaHYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdkYyNVAxTnlxIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95Y1hYNDRyMUIifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x10/",
+                    "video_url": "https://ravok.buzz/video/a82d922b133be19c1171534e6594f754",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/a82d922b133be19c1171534e6594f754"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZmt6ajdqYzk2In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8yc2pYbGo1MHUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9zczVJYzE4NXN5In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1V2X21QWml0eiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvalNmSWFSSjZzIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x11/",
+                    "video_url": "https://ravok.buzz/video/98c7242894844ecd6ec94af67ac8247d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/98c7242894844ecd6ec94af67ac8247d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLW1vMl9GSGdURyJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveVp5VGtyam1wIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTVh5QW5jUk5tIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0hwcmxrSmt2RiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVGFEYUd5dVBHIn1d"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/70iixg10k6e3"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x12/",
+                    "video_url": "https://ravok.buzz/video/4d8556695c262ab91ff51a943fdd6058",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4d8556695c262ab91ff51a943fdd6058"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTGE1YW1iQ1lJIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9LYUdLMlBlenkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC85aFZPYm4xLU0ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTmg3bDMtZm5nIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TN2FNUDEwSXUifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 13",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x13/",
+                    "video_url": "https://ravok.buzz/video/0004d0b59e19461ff126e3a08a814c33",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/0004d0b59e19461ff126e3a08a814c33"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNDVkVFFkMm5mIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9nSUJ6blFORkwifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC93M2RBNVRLSWsifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZThZQVBETnV0In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC93b0RPaEU0dmUifV0%3D"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/028iah6pn9ei"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 14",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x14/",
+                    "video_url": "https://ravok.buzz/video/de73998802680548b916f1947ffbad76",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/de73998802680548b916f1947ffbad76"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveGRycEZlQzRfIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TUVV4TXBzNmoifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9XMU5SSVNCV2t5In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1FjR3VrMWNmNCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSld4T05tRjl6RyJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 15",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x15/",
+                    "video_url": "https://ravok.buzz/video/c4de8ced6214345614d33fb0b16a8acd",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c4de8ced6214345614d33fb0b16a8acd"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZERTc1FCemtjIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9OaEJQMHgzaHAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9XYjVfMGt5VDgifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQUw5bW83NUdlIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC90V1Q4endmZ3oifV0%3D"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/zshi40wbod5r"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 16",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x16/",
+                    "video_url": "https://ravok.buzz/video/deb54ffb41e085fd7f69a75b6359c989",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/deb54ffb41e085fd7f69a75b6359c989"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbmk0TXVzWFpVIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9mWGRSc291THUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9CMk00a1BTZEoifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTU9LNnRlcHVxOCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQ3JVOThLSnFPIn1d"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/a7472ccj9tlm"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 17",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x17/",
+                    "video_url": "https://ravok.buzz/video/3d863b367aa379f71c7afc0c9cdca41d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3d863b367aa379f71c7afc0c9cdca41d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTm1kX1RSNU96In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oZ3RUajE4Y0sifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9PbUtrNDVJWFEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvc1NpRVdMdkFHIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZU0ZVOU5oc0kifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 18",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x18/",
+                    "video_url": "https://ravok.buzz/video/7d2b92b6726c241134dae6cd3fb8c182",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/7d2b92b6726c241134dae6cd3fb8c182"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTWp3Y2VveVUzIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9lNkQzTkhXeGIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9OYnU3ME5kYnIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMWZEeVo0WXJfIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC96NmxDMW9rWUwifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 19",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x19/",
+                    "video_url": "https://ravok.buzz/video/dd055f53a45702fe05e449c30ac80df9",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/dd055f53a45702fe05e449c30ac80df9"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWUUzRWlHa0VDIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9MZ0tzMkgxcjkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC96dUxwSzduUUQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSldDQXRwV2ptIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ldlEteFpHT0oifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x20/",
+                    "video_url": "https://ravok.buzz/video/4d951e4a84953a9cbd85cfcbede14509",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4d951e4a84953a9cbd85cfcbede14509"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVDJFM2Q1Um5iIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC90cFVWcHZWbHUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9UMUdWMHBVSlQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNUR1QzdjX1ZJIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9qd09PbThNLW4ifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x20/",
+                    "video_url": "https://ravok.buzz/video/4afd521d77158e02aed37e2274b90c9c",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4afd521d77158e02aed37e2274b90c9c"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvV1c4dUxneHN6In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9zRlV5Q3FpNEgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9fRHd4bGtLTFIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTWFTTDJKN2dBIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9tQ1ZXWlQxajEifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 21",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x21/",
+                    "video_url": "https://ravok.buzz/video/405e28906322882c5be9b4b27f4c35fd",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/405e28906322882c5be9b4b27f4c35fd"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQ0tlQVc2SVNKIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94dnRBQm84TTEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9DSjZudkVhY0cifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaU5Yd2xRak0yIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hcmYwMlZyNXUifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 22",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x22/",
+                    "video_url": "https://ravok.buzz/video/798cebccb32617ad94123450fd137104",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/798cebccb32617ad94123450fd137104"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb09RM1FKVEJQIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC96Q3dZVDFPdlQifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9IeG1MMy0zMTQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdUNtbHMtakQwIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9Hb1IxMm9WUGsifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 23",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x23/",
+                    "video_url": "https://ravok.buzz/video/f80bf05527157a8c2a7bb63b22f49aaa",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/f80bf05527157a8c2a7bb63b22f49aaa"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVkxWb1RVUVc1In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9RNHZ3Um1GWkcifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC90VDR1RFUyeXYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUm8tWVRkYW95In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8zRURRYmEyamcifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 24",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-2x24/",
+                    "video_url": "https://ravok.buzz/video/b3b4d2dbedc99fe843fd3dedb02f086f",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/b3b4d2dbedc99fe843fd3dedb02f086f"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOW9xU2lPTkJvIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9LYVFYM3ZTX2QifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9RV3hBUktiREMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYmhqV0NscmxZIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC92S1J1MElkLUtXIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x1/",
+                    "video_url": "https://ravok.buzz/video/fb87582825f9d28a8d42c5e5e5e8b23d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/fb87582825f9d28a8d42c5e5e5e8b23d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva0tNVVZTcDN4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC85Qzl3ZXMzb0wifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9MZC1rck9xNi1CIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzF3aXlPdEFEZCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTHNvaG9USHJQIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x1/",
+                    "video_url": "https://ravok.buzz/video/68881d2246abebc3aa474b51ecd7773e",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/68881d2246abebc3aa474b51ecd7773e"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb2lLaFZCQTRWIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94S1EtblVvWTUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9NaTZpcUsxNWkifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVXNnMUxsTy1qIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9lOElxM0hiZ0cifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x2/",
+                    "video_url": "https://ravok.buzz/video/cf011ff8d8380280133bce806e0f7bb1",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/cf011ff8d8380280133bce806e0f7bb1"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUEluS0E0UnR3In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC93Rjd1X0MxeUkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9OdGlac29kb2cifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUE5OTWdMdm5mIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94MWdJX0g3cWYifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x3/",
+                    "video_url": "https://ravok.buzz/video/47a7f2c033801a8185243e6ca8df5fae",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/47a7f2c033801a8185243e6ca8df5fae"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUFdCMGdPR0FmIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8tWVVUeWZLVjEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TOWJaX0x6ZkQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaXc2TEFtWGJ0In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9Cc0pXdWxkVU8ifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x4/",
+                    "video_url": "https://ravok.buzz/video/3fe230348e9a12c13120749e3f9fa4cd",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3fe230348e9a12c13120749e3f9fa4cd"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZHRpajVIZXdrIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9OSVkxN3VScFgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9IOXpmUmN2WWYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb0cxdGJTSk9jIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WTFVhc2huaG8ifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x5/",
+                    "video_url": "https://ravok.buzz/video/3941c4358616274ac2436eacf67fae05",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3941c4358616274ac2436eacf67fae05"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUG9ENVR0bzN4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84OE1mczQ2WkcifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83WnJibTV2Yi0ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZEhTNm1nM1V3In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9pUHJONFFjNnEifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x6/",
+                    "video_url": "https://ravok.buzz/video/690f44c8c2b7ded579d01abe8fdb6110",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/690f44c8c2b7ded579d01abe8fdb6110"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY1dxYzBBX1JxNCJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvODNkcmhEbDhWIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRlBndGxFZlIwIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1g1NHVobVIwZyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdjJRaG56OXR6In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x7/",
+                    "video_url": "https://ravok.buzz/video/d428d070622e0f4363fceae11f4a3576",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d428d070622e0f4363fceae11f4a3576"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNnl5MmY3Wi1CIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9UMzEtOS1LZkQifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9Gdk80aXFYNGwifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvX21zLXBRMUt6In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZeXQwd2xabVAifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x8/",
+                    "video_url": "https://ravok.buzz/video/71969a804c28c0961383008958497b1b",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/71969a804c28c0961383008958497b1b"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbEluN2MybkhSIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aeWtlbjlPaGEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kaFFna2NjUkkifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSndKakZ2U2VnIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC80bUJGbVV6eGIifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x9/",
+                    "video_url": "https://ravok.buzz/video/d882050bb9eeba930974f596931be527",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d882050bb9eeba930974f596931be527"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvS2pFclludExEIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC92eDFteDl1VDIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81Q2xQdnA5ZDgifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdlVVMi1vb0VjIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8tM0E1SzNNVksifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x10/",
+                    "video_url": "https://ravok.buzz/video/e5fc3b8d9510b02e42361c337597d9fa",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/e5fc3b8d9510b02e42361c337597d9fa"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVnJTV09hcG5uIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8xbjNuNkVWMFMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WcjR4cF9WNFYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdXpRdHNNUEhYIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC96Mlo0c3hmOUcifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x11/",
+                    "video_url": "https://ravok.buzz/video/4be49c79f233b4f4070794825c323733",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4be49c79f233b4f4070794825c323733"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcE12LTEzeEw4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95ZU9GQVpNMUxWIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWTVDRUhvLWtKdCJ9LHsibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9obV9JQ1JGdncifSx7Imxhbmd1YWdlIjoiSmFwYW5lc2UiLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzd0RXl2VWlQeCJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x12/",
+                    "video_url": "https://ravok.buzz/video/19e21d13715b9720d8c00977145f1dd8",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/19e21d13715b9720d8c00977145f1dd8"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdXNXNzFjMFRaIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94ZHY3d25lMV8ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9PSFB5alpuaUgifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva2ZBM2ZZN3FEIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9rekZKZmhwVjUifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 13",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x13/",
+                    "video_url": "https://ravok.buzz/video/bc6d753857fe3dd4275dff707dedf329",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/bc6d753857fe3dd4275dff707dedf329"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQWpOMEVyRDBfIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9meEcxSlctTGUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83UWRTWngwQksifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMm85NGRBODd6In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC85NktfaGFNbFdkIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 14",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x14/",
+                    "video_url": "https://ravok.buzz/video/aff53752790c8c5348954c335c5ad682",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/aff53752790c8c5348954c335c5ad682"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveVAxNFpWYlVmIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8yZ0lUUlU2M0sifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hOUk0a2NOdWUifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb3FOTm84QkJnIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9EaVVVT0dLeW0ifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 15",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x15/",
+                    "video_url": "https://ravok.buzz/video/3eb65004054f5d21fca4087f5658c727",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3eb65004054f5d21fca4087f5658c727"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSUFySDBvWFRSIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9qTkdISlpwUEEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9NR21SX1phN0QifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN09yaGF4S1QyIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83MVhQbHV2SnoifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 16",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x16/",
+                    "video_url": "https://ravok.buzz/video/c2ddc87b68fed4f62a29c1ff816f58b0",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c2ddc87b68fed4f62a29c1ff816f58b0"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQkEtbzdHMWpLIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC91WmtUYjNXMW0ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hSmtwU1VXdloifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvU0JuNzFzMzZ5In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83ano1dWU3N2UifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 17",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x17/",
+                    "video_url": "https://ravok.buzz/video/076ccd93ad68be51f23707988e934906",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/076ccd93ad68be51f23707988e934906"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTTYydE1aSHZKIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9nRXhhRzVBYjYifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZQ0pNRTVLRjAifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveTFYRTBTMFFjIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aLTFDUV9sRGsifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 18",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x18/",
+                    "video_url": "https://ravok.buzz/video/2b515e2bdd63b7f034269ad747c93a42",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/2b515e2bdd63b7f034269ad747c93a42"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva29PRVFoV3I3In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9MY1lRVnhINloifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9xaWU2Yjd1YmkifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcjd5b3REeVdMIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9UX0JkTzhGa3IifV0%3D"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/lzqo5cmeya5j"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 19",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x19/",
+                    "video_url": "https://ravok.buzz/video/b8ffa41d4e492f0fad2f13e29e1762eb",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/b8ffa41d4e492f0fad2f13e29e1762eb"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd1RCRFJfeVNpIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TNXhsSk93WlkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9wYUFhbDdKOUMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveUltdmFucmwtIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZdjRGM3F0bTkifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x20/",
+                    "video_url": "https://ravok.buzz/video/4d951e4a84953a9cbd85cfcbede14509",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4d951e4a84953a9cbd85cfcbede14509"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVDJFM2Q1Um5iIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC90cFVWcHZWbHUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9UMUdWMHBVSlQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNUR1QzdjX1ZJIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9qd09PbThNLW4ifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x20/",
+                    "video_url": "https://ravok.buzz/video/df0b8fb21c53254b7afa62e020447c81",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/df0b8fb21c53254b7afa62e020447c81"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvX01nTWxacm1kIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9KajJ4LXV6QjcifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oZkFndUpGRFNEIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzV1Mnp0aWlDViJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN0F1NVNJTXMyIn1d"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/f8khcp6508b6"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 21",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x21/",
+                    "video_url": "https://ravok.buzz/video/36455d3b4aa959a5a5799f2316c06660",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/36455d3b4aa959a5a5799f2316c06660"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYTg1dEF0eEpHIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC82N0F5SXUyWkIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9qUE9qOGl6SlQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvejZMUjh3ZWl2In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84dWJYak5oOVQifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 22",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x22/",
+                    "video_url": "https://ravok.buzz/video/32b683d9d8e73d3eeb6bf08fe0817402",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/32b683d9d8e73d3eeb6bf08fe0817402"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSHB1d0JaYUl3In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81VnpfOVp3ZW1PIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOHNLdmpuZXdEIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3Y2dkxnLVFTZyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdnZrUXNHOFVWIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 23",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x23/",
+                    "video_url": "https://ravok.buzz/video/bf2fe6582ed9ead9161a3d6f6b1d6858",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/bf2fe6582ed9ead9161a3d6f6b1d6858"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaDB6ak9FZ1J4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9iaTQ4TTM3QjdSIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVzZiRmVvX0NZIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0hwN0kwWXlYbyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaUgzb3RhekRFIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 24",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-3x24/",
+                    "video_url": "https://ravok.buzz/video/7a951116de2a4c23c74733d76046a5b4",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/7a951116de2a4c23c74733d76046a5b4"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWVJvMThMcWUxIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9nVWtZNm1MRHRoIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSkkySkFDT196USJ9LHsibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9NMjhYM0JfNTkifSx7Imxhbmd1YWdlIjoiSmFwYW5lc2UiLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL05NT2d6MVF0LSJ9XQ%3D%3D"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/inh8d33ggt5c"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-1x1/",
+                    "video_url": "https://ravok.buzz/video/fb87582825f9d28a8d42c5e5e5e8b23d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/fb87582825f9d28a8d42c5e5e5e8b23d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva0tNVVZTcDN4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC85Qzl3ZXMzb0wifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9MZC1rck9xNi1CIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzF3aXlPdEFEZCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTHNvaG9USHJQIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x1/",
+                    "video_url": "https://ravok.buzz/video/af9c36fe9a3205c8b7a2011402679887",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/af9c36fe9a3205c8b7a2011402679887"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvM3lJYndBcGoyIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9OLU9PbE9YdWkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9vS0VuMlhYdVAifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZzIyLWx2MGdIIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9fYkl0bWZ3U3MifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x2/",
+                    "video_url": "https://ravok.buzz/video/6005fb5ae0d58f2b5c9dd63b6089b92b",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6005fb5ae0d58f2b5c9dd63b6089b92b"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbkNqWnItNl9uIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9LR1dLajV0eUIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8zRmgtcm5IMHBGIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0N5UE5lcHNKdiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWk1PdUpqa1BTIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x3/",
+                    "video_url": "https://ravok.buzz/video/3e962db4a16e6df50fd73afc752f3f89",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3e962db4a16e6df50fd73afc752f3f89"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVWpXQ1p5SUpyIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WVm9jSEJGMnYifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hNlBXa0xYZEwifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZzJOMVBLbDRQIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9abndxRzdGdzZRIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x4/",
+                    "video_url": "https://ravok.buzz/video/8b1d4dae4314191be293526cf052e257",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/8b1d4dae4314191be293526cf052e257"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQjl3MDItZDlsTyJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRDNocl9NUUxDIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaEliOFFibGZKIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2pIdmRuNDZkcSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbVFEUHNxdWdtIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x5/",
+                    "video_url": "https://ravok.buzz/video/d095e9553703cc6e3d058c3b70e8e6ce",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d095e9553703cc6e3d058c3b70e8e6ce"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvM3J2dVZPZ1NFaCJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvem1fZFJnV3RQIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva1RNd3NBSkZMIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0FlNW4wLXJTTSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZTZRMU1lWjkwMCJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x6/",
+                    "video_url": "https://ravok.buzz/video/567ed37f3e011ed702bbf9d2631a1565",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/567ed37f3e011ed702bbf9d2631a1565"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMThaUXlZVWIyIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9NWlZyc0lGakZWIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcUhIWjViZnV6In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3hHSHVxeXUtSyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOUN0TUtaSERPIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x7/",
+                    "video_url": "https://ravok.buzz/video/a7a0da96b4c16537050114ceed8368c9",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/a7a0da96b4c16537050114ceed8368c9"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNHJsU051ZVVPIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZdFFwSll0d3UifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9CZFFJSVFHWDAifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTU92U3ZCdFRPIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TM183eFdBTzUifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x8/",
+                    "video_url": "https://ravok.buzz/video/4edd5677e5cd6bd28b12373f1a14a3f0",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4edd5677e5cd6bd28b12373f1a14a3f0"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQ0FOVnpiYnFBIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ISjAySEh5NlkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95NzlpNW5ZSnVPIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzVDSWlKTXoxQyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLU1rUDZMM1dlIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x9/",
+                    "video_url": "https://ravok.buzz/video/a6a4398accc1bec791a19e262725bee3",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/a6a4398accc1bec791a19e262725bee3"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYTlaQTYtck1aIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9YR3JDQ0hWWkYifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9DN0JENlFYN1AifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcG5VQXJEUWRCTyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSkQ3YnJSUU1CIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x10/",
+                    "video_url": "https://ravok.buzz/video/66a733febe222a5f3ae377f413c19305",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/66a733febe222a5f3ae377f413c19305"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVEktcjQzcUZYIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8xc0xjeDV2QlIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aOGVqYTRQa1QifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvS1dTaTNTZ0I0In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9iRmFHVFR0UDcifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x11/",
+                    "video_url": "https://ravok.buzz/video/87acc42a82fb7ace361a4c390d047f74",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/87acc42a82fb7ace361a4c390d047f74"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLXNOZC1NVGhKIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9HWkVMUWg3Z0UifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8yc1YxQl9pLWwifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLUNpU1FXMmh1In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9Hd3lVc0Y5WUwifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x12/",
+                    "video_url": "https://ravok.buzz/video/8a58beb9988f8b83e2f4ad93576c2f6a",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/8a58beb9988f8b83e2f4ad93576c2f6a"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdEhwNlFHM0lzRCJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvR3VkV2I3bHlIIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQktHU2llbGI1In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1FNR0VKdG85NyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOC1UNFRUOWotIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 13",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x13/",
+                    "video_url": "https://ravok.buzz/video/ed0eebbaa23beae2d9fcb2fd70cd6feb",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/ed0eebbaa23beae2d9fcb2fd70cd6feb"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdHZrOVdQU2tqIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9YenB5aHdlYzAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9Za29fbkJobC0ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUnUtSDFsRlQzIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9OX0hKSXEyR24ifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 14",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x14/",
+                    "video_url": "https://ravok.buzz/video/6e890e85592f3ffa529332e0e35bc207",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6e890e85592f3ffa529332e0e35bc207"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvREwwYTFkcnZqIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUkxUa282aDJGIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzBiX1k5YW1xcSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveVI1T1k5M2EzIn0seyJsYW5ndWFnZSI6IkhpbmRpIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9qOUtzT3gyRnkifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 15",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x15/",
+                    "video_url": "https://ravok.buzz/video/9a1a05c42c96b161ecd2884b758e114a",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/9a1a05c42c96b161ecd2884b758e114a"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOWhHc05RNUxZIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9NS0YxbldBS0sifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9fWUZac1piWjcifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaGZIdnBHTFBlIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9tRHozLTFDV2YifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 16",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x16/",
+                    "video_url": "https://ravok.buzz/video/108fe115000c147427da50c2b0c9ce31",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/108fe115000c147427da50c2b0c9ce31"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 17",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x17/",
+                    "video_url": "https://ravok.buzz/video/62f6e7ceadd1f1eb64fe5d6936e7122b",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/62f6e7ceadd1f1eb64fe5d6936e7122b"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSUlmM2ExYThPIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8xaWZSZk9NVjkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9xa0Z2eWNxZ2UifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQXk4ZGRPSk5nIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kbjMzY2hmUWEifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 18",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x18/",
+                    "video_url": "https://ravok.buzz/video/6f3e24662182e125fc58299809ee6a67",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6f3e24662182e125fc58299809ee6a67"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY2pMaHpwTjc1In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8yWXNwaGRRM0QifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZS0xqX3lBeDcifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMzJkdFpiZ0xQIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83SjIxbzZWdk0zIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 19",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x19/",
+                    "video_url": "https://ravok.buzz/video/3f332c6d5115412c25d90fb4b5028a18",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3f332c6d5115412c25d90fb4b5028a18"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdG9Cdmd0amwyIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94cjFCY0VpTXUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9zTWRhRzhPMDAifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTUNYYWtzRlhJIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TLTNmNkROVE4ifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x20/",
+                    "video_url": "https://ravok.buzz/video/4d951e4a84953a9cbd85cfcbede14509",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4d951e4a84953a9cbd85cfcbede14509"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVDJFM2Q1Um5iIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC90cFVWcHZWbHUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9UMUdWMHBVSlQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNUR1QzdjX1ZJIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9qd09PbThNLW4ifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "That Time I Got Reincarnated as a Slime 4x21",
+                    "ep_num": "21",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x21/",
+                    "video_url": "https://ravok.buzz/video/d252374cef7c9c687b095cc8f7fac721",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d252374cef7c9c687b095cc8f7fac721"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveDRuM09oanhPIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8xdThVdkpEMWEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9IYURXYy1oejYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTURuRHBQREhRYiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTFowTEpSeXk1In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "That Time I Got Reincarnated as a Slime 4x22",
+                    "ep_num": "22",
+                    "url": "https://animesalt.cx/episode/that-time-i-got-reincarnated-as-a-slime-4x22/",
+                    "video_url": "https://ravok.buzz/video/3ff55afdf16fea13cf00f29dddc53948",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3ff55afdf16fea13cf00f29dddc53948"
+                        }
+                    ]
                 }
             ]
         },
@@ -7600,6 +9368,18 @@
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWWR3c0JWbThJIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9VeGdhM2NSNGwifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9JM3Zsc1k1VU4ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOFI5cTZWVm1CIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81VlNodnlMSHIifV0%3D"
                                 }
                             ]
+                        },
+                        {
+                            "title": "The Exiled Heavy Knight Knows How to Game the System 1x14",
+                            "ep_num": "14",
+                            "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x14/",
+                            "video_url": "https://ravok.buzz/video/aae14bda33aa45a1d45d45011529b806",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/aae14bda33aa45a1d45d45011529b806"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -7608,62 +9388,198 @@
                 {
                     "title": "Episode 1",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x1/",
-                    "video_url": "https://ravok.buzz/video/31bc5644ae198ad96dd9f2438bfdae3a"
+                    "video_url": "https://ravok.buzz/video/31bc5644ae198ad96dd9f2438bfdae3a",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/31bc5644ae198ad96dd9f2438bfdae3a"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd01xM3BXUHkwIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9BM1lGUE02SGcifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WbjMtdFAtbTcifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYlJFU2ZZU3pJIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aUHFzcEwwUWIifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 2",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x2/",
-                    "video_url": "https://ravok.buzz/video/099e842af821e68c6b90d20ddcfc0fc8"
+                    "video_url": "https://ravok.buzz/video/099e842af821e68c6b90d20ddcfc0fc8",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/099e842af821e68c6b90d20ddcfc0fc8"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvc2w1LU9kb21xIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84VThhekh2elkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9GYzJ1d2NTMEgifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcHV6V1ZtYjlJIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aRXhuZXBsMEMifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 3",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x3/",
-                    "video_url": "https://ravok.buzz/video/da383b7f4fb8b92bb70373274bfa6879"
+                    "video_url": "https://ravok.buzz/video/da383b7f4fb8b92bb70373274bfa6879",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/da383b7f4fb8b92bb70373274bfa6879"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvemJXajBhNEV2In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oYjFSVnRIeDIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9feGZhMHI0akUifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvU3VHa1VfZzNuIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9lY3JIeE5yOE0ifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 4",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x4/",
-                    "video_url": "https://ravok.buzz/video/c5c3478127f5e50e49b50a3846afe884"
+                    "video_url": "https://ravok.buzz/video/c5c3478127f5e50e49b50a3846afe884",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c5c3478127f5e50e49b50a3846afe884"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvanR5N01WY3ZSIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9wb2ZCRnd5NUUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC96MUxYUFhlTXQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSmtnYXRLYXdjIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9UM0VCZFlod3cifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 5",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x5/",
-                    "video_url": "https://ravok.buzz/video/42cf125df2e054b2a12810263cda40b0"
+                    "video_url": "https://ravok.buzz/video/42cf125df2e054b2a12810263cda40b0",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/42cf125df2e054b2a12810263cda40b0"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUVRFbWVzM1FYIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9CVXZ2ZDBTWnYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvT19DNld5bmFLIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oVDdYUl83MHQifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9LNk4xWkZyVnEifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 6",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x6/",
-                    "video_url": "https://ravok.buzz/video/b759459d85d5c74ebd26499bbdb165e1"
+                    "video_url": "https://ravok.buzz/video/b759459d85d5c74ebd26499bbdb165e1",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/b759459d85d5c74ebd26499bbdb165e1"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNzVQcDFGaTh4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9BUGRtZVJlczgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9VS0Ruamh3NzAifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdHk5VnlkUE5WIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9RdzZOSVBJVngifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 7",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x7/",
-                    "video_url": "https://ravok.buzz/video/d54be4ff5a9dad8e016206a562bb7915"
+                    "video_url": "https://ravok.buzz/video/d54be4ff5a9dad8e016206a562bb7915",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d54be4ff5a9dad8e016206a562bb7915"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveXJOeVpuanN4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC82ZlFVX2Nkdy0ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kNldQQ2cxRnkifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZjVRSDdUTWF3In0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9fT3NWQ3RlUDUifV0%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 8",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x8/",
-                    "video_url": "https://ravok.buzz/video/7cbc8120edbc9108520a43532f5439a6"
+                    "video_url": "https://ravok.buzz/video/7cbc8120edbc9108520a43532f5439a6",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/7cbc8120edbc9108520a43532f5439a6"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 9",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x9/",
-                    "video_url": "https://ravok.buzz/video/da38769133a761c1db1bf48db6e4a135"
+                    "video_url": "https://ravok.buzz/video/da38769133a761c1db1bf48db6e4a135",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/da38769133a761c1db1bf48db6e4a135"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 10",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x10/",
-                    "video_url": "https://ravok.buzz/video/a5d16104be85fc85838ce2259c88f2cb"
+                    "video_url": "https://ravok.buzz/video/a5d16104be85fc85838ce2259c88f2cb",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/a5d16104be85fc85838ce2259c88f2cb"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSVY1X3BPVVpJIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9FZ1pfSHJwdFIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZUmZWeG52eFhXIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzZkN1VEVFNoSlIifSx7Imxhbmd1YWdlIjoiSmFwYW5lc2UiLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1hQNE53Z1l2UCJ9XQ%3D%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 11",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x11/",
-                    "video_url": "https://ravok.buzz/video/78e2010baad1af028423f6b9db642f53"
+                    "video_url": "https://ravok.buzz/video/78e2010baad1af028423f6b9db642f53",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/78e2010baad1af028423f6b9db642f53"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNkpyeXBsRVRuZSJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdkp5cE5ETEI0In0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUTJIM1VzNk1JIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0hxOGhFRWNqTSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMW96aXREa3VUIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 12",
                     "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x12/",
-                    "video_url": "https://ravok.buzz/video/1424a2874fbe1b99f48b836ca8952541"
+                    "video_url": "https://ravok.buzz/video/1424a2874fbe1b99f48b836ca8952541",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/1424a2874fbe1b99f48b836ca8952541"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Exiled Heavy Knight Knows How to Game the System 1x13",
+                    "ep_num": "13",
+                    "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x13/",
+                    "video_url": "https://ravok.buzz/video/1135230be8c1d1853111db00c02d48bb",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/1135230be8c1d1853111db00c02d48bb"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWWR3c0JWbThJIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9VeGdhM2NSNGwifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9JM3Zsc1k1VU4ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOFI5cTZWVm1CIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81VlNodnlMSHIifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Exiled Heavy Knight Knows How to Game the System 1x14",
+                    "ep_num": "14",
+                    "url": "https://animesalt.cx/episode/the-exiled-heavy-knight-knows-how-to-game-the-system-1x14/",
+                    "video_url": "https://ravok.buzz/video/aae14bda33aa45a1d45d45011529b806",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/aae14bda33aa45a1d45d45011529b806"
+                        }
+                    ]
                 }
             ]
         },
@@ -7750,6 +9666,18 @@
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYjkzODU3U1NoIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9idUtVVnM3YTUifV0%3D"
                                 }
                             ]
+                        },
+                        {
+                            "title": "The Frontier Lord Begins with Zero Subjects 1x6",
+                            "ep_num": "6",
+                            "url": "https://animesalt.cx/episode/the-frontier-lord-begins-with-zero-subjects-1x6/",
+                            "video_url": "https://ravok.buzz/video/deabeaf0bc00589d890fa81d23f56bf5",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/deabeaf0bc00589d890fa81d23f56bf5"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -7758,12 +9686,88 @@
                 {
                     "title": "Episode 1",
                     "url": "https://animesalt.cx/episode/the-frontier-lord-begins-with-zero-subjects-1x1/",
-                    "video_url": "https://ravok.buzz/video/fcbb3a1c04ec11f1506563c26ca63774"
+                    "video_url": "https://ravok.buzz/video/fcbb3a1c04ec11f1506563c26ca63774",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/fcbb3a1c04ec11f1506563c26ca63774"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 4",
                     "url": "https://animesalt.cx/episode/the-frontier-lord-begins-with-zero-subjects-1x4/",
-                    "video_url": "https://ravok.buzz/video/91be0e18777ce6c751271fcc00d93d87"
+                    "video_url": "https://ravok.buzz/video/91be0e18777ce6c751271fcc00d93d87",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/91be0e18777ce6c751271fcc00d93d87"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdk5DUHhLbzQxIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9YTG5sMzY1ZkoifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Frontier Lord Begins with Zero Subjects 1x2",
+                    "ep_num": "2",
+                    "url": "https://animesalt.cx/episode/the-frontier-lord-begins-with-zero-subjects-1x2/",
+                    "video_url": "https://ravok.buzz/video/d059f8fe3d5acacbe25424c27759f111",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d059f8fe3d5acacbe25424c27759f111"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVFVVZ1dHOFBiIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9wc01yeHFGdHcifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Frontier Lord Begins with Zero Subjects 1x3",
+                    "ep_num": "3",
+                    "url": "https://animesalt.cx/episode/the-frontier-lord-begins-with-zero-subjects-1x3/",
+                    "video_url": "https://ravok.buzz/video/74b72ae2ee96f9be8900a13e80fb63ac",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/74b72ae2ee96f9be8900a13e80fb63ac"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQ3RGVnE1ZmNxIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83Y0VWeGcxRjYifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Frontier Lord Begins with Zero Subjects 1x5",
+                    "ep_num": "5",
+                    "url": "https://animesalt.cx/episode/the-frontier-lord-begins-with-zero-subjects-1x5/",
+                    "video_url": "https://ravok.buzz/video/3e019581fb114fb0708e3f0b5429744d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3e019581fb114fb0708e3f0b5429744d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYjkzODU3U1NoIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9idUtVVnM3YTUifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Frontier Lord Begins with Zero Subjects 1x6",
+                    "ep_num": "6",
+                    "url": "https://animesalt.cx/episode/the-frontier-lord-begins-with-zero-subjects-1x6/",
+                    "video_url": "https://ravok.buzz/video/deabeaf0bc00589d890fa81d23f56bf5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/deabeaf0bc00589d890fa81d23f56bf5"
+                        }
+                    ]
                 }
             ]
         },
