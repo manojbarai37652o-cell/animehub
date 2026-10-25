@@ -4531,6 +4531,18 @@
                                     "url": "https://ravok.buzz/video/188e30ebbc769aeda748b09cec89f0bb"
                                 }
                             ]
+                        },
+                        {
+                            "title": "Jaadugar: A Witch in Mongolia 1x11",
+                            "ep_num": "11",
+                            "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x11/",
+                            "video_url": "https://ravok.buzz/video/23a5896c4fb3b725e29567adc0779f10",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/23a5896c4fb3b725e29567adc0779f10"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -4539,47 +4551,157 @@
                 {
                     "title": "Episode 1",
                     "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x1/",
-                    "video_url": "https://ravok.buzz/video/2a83c2b6e517f17cae341a080c27d8e2"
+                    "video_url": "https://ravok.buzz/video/2a83c2b6e517f17cae341a080c27d8e2",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/2a83c2b6e517f17cae341a080c27d8e2"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWmFZT2k4czB3In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2h4V1hIYlhpcCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcDJyZmo0bmRFIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 2",
                     "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x2/",
-                    "video_url": "https://ravok.buzz/video/c8245970f4b8928346f669bf62dbc288"
+                    "video_url": "https://ravok.buzz/video/c8245970f4b8928346f669bf62dbc288",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c8245970f4b8928346f669bf62dbc288"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvS0xlS1pRQ3l2In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2VnQVFyMjIzdiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMDRRUkJkQS0tIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 3",
                     "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x3/",
-                    "video_url": "https://ravok.buzz/video/e3f2b325739bbe549d3875450b27a3a1"
+                    "video_url": "https://ravok.buzz/video/e3f2b325739bbe549d3875450b27a3a1",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/e3f2b325739bbe549d3875450b27a3a1"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQ1lSUFJ6X1N1In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3Y0YXl3OTBKaSJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUDNQb284MUFpIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 4",
                     "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x4/",
-                    "video_url": "https://ravok.buzz/video/6b71c628253026a0f563beb5dd759d41"
+                    "video_url": "https://ravok.buzz/video/6b71c628253026a0f563beb5dd759d41",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6b71c628253026a0f563beb5dd759d41"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUWF3UHpiWWFhIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3d5a2pkeFJESiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUlV0SlZvT2pnIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 5",
                     "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x5/",
-                    "video_url": "https://ravok.buzz/video/fd11255337d0a02076a3915eb1344bd9"
+                    "video_url": "https://ravok.buzz/video/fd11255337d0a02076a3915eb1344bd9",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/fd11255337d0a02076a3915eb1344bd9"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTVhVaTlWaEphIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2pDYlRlTWxWYyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd0NkSTgxNWw0In1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 6",
                     "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x6/",
-                    "video_url": "https://ravok.buzz/video/3d8338aae982b9c8be5f66ff9b91823e"
+                    "video_url": "https://ravok.buzz/video/3d8338aae982b9c8be5f66ff9b91823e",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3d8338aae982b9c8be5f66ff9b91823e"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWXlRSml3c3R6In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL01NTUdzRktnVCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMFNiQTk3cnctIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 7",
                     "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x7/",
-                    "video_url": "https://ravok.buzz/video/90be09f2c0cf80e0004fc73d2a72473d"
+                    "video_url": "https://ravok.buzz/video/90be09f2c0cf80e0004fc73d2a72473d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/90be09f2c0cf80e0004fc73d2a72473d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvM2hNZzdKNlVSIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL09ONHRac0ZQUCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTGdYZm85N0p5In1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 8",
                     "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x8/",
-                    "video_url": "https://ravok.buzz/video/cf997fc1f9dcc27496e350d4d0f6a79f"
+                    "video_url": "https://ravok.buzz/video/cf997fc1f9dcc27496e350d4d0f6a79f",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/cf997fc1f9dcc27496e350d4d0f6a79f"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 9",
                     "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x9/",
-                    "video_url": "https://ravok.buzz/video/2555b8e9861b4b0e141181b725fb1b3b"
+                    "video_url": "https://ravok.buzz/video/2555b8e9861b4b0e141181b725fb1b3b",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/2555b8e9861b4b0e141181b725fb1b3b"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaHNGajZsLXZKIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL280TUppTEdhTCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZXVKc21PUFd0In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Jaadugar: A Witch in Mongolia 1x10",
+                    "ep_num": "10",
+                    "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x10/",
+                    "video_url": "https://ravok.buzz/video/188e30ebbc769aeda748b09cec89f0bb",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/188e30ebbc769aeda748b09cec89f0bb"
+                        }
+                    ]
+                },
+                {
+                    "title": "Jaadugar: A Witch in Mongolia 1x11",
+                    "ep_num": "11",
+                    "url": "https://animesalt.cx/episode/jaadugar-a-witch-in-mongolia-1x11/",
+                    "video_url": "https://ravok.buzz/video/23a5896c4fb3b725e29567adc0779f10",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/23a5896c4fb3b725e29567adc0779f10"
+                        }
+                    ]
                 }
             ]
         },
@@ -8889,6 +9011,18 @@
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRHB1WHpkek9BIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3NZOW5BTWRaYWIifSx7Imxhbmd1YWdlIjoiSmFwYW5lc2UiLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1dtS0JVemNNZSJ9XQ%3D%3D"
                                 }
                             ]
+                        },
+                        {
+                            "title": "BLACK TORCH 1x9",
+                            "ep_num": "9",
+                            "url": "https://animesalt.cx/episode/black-torch-1x9/",
+                            "video_url": "https://ravok.buzz/video/5a22ca17654264e74c81ce3a4c4901e3",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/5a22ca17654264e74c81ce3a4c4901e3"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -8897,37 +9031,135 @@
                 {
                     "title": "Episode 1",
                     "url": "https://animesalt.cx/episode/black-torch-1x1/",
-                    "video_url": "https://ravok.buzz/video/5f22e82f3d2c279d57c76a0513276abb"
+                    "video_url": "https://ravok.buzz/video/5f22e82f3d2c279d57c76a0513276abb",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5f22e82f3d2c279d57c76a0513276abb"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNm9XdXo3SU1mIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL19jNFU3eUMtSyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTHRDeEFkclpNIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 2",
                     "url": "https://animesalt.cx/episode/black-torch-1x2/",
-                    "video_url": "https://ravok.buzz/video/88598406a3a4acb55beaa9984390517a"
+                    "video_url": "https://ravok.buzz/video/88598406a3a4acb55beaa9984390517a",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/88598406a3a4acb55beaa9984390517a"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcTBaU3ZoWnVMIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0l6MVRlVzR2UCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTzdJMTZwS0ZpIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 3",
                     "url": "https://animesalt.cx/episode/black-torch-1x3/",
-                    "video_url": "https://ravok.buzz/video/ed3fc73e6c5e6b0723e9e7935f50947a"
+                    "video_url": "https://ravok.buzz/video/ed3fc73e6c5e6b0723e9e7935f50947a",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/ed3fc73e6c5e6b0723e9e7935f50947a"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvamRHa2ZwTmJ3In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL21ScGZhSU93NyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLW9tMmZHNmRiIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 4",
                     "url": "https://animesalt.cx/episode/black-torch-1x4/",
-                    "video_url": "https://ravok.buzz/video/18c746a0e715b82e90f0b63ba322576f"
+                    "video_url": "https://ravok.buzz/video/18c746a0e715b82e90f0b63ba322576f",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/18c746a0e715b82e90f0b63ba322576f"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLUZpVEVvR3VRIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2NXYXp5ZmZVcyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZEhhZDkwUjhNIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 5",
                     "url": "https://animesalt.cx/episode/black-torch-1x5/",
-                    "video_url": "https://ravok.buzz/video/489df1727ce07aae5f09ca2d90ff9f74"
+                    "video_url": "https://ravok.buzz/video/489df1727ce07aae5f09ca2d90ff9f74",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/489df1727ce07aae5f09ca2d90ff9f74"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNEZSVF8xNmxFIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2trZXhXUERtNyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNnZLTFMyck1VIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 6",
                     "url": "https://animesalt.cx/episode/black-torch-1x6/",
-                    "video_url": "https://ravok.buzz/video/06fcc10b4a95f17133ee992810735a01"
+                    "video_url": "https://ravok.buzz/video/06fcc10b4a95f17133ee992810735a01",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/06fcc10b4a95f17133ee992810735a01"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOG5NUWVZdHFiIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0hUbzJkeF93YyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvX2FlX1VNWFRwIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 7",
                     "url": "https://animesalt.cx/episode/black-torch-1x7/",
-                    "video_url": "https://ravok.buzz/video/c6b674f5588228036011778df458d756"
+                    "video_url": "https://ravok.buzz/video/c6b674f5588228036011778df458d756",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c6b674f5588228036011778df458d756"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMlFQTm5pTVNHIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzY4UGNweEItUCJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMTdVWmlfd3BoIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "BLACK TORCH 1x8",
+                    "ep_num": "8",
+                    "url": "https://animesalt.cx/episode/black-torch-1x8/",
+                    "video_url": "https://ravok.buzz/video/57198de0fd9b28665ba93b8c07ccbae3",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/57198de0fd9b28665ba93b8c07ccbae3"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRHB1WHpkek9BIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3NZOW5BTWRaYWIifSx7Imxhbmd1YWdlIjoiSmFwYW5lc2UiLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1dtS0JVemNNZSJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "BLACK TORCH 1x9",
+                    "ep_num": "9",
+                    "url": "https://animesalt.cx/episode/black-torch-1x9/",
+                    "video_url": "https://ravok.buzz/video/5a22ca17654264e74c81ce3a4c4901e3",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5a22ca17654264e74c81ce3a4c4901e3"
+                        }
+                    ]
                 }
             ]
         },
@@ -143796,6 +144028,406 @@
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaEtqR3NTQ3kwIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oVmFSZExRaGgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TaVZRU0VPRk8ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNWdWVEJtUnBFIn1d"
                                 }
                             ]
+                        },
+                        {
+                            "title": "Thor the Mighty",
+                            "ep_num": "2",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x2/",
+                            "video_url": "https://ravok.buzz/video/f968fdc88852a4a3a27a81fe3f57bfc5",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/f968fdc88852a4a3a27a81fe3f57bfc5"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvS090bkw3alJBUCJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva0tjVVhFZndmIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRmZ4RVNnOHBaIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1RielpNMXRxSSJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Hulk vs the World",
+                            "ep_num": "3",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x3/",
+                            "video_url": "https://ravok.buzz/video/6018df1842f7130f1b85a6f8e911b96b",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/6018df1842f7130f1b85a6f8e911b96b"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbksxM1lxeVdsIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9VcERxVkZ5Z0gifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9fd1h4QmMxczIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY3BKM1dvaS01In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Meet Captain America",
+                            "ep_num": "4",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x4/",
+                            "video_url": "https://ravok.buzz/video/c6943e764b46c1c95fa6dd19904a055d",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/c6943e764b46c1c95fa6dd19904a055d"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYlg0Y1lLVmhaIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jSlVybGZpN3IifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jZm9RZFZ4ZmoifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb2thdmJ5MDV2In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Man in the Ant Hill",
+                            "ep_num": "5",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x5/",
+                            "video_url": "https://ravok.buzz/video/04da4aea8e38ac933ab23cb2389dddef",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/04da4aea8e38ac933ab23cb2389dddef"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNm5rZmVOYURfIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9wNF9UOUxHVzEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9obTR0M0l4anIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOUJtWXRKYUh5In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Breakout, Part 1",
+                            "ep_num": "6",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x6/",
+                            "video_url": "https://ravok.buzz/video/cc638784cf213986ec75983a4aa08cdb",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/cc638784cf213986ec75983a4aa08cdb"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSm9yT2tKMk5QIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WTmdhZGRURjAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83aGx3eUdZNzAifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTkdtN0lOcnNDIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Breakout, Part 2",
+                            "ep_num": "7",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x7/",
+                            "video_url": "https://ravok.buzz/video/6332a8f62e3a9d5831724f2ffe55cae0",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/6332a8f62e3a9d5831724f2ffe55cae0"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUFJOM01xanUyIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9vOS1EMUpLWG95In0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbFpjTzhfU21UIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0dlcnJUMjBjbCJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Some Assembly Required",
+                            "ep_num": "8",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x8/",
+                            "video_url": "https://ravok.buzz/video/f127a3f714240273e254d740ed23f001",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/f127a3f714240273e254d740ed23f001"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcnR2UVBoZHo0ZSJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSnY0eHB5dUVYIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbHZSVG5PYW0yIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0poOER2UHdiQyJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Living Legend",
+                            "ep_num": "9",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x9/",
+                            "video_url": "https://ravok.buzz/video/59b85c256f758c22eae6fa45913205db",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/59b85c256f758c22eae6fa45913205db"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQzVwNG4yMER1In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84MjYtWm92eVUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9lc1UxTWFYemEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSlBSVHFBTmN2In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Everything is Wonderful",
+                            "ep_num": "10",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x10/",
+                            "video_url": "https://ravok.buzz/video/4cef5b5e6ff1b3445db4c013f1d452e0",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/4cef5b5e6ff1b3445db4c013f1d452e0"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOExEVVFLRW9WIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9taWYxRzE1T0xoIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaFlsV2cxU3VJIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3FKNWE4WTNjMyJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Panther's Quest",
+                            "ep_num": "11",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x11/",
+                            "video_url": "https://ravok.buzz/video/02a3c7fb3f489288ae6942498498db20",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/02a3c7fb3f489288ae6942498498db20"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSjloVEFBR25kIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9JeTNLMkpiNWoifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9yOE1wbndZMVYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTG01TWpTa2NRIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Gamma World Pt. 1",
+                            "ep_num": "12",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x12/",
+                            "video_url": "https://ravok.buzz/video/1dc3a89d0d440ba31729b0ba74b93a33",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/1dc3a89d0d440ba31729b0ba74b93a33"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcDNTQmNqMUFqIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9yQVZfN3JxaXEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hVDQwMkV1QmQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvXzN1OGRLR09JIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Gamma World Pt. 2",
+                            "ep_num": "13",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x13/",
+                            "video_url": "https://ravok.buzz/video/c4bbac870026694953a91cbd99149a13",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/c4bbac870026694953a91cbd99149a13"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSGNIQkdtZ2U4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81OHhCWmlDRkQifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9rdlp6aVQ0ZlMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvV1NnWnRCZVRZIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Masters of Evil",
+                            "ep_num": "14",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x14/",
+                            "video_url": "https://ravok.buzz/video/08aac6ac98e59e523995c161e57875f5",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/08aac6ac98e59e523995c161e57875f5"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN2Y0Y05ma3NRIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TMDhTaDRfVWkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9PY1Zab1NxdXEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMDVZMGJ5dHZsIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "459",
+                            "ep_num": "15",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x15/",
+                            "video_url": "https://ravok.buzz/video/e8855b3528cb03d1def9803220bd3cb9",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/e8855b3528cb03d1def9803220bd3cb9"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTWJQTEY1SFJYIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9fX0JncS1yU3gifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94UEhSdTlpT2UifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZnBucUFLaHRUIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Widow's Sting",
+                            "ep_num": "16",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x16/",
+                            "video_url": "https://ravok.buzz/video/205e73579f21c2ed134dbd6ce7e4a1ea",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/205e73579f21c2ed134dbd6ce7e4a1ea"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcnJzd29nR0pvIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8wRmRHNnNHLUUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aTGlZSGpSc3cifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveDBVa2N5LVo3In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Man Who Stole Tomorrow",
+                            "ep_num": "17",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x17/",
+                            "video_url": "https://ravok.buzz/video/59ab3ba90ae4b4ab84fe69de7b8e3f5f",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/59ab3ba90ae4b4ab84fe69de7b8e3f5f"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTExjNkZqS01pIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9yY3ZyZnRPcWoifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9HR3M3TGVwVnQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvM1FtSDdubG5JIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Come the Conqueror",
+                            "ep_num": "18",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x18/",
+                            "video_url": "https://ravok.buzz/video/5e69fda38cda2060819766569fd93aa5",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/5e69fda38cda2060819766569fd93aa5"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQm9tYVU5bGdJIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94TEhjcVRIRVMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9PZEF5UlpKbngifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva1JTZHpkYW1pXyJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Kang Dynasty",
+                            "ep_num": "19",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x19/",
+                            "video_url": "https://ravok.buzz/video/ed383ec94720d62a939bfb6bdd98f50c",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/ed383ec94720d62a939bfb6bdd98f50c"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvanVycXlJU1A0aSJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRlhFcWtJQ09LIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvei0wajlSMFJVIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2NHMmRTUVpXcCJ9XQ%3D%3D"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Casket of Ancient Winters",
+                            "ep_num": "20",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x20/",
+                            "video_url": "https://ravok.buzz/video/770f8e448d07586afbf77bb59f698587",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/770f8e448d07586afbf77bb59f698587"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTnVaYkxKY25fIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kcC1qcjN3QVUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9MRFIwWG9CSTMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRHFncWlHWndEIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Hail, Hydra!",
+                            "ep_num": "21",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x21/",
+                            "video_url": "https://ravok.buzz/video/82f292a22966b857d968fb578ccbead9",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/82f292a22966b857d968fb578ccbead9"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQjlra2ZQYXJhIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oRFZfd3N3NW4ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95WkNTcHotVDYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcExHbkNFWE55In1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Ultron-5",
+                            "ep_num": "22",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x22/",
+                            "video_url": "https://ravok.buzz/video/10cd8cca7d33d4526cf4c264654762c6",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/10cd8cca7d33d4526cf4c264654762c6"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQjFDVTk3YXFEIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jN3FJbUtkbHAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9RUjkyY0JSVFQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOU5aaWpEZGtxIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Ultron Imperative",
+                            "ep_num": "23",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x23/",
+                            "video_url": "https://ravok.buzz/video/5b658d2a925565f0755e035597f8d22f",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/5b658d2a925565f0755e035597f8d22f"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvckFlQ3dqUDZUIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aZmhzLTBGQUgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oTDN1VEJoTnQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUTVCa2dGVjNQIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "This Hostage Earth",
+                            "ep_num": "24",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x24/",
+                            "video_url": "https://ravok.buzz/video/980b2e71a187f092466c13bf42cd6413",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/980b2e71a187f092466c13bf42cd6413"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd21HOWZzTjdxIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95RnJpcjZwdmIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9GN1d1cm9rOGwifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUVFzLVJ4LTFCIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "The Fall of Asgard",
+                            "ep_num": "25",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x25/",
+                            "video_url": "https://ravok.buzz/video/91e82999cf7e45da1070ebd673690716",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/91e82999cf7e45da1070ebd673690716"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaTZNVHNsYXZYIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC92OVJTcWtVVGwifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oUWl6Um1GR0EifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSGs5NGdsMzhmIn1d"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "A Day Unlike Any Other",
+                            "ep_num": "26",
+                            "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x26/",
+                            "video_url": "https://ravok.buzz/video/5ca359ab1e9e3b9c478459944a2d9ca5",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/5ca359ab1e9e3b9c478459944a2d9ca5"
+                                },
+                                {
+                                    "name": "Server 2",
+                                    "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRDdPQkgydzl4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9Hd2hTRS02QTgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZcUZ5LVNJUUIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd2Q4VV9DdTRVIn1d"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -143804,137 +144436,1232 @@
                 {
                     "title": "Episode 1",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x1/",
-                    "video_url": "https://ravok.buzz/video/36fa3ecc0b2d2bfe0bec0f2b369f24db"
+                    "video_url": "https://ravok.buzz/video/36fa3ecc0b2d2bfe0bec0f2b369f24db",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/36fa3ecc0b2d2bfe0bec0f2b369f24db"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWDNIRlRmdl9DIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9YY01TckhBS2UifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9EejBNNHpHMVIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdGQ0ci13bFpPIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 2",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x2/",
-                    "video_url": "https://ravok.buzz/video/f968fdc88852a4a3a27a81fe3f57bfc5"
+                    "video_url": "https://ravok.buzz/video/f968fdc88852a4a3a27a81fe3f57bfc5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/f968fdc88852a4a3a27a81fe3f57bfc5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvS090bkw3alJBUCJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva0tjVVhFZndmIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRmZ4RVNnOHBaIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1RielpNMXRxSSJ9XQ%3D%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 3",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x3/",
-                    "video_url": "https://ravok.buzz/video/6018df1842f7130f1b85a6f8e911b96b"
+                    "video_url": "https://ravok.buzz/video/6018df1842f7130f1b85a6f8e911b96b",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6018df1842f7130f1b85a6f8e911b96b"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbksxM1lxeVdsIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9VcERxVkZ5Z0gifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9fd1h4QmMxczIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY3BKM1dvaS01In1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 4",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x4/",
-                    "video_url": "https://ravok.buzz/video/c6943e764b46c1c95fa6dd19904a055d"
+                    "video_url": "https://ravok.buzz/video/c6943e764b46c1c95fa6dd19904a055d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c6943e764b46c1c95fa6dd19904a055d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYlg0Y1lLVmhaIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jSlVybGZpN3IifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jZm9RZFZ4ZmoifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb2thdmJ5MDV2In1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 5",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x5/",
-                    "video_url": "https://ravok.buzz/video/04da4aea8e38ac933ab23cb2389dddef"
+                    "video_url": "https://ravok.buzz/video/04da4aea8e38ac933ab23cb2389dddef",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/04da4aea8e38ac933ab23cb2389dddef"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNm5rZmVOYURfIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9wNF9UOUxHVzEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9obTR0M0l4anIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOUJtWXRKYUh5In1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 6",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x6/",
-                    "video_url": "https://ravok.buzz/video/cc638784cf213986ec75983a4aa08cdb"
+                    "video_url": "https://ravok.buzz/video/cc638784cf213986ec75983a4aa08cdb",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/cc638784cf213986ec75983a4aa08cdb"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSm9yT2tKMk5QIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WTmdhZGRURjAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83aGx3eUdZNzAifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTkdtN0lOcnNDIn1d"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/uoexh2g8mx4r"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 7",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x7/",
-                    "video_url": "https://ravok.buzz/video/6332a8f62e3a9d5831724f2ffe55cae0"
+                    "video_url": "https://ravok.buzz/video/6332a8f62e3a9d5831724f2ffe55cae0",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6332a8f62e3a9d5831724f2ffe55cae0"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUFJOM01xanUyIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9vOS1EMUpLWG95In0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbFpjTzhfU21UIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0dlcnJUMjBjbCJ9XQ%3D%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 8",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x8/",
-                    "video_url": "https://ravok.buzz/video/f127a3f714240273e254d740ed23f001"
+                    "video_url": "https://ravok.buzz/video/f127a3f714240273e254d740ed23f001",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/f127a3f714240273e254d740ed23f001"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcnR2UVBoZHo0ZSJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSnY0eHB5dUVYIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbHZSVG5PYW0yIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0poOER2UHdiQyJ9XQ%3D%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 9",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x9/",
-                    "video_url": "https://ravok.buzz/video/59b85c256f758c22eae6fa45913205db"
+                    "video_url": "https://ravok.buzz/video/59b85c256f758c22eae6fa45913205db",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/59b85c256f758c22eae6fa45913205db"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQzVwNG4yMER1In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84MjYtWm92eVUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9lc1UxTWFYemEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSlBSVHFBTmN2In1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 10",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x10/",
-                    "video_url": "https://ravok.buzz/video/4cef5b5e6ff1b3445db4c013f1d452e0"
+                    "video_url": "https://ravok.buzz/video/4cef5b5e6ff1b3445db4c013f1d452e0",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4cef5b5e6ff1b3445db4c013f1d452e0"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOExEVVFLRW9WIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9taWYxRzE1T0xoIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaFlsV2cxU3VJIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3FKNWE4WTNjMyJ9XQ%3D%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 11",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x11/",
-                    "video_url": "https://ravok.buzz/video/02a3c7fb3f489288ae6942498498db20"
+                    "video_url": "https://ravok.buzz/video/02a3c7fb3f489288ae6942498498db20",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/02a3c7fb3f489288ae6942498498db20"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSjloVEFBR25kIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9JeTNLMkpiNWoifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9yOE1wbndZMVYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTG01TWpTa2NRIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 12",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x12/",
-                    "video_url": "https://ravok.buzz/video/1dc3a89d0d440ba31729b0ba74b93a33"
+                    "video_url": "https://ravok.buzz/video/1dc3a89d0d440ba31729b0ba74b93a33",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/1dc3a89d0d440ba31729b0ba74b93a33"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcDNTQmNqMUFqIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9yQVZfN3JxaXEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hVDQwMkV1QmQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvXzN1OGRLR09JIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 13",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x13/",
-                    "video_url": "https://ravok.buzz/video/c4bbac870026694953a91cbd99149a13"
+                    "video_url": "https://ravok.buzz/video/c4bbac870026694953a91cbd99149a13",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c4bbac870026694953a91cbd99149a13"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSGNIQkdtZ2U4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81OHhCWmlDRkQifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9rdlp6aVQ0ZlMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvV1NnWnRCZVRZIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 14",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x14/",
-                    "video_url": "https://ravok.buzz/video/08aac6ac98e59e523995c161e57875f5"
+                    "video_url": "https://ravok.buzz/video/08aac6ac98e59e523995c161e57875f5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/08aac6ac98e59e523995c161e57875f5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN2Y0Y05ma3NRIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TMDhTaDRfVWkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9PY1Zab1NxdXEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMDVZMGJ5dHZsIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 15",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x15/",
-                    "video_url": "https://ravok.buzz/video/e8855b3528cb03d1def9803220bd3cb9"
+                    "video_url": "https://ravok.buzz/video/e8855b3528cb03d1def9803220bd3cb9",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/e8855b3528cb03d1def9803220bd3cb9"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTWJQTEY1SFJYIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9fX0JncS1yU3gifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94UEhSdTlpT2UifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZnBucUFLaHRUIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 16",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x16/",
-                    "video_url": "https://ravok.buzz/video/205e73579f21c2ed134dbd6ce7e4a1ea"
+                    "video_url": "https://ravok.buzz/video/205e73579f21c2ed134dbd6ce7e4a1ea",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/205e73579f21c2ed134dbd6ce7e4a1ea"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcnJzd29nR0pvIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8wRmRHNnNHLUUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aTGlZSGpSc3cifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveDBVa2N5LVo3In1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 17",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x17/",
-                    "video_url": "https://ravok.buzz/video/59ab3ba90ae4b4ab84fe69de7b8e3f5f"
+                    "video_url": "https://ravok.buzz/video/59ab3ba90ae4b4ab84fe69de7b8e3f5f",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/59ab3ba90ae4b4ab84fe69de7b8e3f5f"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTExjNkZqS01pIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9yY3ZyZnRPcWoifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9HR3M3TGVwVnQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvM1FtSDdubG5JIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 18",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x18/",
-                    "video_url": "https://ravok.buzz/video/5e69fda38cda2060819766569fd93aa5"
+                    "video_url": "https://ravok.buzz/video/5e69fda38cda2060819766569fd93aa5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5e69fda38cda2060819766569fd93aa5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQm9tYVU5bGdJIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94TEhjcVRIRVMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9PZEF5UlpKbngifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva1JTZHpkYW1pXyJ9XQ%3D%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 19",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x19/",
-                    "video_url": "https://ravok.buzz/video/ed383ec94720d62a939bfb6bdd98f50c"
+                    "video_url": "https://ravok.buzz/video/ed383ec94720d62a939bfb6bdd98f50c",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/ed383ec94720d62a939bfb6bdd98f50c"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvanVycXlJU1A0aSJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRlhFcWtJQ09LIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvei0wajlSMFJVIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2NHMmRTUVpXcCJ9XQ%3D%3D"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 20",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x20/",
-                    "video_url": "https://ravok.buzz/video/770f8e448d07586afbf77bb59f698587"
+                    "video_url": "https://ravok.buzz/video/770f8e448d07586afbf77bb59f698587",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/770f8e448d07586afbf77bb59f698587"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTnVaYkxKY25fIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kcC1qcjN3QVUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9MRFIwWG9CSTMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRHFncWlHWndEIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 21",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x21/",
-                    "video_url": "https://ravok.buzz/video/82f292a22966b857d968fb578ccbead9"
+                    "video_url": "https://ravok.buzz/video/82f292a22966b857d968fb578ccbead9",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/82f292a22966b857d968fb578ccbead9"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQjlra2ZQYXJhIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oRFZfd3N3NW4ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95WkNTcHotVDYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcExHbkNFWE55In1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 22",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x22/",
-                    "video_url": "https://ravok.buzz/video/10cd8cca7d33d4526cf4c264654762c6"
+                    "video_url": "https://ravok.buzz/video/10cd8cca7d33d4526cf4c264654762c6",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/10cd8cca7d33d4526cf4c264654762c6"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQjFDVTk3YXFEIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jN3FJbUtkbHAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9RUjkyY0JSVFQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOU5aaWpEZGtxIn1d"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/54mueeurs54u"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 23",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x23/",
-                    "video_url": "https://ravok.buzz/video/5b658d2a925565f0755e035597f8d22f"
+                    "video_url": "https://ravok.buzz/video/5b658d2a925565f0755e035597f8d22f",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5b658d2a925565f0755e035597f8d22f"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvckFlQ3dqUDZUIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aZmhzLTBGQUgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oTDN1VEJoTnQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUTVCa2dGVjNQIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 24",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x24/",
-                    "video_url": "https://ravok.buzz/video/980b2e71a187f092466c13bf42cd6413"
+                    "video_url": "https://ravok.buzz/video/980b2e71a187f092466c13bf42cd6413",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/980b2e71a187f092466c13bf42cd6413"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd21HOWZzTjdxIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95RnJpcjZwdmIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9GN1d1cm9rOGwifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUVFzLVJ4LTFCIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 25",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x25/",
-                    "video_url": "https://ravok.buzz/video/91e82999cf7e45da1070ebd673690716"
+                    "video_url": "https://ravok.buzz/video/91e82999cf7e45da1070ebd673690716",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/91e82999cf7e45da1070ebd673690716"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaTZNVHNsYXZYIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC92OVJTcWtVVGwifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oUWl6Um1GR0EifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSGs5NGdsMzhmIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 26",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x26/",
-                    "video_url": "https://ravok.buzz/video/3dde889723e33ace6af907cd5cc8e187"
+                    "video_url": "https://ravok.buzz/video/3dde889723e33ace6af907cd5cc8e187",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3dde889723e33ace6af907cd5cc8e187"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaEtqR3NTQ3kwIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oVmFSZExRaGgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TaVZRU0VPRk8ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNWdWVEJtUnBFIn1d"
+                        }
+                    ]
                 },
                 {
                     "title": "Episode 26",
                     "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x26/",
-                    "video_url": "https://ravok.buzz/video/5ca359ab1e9e3b9c478459944a2d9ca5"
+                    "video_url": "https://ravok.buzz/video/5ca359ab1e9e3b9c478459944a2d9ca5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5ca359ab1e9e3b9c478459944a2d9ca5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRDdPQkgydzl4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9Hd2hTRS02QTgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZcUZ5LVNJUUIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd2Q4VV9DdTRVIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x1/",
+                    "video_url": "https://ravok.buzz/video/36fa3ecc0b2d2bfe0bec0f2b369f24db",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/36fa3ecc0b2d2bfe0bec0f2b369f24db"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWDNIRlRmdl9DIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9YY01TckhBS2UifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9EejBNNHpHMVIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdGQ0ci13bFpPIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 1",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x1/",
+                    "video_url": "https://ravok.buzz/video/067ee197a2aa979778923af77b40dd89",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/067ee197a2aa979778923af77b40dd89"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvellaTXVkS2VpIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hN0tDWVFYTUUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aUEVYa3lRNEkifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNkU3SjdOdGFlIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 2",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x2/",
+                    "video_url": "https://ravok.buzz/video/26b58a41da329e0cbde0cbf956640a58",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/26b58a41da329e0cbde0cbf956640a58"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvelpxRjdMYlJQIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8xNzZqSm5uMG8ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9SUG5ZVEtlbGwifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbFJlVHlDRVpGIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 3",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x3/",
+                    "video_url": "https://ravok.buzz/video/5d78d182fd5f5510588695863d22ac27",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5d78d182fd5f5510588695863d22ac27"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVVQ1clQ5OEZhIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9uQnFDT1BjWk8ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94ZDU5X25ISTIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMnZsTFVaTVlqIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 4",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x4/",
+                    "video_url": "https://ravok.buzz/video/923e325e16617477e457f6a468a2d6df",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/923e325e16617477e457f6a468a2d6df"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvREZ0OUFXU2tpIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8tVDJnNnlMa1kifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9acnB2S2ZPUmYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNlhBNzI5SDU2In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 5",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x5/",
+                    "video_url": "https://ravok.buzz/video/78289d91e9c4adcf4e97d6b3d4df6ae0",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/78289d91e9c4adcf4e97d6b3d4df6ae0"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLWpqRUJQcUk4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9nZDhIeEY3b2cifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC90ZHZNODZJeW4ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNlhFR2hVRktaIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 6",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x6/",
+                    "video_url": "https://ravok.buzz/video/2adcefe38fbcd3dcd45908fbab1bf628",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/2adcefe38fbcd3dcd45908fbab1bf628"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcTQxS25EbFFjIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9JbWliWU9ZbDUyIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQjVjRGFDV0JIIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1lBcktickJVayJ9XQ%3D%3D"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/1zhvzrpp9rkd"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 7",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x7/",
+                    "video_url": "https://ravok.buzz/video/c5ab6cebaca97f7171139e4d414ff5a6",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c5ab6cebaca97f7171139e4d414ff5a6"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvc182dV92Y09HIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9LTXY3ZWJVcEcifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9RZVBRWGhKc3UifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYzZsek9FbjRiIn1d"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/ddsgav7rvtfb"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 8",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x8/",
+                    "video_url": "https://ravok.buzz/video/23fa71cc32babb7b91130824466d25a5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/23fa71cc32babb7b91130824466d25a5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvT3VaZU1TWFRTIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9vbmdfdjctbUMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC82d19TdTM0b3QifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva3BGTmFZeFZMIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 9",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x9/",
+                    "video_url": "https://ravok.buzz/video/29daf9442f3c0b60642b14c081b4a556",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/29daf9442f3c0b60642b14c081b4a556"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOU5EODcyOUdRIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC91bF9TWFBETUwifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9lRGNxRXhEVDEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMTJZQmFTV1YyIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 10",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x10/",
+                    "video_url": "https://ravok.buzz/video/d14fe370bdf1664c34b258d65f8d3507",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d14fe370bdf1664c34b258d65f8d3507"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQVVldDNNZlNnIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9LeWVldko1ajAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9sR1lWMDFaek0ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRm44QmRld00wIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 11",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x11/",
+                    "video_url": "https://ravok.buzz/video/009a5510ad149a8e0c750cb62e255175",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/009a5510ad149a8e0c750cb62e255175"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZGNKckx4X1dBIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9qQlpqejVSRnAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9UWkRla3V6a2gifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd3Nxbm5KRXFfIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 12",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x12/",
+                    "video_url": "https://ravok.buzz/video/b49d4455d64520060ac01fb5a3c757e4",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/b49d4455d64520060ac01fb5a3c757e4"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWW9JVXBtX2ZKIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9XcjFZQ3R1dE9uIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRE1vTW1BRERYbyJ9LHsibGFuZ3VhZ2UiOiJFbmdsaXNoIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9tT1J6bFI2b2MifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 13",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x13/",
+                    "video_url": "https://ravok.buzz/video/0da474fc8e382f9c6d6d774bb433339a",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/0da474fc8e382f9c6d6d774bb433339a"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSmdhei1iYnM2In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9sUU80clVxOU8ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9rQVViNkhhcHQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvczVXZWV5eWFyIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 14",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x14/",
+                    "video_url": "https://ravok.buzz/video/435d6ab1ba16ba7e05e09d9728bc36ca",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/435d6ab1ba16ba7e05e09d9728bc36ca"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYVBNbEpSY3FsIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ET1dSZFVwMUoifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kUGRDM0NfbDc4In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzhEUHFKWkU4TyJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 15",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x15/",
+                    "video_url": "https://ravok.buzz/video/edc27f139c3b4e4bb29d1cdbc45663f9",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/edc27f139c3b4e4bb29d1cdbc45663f9"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQ2VoVnl4OEtVIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9QcGQzbnVuMjEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9FTzlHTm1SM1IifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYXFaN2ZqaFduIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 16",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x16/",
+                    "video_url": "https://ravok.buzz/video/c90070e1f03e982448983975a0f52d57",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c90070e1f03e982448983975a0f52d57"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZkdlM0huemtlIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9mTXZuN3lUU2kifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZWHdGek9SekgifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvT29leXVnSE12In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 17",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x17/",
+                    "video_url": "https://ravok.buzz/video/81bc798a42a7ce40810bf523f24deee1",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/81bc798a42a7ce40810bf523f24deee1"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWDJJcHFZZjlKIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9rVkJIdWl6WGQifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9IdTRvMnBHSUYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcVhRWl9qSF91In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 18",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x18/",
+                    "video_url": "https://ravok.buzz/video/6dff2291fe2e822de2e8068a182c4759",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6dff2291fe2e822de2e8068a182c4759"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRldMNDVYc29TIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9NU0dUSEN4SnkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9xbFZBZWh3WkYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTVRVY3BfeHRIIn1d"
+                        },
+                        {
+                            "name": "Server 3",
+                            "url": "https://cybervynx.com/e/x2va6g0h17cy"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 19",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x19/",
+                    "video_url": "https://ravok.buzz/video/48653af2e798bc96b6ef0b76d8a02139",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/48653af2e798bc96b6ef0b76d8a02139"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZnhuUDFuUDJmIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8wWUxscERoXzl3In0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvdXBsWU5WTzV3In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0ZCM0J4MnJndSJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 20",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x20/",
+                    "video_url": "https://ravok.buzz/video/6fe43269967adbb64ec6149852b5cc3e",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6fe43269967adbb64ec6149852b5cc3e"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN2tIYktIUEZzIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ic2t5MmpLRnMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9mV3RKVVpmM3cifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva1NGQmNuQmhHIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 21",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x21/",
+                    "video_url": "https://ravok.buzz/video/5553cfaf751a4b14960b7581a20bc142",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5553cfaf751a4b14960b7581a20bc142"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvV2s3c2ZiM3VLIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9xVWh4OG1IczgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9qNXZxQzZ0YTUifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvV19pT1R0Njl5In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 22",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x22/",
+                    "video_url": "https://ravok.buzz/video/d811406316b669ad3d370d78b51b1d2e",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/d811406316b669ad3d370d78b51b1d2e"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZHlBbXJXazgzIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC96YXV6TjhUVmMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9rWFR6ck9mNjUifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLTRONlVDcTNyIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 23",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x23/",
+                    "video_url": "https://ravok.buzz/video/5d0d5594d24f0f955548f0fc0ff83d10",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5d0d5594d24f0f955548f0fc0ff83d10"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvX3JvSmRubmtONiJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvLWZwbWdubWZuIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMTRjREpWZGhlIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1d3YkFmRmkwbSJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 24",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x24/",
+                    "video_url": "https://ravok.buzz/video/95e62984b87e90645a5cf77037395959",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/95e62984b87e90645a5cf77037395959"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvR0h1bVJsLXprIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9XclJxa1FTVmUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jRHBHa2lJWXAifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd2hyRU1Fa1ljVyJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 25",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x25/",
+                    "video_url": "https://ravok.buzz/video/8819159f9246232ed1299a7414448ab4",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/8819159f9246232ed1299a7414448ab4"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWlo1MkFkdkU4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8ycVZZRUU1THIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9rVHp0R3U0WHgifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN2lDVHNxNEZsIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Episode 26",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-2x26/",
+                    "video_url": "https://ravok.buzz/video/3dde889723e33ace6af907cd5cc8e187",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/3dde889723e33ace6af907cd5cc8e187"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaEtqR3NTQ3kwIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oVmFSZExRaGgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TaVZRU0VPRk8ifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNWdWVEJtUnBFIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Thor the Mighty",
+                    "ep_num": "2",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x2/",
+                    "video_url": "https://ravok.buzz/video/f968fdc88852a4a3a27a81fe3f57bfc5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/f968fdc88852a4a3a27a81fe3f57bfc5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvS090bkw3alJBUCJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva0tjVVhFZndmIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRmZ4RVNnOHBaIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1RielpNMXRxSSJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Hulk vs the World",
+                    "ep_num": "3",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x3/",
+                    "video_url": "https://ravok.buzz/video/6018df1842f7130f1b85a6f8e911b96b",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6018df1842f7130f1b85a6f8e911b96b"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbksxM1lxeVdsIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9VcERxVkZ5Z0gifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9fd1h4QmMxczIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvY3BKM1dvaS01In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Meet Captain America",
+                    "ep_num": "4",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x4/",
+                    "video_url": "https://ravok.buzz/video/c6943e764b46c1c95fa6dd19904a055d",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c6943e764b46c1c95fa6dd19904a055d"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvYlg0Y1lLVmhaIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jSlVybGZpN3IifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jZm9RZFZ4ZmoifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvb2thdmJ5MDV2In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Man in the Ant Hill",
+                    "ep_num": "5",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x5/",
+                    "video_url": "https://ravok.buzz/video/04da4aea8e38ac933ab23cb2389dddef",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/04da4aea8e38ac933ab23cb2389dddef"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNm5rZmVOYURfIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9wNF9UOUxHVzEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9obTR0M0l4anIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOUJtWXRKYUh5In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Breakout, Part 1",
+                    "ep_num": "6",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x6/",
+                    "video_url": "https://ravok.buzz/video/cc638784cf213986ec75983a4aa08cdb",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/cc638784cf213986ec75983a4aa08cdb"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSm9yT2tKMk5QIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9WTmdhZGRURjAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC83aGx3eUdZNzAifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTkdtN0lOcnNDIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Breakout, Part 2",
+                    "ep_num": "7",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x7/",
+                    "video_url": "https://ravok.buzz/video/6332a8f62e3a9d5831724f2ffe55cae0",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6332a8f62e3a9d5831724f2ffe55cae0"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUFJOM01xanUyIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9vOS1EMUpLWG95In0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbFpjTzhfU21UIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0dlcnJUMjBjbCJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Some Assembly Required",
+                    "ep_num": "8",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x8/",
+                    "video_url": "https://ravok.buzz/video/f127a3f714240273e254d740ed23f001",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/f127a3f714240273e254d740ed23f001"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcnR2UVBoZHo0ZSJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSnY0eHB5dUVYIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvbHZSVG5PYW0yIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL0poOER2UHdiQyJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Living Legend",
+                    "ep_num": "9",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x9/",
+                    "video_url": "https://ravok.buzz/video/59b85c256f758c22eae6fa45913205db",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/59b85c256f758c22eae6fa45913205db"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQzVwNG4yMER1In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC84MjYtWm92eVUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9lc1UxTWFYemEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSlBSVHFBTmN2In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Everything is Wonderful",
+                    "ep_num": "10",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x10/",
+                    "video_url": "https://ravok.buzz/video/4cef5b5e6ff1b3445db4c013f1d452e0",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/4cef5b5e6ff1b3445db4c013f1d452e0"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOExEVVFLRW9WIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9taWYxRzE1T0xoIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaFlsV2cxU3VJIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL3FKNWE4WTNjMyJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "Panther's Quest",
+                    "ep_num": "11",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x11/",
+                    "video_url": "https://ravok.buzz/video/02a3c7fb3f489288ae6942498498db20",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/02a3c7fb3f489288ae6942498498db20"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSjloVEFBR25kIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9JeTNLMkpiNWoifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9yOE1wbndZMVYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTG01TWpTa2NRIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Gamma World Pt. 1",
+                    "ep_num": "12",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x12/",
+                    "video_url": "https://ravok.buzz/video/1dc3a89d0d440ba31729b0ba74b93a33",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/1dc3a89d0d440ba31729b0ba74b93a33"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcDNTQmNqMUFqIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9yQVZfN3JxaXEifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9hVDQwMkV1QmQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvXzN1OGRLR09JIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Gamma World Pt. 2",
+                    "ep_num": "13",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x13/",
+                    "video_url": "https://ravok.buzz/video/c4bbac870026694953a91cbd99149a13",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/c4bbac870026694953a91cbd99149a13"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSGNIQkdtZ2U4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC81OHhCWmlDRkQifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9rdlp6aVQ0ZlMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvV1NnWnRCZVRZIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Masters of Evil",
+                    "ep_num": "14",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x14/",
+                    "video_url": "https://ravok.buzz/video/08aac6ac98e59e523995c161e57875f5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/08aac6ac98e59e523995c161e57875f5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvN2Y0Y05ma3NRIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9TMDhTaDRfVWkifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9PY1Zab1NxdXEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMDVZMGJ5dHZsIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "459",
+                    "ep_num": "15",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x15/",
+                    "video_url": "https://ravok.buzz/video/e8855b3528cb03d1def9803220bd3cb9",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/e8855b3528cb03d1def9803220bd3cb9"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTWJQTEY1SFJYIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9fX0JncS1yU3gifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94UEhSdTlpT2UifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvZnBucUFLaHRUIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Widow's Sting",
+                    "ep_num": "16",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x16/",
+                    "video_url": "https://ravok.buzz/video/205e73579f21c2ed134dbd6ce7e4a1ea",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/205e73579f21c2ed134dbd6ce7e4a1ea"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcnJzd29nR0pvIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC8wRmRHNnNHLUUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aTGlZSGpSc3cifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwveDBVa2N5LVo3In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Man Who Stole Tomorrow",
+                    "ep_num": "17",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x17/",
+                    "video_url": "https://ravok.buzz/video/59ab3ba90ae4b4ab84fe69de7b8e3f5f",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/59ab3ba90ae4b4ab84fe69de7b8e3f5f"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTExjNkZqS01pIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9yY3ZyZnRPcWoifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9HR3M3TGVwVnQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvM1FtSDdubG5JIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Come the Conqueror",
+                    "ep_num": "18",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x18/",
+                    "video_url": "https://ravok.buzz/video/5e69fda38cda2060819766569fd93aa5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5e69fda38cda2060819766569fd93aa5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQm9tYVU5bGdJIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC94TEhjcVRIRVMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9PZEF5UlpKbngifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwva1JTZHpkYW1pXyJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Kang Dynasty",
+                    "ep_num": "19",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x19/",
+                    "video_url": "https://ravok.buzz/video/ed383ec94720d62a939bfb6bdd98f50c",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/ed383ec94720d62a939bfb6bdd98f50c"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvanVycXlJU1A0aSJ9LHsibGFuZ3VhZ2UiOiJUYW1pbCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRlhFcWtJQ09LIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvei0wajlSMFJVIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2NHMmRTUVpXcCJ9XQ%3D%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Casket of Ancient Winters",
+                    "ep_num": "20",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x20/",
+                    "video_url": "https://ravok.buzz/video/770f8e448d07586afbf77bb59f698587",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/770f8e448d07586afbf77bb59f698587"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTnVaYkxKY25fIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9kcC1qcjN3QVUifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9MRFIwWG9CSTMifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRHFncWlHWndEIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Hail, Hydra!",
+                    "ep_num": "21",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x21/",
+                    "video_url": "https://ravok.buzz/video/82f292a22966b857d968fb578ccbead9",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/82f292a22966b857d968fb578ccbead9"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQjlra2ZQYXJhIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oRFZfd3N3NW4ifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95WkNTcHotVDYifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvcExHbkNFWE55In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Ultron-5",
+                    "ep_num": "22",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x22/",
+                    "video_url": "https://ravok.buzz/video/10cd8cca7d33d4526cf4c264654762c6",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/10cd8cca7d33d4526cf4c264654762c6"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvQjFDVTk3YXFEIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9jN3FJbUtkbHAifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9RUjkyY0JSVFQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvOU5aaWpEZGtxIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Ultron Imperative",
+                    "ep_num": "23",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x23/",
+                    "video_url": "https://ravok.buzz/video/5b658d2a925565f0755e035597f8d22f",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5b658d2a925565f0755e035597f8d22f"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvckFlQ3dqUDZUIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9aZmhzLTBGQUgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oTDN1VEJoTnQifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUTVCa2dGVjNQIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "This Hostage Earth",
+                    "ep_num": "24",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x24/",
+                    "video_url": "https://ravok.buzz/video/980b2e71a187f092466c13bf42cd6413",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/980b2e71a187f092466c13bf42cd6413"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd21HOWZzTjdxIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC95RnJpcjZwdmIifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9GN1d1cm9rOGwifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUVFzLVJ4LTFCIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Fall of Asgard",
+                    "ep_num": "25",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x25/",
+                    "video_url": "https://ravok.buzz/video/91e82999cf7e45da1070ebd673690716",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/91e82999cf7e45da1070ebd673690716"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaTZNVHNsYXZYIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC92OVJTcWtVVGwifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9oUWl6Um1GR0EifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvSGs5NGdsMzhmIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "A Day Unlike Any Other",
+                    "ep_num": "26",
+                    "url": "https://animesalt.cx/episode/the-avengers-earths-mightiest-heroes-1x26/",
+                    "video_url": "https://ravok.buzz/video/5ca359ab1e9e3b9c478459944a2d9ca5",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5ca359ab1e9e3b9c478459944a2d9ca5"
+                        },
+                        {
+                            "name": "Server 2",
+                            "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvRDdPQkgydzl4In0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9Hd2hTRS02QTgifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9ZcUZ5LVNJUUIifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvd2Q4VV9DdTRVIn1d"
+                        }
+                    ]
                 }
             ]
         },
