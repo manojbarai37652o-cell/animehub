@@ -60,7 +60,69 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
 
     <style>
-        .splash-hidden { display: none !important; }
+        /* 🛠️ APP-LIKE SPLASH SCREEN ANIMATIONS */
+        #splash-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: #0b0f19; /* Dark background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 999999;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .splash-hidden {
+            opacity: 0;
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .splash-logo {
+            animation: logoPulse 1.5s infinite ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        @keyframes logoPulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(168, 85, 247, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+        }
+
+        .splash-text {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .splash-text span {
+            color: #a855f7; /* Purple color for Nest */
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .splash-spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(168, 85, 247, 0.3);
+            border-top-color: #a855f7;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-top: 30px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         iframe[id*="google_ads"], iframe[src*="bancadeltempoidea"], div[class*="push"], div[id*="push"] {
             z-index: 99999 !important;
         }
@@ -105,12 +167,13 @@
 </head>
 <body>
 
-    <div id="splash-screen" class="splash-hidden">
+    <!-- 🟢 APP-LIKE SPLASH SCREEN 🟢 -->
+    <div id="splash-screen">
         <div class="splash-logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest" style="width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #a855f7;">
         </div>
+        <div class="splash-text">Anime<span>Nest</span></div>
         <div class="splash-spinner"></div>
-        <p class="splash-text">Loading your anime...</p>
     </div>
 
     <div id="spaLoader" class="spa-loader"></div>
@@ -237,23 +300,21 @@
     <script>
         history.replaceState({ url: window.location.pathname }, '', window.location.pathname);
 
-        function hideSplashScreen() {
-            const splash = document.getElementById("splash-screen");
-            if (splash) {
-                splash.style.opacity = '0';
-                setTimeout(() => { splash.style.display = 'none'; }, 500);
-            }
-        }
-
+        // 🟢 SPLASH SCREEN LOGIC (App-like opening)
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById("splash-screen");
             if (splash) {
+                // अगर यूजर ने इस सेशन में पहले देख लिया है, तो स्किप करो
                 if (sessionStorage.getItem('splashShown')) {
                     splash.classList.add('splash-hidden'); 
-                    splash.style.display = 'none';
+                    setTimeout(() => { splash.style.display = 'none'; }, 600);
                 } else {
                     sessionStorage.setItem('splashShown', 'true');
-                    setTimeout(() => { hideSplashScreen(); }, 1500);
+                    // 2.5 सेकंड तक एनीमेशन दिखाओ, फिर स्मूदली हटा दो
+                    setTimeout(() => {
+                        splash.classList.add('splash-hidden');
+                        setTimeout(() => { splash.style.display = 'none'; }, 600);
+                    }, 2500);
                 }
             }
             renderRecentSearches();
@@ -358,8 +419,6 @@
                 } else { window.location.href = href; }
             } catch (err) { window.location.href = href; } finally {
                 hideSpaLoader();
-                const splash = document.getElementById("splash-screen");
-                if(splash) splash.style.display = 'none';
             }
         }
 
