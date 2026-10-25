@@ -77,6 +77,7 @@
             opacity: 0;
             transform: scale(1.1);
             pointer-events: none;
+            display: none !important; /* Extra safe to remove from DOM flow */
         }
 
         .splash-logo {
@@ -168,7 +169,8 @@
 <body>
 
     <!-- 🟢 APP-LIKE SPLASH SCREEN 🟢 -->
-    <div id="splash-screen">
+    <!-- शुरुआत में इसे छुपा (hidden) रखा है, JS से इसे दिखाएंगे -->
+    <div id="splash-screen" class="splash-hidden">
         <div class="splash-logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest" style="width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #a855f7;">
         </div>
@@ -304,13 +306,14 @@
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById("splash-screen");
             if (splash) {
-                // अगर यूजर ने इस सेशन में पहले देख लिया है, तो स्किप करो
-                if (sessionStorage.getItem('splashShown')) {
-                    splash.classList.add('splash-hidden'); 
-                    setTimeout(() => { splash.style.display = 'none'; }, 600);
+                const isHomePage = window.location.pathname === '/' || window.location.pathname === '/home';
+                
+                // 🛠️ FIX: स्प्लैश स्क्रीन सिर्फ होम पेज पर और सिर्फ पहली बार दिखेगी
+                if (sessionStorage.getItem('splashShown') || !isHomePage) {
+                    splash.style.display = 'none'; // सीधा हटा दो
                 } else {
                     sessionStorage.setItem('splashShown', 'true');
-                    // 2.5 सेकंड तक एनीमेशन दिखाओ, फिर स्मूदली हटा दो
+                    splash.classList.remove('splash-hidden'); // दिखाओ
                     setTimeout(() => {
                         splash.classList.add('splash-hidden');
                         setTimeout(() => { splash.style.display = 'none'; }, 600);
