@@ -4710,7 +4710,7 @@ body::before {
 /* 🛠️ WATCH PAGE CSS (Video Player, Servers) 🛠️ */
 /* ========================================== */
 
-/* PC वीडियो प्लेयर साइज़ फिक्स (ताकि स्क्रीन पर बहुत बड़ा न दिखे) */
+/* PC वीडियो प्लेयर साइज़ फिक्स */
 .video-section-wrapper {
     width: 100%;
     max-width: 1000px; /* PC पर वीडियो इससे बड़ा नहीं होगा */
@@ -4722,7 +4722,7 @@ body::before {
     width: 100%;
     padding-top: 56.25%; /* 16:9 Aspect Ratio */
     background: #000;
-    border-radius: 12px; /* सुंदर गोल कोने */
+    border-radius: 12px; /* PC पर सुंदर गोल कोने */
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
@@ -4736,10 +4736,14 @@ body::before {
     border: none;
 }
 
-/* मोबाइल पर थोड़ा सा पैडिंग ताकि वीडियो किनारों से न चिपके */
+/* 🛠️ मोबाइल के लिए फिक्स (ताकि वीडियो फुल स्क्रीन दिखे और काली लाइनें न आएं) */
 @media (max-width: 768px) {
     .video-section-wrapper {
-        padding: 0 10px;
+        padding: 0 !important; /* साइड का पैडिंग हटा दिया */
+        max-width: 100%; 
+    }
+    .video-player-crunchy {
+        border-radius: 0; /* मोबाइल पर गोल कोने हटा दिए ताकि फुल स्क्रीन फील आए */
     }
 }
 
