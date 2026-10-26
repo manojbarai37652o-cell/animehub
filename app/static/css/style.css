@@ -4801,3 +4801,58 @@ body::before {
 .season-dropdown-menu::-webkit-scrollbar { width: 6px; }
 .season-dropdown-menu::-webkit-scrollbar-track { background: #1a1a24; }
 .season-dropdown-menu::-webkit-scrollbar-thumb { background: #a855f7; border-radius: 10px; }
+/* ========================================== */
+/* 🚀 ULTRA SMOOTH SCROLLING & PERFORMANCE FIXES 🚀 */
+/* ========================================== */
+
+/* 1. नेटिव स्मूथ स्क्रॉलिंग (iOS और Android के लिए) */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* iOS Safari के लिए */
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* 2. हार्डवेयर एक्सेलेरेशन (GPU को एक्टिवेट करने के लिए) */
+.glass-header, 
+.glass-bottom-nav, 
+.anime-card, 
+.episode-item-crunchy,
+.telegram-float-btn {
+    transform: translateZ(0); /* ये ब्राउज़र को बोलता है कि GPU का इस्तेमाल करो */
+    will-change: transform, scroll-position;
+    backface-visibility: hidden;
+}
+
+/* 3. Content Visibility (ये सबसे बड़ा जादू है!) */
+/* जो सेक्शन स्क्रीन पर नहीं दिख रहे, ब्राउज़र उन्हें रेंडर करना बंद कर देगा */
+.app-section, 
+.anime-row, 
+.episodes-list-crunchy {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px; /* ट्रैकिंग साइज़ ताकि स्क्रॉल बार न कूदे */
+}
+
+/* 4. बैकड्रॉप फिल्टर (Glass Effect) को हल्का करना */
+/* मोबाइल पर बहुत ज्यादा Blur (धुंधलापन) स्क्रॉल को अटकाता है */
+@media (max-width: 768px) {
+    .glass-header, .glass-bottom-nav {
+        -webkit-backdrop-filter: blur(8px) !important;
+        backdrop-filter: blur(8px) !important;
+    }
+}
+
+/* 5. इमेज रेंडरिंग फास्ट करना */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* 6. अनचाहे एनीमेशन्स को रोकना */
+* {
+    -webkit-tap-highlight-color: transparent; /* क्लिक करने पर नीला बॉक्स न आए */
+}
