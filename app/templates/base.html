@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AnimeNest - Watch Anime Free</title>
     
-    <!-- 🛠️ META TAGS FOR SITE NAME -->
     <meta name="application-name" content="AnimeNest">
     <meta name="apple-mobile-web-app-title" content="AnimeNest">
     
@@ -23,17 +22,14 @@
     <!-- 🛠️ ADSTERRA SITE VERIFICATION TAG -->
     <meta name="adsterra-site-verification" content="8GH9pw32a" />
 
-    <!-- 🛠️ GOOGLE SEARCH SITE NAME FIX -->
+    <!-- 🛠️ SEO & META TAGS -->
     <meta property="og:site_name" content="AnimeNest">
     <meta property="og:title" content="AnimeNest - Watch Anime Free">
     <meta property="og:type" content="website">
-    
-    <!-- 🛠️ TELEGRAM LINK PREVIEW FIX (AnimeNest Logo) -->
     <meta property="og:image" content="https://animenest-zmbl.onrender.com/static/images/logo.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://animenest-zmbl.onrender.com/static/images/logo.png">
 
-    <!-- 🛠️ JSON-LD SCHEMA FOR GOOGLE (CRITICAL FOR SITE NAME) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -64,7 +60,7 @@
         #splash-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100vh;
-            background: #0b0f19; /* Dark background */
+            background: #0b0f19;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -72,104 +68,40 @@
             z-index: 999999;
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
-
         .splash-hidden {
             opacity: 0;
             transform: scale(1.1);
             pointer-events: none;
-            display: none !important; /* Extra safe to remove from DOM flow */
+            display: none !important;
         }
-
-        .splash-logo {
-            animation: logoPulse 1.5s infinite ease-in-out;
-            margin-bottom: 20px;
-        }
-
+        .splash-logo { animation: logoPulse 1.5s infinite ease-in-out; margin-bottom: 20px; }
         @keyframes logoPulse {
             0% { transform: scale(1); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
             50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(168, 85, 247, 0.8); }
             100% { transform: scale(1); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
         }
+        .splash-text { color: #fff; font-size: 24px; font-weight: 800; letter-spacing: 1px; margin-top: 15px; animation: fadeInUp 1s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        .splash-text span { color: #a855f7; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        .splash-spinner { width: 30px; height: 30px; border: 3px solid rgba(168, 85, 247, 0.3); border-top-color: #a855f7; border-radius: 50%; animation: spin 1s linear infinite; margin-top: 30px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        .splash-text {
-            color: #fff;
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-top: 15px;
-            animation: fadeInUp 1s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .splash-text span {
-            color: #a855f7; /* Purple color for Nest */
-        }
-
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .splash-spinner {
-            width: 30px;
-            height: 30px;
-            border: 3px solid rgba(168, 85, 247, 0.3);
-            border-top-color: #a855f7;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-top: 30px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        iframe[id*="google_ads"], iframe[src*="bancadeltempoidea"], div[class*="push"], div[id*="push"] {
-            z-index: 99999 !important;
-        }
+        iframe[id*="google_ads"], iframe[src*="bancadeltempoidea"], div[class*="push"], div[id*="push"] { z-index: 99999 !important; }
 
         /* 🛠️ TELEGRAM FLOATING BUTTON CSS */
         .telegram-float-btn {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background-color: #0088cc;
-            color: white;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
-            z-index: 10000;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            position: fixed; bottom: 90px; right: 20px; background-color: #0088cc; color: white;
+            border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5); z-index: 10000; text-decoration: none; transition: all 0.3s ease;
         }
-        .telegram-float-btn svg {
-            width: 26px;
-            height: 26px;
-            fill: white;
-        }
-        .telegram-float-btn:hover {
-            transform: scale(1.1);
-            background-color: #0099e6;
-        }
+        .telegram-float-btn svg { width: 26px; height: 26px; fill: white; }
+        .telegram-float-btn:hover { transform: scale(1.1); background-color: #0099e6; }
         
-        /* SEO Fix for H1 */
-        .logo-text {
-            font-size: 20px; 
-            font-weight: 800; 
-            color: #fff; 
-            margin: 0; 
-            display: inline-block;
-        }
+        .logo-text { font-size: 20px; font-weight: 800; color: #fff; margin: 0; display: inline-block; }
     </style>
 </head>
 <body>
 
-    <!-- 🟢 APP-LIKE SPLASH SCREEN 🟢 -->
-    <!-- शुरुआत में इसे छुपा (hidden) रखा है, JS से इसे दिखाएंगे -->
     <div id="splash-screen" class="splash-hidden">
         <div class="splash-logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest" style="width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #a855f7;">
@@ -185,7 +117,6 @@
             <div class="logo-left">
                 <a href="/" class="logo-link spa-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest Logo" style="height: 38px; width: 38px; border-radius: 50%; object-fit: cover; border: 2px solid #a855f7; box-shadow: 0 0 10px rgba(168, 85, 247, 0.4); display: block;">
-                    <!-- 🛠️ Changed span to h1 for SEO -->
                     <h1 class="logo-text">Anime<span style="color: #a855f7;">Nest</span></h1>
                 </a>
             </div>
@@ -244,24 +175,6 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="search-section">
-                    <div class="search-section-header">
-                        <h3><i class="fas fa-crown" style="color: #f1c40f;"></i> Top Rated Anime</h3>
-                        <a href="/top-rated">See All <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                    <div class="search-horizontal-scroll">
-                        {% for anime in top_rated_anime_overlay %}
-                        <a href="/watch/{{ anime.id }}" class="search-anime-card">
-                            <img src="{{ anime.image }}" alt="{{ anime.title }}" onerror="this.src='https://via.placeholder.com/120x160?text=No+Image';">
-                            <h4>{{ anime.title }}</h4>
-                            <div class="search-anime-meta">
-                                <span>S{{ anime.seasons[0].season_number if anime.seasons else 1 }} • {{ anime.seasons[0].episodes|length if anime.seasons else 0 }} Episodes</span>
-                                <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
-                            </div>
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -270,6 +183,7 @@
         {% block content %}{% endblock %}
     </main>
 
+    <!-- 🟢 BOTTOM NAVIGATION (UPDATED) 🟢 -->
     <div class="bottom-nav-wrapper">
         <div class="glass-bottom-nav">
             <a href="/" class="nav-item spa-link {% if page_title == 'Home' or page_title == 'AnimeNest' %}active{% endif %}">
@@ -280,14 +194,10 @@
                 <i class="far fa-bookmark"></i>
                 <span>Watchlist</span>
             </a>
-            <a href="/continue-watching" class="nav-item spa-link {% if page_title == 'Continue Watching' %}active{% endif %}">
-                <i class="fas fa-play-circle"></i>
-                <span>Continue</span>
-                <span class="nav-badge"></span>
-            </a>
-            <a href="/profile" class="nav-item spa-link {% if page_title == 'Profile' %}active{% endif %}">
-                <i class="far fa-user"></i>
-                <span>Profile</span>
+            <!-- 🛠️ HISTORY ADDED HERE (REPLACED PROFILE & CONTINUE) -->
+            <a href="/history" class="nav-item spa-link {% if page_title == 'History' %}active{% endif %}">
+                <i class="fas fa-history"></i>
+                <span>History</span>
             </a>
         </div>
     </div>
@@ -302,18 +212,15 @@
     <script>
         history.replaceState({ url: window.location.pathname }, '', window.location.pathname);
 
-        // 🟢 SPLASH SCREEN LOGIC (App-like opening)
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById("splash-screen");
             if (splash) {
                 const isHomePage = window.location.pathname === '/' || window.location.pathname === '/home';
-                
-                // 🛠️ FIX: स्प्लैश स्क्रीन सिर्फ होम पेज पर और सिर्फ पहली बार दिखेगी
                 if (sessionStorage.getItem('splashShown') || !isHomePage) {
-                    splash.style.display = 'none'; // सीधा हटा दो
+                    splash.style.display = 'none';
                 } else {
                     sessionStorage.setItem('splashShown', 'true');
-                    splash.classList.remove('splash-hidden'); // दिखाओ
+                    splash.classList.remove('splash-hidden');
                     setTimeout(() => {
                         splash.classList.add('splash-hidden');
                         setTimeout(() => { splash.style.display = 'none'; }, 600);

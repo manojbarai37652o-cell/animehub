@@ -1,78 +1,18 @@
-from flask import Flask, render_template, abort, request, redirect, url_for, session, jsonify, flash, send_from_directory, Response
+from flask import Flask, render_template, abort, request, redirect, jsonify, send_from_directory, Response
 import random
-import json
 import os
 import re
-import secrets
-from datetime import timedelta, datetime
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
                                    get_anime_by_genre, get_single_random_anime,
                                    get_top_anime, get_hero_anime_list)
-from flask_dance.contrib.google import make_google_blueprint, google
-from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
-
-db = SQLAlchemy()
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    password_hash = db.Column(db.String(200), nullable=False)
-    remember_token = db.Column(db.String(200), nullable=True)
-
-PROGRESS_FILE = 'database/progress.json'
-
-def load_progress():
-    if not os.path.exists(PROGRESS_FILE):
-        return {}
-    try:
-        with open(PROGRESS_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except Exception:
-        return {}
-
-def save_progress_data(data):
-    os.makedirs(os.path.dirname(PROGRESS_FILE), exist_ok=True)
-    with open(PROGRESS_FILE, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=4, ensure_ascii=False)
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
     
-    db_url = os.environ.get('DATABASE_URL', 'sqlite:///users.db')
-    if db_url.startswith("postgres://"):
-        db_url = db_url.replace("postgres://", "postgresql://", 1)
-        
-    app.config['SQLALCHEMY_DATABASE_URI'] = db_url
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=3650)
-    app.config['SESSION_COOKIE_SECURE'] = True
-    app.config['SESSION_COOKIE_HTTPONLY'] = True
-    app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
-    
-    db.init_app(app)
-    
-    with app.app_context():
-        db.create_all()
-        try:
-            db.session.execute(db.text('ALTER TABLE user ADD COLUMN remember_token VARCHAR(200)'))
-            db.session.commit()
-        except Exception:
-            db.session.rollback()
-            
-    google_bp = make_google_blueprint(
-        client_id=app.config['GOOGLE_CLIENT_ID'],
-        client_secret=app.config['GOOGLE_CLIENT_SECRET'],
-        scope=["openid", "email", "profile"],
-        redirect_url="/login"
-    )
-    app.register_blueprint(google_bp, url_prefix="/login")
-
     # =========================================================
     # 🟢 GOOGLE VERIFICATION & SITEMAP ROUTES 🟢
     # =========================================================
@@ -114,107 +54,6 @@ def create_app(config_class=Config):
             print(f"Sitemap error: {e}")
             return Response("Error generating sitemap", status=500)
 
-    @app.before_request
-    def auto_login():
-        if not session.get('user_email'):
-            token = request.cookies.get('remember_token')
-            if token:
-                user = User.query.filter_by(remember_token=token).first()
-                if user:
-                    session['user_email'] = user.email
-                    session['user_name'] = user.name
-                    session['user_pic'] = f"https://ui-avatars.com/api/?name={user.name}&background=random"
-                    session.permanent = True
-
-    @app.route('/login')
-    def login():
-        if session.get('user_email'):
-            return redirect(url_for('home'))
-        if not google.authorized:
-            return render_template('login.html')
-        try:
-            resp = google.get('/oauth2/v2/userinfo')
-            if resp.ok:
-                user_info = resp.json()
-                session['user_email'] = user_info['email']
-                session['user_name'] = user_info.get('name', 'User')
-                session['user_pic'] = user_info.get('picture', '')
-                session.permanent = True
-                return redirect(url_for('home'))
-            else:
-                session.clear()
-                return render_template('login.html')
-        except Exception as e:
-            session.clear()
-            return render_template('login.html')
-
-    @app.route('/login/google')
-    def login_google():
-        if not google.authorized:
-            return redirect(url_for("google.login"))
-        return redirect(url_for('login'))
-
-    @app.route('/login/email', methods=['POST'])
-    def login_email():
-        email = request.form.get('email')
-        password = request.form.get('password')
-        remember = request.form.get('remember')
-        user = User.query.filter_by(email=email).first()
-        if user and check_password_hash(user.password_hash, password):
-            session['user_email'] = user.email
-            session['user_name'] = user.name
-            session['user_pic'] = f"https://ui-avatars.com/api/?name={user.name}&background=random"
-            session.permanent = True
-            response = redirect(url_for('home'))
-            if remember:
-                token = secrets.token_urlsafe(64)
-                user.remember_token = token
-                db.session.commit()
-                response.set_cookie('remember_token', token, max_age=3650*24*60*60, httponly=True)
-                response.set_cookie('saved_email', email, max_age=3650*24*60*60)
-            return response
-        else:
-            return render_template('login.html', error="गलत ईमेल या पासवर्ड")
-
-    @app.route('/signup', methods=['GET', 'POST'])
-    def signup():
-        if request.method == 'POST':
-            name = request.form.get('name')
-            email = request.form.get('email')
-            password = request.form.get('password')
-            existing_user = User.query.filter_by(email=email).first()
-            if existing_user:
-                return render_template('signup.html', error="यह ईमेल पहले से रजिस्टर्ड है")
-            new_user = User(name=name, email=email, password_hash=generate_password_hash(password))
-            db.session.add(new_user)
-            db.session.commit()
-            return redirect(url_for('login'))
-        return render_template('signup.html')
-
-    @app.route('/guest')
-    def guest_login():
-        session['user_email'] = 'guest@animenest.com'
-        session['user_name'] = 'Guest'
-        session['user_pic'] = 'https://ui-avatars.com/api/?name=Guest&background=ff4d4d&color=fff'
-        session.permanent = True
-        return redirect(url_for('home'))
-
-    @app.route('/logout')
-    def logout():
-        token = request.cookies.get('remember_token')
-        if token:
-            user = User.query.filter_by(remember_token=token).first()
-            if user:
-                user.remember_token = None
-                db.session.commit()
-        session.clear()
-        session.pop('google_token', None)
-        session.pop('google_oauth_token', None)
-        resp = redirect(url_for('home'))
-        resp.set_cookie('remember_token', '', expires=0)
-        resp.set_cookie('saved_email', '', expires=0)
-        return resp
-
     def get_filtered_anime():
         all_anime = get_all_anime()
         cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman']
@@ -239,57 +78,6 @@ def create_app(config_class=Config):
             )
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
-
-    @app.route('/api/save_progress', methods=['POST'])
-    def api_save_progress():
-        if not session.get('user_email'): return jsonify({"status": "error", "message": "Not logged in"}), 401
-        
-        data = request.json
-        user_email = session['user_email']
-        
-        progress_db = load_progress()
-        if user_email not in progress_db:
-            progress_db[user_email] = {}
-            
-        anime_id = str(data.get('anime_id'))
-        progress_db[user_email][anime_id] = {
-            "season": data.get('season', 1),
-            "episode": data.get('episode', 1),
-            "timestamp": data.get('timestamp', 0),
-            "duration": data.get('duration', 0),
-            "updated_at": datetime.now().isoformat()
-        }
-        
-        save_progress_data(progress_db)
-        return jsonify({"status": "success"})
-
-    @app.route('/continue-watching')
-    def continue_watching_page():
-        if not session.get('user_email'): return render_template('login.html')
-        
-        user_email = session['user_email']
-        progress_db = load_progress()
-        user_progress = progress_db.get(user_email, {})
-        
-        continue_list = []
-        for anime_id, data in user_progress.items():
-            anime_details = get_anime_by_id(anime_id)
-            if anime_details:
-                duration = data.get('duration', 1)
-                timestamp = data.get('timestamp', 0)
-                percent = int((timestamp / duration) * 100) if duration > 0 else 0
-                
-                anime_details['resume_data'] = {
-                    'season': data.get('season', 1),
-                    'episode': data.get('episode', 1),
-                    'percent': min(percent, 100),
-                    'timestamp': timestamp
-                }
-                continue_list.append(anime_details)
-                
-        continue_list.sort(key=lambda x: user_progress[str(x['id'])].get('updated_at', ''), reverse=True)
-        
-        return render_template('continue_watching.html', anime_list=continue_list, page_title="Continue Watching")
 
     # =========================================================
     # 🟢 PUBLIC ROUTES (बिना लॉगिन के) 🟢
@@ -355,6 +143,16 @@ def create_app(config_class=Config):
         anime = get_single_random_anime()
         if anime: return redirect(f"/watch/{anime['id']}")
         return redirect('/')
+
+    # 🛠️ HISTORY PAGE ROUTE (नया जोड़ा गया है)
+    @app.route('/history')
+    def history():
+        return render_template('history.html', page_title='History')
+
+    # 🛠️ WATCHLIST PAGE ROUTE (लॉगिन हटा दिया गया है)
+    @app.route('/watchlist')
+    def watchlist():
+        return render_template('watchlist.html', page_title='Watchlist')
 
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')
@@ -422,56 +220,6 @@ def create_app(config_class=Config):
                                episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num,
                                related_anime=related_anime, genres_text=genres_text, description=description,
                                ep_number=ep_number)
-
-    # =========================================================
-    # 🟢 PROTECTED ROUTES (लॉगिन जरूरी) 🟢
-    # =========================================================
-    @app.route('/profile')
-    def profile():
-        if not session.get('user_email'): return render_template('login.html')
-        return render_template('profile.html')
-
-    @app.route('/settings/account')
-    def settings_account():
-        if not session.get('user_email'): return render_template('login.html')
-        return render_template('settings.html', page_title='Account Information')
-
-    @app.route('/settings/playback')
-    def settings_playback():
-        if not session.get('user_email'): return render_template('login.html')
-        return render_template('settings.html', page_title='Playback Settings')
-
-    @app.route('/settings/update_profile', methods=['POST'])
-    def update_profile():
-        if not session.get('user_email'): return redirect(url_for('login'))
-        new_name = request.form.get('name')
-        user = User.query.filter_by(email=session['user_email']).first()
-        if user and new_name:
-            user.name = new_name
-            session['user_name'] = new_name
-            db.session.commit()
-            flash('प्रोफाइल नाम सफलतापूर्वक अपडेट हो गया!', 'success')
-        return redirect(url_for('settings_account'))
-
-    @app.route('/settings/update_password', methods=['POST'])
-    def update_password():
-        if not session.get('user_email'): return redirect(url_for('login'))
-        current_password = request.form.get('current_password')
-        new_password = request.form.get('new_password')
-        user = User.query.filter_by(email=session['user_email']).first()
-        
-        if user and check_password_hash(user.password_hash, current_password):
-            user.password_hash = generate_password_hash(new_password)
-            db.session.commit()
-            flash('पासवर्ड सफलतापूर्वक बदल दिया गया!', 'success')
-        else:
-            flash('गलत पुराना पासवर्ड! कृपया पुनः प्रयास करें।', 'error')
-        return redirect(url_for('settings_account'))
-
-    @app.route('/watchlist')
-    def watchlist():
-        if not session.get('user_email'): return render_template('login.html')
-        return render_template('watchlist.html')
 
     @app.errorhandler(404)
     def page_not_found(e): return render_template('404.html'), 404
