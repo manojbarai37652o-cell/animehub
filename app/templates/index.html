@@ -95,9 +95,10 @@
             <!-- ========================================== -->
             {% if 'Anime starting with' in page_title or page_title == '#' %}
             <div class="alphabet-nav">
-                <a href="/az/%23" class="az-btn {% if page_title == '#' %}active{% endif %}">#</a>
+                <a href="/az/%23" class="az-btn {% if page_title == '#' or page_title[-2] == '#' %}active{% endif %}">#</a>
                 {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
-                    <a href="/az/{{ letter }}" class="az-btn {% if page_title.endswith(letter) %}active{% endif %}">
+                    <!-- 🛠️ FIXED: Active class logic fixed to match "Anime starting with 'A'" -->
+                    <a href="/az/{{ letter }}" class="az-btn {% if page_title == "Anime starting with '" ~ letter ~ "'" or page_title[-2] == letter %}active{% endif %}">
                         {{ letter }}
                     </a>
                 {% endfor %}
