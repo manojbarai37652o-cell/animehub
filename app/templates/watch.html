@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ anime.title }} - AnimeNest{% endblock %}
+{% block description %}Watch {{ anime.title }} in Hindi Dub/Sub online free on AnimeNest.{% endblock %}
+{% block og_title %}{{ anime.title }} - AnimeNest{% endblock %}
+
 {% block content %}
 <div class="watch-page">
 
@@ -230,7 +234,6 @@
 
 <!-- 🟢 JAVASCRIPT 🟢 -->
 <script>
-    // 🛠️ Read data from HTML without Red Lines in VS Code
     const metaData = document.getElementById('animeMetaData');
     
     const animeData = {
@@ -374,12 +377,11 @@
         }
     }
 
-    // 🛠️ HISTORY SAVE LOGIC (With Timestamp for 24h delete)
     const currentEpData = { 
         id: animeData.id, 
         title: animeData.title, 
         image: animeData.image,
-        timestamp: new Date().getTime() // टाइमस्टैम्प जोड़ा ताकि 24 घंटे बाद डिलीट हो सके
+        timestamp: new Date().getTime() 
     };
     
     let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
@@ -388,7 +390,6 @@
     history = history.slice(0, 20);
     localStorage.setItem('animeHistory', JSON.stringify(history));
 
-    // Progress Save (Only runs if on an episode page)
     if (animeId && currentEp.num) {
         const progressData = {
             anime_id: animeId,

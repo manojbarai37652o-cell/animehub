@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ page_title }} - AnimeNest{% endblock %}
+{% block description %}Watch {{ page_title }} anime online free on AnimeNest.{% endblock %}
+{% block og_title %}{{ page_title }} - AnimeNest{% endblock %}
+
 {% block content %}
 <div class="main-content-wrapper">
 
@@ -97,7 +101,6 @@
             <div class="alphabet-nav">
                 <a href="/az/%23" class="az-btn {% if page_title == '#' or page_title[-2] == '#' %}active{% endif %}">#</a>
                 {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
-                    <!-- 🛠️ FIXED: Active class logic fixed to match "Anime starting with 'A'" -->
                     <a href="/az/{{ letter }}" class="az-btn {% if page_title == "Anime starting with '" ~ letter ~ "'" or page_title[-2] == letter %}active{% endif %}">
                         {{ letter }}
                     </a>
