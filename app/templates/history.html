@@ -4,7 +4,7 @@
 <div class="main-content-wrapper" style="padding: 20px 15px; padding-bottom: 100px;">
 
     <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h2 style="margin: 0; font-size: 22px; color: #fff;">🕒 Watch History</h2>
+        <h2 style="margin: 0; font-size: 22px; color: #fff;">🕒 Watch History (Last 24 Hours)</h2>
         <button onclick="clearWatchHistory()" style="background: rgba(255, 75, 43, 0.1); border: 1px solid rgba(255, 75, 43, 0.3); color: #ff4b2b; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-weight: 600;">
             <i class="fas fa-trash"></i> Clear
         </button>
@@ -19,15 +19,27 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const container = document.getElementById('historyContainer');
-        // watch.html में हमने 'animeHistory' नाम से डेटा सेव किया था
         let historyData = JSON.parse(localStorage.getItem('animeHistory')) || [];
+
+        // 🛠️ 24 Hour Auto-Delete Logic
+        const now = new Date().getTime();
+        const twentyFourHours = 24 * 60 * 60 * 1000; // 24 घंटे मिलीसेकंड में
+
+        // सिर्फ वही रखो जो 24 घंटे के अंदर के हैं
+        historyData = historyData.filter(anime => {
+            if (!anime.timestamp) return true; // पुराना डेटा (बिना टाइमस्टैम्प) हो तो रहने दो
+            return (now - anime.timestamp) < twentyFourHours;
+        });
+
+        // साफ की हुई लिस्ट को वापस LocalStorage में सेव कर दो
+        localStorage.setItem('animeHistory', JSON.stringify(historyData));
 
         if (historyData.length === 0) {
             container.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center; padding: 40px 0; color: #888;">
                     <i class="fas fa-ghost" style="font-size: 40px; margin-bottom: 15px; opacity: 0.5;"></i>
                     <h3>कोई हिस्ट्री नहीं मिली</h3>
-                    <p>आपने अभी तक कोई एनीमे नहीं देखा है।</p>
+                    <p>आपने पिछले 24 घंटों में कोई एनीमे नहीं देखा है।</p>
                 </div>
             `;
             return;

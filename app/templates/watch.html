@@ -374,7 +374,14 @@
         }
     }
 
-    const currentEpData = { id: animeData.id, title: animeData.title, image: animeData.image };
+    // 🛠️ HISTORY SAVE LOGIC (With Timestamp for 24h delete)
+    const currentEpData = { 
+        id: animeData.id, 
+        title: animeData.title, 
+        image: animeData.image,
+        timestamp: new Date().getTime() // टाइमस्टैम्प जोड़ा ताकि 24 घंटे बाद डिलीट हो सके
+    };
+    
     let history = JSON.parse(localStorage.getItem('animeHistory')) || [];
     history = history.filter(item => item.id !== currentEpData.id);
     history.unshift(currentEpData);
