@@ -70,6 +70,18 @@
         <script src="https://bancadeltempoidea.org/22/0230da13333651445857fb8321414ae1"></script>
     </div>
 
+    <!-- 🛠️ SMART RECOMMENDATION SECTION (यूजर की पसंद के हिसाब से) -->
+    {% if not search_query and page_title == 'Home' %}
+    <div class="app-section" id="smartRecommendedSection" style="display: none;">
+        <div class="section-header">
+            <h2>🎯 Recommended For You</h2>
+        </div>
+        <div class="anime-row" id="smartRecommendedList">
+            <!-- जावास्क्रिप्ट यहाँ कार्ड्स डालेगा -->
+        </div>
+    </div>
+    {% endif %}
+
     <!-- 3. Anime Sections -->
     {% if not search_query %}
 
@@ -255,7 +267,7 @@
 
 </div>
 
-<!-- JavaScript for Slider -->
+<!-- JavaScript for Slider & Recommendation -->
 <script>
     let slideIndex = 0;
     let slides = document.getElementsByClassName("hero-slide");
@@ -284,5 +296,46 @@
     if (slides.length > 0) {
         slideInterval = setTimeout(showSlides, 5000);
     }
+
+    // 🛠️ SMART RECOMMENDATION LOGIC
+    document.addEventListener('DOMContentLoaded', function() {
+        // सिर्फ होम पेज पर चलाओ
+        if (window.location.pathname !== '/' && window.location.pathname !== '/home') return;
+
+        let userPrefs = JSON.parse(localStorage.getItem('userGenrePrefs')) || {};
+        let topGenre = null;
+        let maxCount = 0;
+        
+        // सबसे ज़्यादा देखा गया जॉनर ढूँढो
+        for (let genre in userPrefs) {
+            if (userPrefs[genre] > maxCount) { maxCount = userPrefs[genre]; topGenre = genre; }
+        }
+
+        if (topGenre && maxCount > 0) {
+            // अगर यूजर ने कुछ देखा है, तो उस जॉनर के एनीमे लाओ
+            fetch(`/api/recommend?genre=${encodeURIComponent(topGenre)}`)
+                .then(response => response.json())
+                .then(data => {
+                    const section = document.getElementById('smartRecommendedSection');
+                    const container = document.getElementById('smartRecommendedList');
+                    
+                    if (data && data.length > 0) {
+                        let htmlContent = '';
+                        data.forEach(anime => {
+                            htmlContent += `
+                                <a href="/watch/${anime.id}" class="anime-card">
+                                    <img src="${anime.image}" alt="${anime.title}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                                    <h3 class="anime-title">${anime.title}</h3>
+                                    <div class="anime-meta"><span class="rating">★ ${anime.rating || '8.0'}</span></div>
+                                </a>
+                            `;
+                        });
+                        container.innerHTML = htmlContent;
+                        section.style.display = 'block'; // सेक्शन दिखाओ
+                    }
+                })
+                .catch(err => console.error("Recommendation error:", err));
+        }
+    });
 </script>
 {% endblock %}

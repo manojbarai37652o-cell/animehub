@@ -7,11 +7,12 @@
 {% block content %}
 <div class="watch-page">
 
-    <!-- 🛠️ HIDDEN DATA (VS Code की लाल लाइनें हटाने के लिए) -->
+    <!-- 🛠️ HIDDEN DATA -->
     <div id="animeMetaData" style="display: none;"
          data-id="{{ anime.id }}"
          data-title="{{ anime.title }}"
          data-image="{{ anime.image }}"
+         data-genres="{{ genres_text }}"  <!-- 🛠️ नया जोड़ा गया है -->
          data-ep-title="{{ current_ep.title if current_ep and current_ep.title else 'Episode 1' }}"
          data-season="{{ current_season.season_number if current_season else 1 }}">
     </div>
@@ -252,6 +253,7 @@
     
     const animeId = metaData.dataset.id;
     const currentSeason = metaData.dataset.season;
+    const animeGenres = metaData.dataset.genres; // 🛠️ नया जोड़ा गया है
 
     window.toggleSeasonDropdown = function() {
         const menu = document.getElementById('season-dropdown-menu');
@@ -375,6 +377,16 @@
                 renderStars(currentRating);
             });
         }
+    }
+
+    // 🛠️ SMART RECOMMENDATION: सेव यूजर जॉनर (ये नया कोड है)
+    if (animeGenres) {
+        let userPrefs = JSON.parse(localStorage.getItem('userGenrePrefs')) || {};
+        let genresArray = animeGenres.split('•').map(g => g.trim());
+        genresArray.forEach(genre => {
+            userPrefs[genre] = (userPrefs[genre] || 0) + 1;
+        });
+        localStorage.setItem('userGenrePrefs', JSON.stringify(userPrefs));
     }
 
     const currentEpData = { 

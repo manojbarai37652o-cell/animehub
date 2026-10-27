@@ -13,9 +13,6 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
     
-    # =========================================================
-    # 🟢 GOOGLE VERIFICATION & SITEMAP ROUTES 🟢
-    # =========================================================
     @app.route('/google284a1cf6abd21b7d.html')
     def google_verification():
         return send_from_directory(app.static_folder, 'google284a1cf6abd21b7d.html')
@@ -25,33 +22,16 @@ def create_app(config_class=Config):
         try:
             all_anime = get_all_anime()
             base_url = request.url_root.rstrip('/')
-            
-            xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
-            xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-            
-            # Static Pages
-            static_pages = ['/', '/trending', '/movies', '/cartoons', '/top-rated', '/popular', '/categories']
+            xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            static_pages = ['/', '/trending', '/movies', '/cartoons', '/top-rated', '/popular', '/categories', '/history', '/watchlist']
             for page in static_pages:
                 xml += f'  <url>\n    <loc>{base_url}{page}</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n'
-            
-            # Anime & Movies
             for anime in all_anime:
                 anime_url = f"{base_url}/watch/{anime.get('id', '')}"
                 xml += f'  <url>\n    <loc>{anime_url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n'
-                
-                # Episodes
-                for season in anime.get('seasons', []):
-                    season_num = season.get('season_number', 1)
-                    for ep in season.get('episodes', []):
-                        ep_num = ep.get('ep_num', '1')
-                        ep_url = f"{base_url}/watch/{anime.get('id', '')}/{season_num}/{ep_num}"
-                        xml += f'  <url>\n    <loc>{ep_url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>\n'
-            
             xml += '</urlset>'
-            
             return Response(xml, mimetype='application/xml')
         except Exception as e:
-            print(f"Sitemap error: {e}")
             return Response("Error generating sitemap", status=500)
 
     def get_filtered_anime():
@@ -71,25 +51,40 @@ def create_app(config_class=Config):
             popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)[:10]
             top_rated = sorted(all_anime, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)[:10]
             trending_searches = [a['title'] for a in popular[:6]] 
-            return dict(
-                popular_anime_overlay=popular, 
-                top_rated_anime_overlay=top_rated,
-                trending_searches=trending_searches
-            )
+            return dict(popular_anime_overlay=popular, top_rated_anime_overlay=top_rated, trending_searches=trending_searches)
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # =========================================================
-    # 🟢 PUBLIC ROUTES (बिना लॉगिन के) 🟢
-    # =========================================================
+    # 🛠️ NEW API FOR SMART RECOMMENDATIONS
+    @app.route('/api/recommend')
+    def api_recommend():
+        genre = request.args.get('genre', 'Action')
+        all_anime = get_all_anime()
+        
+        recommended = []
+        for anime in all_anime:
+            title_lower = anime['title'].lower()
+            if genre.lower() == 'action' and any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan', 'fight', 'battle', 'action']):
+                recommended.append(anime)
+            elif genre.lower() == 'romance' and any(k in title_lower for k in ['love', 'romance', 'couple', 'girlfriend', 'kaguya', 'wedding']):
+                recommended.append(anime)
+            elif genre.lower() == 'fantasy' and any(k in title_lower for k in ['reincarnated', 'isekai', 'magic', 'dungeon', 'king', 'sword', 'fantasy']):
+                recommended.append(anime)
+            elif genre.lower() == 'comedy' and any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy', 'funny']):
+                recommended.append(anime)
+
+        if not recommended:
+            recommended = random.sample(all_anime, min(12, len(all_anime)))
+        
+        random.shuffle(recommended)
+        return jsonify(recommended[:12])
+
     @app.route('/')
     def home():
         all_anime, trending_full, popular_full, movies_full, series_full, cartoons_full = get_filtered_anime()
         trending = random.sample(trending_full[:50], min(len(trending_full[:50]), 12)) if trending_full else []
         popular = random.sample(popular_full[:50], min(len(popular_full[:50]), 12)) if popular_full else []
-        random.shuffle(movies_full)
         movies = movies_full[:12]
-        random.shuffle(cartoons_full)
         cartoons = cartoons_full[:12]
         hero_anime_list = get_hero_anime_list(5)
         return render_template('index.html', anime_list=all_anime, trending=trending, popular=popular, movies=movies, cartoons=cartoons, hero_anime_list=hero_anime_list, page_title='Home')
@@ -144,12 +139,10 @@ def create_app(config_class=Config):
         if anime: return redirect(f"/watch/{anime['id']}")
         return redirect('/')
 
-    # 🛠️ HISTORY PAGE ROUTE (नया जोड़ा गया है)
     @app.route('/history')
     def history():
         return render_template('history.html', page_title='History')
 
-    # 🛠️ WATCHLIST PAGE ROUTE (लॉगिन हटा दिया गया है)
     @app.route('/watchlist')
     def watchlist():
         return render_template('watchlist.html', page_title='Watchlist')
@@ -182,7 +175,6 @@ def create_app(config_class=Config):
             else:
                 match = re.search(r'(\d+)$', str(ep_number))
                 actual_ep_num = match.group(1) if match else str(ep_number)
-                
                 for i, ep in enumerate(episodes):
                     if f"Episode {actual_ep_num}" in ep.get('title', '') or str(ep.get('ep_num')) == actual_ep_num:
                         current_ep = ep
