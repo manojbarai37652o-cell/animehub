@@ -2,7 +2,8 @@ from flask import Flask, render_template, abort, request, redirect, jsonify, sen
 import random
 import os
 import re
-import urllib.parse
+import base64
+import requests # 🛠️ इमेज डाउनलोड करने के लिए
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
@@ -73,7 +74,7 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # 🛠️ नया सुपरफास्ट Custom Poster (ChatGPT स्टाइल)
+    # 🛠️ 100% FIXED API: Custom Poster Generator (Base64 Image Encoding)
     @app.route('/api/custom_poster/<anime_id>')
     def custom_poster(anime_id):
         anime = get_anime_by_id(anime_id)
@@ -81,29 +82,36 @@ def create_app(config_class=Config):
         
         title = anime.get('title', 'Unknown')
         rating = anime.get('rating', '8.0')
-        raw_image_url = anime.get('image', '')
+        image_url = anime.get('image', '')
         
         if not rating or rating == '8.0':
             rating = generate_smart_rating(title)
         
-        # इमेज लिंक को साफ करो
-        image_url = urllib.parse.quote(raw_image_url, safe=':/?&=%') if raw_image_url else ""
+        # 🛠️ इमेज को डाउनलोड करके Base64 में बदलने का लॉजिक
+        base64_image = ""
+        if image_url:
+            try:
+                headers = {'User-Agent': 'Mozilla/5.0'}
+                response = requests.get(image_url, headers=headers, timeout=5)
+                if response.status_code == 200:
+                    encoded_string = base64.b64encode(response.content).decode('utf-8')
+                    base64_image = f"data:image/jpeg;base64,{encoded_string}"
+            except Exception as e:
+                print(f"Image fetch error: {e}")
         
         short_title = (title[:25] + '...') if len(title) > 25 else title
         total_chars = sum(ord(c) for c in title)
         hue = total_chars % 360
         
-        # 🛠️ ChatGPT स्टाइल डिज़ाइन: बैकग्राउंड में असली इमेज, ऊपर डार्क ग्रेडिएंट, और टेक्स्ट
+        # अगर Base64 इमेज नहीं मिली, तो खाली जगह पर ग्रेडिएंट दिखेगा
+        image_tag = f'<image href="{base64_image}" width="300" height="450" preserveAspectRatio="xMidYMid slice" />' if base64_image else ''
+        
         svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450">
             <defs>
-                <!-- डार्क ग्रेडिएंट (नीचे से ऊपर) -->
-                <linearGradient id="overlayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="20%" style="stop-color:rgba(11,15,25,0);stop-opacity:1" />
-                    <stop offset="80%" style="stop-color:rgba(11,15,25,0.8);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(11,15,25,1);stop-opacity:1" />
+                <linearGradient id="topOverlay" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgba(0,0,0,0.8);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgba(0,0,0,0);stop-opacity:1" />
                 </linearGradient>
-                
-                <!-- अगर इमेज लोड न हो तो यूनिक रंग -->
                 <linearGradient id="fallbackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" style="stop-color:hsl({hue}, 50%, 20%);stop-opacity:1" />
                     <stop offset="100%" style="stop-color:hsl({(hue + 60) % 360}, 50%, 10%);stop-opacity:1" />
@@ -113,23 +121,26 @@ def create_app(config_class=Config):
             <!-- फॉलबैक बैकग्राउंड -->
             <rect width="300" height="450" fill="url(#fallbackGrad)" />
             
-            <!-- असली एनीमे इमेज -->
-            <image href="{image_url}" width="300" height="450" preserveAspectRatio="xMidYMid slice" />
+            <!-- Base64 इमेज (अगर मिली हो तो) -->
+            {image_tag}
             
-            <!-- ऊपर डार्क ग्रेडिएंट -->
-            <rect width="300" height="450" fill="url(#overlayGrad)" />
+            <!-- ऊपर का हल्का डार्क शेड -->
+            <rect width="300" height="100" fill="url(#topOverlay)" />
             
-            <!-- ऊपर बाईं तरफ AnimeNest बैज -->
-            <rect x="10" y="10" width="85" height="22" rx="11" fill="rgba(168, 85, 247, 0.9)" />
-            <text x="52" y="25" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">AnimeNest</text>
+            <!-- नीचे का डार्क बार -->
+            <rect y="340" width="300" height="110" fill="#0b0f19" />
             
-            <!-- ऊपर दाईं तरफ रेटिंग -->
-            <rect x="245" y="10" width="45" height="22" rx="11" fill="rgba(0,0,0,0.6)" />
-            <text x="267" y="25" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#f1c40f" text-anchor="middle" dominant-baseline="middle">★ {rating}</text>
+            <!-- AnimeNest बैज -->
+            <rect x="10" y="10" width="90" height="24" rx="12" fill="rgba(168, 85, 247, 0.9)" />
+            <text x="55" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">AnimeNest</text>
             
-            <!-- नीचे एनीमे का नाम -->
-            <text x="15" y="400" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#ffffff">{short_title}</text>
-            <text x="15" y="425" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#a855f7">WATCH FREE ON ANIMENEST</text>
+            <!-- रेटिंग बैज -->
+            <rect x="240" y="10" width="50" height="24" rx="12" fill="rgba(0,0,0,0.7)" />
+            <text x="265" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#f1c40f" text-anchor="middle" dominant-baseline="middle">★ {rating}</text>
+            
+            <!-- एनीमे का नाम -->
+            <text x="15" y="380" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#ffffff">{short_title}</text>
+            <text x="15" y="405" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#a855f7">WATCH FREE</text>
         </svg>'''
         
         return Response(svg, mimetype='image/svg+xml')
