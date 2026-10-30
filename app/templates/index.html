@@ -82,7 +82,7 @@
                 {% for anime in anime_list %}
                 <a href="/watch/{{ anime.id }}" class="anime-card">
                     <span class="rank-number">{{ loop.index }}</span>
-                    <img src="/api/custom_poster/{{ anime.id }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                    <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
                     <h3 class="anime-title">{{ anime.title }}</h3>
                     <div class="anime-meta">
                         <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
@@ -117,7 +117,7 @@
                 {% for anime in trending %}
                 <a href="/watch/{{ anime.id }}" class="anime-card">
                     <span class="rank-number">{{ loop.index }}</span>
-                    <img src="/api/custom_poster/{{ anime.id }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                    <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
                     <h3 class="anime-title">{{ anime.title }}</h3>
                     <div class="anime-meta">
                         <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
@@ -138,7 +138,7 @@
                 {% for anime in popular %}
                 <a href="/watch/{{ anime.id }}" class="anime-card">
                     <span class="rank-number">{{ loop.index }}</span>
-                    <img src="/api/custom_poster/{{ anime.id }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                    <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
                     <h3 class="anime-title">{{ anime.title }}</h3>
                     <div class="anime-meta">
                         <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
@@ -159,7 +159,7 @@
                 {% for anime in movies %}
                 <a href="/watch/{{ anime.id }}" class="anime-card">
                     <span class="rank-number">{{ loop.index }}</span>
-                    <img src="/api/custom_poster/{{ anime.id }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                    <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
                     <h3 class="anime-title">{{ anime.title }}</h3>
                     <div class="anime-meta">
                         <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
@@ -180,7 +180,7 @@
                 {% for anime in cartoons %}
                 <a href="/watch/{{ anime.id }}" class="anime-card">
                     <span class="rank-number">{{ loop.index }}</span>
-                    <img src="/api/custom_poster/{{ anime.id }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                    <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
                     <h3 class="anime-title">{{ anime.title }}</h3>
                     <div class="anime-meta">
                         <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
@@ -226,7 +226,7 @@
                 {% for anime in anime_list %}
                 <a href="/watch/{{ anime.id }}" class="anime-card">
                     <span class="rank-number">{{ loop.index }}</span>
-                    <img src="/api/custom_poster/{{ anime.id }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                    <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
                     <h3 class="anime-title">{{ anime.title }}</h3>
                     <div class="anime-meta">
                         <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
@@ -270,6 +270,7 @@
         slideInterval = setTimeout(showSlides, 5000);
     }
 
+    // 🛠️ ग्लोबल फंक्शन बनाया ताकि SPA से इसे कॉल किया जा सके
     window.loadRecommendations = function() {
         if (window.location.pathname !== '/' && window.location.pathname !== '/home') return;
 
@@ -294,7 +295,7 @@
                         data.forEach(anime => {
                             htmlContent += `
                                 <a href="/watch/${anime.id}" class="anime-card">
-                                    <img src="/api/custom_poster/${anime.id}" alt="${anime.title}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                                    <img src="${anime.image}" alt="${anime.title}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
                                     <h3 class="anime-title">${anime.title}</h3>
                                     <div class="anime-meta"><span class="rating">★ ${anime.rating || '8.0'}</span></div>
                                 </a>
@@ -308,6 +309,7 @@
         }
     };
 
+    // जब पेज सीधे लोड हो (रिफ्रेश) तो इसे चलाओ
     document.addEventListener('DOMContentLoaded', window.loadRecommendations);
 </script>
 {% endblock %}

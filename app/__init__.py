@@ -2,18 +2,18 @@ from flask import Flask, render_template, abort, request, redirect, jsonify, sen
 import random
 import os
 import re
-import base64
-import requests
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
                                    get_anime_by_genre, get_single_random_anime,
                                    get_top_anime, get_hero_anime_list)
 
-# 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन
+# 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन (नाम के हिसाब से अलग रेटिंग देगा)
 def generate_smart_rating(title):
     if not title: return "8.0"
+    # नाम के अक्षरों को जोड़कर एक यूनिक नंबर बनाएंगे
     total = sum(ord(c) for c in title)
+    # रेटिंग 7.5 से 9.8 के बीच रखेंगे (जो असली जैसी लगती है)
     rating = 7.5 + (total % 24) / 10.0 
     return f"{rating:.1f}"
 
@@ -45,6 +45,8 @@ def create_app(config_class=Config):
 
     def get_filtered_anime():
         all_anime = get_all_anime()
+        
+        # 🛠️ हर एनीमे पर स्मार्ट रेटिंग लगाओ
         for anime in all_anime:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -54,6 +56,7 @@ def create_app(config_class=Config):
         cartoons_list = [a for a in all_anime if any(k in a['title'].lower() for k in cartoon_keywords)]
         series_list = [a for a in all_anime if a not in movies_list and a not in cartoons_list]
         
+        # अब सॉर्टिंग सही से होगी क्योंकि सबकी रेटिंग अलग-अलग होगी
         trending_full = sorted(series_list, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)
         popular_full = sorted(series_list, key=lambda x: len(x.get('episodes', [])), reverse=True)
         
@@ -63,6 +66,8 @@ def create_app(config_class=Config):
     def inject_search_data():
         try:
             all_anime = get_all_anime()
+            
+            # 🛠️ सर्च ओवरले में भी स्मार्ट रेटिंग दिखाओ
             for anime in all_anime:
                 if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                     anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -74,79 +79,13 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # 🛠️ AI-Edited Style Custom Poster (ChatGPT जैसा लुक)
-    @app.route('/api/custom_poster/<anime_id>')
-    def custom_poster(anime_id):
-        anime = get_anime_by_id(anime_id)
-        if not anime: abort(404)
-        
-        title = anime.get('title', 'Unknown')
-        rating = anime.get('rating', '8.0')
-        
-        if not rating or rating == '8.0':
-            rating = generate_smart_rating(title)
-        
-        # टाइटल को छोटा करो
-        short_title = (title[:20] + '...') if len(title) > 20 else title
-        
-        # नाम के हिसाब से एक यूनिक रंग (Hue) निकालो
-        total_chars = sum(ord(c) for c in title)
-        hue = total_chars % 360
-        
-        # 🛠️ ChatGPT स्टाइल: एकदम प्रोफेशनल ग्रेडिएंट और डिज़ाइन
-        svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450">
-            <defs>
-                <!-- गहरा ग्रेडिएंट बैकग्राउंड -->
-                <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:hsl({hue}, 70%, 20%);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#0b0f19;stop-opacity:1" />
-                </linearGradient>
-                
-                <!-- प्ले बटन का ग्लो -->
-                <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" style="stop-color:rgba(168, 85, 247, 0.6);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(168, 85, 247, 0);stop-opacity:0" />
-                </radialGradient>
-            </defs>
-            
-            <!-- बैकग्राउंड -->
-            <rect width="300" height="450" fill="url(#bgGrad)" />
-            
-            <!-- सजावट के लिए कुछ सर्कल -->
-            <circle cx="250" cy="50" r="120" fill="rgba(255,255,255,0.03)" />
-            <circle cx="50" cy="400" r="150" fill="rgba(255,255,255,0.02)" />
-            
-            <!-- AnimeNest बैज (ऊपर बाईं तरफ) -->
-            <rect x="15" y="15" width="90" height="24" rx="12" fill="rgba(168, 85, 247, 0.9)" />
-            <text x="60" y="31" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">AnimeNest</text>
-            
-            <!-- रेटिंग बैज (ऊपर दाईं तरफ) -->
-            <rect x="235" y="15" width="50" height="24" rx="12" fill="rgba(0,0,0,0.5)" />
-            <text x="260" y="31" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#f1c40f" text-anchor="middle" dominant-baseline="middle">★ {rating}</text>
-            
-            <!-- एनीमे का नाम (बीच में) -->
-            <text x="150" y="200" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
-                {short_title}
-            </text>
-            
-            <!-- प्ले बटन (बीच में नीचे) -->
-            <circle cx="150" cy="280" r="40" fill="url(#glow)" />
-            <circle cx="150" cy="280" r="28" fill="rgba(168, 85, 247, 0.9)" />
-            <polygon points="142,265 168,280 142,295" fill="#ffffff" />
-            
-            <!-- नीचे का डार्क बार -->
-            <rect y="380" width="300" height="70" fill="rgba(11,15,25,0.9)" />
-            <text x="15" y="405" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="#ffffff">{short_title}</text>
-            <text x="15" y="425" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#a855f7">WATCH FREE ON ANIMENEST</text>
-        </svg>'''
-        
-        return Response(svg, mimetype='image/svg+xml')
-
+    # 🛠️ NEW API FOR SMART RECOMMENDATIONS
     @app.route('/api/recommend')
     def api_recommend():
         genre = request.args.get('genre', 'Action')
         all_anime = get_all_anime()
         
+        # 🛠️ रिकमेंडेशन में भी स्मार्ट रेटिंग दिखाओ
         for anime in all_anime:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -222,6 +161,7 @@ def create_app(config_class=Config):
         query = request.args.get('q', '')
         anime_list = search_anime(query) if query else get_all_anime()
         
+        # 🛠️ सर्च रिजल्ट में भी स्मार्ट रेटिंग
         for anime in anime_list:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -249,6 +189,7 @@ def create_app(config_class=Config):
         anime = get_anime_by_id(anime_id)
         if not anime: abort(404)
         
+        # 🛠️ वॉच पेज पर भी स्मार्ट रेटिंग
         if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
             anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
