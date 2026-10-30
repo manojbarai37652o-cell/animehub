@@ -2,7 +2,7 @@ from flask import Flask, render_template, abort, request, redirect, jsonify, sen
 import random
 import os
 import re
-import urllib.parse # 🛠️ नया इम्पोर्ट (इमेज लिंक को साफ करने के लिए)
+import urllib.parse 
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
@@ -73,7 +73,7 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # 🛠️ FIXED API: Custom Poster Generator (अब असली इमेज के साथ)
+    # 🛠️ RE-DESIGNED Custom Poster Generator (No more blur!)
     @app.route('/api/custom_poster/<anime_id>')
     def custom_poster(anime_id):
         anime = get_anime_by_id(anime_id)
@@ -86,47 +86,59 @@ def create_app(config_class=Config):
         if not rating or rating == '8.0':
             rating = generate_smart_rating(title)
         
-        # 🛠️ इमेज लिंक को साफ करो (ताकि स्पेशल कैरेक्टर से क्रैश न हो)
-        # अगर लिंक में स्पेस है तो उसे %20 बना दो, वगैरह।
+        # इमेज लिंक को साफ करो
         image_url = urllib.parse.quote(raw_image_url, safe=':/?&=%') if raw_image_url else ""
         
         short_title = (title[:25] + '...') if len(title) > 25 else title
         total_chars = sum(ord(c) for c in title)
         hue = total_chars % 360
         
-        # SVG कोड
+        # नया डिज़ाइन: ऊपर इमेज, नीचे डार्क टेक्स्ट बार
         svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450">
             <defs>
-                <linearGradient id="overlayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="40%" style="stop-color:rgba(0,0,0,0);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(11,15,25,0.95);stop-opacity:1" />
+                <!-- ऊपर के टेक्स्ट (AnimeNest / Rating) को चमकाने के लिए हल्का डार्क ग्रेडिएंट -->
+                <linearGradient id="topOverlay" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgba(0,0,0,0.8);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgba(0,0,0,0);stop-opacity:1" />
                 </linearGradient>
+                
+                <!-- अगर इमेज न हो तो बैकग्राउंड -->
                 <linearGradient id="fallbackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" style="stop-color:hsl({hue}, 50%, 20%);stop-opacity:1" />
                     <stop offset="100%" style="stop-color:hsl({(hue + 60) % 360}, 50%, 10%);stop-opacity:1" />
                 </linearGradient>
             </defs>
             
-            <!-- अगर इमेज लोड न हो तो ये बैकग्राउंड दिखेगा -->
-            <rect width="300" height="450" fill="url(#fallbackGrad)" />
+            <!-- 1. इमेज एरिया (ऊपर 340px) -->
+            <g clip-path="url(#imageClip)">
+                <!-- फॉलबैक बैकग्राउंड -->
+                <rect width="300" height="450" fill="url(#fallbackGrad)" />
+                
+                <!-- असली एनीमे इमेज -->
+                <image href="{image_url}" width="300" height="450" preserveAspectRatio="xMidYMid slice" />
+                
+                <!-- ऊपर का हल्का डार्क शेड (बैज के लिए) -->
+                <rect width="300" height="100" fill="url(#topOverlay)" />
+            </g>
             
-            <!-- असली एनीमे इमेज (अगर लिंक सही है तो) -->
-            <image href="{image_url}" width="300" height="450" preserveAspectRatio="xMidYMid slice" />
+            <clipPath id="imageClip">
+                <rect width="300" height="340" />
+            </clipPath>
             
-            <!-- डार्क ओवरले (ताकि टेक्स्ट साफ दिखे) -->
-            <rect width="300" height="450" fill="url(#overlayGrad)" />
+            <!-- 2. बॉटम टेक्स्ट बार (नीचे 110px) -->
+            <rect y="340" width="300" height="110" fill="#0b0f19" />
             
-            <!-- AnimeNest बैज -->
+            <!-- AnimeNest बैज (ऊपर बाईं तरफ) -->
             <rect x="10" y="10" width="90" height="24" rx="12" fill="rgba(168, 85, 247, 0.9)" />
             <text x="55" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">AnimeNest</text>
             
-            <!-- रेटिंग बैज -->
+            <!-- रेटिंग बैज (ऊपर दाईं तरफ) -->
             <rect x="240" y="10" width="50" height="24" rx="12" fill="rgba(0,0,0,0.7)" />
             <text x="265" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#f1c40f" text-anchor="middle" dominant-baseline="middle">★ {rating}</text>
             
-            <!-- एनीमे का नाम -->
-            <text x="15" y="405" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#ffffff">{short_title}</text>
-            <text x="15" y="430" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#a855f7">WATCH FREE</text>
+            <!-- एनीमे का नाम (नीचे) -->
+            <text x="15" y="380" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#ffffff">{short_title}</text>
+            <text x="15" y="405" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#a855f7">WATCH FREE</text>
         </svg>'''
         
         return Response(svg, mimetype='image/svg+xml')
