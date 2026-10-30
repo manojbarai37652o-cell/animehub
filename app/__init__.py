@@ -3,7 +3,7 @@ import random
 import os
 import re
 import base64
-import requests # 🛠️ इमेज डाउनलोड करने के लिए
+import requests
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
@@ -74,7 +74,7 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # 🛠️ 100% FIXED API: Custom Poster Generator (Base64 Image Encoding)
+    # 🛠️ AI-Edited Style Custom Poster (ChatGPT जैसा लुक)
     @app.route('/api/custom_poster/<anime_id>')
     def custom_poster(anime_id):
         anime = get_anime_by_id(anime_id)
@@ -82,65 +82,62 @@ def create_app(config_class=Config):
         
         title = anime.get('title', 'Unknown')
         rating = anime.get('rating', '8.0')
-        image_url = anime.get('image', '')
         
         if not rating or rating == '8.0':
             rating = generate_smart_rating(title)
         
-        # 🛠️ इमेज को डाउनलोड करके Base64 में बदलने का लॉजिक
-        base64_image = ""
-        if image_url:
-            try:
-                headers = {'User-Agent': 'Mozilla/5.0'}
-                response = requests.get(image_url, headers=headers, timeout=5)
-                if response.status_code == 200:
-                    encoded_string = base64.b64encode(response.content).decode('utf-8')
-                    base64_image = f"data:image/jpeg;base64,{encoded_string}"
-            except Exception as e:
-                print(f"Image fetch error: {e}")
+        # टाइटल को छोटा करो
+        short_title = (title[:20] + '...') if len(title) > 20 else title
         
-        short_title = (title[:25] + '...') if len(title) > 25 else title
+        # नाम के हिसाब से एक यूनिक रंग (Hue) निकालो
         total_chars = sum(ord(c) for c in title)
         hue = total_chars % 360
         
-        # अगर Base64 इमेज नहीं मिली, तो खाली जगह पर ग्रेडिएंट दिखेगा
-        image_tag = f'<image href="{base64_image}" width="300" height="450" preserveAspectRatio="xMidYMid slice" />' if base64_image else ''
-        
+        # 🛠️ ChatGPT स्टाइल: एकदम प्रोफेशनल ग्रेडिएंट और डिज़ाइन
         svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450">
             <defs>
-                <linearGradient id="topOverlay" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color:rgba(0,0,0,0.8);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(0,0,0,0);stop-opacity:1" />
+                <!-- गहरा ग्रेडिएंट बैकग्राउंड -->
+                <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:hsl({hue}, 70%, 20%);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#0b0f19;stop-opacity:1" />
                 </linearGradient>
-                <linearGradient id="fallbackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:hsl({hue}, 50%, 20%);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:hsl({(hue + 60) % 360}, 50%, 10%);stop-opacity:1" />
-                </linearGradient>
+                
+                <!-- प्ले बटन का ग्लो -->
+                <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" style="stop-color:rgba(168, 85, 247, 0.6);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgba(168, 85, 247, 0);stop-opacity:0" />
+                </radialGradient>
             </defs>
             
-            <!-- फॉलबैक बैकग्राउंड -->
-            <rect width="300" height="450" fill="url(#fallbackGrad)" />
+            <!-- बैकग्राउंड -->
+            <rect width="300" height="450" fill="url(#bgGrad)" />
             
-            <!-- Base64 इमेज (अगर मिली हो तो) -->
-            {image_tag}
+            <!-- सजावट के लिए कुछ सर्कल -->
+            <circle cx="250" cy="50" r="120" fill="rgba(255,255,255,0.03)" />
+            <circle cx="50" cy="400" r="150" fill="rgba(255,255,255,0.02)" />
             
-            <!-- ऊपर का हल्का डार्क शेड -->
-            <rect width="300" height="100" fill="url(#topOverlay)" />
+            <!-- AnimeNest बैज (ऊपर बाईं तरफ) -->
+            <rect x="15" y="15" width="90" height="24" rx="12" fill="rgba(168, 85, 247, 0.9)" />
+            <text x="60" y="31" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">AnimeNest</text>
+            
+            <!-- रेटिंग बैज (ऊपर दाईं तरफ) -->
+            <rect x="235" y="15" width="50" height="24" rx="12" fill="rgba(0,0,0,0.5)" />
+            <text x="260" y="31" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#f1c40f" text-anchor="middle" dominant-baseline="middle">★ {rating}</text>
+            
+            <!-- एनीमे का नाम (बीच में) -->
+            <text x="150" y="200" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+                {short_title}
+            </text>
+            
+            <!-- प्ले बटन (बीच में नीचे) -->
+            <circle cx="150" cy="280" r="40" fill="url(#glow)" />
+            <circle cx="150" cy="280" r="28" fill="rgba(168, 85, 247, 0.9)" />
+            <polygon points="142,265 168,280 142,295" fill="#ffffff" />
             
             <!-- नीचे का डार्क बार -->
-            <rect y="340" width="300" height="110" fill="#0b0f19" />
-            
-            <!-- AnimeNest बैज -->
-            <rect x="10" y="10" width="90" height="24" rx="12" fill="rgba(168, 85, 247, 0.9)" />
-            <text x="55" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">AnimeNest</text>
-            
-            <!-- रेटिंग बैज -->
-            <rect x="240" y="10" width="50" height="24" rx="12" fill="rgba(0,0,0,0.7)" />
-            <text x="265" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#f1c40f" text-anchor="middle" dominant-baseline="middle">★ {rating}</text>
-            
-            <!-- एनीमे का नाम -->
-            <text x="15" y="380" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#ffffff">{short_title}</text>
-            <text x="15" y="405" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#a855f7">WATCH FREE</text>
+            <rect y="380" width="300" height="70" fill="rgba(11,15,25,0.9)" />
+            <text x="15" y="405" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="#ffffff">{short_title}</text>
+            <text x="15" y="425" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#a855f7">WATCH FREE ON ANIMENEST</text>
         </svg>'''
         
         return Response(svg, mimetype='image/svg+xml')
