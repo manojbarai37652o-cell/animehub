@@ -8,7 +8,7 @@ from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_anime_by_genre, get_single_random_anime,
                                    get_top_anime, get_hero_anime_list)
 
-# 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन
+# 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन (नाम के हिसाब से अलग रेटिंग देगा)
 def generate_smart_rating(title):
     if not title: return "8.0"
     total = sum(ord(c) for c in title)
@@ -43,6 +43,8 @@ def create_app(config_class=Config):
 
     def get_filtered_anime():
         all_anime = get_all_anime()
+        
+        # 🛠️ हर एनीमे पर स्मार्ट रेटिंग लगाओ
         for anime in all_anime:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -52,6 +54,7 @@ def create_app(config_class=Config):
         cartoons_list = [a for a in all_anime if any(k in a['title'].lower() for k in cartoon_keywords)]
         series_list = [a for a in all_anime if a not in movies_list and a not in cartoons_list]
         
+        # अब सॉर्टिंग सही से होगी क्योंकि सबकी रेटिंग अलग-अलग होगी
         trending_full = sorted(series_list, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)
         popular_full = sorted(series_list, key=lambda x: len(x.get('episodes', [])), reverse=True)
         
@@ -61,6 +64,8 @@ def create_app(config_class=Config):
     def inject_search_data():
         try:
             all_anime = get_all_anime()
+            
+            # 🛠️ सर्च ओवरले में भी स्मार्ट रेटिंग दिखाओ
             for anime in all_anime:
                 if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                     anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -72,7 +77,7 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # 🛠️ NEW API: Custom Poster Generator
+    # 🛠️ NEW API: Custom Poster Generator (हर एनीमे के लिए खुद का थंबनेल बनाएगा)
     @app.route('/api/custom_poster/<anime_id>')
     def custom_poster(anime_id):
         anime = get_anime_by_id(anime_id)
@@ -128,11 +133,13 @@ def create_app(config_class=Config):
         
         return Response(svg, mimetype='image/svg+xml')
 
+    # 🛠️ NEW API FOR SMART RECOMMENDATIONS
     @app.route('/api/recommend')
     def api_recommend():
         genre = request.args.get('genre', 'Action')
         all_anime = get_all_anime()
         
+        # 🛠️ रिकमेंडेशन में भी स्मार्ट रेटिंग दिखाओ
         for anime in all_anime:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -208,6 +215,7 @@ def create_app(config_class=Config):
         query = request.args.get('q', '')
         anime_list = search_anime(query) if query else get_all_anime()
         
+        # 🛠️ सर्च रिजल्ट में भी स्मार्ट रेटिंग
         for anime in anime_list:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -235,6 +243,7 @@ def create_app(config_class=Config):
         anime = get_anime_by_id(anime_id)
         if not anime: abort(404)
         
+        # 🛠️ वॉच पेज पर भी स्मार्ट रेटिंग
         if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
             anime['rating'] = generate_smart_rating(anime.get('title', ''))
 

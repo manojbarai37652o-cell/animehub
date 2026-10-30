@@ -147,7 +147,6 @@
                     <div class="search-horizontal-scroll">
                         {% for anime in popular_anime_overlay %}
                         <a href="/watch/{{ anime.id }}" class="search-anime-card">
-                            <!-- 🛠️ यहाँ Custom Poster लगा दिया गया है -->
                             <img src="/api/custom_poster/{{ anime.id }}" alt="{{ anime.title }}" onerror="this.src='https://via.placeholder.com/120x160?text=No+Image';">
                             <h4>{{ anime.title }}</h4>
                             <div class="search-anime-meta">
