@@ -2,6 +2,7 @@ from flask import Flask, render_template, abort, request, redirect, jsonify, sen
 import random
 import os
 import re
+import urllib.parse # 🛠️ नया इम्पोर्ट (इमेज लिंक को साफ करने के लिए)
 from config import Config
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
@@ -72,7 +73,7 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # 🛠️ FIXED API: Custom Poster Generator (अब इमेज क्रैश नहीं होगी)
+    # 🛠️ FIXED API: Custom Poster Generator (अब असली इमेज के साथ)
     @app.route('/api/custom_poster/<anime_id>')
     def custom_poster(anime_id):
         anime = get_anime_by_id(anime_id)
@@ -80,32 +81,40 @@ def create_app(config_class=Config):
         
         title = anime.get('title', 'Unknown')
         rating = anime.get('rating', '8.0')
+        raw_image_url = anime.get('image', '')
         
         if not rating or rating == '8.0':
             rating = generate_smart_rating(title)
         
-        # टाइटल को छोटा करो
-        short_title = (title[:25] + '...') if len(title) > 25 else title
+        # 🛠️ इमेज लिंक को साफ करो (ताकि स्पेशल कैरेक्टर से क्रैश न हो)
+        # अगर लिंक में स्पेस है तो उसे %20 बना दो, वगैरह।
+        image_url = urllib.parse.quote(raw_image_url, safe=':/?&=%') if raw_image_url else ""
         
-        # नाम के हिसाब से एक यूनिक रंग (Hue) निकालो
+        short_title = (title[:25] + '...') if len(title) > 25 else title
         total_chars = sum(ord(c) for c in title)
         hue = total_chars % 360
         
-        # 🛠️ अब हम सिर्फ ग्रेडिएंट और टेक्स्ट का इस्तेमाल करेंगे (कोई इमेज नहीं, ताकि क्रैश न हो)
+        # SVG कोड
         svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450">
             <defs>
-                <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:hsl({hue}, 60%, 25%);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:hsl({(hue + 40) % 360}, 60%, 10%);stop-opacity:1" />
+                <linearGradient id="overlayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="40%" style="stop-color:rgba(0,0,0,0);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgba(11,15,25,0.95);stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="fallbackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:hsl({hue}, 50%, 20%);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:hsl({(hue + 60) % 360}, 50%, 10%);stop-opacity:1" />
                 </linearGradient>
             </defs>
             
-            <!-- बैकग्राउंड -->
-            <rect width="300" height="450" fill="url(#bgGrad)" />
+            <!-- अगर इमेज लोड न हो तो ये बैकग्राउंड दिखेगा -->
+            <rect width="300" height="450" fill="url(#fallbackGrad)" />
             
-            <!-- सजावट के लिए सर्कल -->
-            <circle cx="250" cy="50" r="100" fill="rgba(255,255,255,0.05)" />
-            <circle cx="50" cy="400" r="150" fill="rgba(255,255,255,0.03)" />
+            <!-- असली एनीमे इमेज (अगर लिंक सही है तो) -->
+            <image href="{image_url}" width="300" height="450" preserveAspectRatio="xMidYMid slice" />
+            
+            <!-- डार्क ओवरले (ताकि टेक्स्ट साफ दिखे) -->
+            <rect width="300" height="450" fill="url(#overlayGrad)" />
             
             <!-- AnimeNest बैज -->
             <rect x="10" y="10" width="90" height="24" rx="12" fill="rgba(168, 85, 247, 0.9)" />
@@ -116,16 +125,8 @@ def create_app(config_class=Config):
             <text x="265" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#f1c40f" text-anchor="middle" dominant-baseline="middle">★ {rating}</text>
             
             <!-- एनीमे का नाम -->
-            <text x="150" y="200" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
-                {short_title}
-            </text>
-            
-            <!-- प्ले बटन (डिज़ाइन के लिए) -->
-            <circle cx="150" cy="280" r="30" fill="rgba(168, 85, 247, 0.8)" />
-            <polygon points="140,265 165,280 140,295" fill="#ffffff" />
-            
-            <!-- नीचे का टेक्स्ट -->
-            <text x="150" y="380" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="#a855f7" text-anchor="middle">WATCH FREE</text>
+            <text x="15" y="405" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#ffffff">{short_title}</text>
+            <text x="15" y="430" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#a855f7">WATCH FREE</text>
         </svg>'''
         
         return Response(svg, mimetype='image/svg+xml')
