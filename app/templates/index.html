@@ -7,7 +7,6 @@
 {% block content %}
 <div class="main-content-wrapper">
 
-    <!-- 1. Hero Banner Section (सिर्फ होम पेज पर) -->
     {% if hero_anime_list and not search_query and page_title == 'Home' %}
     <div class="hero-banner" id="hero-slider">
         {% for anime in hero_anime_list %}
@@ -30,7 +29,6 @@
     </div>
     {% endif %}
 
-    <!-- 2. Category Icons Section (सिर्फ होम पेज पर) -->
     {% if not search_query and page_title == 'Home' %}
     <div class="category-icons">
         <a href="/trending" class="cat-item">
@@ -56,36 +54,25 @@
     </div>
     {% endif %}
 
-    <!-- 🛠️ NEW ADSTERRA BANNER AD (Home Screen) -->
     <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 15px 0; margin-bottom: 10px;">
         <script>
-          atOptions = {
-            'key' : '0230da13333651445857fb8321414ae1',
-            'format' : 'iframe',
-            'height' : 50,
-            'width' : 320,
-            'params' : {}
-          };
+          atOptions = { 'key' : '0230da13333651445857fb8321414ae1', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
         </script>
         <script src="https://bancadeltempoidea.org/22/0230da13333651445857fb8321414ae1"></script>
     </div>
 
-    <!-- 🛠️ SMART RECOMMENDATION SECTION (यूजर की पसंद के हिसाब से) -->
     {% if not search_query and page_title == 'Home' %}
     <div class="app-section" id="smartRecommendedSection" style="display: none;">
         <div class="section-header">
             <h2>🎯 Recommended For You</h2>
         </div>
         <div class="anime-row" id="smartRecommendedList">
-            <!-- जावास्क्रिप्ट यहाँ कार्ड्स डालेगा -->
         </div>
     </div>
     {% endif %}
 
-    <!-- 3. Anime Sections -->
     {% if not search_query %}
 
-        <!-- पेज डिटेल्स (अगर "See All" या "A-Z" किया है तो) -->
         {% if page_title != 'Home' %}
         <div class="app-section">
             <div class="section-header">
@@ -106,9 +93,6 @@
                 {% endfor %}
             </div>
 
-            <!-- ========================================== -->
-            <!-- 🟢 A-Z Navigation Bar (नीचे) 🟢 -->
-            <!-- ========================================== -->
             {% if 'Anime starting with' in page_title or page_title == '#' %}
             <div class="alphabet-nav">
                 <a href="/az/%23" class="az-btn {% if page_title == '#' or page_title[-2] == '#' %}active{% endif %}">#</a>
@@ -119,14 +103,10 @@
                 {% endfor %}
             </div>
             {% endif %}
-            <!-- ========================================== -->
 
         </div>
         {% else %}
 
-        <!-- होमपेज के सारे सेक्शन्स -->
-        
-        <!-- 🔥 Trending Anime -->
         {% if trending %}
         <div class="app-section">
             <div class="section-header">
@@ -148,7 +128,6 @@
         </div>
         {% endif %}
 
-        <!-- ⭐ Popular Anime -->
         {% if popular %}
         <div class="app-section">
             <div class="section-header">
@@ -170,7 +149,6 @@
         </div>
         {% endif %}
 
-        <!-- 🎬 Anime Movies -->
         {% if movies %}
         <div class="app-section">
             <div class="section-header">
@@ -192,7 +170,6 @@
         </div>
         {% endif %}
 
-        <!-- 🧸 Cartoons -->
         {% if cartoons %}
         <div class="app-section">
             <div class="section-header">
@@ -214,7 +191,6 @@
         </div>
         {% endif %}
 
-        <!-- 🎭 Genres -->
         <div class="app-section">
             <div class="section-header">
                 <h2>🎭 Genres</h2>
@@ -229,7 +205,6 @@
             </div>
         </div>
 
-        <!-- 🔠 Browse A to Z (सिर्फ होम पेज पर) -->
         <div class="app-section">
             <div class="section-header">
                 <h2>🔠 Browse A to Z</h2>
@@ -243,7 +218,6 @@
         {% endif %}
 
     {% else %}
-        <!-- Search Results -->
         <div class="app-section">
             <div class="section-header">
                 <h2>🔍 "{{ search_query }}" के लिए परिणाम</h2>
@@ -267,7 +241,6 @@
 
 </div>
 
-<!-- JavaScript for Slider & Recommendation -->
 <script>
     let slideIndex = 0;
     let slides = document.getElementsByClassName("hero-slide");
@@ -297,28 +270,26 @@
         slideInterval = setTimeout(showSlides, 5000);
     }
 
-    // 🛠️ SMART RECOMMENDATION LOGIC
-    document.addEventListener('DOMContentLoaded', function() {
-        // सिर्फ होम पेज पर चलाओ
+    // 🛠️ ग्लोबल फंक्शन बनाया ताकि SPA से इसे कॉल किया जा सके
+    window.loadRecommendations = function() {
         if (window.location.pathname !== '/' && window.location.pathname !== '/home') return;
+
+        const section = document.getElementById('smartRecommendedSection');
+        if (!section) return;
 
         let userPrefs = JSON.parse(localStorage.getItem('userGenrePrefs')) || {};
         let topGenre = null;
         let maxCount = 0;
         
-        // सबसे ज़्यादा देखा गया जॉनर ढूँढो
         for (let genre in userPrefs) {
             if (userPrefs[genre] > maxCount) { maxCount = userPrefs[genre]; topGenre = genre; }
         }
 
         if (topGenre && maxCount > 0) {
-            // अगर यूजर ने कुछ देखा है, तो उस जॉनर के एनीमे लाओ
             fetch(`/api/recommend?genre=${encodeURIComponent(topGenre)}`)
                 .then(response => response.json())
                 .then(data => {
-                    const section = document.getElementById('smartRecommendedSection');
                     const container = document.getElementById('smartRecommendedList');
-                    
                     if (data && data.length > 0) {
                         let htmlContent = '';
                         data.forEach(anime => {
@@ -331,11 +302,14 @@
                             `;
                         });
                         container.innerHTML = htmlContent;
-                        section.style.display = 'block'; // सेक्शन दिखाओ
+                        section.style.display = 'block'; 
                     }
                 })
                 .catch(err => console.error("Recommendation error:", err));
         }
-    });
+    };
+
+    // जब पेज सीधे लोड हो (रिफ्रेश) तो इसे चलाओ
+    document.addEventListener('DOMContentLoaded', window.loadRecommendations);
 </script>
 {% endblock %}

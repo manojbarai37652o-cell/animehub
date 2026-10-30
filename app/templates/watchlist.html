@@ -8,10 +8,8 @@
         </div>
         <p style="color: #888; padding: 0 10px 20px 10px;">Your saved anime collection</p>
         
-        <!-- यहाँ आपकी वॉचलिस्ट ग्रिड रेंडर होगी -->
         <div class="az-anime-grid" id="watchlist-grid"></div>
         
-        <!-- खाली होने पर दिखने वाला मैसेज -->
         <div id="empty-msg" style="text-align: center; padding: 100px 20px; display: none;">
             <i class="fas fa-heart-broken" style="font-size: 50px; color: #a855f7; margin-bottom: 20px;"></i>
             <h2 style="color: #fff; font-size: 20px;">Your watchlist is empty! 😔</h2>
@@ -22,12 +20,16 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // LocalStorage से वॉचलिस्ट निकालो
+    // 🛠️ ग्लोबल फंक्शन बनाया ताकि SPA से इसे कॉल किया जा सके
+    window.loadWatchlist = function() {
         let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
         const grid = document.getElementById('watchlist-grid');
         const emptyMsg = document.getElementById('empty-msg');
         
+        if (!grid || !emptyMsg) return; 
+
+        grid.innerHTML = ''; // पुराना कंटेंट साफ करो
+
         if (watchlist.length === 0) {
             emptyMsg.style.display = 'block';
             grid.style.display = 'none';
@@ -35,12 +37,10 @@
             emptyMsg.style.display = 'none';
             grid.style.display = 'grid';
             
-            // अगर कोई एनीमे दो बार सेव हो गया हो तो उसे हटाओ
             const uniqueWatchlist = watchlist.filter((item, index, self) =>
                 index === self.findIndex((t) => t.id === item.id)
             );
             
-            // हर एनीमे के लिए कार्ड बनाओ
             uniqueWatchlist.forEach((item, index) => {
                 grid.innerHTML += `
                     <a href="/watch/${item.id}" class="anime-card">
@@ -54,6 +54,9 @@
                 `;
             });
         }
-    });
+    };
+
+    // जब पेज सीधे लोड हो (रिफ्रेश) तो इसे चलाओ
+    document.addEventListener('DOMContentLoaded', window.loadWatchlist);
 </script>
 {% endblock %}

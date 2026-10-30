@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 🛠️ DYNAMIC TITLE & DESCRIPTION (हर पेज का अलग नाम होगा) -->
     <title>{% block title %}AnimeNest - Watch Anime Free{% endblock %}</title>
     <meta name="description" content="{% block description %}Watch free Hindi dubbed anime online in HD quality only on AnimeNest.{% endblock %}">
     
-    <!-- 🛠️ CANONICAL TAG (ये Google को बताता है कि डुप्लीकेट पेज न बनाए) -->
     <link rel="canonical" href="{{ request.url }}" />
 
     <meta name="application-name" content="AnimeNest">
@@ -307,6 +305,13 @@
                         if (nav.getAttribute('href') === href) nav.classList.add('active');
                     });
                     if (pushState) { history.pushState({ url: href }, '', href); }
+
+                    // 🛠️ SPA फिक्स: पेज लोड होने के बाद सही फंक्शन्स को कॉल करो
+                    if (href.includes('/watchlist')) {
+                        if (typeof window.loadWatchlist === 'function') window.loadWatchlist();
+                    } else if (href === '/' || href === '/home') {
+                        if (typeof window.loadRecommendations === 'function') window.loadRecommendations();
+                    }
                 } else { window.location.href = href; }
             } catch (err) { window.location.href = href; } finally {
                 hideSpaLoader();
