@@ -8,7 +8,7 @@ from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_anime_by_genre, get_single_random_anime,
                                    get_top_anime, get_hero_anime_list)
 
-# 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन (नाम के हिसाब से अलग रेटिंग देगा)
+# 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन
 def generate_smart_rating(title):
     if not title: return "8.0"
     total = sum(ord(c) for c in title)
@@ -43,8 +43,6 @@ def create_app(config_class=Config):
 
     def get_filtered_anime():
         all_anime = get_all_anime()
-        
-        # 🛠️ हर एनीमे पर स्मार्ट रेटिंग लगाओ
         for anime in all_anime:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -63,7 +61,6 @@ def create_app(config_class=Config):
     def inject_search_data():
         try:
             all_anime = get_all_anime()
-            
             for anime in all_anime:
                 if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                     anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -75,48 +72,60 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # 🛠️ NEW API: Custom Poster Generator
+    # 🛠️ FIXED API: Custom Poster Generator (अब इमेज क्रैश नहीं होगी)
     @app.route('/api/custom_poster/<anime_id>')
     def custom_poster(anime_id):
         anime = get_anime_by_id(anime_id)
         if not anime: abort(404)
         
         title = anime.get('title', 'Unknown')
-        image_url = anime.get('image', '')
         rating = anime.get('rating', '8.0')
         
         if not rating or rating == '8.0':
             rating = generate_smart_rating(title)
         
+        # टाइटल को छोटा करो
         short_title = (title[:25] + '...') if len(title) > 25 else title
         
+        # नाम के हिसाब से एक यूनिक रंग (Hue) निकालो
         total_chars = sum(ord(c) for c in title)
         hue = total_chars % 360
         
+        # 🛠️ अब हम सिर्फ ग्रेडिएंट और टेक्स्ट का इस्तेमाल करेंगे (कोई इमेज नहीं, ताकि क्रैश न हो)
         svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450">
             <defs>
-                <linearGradient id="overlayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="30%" style="stop-color:rgba(0,0,0,0);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(11,15,25,0.95);stop-opacity:1" />
-                </linearGradient>
-                <linearGradient id="fallbackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:hsl({hue}, 50%, 20%);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:hsl({(hue + 60) % 360}, 50%, 10%);stop-opacity:1" />
+                <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:hsl({hue}, 60%, 25%);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:hsl({(hue + 40) % 360}, 60%, 10%);stop-opacity:1" />
                 </linearGradient>
             </defs>
             
-            <rect width="300" height="450" fill="url(#fallbackGrad)" />
-            <image href="{image_url}" width="300" height="450" preserveAspectRatio="xMidYMid slice" />
-            <rect width="300" height="450" fill="url(#overlayGrad)" />
+            <!-- बैकग्राउंड -->
+            <rect width="300" height="450" fill="url(#bgGrad)" />
             
+            <!-- सजावट के लिए सर्कल -->
+            <circle cx="250" cy="50" r="100" fill="rgba(255,255,255,0.05)" />
+            <circle cx="50" cy="400" r="150" fill="rgba(255,255,255,0.03)" />
+            
+            <!-- AnimeNest बैज -->
             <rect x="10" y="10" width="90" height="24" rx="12" fill="rgba(168, 85, 247, 0.9)" />
             <text x="55" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">AnimeNest</text>
             
+            <!-- रेटिंग बैज -->
             <rect x="240" y="10" width="50" height="24" rx="12" fill="rgba(0,0,0,0.7)" />
             <text x="265" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#f1c40f" text-anchor="middle" dominant-baseline="middle">★ {rating}</text>
             
-            <text x="15" y="405" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#ffffff">{short_title}</text>
-            <text x="15" y="430" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#a855f7">WATCH FREE</text>
+            <!-- एनीमे का नाम -->
+            <text x="150" y="200" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+                {short_title}
+            </text>
+            
+            <!-- प्ले बटन (डिज़ाइन के लिए) -->
+            <circle cx="150" cy="280" r="30" fill="rgba(168, 85, 247, 0.8)" />
+            <polygon points="140,265 165,280 140,295" fill="#ffffff" />
+            
+            <!-- नीचे का टेक्स्ट -->
+            <text x="150" y="380" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="#a855f7" text-anchor="middle">WATCH FREE</text>
         </svg>'''
         
         return Response(svg, mimetype='image/svg+xml')
