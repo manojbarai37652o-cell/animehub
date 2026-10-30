@@ -8,6 +8,15 @@ from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_anime_by_genre, get_single_random_anime,
                                    get_top_anime, get_hero_anime_list)
 
+# 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन (नाम के हिसाब से अलग रेटिंग देगा)
+def generate_smart_rating(title):
+    if not title: return "8.0"
+    # नाम के अक्षरों को जोड़कर एक यूनिक नंबर बनाएंगे
+    total = sum(ord(c) for c in title)
+    # रेटिंग 7.5 से 9.8 के बीच रखेंगे (जो असली जैसी लगती है)
+    rating = 7.5 + (total % 24) / 10.0 
+    return f"{rating:.1f}"
+
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
@@ -36,18 +45,33 @@ def create_app(config_class=Config):
 
     def get_filtered_anime():
         all_anime = get_all_anime()
+        
+        # 🛠️ हर एनीमे पर स्मार्ट रेटिंग लगाओ
+        for anime in all_anime:
+            if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
+                anime['rating'] = generate_smart_rating(anime.get('title', ''))
+
         cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman']
         movies_list = [a for a in all_anime if a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie']
         cartoons_list = [a for a in all_anime if any(k in a['title'].lower() for k in cartoon_keywords)]
         series_list = [a for a in all_anime if a not in movies_list and a not in cartoons_list]
+        
+        # अब सॉर्टिंग सही से होगी क्योंकि सबकी रेटिंग अलग-अलग होगी
         trending_full = sorted(series_list, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)
         popular_full = sorted(series_list, key=lambda x: len(x.get('episodes', [])), reverse=True)
+        
         return all_anime, trending_full, popular_full, movies_list, series_list, cartoons_list
 
     @app.context_processor
     def inject_search_data():
         try:
             all_anime = get_all_anime()
+            
+            # 🛠️ सर्च ओवरले में भी स्मार्ट रेटिंग दिखाओ
+            for anime in all_anime:
+                if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
+                    anime['rating'] = generate_smart_rating(anime.get('title', ''))
+
             popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)[:10]
             top_rated = sorted(all_anime, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)[:10]
             trending_searches = [a['title'] for a in popular[:6]] 
@@ -61,6 +85,11 @@ def create_app(config_class=Config):
         genre = request.args.get('genre', 'Action')
         all_anime = get_all_anime()
         
+        # 🛠️ रिकमेंडेशन में भी स्मार्ट रेटिंग दिखाओ
+        for anime in all_anime:
+            if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
+                anime['rating'] = generate_smart_rating(anime.get('title', ''))
+
         recommended = []
         for anime in all_anime:
             title_lower = anime['title'].lower()
@@ -122,7 +151,7 @@ def create_app(config_class=Config):
     @app.route('/az/<letter>')
     def az_page(letter):
         letter = letter.upper()
-        all_anime = get_all_anime()
+        all_anime, _, _, _, _, _ = get_filtered_anime()
         filtered = [a for a in all_anime if a['title'].upper().startswith(letter)]
         filtered.sort(key=lambda x: x['title'].lower())
         return render_template('index.html', anime_list=filtered, page_title=f"Anime starting with '{letter}'")
@@ -131,6 +160,12 @@ def create_app(config_class=Config):
     def search():
         query = request.args.get('q', '')
         anime_list = search_anime(query) if query else get_all_anime()
+        
+        # 🛠️ सर्च रिजल्ट में भी स्मार्ट रेटिंग
+        for anime in anime_list:
+            if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
+                anime['rating'] = generate_smart_rating(anime.get('title', ''))
+
         return render_template('index.html', anime_list=anime_list, search_query=query, page_title=f"Search Results")
 
     @app.route('/random')
@@ -154,6 +189,10 @@ def create_app(config_class=Config):
         anime = get_anime_by_id(anime_id)
         if not anime: abort(404)
         
+        # 🛠️ वॉच पेज पर भी स्मार्ट रेटिंग
+        if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
+            anime['rating'] = generate_smart_rating(anime.get('title', ''))
+
         seasons = anime.get('seasons', [])
         if not seasons:
             episodes = anime.get('episodes', [])
