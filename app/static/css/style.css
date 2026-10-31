@@ -6210,3 +6210,36 @@ h1, h2, h3, h4, p, span, a {
     margin-top: 5px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
+/* =====================================================
+   STATIC BACKGROUND FIX (Uses Base.html Background)
+   ===================================================== */
+
+/* 1. Make wrapper completely transparent */
+.watch-page-wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-color: transparent !important; 
+}
+
+/* 2. Hide any old dynamic background elements if they exist */
+.watch-background, .watch-bg-img, .watch-bg-overlay {
+    display: none !important;
+}
+
+.watch-content-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+/* Rest of the glassmorphism styles remain the same */
+.glass-panel {
+    background: rgba(20, 20, 30, 0.4) !important; 
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+}

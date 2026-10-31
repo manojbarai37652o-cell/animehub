@@ -5,13 +5,8 @@
 {% block og_title %}{{ anime.title }} - AnimeNest{% endblock %}
 
 {% block content %}
-<!-- 🛠️ BACKGROUND IMAGE WRAPPER -->
+<!-- 🛠️ MAIN WRAPPER (Transparent - Inherits base.html background) -->
 <div class="watch-page-wrapper">
-
-    <!-- बैकग्राउंड इमेज (Fixed & 100% Clear) -->
-    <div class="watch-background">
-        <img src="{{ anime.image }}" alt="background" class="watch-bg-img" onerror="this.style.display='none';">
-    </div>
 
     <!-- 🛠️ MAIN CONTENT -->
     <div class="watch-content-wrapper">
