@@ -4857,7 +4857,7 @@ img {
     -webkit-tap-highlight-color: transparent; /* क्लिक करने पर नीला बॉक्स न आए */
 }
 /* =====================================================
-   TOONSTREAM STYLE PLAY OVERLAY EFFECT (RESTORED)
+   TOONSTREAM STYLE PLAY OVERLAY EFFECT (ONLY ON TOUCH/HOVER)
    ===================================================== */
 
 /* Image Wrapper */
@@ -4866,7 +4866,7 @@ img {
     width: 100%;
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 2 / 3; /* पोस्टर का साइज़ सेट रखने के लिए */
+    aspect-ratio: 2 / 3; 
 }
 
 .anime-card-image-wrapper img {
@@ -4877,7 +4877,7 @@ img {
     transition: transform 0.4s ease;
 }
 
-/* Dark Overlay */
+/* Dark Overlay (Default me hidden rahega) */
 .play-overlay {
     position: absolute;
     top: 0;
@@ -4905,36 +4905,24 @@ img {
     background: rgba(255, 255, 255, 0.15);
     color: #ffffff;
     font-size: 20px;
-    padding-left: 4px;
+    padding-left: 4px; /* Play icon ko center karne ke liye */
     transition: transform 0.3s ease, background 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
-/* Hover Effects (Desktop ke liye) */
-.anime-card:hover .play-overlay {
-    opacity: 1;
+/* 🛠️ Hover Effects (Desktop aur Mobile Touch dono ke liye) */
+.anime-card:hover .play-overlay,
+.anime-card:active .play-overlay {
+    opacity: 1; /* Touch ya Hover karne par dikhega */
 }
 
-.anime-card:hover .anime-card-image-wrapper img {
-    transform: scale(1.08);
+.anime-card:hover .anime-card-image-wrapper img,
+.anime-card:active .anime-card-image-wrapper img {
+    transform: scale(1.08); /* Image thodi zoom hogi */
 }
 
-.anime-card:hover .play-button {
+.anime-card:hover .play-button,
+.anime-card:active .play-button {
     background: rgba(255, 255, 255, 0.3);
     transform: scale(1.1);
-}
-
-/* 🛠️ Mobile Fix: Jab hover nahi hota, tab bhi play button dikhe */
-@media (hover: none) {
-    .play-overlay {
-        opacity: 1;
-        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%); /* पीछे से डार्क ग्रेडिएंट */
-    }
-    .play-button {
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        font-size: 16px;
-    }
 }
