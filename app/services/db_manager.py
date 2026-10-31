@@ -22,6 +22,32 @@ def optimize_image_url(url):
     return url
 
 
+# 🛠️ NEW FUNCTION: डेटाबेस की गलत भाषा (Language) को ठीक करने के लिए
+def fix_language_data(anime):
+    """टाइटल के हिसाब से भाषा को सही करना (Auto-Fix Database)"""
+    title = anime.get('title', '').lower()
+    current_lang = str(anime.get('language', '')).lower()
+
+    # 1. पहले टाइटल के हिसाब से भाषा चेक करो
+    if 'english' in title:
+        anime['language'] = 'English Dub'
+    elif 'hindi' in title:
+        anime['language'] = 'Hindi Dub'
+    elif 'tamil' in title:
+        anime['language'] = 'Tamil Dub'
+    elif 'telugu' in title:
+        anime['language'] = 'Telugu Dub'
+    elif 'japanese' in title:
+        anime['language'] = 'Japanese'
+    else:
+        # 2. अगर टाइटल में कुछ नहीं है, तो डेटाबेस चेक करो
+        if not current_lang or current_lang == 'unknown':
+            anime['language'] = 'Multi Audio'
+        elif current_lang == 'hindi dub' and 'hindi' not in title:
+            # स्क्रैपर का बग: अगर डिफ़ॉल्ट 'Hindi Dub' है पर टाइटल में हिंदी नहीं है
+            anime['language'] = 'Multi Audio'
+
+
 def get_all_anime():
     """GitHub से ताजा डेटा लाओ (सिर्फ पहली बार, फिर मेमोरी से दो)"""
     global _cached_anime_list
@@ -36,10 +62,11 @@ def get_all_anime():
         if response.status_code == 200:
             data = response.json().get('anime_list', [])
             
-            # 🛠️ लोड होते ही सारी इमेजेस को ऑप्टिमाइज़ कर दो
+            # 🛠️ लोड होते ही सारी इमेजेस को ऑप्टिमाइज़ कर दो और भाषा फिक्स करो
             for anime in data:
                 if 'image' in anime:
                     anime['image'] = optimize_image_url(anime['image'])
+                fix_language_data(anime) # 👈 नया जोड़ा गया
                     
             _cached_anime_list = data
             return _cached_anime_list
@@ -53,10 +80,11 @@ def get_all_anime():
         with open(DB_PATH, 'r', encoding='utf-8') as f:
             data = json.load(f).get('anime_list', [])
             
-            # 🛠️ लोकल फाइल से लोड होते ही इमेजेस ऑप्टिमाइज़ कर दो
+            # 🛠️ लोकल फाइल से लोड होते ही इमेजेस ऑप्टिमाइज़ कर दो और भाषा फिक्स करो
             for anime in data:
                 if 'image' in anime:
                     anime['image'] = optimize_image_url(anime['image'])
+                fix_language_data(anime) # 👈 नया जोड़ा गया
                     
             _cached_anime_list = data
             return _cached_anime_list
