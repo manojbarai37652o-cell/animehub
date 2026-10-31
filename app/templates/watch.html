@@ -8,7 +8,7 @@
 <!-- 🛠️ BACKGROUND IMAGE WRAPPER -->
 <div class="watch-page-wrapper">
 
-    <!-- बैकग्राउंड इमेज (ब्लर के साथ) -->
+    <!-- बैकग्राउंड इमेज (Fixed & Clear) -->
     <div class="watch-background">
         <img src="{{ anime.image }}" alt="background" class="watch-bg-img" onerror="this.style.display='none';">
         <div class="watch-bg-overlay"></div>
@@ -32,7 +32,7 @@
         <!-- 🟢 VIDEO PLAYER SECTION 🟢 -->
         <div class="video-section-wrapper" id="videoSectionWrapper">
             
-            <!-- ADSTERRA BANNER -->
+            <!-- ADSTERRA BANNER (Transparent gap) -->
             <div class="adsterra-wrapper">
                 <script>
                   atOptions = { 'key' : '0230da13333651445857fb8321414ae1', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
@@ -107,7 +107,6 @@
                 
                 <!-- Premium Meta Grid -->
                 <div class="premium-meta-grid">
-                    
                     <div class="meta-item">
                         <span class="meta-label"><i class="fas fa-tags"></i> Genres</span>
                         <span class="meta-value">{{ genres_text }}</span>
@@ -151,7 +150,6 @@
                         <span class="meta-label"><i class="fas fa-users"></i> Voice Cast</span>
                         <span class="meta-value">{{ anime.cast|default('Ayumu Murase, Kaito Ishikawa') }}</span>
                     </div>
-
                 </div>
             </div>
 
@@ -295,15 +293,15 @@
         const btns = document.querySelectorAll('.server-btn');
         btns.forEach(b => {
             b.classList.remove('active');
-            b.style.background = 'rgba(255, 255, 255, 0.1)';
+            b.style.background = 'rgba(255, 255, 255, 0.05)';
             b.style.color = '#aaa';
-            b.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+            b.style.borderColor = 'rgba(255, 255, 255, 0.1)';
             b.style.boxShadow = 'none';
         });
         
         if(btn) {
             btn.classList.add('active');
-            btn.style.background = '#a855f7';
+            btn.style.background = 'rgba(163, 113, 247, 0.8)';
             btn.style.color = '#fff';
             btn.style.borderColor = '#a855f7';
             btn.style.boxShadow = '0 0 15px rgba(168, 85, 247, 0.4)';
