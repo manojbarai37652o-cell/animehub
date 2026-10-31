@@ -5460,3 +5460,21 @@ img {
     gap: 15px; 
     margin-top: 15px; 
 }
+/* 🛠️ Adsterra Wrapper Fix (Gap Add kiya) */
+.adsterra-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 50px;
+    max-height: 60px;
+    overflow: hidden;
+    background: transparent;
+    margin-bottom: 20px; /* 👈 Yahan 20px ka gap de diya hai */
+}
+
+.adsterra-wrapper iframe {
+    max-width: 100% !important;
+    max-height: 50px !important;
+    border: none;
+}

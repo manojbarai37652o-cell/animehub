@@ -20,9 +20,10 @@
     {% if ep_number is not none and current_ep and current_ep.video_url %}
     
     <!-- 🟢 VIDEO PLAYER SECTION 🟢 -->
-    <div class="video-section-wrapper" id="videoSectionWrapper" style="margin-top: 0;">
+    <div class="video-section-wrapper" id="videoSectionWrapper">
+        
         <!-- ADSTERRA BANNER -->
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 0; margin: 0 auto; height: 50px; overflow: hidden; background: #000;">
+        <div class="adsterra-wrapper">
             <script>
               atOptions = { 'key' : '0230da13333651445857fb8321414ae1', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
             </script>
@@ -35,13 +36,15 @@
                     allow="autoplay; fullscreen; encrypted-media" allowfullscreen>
             </iframe>
         </div>
+        
         <div class="video-info-bar">
             <span class="video-info-title">{{ anime.title }}</span>
             <span class="video-info-meta">Season {{ current_season.season_number if current_season else 1 }} • Episode {{ ep_number }}</span>
         </div>
     </div>
 
-    <div class="video-note-text">
+    <!-- Warning Note -->
+    <div class="video-warning-note">
         <p>⚠️ Note: If the video redirects you to another site, please press the <b>"Back"</b> button.</p>
     </div>
 
@@ -91,36 +94,18 @@
             <h3>About {{ anime.title }}</h3>
             <p class="synopsis">{{ description }}</p>
             
-            <!-- साफ-सुथरा Details Meta (बिना डबल ब्लैक बॉक्स के) -->
-            <div class="details-meta">
-                <div class="meta-row">
-                    <span class="meta-label">Genres</span>
-                    <span class="meta-value highlight">{{ genres_text }}</span>
-                </div>
-                <div class="meta-row">
-                    <span class="meta-label">Total Episodes</span>
-                    <span class="meta-value highlight">
-                        {% set total = namespace(count=0) %}
-                        {% for s in seasons %}{% set total.count = total.count + s.episodes|length %}{% endfor %}
-                        {{ total.count }}
-                    </span>
-                </div>
-                <div class="meta-row">
-                    <span class="meta-label">Language</span>
-                    <span class="meta-value">Hindi - English - Tamil - Telugu - Japanese</span>
-                </div>
-                <div class="meta-row">
-                    <span class="meta-label">Quality</span>
-                    <span class="meta-value">1080p FHD | 720p HD | 480p</span>
-                </div>
-                <div class="meta-row">
-                    <span class="meta-label">Running time</span>
-                    <span class="meta-value">24 min</span>
-                </div>
-                <div class="meta-row">
-                    <span class="meta-label">Cast</span>
-                    <span class="meta-value">{{ anime.cast|default('Ayumu Murase, Kaito Ishikawa') }}</span>
-                </div>
+            <!-- Meta Info Box -->
+            <div class="details-meta-box">
+                <p><span class="meta-label">Genres:</span> <span class="highlight">{{ genres_text }}</span></p>
+                <p><span class="meta-label">Total Episodes:</span> <span class="highlight">
+                    {% set total = namespace(count=0) %}
+                    {% for s in seasons %}{% set total.count = total.count + s.episodes|length %}{% endfor %}
+                    {{ total.count }}
+                </span></p>
+                <p><span class="meta-label">Language:</span> <span class="highlight">Hindi - English - Tamil - Telugu - Japanese</span></p>
+                <p><span class="meta-label">Quality:</span> <span class="highlight">1080p FHD | 720p HD | 480p</span></p>
+                <p><span class="meta-label">Running time:</span> <span class="highlight">24 min</span></p>
+                <p><span class="meta-label">Cast:</span> <span class="highlight">{{ anime.cast|default('Ayumu Murase, Kaito Ishikawa') }}</span></p>
             </div>
         </div>
 
@@ -149,7 +134,6 @@
                 </button>
                 <span class="total-eps-label">Total {{ current_season.episodes|length if current_season else 0 }} Episodes</span>
                 
-                <!-- Dropdown menu -->
                 <div id="season-dropdown-menu" class="season-dropdown-menu" style="display: none;">
                     {% for season in seasons %}
                     <a href="/watch/{{ anime.id }}/{{ season.season_number }}" class="season-option">
@@ -189,7 +173,7 @@
         </div>
         {% endif %}
 
-        <!-- Comment Section UI -->
+        <!-- Comment Section -->
         <div class="comment-section">
             <h3>Post Comment</h3>
             <textarea placeholder="Share your thoughts about this anime..." class="comment-box"></textarea>
