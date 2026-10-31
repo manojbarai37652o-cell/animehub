@@ -5,7 +5,7 @@
 {% block og_title %}{{ anime.title }} - AnimeNest{% endblock %}
 
 {% block content %}
-<!-- 🛠️ MAIN WRAPPER (Transparent - Inherits base.html background) -->
+<!-- 🛠️ MAIN WRAPPER (Transparent) -->
 <div class="watch-page-wrapper">
 
     <!-- 🛠️ MAIN CONTENT -->
@@ -41,7 +41,7 @@
                 </iframe>
             </div>
             
-            <!-- Video Info Bar (Transparent) -->
+            <!-- Video Info Bar (Glass) -->
             <div class="video-info-bar glass-panel">
                 <span class="video-info-title">{{ anime.title }}</span>
                 <span class="video-info-meta">S{{ current_season.season_number if current_season else 1 }} • E{{ ep_number }}</span>
@@ -53,7 +53,7 @@
             <p>⚠️ Note: If the video redirects you to another site, please press the <b>"Back"</b> button.</p>
         </div>
 
-        <!-- 🟢 SERVER BUTTONS (Transparent) 🟢 -->
+        <!-- 🟢 SERVER BUTTONS (Glass) 🟢 -->
         {% if current_ep.servers and current_ep.servers|length > 1 %}
         <div class="server-selection-wrapper">
             {% for server in current_ep.servers %}

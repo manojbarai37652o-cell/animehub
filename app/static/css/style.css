@@ -6243,3 +6243,59 @@ h1, h2, h3, h4, p, span, a {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 16px;
 }
+/* =====================================================
+   NO BLACK BACKGROUND - PURE TRANSPARENT GLASS
+   ===================================================== */
+
+/* 1. Remove any black background from wrappers */
+.watch-page-wrapper, 
+.watch-content-wrapper, 
+.watch-content-single-page {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+.watch-page-wrapper {
+    position: relative;
+    min-height: 100vh;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+/* 2. White Glass Effect (No Black) */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.08) !important; /* Pure White Transparent */
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+}
+
+/* 3. Video Info Bar & Wrapper - Transparent */
+.video-section-wrapper {
+    background: transparent !important;
+}
+.video-info-bar { 
+    color: #fff; 
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+.adsterra-wrapper {
+    background: transparent !important;
+}
+
+/* 4. Fix Dropdown Menu (White Glass) */
+.season-dropdown-menu {
+    background: rgba(30, 30, 40, 0.85) !important; 
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+/* 5. Fix Text Colors for readability on transparent background */
+h1, h2, h3, h4, p, span, a {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8); /* Text ke peeche halki si shadow taaki light background par bhi dikhe */
+}
+.synopsis { color: #f0f0f0; }
+.meta-value { color: #fff; }
+.meta-label { color: #ccc; }
