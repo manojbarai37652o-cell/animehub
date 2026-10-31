@@ -6299,3 +6299,68 @@ h1, h2, h3, h4, p, span, a {
 .synopsis { color: #f0f0f0; }
 .meta-value { color: #fff; }
 .meta-label { color: #ccc; }
+/* =====================================================
+   FINAL FIX: MATCHING HOME SCREEN (NO BLACK BOXES)
+   ===================================================== */
+
+/* 1. Saare wrappers ko transparent karna (Zabardasti) */
+.watch-page-wrapper, 
+.watch-content-wrapper, 
+.watch-content-single-page,
+.main-content-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 2. Glass Panel ko ekdum invisible/white transparent banana */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03) !important; /* 97% Transparent */
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px;
+}
+
+/* 3. In sabhi boxes ka koi bhi black background ho toh hatao */
+.details-card, 
+.tmdb-rating-box, 
+.comment-section, 
+.episode-card, 
+.video-info-bar,
+.season-toggle-btn,
+.server-btn,
+.anime-grid-2-col {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* 4. Video Player ka background (Video ke liye black hona zaroori hai) */
+.video-player-crunchy {
+    background: #000 !important;
+    border-radius: 0 0 12px 12px;
+}
+
+/* 5. Dropdown Menu Fix (Greyish transparent) */
+.season-dropdown-menu {
+    background: rgba(30, 30, 40, 0.85) !important; 
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* 6. Text Shadow taaki light background par text saaf padhne me aaye */
+h1, h2, h3, h4, p, span, a, div {
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* 7. Video Ad gap transparent */
+.adsterra-wrapper {
+    background: transparent !important;
+    min-height: 50px;
+    max-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
