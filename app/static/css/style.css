@@ -5518,5 +5518,52 @@ img {
     position: relative;
     z-index: 1;
 }
+/* =====================================================
+   WATCH PAGE - BULLETPROOF BACKGROUND FIX
+   ===================================================== */
 
-/* Baaki ka CSS waisa hi rahega jo tune pehle add kiya tha */
+.watch-page-wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-color: #0b0b0f; /* Fallback color */
+    overflow: hidden;
+}
+
+/* Background Image Wrapper */
+.watch-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none; /* Taki click block na ho */
+}
+
+/* The actual Image */
+.watch-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(25px) brightness(0.3); /* 25px blur aur 30% brightness (dark) */
+    transform: scale(1.1); /* Blur ki vajah se jo edges (kinare) kaat jaate hain unhe theek karne ke liye */
+}
+
+/* Dark Overlay (Text padhne me aasani ke liye) */
+.watch-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 11, 15, 0.6); /* Extra dark layer */
+}
+
+/* Content Wrapper (Image ke upar) */
+.watch-content-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
