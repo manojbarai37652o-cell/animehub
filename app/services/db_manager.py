@@ -140,7 +140,7 @@ def get_single_random_anime():
 
 def save_anime_list(anime_list):
     global _cached_anime_list
-    _cached_anime_list = anime_list # 🛠️ कैश (मेमोरी) को भी अपडेट करो ताकि पुराना डेटा न दिखे
+    _cached_anime_list = anime_list
     data = {"anime_list": anime_list}
     try:
         with open(DB_PATH, 'w', encoding='utf-8') as f:

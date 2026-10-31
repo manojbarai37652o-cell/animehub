@@ -164,16 +164,16 @@
         </div>
         {% endif %}
 
-        {% if movies %}
+        <!-- ✅ नया सेक्शन: Random Series -->
+        {% if random_series %}
         <div class="app-section">
             <div class="section-header">
-                <h2>🎬 Anime Movies</h2>
-                <a href="/movies" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
+                <h2>🎲 Random Series</h2>
+                <a href="/trending" class="see-all">View more <i class="fas fa-chevron-right"></i></a>
             </div>
             <div class="anime-row">
-                {% for anime in movies %}
+                {% for anime in random_series %}
                 <a href="/watch/{{ anime.id }}" class="anime-card">
-                    <span class="rank-number">{{ loop.index }}</span>
                     <div class="anime-card-image-wrapper">
                         <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
                         <div class="play-overlay">
@@ -190,14 +190,66 @@
         </div>
         {% endif %}
 
+        <!-- ✅ नया सेक्शन: Animated Series (Cartoons) -->
         {% if cartoons %}
         <div class="app-section">
             <div class="section-header">
-                <h2>🧸 Cartoons</h2>
-                <a href="/cartoons" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
+                <h2>🎨 Animated Series</h2>
+                <a href="/cartoons" class="see-all">View more <i class="fas fa-chevron-right"></i></a>
             </div>
             <div class="anime-row">
                 {% for anime in cartoons %}
+                <a href="/watch/{{ anime.id }}" class="anime-card">
+                    <div class="anime-card-image-wrapper">
+                        <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                        <div class="play-overlay">
+                            <div class="play-button"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <h3 class="anime-title">{{ anime.title }}</h3>
+                    <div class="anime-meta">
+                        <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- ✅ नया सेक्शन: Random Movies -->
+        {% if random_movies %}
+        <div class="app-section">
+            <div class="section-header">
+                <h2>🍿 Random Movies</h2>
+                <a href="/movies" class="see-all">View more <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="anime-row">
+                {% for anime in random_movies %}
+                <a href="/watch/{{ anime.id }}" class="anime-card">
+                    <div class="anime-card-image-wrapper">
+                        <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                        <div class="play-overlay">
+                            <div class="play-button"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <h3 class="anime-title">{{ anime.title }}</h3>
+                    <div class="anime-meta">
+                        <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if movies %}
+        <div class="app-section">
+            <div class="section-header">
+                <h2>🎬 Anime Movies</h2>
+                <a href="/movies" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="anime-row">
+                {% for anime in movies %}
                 <a href="/watch/{{ anime.id }}" class="anime-card">
                     <span class="rank-number">{{ loop.index }}</span>
                     <div class="anime-card-image-wrapper">

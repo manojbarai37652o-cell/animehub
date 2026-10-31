@@ -116,7 +116,21 @@ def create_app(config_class=Config):
         movies = movies_full[:12]
         cartoons = cartoons_full[:12]
         hero_anime_list = get_hero_anime_list(5)
-        return render_template('index.html', anime_list=all_anime, trending=trending, popular=popular, movies=movies, cartoons=cartoons, hero_anime_list=hero_anime_list, page_title='Home')
+        
+        # ✅ नया लॉजिक: Random Series और Random Movies के लिए डेटा तैयार किया
+        random_series = random.sample(series_full, min(len(series_full), 10)) if series_full else []
+        random_movies = random.sample(movies_full, min(len(movies_full), 10)) if movies_full else []
+
+        return render_template('index.html', 
+                               anime_list=all_anime, 
+                               trending=trending, 
+                               popular=popular, 
+                               movies=movies, 
+                               cartoons=cartoons, 
+                               hero_anime_list=hero_anime_list,
+                               random_series=random_series,   # 👈 नया डेटा भेजा
+                               random_movies=random_movies,   # 👈 नया डेटा भेजा
+                               page_title='Home')
 
     @app.route('/trending')
     def trending_page():
