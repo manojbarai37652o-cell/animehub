@@ -64,8 +64,8 @@
         <div class="watch-hero-content">
             <h1 class="watch-title">{{ anime.title }}</h1>
 
+            <!-- Hindi Dub Badge yahan se hata diya gaya hai -->
             <div class="watch-badges">
-                <span class="badge lang-badge"><i class="fas fa-language"></i> Hindi Dub</span>
                 <span class="badge quality-badge"><i class="fas fa-video"></i> 1080p FHD</span>
                 <span class="badge rating-badge"><i class="fas fa-star"></i> {{ anime.rating|default('8.0') }}</span>
             </div>
@@ -82,15 +82,46 @@
     </div>
     {% endif %}
 
-    <!-- 🟢 TABS 🟢 -->
-    <div class="watch-tabs">
-        <button class="watch-tab active" onclick="switchTab('episodes', this)">Episodes</button>
-        <button class="watch-tab" onclick="switchTab('details', this)">Details</button>
-        <button class="watch-tab" onclick="switchTab('similar', this)">Similar</button>
-    </div>
+    <!-- ========================================== -->
+    <!-- 🟢 SINGLE PAGE LAYOUT START 🟢 -->
+    <!-- ========================================== -->
+    <div class="watch-content-single-page">
+        
+        <!-- 1. DETAILS SECTION (Episodes ke upar) -->
+        <div class="details-card">
+            <h3>About {{ anime.title }}</h3>
+            <p class="synopsis">{{ description }}</p>
+            
+            <div class="details-meta">
+                <p><strong>Genres:</strong> <span class="highlight">{{ genres_text }}</span></p>
+                <p><strong>Total Episodes:</strong> <span class="highlight">
+                    {% set total = namespace(count=0) %}
+                    {% for s in seasons %}{% set total.count = total.count + s.episodes|length %}{% endfor %}
+                    {{ total.count }}
+                </span></p>
+                <p><strong>Language:</strong> <span class="highlight">Hindi - English - Tamil - Telugu - Japanese</span></p>
+                <p><strong>Quality:</strong> <span class="highlight">1080p FHD | 720p HD | 480p</span></p>
+                <p><strong>Running time:</strong> <span class="highlight">24 min</span></p>
+                <p><strong>Cast:</strong> <span class="highlight">{{ anime.cast|default('Ayumu Murase, Kaito Ishikawa') }}</span></p>
+            </div>
+        </div>
 
-    <!-- 🟢 EPISODES TAB 🟢 -->
-    <div id="tab-episodes" class="tab-content active">
+        <!-- TMDB Rating Box -->
+        <div class="tmdb-rating-box">
+            <div class="tmdb-score">
+                <i class="fas fa-star" style="color: #01b4e4;"></i>
+                <span class="score-num">{{ anime.rating|default('8.0') }}</span>
+                <span class="score-source">TMDB</span>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <!-- 2. EPISODES SECTION -->
+        <h3 class="section-title">Episodes</h3>
         
         {% if seasons|length > 0 %}
         <div class="season-selector-wrapper">
@@ -139,42 +170,6 @@
         </div>
         {% endif %}
 
-    </div>
-
-    <!-- 🟢 DETAILS TAB 🟢 -->
-    <div id="tab-details" class="tab-content">
-        <div class="details-card">
-            <h3>About {{ anime.title }}</h3>
-            <p class="synopsis">{{ description }}</p>
-            
-            <div class="details-meta">
-                <p><strong>Genres:</strong> <span class="highlight">{{ genres_text }}</span></p>
-                <p><strong>Total Episodes:</strong> <span class="highlight">
-                    {% set total = namespace(count=0) %}
-                    {% for s in seasons %}{% set total.count = total.count + s.episodes|length %}{% endfor %}
-                    {{ total.count }}
-                </span></p>
-                <p><strong>Language:</strong> <span class="highlight">Hindi - English - Tamil - Telugu - Japanese</span></p>
-                <p><strong>Quality:</strong> <span class="highlight">1080p FHD | 720p HD | 480p</span></p>
-                <p><strong>Running time:</strong> <span class="highlight">24 min</span></p>
-                <p><strong>Cast:</strong> <span class="highlight">{{ anime.cast|default('Ayumu Murase, Kaito Ishikawa') }}</span></p>
-            </div>
-        </div>
-
-        <!-- TMDB Rating Box -->
-        <div class="tmdb-rating-box">
-            <div class="tmdb-score">
-                <i class="fas fa-star" style="color: #01b4e4;"></i>
-                <span class="score-num">{{ anime.rating|default('8.0') }}</span>
-                <span class="score-source">TMDB</span>
-            </div>
-            <div class="social-links">
-                <a href="#" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-
         <!-- User Rating Section -->
         <div class="rating-section" id="rating-section">
             <h3>Rate this Anime</h3>
@@ -194,12 +189,10 @@
             <textarea placeholder="Share your thoughts about this anime..." class="comment-box"></textarea>
             <button class="btn-post-comment">Post Comment</button>
         </div>
-    </div>
 
-    <!-- 🟢 SIMILAR TAB 🟢 -->
-    <div id="tab-similar" class="tab-content">
-        <h3 class="section-title">Related Series</h3>
+        <!-- 3. SIMILAR / RELATED SERIES SECTION (Sabse neeche) -->
         {% if related_anime %}
+        <h3 class="section-title" style="margin-top: 30px;">Related Series</h3>
         <div class="anime-grid-2-col">
             {% for rec in related_anime %}
             <a href="/watch/{{ rec.id }}" class="anime-card">
@@ -217,8 +210,8 @@
             {% endfor %}
         </div>
         {% endif %}
-    </div>
 
+    </div>
 </div>
 
 <!-- 🟢 JAVASCRIPT 🟢 -->
@@ -289,13 +282,6 @@
         const firstBtn = document.querySelector('.server-btn');
         if(firstBtn) firstBtn.click();
     });
-
-    window.switchTab = function(tabName, btn) {
-        document.querySelectorAll('.watch-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('tab-' + tabName).classList.add('active');
-    }
 
     let watchlist = JSON.parse(localStorage.getItem('animeWatchlist')) || [];
     const btn = document.getElementById('watchlist-btn');
