@@ -5279,3 +5279,184 @@ img {
     margin-top: 5px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
+/* =====================================================
+   WATCH PAGE - FIXING SPACING & CLUTTER
+   ===================================================== */
+
+.watch-page-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+    background: #0b0b0f;
+}
+
+/* Warning Note */
+.video-warning-note {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin: 12px 20px 25px 20px; /* Neeche aur upar ki space badhayi */
+    line-height: 1.5;
+}
+
+/* Server Buttons Fix */
+.server-selection-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px; /* Neeche wale section se doori */
+    flex-wrap: wrap;
+    padding: 0 15px;
+}
+
+.server-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px; /* Buttons ko thoda bada kiya */
+}
+
+/* Main Container for all sections */
+.watch-content-single-page {
+    padding: 0 15px; /* Side se thodi jagah */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Har section ke beech 30px ka gap */
+}
+
+/* Details Card Fix */
+.details-card { 
+    background: #15151e; /* Thoda light background */
+    padding: 25px 20px; /* Andar ki space badhayi */
+    border-radius: 16px; 
+    border: 1px solid #2a2a35; 
+}
+.details-card h3 { 
+    font-size: 20px; 
+    color: #fff; 
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-left: 4px solid #a371f7; 
+    padding-left: 12px;
+}
+.synopsis { 
+    color: #aaa; 
+    font-size: 15px; 
+    line-height: 1.7; /* Lines ke beech space */
+    margin-bottom: 25px; 
+}
+
+/* Details Meta Box (Genres, Language etc) */
+.details-meta-box {
+    background: #0b0b0f;
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #2a2a35;
+}
+.details-meta-box p { 
+    color: #ddd; 
+    font-size: 14.5px; 
+    margin: 12px 0; /* Har line ke beech space */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column; /* Mobile pe label aur value alag line me */
+    gap: 4px;
+}
+.meta-label {
+    color: #888;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.highlight { 
+    color: #a371f7; 
+    font-weight: 600; 
+}
+
+/* TMDB Box */
+.tmdb-rating-box {
+    background: #15151e; 
+    padding: 25px; 
+    border-radius: 16px; 
+    text-align: center;
+    border: 1px solid #2a2a35;
+}
+
+/* Episodes Section Title */
+.section-title { 
+    font-size: 20px; 
+    margin: 0 0 15px 0; 
+    color: #fff; 
+    border-left: 4px solid #a371f7; 
+    padding-left: 12px; 
+}
+
+/* Dropdown Fix */
+.season-dropdown-container { position: relative; }
+.season-dropdown-menu {
+    position: absolute; top: 110%; left: 0; background: #15151e; border: 1px solid #333;
+    border-radius: 10px; z-index: 999; width: 200px; box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+.season-option {
+    display: flex; justify-content: space-between; padding: 12px 15px;
+    color: #fff; text-decoration: none; border-bottom: 1px solid #2a2a35;
+}
+.season-option:hover { background: #2a2a35; }
+
+/* Episode Grid */
+.episode-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;
+    margin-top: 10px;
+}
+.episode-card {
+    background: #15151e; border-radius: 12px; overflow: hidden;
+    text-decoration: none; border: 1px solid #2a2a35; transition: all 0.3s ease;
+}
+.episode-card:hover, .episode-card.active-ep {
+    border-color: #a371f7; box-shadow: 0 4px 15px rgba(163, 113, 247, 0.2);
+}
+
+/* Comments Section Fix */
+.comment-section { 
+    background: #15151e; 
+    padding: 25px 20px; 
+    border-radius: 16px; 
+    border: 1px solid #2a2a35; 
+}
+.comment-box { 
+    width: 100%; 
+    height: 100px; 
+    background: #0b0b0f; 
+    border: 1px solid #2a2a35; 
+    border-radius: 12px; 
+    color: #fff; 
+    padding: 15px; 
+    margin-bottom: 15px; 
+    resize: none; 
+    box-sizing: border-box;
+    font-family: inherit;
+}
+.btn-post-comment { 
+    background: linear-gradient(135deg, #a371f7, #7c3aed); 
+    color: #fff; 
+    border: none; 
+    padding: 12px 25px; 
+    border-radius: 10px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: 0.3s;
+}
+.btn-post-comment:hover {
+    opacity: 0.9;
+}
+
+/* Similar Series */
+.anime-grid-2-col { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+    margin-top: 15px; 
+}
