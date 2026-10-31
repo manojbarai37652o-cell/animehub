@@ -155,6 +155,12 @@
                         <span><i class="far fa-clock"></i> 24m</span>
                         <span>|</span>
                         <span>Season {{ current_season.season_number if current_season else 1 }}</span>
+                        
+                        <!-- 🛠️ NEW: Language Badge (यहाँ जोड़ा गया है) -->
+                        <span class="ep-lang-tag">
+                            <i class="fas fa-language"></i> 
+                            {{ anime.language if (anime.language and anime.language != 'Unknown') else 'Multi Audio' }}
+                        </span>
                     </div>
                 </div>
                 <div class="ep-actions">
