@@ -20,9 +20,9 @@
     {% if ep_number is not none and current_ep and current_ep.video_url %}
     
     <!-- 🟢 VIDEO PLAYER SECTION 🟢 -->
-    <div class="video-section-wrapper" id="videoSectionWrapper">
-        <!-- ADSTERRA BANNER (Video ke upar) -->
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 10px 0; margin-bottom: 5px; background: #000;">
+    <div class="video-section-wrapper" id="videoSectionWrapper" style="margin-top: 0;">
+        <!-- ADSTERRA BANNER (Gap fix kiya gaya hai) -->
+        <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 0; margin: 0 auto; height: 50px; overflow: hidden; background: #000;">
             <script>
               atOptions = { 'key' : '0230da13333651445857fb8321414ae1', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
             </script>
@@ -64,7 +64,6 @@
         <div class="watch-hero-content">
             <h1 class="watch-title">{{ anime.title }}</h1>
 
-            <!-- Hindi Dub Badge yahan se hata diya gaya hai -->
             <div class="watch-badges">
                 <span class="badge quality-badge"><i class="fas fa-video"></i> 1080p FHD</span>
                 <span class="badge rating-badge"><i class="fas fa-star"></i> {{ anime.rating|default('8.0') }}</span>
@@ -131,6 +130,7 @@
                 </button>
                 <span class="total-eps-label">Total {{ current_season.episodes|length if current_season else 0 }} Episodes</span>
                 
+                <!-- Dropdown menu -->
                 <div id="season-dropdown-menu" class="season-dropdown-menu" style="display: none;">
                     {% for season in seasons %}
                     <a href="/watch/{{ anime.id }}/{{ season.season_number }}" class="season-option">
@@ -169,19 +169,6 @@
             <p>इस एनीमे के एपिसोड अभी उपलब्ध नहीं हैं।</p>
         </div>
         {% endif %}
-
-        <!-- User Rating Section -->
-        <div class="rating-section" id="rating-section">
-            <h3>Rate this Anime</h3>
-            <div class="stars" id="star-rating">
-                <i class="far fa-star" data-rating="1"></i>
-                <i class="far fa-star" data-rating="2"></i>
-                <i class="far fa-star" data-rating="3"></i>
-                <i class="far fa-star" data-rating="4"></i>
-                <i class="far fa-star" data-rating="5"></i>
-            </div>
-            <p id="rating-text" class="rating-text">Click on a star to rate</p>
-        </div>
 
         <!-- Comment Section UI -->
         <div class="comment-section">
@@ -305,46 +292,7 @@
         localStorage.setItem('animeWatchlist', JSON.stringify(list));
     }
 
-    let ratings = JSON.parse(localStorage.getItem('animeRatings')) || {};
-    let currentRating = ratings[animeData.id] || 0;
-    const starElements = document.querySelectorAll('#star-rating i');
-
-    function renderStars(rating) {
-        starElements.forEach((s, i) => {
-            if (i < rating) s.className = 'fas fa-star';
-            else s.className = 'far fa-star';
-        });
-        const text = document.getElementById('rating-text');
-        if (text) {
-            if (rating > 0) text.innerText = 'You rated this ' + rating + '/5';
-            else text.innerText = 'Click on a star to rate';
-        }
-    }
-    if(starElements.length > 0) {
-        renderStars(currentRating);
-        starElements.forEach(star => {
-            star.addEventListener('click', function() {
-                const rating = parseInt(this.getAttribute('data-rating'));
-                ratings[animeData.id] = rating;
-                localStorage.setItem('animeRatings', JSON.stringify(ratings));
-                currentRating = rating;
-                renderStars(rating);
-            });
-            star.addEventListener('mouseover', function() {
-                const rating = parseInt(this.getAttribute('data-rating'));
-                starElements.forEach((s, i) => {
-                    if (i < rating) s.className = 'fas fa-star';
-                    else s.className = 'far fa-star';
-                });
-            });
-        });
-        const sr = document.getElementById('star-rating');
-        if (sr) {
-            sr.addEventListener('mouseleave', function() {
-                renderStars(currentRating);
-            });
-        }
-    }
+    // Rating stars ka JavaScript hata diya gaya hai
 
     if (animeGenres) {
         let userPrefs = JSON.parse(localStorage.getItem('userGenrePrefs')) || {};

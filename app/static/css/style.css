@@ -5255,3 +5255,27 @@ img {
 .section-title { font-size: 18px; margin: 0; color: #fff; border-left: 4px solid #a371f7; padding-left: 10px; }
 .anime-grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
 .anime-grid-2-col .anime-title { font-size: 14px; }
+/* 🛠️ Dropdown Position Fix */
+.season-selector-wrapper { 
+    margin-bottom: 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+}
+
+.season-dropdown-container {
+    position: relative; /* Ye zaroori hai dropdown ko neeche laane ke liye */
+}
+
+.season-dropdown-menu {
+    position: absolute; 
+    top: 100%; /* Button ke bilkul neeche */
+    left: 0;
+    background: #1a1a24; 
+    border: 1px solid #333;
+    border-radius: 8px; 
+    z-index: 999; /* Taki sabke upar dikhe */
+    width: 200px; 
+    margin-top: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
