@@ -4856,3 +4856,85 @@ img {
 * {
     -webkit-tap-highlight-color: transparent; /* क्लिक करने पर नीला बॉक्स न आए */
 }
+/* =====================================================
+   TOONSTREAM STYLE PLAY OVERLAY EFFECT (RESTORED)
+   ===================================================== */
+
+/* Image Wrapper */
+.anime-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 2 / 3; /* पोस्टर का साइज़ सेट रखने के लिए */
+}
+
+.anime-card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* Dark Overlay */
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Normally hidden */
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+/* White Circle Play Button */
+.play-button {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 20px;
+    padding-left: 4px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+/* Hover Effects (Desktop ke liye) */
+.anime-card:hover .play-overlay {
+    opacity: 1;
+}
+
+.anime-card:hover .anime-card-image-wrapper img {
+    transform: scale(1.08);
+}
+
+.anime-card:hover .play-button {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* 🛠️ Mobile Fix: Jab hover nahi hota, tab bhi play button dikhe */
+@media (hover: none) {
+    .play-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%); /* पीछे से डार्क ग्रेडिएंट */
+    }
+    .play-button {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        font-size: 16px;
+    }
+}
