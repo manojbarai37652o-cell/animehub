@@ -6026,3 +6026,187 @@ img {
 
 /* Section Titles */
 .section-title { font-size: 20px; color: #fff; border-left: 4px solid #a371f7; padding-left: 12px; margin: 0; }
+/* =====================================================
+   100% TRANSPARENT / NO BLACK THEME
+   ===================================================== */
+
+/* 1. Page Wrapper - No background at all */
+.watch-page-wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-color: transparent !important; 
+}
+
+/* 2. Fixed Background Image */
+.watch-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0; 
+    pointer-events: none;
+}
+
+/* Image par koi black overlay nahi, bas halka sa blur taaki text padhne me aasani ho */
+.watch-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px) brightness(0.9); /* Brightness badha di taaki character roshan dikhe */
+    transform: scale(1.05);
+}
+
+/* 3. Content Wrapper */
+.watch-content-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+.watch-content-single-page {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+}
+
+/* 4. THE GLASS EFFECT (No Black, Only White/Transparent Glass) */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.08) !important; /* Pure White Glass (No Black) */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+}
+
+/* 5. Fix Ad Gap (No black background) */
+.video-section-wrapper {
+    background: transparent !important;
+}
+.adsterra-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 50px;
+    max-height: 60px;
+    background: transparent !important;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+.adsterra-wrapper iframe {
+    max-width: 100% !important;
+    max-height: 50px !important;
+    border: none;
+}
+
+/* Video Info Bar */
+.video-info-bar { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 12px 15px; 
+    color: #fff; 
+    font-size: 13px; 
+    border-radius: 0 0 16px 16px; 
+    margin-top: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8); /* Text chamkega */
+}
+.video-info-title { font-weight: 700; color: #fff; }
+
+/* Text Colors & Shadows (Taaki safed background par bhi text dikhe) */
+h1, h2, h3, h4, p, span, a {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7); 
+}
+
+/* Details Card */
+.details-card { padding: 25px; }
+.details-card .card-title { color: #fff; font-size: 20px; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.details-card .card-title i { color: #a371f7; }
+.synopsis { color: #f0f0f0; font-size: 14.5px; line-height: 1.7; margin-bottom: 25px; }
+
+/* Premium Meta Grid */
+.premium-meta-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 600px) {
+    .premium-meta-grid { grid-template-columns: 1fr 1fr; }
+    .full-width { grid-column: 1 / -1; }
+}
+.meta-item { display: flex; flex-direction: column; gap: 6px; }
+.meta-label { color: #ccc; font-size: 12px; text-transform: uppercase; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.meta-label i { color: #a371f7; }
+.meta-value { color: #fff; font-size: 15px; font-weight: 500; }
+
+/* Tags (White/Transparent) */
+.meta-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.tag {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    backdrop-filter: blur(5px);
+}
+.quality-tag { background: rgba(163, 113, 247, 0.4); border-color: rgba(163, 113, 247, 0.6); color: #fff; }
+.quality-tag i { color: #f1c40f; margin-right: 4px; font-size: 11px; }
+
+/* TMDB Box */
+.tmdb-rating-box { padding: 20px; text-align: center; }
+.tmdb-score { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px; }
+.score-num { font-size: 28px; font-weight: 800; color: #fff; }
+.score-source { background: #01b4e4; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 800; font-size: 12px; }
+.social-links { display: flex; justify-content: center; gap: 15px; }
+.social-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: 0.3s; border: 1px solid rgba(255,255,255,0.3);}
+.social-btn.youtube:hover { background: #ff0000; }
+.social-btn.facebook:hover { background: #1877f2; }
+.social-btn.twitter:hover { background: #1da1f2; }
+
+/* Episode Grid */
+.episode-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 10px; }
+.episode-card { overflow: hidden; text-decoration: none; transition: all 0.3s ease; }
+.episode-card:hover, .episode-card.active-ep { border-color: #a371f7 !important; box-shadow: 0 0 15px rgba(163, 113, 247, 0.6) !important; transform: translateY(-2px); background: rgba(163, 113, 247, 0.2) !important; }
+.ep-thumbnail { position: relative; width: 100%; aspect-ratio: 16/9; }
+.ep-thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+.ep-play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.5); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; border: 1px solid rgba(255, 255, 255, 0.5); }
+.ep-info { padding: 10px; }
+.ep-title-row { display: flex; justify-content: space-between; align-items: center; }
+.ep-code { color: #01b4e4; font-weight: 700; font-size: 16px; }
+.ep-label { color: #ddd; font-size: 11px; }
+
+/* Comments (White/Transparent) */
+.comment-section { padding: 20px; }
+.comment-box { width: 100%; height: 80px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; color: #fff; padding: 12px; margin-bottom: 15px; resize: none; box-sizing: border-box; backdrop-filter: blur(5px); }
+.comment-box::placeholder { color: #ccc; }
+
+/* Section Titles */
+.section-title { font-size: 20px; color: #fff; border-left: 4px solid #a371f7; padding-left: 12px; margin: 0; }
+
+/* Server Buttons */
+.server-selection-wrapper { display: flex; justify-content: center; gap: 15px; margin: 0 15px 15px 15px; flex-wrap: wrap; }
+.server-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown Menu (No Black) */
+.season-dropdown-menu {
+    background: rgba(30, 30, 40, 0.8) !important; /* Yahan black ki jagah transparent glass */
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 10px;
+    z-index: 999;
+    width: 200px;
+    margin-top: 5px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}

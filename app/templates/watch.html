@@ -8,10 +8,9 @@
 <!-- 🛠️ BACKGROUND IMAGE WRAPPER -->
 <div class="watch-page-wrapper">
 
-    <!-- बैकग्राउंड इमेज (Fixed & Clear) -->
+    <!-- बैकग्राउंड इमेज (Fixed & 100% Clear) -->
     <div class="watch-background">
         <img src="{{ anime.image }}" alt="background" class="watch-bg-img" onerror="this.style.display='none';">
-        <div class="watch-bg-overlay"></div>
     </div>
 
     <!-- 🛠️ MAIN CONTENT -->
@@ -32,7 +31,7 @@
         <!-- 🟢 VIDEO PLAYER SECTION 🟢 -->
         <div class="video-section-wrapper" id="videoSectionWrapper">
             
-            <!-- ADSTERRA BANNER (Transparent gap) -->
+            <!-- ADSTERRA BANNER (Transparent) -->
             <div class="adsterra-wrapper">
                 <script>
                   atOptions = { 'key' : '0230da13333651445857fb8321414ae1', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
@@ -178,7 +177,7 @@
                     </button>
                     <span class="total-eps-label">Total {{ current_season.episodes|length if current_season else 0 }} Episodes</span>
                     
-                    <div id="season-dropdown-menu" class="season-dropdown-menu" style="display: none;">
+                    <div id="season-dropdown-menu" class="season-dropdown-menu glass-panel" style="display: none;">
                         {% for season in seasons %}
                         <a href="/watch/{{ anime.id }}/{{ season.season_number }}" class="season-option">
                             <span>Season {{ season.season_number }}</span>
@@ -212,7 +211,7 @@
                 {% endfor %}
             </div>
             {% else %}
-            <div class="no-video-msg glass-panel">
+            <div class="no-video-msg glass-panel" style="padding: 20px; text-align: center;">
                 <h3>No Episodes Available 😔</h3>
                 <p>इस एनीमे के एपिसोड अभी उपलब्ध नहीं हैं।</p>
             </div>
@@ -293,9 +292,9 @@
         const btns = document.querySelectorAll('.server-btn');
         btns.forEach(b => {
             b.classList.remove('active');
-            b.style.background = 'rgba(255, 255, 255, 0.05)';
-            b.style.color = '#aaa';
-            b.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            b.style.background = 'rgba(255, 255, 255, 0.1)';
+            b.style.color = '#fff';
+            b.style.borderColor = 'rgba(255, 255, 255, 0.2)';
             b.style.boxShadow = 'none';
         });
         
