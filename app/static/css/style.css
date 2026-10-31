@@ -5567,3 +5567,121 @@ img {
     margin: 0 auto;
     padding-bottom: 80px;
 }
+/* =====================================================
+   PREMIUM DETAILS SECTION (GLASSMORPHISM)
+   ===================================================== */
+
+/* Details Card Base */
+.premium-glass {
+    background: linear-gradient(145deg, rgba(30, 30, 40, 0.7), rgba(15, 15, 20, 0.8));
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(163, 113, 247, 0.2);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+
+.premium-glass .card-title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: none;
+    padding-left: 0;
+}
+.premium-glass .card-title i {
+    color: #a371f7;
+    font-size: 24px;
+}
+
+.synopsis {
+    color: #b3b3b3;
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* Premium Meta Grid Layout */
+.premium-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+@media (min-width: 600px) {
+    .premium-meta-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .full-width {
+        grid-column: 1 / -1; /* Language aur Quality puri width lenge */
+    }
+}
+
+/* Individual Meta Item */
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.meta-label {
+    color: #888;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.meta-label i {
+    color: #a371f7; /* Icon color purple */
+}
+
+.meta-value {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Tags (For Language & Quality) */
+.meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ddd;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.tag:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+/* Special Glowing style for Quality Tags */
+.quality-tag {
+    background: rgba(163, 113, 247, 0.15);
+    border-color: rgba(163, 113, 247, 0.4);
+    color: #d1b3ff;
+}
+.quality-tag i {
+    color: #f1c40f;
+    margin-right: 4px;
+    font-size: 11px;
+}

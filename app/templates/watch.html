@@ -8,7 +8,7 @@
 <!-- 🛠️ BACKGROUND IMAGE WRAPPER -->
 <div class="watch-page-wrapper">
 
-    <!-- यहाँ हमने इमेज को सीधा टैग में डाला है -->
+    <!-- बैकग्राउंड इमेज और उसका ब्लर -->
     <div class="watch-background">
         <img src="{{ anime.image }}" alt="background" class="watch-bg-img" onerror="this.style.display='none';">
         <div class="watch-bg-overlay"></div>
@@ -99,23 +99,58 @@
         <!-- ========================================== -->
         <div class="watch-content-single-page">
             
-            <!-- 1. DETAILS SECTION -->
-            <div class="details-card">
-                <h3>About {{ anime.title }}</h3>
+            <!-- 1. PREMIUM DETAILS SECTION -->
+            <div class="details-card premium-glass">
+                <h3 class="card-title"><i class="fas fa-info-circle"></i> About {{ anime.title }}</h3>
                 <p class="synopsis">{{ description }}</p>
                 
-                <!-- Meta Info Box -->
-                <div class="details-meta-box">
-                    <p><span class="meta-label">Genres:</span> <span class="highlight">{{ genres_text }}</span></p>
-                    <p><span class="meta-label">Total Episodes:</span> <span class="highlight">
-                        {% set total = namespace(count=0) %}
-                        {% for s in seasons %}{% set total.count = total.count + s.episodes|length %}{% endfor %}
-                        {{ total.count }}
-                    </span></p>
-                    <p><span class="meta-label">Language:</span> <span class="highlight">Hindi - English - Tamil - Telugu - Japanese</span></p>
-                    <p><span class="meta-label">Quality:</span> <span class="highlight">1080p FHD | 720p HD | 480p</span></p>
-                    <p><span class="meta-label">Running time:</span> <span class="highlight">24 min</span></p>
-                    <p><span class="meta-label">Cast:</span> <span class="highlight">{{ anime.cast|default('Ayumu Murase, Kaito Ishikawa') }}</span></p>
+                <!-- Premium Meta Grid -->
+                <div class="premium-meta-grid">
+                    
+                    <div class="meta-item">
+                        <span class="meta-label"><i class="fas fa-tags"></i> Genres</span>
+                        <span class="meta-value">{{ genres_text }}</span>
+                    </div>
+                    
+                    <div class="meta-item">
+                        <span class="meta-label"><i class="fas fa-list-ol"></i> Total Episodes</span>
+                        <span class="meta-value">
+                            {% set total = namespace(count=0) %}
+                            {% for s in seasons %}{% set total.count = total.count + s.episodes|length %}{% endfor %}
+                            {{ total.count }} Episodes
+                        </span>
+                    </div>
+                    
+                    <div class="meta-item full-width">
+                        <span class="meta-label"><i class="fas fa-language"></i> Audio Languages</span>
+                        <div class="meta-tags">
+                            <span class="tag">Hindi</span>
+                            <span class="tag">English</span>
+                            <span class="tag">Tamil</span>
+                            <span class="tag">Telugu</span>
+                            <span class="tag">Japanese</span>
+                        </div>
+                    </div>
+                    
+                    <div class="meta-item full-width">
+                        <span class="meta-label"><i class="fas fa-video"></i> Video Quality</span>
+                        <div class="meta-tags">
+                            <span class="tag quality-tag"><i class="fas fa-bolt"></i> 1080p FHD</span>
+                            <span class="tag quality-tag"><i class="fas fa-bolt"></i> 720p HD</span>
+                            <span class="tag quality-tag"><i class="fas fa-bolt"></i> 480p</span>
+                        </div>
+                    </div>
+
+                    <div class="meta-item">
+                        <span class="meta-label"><i class="far fa-clock"></i> Running Time</span>
+                        <span class="meta-value">24 min</span>
+                    </div>
+
+                    <div class="meta-item">
+                        <span class="meta-label"><i class="fas fa-users"></i> Voice Cast</span>
+                        <span class="meta-value">{{ anime.cast|default('Ayumu Murase, Kaito Ishikawa') }}</span>
+                    </div>
+
                 </div>
             </div>
 
