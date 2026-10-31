@@ -156,10 +156,27 @@
                         <span>|</span>
                         <span>Season {{ current_season.season_number if current_season else 1 }}</span>
                         
-                        <!-- 🛠️ NEW: Language Badge (यहाँ जोड़ा गया है) -->
+                        <!-- 🛠️ SMART LANGUAGE BADGE -->
+                        {% set db_lang = anime.language|lower if anime.language else '' %}
+                        {% set title_lower = anime.title|lower %}
+                        {% set lang_display = 'Multi Audio' %}
+
+                        {% if 'english' in title_lower or 'english' in db_lang %}
+                            {% set lang_display = 'English Dub' %}
+                        {% elif 'hindi' in title_lower or 'hindi' in db_lang %}
+                            {% set lang_display = 'Hindi Dub' %}
+                        {% elif 'japanese' in title_lower or 'japanese' in db_lang %}
+                            {% set lang_display = 'Japanese' %}
+                        {% elif 'tamil' in title_lower or 'tamil' in db_lang %}
+                            {% set lang_display = 'Tamil Dub' %}
+                        {% elif 'telugu' in title_lower or 'telugu' in db_lang %}
+                            {% set lang_display = 'Telugu Dub' %}
+                        {% elif db_lang and db_lang != 'unknown' %}
+                            {% set lang_display = anime.language %}
+                        {% endif %}
+
                         <span class="ep-lang-tag">
-                            <i class="fas fa-language"></i> 
-                            {{ anime.language if (anime.language and anime.language != 'Unknown') else 'Multi Audio' }}
+                            <i class="fas fa-language"></i> {{ lang_display }}
                         </span>
                     </div>
                 </div>
