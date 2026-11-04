@@ -293,14 +293,15 @@
                 {% endfor %}
             </div>
             
-            <!-- ✅ नया सेक्शन: A to Z के नीचे 2 एनीमे दिखाने के लिए -->
+            <!-- ✅ अपडेटेड सेक्शन: A to Z के नीचे 4 एनीमे -->
             {% if trending %}
             <div class="bottom-anime-row">
                 <div class="section-header" style="margin-top: 25px; margin-bottom: 15px;">
                     <h3 style="font-size: 18px; color: #fff; margin: 0;">✨ You Might Also Like</h3>
                 </div>
                 <div class="anime-grid-2-col">
-                    {% for anime in trending[:2] %}
+                    <!-- यहाँ trending[:4] कर दिया है जिससे 4 एनीमे दिखेंगे और हर रिफ्रेश पर बदलेंगे -->
+                    {% for anime in trending[:4] %}
                     <a href="/watch/{{ anime.id }}" class="anime-card">
                         <div class="anime-card-image-wrapper">
                             <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
@@ -317,7 +318,7 @@
                 </div>
             </div>
             {% endif %}
-            <!-- ✅ नया सेक्शन खत्म -->
+            <!-- ✅ अपडेटेड सेक्शन खत्म -->
             
         </div>
         {% endif %}

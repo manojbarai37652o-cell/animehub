@@ -4968,12 +4968,12 @@ img {
 
 .bottom-anime-row {
     margin-top: 20px;
-    padding: 0 10px; /* Thoda side se gap */
+    padding: 0 10px;
 }
 
 .bottom-anime-row .anime-grid-2-col {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 columns */
+    grid-template-columns: 1fr 1fr; /* 2 columns, taaki 4 anime 2x2 grid banayein */
     gap: 15px;
 }
 
@@ -4990,7 +4990,7 @@ img {
 .bottom-anime-row .anime-card-image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 2 / 3; /* Perfect poster size */
+    aspect-ratio: 2 / 3;
     border-radius: 12px;
     overflow: hidden;
 }
