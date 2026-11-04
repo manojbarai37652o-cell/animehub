@@ -164,7 +164,7 @@
         </div>
         {% endif %}
 
-        <!-- ✅ नया सेक्शन: Random Series -->
+        <!-- ✅ सेक्शन: Random Series -->
         {% if random_series %}
         <div class="app-section">
             <div class="section-header">
@@ -190,7 +190,7 @@
         </div>
         {% endif %}
 
-        <!-- ✅ नया सेक्शन: Animated Series (Cartoons) -->
+        <!-- ✅ सेक्शन: Animated Series (Cartoons) -->
         {% if cartoons %}
         <div class="app-section">
             <div class="section-header">
@@ -216,7 +216,7 @@
         </div>
         {% endif %}
 
-        <!-- ✅ नया सेक्शन: Random Movies -->
+        <!-- ✅ सेक्शन: Random Movies -->
         {% if random_movies %}
         <div class="app-section">
             <div class="section-header">
@@ -282,6 +282,7 @@
             </div>
         </div>
 
+        <!-- 🔠 BROWSE A TO Z SECTION -->
         <div class="app-section">
             <div class="section-header">
                 <h2>🔠 Browse A to Z</h2>
@@ -291,6 +292,33 @@
                 <a href="/az/{{ letter }}" class="az-btn">{{ letter }}</a>
                 {% endfor %}
             </div>
+            
+            <!-- ✅ नया सेक्शन: A to Z के नीचे 2 एनीमे दिखाने के लिए -->
+            {% if trending %}
+            <div class="bottom-anime-row">
+                <div class="section-header" style="margin-top: 25px; margin-bottom: 15px;">
+                    <h3 style="font-size: 18px; color: #fff; margin: 0;">✨ You Might Also Like</h3>
+                </div>
+                <div class="anime-grid-2-col">
+                    {% for anime in trending[:2] %}
+                    <a href="/watch/{{ anime.id }}" class="anime-card">
+                        <div class="anime-card-image-wrapper">
+                            <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                            <div class="play-overlay">
+                                <div class="play-button"><i class="fas fa-play"></i></div>
+                            </div>
+                        </div>
+                        <h4 class="anime-title">{{ anime.title }}</h4>
+                        <div class="anime-meta">
+                            <span class="rating">★ {{ anime.rating|default('8.0') }}</span>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            <!-- ✅ नया सेक्शन खत्म -->
+            
         </div>
         {% endif %}
 
@@ -352,7 +380,6 @@
         slideInterval = setTimeout(showSlides, 5000);
     }
 
-    // 🛠️ ग्लोबल फंक्शन बनाया ताकि SPA से इसे कॉल किया जा सके
     window.loadRecommendations = function() {
         if (window.location.pathname !== '/' && window.location.pathname !== '/home') return;
 
@@ -396,7 +423,6 @@
         }
     };
 
-    // जब पेज सीधे लोड हो (रिफ्रेश) तो इसे चलाओ
     document.addEventListener('DOMContentLoaded', window.loadRecommendations);
 </script>
 {% endblock %}

@@ -4962,3 +4962,56 @@ img {
         width: fit-content;
     }
 }
+/* =====================================================
+   BOTTOM ANIME ROW (Below A-Z)
+   ===================================================== */
+
+.bottom-anime-row {
+    margin-top: 20px;
+    padding: 0 10px; /* Thoda side se gap */
+}
+
+.bottom-anime-row .anime-grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+    gap: 15px;
+}
+
+.bottom-anime-row .anime-card {
+    background: transparent;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.bottom-anime-row .anime-card:hover {
+    transform: translateY(-3px);
+}
+
+.bottom-anime-row .anime-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3; /* Perfect poster size */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.bottom-anime-row .anime-card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bottom-anime-row .anime-title {
+    font-size: 14px;
+    margin: 8px 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+}
+
+.bottom-anime-row .anime-meta {
+    font-size: 12px;
+    color: #f1c40f;
+    font-weight: bold;
+}
