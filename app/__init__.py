@@ -3,6 +3,9 @@ import random
 import os
 import re
 from config import Config
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
                                    get_anime_by_genre, get_single_random_anime,
@@ -22,6 +25,27 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
     
+    # 🛡️ SECURITY: Rate Limiter Setup (स्पैम और DDoS से बचाव)
+    limiter = Limiter(
+        get_remote_address,
+        app=app,
+        default_limits=[app.config.get("RATELIMIT_DEFAULT", "200 per minute")],
+        storage_uri=app.config.get("RATELIMIT_STORAGE_URI", "memory://")
+    )
+
+    # 🛡️ SECURITY: Security Headers (हैकर्स से बचाव)
+    @app.after_request
+    def add_security_headers(response):
+        # XSS अटैक से बचाव
+        response.headers['X-XSS-Protection'] = '1; mode=block'
+        # Clickjacking से बचाव (कोई दूसरी साइट तेरी साइट को फ्रेम में नहीं खोल सकती)
+        response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+        # MIME-type Sniffing से बचाव
+        response.headers['X-Content-Type-Options'] = 'nosniff'
+        # Referrer Policy (प्राइवेसी के लिए)
+        response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+        return response
+
     @app.route('/google284a1cf6abd21b7d.html')
     def google_verification():
         return send_from_directory(app.static_folder, 'google284a1cf6abd21b7d.html')
@@ -56,7 +80,6 @@ def create_app(config_class=Config):
         cartoons_list = [a for a in all_anime if any(k in a['title'].lower() for k in cartoon_keywords)]
         series_list = [a for a in all_anime if a not in movies_list and a not in cartoons_list]
         
-        # अब सॉर्टिंग सही से होगी क्योंकि सबकी रेटिंग अलग-अलग होगी
         trending_full = sorted(series_list, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)
         popular_full = sorted(series_list, key=lambda x: len(x.get('episodes', [])), reverse=True)
         
@@ -67,7 +90,6 @@ def create_app(config_class=Config):
         try:
             all_anime = get_all_anime()
             
-            # 🛠️ सर्च ओवरले में भी स्मार्ट रेटिंग दिखाओ
             for anime in all_anime:
                 if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                     anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -79,13 +101,13 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # 🛠️ NEW API FOR SMART RECOMMENDATIONS
+    # 🛠️ NEW API FOR SMART RECOMMENDATIONS (Protected by Rate Limiter)
     @app.route('/api/recommend')
+    @limiter.limit("60 per minute") # API के लिए सिर्फ 60 रिक्वेस्ट प्रति मिनट
     def api_recommend():
         genre = request.args.get('genre', 'Action')
         all_anime = get_all_anime()
         
-        # 🛠️ रिकमेंडेशन में भी स्मार्ट रेटिंग दिखाओ
         for anime in all_anime:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -117,7 +139,6 @@ def create_app(config_class=Config):
         cartoons = cartoons_full[:12]
         hero_anime_list = get_hero_anime_list(5)
         
-        # ✅ नया लॉजिक: Random Series और Random Movies के लिए डेटा तैयार किया
         random_series = random.sample(series_full, min(len(series_full), 10)) if series_full else []
         random_movies = random.sample(movies_full, min(len(movies_full), 10)) if movies_full else []
 
@@ -128,8 +149,8 @@ def create_app(config_class=Config):
                                movies=movies, 
                                cartoons=cartoons, 
                                hero_anime_list=hero_anime_list,
-                               random_series=random_series,   # 👈 नया डेटा भेजा
-                               random_movies=random_movies,   # 👈 नया डेटा भेजा
+                               random_series=random_series,
+                               random_movies=random_movies,
                                page_title='Home')
 
     @app.route('/trending')
@@ -175,7 +196,6 @@ def create_app(config_class=Config):
         query = request.args.get('q', '')
         anime_list = search_anime(query) if query else get_all_anime()
         
-        # 🛠️ सर्च रिजल्ट में भी स्मार्ट रेटिंग
         for anime in anime_list:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -203,7 +223,6 @@ def create_app(config_class=Config):
         anime = get_anime_by_id(anime_id)
         if not anime: abort(404)
         
-        # 🛠️ वॉच पेज पर भी स्मार्ट रेटिंग
         if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
             anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
