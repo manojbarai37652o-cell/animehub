@@ -81,6 +81,27 @@
         .telegram-float-btn:hover { transform: scale(1.1); background-color: #0099e6; }
         .logo-text { font-size: 20px; font-weight: 800; color: #fff; margin: 0; display: inline-block; }
     </style>
+
+    <!-- 🛡️ SECURITY: Anti-Inspect & DevTools Blocker Script -->
+    <script>
+        // 1. Right Click Disable
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // 2. Keyboard Shortcuts Disable
+        document.onkeydown = function(e) {
+            if(e.key === 'F12' || e.keyCode === 123) { return false; }
+            if(e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) { return false; }
+            if(e.ctrlKey && (e.key === 'U' || e.key === 'u')) { return false; }
+        };
+
+        // 3. DevTools Detection (Freezes page/video if inspect is opened)
+        setInterval(function() {
+            debugger;
+        }, 1000);
+    </script>
+
 </head>
 <body>
 
