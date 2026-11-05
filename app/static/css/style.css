@@ -5181,3 +5181,170 @@ img {
     color: #f1c40f !important;
     font-weight: 600 !important;
 }
+/* =====================================================
+   LIVE COMMENTS SECTION STYLES
+   ===================================================== */
+
+.comments-wrapper {
+    background: rgba(20, 15, 25, 0.6) !important;
+    border-radius: 16px !important;
+    padding: 15px !important;
+    margin-top: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+.comments-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 15px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-bottom: 10px !important;
+}
+
+.comments-header h3 {
+    font-size: 16px !important;
+    color: #fff !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+.comments-header h3 i { color: #a855f7 !important; }
+
+/* ADD COMMENT BOX */
+.add-comment-box {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 20px !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    padding: 6px 10px !important;
+    border-radius: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* AVATARS (Size lock kiya gaya hai) */
+.comment-avatar {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+}
+
+.comment-input {
+    flex-grow: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    font-size: 14px !important;
+    outline: none !important;
+    width: 100% !important;
+}
+.comment-input::placeholder { color: #888 !important; }
+
+/* SEND BUTTON (Overflow fix) */
+.comment-submit-btn {
+    background: #a855f7 !important;
+    border: none !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    border-radius: 50% !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+    transition: 0.3s !important;
+}
+.comment-submit-btn:hover { background: #9333ea !important; }
+.comment-submit-btn i { font-size: 14px !important; margin: 0 !important; padding: 0 !important; }
+
+/* COMMENT ITEMS */
+.comment-list { display: flex !important; flex-direction: column !important; gap: 15px !important; }
+.comment-item { display: flex !important; gap: 12px !important; align-items: flex-start !important; }
+.comment-content { flex-grow: 1 !important; min-width: 0 !important; }
+
+.comment-user { font-size: 14px !important; font-weight: 600 !important; color: #fff !important; display: flex !important; align-items: center !important; gap: 5px !important; }
+.verified-tick { color: #a855f7 !important; font-size: 11px !important; }
+.comment-time { font-size: 11px !important; color: #888 !important; margin-bottom: 4px !important; }
+.comment-text { font-size: 13px !important; color: #ddd !important; margin: 0 0 8px 0 !important; line-height: 1.4 !important; }
+
+.comment-actions { display: flex !important; gap: 15px !important; font-size: 12px !important; color: #888 !important; }
+.comment-actions span { display: flex !important; align-items: center !important; gap: 5px !important; cursor: pointer !important; transition: color 0.3s !important; }
+.comment-actions span:hover { color: #a855f7 !important; }
+
+/* =====================================================
+   ANIMEKA (HORIZONTAL SCROLL FIX)
+   ===================================================== */
+
+.animeka-section {
+    background: rgba(20, 15, 25, 0.6) !important;
+    border-radius: 16px !important;
+    padding: 15px !important;
+    margin-top: 25px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.animeka-header { display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 12px !important; }
+.animeka-header h3 { font-size: 16px !important; color: #fff !important; margin: 0 !important; }
+.animeka-header a { color: #a855f7 !important; text-decoration: none !important; font-size: 13px !important; font-weight: 600 !important; }
+
+/* HORIZONTAL SCROLL CONTAINER */
+.animeka-scroll {
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    padding-bottom: 10px !important;
+    scrollbar-width: none !important; /* Firefox */
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+.animeka-scroll::-webkit-scrollbar { display: none !important; /* Chrome */ }
+
+/* FIXED WIDTH CARDS */
+.animeka-card {
+    flex: 0 0 110px !important; /* Fixed width for scrolling */
+    max-width: 110px !important;
+    text-decoration: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: transform 0.3s ease !important;
+}
+.animeka-card:hover { transform: translateY(-5px) !important; }
+
+.animeka-card img {
+    width: 110px !important;
+    height: 160px !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.animeka-card h4 {
+    font-size: 12px !important;
+    color: #fff !important;
+    margin: 6px 0 2px 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.animeka-card .rating {
+    font-size: 11px !important;
+    color: #f1c40f !important;
+    font-weight: 600 !important;
+}
