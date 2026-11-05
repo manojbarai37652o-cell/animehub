@@ -2,6 +2,8 @@ from flask import Flask, render_template, abort, request, redirect, jsonify, sen
 import random
 import os
 import re
+import json
+from datetime import datetime
 from config import Config
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -11,12 +13,29 @@ from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_anime_by_genre, get_single_random_anime,
                                    get_top_anime, get_hero_anime_list)
 
+# 🛠️ COMMENTS DATABASE FILE
+COMMENTS_FILE = os.path.join(os.getcwd(), 'database', 'comments.json')
+
+def get_comments_data():
+    if not os.path.exists(COMMENTS_FILE):
+        return {}
+    try:
+        with open(COMMENTS_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except:
+        return {}
+
+def save_comments_data(data):
+    try:
+        with open(COMMENTS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+    except Exception as e:
+        print(f"Error saving comments: {e}")
+
 # 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन (नाम के हिसाब से अलग रेटिंग देगा)
 def generate_smart_rating(title):
     if not title: return "8.0"
-    # नाम के अक्षरों को जोड़कर एक यूनिक नंबर बनाएंगे
     total = sum(ord(c) for c in title)
-    # रेटिंग 7.5 से 9.8 के बीच रखेंगे (जो असली जैसी लगती है)
     rating = 7.5 + (total % 24) / 10.0 
     return f"{rating:.1f}"
 
@@ -36,15 +55,44 @@ def create_app(config_class=Config):
     # 🛡️ SECURITY: Security Headers (हैकर्स से बचाव)
     @app.after_request
     def add_security_headers(response):
-        # XSS अटैक से बचाव
         response.headers['X-XSS-Protection'] = '1; mode=block'
-        # Clickjacking से बचाव (कोई दूसरी साइट तेरी साइट को फ्रेम में नहीं खोल सकती)
         response.headers['X-Frame-Options'] = 'SAMEORIGIN'
-        # MIME-type Sniffing से बचाव
         response.headers['X-Content-Type-Options'] = 'nosniff'
-        # Referrer Policy (प्राइवेसी के लिए)
         response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
         return response
+
+    # 🟢 NEW API: LIVE COMMENTS 🟢
+    @app.route('/api/comments/<anime_id>', methods=['GET', 'POST'])
+    def handle_comments(anime_id):
+        if request.method == 'GET':
+            data = get_comments_data()
+            return jsonify(data.get(str(anime_id), []))
+        
+        elif request.method == 'POST':
+            req_data = request.get_json()
+            text = req_data.get('text', '').strip()
+            username = req_data.get('username', 'Guest')
+            avatar_color = req_data.get('avatar_color', 'a855f7')
+            
+            if not text:
+                return jsonify({'error': 'Comment cannot be empty'}), 400
+                
+            new_comment = {
+                'id': str(datetime.now().timestamp()),
+                'username': username,
+                'text': text,
+                'timestamp': datetime.now().strftime("%d/%m/%Y, %I:%M %p"),
+                'likes': 0,
+                'avatar_color': avatar_color
+            }
+            
+            data = get_comments_data()
+            if str(anime_id) not in data:
+                data[str(anime_id)] = []
+                
+            data[str(anime_id)].insert(0, new_comment) # Naya comment sabse upar
+            save_comments_data(data)
+            return jsonify(new_comment), 201
 
     @app.route('/google284a1cf6abd21b7d.html')
     def google_verification():
@@ -69,8 +117,6 @@ def create_app(config_class=Config):
 
     def get_filtered_anime():
         all_anime = get_all_anime()
-        
-        # 🛠️ हर एनीमे पर स्मार्ट रेटिंग लगाओ
         for anime in all_anime:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -89,7 +135,6 @@ def create_app(config_class=Config):
     def inject_search_data():
         try:
             all_anime = get_all_anime()
-            
             for anime in all_anime:
                 if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                     anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -101,9 +146,8 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # 🛠️ NEW API FOR SMART RECOMMENDATIONS (Protected by Rate Limiter)
     @app.route('/api/recommend')
-    @limiter.limit("60 per minute") # API के लिए सिर्फ 60 रिक्वेस्ट प्रति मिनट
+    @limiter.limit("60 per minute")
     def api_recommend():
         genre = request.args.get('genre', 'Action')
         all_anime = get_all_anime()
@@ -195,7 +239,6 @@ def create_app(config_class=Config):
     def search():
         query = request.args.get('q', '')
         anime_list = search_anime(query) if query else get_all_anime()
-        
         for anime in anime_list:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
@@ -222,7 +265,6 @@ def create_app(config_class=Config):
     def watch(anime_id, season_number=1, ep_number=None):
         anime = get_anime_by_id(anime_id)
         if not anime: abort(404)
-        
         if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
             anime['rating'] = generate_smart_rating(anime.get('title', ''))
 

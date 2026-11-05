@@ -211,54 +211,26 @@
         </div>
 
         <!-- ========================================== -->
-        <!-- 🟢 FIXED: COMMENTS SECTION 🟢 -->
+        <!-- 🟢 LIVE DYNAMIC COMMENTS SECTION 🟢 -->
         <!-- ========================================== -->
         <div class="comments-wrapper">
             <div class="comments-header">
-                <h3><i class="fas fa-comment-dots"></i> Comments (4.5K)</h3>
-                <div class="comments-sort">Sort by <i class="fas fa-chevron-down"></i></div>
+                <h3><i class="fas fa-comment-dots"></i> Comments</h3>
             </div>
             
             <div class="add-comment-box">
-                <img src="https://ui-avatars.com/api/?name=US&background=a855f7&color=fff" alt="User" class="comment-avatar">
-                <input type="text" placeholder="Add a comment..." class="comment-input">
-                <button class="comment-submit-btn"><i class="fas fa-paper-plane"></i></button>
+                <img src="" alt="User" class="comment-avatar" id="currentUserAvatar">
+                <input type="text" placeholder="Add a comment..." class="comment-input" id="commentInput">
+                <button class="comment-submit-btn" id="commentSubmitBtn"><i class="fas fa-paper-plane"></i></button>
             </div>
             
-            <div class="comment-list">
-                <div class="comment-item">
-                    <img src="https://ui-avatars.com/api/?name=SH&background=0D8ABC&color=fff" alt="Shawn" class="comment-avatar">
-                    <div class="comment-content">
-                        <div class="comment-user">shawon shake <i class="fas fa-check-circle verified-tick"></i></div>
-                        <div class="comment-time">10/18/2026, 10:10:45 AM</div>
-                        <p class="comment-text">need Hindi dubbed plz 🙏🙏🙏</p>
-                        <div class="comment-actions">
-                            <span><i class="far fa-thumbs-up"></i> 892</span>
-                            <span><i class="far fa-thumbs-down"></i></span>
-                            <span><i class="far fa-comment"></i> Reply</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="comment-item">
-                    <img src="https://ui-avatars.com/api/?name=AN&background=ff0000&color=fff" alt="AnimeLover" class="comment-avatar">
-                    <div class="comment-content">
-                        <div class="comment-user">AnimeLover07 <i class="fas fa-check-circle verified-tick"></i></div>
-                        <div class="comment-time">10/17/2026, 08:32:12 PM</div>
-                        <p class="comment-text">One of the best anime ❤️</p>
-                        <div class="comment-actions">
-                            <span><i class="far fa-thumbs-up"></i> 643</span>
-                            <span><i class="far fa-thumbs-down"></i></span>
-                            <span><i class="far fa-comment"></i> Reply</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="comment-list" id="commentsList">
+                <p style="color: #888; font-size: 13px; text-align: center; padding: 10px;">Loading comments...</p>
             </div>
-            
-            <button class="load-more-comments">Load More Comments <i class="fas fa-sync-alt"></i></button>
         </div>
 
         <!-- ========================================== -->
-        <!-- 🟢 FIXED: ANIMEKA / RELATED SERIES 🟢 -->
+        <!-- 🟢 ANIMEKA / RELATED SERIES 🟢 -->
         <!-- ========================================== -->
         <div class="animeka-section">
             <div class="animeka-header">
@@ -343,6 +315,83 @@
     const animeId = metaData.dataset.id;
     const currentSeason = metaData.dataset.season;
     const animeGenres = metaData.dataset.genres;
+
+    // 🟢 LIVE COMMENTS LOGIC 🟢
+    let guestName = localStorage.getItem('animeNestUser');
+    if (!guestName) {
+        guestName = "Guest" + Math.floor(Math.random() * 10000);
+        localStorage.setItem('animeNestUser', guestName);
+    }
+    document.getElementById('currentUserAvatar').src = `https://ui-avatars.com/api/?name=${guestName}&background=a855f7&color=fff`;
+
+    async function loadComments() {
+        const list = document.getElementById('commentsList');
+        try {
+            const res = await fetch(`/api/comments/${animeId}`);
+            const comments = await res.json();
+            
+            if (comments.length === 0) {
+                list.innerHTML = '<p style="color: #888; font-size: 13px; text-align: center; padding: 10px;">No comments yet. Be the first to comment!</p>';
+                return;
+            }
+
+            list.innerHTML = comments.map(c => `
+                <div class="comment-item">
+                    <img src="https://ui-avatars.com/api/?name=${c.username}&background=${c.avatar_color || '0D8ABC'}&color=fff" alt="${c.username}" class="comment-avatar">
+                    <div class="comment-content">
+                        <div class="comment-user">${c.username} <i class="fas fa-check-circle verified-tick"></i></div>
+                        <div class="comment-time">${c.timestamp}</div>
+                        <p class="comment-text">${c.text}</p>
+                        <div class="comment-actions">
+                            <span><i class="far fa-thumbs-up"></i> ${c.likes}</span>
+                            <span><i class="far fa-thumbs-down"></i></span>
+                            <span><i class="far fa-comment"></i> Reply</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        } catch(e) {
+            list.innerHTML = '<p style="color: red; font-size: 13px; text-align: center; padding: 10px;">Failed to load comments.</p>';
+        }
+    }
+
+    async function submitComment() {
+        const input = document.getElementById('commentInput');
+        const btn = document.getElementById('commentSubmitBtn');
+        const text = input.value.trim();
+        
+        if (!text) return;
+        
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+        
+        try {
+            await fetch(`/api/comments/${animeId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    text: text, 
+                    username: guestName,
+                    avatar_color: 'a855f7'
+                })
+            });
+            input.value = '';
+            await loadComments(); // Reload list
+        } catch(e) {
+            alert("Error posting comment!");
+        } finally {
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i>';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadComments(); // Load on page load
+        
+        document.getElementById('commentSubmitBtn').addEventListener('click', submitComment);
+        document.getElementById('commentInput').addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') submitComment();
+        });
+    });
+    // 🟢 END OF COMMENTS LOGIC 🟢
 
     window.toggleSeasonDropdown = function() {
         const menu = document.getElementById('season-dropdown-menu');
