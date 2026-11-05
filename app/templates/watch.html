@@ -12,7 +12,7 @@
          data-id="{{ anime.id }}"
          data-title="{{ anime.title }}"
          data-image="{{ anime.image }}"
-         data-genres="{{ genres_text }}"  <!-- 🛠️ नया जोड़ा गया है -->
+         data-genres="{{ genres_text }}" 
          data-ep-title="{{ current_ep.title if current_ep and current_ep.title else 'Episode 1' }}"
          data-season="{{ current_season.season_number if current_season else 1 }}">
     </div>
@@ -210,6 +210,75 @@
             <span class="nav-btn-bottom disabled">Next »</span>
             {% endif %}
         </div>
+
+        <!-- ========================================== -->
+        <!-- 🟢 NEW: COMMENTS SECTION 🟢 -->
+        <!-- ========================================== -->
+        <div class="comments-wrapper">
+            <div class="comments-header">
+                <h3><i class="fas fa-comment-dots"></i> Comments (4.5K)</h3>
+                <div class="comments-sort">Sort by <i class="fas fa-chevron-down"></i></div>
+            </div>
+            
+            <div class="add-comment-box">
+                <img src="https://ui-avatars.com/api/?name=User&background=a855f7&color=fff" alt="User" class="user-avatar">
+                <input type="text" placeholder="Add a comment..." class="comment-input">
+                <button class="comment-submit-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            
+            <div class="comment-list">
+                <!-- Comment 1 -->
+                <div class="comment-item">
+                    <img src="https://ui-avatars.com/api/?name=Shawn&background=0D8ABC&color=fff" alt="Shawn" class="user-avatar">
+                    <div class="comment-content">
+                        <div class="comment-user">shawon shake <i class="fas fa-check-circle verified-tick"></i></div>
+                        <div class="comment-time">10/18/2026, 10:10:45 AM</div>
+                        <p class="comment-text">need Hindi dubbed plz 🙏🙏🙏</p>
+                        <div class="comment-actions">
+                            <span><i class="far fa-thumbs-up"></i> 892</span>
+                            <span><i class="far fa-thumbs-down"></i></span>
+                            <span><i class="far fa-comment"></i> Reply</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Comment 2 -->
+                <div class="comment-item">
+                    <img src="https://ui-avatars.com/api/?name=Anime&background=ff0000&color=fff" alt="AnimeLover" class="user-avatar">
+                    <div class="comment-content">
+                        <div class="comment-user">AnimeLover07 <i class="fas fa-check-circle verified-tick"></i></div>
+                        <div class="comment-time">10/17/2026, 08:32:12 PM</div>
+                        <p class="comment-text">One of the best anime ❤️</p>
+                        <div class="comment-actions">
+                            <span><i class="far fa-thumbs-up"></i> 643</span>
+                            <span><i class="far fa-thumbs-down"></i></span>
+                            <span><i class="far fa-comment"></i> Reply</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="load-more-comments">Load More Comments <i class="fas fa-sync-alt"></i></button>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- 🟢 NEW: ANIMEKA / RELATED SERIES 🟢 -->
+        <!-- ========================================== -->
+        <div class="animeka-section">
+            <div class="animeka-header">
+                <h3>🔥 Animeka</h3>
+                <a href="/trending">See All <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="animeka-scroll">
+                {% for rec in related_anime %}
+                <a href="/watch/{{ rec.id }}" class="animeka-card">
+                    <img src="{{ rec.image }}" alt="{{ rec.title }}" loading="lazy" onerror="this.src='https://via.placeholder.com/120x160?text=No+Image';">
+                    <h4>{{ rec.title }}</h4>
+                    <span class="rating">★ {{ rec.rating|default('8.0') }}</span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+
     </div>
 
     <!-- 🟢 DETAILS TAB 🟢 -->
@@ -276,7 +345,7 @@
     
     const animeId = metaData.dataset.id;
     const currentSeason = metaData.dataset.season;
-    const animeGenres = metaData.dataset.genres; // 🛠️ नया जोड़ा गया है
+    const animeGenres = metaData.dataset.genres;
 
     window.toggleSeasonDropdown = function() {
         const menu = document.getElementById('season-dropdown-menu');
@@ -402,7 +471,6 @@
         }
     }
 
-    // 🛠️ SMART RECOMMENDATION: सेव यूजर जॉनर (ये नया कोड है)
     if (animeGenres) {
         let userPrefs = JSON.parse(localStorage.getItem('userGenrePrefs')) || {};
         let genresArray = animeGenres.split('•').map(g => g.trim());
