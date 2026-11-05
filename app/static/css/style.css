@@ -5016,235 +5016,168 @@ img {
     font-weight: bold;
 }
 /* =====================================================
-   COMMENTS SECTION STYLES
+   FIXED & RESPONSIVE COMMENTS + ANIMEKA CSS
    ===================================================== */
 
+/* COMMENTS WRAPPER */
 .comments-wrapper {
-    background: rgba(20, 15, 25, 0.6);
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    background: rgba(20, 15, 25, 0.6) !important;
+    border-radius: 16px !important;
+    padding: 15px !important;
+    margin-top: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 
 .comments-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 15px;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 15px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-bottom: 10px !important;
 }
 
 .comments-header h3 {
-    font-size: 18px;
-    color: #fff;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-size: 16px !important;
+    color: #fff !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
 }
-.comments-header h3 i { color: #a855f7; }
+.comments-header h3 i { color: #a855f7 !important; }
+.comments-sort { font-size: 12px !important; color: #aaa !important; }
 
-.comments-sort {
-    font-size: 13px;
-    color: #aaa;
-    cursor: pointer;
-}
-
+/* ADD COMMENT BOX (Proper Flex) */
 .add-comment-box {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 25px;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 8px 15px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 20px !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    padding: 6px 10px !important;
+    border-radius: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
-.user-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+/* AVATARS (Bulletproof Size) */
+.comment-avatar {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important; /* Prevents shrinking/growing */
 }
 
 .comment-input {
-    flex-grow: 1;
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 14px;
-    outline: none;
+    flex-grow: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    font-size: 14px !important;
+    outline: none !important;
+    width: 100% !important;
 }
-.comment-input::placeholder { color: #888; }
 
+/* SEND BUTTON (Fixes overflow) */
 .comment-submit-btn {
-    background: #a855f7;
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
+    background: #a855f7 !important;
+    border: none !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    border-radius: 50% !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
 }
-.comment-submit-btn:hover { background: #9333ea; }
+.comment-submit-btn i { font-size: 14px !important; margin: 0 !important; padding: 0 !important; }
 
-.comment-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+/* COMMENT ITEMS */
+.comment-list { display: flex !important; flex-direction: column !important; gap: 15px !important; }
+.comment-item { display: flex !important; gap: 12px !important; align-items: flex-start !important; }
+.comment-content { flex-grow: 1 !important; min-width: 0 !important; }
 
-.comment-item {
-    display: flex;
-    gap: 15px;
-}
-
-.comment-content {
-    flex-grow: 1;
-}
-
-.comment-user {
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.verified-tick {
-    color: #a855f7;
-    font-size: 12px;
-}
-
-.comment-time {
-    font-size: 11px;
-    color: #888;
-    margin-bottom: 6px;
-}
-
-.comment-text {
-    font-size: 14px;
-    color: #ddd;
-    margin: 0 0 10px 0;
-    line-height: 1.4;
-}
-
-.comment-actions {
-    display: flex;
-    gap: 15px;
-    font-size: 12px;
-    color: #888;
-}
-.comment-actions span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-.comment-actions span:hover { color: #a855f7; }
+.comment-user { font-size: 14px !important; font-weight: 600 !important; color: #fff !important; display: flex !important; align-items: center !important; gap: 5px !important; }
+.verified-tick { color: #a855f7 !important; font-size: 11px !important; }
+.comment-time { font-size: 11px !important; color: #888 !important; margin-bottom: 4px !important; }
+.comment-text { font-size: 13px !important; color: #ddd !important; margin: 0 0 8px 0 !important; line-height: 1.4 !important; }
+.comment-actions { display: flex !important; gap: 15px !important; font-size: 12px !important; color: #888 !important; }
 
 .load-more-comments {
-    display: block;
-    width: 100%;
-    margin-top: 25px;
-    padding: 12px;
-    background: transparent;
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    color: #a855f7;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
+    display: block !important; width: 100% !important; margin-top: 20px !important; padding: 10px !important;
+    background: transparent !important; border: 1px solid rgba(168, 85, 247, 0.3) !important; color: #a855f7 !important;
+    border-radius: 10px !important; font-size: 13px !important; font-weight: 600 !important; cursor: pointer !important;
 }
-.load-more-comments:hover { background: rgba(168, 85, 247, 0.1); }
 
 /* =====================================================
-   ANIMEKA (RELATED ANIME) SECTION
+   ANIMEKA (HORIZONTAL SCROLL FIX)
    ===================================================== */
 
 .animeka-section {
-    background: rgba(20, 15, 25, 0.6);
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    background: rgba(20, 15, 25, 0.6) !important;
+    border-radius: 16px !important;
+    padding: 15px !important;
+    margin-top: 25px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
-.animeka-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
+.animeka-header { display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 12px !important; }
+.animeka-header h3 { font-size: 16px !important; color: #fff !important; margin: 0 !important; }
+.animeka-header a { color: #a855f7 !important; text-decoration: none !important; font-size: 13px !important; font-weight: 600 !important; }
 
-.animeka-header h3 {
-    font-size: 18px;
-    color: #fff;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.animeka-header a {
-    color: #a855f7;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
+/* HORIZONTAL SCROLL CONTAINER */
 .animeka-scroll {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding-bottom: 10px;
-    scrollbar-width: none; /* Firefox */
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    padding-bottom: 10px !important;
+    scrollbar-width: none !important; 
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
-.animeka-scroll::-webkit-scrollbar { display: none; /* Chrome, Safari */ }
+.animeka-scroll::-webkit-scrollbar { display: none !important; }
 
+/* FIXED WIDTH CARDS (So they don't stretch) */
 .animeka-card {
-    flex: 0 0 120px; /* Fixed width for horizontal scroll */
-    text-decoration: none;
-    transition: transform 0.3s;
+    flex: 0 0 110px !important; /* Fixed width */
+    max-width: 110px !important;
+    text-decoration: none !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
-.animeka-card:hover { transform: translateY(-5px); }
 
 .animeka-card img {
-    width: 100%;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 110px !important;
+    height: 160px !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .animeka-card h4 {
-    font-size: 12px;
-    color: #fff;
-    margin: 8px 0 4px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 12px !important;
+    color: #fff !important;
+    margin: 6px 0 2px 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
 .animeka-card .rating {
-    font-size: 11px;
-    color: #f1c40f;
-    font-weight: 600;
+    font-size: 11px !important;
+    color: #f1c40f !important;
+    font-weight: 600 !important;
 }

@@ -156,7 +156,6 @@
                         <span>|</span>
                         <span>Season {{ current_season.season_number if current_season else 1 }}</span>
                         
-                        <!-- 🛠️ SMART LANGUAGE BADGE -->
                         {% set db_lang = anime.language|lower if anime.language else '' %}
                         {% set title_lower = anime.title|lower %}
                         {% set lang_display = 'Multi Audio' %}
@@ -212,7 +211,7 @@
         </div>
 
         <!-- ========================================== -->
-        <!-- 🟢 NEW: COMMENTS SECTION 🟢 -->
+        <!-- 🟢 FIXED: COMMENTS SECTION 🟢 -->
         <!-- ========================================== -->
         <div class="comments-wrapper">
             <div class="comments-header">
@@ -221,15 +220,14 @@
             </div>
             
             <div class="add-comment-box">
-                <img src="https://ui-avatars.com/api/?name=User&background=a855f7&color=fff" alt="User" class="user-avatar">
+                <img src="https://ui-avatars.com/api/?name=US&background=a855f7&color=fff" alt="User" class="comment-avatar">
                 <input type="text" placeholder="Add a comment..." class="comment-input">
                 <button class="comment-submit-btn"><i class="fas fa-paper-plane"></i></button>
             </div>
             
             <div class="comment-list">
-                <!-- Comment 1 -->
                 <div class="comment-item">
-                    <img src="https://ui-avatars.com/api/?name=Shawn&background=0D8ABC&color=fff" alt="Shawn" class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=SH&background=0D8ABC&color=fff" alt="Shawn" class="comment-avatar">
                     <div class="comment-content">
                         <div class="comment-user">shawon shake <i class="fas fa-check-circle verified-tick"></i></div>
                         <div class="comment-time">10/18/2026, 10:10:45 AM</div>
@@ -241,9 +239,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Comment 2 -->
                 <div class="comment-item">
-                    <img src="https://ui-avatars.com/api/?name=Anime&background=ff0000&color=fff" alt="AnimeLover" class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=AN&background=ff0000&color=fff" alt="AnimeLover" class="comment-avatar">
                     <div class="comment-content">
                         <div class="comment-user">AnimeLover07 <i class="fas fa-check-circle verified-tick"></i></div>
                         <div class="comment-time">10/17/2026, 08:32:12 PM</div>
@@ -261,7 +258,7 @@
         </div>
 
         <!-- ========================================== -->
-        <!-- 🟢 NEW: ANIMEKA / RELATED SERIES 🟢 -->
+        <!-- 🟢 FIXED: ANIMEKA / RELATED SERIES 🟢 -->
         <!-- ========================================== -->
         <div class="animeka-section">
             <div class="animeka-header">
