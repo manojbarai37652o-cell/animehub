@@ -8,31 +8,81 @@ from config import Config
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
+# 🛠️ MongoDB Imports
+from pymongo import MongoClient
+
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
                                    get_anime_by_genre, get_single_random_anime,
                                    get_top_anime, get_hero_anime_list)
 
-# 🛠️ COMMENTS DATABASE FILE
+# 🛠️ MongoDB Connection Setup
+MONGODB_URI = os.environ.get('MONGODB_URI')
+comments_collection = None
+
+if MONGODB_URI:
+    try:
+        client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=5000)
+        client.admin.command('ping') # Test connection
+        db = client['animenest_db']
+        comments_collection = db['comments']
+        print("✅ Connected to MongoDB Successfully!")
+    except Exception as e:
+        print(f"⚠️ MongoDB Connection Error: {e}. Falling back to JSON.")
+        comments_collection = None
+
+# 🛠️ Fallback JSON Database
 COMMENTS_FILE = os.path.join(os.getcwd(), 'database', 'comments.json')
 
-def get_comments_data():
-    if not os.path.exists(COMMENTS_FILE):
-        return {}
-    try:
-        with open(COMMENTS_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except:
-        return {}
+def get_comments_data(anime_id):
+    if comments_collection is not None:
+        try:
+            comments = list(comments_collection.find({'anime_id': str(anime_id)}, {'_id': 0}).sort('timestamp_raw', -1))
+            return comments
+        except Exception as e:
+            print(f"MongoDB Fetch Error: {e}")
+            return []
+    else:
+        if not os.path.exists(COMMENTS_FILE):
+            return []
+        try:
+            with open(COMMENTS_FILE, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                return data.get(str(anime_id), [])
+        except:
+            return []
 
-def save_comments_data(data):
-    try:
-        with open(COMMENTS_FILE, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
-    except Exception as e:
-        print(f"Error saving comments: {e}")
+def save_comment_data(anime_id, new_comment):
+    if comments_collection is not None:
+        try:
+            new_comment['anime_id'] = str(anime_id)
+            comments_collection.insert_one(new_comment)
+            return True
+        except Exception as e:
+            print(f"MongoDB Save Error: {e}")
+            return False
+    else:
+        data = {}
+        if os.path.exists(COMMENTS_FILE):
+            try:
+                with open(COMMENTS_FILE, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+            except:
+                pass
+        
+        if str(anime_id) not in data:
+            data[str(anime_id)] = []
+            
+        data[str(anime_id)].insert(0, new_comment)
+        
+        try:
+            with open(COMMENTS_FILE, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=4, ensure_ascii=False)
+            return True
+        except:
+            return False
 
-# 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन (नाम के हिसाब से अलग रेटिंग देगा)
+# 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन
 def generate_smart_rating(title):
     if not title: return "8.0"
     total = sum(ord(c) for c in title)
@@ -44,7 +94,7 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
     
-    # 🛡️ SECURITY: Rate Limiter Setup (स्पैम और DDoS से बचाव)
+    # 🛡️ SECURITY
     limiter = Limiter(
         get_remote_address,
         app=app,
@@ -52,21 +102,19 @@ def create_app(config_class=Config):
         storage_uri=app.config.get("RATELIMIT_STORAGE_URI", "memory://")
     )
 
-    # 🛡️ SECURITY: Security Headers (हैकर्स से बचाव)
     @app.after_request
     def add_security_headers(response):
         response.headers['X-XSS-Protection'] = '1; mode=block'
         response.headers['X-Frame-Options'] = 'SAMEORIGIN'
         response.headers['X-Content-Type-Options'] = 'nosniff'
-        response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
         return response
 
-    # 🟢 NEW API: LIVE COMMENTS 🟢
+    # 🟢 COMMENTS API 🟢
     @app.route('/api/comments/<anime_id>', methods=['GET', 'POST'])
     def handle_comments(anime_id):
         if request.method == 'GET':
-            data = get_comments_data()
-            return jsonify(data.get(str(anime_id), []))
+            comments = get_comments_data(anime_id)
+            return jsonify(comments)
         
         elif request.method == 'POST':
             req_data = request.get_json()
@@ -82,17 +130,18 @@ def create_app(config_class=Config):
                 'username': username,
                 'text': text,
                 'timestamp': datetime.now().strftime("%d/%m/%Y, %I:%M %p"),
+                'timestamp_raw': datetime.now().timestamp(),
                 'likes': 0,
                 'avatar_color': avatar_color
             }
             
-            data = get_comments_data()
-            if str(anime_id) not in data:
-                data[str(anime_id)] = []
-                
-            data[str(anime_id)].insert(0, new_comment) # Naya comment sabse upar
-            save_comments_data(data)
-            return jsonify(new_comment), 201
+            success = save_comment_data(anime_id, new_comment)
+            if success:
+                if 'anime_id' in new_comment: del new_comment['anime_id']
+                if '_id' in new_comment: del new_comment['_id']
+                return jsonify(new_comment), 201
+            else:
+                return jsonify({'error': 'Failed to save comment'}), 500
 
     @app.route('/google284a1cf6abd21b7d.html')
     def google_verification():
