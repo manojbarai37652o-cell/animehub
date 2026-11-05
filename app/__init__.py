@@ -3,84 +3,86 @@ import random
 import os
 import re
 import json
+import requests # 🛠️ Upstash ke liye zaroori hai
 from datetime import datetime
 from config import Config
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-
-# 🛠️ MongoDB Imports
-from pymongo import MongoClient
 
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
                                    get_anime_by_genre, get_single_random_anime,
                                    get_top_anime, get_hero_anime_list)
 
-# 🛠️ MongoDB Connection Setup
-MONGODB_URI = os.environ.get('MONGODB_URI')
-comments_collection = None
+# 🛠️ UPSTASH REDIS SETUP
+UPSTASH_URL = os.environ.get('UPSTASH_REDIS_REST_URL')
+UPSTASH_TOKEN = os.environ.get('UPSTASH_REDIS_REST_TOKEN')
 
-if MONGODB_URI:
-    try:
-        client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=5000)
-        client.admin.command('ping') # Test connection
-        db = client['animenest_db']
-        comments_collection = db['comments']
-        print("✅ Connected to MongoDB Successfully!")
-    except Exception as e:
-        print(f"⚠️ MongoDB Connection Error: {e}. Falling back to JSON.")
-        comments_collection = None
-
-# 🛠️ Fallback JSON Database
+# Fallback JSON (Agar Upstash connect na ho toh local file use hogi)
 COMMENTS_FILE = os.path.join(os.getcwd(), 'database', 'comments.json')
 
+def execute_redis_command(command_array):
+    if not UPSTASH_URL or not UPSTASH_TOKEN:
+        print("⚠️ Upstash URL or Token missing!")
+        return None
+    headers = {"Authorization": f"Bearer {UPSTASH_TOKEN}"}
+    try:
+        response = requests.post(f"{UPSTASH_URL}", headers=headers, json=command_array, timeout=5)
+        if response.status_code == 200:
+            return response.json()
+    except Exception as e:
+        print(f"Upstash Error: {e}")
+    return None
+
 def get_comments_data(anime_id):
-    if comments_collection is not None:
+    key = f"comments:{anime_id}"
+    result = execute_redis_command(["GET", key])
+    
+    if result and result.get('result'):
         try:
-            comments = list(comments_collection.find({'anime_id': str(anime_id)}, {'_id': 0}).sort('timestamp_raw', -1))
-            return comments
-        except Exception as e:
-            print(f"MongoDB Fetch Error: {e}")
+            return json.loads(result['result'])
+        except:
             return []
-    else:
-        if not os.path.exists(COMMENTS_FILE):
-            return []
+    
+    # Fallback to local JSON if Upstash fails
+    if not os.path.exists(COMMENTS_FILE):
+        return []
+    try:
+        with open(COMMENTS_FILE, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            return data.get(str(anime_id), [])
+    except:
+        return []
+
+def save_comment_data(anime_id, new_comment):
+    key = f"comments:{anime_id}"
+    comments = get_comments_data(anime_id)
+    
+    if 'anime_id' in new_comment: del new_comment['anime_id']
+    
+    comments.insert(0, new_comment)
+    comments = comments[:500] # Max 500 comments per anime to keep it lightweight
+    
+    # Save to Upstash
+    result = execute_redis_command(["SET", key, json.dumps(comments)])
+    if result is not None:
+        return True
+        
+    # Fallback to local JSON
+    data = {}
+    if os.path.exists(COMMENTS_FILE):
         try:
             with open(COMMENTS_FILE, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                return data.get(str(anime_id), [])
         except:
-            return []
-
-def save_comment_data(anime_id, new_comment):
-    if comments_collection is not None:
-        try:
-            new_comment['anime_id'] = str(anime_id)
-            comments_collection.insert_one(new_comment)
-            return True
-        except Exception as e:
-            print(f"MongoDB Save Error: {e}")
-            return False
-    else:
-        data = {}
-        if os.path.exists(COMMENTS_FILE):
-            try:
-                with open(COMMENTS_FILE, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-            except:
-                pass
-        
-        if str(anime_id) not in data:
-            data[str(anime_id)] = []
-            
-        data[str(anime_id)].insert(0, new_comment)
-        
-        try:
-            with open(COMMENTS_FILE, 'w', encoding='utf-8') as f:
-                json.dump(data, f, indent=4, ensure_ascii=False)
-            return True
-        except:
-            return False
+            pass
+    data[str(anime_id)] = comments
+    try:
+        with open(COMMENTS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+        return True
+    except:
+        return False
 
 # 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन
 def generate_smart_rating(title):
@@ -94,7 +96,7 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
     
-    # 🛡️ SECURITY
+    # 🛡️ SECURITY: Rate Limiter Setup
     limiter = Limiter(
         get_remote_address,
         app=app,
@@ -102,14 +104,16 @@ def create_app(config_class=Config):
         storage_uri=app.config.get("RATELIMIT_STORAGE_URI", "memory://")
     )
 
+    # 🛡️ SECURITY: Security Headers
     @app.after_request
     def add_security_headers(response):
         response.headers['X-XSS-Protection'] = '1; mode=block'
         response.headers['X-Frame-Options'] = 'SAMEORIGIN'
         response.headers['X-Content-Type-Options'] = 'nosniff'
+        response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
         return response
 
-    # 🟢 COMMENTS API 🟢
+    # 🟢 NEW API: LIVE COMMENTS (Upstash Powered) 🟢
     @app.route('/api/comments/<anime_id>', methods=['GET', 'POST'])
     def handle_comments(anime_id):
         if request.method == 'GET':
@@ -137,8 +141,6 @@ def create_app(config_class=Config):
             
             success = save_comment_data(anime_id, new_comment)
             if success:
-                if 'anime_id' in new_comment: del new_comment['anime_id']
-                if '_id' in new_comment: del new_comment['_id']
                 return jsonify(new_comment), 201
             else:
                 return jsonify({'error': 'Failed to save comment'}), 500
