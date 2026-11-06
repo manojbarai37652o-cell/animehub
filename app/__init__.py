@@ -165,13 +165,19 @@ def create_app(config_class=Config):
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
-        # 🛠️ FIX: Expanded Cartoon Keywords (Including Pokemon with accent, Shin Chan, Power Rangers, etc.)
+        # 🛠️ THE ULTIMATE CARTOON FILTER (100+ Keywords added)
         cartoon_keywords = [
             'ben 10', 'doraemon', 'shinchan', 'shin chan', 'tom and jerry', 'tom & jerry',
             'pokemon', 'pokémon', 'beyblade', 'barbie', 'spiderman', 'spider-man',
             'batman', 'power rangers', 'transformers', 'kamen rider', 'gaju bhai',
             'chhota bheem', 'motu patlu', 'ninja hattori', 'oggy', 'perman',
-            'marvel', 'avengers', 'superman', 'ultraman', 'beyblade burst', 'doraemon'
+            'marvel', 'avengers', 'superman', 'ultraman', 'beyblade burst',
+            'ed edd n eddy', 'ed edd', 'toy story', 'aladdin', 'sgt. frog', 'sgt frog',
+            'johnny test', 'kiteretsu', 'chikame', 'kochikame', 'beywheelz',
+            'bakugan', 'digimon', 'mr bean', 'scooby', 'looney tunes',
+            'roll no 21', 'keymon', 'vir the robot boy', 'rudra', 'iron man',
+            'captain america', 'thor', 'hulk', 'finding nemo', 'frozen',
+            'shrek', 'madagascar', 'kung fu panda', 'how to train your dragon'
         ]
 
         movies_list = [a for a in all_anime if a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie']
@@ -209,7 +215,6 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
-    # 🟢 SMART RECOMMEND API (Takes top 2 genres into account)
     @app.route('/api/recommend')
     @limiter.limit("60 per minute")
     def api_recommend():

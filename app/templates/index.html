@@ -5,6 +5,43 @@
 {% block og_title %}{{ page_title }} - AnimeNest{% endblock %}
 
 {% block content %}
+<style>
+    /* 🛠️ FIX FOR TOP 5 ICONS TO FIT ON SMALL SCREENS */
+    .category-icons {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 5px !important;
+        padding: 10px 5px !important;
+        justify-items: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .cat-item {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-decoration: none !important;
+        gap: 6px !important;
+    }
+    .cat-icon {
+        width: 45px !important;
+        height: 45px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 18px !important;
+        margin: 0 auto !important;
+    }
+    .cat-item span {
+        font-size: 10px !important;
+        color: #ddd !important;
+        white-space: nowrap !important;
+        text-align: center !important;
+    }
+</style>
+
 <div class="main-content-wrapper">
 
     {% if hero_anime_list and not search_query and page_title == 'Home' %}
@@ -47,6 +84,7 @@
             <div class="cat-icon" style="background: rgba(52, 152, 219, 0.2); color: #3498db;"><i class="fas fa-film"></i></div>
             <span>Movies</span>
         </a>
+        <!-- ✅ Cartoons Icon -->
         <a href="/cartoons" class="cat-item">
             <div class="cat-icon" style="background: rgba(46, 204, 113, 0.2); color: #2ecc71;"><i class="fas fa-child"></i></div>
             <span>Cartoons</span>
@@ -389,14 +427,12 @@
 
         let userPrefs = JSON.parse(localStorage.getItem('userGenrePrefs')) || {};
         
-        // Array banakar sort karo (Top 2 genres nikalne ke liye)
         let sortedGenres = Object.keys(userPrefs).sort((a, b) => userPrefs[b] - userPrefs[a]);
         
         let topGenres = [];
         if (sortedGenres.length > 0) topGenres.push(sortedGenres[0]);
-        if (sortedGenres.length > 1) topGenres.push(sortedGenres[1]); // Top 2 genres
+        if (sortedGenres.length > 1) topGenres.push(sortedGenres[1]);
 
-        // Agar user naya hai, toh default 'Action' bhejenge
         if (topGenres.length === 0) {
             topGenres = ['Action'];
         }
