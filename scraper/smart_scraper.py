@@ -18,7 +18,6 @@ from scraper.parser import (parse_post_id, parse_season_episodes,
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
 BASE_URL = "https://animesalt.cx"
 
-MIN_YEAR = 1950
 BATCH_SIZE = 999999          
 SLEEP_BETWEEN = 3  
 MAX_PAGES_PER_SECTION = 100        
@@ -35,39 +34,49 @@ def save_db(data):
     with open(DB_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
 
-def extract_anime_list_from_html(html):
+# 🛠️ SMART EXTRACTOR (Targeting the specific HTML structure)
+def extract_anime_from_html(html):
     soup = BeautifulSoup(html, 'html.parser')
     anime_list = []
+    seen_urls = set()
+    
+    # AnimeSalt har anime ko '<li id="post-123">' ke andar rakhta hai
     items = soup.find_all('li', id=re.compile(r'^post-\d+'))
     
     for item in items:
         try:
+            # 1. Title nikaalo
             title_tag = item.find('h2', class_='entry-title')
-            link_tag = item.find('a', class_='lnk-blk')
-            if not title_tag or not link_tag: continue
-            
+            if not title_tag: continue
             title = title_tag.get_text(strip=True)
+            
+            # 2. Link nikaalo (jo 'lnk-blk' class me hota hai)
+            link_tag = item.find('a', class_='lnk-blk') or item.find('a', href=True)
+            if not link_tag: continue
+            
             href = link_tag['href']
-            if not href.startswith('http'): href = BASE_URL + href
-            
-            anime_type = "Series"
-            if '/movies/' in href: anime_type = "Movie"
-            elif '/series/' in href: anime_type = "Series"
-            
+            if not href.startswith('http'):
+                href = BASE_URL + href if href.startswith('/') else BASE_URL + '/' + href
+                
+            # 3. Image nikaalo (lazy load wali data-src me hoti hai)
             img_tag = item.find('img')
             image = ""
             if img_tag:
                 image = img_tag.get('data-src') or img_tag.get('src') or ""
-                if image.startswith('//'): 
-                    image = 'https:' + image
-                elif image.startswith('/'): 
-                    image = BASE_URL + image
-                if 'animesalt.cx' in image and 'tmdb' in image.lower():
-                    image = ""
+                if image.startswith('//'): image = 'https:' + image
+                elif image.startswith('/'): image = BASE_URL + image
 
-            if not any(a['url'] == href for a in anime_list):
+            # 4. Type check karo (Movie ya Series)
+            anime_type = "Movie" if ('/movies/' in href or '/movie/' in href) else "Series"
+            
+            # Duplicate links ko rokne ke liye
+            if href not in seen_urls:
+                seen_urls.add(href)
                 anime_list.append({'title': title, 'url': href, 'image': image, 'type': anime_type})
-        except: continue
+                
+        except Exception as e:
+            pass
+            
     return anime_list
 
 if __name__ == '__main__':
@@ -76,7 +85,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     print("=" * 60)
-    print("📺 SMART SCRAPER चालू (MULTI-SERVER MODE)")
+    print("📺 SMART SCRAPER चालू (HTML PARSER MODE)")
     print("🛑 रोकने के लिए Ctrl + C दबाओ")
     print("=" * 60)
 
@@ -89,7 +98,7 @@ if __name__ == '__main__':
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=False, args=["--disable-ipv6", "--no-sandbox"])
-            context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36")
+            context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36")
             page = context.new_page()
             page.set_default_timeout(90000)
 
@@ -111,10 +120,11 @@ if __name__ == '__main__':
                 consecutive_empty = 0
                 
                 while page_num <= MAX_PAGES_PER_SECTION:
-                    if letter == 'home' and page_num > 1:
-                        break
+                    if letter == 'home' and page_num == 1:
+                        base_url = BASE_URL
+                    else:
+                        base_url = base_url_pattern.format(page_num)
 
-                    base_url = base_url_pattern.format(page_num)
                     try:
                         print(f"   🌐 Loading: {base_url}")
                         response = page.goto(base_url, wait_until="domcontentloaded", timeout=90000)
@@ -122,18 +132,20 @@ if __name__ == '__main__':
                         if response and response.status == 404:
                             break
 
-                        try:
-                            page.wait_for_selector('li[id^="post-"]', timeout=15000)
-                        except:
-                            pass
-
-                        page.wait_for_timeout(2000)
+                        # Page load hone aur images lazy-load hone ka wait karo
+                        page.wait_for_timeout(3000)
+                        page.evaluate("window.scrollTo(0, document.body.scrollHeight/2)")
+                        page.wait_for_timeout(1000)
+                        page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                        page.wait_for_timeout(1000)
+                        
                         html = page.content()
-                        page_anime = extract_anime_list_from_html(html)
+                        page_anime = extract_anime_from_html(html)
                         
                         if not page_anime:
                             consecutive_empty += 1
-                            print(f"   ⚠️ पेज {page_num} खाली है (लगातार {consecutive_empty} पेज खाली)")
+                            print(f"   ⚠️ पेज {page_num} खाली है (0 एनीमे मिले)")
+                            
                             if consecutive_empty >= MAX_CONSECUTIVE_EMPTY_PAGES: 
                                 print(f"   ✅ Letter {letter} के सारे पेज चेक हो गए।")
                                 break
@@ -144,7 +156,8 @@ if __name__ == '__main__':
                                 if a['url'] not in existing_urls and a['url'] not in [x['url'] for x in new_anime]:
                                     new_anime.append(a)
                                     added_count += 1
-                            print(f"   📊 पेज {page_num} पर {added_count} नए एनीमे मिले (कुल: {len(new_anime)})")
+                            
+                            print(f"   📊 पेज {page_num} पर कुल {len(page_anime)} एनीमे मिले, जिनमें से {added_count} नए हैं (कुल नए: {len(new_anime)})")
                         
                         page_num += 1
                         time.sleep(SLEEP_BETWEEN)
@@ -160,8 +173,7 @@ if __name__ == '__main__':
                 sys.exit(0)
 
             print(f"\n✅ कुल {len(new_anime)} नए एनीमे मिले। डिटेल निकाल रहे हैं...\n")
-            scraped_this_run = 0
-
+            
             for idx, anime in enumerate(new_anime[:BATCH_SIZE]):
                 print(f"\n[{idx + 1}/{len(new_anime)}] {anime['title']} ({anime['type']})")
                 
@@ -189,7 +201,6 @@ if __name__ == '__main__':
                                         page.goto(ep['url'], wait_until="domcontentloaded", timeout=90000)
                                         page.wait_for_timeout(1500)
                                         ep_html = page.content()
-                                        # 🛠️ सारे सर्वर निकालो
                                         ep['servers'] = parse_video_servers(ep_html, ep['url'])
                                         ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
                                     except: ep['video_url'] = ""
@@ -212,7 +223,6 @@ if __name__ == '__main__':
                                                 page.goto(ep['url'], wait_until="domcontentloaded", timeout=90000)
                                                 page.wait_for_timeout(1500)
                                                 ep_html = page.content()
-                                                # 🛠️ सारे सर्वर निकालो
                                                 ep['servers'] = parse_video_servers(ep_html, ep['url'])
                                                 ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
                                             except: ep['video_url'] = ""
@@ -223,12 +233,10 @@ if __name__ == '__main__':
                             anime['episodes'] = anime_seasons[0]['episodes']
                             print(f"   💾 Save (Series)!")
                             updated_list.append(anime)
-                            scraped_this_run += 1
                         else:
                             continue
 
                     elif anime['type'] == 'Movie':
-                        # मूवी के लिए भी सर्वर निकालो
                         movie_servers = parse_video_servers(html, anime['url'])
                         
                         if movie_servers:
@@ -236,7 +244,6 @@ if __name__ == '__main__':
                             anime['episodes'] = anime['seasons'][0]['episodes']
                             print(f"   💾 Save (Movie)! {len(movie_servers)} servers मिले।")
                             updated_list.append(anime)
-                            scraped_this_run += 1
                         else:
                             continue
 
