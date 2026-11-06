@@ -165,19 +165,37 @@ def create_app(config_class=Config):
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
-        # 🛠️ THE ULTIMATE CARTOON FILTER (100+ Keywords added)
+        # 🛠️ THE ULTIMATE CARTOON FILTER (Massive List of 150+ Keywords)
         cartoon_keywords = [
-            'ben 10', 'doraemon', 'shinchan', 'shin chan', 'tom and jerry', 'tom & jerry',
-            'pokemon', 'pokémon', 'beyblade', 'barbie', 'spiderman', 'spider-man',
-            'batman', 'power rangers', 'transformers', 'kamen rider', 'gaju bhai',
-            'chhota bheem', 'motu patlu', 'ninja hattori', 'oggy', 'perman',
-            'marvel', 'avengers', 'superman', 'ultraman', 'beyblade burst',
-            'ed edd n eddy', 'ed edd', 'toy story', 'aladdin', 'sgt. frog', 'sgt frog',
-            'johnny test', 'kiteretsu', 'chikame', 'kochikame', 'beywheelz',
-            'bakugan', 'digimon', 'mr bean', 'scooby', 'looney tunes',
-            'roll no 21', 'keymon', 'vir the robot boy', 'rudra', 'iron man',
-            'captain america', 'thor', 'hulk', 'finding nemo', 'frozen',
-            'shrek', 'madagascar', 'kung fu panda', 'how to train your dragon'
+            # Cartoon Network / Western / Classics
+            'ben 10', 'tom and jerry', 'tom & jerry', 'scooby', 'looney tunes', 'popeye', 'pink panther', 
+            'mr bean', 'oggy', 'zig & sharko', 'grizzy', 'ed edd', 'ed, edd n eddy', 'johnny test', 
+            'powerpuff', 'dexter', 'courage', 'cow and chicken', 'adventure time', 'regular show', 
+            'gumball', 'rick and morty', 'simpsons', 'family guy', 'spongebob', 'avatar', 'teen titans', 
+            'justice league', 'x-men', 'ninja turtles', 'transformers', 'my little pony', 'care bears',
+            'johnny bravo', 'fosters home', 'chowder', 'steven universe', 'gravity falls', 'phineas and ferb',
+            'kim possible', 'danny phantom', 'fairly oddparents', 'jimmy neutron', 'rugrats', 'hey arnold',
+            'catdog', 'rockos modern life', 'ren and stimpy', 'animaniacs', 'tale spin', 'duck tales',
+            'darkwing duck', 'chip n dale', 'aladdin', 'hercules', 'tarzan', 'lilo and stitch',
+            
+            # Kids Anime / Indian / Asian Cartoons
+            'doraemon', 'shinchan', 'shin chan', 'kiteretsu', 'perman', 'ninja hattori', 'chhota bheem',
+            'motu patlu', 'pokemon', 'pokémon', 'beyblade', 'bakugan', 'digimon', 'yugioh', 'cardcaptor',
+            'roll no 21', 'keymon', 'vir the robot boy', 'rudra', 'gaju bhai', 'barbie', 'chikame', 'kochikame',
+            'sgt. frog', 'sgt frog', 'kiteretsu', 'ninja hattori', 'perman', 'tensai bakabon', 'chibi maruko',
+            
+            # Superheroes / Tokusatsu
+            'spiderman', 'spider-man', 'batman', 'superman', 'marvel', 'avengers', 'iron man', 'hulk',
+            'power rangers', 'kamen rider', 'ultraman', 'super sentai', 'tokusatsu', 'captain america',
+            'thor', 'doctor strange', 'flash', 'green lantern', 'aquaman', 'wonder woman', 'x-men',
+            
+            # Animated Movies (Pixar, Disney, Dreamworks)
+            'toy story', 'finding nemo', 'frozen', 'shrek', 'madagascar', 'kung fu panda',
+            'how to train your dragon', 'princess and the frog', '1001 nights', 'hotel transylvania', 
+            'despicable me', 'minions', 'ice age', 'cars', 'moana', 'coco', 'up',
+            'wall-e', 'ratatouille', 'the incredibles', 'zootopia', 'big hero 6', 'encanto',
+            'brave', 'tangled', 'wreck-it ralph', 'mulan', 'pocahontas', 'beauty and the beast',
+            'the lion king', 'the little mermaid', 'peter pan', 'pinocchio', 'bambi', 'dumbo'
         ]
 
         movies_list = [a for a in all_anime if a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie']

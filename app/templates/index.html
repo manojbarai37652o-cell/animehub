@@ -6,39 +6,46 @@
 
 {% block content %}
 <style>
-    /* 🛠️ FIX FOR TOP 5 ICONS TO FIT ON SMALL SCREENS */
+    /* 🛠️ STRICT FIX FOR TOP 5 ICONS - WILL NOT DISAPPEAR */
     .category-icons {
         display: grid !important;
-        grid-template-columns: repeat(5, 1fr) !important;
-        gap: 5px !important;
-        padding: 10px 5px !important;
+        grid-template-columns: repeat(5, 1fr) !important; /* Force 5 columns */
+        gap: 2px !important;
+        padding: 15px 2px !important;
         justify-items: center !important;
         width: 100% !important;
         box-sizing: border-box !important;
+        margin-bottom: 15px !important;
     }
     .cat-item {
-        width: 100% !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         text-decoration: none !important;
-        gap: 6px !important;
+        width: 100% !important;
     }
     .cat-icon {
-        width: 45px !important;
-        height: 45px !important;
+        width: 50px !important;
+        height: 50px !important;
         border-radius: 50% !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        font-size: 18px !important;
-        margin: 0 auto !important;
+        font-size: 20px !important;
+        margin: 0 auto 8px auto !important;
     }
     .cat-item span {
-        font-size: 10px !important;
-        color: #ddd !important;
+        font-size: 11px !important;
+        color: #fff !important;
         white-space: nowrap !important;
         text-align: center !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Chhote phones ke liye thoda aur chhota */
+    @media (max-width: 360px) {
+        .cat-icon { width: 40px !important; height: 40px !important; font-size: 16px !important; }
+        .cat-item span { font-size: 9px !important; }
     }
 </style>
 
