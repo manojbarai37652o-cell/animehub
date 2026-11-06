@@ -6,10 +6,10 @@
 
 {% block content %}
 <style>
-    /* 🛠️ STRICT FIX FOR TOP 5 ICONS - WILL NOT DISAPPEAR */
+    /* 🛠️ STRICT FIX FOR TOP 5 ICONS */
     .category-icons {
         display: grid !important;
-        grid-template-columns: repeat(5, 1fr) !important; /* Force 5 columns */
+        grid-template-columns: repeat(5, 1fr) !important; 
         gap: 2px !important;
         padding: 15px 2px !important;
         justify-items: center !important;
@@ -40,12 +40,6 @@
         white-space: nowrap !important;
         text-align: center !important;
         font-weight: 600 !important;
-    }
-    
-    /* Chhote phones ke liye thoda aur chhota */
-    @media (max-width: 360px) {
-        .cat-icon { width: 40px !important; height: 40px !important; font-size: 16px !important; }
-        .cat-item span { font-size: 9px !important; }
     }
 </style>
 
@@ -235,11 +229,11 @@
         </div>
         {% endif %}
 
-        <!-- ✅ सेक्शन: Animated Series (Cartoons) -->
+        <!-- ✅ सेक्शन: Cartoons (Renamed from Animated Series) -->
         {% if cartoons %}
         <div class="app-section">
             <div class="section-header">
-                <h2>🎨 Animated Series</h2>
+                <h2>🎨 Cartoons</h2>
                 <a href="/cartoons" class="see-all">View more <i class="fas fa-chevron-right"></i></a>
             </div>
             <div class="anime-row">

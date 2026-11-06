@@ -18,12 +18,10 @@ from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
 UPSTASH_URL = os.environ.get('UPSTASH_REDIS_REST_URL')
 UPSTASH_TOKEN = os.environ.get('UPSTASH_REDIS_REST_TOKEN')
 
-# Fallback JSON (Agar Upstash connect na ho toh local file use hogi)
 COMMENTS_FILE = os.path.join(os.getcwd(), 'database', 'comments.json')
 
 def execute_redis_command(command_array):
     if not UPSTASH_URL or not UPSTASH_TOKEN:
-        print("⚠️ Upstash URL or Token missing!")
         return None
     headers = {"Authorization": f"Bearer {UPSTASH_TOKEN}"}
     try:
@@ -165,9 +163,8 @@ def create_app(config_class=Config):
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
-        # 🛠️ THE ULTIMATE CARTOON FILTER (Massive List of 150+ Keywords)
+        # 🛠️ THE ULTIMATE CARTOON FILTER
         cartoon_keywords = [
-            # Cartoon Network / Western / Classics
             'ben 10', 'tom and jerry', 'tom & jerry', 'scooby', 'looney tunes', 'popeye', 'pink panther', 
             'mr bean', 'oggy', 'zig & sharko', 'grizzy', 'ed edd', 'ed, edd n eddy', 'johnny test', 
             'powerpuff', 'dexter', 'courage', 'cow and chicken', 'adventure time', 'regular show', 
@@ -177,19 +174,13 @@ def create_app(config_class=Config):
             'kim possible', 'danny phantom', 'fairly oddparents', 'jimmy neutron', 'rugrats', 'hey arnold',
             'catdog', 'rockos modern life', 'ren and stimpy', 'animaniacs', 'tale spin', 'duck tales',
             'darkwing duck', 'chip n dale', 'aladdin', 'hercules', 'tarzan', 'lilo and stitch',
-            
-            # Kids Anime / Indian / Asian Cartoons
             'doraemon', 'shinchan', 'shin chan', 'kiteretsu', 'perman', 'ninja hattori', 'chhota bheem',
             'motu patlu', 'pokemon', 'pokémon', 'beyblade', 'bakugan', 'digimon', 'yugioh', 'cardcaptor',
             'roll no 21', 'keymon', 'vir the robot boy', 'rudra', 'gaju bhai', 'barbie', 'chikame', 'kochikame',
             'sgt. frog', 'sgt frog', 'kiteretsu', 'ninja hattori', 'perman', 'tensai bakabon', 'chibi maruko',
-            
-            # Superheroes / Tokusatsu
             'spiderman', 'spider-man', 'batman', 'superman', 'marvel', 'avengers', 'iron man', 'hulk',
             'power rangers', 'kamen rider', 'ultraman', 'super sentai', 'tokusatsu', 'captain america',
             'thor', 'doctor strange', 'flash', 'green lantern', 'aquaman', 'wonder woman', 'x-men',
-            
-            # Animated Movies (Pixar, Disney, Dreamworks)
             'toy story', 'finding nemo', 'frozen', 'shrek', 'madagascar', 'kung fu panda',
             'how to train your dragon', 'princess and the frog', '1001 nights', 'hotel transylvania', 
             'despicable me', 'minions', 'ice age', 'cars', 'moana', 'coco', 'up',
@@ -198,19 +189,22 @@ def create_app(config_class=Config):
             'the lion king', 'the little mermaid', 'peter pan', 'pinocchio', 'bambi', 'dumbo'
         ]
 
-        movies_list = [a for a in all_anime if a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie']
-        
         cartoons_list = []
+        movies_list = []
         series_list = []
 
         for a in all_anime:
             title_lower = a['title'].lower()
-            
-            # Check if it's a cartoon
-            if any(k in title_lower for k in cartoon_keywords):
+            is_cartoon = any(k in title_lower for k in cartoon_keywords)
+            is_movie = a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie'
+
+            # 🛠️ THE FIX: Scooby-Doo will go to BOTH cartoons_list and movies_list
+            if is_cartoon:
                 cartoons_list.append(a)
-            elif a not in movies_list:
-                # If it's not a movie and not a cartoon, then it's an anime series
+            
+            if is_movie:
+                movies_list.append(a)
+            elif not is_cartoon:
                 series_list.append(a)
         
         trending_full = sorted(series_list, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)
