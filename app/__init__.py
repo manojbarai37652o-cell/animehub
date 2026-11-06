@@ -44,7 +44,6 @@ def get_comments_data(anime_id):
         except:
             return []
     
-    # Fallback to local JSON if Upstash fails
     if not os.path.exists(COMMENTS_FILE):
         return []
     try:
@@ -61,14 +60,12 @@ def save_comment_data(anime_id, new_comment):
     if 'anime_id' in new_comment: del new_comment['anime_id']
     
     comments.insert(0, new_comment)
-    comments = comments[:500] # Max 500 comments per anime to keep it lightweight
+    comments = comments[:500] 
     
-    # Save to Upstash
     result = execute_redis_command(["SET", key, json.dumps(comments)])
     if result is not None:
         return True
         
-    # Fallback to local JSON
     data = {}
     if os.path.exists(COMMENTS_FILE):
         try:
@@ -84,7 +81,6 @@ def save_comment_data(anime_id, new_comment):
     except:
         return False
 
-# 🛠️ स्मार्ट रेटिंग जनरेट करने का फंक्शन
 def generate_smart_rating(title):
     if not title: return "8.0"
     total = sum(ord(c) for c in title)
@@ -96,7 +92,6 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     app.secret_key = app.config['SECRET_KEY']
     
-    # 🛡️ SECURITY: Rate Limiter Setup
     limiter = Limiter(
         get_remote_address,
         app=app,
@@ -104,7 +99,6 @@ def create_app(config_class=Config):
         storage_uri=app.config.get("RATELIMIT_STORAGE_URI", "memory://")
     )
 
-    # 🛡️ SECURITY: Security Headers
     @app.after_request
     def add_security_headers(response):
         response.headers['X-XSS-Protection'] = '1; mode=block'
@@ -113,7 +107,6 @@ def create_app(config_class=Config):
         response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
         return response
 
-    # 🟢 NEW API: LIVE COMMENTS (Upstash Powered) 🟢
     @app.route('/api/comments/<anime_id>', methods=['GET', 'POST'])
     def handle_comments(anime_id):
         if request.method == 'GET':
@@ -197,10 +190,14 @@ def create_app(config_class=Config):
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
+    # 🟢 SMART RECOMMEND API (Takes top 2 genres into account)
     @app.route('/api/recommend')
     @limiter.limit("60 per minute")
     def api_recommend():
-        genre = request.args.get('genre', 'Action')
+        # Frontend se genres ki comma-separated list aayegi (e.g., "Action,Fantasy")
+        genres_param = request.args.get('genres', 'Action')
+        user_genres = [g.strip().lower() for g in genres_param.split(',') if g.strip()]
+        
         all_anime = get_all_anime()
         
         for anime in all_anime:
@@ -208,21 +205,31 @@ def create_app(config_class=Config):
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
         recommended = []
+        
+        # Keyword Mapping (Har genre ke liye alag keywords)
+        genre_keywords = {
+            'action': ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan', 'fight', 'battle', 'action', 'hero', 'hunter'],
+            'romance': ['love', 'romance', 'couple', 'girlfriend', 'kaguya', 'wedding', 'darling', 'horimiya'],
+            'fantasy': ['reincarnated', 'isekai', 'magic', 'dungeon', 'king', 'sword', 'fantasy', 'witch', 'demon'],
+            'comedy': ['comedy', 'life', 'school', 'family', 'spy', 'funny', 'slice', 'club']
+        }
+
+        # Jo anime user ke top 2 genres se match karega, use list me daalenge
         for anime in all_anime:
             title_lower = anime['title'].lower()
-            if genre.lower() == 'action' and any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan', 'fight', 'battle', 'action']):
-                recommended.append(anime)
-            elif genre.lower() == 'romance' and any(k in title_lower for k in ['love', 'romance', 'couple', 'girlfriend', 'kaguya', 'wedding']):
-                recommended.append(anime)
-            elif genre.lower() == 'fantasy' and any(k in title_lower for k in ['reincarnated', 'isekai', 'magic', 'dungeon', 'king', 'sword', 'fantasy']):
-                recommended.append(anime)
-            elif genre.lower() == 'comedy' and any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy', 'funny']):
-                recommended.append(anime)
+            for g in user_genres:
+                if g in genre_keywords:
+                    if any(k in title_lower for k in genre_keywords[g]):
+                        recommended.append(anime)
+                        break # Agar ek genre match ho gaya, toh loop break karo
 
+        # Agar recommended list khali hai (naya user hai), toh random 12 de do
         if not recommended:
             recommended = random.sample(all_anime, min(12, len(all_anime)))
+        else:
+            # Agar list me 12 se jyada hain, toh unhe randomize karo
+            random.shuffle(recommended)
         
-        random.shuffle(recommended)
         return jsonify(recommended[:12])
 
     @app.route('/')
@@ -238,7 +245,7 @@ def create_app(config_class=Config):
         random_movies = random.sample(movies_full, min(len(movies_full), 10)) if movies_full else []
 
         return render_template('index.html', 
-                               anime_list=all_anime, 
+                               # 🛠️ LAG FIX: anime_list=all_anime hata diya gaya hai
                                trending=trending, 
                                popular=popular, 
                                movies=movies, 

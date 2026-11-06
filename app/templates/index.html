@@ -300,7 +300,6 @@
                     <h3 style="font-size: 18px; color: #fff; margin: 0;">✨ You Might Also Like</h3>
                 </div>
                 <div class="anime-grid-2-col">
-                    <!-- यहाँ trending[:4] कर दिया है जिससे 4 एनीमे दिखेंगे और हर रिफ्रेश पर बदलेंगे -->
                     {% for anime in trending[:4] %}
                     <a href="/watch/{{ anime.id }}" class="anime-card">
                         <div class="anime-card-image-wrapper">
@@ -381,6 +380,7 @@
         slideInterval = setTimeout(showSlides, 5000);
     }
 
+    // 🟢 SMART ALGORITHM (YouTube Style)
     window.loadRecommendations = function() {
         if (window.location.pathname !== '/' && window.location.pathname !== '/home') return;
 
@@ -388,40 +388,46 @@
         if (!section) return;
 
         let userPrefs = JSON.parse(localStorage.getItem('userGenrePrefs')) || {};
-        let topGenre = null;
-        let maxCount = 0;
         
-        for (let genre in userPrefs) {
-            if (userPrefs[genre] > maxCount) { maxCount = userPrefs[genre]; topGenre = genre; }
+        // Array banakar sort karo (Top 2 genres nikalne ke liye)
+        let sortedGenres = Object.keys(userPrefs).sort((a, b) => userPrefs[b] - userPrefs[a]);
+        
+        let topGenres = [];
+        if (sortedGenres.length > 0) topGenres.push(sortedGenres[0]);
+        if (sortedGenres.length > 1) topGenres.push(sortedGenres[1]); // Top 2 genres
+
+        // Agar user naya hai, toh default 'Action' bhejenge
+        if (topGenres.length === 0) {
+            topGenres = ['Action'];
         }
 
-        if (topGenre && maxCount > 0) {
-            fetch(`/api/recommend?genre=${encodeURIComponent(topGenre)}`)
-                .then(response => response.json())
-                .then(data => {
-                    const container = document.getElementById('smartRecommendedList');
-                    if (data && data.length > 0) {
-                        let htmlContent = '';
-                        data.forEach(anime => {
-                            htmlContent += `
-                                <a href="/watch/${anime.id}" class="anime-card">
-                                    <div class="anime-card-image-wrapper">
-                                        <img src="${anime.image}" alt="${anime.title}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
-                                        <div class="play-overlay">
-                                            <div class="play-button"><i class="fas fa-play"></i></div>
-                                        </div>
+        let genresQuery = encodeURIComponent(topGenres.join(','));
+
+        fetch(`/api/recommend?genres=${genresQuery}`)
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('smartRecommendedList');
+                if (data && data.length > 0) {
+                    let htmlContent = '';
+                    data.forEach(anime => {
+                        htmlContent += `
+                            <a href="/watch/${anime.id}" class="anime-card">
+                                <div class="anime-card-image-wrapper">
+                                    <img src="${anime.image}" alt="${anime.title}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
+                                    <div class="play-overlay">
+                                        <div class="play-button"><i class="fas fa-play"></i></div>
                                     </div>
-                                    <h3 class="anime-title">${anime.title}</h3>
-                                    <div class="anime-meta"><span class="rating">★ ${anime.rating || '8.0'}</span></div>
-                                </a>
-                            `;
-                        });
-                        container.innerHTML = htmlContent;
-                        section.style.display = 'block'; 
-                    }
-                })
-                .catch(err => console.error("Recommendation error:", err));
-        }
+                                </div>
+                                <h3 class="anime-title">${anime.title}</h3>
+                                <div class="anime-meta"><span class="rating">★ ${anime.rating || '8.0'}</span></div>
+                            </a>
+                        `;
+                    });
+                    container.innerHTML = htmlContent;
+                    section.style.display = 'block'; 
+                }
+            })
+            .catch(err => console.error("Recommendation error:", err));
     };
 
     document.addEventListener('DOMContentLoaded', window.loadRecommendations);
