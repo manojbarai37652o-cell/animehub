@@ -165,10 +165,29 @@ def create_app(config_class=Config):
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
-        cartoon_keywords = ['ben 10', 'doraemon', 'shinchan', 'tom and jerry', 'pokemon', 'beyblade', 'barbie', 'spiderman', 'batman']
+        # 🛠️ FIX: Expanded Cartoon Keywords (Including Pokemon with accent, Shin Chan, Power Rangers, etc.)
+        cartoon_keywords = [
+            'ben 10', 'doraemon', 'shinchan', 'shin chan', 'tom and jerry', 'tom & jerry',
+            'pokemon', 'pokémon', 'beyblade', 'barbie', 'spiderman', 'spider-man',
+            'batman', 'power rangers', 'transformers', 'kamen rider', 'gaju bhai',
+            'chhota bheem', 'motu patlu', 'ninja hattori', 'oggy', 'perman',
+            'marvel', 'avengers', 'superman', 'ultraman', 'beyblade burst', 'doraemon'
+        ]
+
         movies_list = [a for a in all_anime if a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie']
-        cartoons_list = [a for a in all_anime if any(k in a['title'].lower() for k in cartoon_keywords)]
-        series_list = [a for a in all_anime if a not in movies_list and a not in cartoons_list]
+        
+        cartoons_list = []
+        series_list = []
+
+        for a in all_anime:
+            title_lower = a['title'].lower()
+            
+            # Check if it's a cartoon
+            if any(k in title_lower for k in cartoon_keywords):
+                cartoons_list.append(a)
+            elif a not in movies_list:
+                # If it's not a movie and not a cartoon, then it's an anime series
+                series_list.append(a)
         
         trending_full = sorted(series_list, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)
         popular_full = sorted(series_list, key=lambda x: len(x.get('episodes', [])), reverse=True)
@@ -194,7 +213,6 @@ def create_app(config_class=Config):
     @app.route('/api/recommend')
     @limiter.limit("60 per minute")
     def api_recommend():
-        # Frontend se genres ki comma-separated list aayegi (e.g., "Action,Fantasy")
         genres_param = request.args.get('genres', 'Action')
         user_genres = [g.strip().lower() for g in genres_param.split(',') if g.strip()]
         
@@ -206,7 +224,6 @@ def create_app(config_class=Config):
 
         recommended = []
         
-        # Keyword Mapping (Har genre ke liye alag keywords)
         genre_keywords = {
             'action': ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan', 'fight', 'battle', 'action', 'hero', 'hunter'],
             'romance': ['love', 'romance', 'couple', 'girlfriend', 'kaguya', 'wedding', 'darling', 'horimiya'],
@@ -214,20 +231,17 @@ def create_app(config_class=Config):
             'comedy': ['comedy', 'life', 'school', 'family', 'spy', 'funny', 'slice', 'club']
         }
 
-        # Jo anime user ke top 2 genres se match karega, use list me daalenge
         for anime in all_anime:
             title_lower = anime['title'].lower()
             for g in user_genres:
                 if g in genre_keywords:
                     if any(k in title_lower for k in genre_keywords[g]):
                         recommended.append(anime)
-                        break # Agar ek genre match ho gaya, toh loop break karo
+                        break
 
-        # Agar recommended list khali hai (naya user hai), toh random 12 de do
         if not recommended:
             recommended = random.sample(all_anime, min(12, len(all_anime)))
         else:
-            # Agar list me 12 se jyada hain, toh unhe randomize karo
             random.shuffle(recommended)
         
         return jsonify(recommended[:12])
@@ -245,7 +259,6 @@ def create_app(config_class=Config):
         random_movies = random.sample(movies_full, min(len(movies_full), 10)) if movies_full else []
 
         return render_template('index.html', 
-                               # 🛠️ LAG FIX: anime_list=all_anime hata diya gaya hai
                                trending=trending, 
                                popular=popular, 
                                movies=movies, 
