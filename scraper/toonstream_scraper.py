@@ -58,6 +58,22 @@ def extract_description(soup):
     if meta_desc: return meta_desc.get('content')
     return "No description available."
 
+# 🛠️ NEW FUNCTION: ToonStream ka Access Gateway bypass karne ke liye
+def handle_access_gateway(page):
+    try:
+        # Thoda wait karo taaki gateway page load ho jaye
+        page.wait_for_timeout(1500)
+        
+        # Check karo ki kya 'Continue' button (id="continueGo") hai
+        if page.query_selector('#continueGo'):
+            print("            🔓 Access Gateway mila! 'Continue' par click kar rahe hain...")
+            # JS click use kar rahe hain taaki koi ad overlay click ko block na kare
+            page.evaluate("document.getElementById('continueGo').click()")
+            page.wait_for_timeout(4000) # Redirect hone aur video page load hone ka wait
+            print("            ✅ Gateway bypass ho gaya!")
+    except Exception as e:
+        print(f"            ⚠️ Gateway bypass error: {e}")
+
 def parse_episodes_from_current_page(page):
     episodes = []
     detail_soup = BeautifulSoup(page.content(), 'html.parser')
@@ -110,7 +126,10 @@ def process_anime_card(page, card, existing_titles, anime_list):
         if '/movies/' in original_href or '/movie/' in original_href:
             print(f"\n   🎬 नई मूवी मिली: {title}")
             page.goto(original_href, wait_until="domcontentloaded")
-            page.wait_for_timeout(3000)
+            page.wait_for_timeout(2000)
+            
+            # 🛠️ FIX: मूवी पेज पर भी गेटवे चेक करो
+            handle_access_gateway(page)
             
             detail_soup = BeautifulSoup(page.content(), 'html.parser')
             language = extract_language(detail_soup)
@@ -168,6 +187,9 @@ def process_anime_card(page, card, existing_titles, anime_list):
         if '/episode/' in original_href:
             page.goto(original_href, wait_until="domcontentloaded")
             page.wait_for_timeout(2000)
+            # 🛠️ Episode page se series page pe jaane se pehle bhi gateway ho sakta hai
+            handle_access_gateway(page)
+            
             ep_page_soup = BeautifulSoup(page.content(), 'html.parser')
             series_link_tag = ep_page_soup.find('a', href=re.compile(r'/series/'))
             if series_link_tag:
@@ -236,6 +258,10 @@ def process_anime_card(page, card, existing_titles, anime_list):
                 try:
                     page.goto(ep['url'], wait_until="domcontentloaded")
                     page.wait_for_timeout(2000) 
+                    
+                    # 🛠️ MAIN FIX: Episode page pe gateway bypass karo
+                    handle_access_gateway(page)
+                    
                     ep_soup = BeautifulSoup(page.content(), 'html.parser')
                     valid_srcs = []
                     player_area = ep_soup.find('aside', id='aa-options') or ep_soup
@@ -258,8 +284,10 @@ def process_anime_card(page, card, existing_titles, anime_list):
                         ep['video_url'] = valid_srcs[0] 
                         ep['servers'] = [{"server": f"Server {j+1}", "url": u} for j, u in enumerate(valid_srcs)]
                         print(f"            ✅ {len(valid_srcs)} साफ सर्वर मिले")
+                    else:
+                        print(f"            ⚠️ कोई सर्वर नहीं मिला (शायद वीडियो उपलब्ध नहीं है)")
                 except Exception as e:
-                    pass
+                    print(f"            ❌ एपिसोड स्क्रैप एरर: {e}")
             
             final_seasons.append({"season_number": s_num, "episodes": eps})
             all_episodes_flat.extend(eps)
@@ -285,15 +313,14 @@ def process_anime_card(page, card, existing_titles, anime_list):
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🔥 TOONSTREAM SCRAPER (100 ANIME PER RUN + CORRECT A-Z + BAD SERVER FILTER)")
+    print("🔥 TOONSTREAM SCRAPER (GATEWAY BYPASS + A-Z + BAD SERVER FILTER)")
     print("=" * 60)
 
     db_data = load_db()
-    live_db_data = load_live_db() # 🛠️ लाइव डेटा लोड करो
+    live_db_data = load_live_db() 
 
     anime_list = db_data.get('anime_list', [])
     
-    # 🛠️ FIX: दोनों डेटाबेस से टाइटल इकट्ठा करो (ताकि जो पहले से वेबसाइट पर है, वो दोबारा स्क्रैप न हो)
     existing_titles = set(clean_title(anime.get('title', '')) for anime in anime_list)
     existing_titles.update(set(clean_title(anime.get('title', '')) for anime in live_db_data.get('anime_list', [])))
     
@@ -337,11 +364,9 @@ if __name__ == '__main__':
                 for letter in "abcdefghijklmnopqrstuvwxyz":
                     if new_anime_added >= MAX_ANIME_TO_TEST: break
                     
-                    # 🛠️ FIX: पेज 1 से शुरू करके 18 तक जाएगा
                     for page_num in range(1, 19):
                         if new_anime_added >= MAX_ANIME_TO_TEST: break
                         
-                        # 🛠️ FIX: सही URL /letter/A/ और पेजिनेशन /letter/A/page/2/
                         az_url = f"{BASE_URL}/letter/{letter.upper()}/" if page_num == 1 else f"{BASE_URL}/letter/{letter.upper()}/page/{page_num}/"
                         
                         print(f"\n🌐 लेटर '{letter.upper()}' - पेज {page_num} पर जा रहे हैं: {az_url}")
@@ -355,7 +380,7 @@ if __name__ == '__main__':
                             
                             if not az_cards:
                                 print(f"   ⚠️ पेज {page_num} पर कोई कार्ड नहीं मिला (पेज खत्म)। अगले लेटर पर जा रहे हैं।")
-                                break # बाहर निकलो, अगले लेटर पर जाओ
+                                break 
                                 
                             print(f"   🔍 पेज {page_num} पर {len(az_cards)} कार्ड्स मिले।")
                             
@@ -369,7 +394,7 @@ if __name__ == '__main__':
                                     
                         except Exception as e:
                             print(f"   ❌ लेटर {letter.upper()} - पेज {page_num} पर एरर: {e}")
-                            break # एरर आने पर अगले लेटर पर जाओ
+                            break 
 
             browser.close()
     except KeyboardInterrupt:

@@ -28,6 +28,22 @@ def extract_language(soup):
     elif "multi audio" in page_text: return "Multi Audio"
     return "Unknown"
 
+# 🛠️ NEW FUNCTION: ToonStream ka Access Gateway bypass karne ke liye
+def handle_access_gateway(page):
+    try:
+        # Thoda wait karo taaki gateway page load ho jaye
+        page.wait_for_timeout(1500)
+        
+        # Check karo ki kya 'Continue' button (id="continueGo") hai
+        if page.query_selector('#continueGo'):
+            print("      🔓 Access Gateway mila! 'Continue' par click kar rahe hain...")
+            # JS click use kar rahe hain taaki koi ad overlay click ko block na kare
+            page.evaluate("document.getElementById('continueGo').click()")
+            page.wait_for_timeout(4000) # Redirect hone aur video page load hone ka wait
+            print("      ✅ Gateway bypass ho gaya!")
+    except Exception as e:
+        print(f"      ⚠️ Gateway bypass error: {e}")
+
 if __name__ == '__main__':
     print("=" * 60)
     print("🔄 TOONSTREAM UPDATE LIBRARY (नए एपिसोड चेक करने के लिए)")
@@ -108,6 +124,9 @@ if __name__ == '__main__':
                                 page.goto(ep['url'], wait_until="domcontentloaded")
                                 page.wait_for_timeout(2000)
                                 
+                                # 🛠️ MAIN FIX: Yahan Gateway bypass karo
+                                handle_access_gateway(page)
+                                
                                 ep_soup = BeautifulSoup(page.content(), 'html.parser')
                                 valid_srcs = []
                                 player_area = ep_soup.find('aside', id='aa-options') or ep_soup
@@ -124,6 +143,9 @@ if __name__ == '__main__':
                                 if valid_srcs:
                                     ep['video_url'] = valid_srcs[0] 
                                     ep['servers'] = [{"server": f"Server {j+1}", "url": u} for j, u in enumerate(valid_srcs)]
+                                    print(f"         ✅ {len(valid_srcs)} सर्वर मिले")
+                                else:
+                                    print(f"         ⚠️ कोई सर्वर नहीं मिला")
                         
                         # डेटाबेस में अपडेट करो
                         anime['episodes'] = live_episodes
