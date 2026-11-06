@@ -181,8 +181,7 @@ def create_app(config_class=Config):
             'roll no 21', 'keymon', 'vir the robot boy', 'rudra', 'gaju bhai', 'barbie', 'chikame', 'kochikame',
             'sgt. frog', 'sgt frog', 'kiteretsu', 'ninja hattori', 'perman', 'tensai bakabon', 'chibi maruko',
             'spiderman', 'spider-man', 'batman', 'superman', 'marvel', 'avengers', 'iron man', 'hulk',
-            'power rangers', 'kamen rider', 'ultraman', 'super sentai', 'tokusatsu', 'captain america',
-            'thor', 'doctor strange', 'flash', 'green lantern', 'aquaman', 'wonder woman', 'x-men',
+            'captain america', 'thor', 'doctor strange', 'flash', 'green lantern', 'aquaman', 'wonder woman',
             'toy story', 'finding nemo', 'frozen', 'shrek', 'madagascar', 'kung fu panda',
             'how to train your dragon', 'princess and the frog', '1001 nights', 'hotel transylvania', 
             'despicable me', 'minions', 'ice age', 'cars', 'moana', 'coco', 'up',
@@ -190,6 +189,10 @@ def create_app(config_class=Config):
             'brave', 'tangled', 'wreck-it ralph', 'mulan', 'pocahontas', 'beauty and the beast',
             'the lion king', 'the little mermaid', 'peter pan', 'pinocchio', 'bambi', 'dumbo'
         ]
+        # Kamen Rider, Power Rangers, Ultraman hata diye hain kyunki ye live-action Tokusatsu hain, cartoons nahi.
+
+        # 🛑 ANIME BLACKLIST (Agar title me ye words hain, toh pakka anime/series hai, cartoon nahi)
+        anime_blacklist = ['cuckoos', 'kamen rider', 'tokusatsu', 'anime', 'senpai']
 
         cartoons_list = []
         movies_list = []
@@ -197,12 +200,28 @@ def create_app(config_class=Config):
 
         for a in all_anime:
             title_lower = a['title'].lower()
-            is_cartoon = any(k in title_lower for k in cartoon_keywords)
-            is_movie = a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie'
+            
+            # 🔥 FIX 1: Regex Word Boundary (\b) ka use kiya taaki partial match na ho (e.g., 'up' match na kare 'couple' me)
+            is_cartoon = False
+            for k in cartoon_keywords:
+                if re.search(r'\b' + re.escape(k) + r'\b', title_lower):
+                    is_cartoon = True
+                    break
+            
+            # Agar title me blacklist wale words hain, toh use cartoon mat banao
+            if any(re.search(r'\b' + re.escape(b) + r'\b', title_lower) for b in anime_blacklist):
+                is_cartoon = False
 
-            # 🛠️ THE STRICT FIX: 
-            # 1. Agar movie hai (chahe cartoon ho ya anime), sirf movies_list me jayega.
-            # 2. Agar movie nahi hai (series hai) aur cartoon hai, toh cartoons_list me jayega.
+            # 🔥 FIX 2: Behtar Movie Detection (Agar 'Full Movie' ya sirf 'Movie' hai title me)
+            is_movie = False
+            if a.get('episodes') and len(a['episodes']) > 0:
+                first_ep_title = a['episodes'][0].get('title', '').lower()
+                if 'full movie' in first_ep_title or 'movie' in first_ep_title:
+                    is_movie = True
+
+            # 🛠️ THE STRICT PRIORITY: 
+            # 1. Agar movie hai, toh sirf movies_list me jayega.
+            # 2. Agar movie nahi hai aur cartoon hai, toh cartoons_list me jayega.
             # 3. Agar movie nahi hai aur cartoon bhi nahi hai, toh series_list me jayega.
             if is_movie:
                 movies_list.append(a)
