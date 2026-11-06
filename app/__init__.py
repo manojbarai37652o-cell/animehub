@@ -18,10 +18,12 @@ from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
 UPSTASH_URL = os.environ.get('UPSTASH_REDIS_REST_URL')
 UPSTASH_TOKEN = os.environ.get('UPSTASH_REDIS_REST_TOKEN')
 
+# Fallback JSON (Agar Upstash connect na ho toh local file use hogi)
 COMMENTS_FILE = os.path.join(os.getcwd(), 'database', 'comments.json')
 
 def execute_redis_command(command_array):
     if not UPSTASH_URL or not UPSTASH_TOKEN:
+        print("⚠️ Upstash URL or Token missing!")
         return None
     headers = {"Authorization": f"Bearer {UPSTASH_TOKEN}"}
     try:
@@ -198,13 +200,15 @@ def create_app(config_class=Config):
             is_cartoon = any(k in title_lower for k in cartoon_keywords)
             is_movie = a.get('episodes') and len(a['episodes']) > 0 and a['episodes'][0].get('title') == 'Full Movie'
 
-            # 🛠️ THE FIX: Scooby-Doo will go to BOTH cartoons_list and movies_list
-            if is_cartoon:
-                cartoons_list.append(a)
-            
+            # 🛠️ THE STRICT FIX: 
+            # 1. Agar movie hai (chahe cartoon ho ya anime), sirf movies_list me jayega.
+            # 2. Agar movie nahi hai (series hai) aur cartoon hai, toh cartoons_list me jayega.
+            # 3. Agar movie nahi hai aur cartoon bhi nahi hai, toh series_list me jayega.
             if is_movie:
                 movies_list.append(a)
-            elif not is_cartoon:
+            elif is_cartoon:
+                cartoons_list.append(a)
+            else:
                 series_list.append(a)
         
         trending_full = sorted(series_list, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)
