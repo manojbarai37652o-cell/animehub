@@ -2,25 +2,38 @@ import json
 import os
 import random
 import requests
+import libsql_client # 🛠️ Turso ke liye zaroori hai
 
-# ✅ GitHub से ताजा डेटा
+# ✅ Turso (libSQL) Credentials - Render Environment Variables se aayenge
+TURSO_URL = os.environ.get("TURSO_DATABASE_URL")
+TURSO_TOKEN = os.environ.get("TURSO_AUTH_TOKEN")
+
+# ✅ GitHub से ताजा डेटा (Fallback ke liye)
 GITHUB_RAW_URL = "https://raw.githubusercontent.com/manojbarai376520-cell/animehub/main/database/storage.json"
 DB_PATH = os.path.join(os.getcwd(), 'database', 'storage.json')
 
 # 🛠️ CACHE VARIABLE: यह डेटा को सर्वर की मेमोरी (RAM) में सेव रखेगा
 _cached_anime_list = None
 
+# 🛠️ Turso Client banane ka function
+def get_turso_client():
+    if not TURSO_URL or not TURSO_TOKEN:
+        print("⚠️ Turso URL or Token missing in Environment Variables!")
+        return None
+    try:
+        return libsql_client.create_client_sync(url=TURSO_URL, auth_token=TURSO_TOKEN)
+    except Exception as e:
+        print(f"⚠️ Turso Client Error: {e}")
+        return None
 
 # 🛠️ नया फंक्शन: इमेजेस को हल्का (Optimize) करने के लिए
 def optimize_image_url(url):
     """TMDB की बड़ी इमेजेस को छोटा करके स्पीड बढ़ाना"""
     if not url: 
         return url
-    # अगर इमेज TMDB से है, तो साइज़ कम कर दो
     if 'image.tmdb.org' in url:
         return url.replace('/w500/', '/w300/').replace('/w1280/', '/w780/')
     return url
-
 
 # 🛠️ NEW FUNCTION: डेटाबेस की गलत भाषा (Language) को ठीक करने के लिए
 def fix_language_data(anime):
@@ -28,7 +41,6 @@ def fix_language_data(anime):
     title = anime.get('title', '').lower()
     current_lang = str(anime.get('language', '')).lower()
 
-    # 1. पहले टाइटल के हिसाब से भाषा चेक करो
     if 'english' in title:
         anime['language'] = 'English Dub'
     elif 'hindi' in title:
@@ -40,63 +52,84 @@ def fix_language_data(anime):
     elif 'japanese' in title:
         anime['language'] = 'Japanese'
     else:
-        # 2. अगर टाइटल में कुछ नहीं है, तो डेटाबेस चेक करो
         if not current_lang or current_lang == 'unknown':
             anime['language'] = 'Multi Audio'
         elif current_lang == 'hindi dub' and 'hindi' not in title:
-            # स्क्रैपर का बग: अगर डिफ़ॉल्ट 'Hindi Dub' है पर टाइटल में हिंदी नहीं है
             anime['language'] = 'Multi Audio'
 
 
 def get_all_anime():
-    """GitHub से ताजा डेटा लाओ (सिर्फ पहली बार, फिर मेमोरी से दो)"""
+    """Turso se data lao, agar nahi mile toh GitHub/Local se laakar Turso me save karo"""
     global _cached_anime_list
     
-    # अगर डेटा पहले से मेमोरी में है, तो सीधे वापस कर दो (बिजली की स्पीड)
+    # 1. Agar RAM me data hai, toh seedha do (Fastest)
     if _cached_anime_list is not None:
         return _cached_anime_list
 
-    # अगर मेमोरी खाली है, तो डेटा लोड करो
+    # 2. Turso se data fetch karne ki koshish karo
+    client = get_turso_client()
+    if client:
+        try:
+            # Table banado agar pehle se nahi hai
+            client.execute("CREATE TABLE IF NOT EXISTS animenest_db (id INTEGER PRIMARY KEY, json_data TEXT)")
+            # Data fetch karo
+            result = client.execute("SELECT json_data FROM animenest_db WHERE id = 1")
+            
+            if result.rows and len(result.rows) > 0:
+                data = json.loads(result.rows[0][0]).get('anime_list', [])
+                for anime in data:
+                    if 'image' in anime:
+                        anime['image'] = optimize_image_url(anime['image'])
+                    fix_language_data(anime)
+                _cached_anime_list = data
+                print("✅ Data successfully loaded from Turso Cloud!")
+                return _cached_anime_list
+        except Exception as e:
+            print(f"⚠️ Turso Fetch Error: {e}")
+
+    # 3. Agar Turso me data nahi mila, toh GitHub se lao
+    print("🔄 Turso empty or failed. Fetching from GitHub...")
     try:
         response = requests.get(GITHUB_RAW_URL, timeout=10)
         if response.status_code == 200:
             data = response.json().get('anime_list', [])
             
-            # 🛠️ लोड होते ही सारी इमेजेस को ऑप्टिमाइज़ कर दो और भाषा फिक्स करो
             for anime in data:
                 if 'image' in anime:
                     anime['image'] = optimize_image_url(anime['image'])
-                fix_language_data(anime) # 👈 नया जोड़ा गया
+                fix_language_data(anime)
                     
             _cached_anime_list = data
+            
+            # 👇 Turso me save kar do taaki agli baar seedha wahi se mile
+            save_anime_list(_cached_anime_list) 
             return _cached_anime_list
     except Exception as e:
         print(f"⚠️ GitHub fetch error: {e}")
     
-    # Fallback: लोकल
+    # 4. Agar sab fail ho jaye, toh Local file padho
     if not os.path.exists(DB_PATH):
         return []
     try:
         with open(DB_PATH, 'r', encoding='utf-8') as f:
             data = json.load(f).get('anime_list', [])
             
-            # 🛠️ लोकल फाइल से लोड होते ही इमेजेस ऑप्टिमाइज़ कर दो और भाषा फिक्स करो
             for anime in data:
                 if 'image' in anime:
                     anime['image'] = optimize_image_url(anime['image'])
-                fix_language_data(anime) # 👈 नया जोड़ा गया
+                fix_language_data(anime)
                     
             _cached_anime_list = data
+            save_anime_list(_cached_anime_list) # Turso me save karo
             return _cached_anime_list
     except:
         return []
 
 
 def get_anime_by_id(anime_id):
-    """🛠️ FIX: ID को स्ट्रिंग और इंटीजर दोनों तरह से मैच करे (404 एरर खत्म)"""
+    """🛠️ FIX: ID को स्ट्रिंग और इंटीजर दोनों तरह से मैच करे"""
     anime_id_str = str(anime_id)
     for anime in get_all_anime():
-        # दोनों को स्ट्रिंग में बदलकर तुलना करो
         if str(anime.get('id')) == anime_id_str:
             return anime
     return None
@@ -167,14 +200,30 @@ def get_single_random_anime():
 
 
 def save_anime_list(anime_list):
+    """Data ko RAM, Turso Cloud aur Local file teeno jagah save karega"""
     global _cached_anime_list
     _cached_anime_list = anime_list
     data = {"anime_list": anime_list}
+    json_string = json.dumps(data, ensure_ascii=False)
+    
+    # 1. Turso Cloud me save karo
+    client = get_turso_client()
+    if client:
+        try:
+            client.execute("CREATE TABLE IF NOT EXISTS animenest_db (id INTEGER PRIMARY KEY, json_data TEXT)")
+            # id = 1 par poora data save/replace kar do
+            client.execute("INSERT OR REPLACE INTO animenest_db (id, json_data) VALUES (1, ?)", [json_string])
+            print("✅ Data saved to Turso Cloud successfully!")
+        except Exception as e:
+            print(f"⚠️ Turso Save Error: {e}")
+            
+    # 2. Local file me backup ke liye save karo
     try:
+        os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
         with open(DB_PATH, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
+            f.write(json_string)
     except Exception as e:
-        print(f"❌ Save error: {e}")
+        print(f"❌ Local Save error: {e}")
 
 
 def update_anime_episodes(anime_id, episodes):
