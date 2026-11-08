@@ -8,6 +8,10 @@ import libsql_client # 🛠️ Turso ke liye zaroori hai
 TURSO_URL = os.environ.get("TURSO_DATABASE_URL")
 TURSO_TOKEN = os.environ.get("TURSO_AUTH_TOKEN")
 
+# 🛠️ FIX: Agar URL libsql:// se shuru ho raha hai, toh use https:// me badal do
+if TURSO_URL and TURSO_URL.startswith("libsql://"):
+    TURSO_URL = TURSO_URL.replace("libsql://", "https://", 1)
+
 # ✅ GitHub से ताजा डेटा (Fallback ke liye)
 GITHUB_RAW_URL = "https://raw.githubusercontent.com/manojbarai376520-cell/animehub/main/database/storage.json"
 DB_PATH = os.path.join(os.getcwd(), 'database', 'storage.json')
