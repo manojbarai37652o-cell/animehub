@@ -3,69 +3,87 @@ import random
 import os
 import re
 import json
-import requests # 🛠️ Upstash ke liye zaroori hai
+import requests
 from datetime import datetime
 from config import Config
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+import libsql_client # 🛠️ Turso Comments ke liye
 
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
                                    get_anime_by_genre, get_single_random_anime,
                                    get_top_anime, get_hero_anime_list)
 
-# 🛠️ UPSTASH REDIS SETUP
-UPSTASH_URL = os.environ.get('UPSTASH_REDIS_REST_URL')
-UPSTASH_TOKEN = os.environ.get('UPSTASH_REDIS_REST_TOKEN')
+# 🛠️ TURSO SETUP FOR COMMENTS (Ab Upstash nahi chahiye)
+TURSO_URL = os.environ.get('TURSO_DATABASE_URL')
+TURSO_TOKEN = os.environ.get('TURSO_AUTH_TOKEN')
 
-# Fallback JSON (Agar Upstash connect na ho toh local file use hogi)
+if TURSO_URL and TURSO_URL.startswith("libsql://"):
+    TURSO_URL = TURSO_URL.replace("libsql://", "https://", 1)
+
+# Fallback JSON (Agar Turso connect na ho toh local file use hogi)
 COMMENTS_FILE = os.path.join(os.getcwd(), 'database', 'comments.json')
 
-def execute_redis_command(command_array):
-    if not UPSTASH_URL or not UPSTASH_TOKEN:
-        print("⚠️ Upstash URL or Token missing!")
+def get_turso_client():
+    if not TURSO_URL or not TURSO_TOKEN:
+        print("⚠️ Turso URL or Token missing for comments!")
         return None
-    headers = {"Authorization": f"Bearer {UPSTASH_TOKEN}"}
     try:
-        response = requests.post(f"{UPSTASH_URL}", headers=headers, json=command_array, timeout=5)
-        if response.status_code == 200:
-            return response.json()
+        return libsql_client.create_client_sync(url=TURSO_URL, auth_token=TURSO_TOKEN)
     except Exception as e:
-        print(f"Upstash Error: {e}")
-    return None
+        print(f"Turso Comments Client Error: {e}")
+        return None
 
 def get_comments_data(anime_id):
-    key = f"comments:{anime_id}"
-    result = execute_redis_command(["GET", key])
+    anime_id_str = str(anime_id)
+    client = get_turso_client()
     
-    if result and result.get('result'):
+    # 1. Try fetching from Turso Cloud
+    if client:
         try:
-            return json.loads(result['result'])
-        except:
-            return []
+            client.execute("CREATE TABLE IF NOT EXISTS comments (anime_id TEXT PRIMARY KEY, data TEXT)")
+            res = client.execute("SELECT data FROM comments WHERE anime_id = ?", [anime_id_str])
+            if res.rows and len(res.rows) > 0:
+                return json.loads(res.rows[0][0])
+        except Exception as e:
+            print(f"Turso Comments Fetch Error: {e}")
+        finally:
+            client.close()
     
+    # 2. Fallback to local JSON
     if not os.path.exists(COMMENTS_FILE):
         return []
     try:
         with open(COMMENTS_FILE, 'r', encoding='utf-8') as f:
             data = json.load(f)
-            return data.get(str(anime_id), [])
+            return data.get(anime_id_str, [])
     except:
         return []
 
 def save_comment_data(anime_id, new_comment):
-    key = f"comments:{anime_id}"
+    anime_id_str = str(anime_id)
     comments = get_comments_data(anime_id)
     
     if 'anime_id' in new_comment: del new_comment['anime_id']
     
     comments.insert(0, new_comment)
-    comments = comments[:500] 
+    comments = comments[:500] # Max 500 comments
     
-    result = execute_redis_command(["SET", key, json.dumps(comments)])
-    if result is not None:
-        return True
-        
+    # 1. Save to Turso Cloud
+    client = get_turso_client()
+    turso_success = False
+    if client:
+        try:
+            client.execute("CREATE TABLE IF NOT EXISTS comments (anime_id TEXT PRIMARY KEY, data TEXT)")
+            client.execute("INSERT OR REPLACE INTO comments (anime_id, data) VALUES (?, ?)", [anime_id_str, json.dumps(comments, ensure_ascii=False)])
+            turso_success = True
+        except Exception as e:
+            print(f"Turso Comments Save Error: {e}")
+        finally:
+            client.close()
+            
+    # 2. Save to local JSON (Fallback / Backup)
     data = {}
     if os.path.exists(COMMENTS_FILE):
         try:
@@ -73,13 +91,15 @@ def save_comment_data(anime_id, new_comment):
                 data = json.load(f)
         except:
             pass
-    data[str(anime_id)] = comments
+    data[anime_id_str] = comments
     try:
+        os.makedirs(os.path.dirname(COMMENTS_FILE), exist_ok=True)
         with open(COMMENTS_FILE, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
-        return True
     except:
-        return False
+        pass
+
+    return True if (turso_success or data) else False
 
 def generate_smart_rating(title):
     if not title: return "8.0"
@@ -189,7 +209,6 @@ def create_app(config_class=Config):
             'brave', 'tangled', 'wreck-it ralph', 'mulan', 'pocahontas', 'beauty and the beast',
             'the lion king', 'the little mermaid', 'peter pan', 'pinocchio', 'bambi', 'dumbo'
         ]
-        # Kamen Rider, Power Rangers, Ultraman hata diye hain kyunki ye live-action Tokusatsu hain, cartoons nahi.
 
         # 🛑 ANIME BLACKLIST (Agar title me ye words hain, toh pakka anime/series hai, cartoon nahi)
         anime_blacklist = ['cuckoos', 'kamen rider', 'tokusatsu', 'anime', 'senpai']
