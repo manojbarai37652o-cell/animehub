@@ -1,6 +1,7 @@
 import json
 import os
 import random
+import re # 🛠️ Regex ke liye zaroori hai
 import requests
 import libsql_client # 🛠️ Turso ke liye zaroori hai
 
@@ -30,14 +31,14 @@ def get_turso_client():
         print(f"⚠️ Turso Client Error: {e}")
         return None
 
-# 🛠️ UPDATED: अब इमेजेस को छोटा नहीं, बल्कि HIGH-RES (4K/Original) में लोड करेगा
+# 🛠️ UPDATED: अब हर साइज़ (w92, w185) को पकड़कर HD (w500) बनाएगा
 def optimize_image_url(url):
-    """TMDB की इमेजेस को हाई क्वालिटी (Original 4K) में लोड करने के लिए"""
+    """TMDB की इमेजेस को एकदम शार्प HD (w500) क्वालिटी में लोड करने के लिए"""
     if not url: 
         return url
     if 'image.tmdb.org' in url:
-        # पुरानी (w300/w500) की जगह अब (original) ताकि HD/4K क्वालिटी मिले
-        return url.replace('/w300/', '/original/').replace('/w500/', '/original/').replace('/w780/', '/original/').replace('/w1280/', '/original/')
+        # यह Regex URL में /t/p/ के बाद जो भी साइज़ हो (w92, w154, original आदि), उसे w500 से बदल देगा
+        return re.sub(r'/t/p/[^/]+/', '/t/p/w500/', url)
     return url
 
 # 🛠️ NEW FUNCTION: डेटाबेस की गलत भाषा (Language) को ठीक करने के लिए
