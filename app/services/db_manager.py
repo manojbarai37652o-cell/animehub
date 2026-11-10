@@ -30,13 +30,14 @@ def get_turso_client():
         print(f"⚠️ Turso Client Error: {e}")
         return None
 
-# 🛠️ नया फंक्शन: इमेजेस को हल्का (Optimize) करने के लिए
+# 🛠️ UPDATED: अब इमेजेस को छोटा नहीं, बल्कि HIGH-RES (4K/Original) में लोड करेगा
 def optimize_image_url(url):
-    """TMDB की बड़ी इमेजेस को छोटा करके स्पीड बढ़ाना"""
+    """TMDB की इमेजेस को हाई क्वालिटी (Original 4K) में लोड करने के लिए"""
     if not url: 
         return url
     if 'image.tmdb.org' in url:
-        return url.replace('/w500/', '/w300/').replace('/w1280/', '/w780/')
+        # पुरानी (w300/w500) की जगह अब (original) ताकि HD/4K क्वालिटी मिले
+        return url.replace('/w300/', '/original/').replace('/w500/', '/original/').replace('/w780/', '/original/').replace('/w1280/', '/original/')
     return url
 
 # 🛠️ NEW FUNCTION: डेटाबेस की गलत भाषा (Language) को ठीक करने के लिए
