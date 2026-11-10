@@ -33,9 +33,12 @@
         <script src="https://bancadeltempoidea.org/22/0230da13333651445857fb8321414ae1"></script>
     </div>
 
-    <!-- 🟢 VIDEO PLAYER SECTION 🟢 -->
+    <!-- 🟢 VIDEO PLAYER SECTION (With Poster Overlay) 🟢 -->
     <div class="video-section-wrapper" id="videoSectionWrapper">
-        <div class="video-player-crunchy" id="mainVideoPlayer">
+        <!-- Position relative lagaya hai taaki overlay theek se baith sake -->
+        <div class="video-player-crunchy" id="mainVideoPlayer" style="position: relative;">
+            
+            <!-- असली Iframe (ये पीछे रहेगा) -->
             <iframe id="videoIframe" src="{{ current_ep.video_url }}"
                     width="100%"
                     height="100%"
@@ -43,6 +46,18 @@
                     allow="autoplay; fullscreen; encrypted-media"
                     allowfullscreen>
             </iframe>
+
+            <!-- ✅ THE FAKE POSTER OVERLAY (ये ऊपर रहेगा) -->
+            <div id="videoOverlay" onclick="revealVideo()" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('{{ anime.image }}') center/cover no-repeat; z-index: 10; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                <!-- Thoda dark overlay taaki play button chamke -->
+                <div style="background: rgba(0, 0, 0, 0.5); width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></div>
+                
+                <!-- Play Button -->
+                <div style="position: relative; z-index: 11; width: 70px; height: 70px; border-radius: 50%; background: #a855f7; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(168, 85, 247, 0.6); transition: transform 0.3s;">
+                    <i class="fas fa-play" style="color: #fff; font-size: 30px; margin-left: 5px;"></i>
+                </div>
+            </div>
+
         </div>
         <div class="video-info-bar">
             <span class="video-info-title">{{ anime.title }}</span>
@@ -316,6 +331,14 @@
     const currentSeason = metaData.dataset.season;
     const animeGenres = metaData.dataset.genres;
 
+    // 🛠️ NEW FUNCTION: To reveal the video
+    window.revealVideo = function() {
+        const overlay = document.getElementById('videoOverlay');
+        if (overlay) {
+            overlay.style.display = 'none'; // Hide the fake poster
+        }
+    };
+
     // 🟢 LIVE COMMENTS LOGIC 🟢
     let guestName = localStorage.getItem('animeNestUser');
     if (!guestName) {
@@ -407,6 +430,10 @@
     window.changeServer = function(url, btn) {
         const iframe = document.getElementById('videoIframe');
         if(iframe) iframe.src = url;
+        
+        // Reset overlay to show again when server changes
+        const overlay = document.getElementById('videoOverlay');
+        if(overlay) overlay.style.display = 'flex';
         
         const btns = document.querySelectorAll('.server-btn');
         btns.forEach(b => {
