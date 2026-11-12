@@ -6085,6 +6085,54 @@
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWkdISGlDcmlSIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzJZeE5yUkNaZiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNk9hc0I5cWpYIn1d"
                                 }
                             ]
+                        },
+                        {
+                            "title": "JoJo's Bizarre Adventure 4x28",
+                            "ep_num": "28",
+                            "url": "https://animesalt.cx/episode/jojos-bizarre-adventure-4x28/",
+                            "video_url": "https://ravok.buzz/video/6f20b6878aa610b128facd8aeb745c8b",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/6f20b6878aa610b128facd8aeb745c8b"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "JoJo's Bizarre Adventure 4x29",
+                            "ep_num": "29",
+                            "url": "https://animesalt.cx/episode/jojos-bizarre-adventure-4x29/",
+                            "video_url": "https://ravok.buzz/video/db68424c064838f1bfdd2380c06b1ee6",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/db68424c064838f1bfdd2380c06b1ee6"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "JoJo's Bizarre Adventure 4x30",
+                            "ep_num": "30",
+                            "url": "https://animesalt.cx/episode/jojos-bizarre-adventure-4x30/",
+                            "video_url": "https://ravok.buzz/video/6920d7076c2de8485aa00461c60f4150",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/6920d7076c2de8485aa00461c60f4150"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "JoJo's Bizarre Adventure 4x31",
+                            "ep_num": "31",
+                            "url": "https://animesalt.cx/episode/jojos-bizarre-adventure-4x31/",
+                            "video_url": "https://ravok.buzz/video/e619f7a17016c62600bafacfb8e15a6f",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/e619f7a17016c62600bafacfb8e15a6f"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -8323,6 +8371,54 @@
                         {
                             "name": "Server 2",
                             "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWkdISGlDcmlSIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cLzJZeE5yUkNaZiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvNk9hc0I5cWpYIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "JoJo's Bizarre Adventure 4x28",
+                    "ep_num": "28",
+                    "url": "https://animesalt.cx/episode/jojos-bizarre-adventure-4x28/",
+                    "video_url": "https://ravok.buzz/video/6f20b6878aa610b128facd8aeb745c8b",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6f20b6878aa610b128facd8aeb745c8b"
+                        }
+                    ]
+                },
+                {
+                    "title": "JoJo's Bizarre Adventure 4x29",
+                    "ep_num": "29",
+                    "url": "https://animesalt.cx/episode/jojos-bizarre-adventure-4x29/",
+                    "video_url": "https://ravok.buzz/video/db68424c064838f1bfdd2380c06b1ee6",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/db68424c064838f1bfdd2380c06b1ee6"
+                        }
+                    ]
+                },
+                {
+                    "title": "JoJo's Bizarre Adventure 4x30",
+                    "ep_num": "30",
+                    "url": "https://animesalt.cx/episode/jojos-bizarre-adventure-4x30/",
+                    "video_url": "https://ravok.buzz/video/6920d7076c2de8485aa00461c60f4150",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/6920d7076c2de8485aa00461c60f4150"
+                        }
+                    ]
+                },
+                {
+                    "title": "JoJo's Bizarre Adventure 4x31",
+                    "ep_num": "31",
+                    "url": "https://animesalt.cx/episode/jojos-bizarre-adventure-4x31/",
+                    "video_url": "https://ravok.buzz/video/e619f7a17016c62600bafacfb8e15a6f",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/e619f7a17016c62600bafacfb8e15a6f"
                         }
                     ]
                 },
@@ -258995,6 +259091,18 @@
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMGpzcVRrcW1DIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9RTmFVa01WdGtuIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVVlfRUNPWWVkIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2I4ejR1YmV2eiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvX2FuRkt0RFhZIn1d"
                                 }
                             ]
+                        },
+                        {
+                            "title": "Blue Box 2x5",
+                            "ep_num": "5",
+                            "url": "https://animesalt.cx/episode/blue-box-2x5/",
+                            "video_url": "https://ravok.buzz/video/fc60881482701eecdb18102735fc2308",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/fc60881482701eecdb18102735fc2308"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -259453,6 +259561,18 @@
                         {
                             "name": "Server 2",
                             "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvMGpzcVRrcW1DIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9RTmFVa01WdGtuIn0seyJsYW5ndWFnZSI6IlRlbHVndSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvVVlfRUNPWWVkIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2I4ejR1YmV2eiJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvX2FuRkt0RFhZIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "Blue Box 2x5",
+                    "ep_num": "5",
+                    "url": "https://animesalt.cx/episode/blue-box-2x5/",
+                    "video_url": "https://ravok.buzz/video/fc60881482701eecdb18102735fc2308",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/fc60881482701eecdb18102735fc2308"
                         }
                     ]
                 }
@@ -356302,6 +356422,18 @@
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTkNncE1KNTVrIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2Q5X0FtU005UyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaUpOU3dYLVM1In1d"
                                 }
                             ]
+                        },
+                        {
+                            "title": "The Detective Is Already Dead 2x3",
+                            "ep_num": "3",
+                            "url": "https://animesalt.cx/episode/the-detective-is-already-dead-2x3/",
+                            "video_url": "https://ravok.buzz/video/5df66942fc13bbf265e17d1a3cb14b91",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/5df66942fc13bbf265e17d1a3cb14b91"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -356536,6 +356668,18 @@
                         {
                             "name": "Server 2",
                             "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvTkNncE1KNTVrIn0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL2Q5X0FtU005UyJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvaUpOU3dYLVM1In1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Detective Is Already Dead 2x3",
+                    "ep_num": "3",
+                    "url": "https://animesalt.cx/episode/the-detective-is-already-dead-2x3/",
+                    "video_url": "https://ravok.buzz/video/5df66942fc13bbf265e17d1a3cb14b91",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/5df66942fc13bbf265e17d1a3cb14b91"
                         }
                     ]
                 }
@@ -399761,6 +399905,21 @@
                                     "url": "https://vidmoly.net/embed-t618pofy8tna.html"
                                 }
                             ]
+                        },
+                        {
+                            "title": "1x7",
+                            "url": "https://toonstream.us/episode/overgeared-1x7/",
+                            "video_url": "https://rubystm.com/e/1v0usnzpy2x8.html",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://rubystm.com/e/1v0usnzpy2x8.html"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://filesforever.link/embed/xcinuo1"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -399853,6 +400012,21 @@
                         {
                             "server": "Server 2",
                             "url": "https://vidmoly.net/embed-t618pofy8tna.html"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x7",
+                    "url": "https://toonstream.us/episode/overgeared-1x7/",
+                    "video_url": "https://rubystm.com/e/1v0usnzpy2x8.html",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://rubystm.com/e/1v0usnzpy2x8.html"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://filesforever.link/embed/xcinuo1"
                         }
                     ]
                 }
@@ -453450,6 +453624,21 @@
                                     "url": "https://filesforever.link/embed/dljiada"
                                 }
                             ]
+                        },
+                        {
+                            "title": "1x6",
+                            "url": "https://toonstream.us/episode/the-laid-off-cheat-granting-mage-enjoys-a-second-lease-on-life-1x6/",
+                            "video_url": "https://rubystm.com/e/icrijietb7zm.html",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://rubystm.com/e/icrijietb7zm.html"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://filesforever.link/embed/inciby6"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -453527,6 +453716,21 @@
                         {
                             "server": "Server 2",
                             "url": "https://filesforever.link/embed/dljiada"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x6",
+                    "url": "https://toonstream.us/episode/the-laid-off-cheat-granting-mage-enjoys-a-second-lease-on-life-1x6/",
+                    "video_url": "https://rubystm.com/e/icrijietb7zm.html",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://rubystm.com/e/icrijietb7zm.html"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://filesforever.link/embed/inciby6"
                         }
                     ]
                 }
@@ -543000,6 +543204,21 @@
                                     "url": "https://vidmoly.net/embed-01534q0ololp.html"
                                 }
                             ]
+                        },
+                        {
+                            "title": "1x3",
+                            "url": "https://toonstream.us/episode/even-though-i'm-a-super-timid-noble-girl,-i-accepted-the-bet-from-my-cunning-fiancé-1x3/",
+                            "video_url": "https://rubystm.com/ydr5t7gevq98.html",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://rubystm.com/ydr5t7gevq98.html"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://filesforever.link/embed/vr7uf1o"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -543032,6 +543251,21 @@
                         {
                             "server": "Server 2",
                             "url": "https://vidmoly.net/embed-01534q0ololp.html"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x3",
+                    "url": "https://toonstream.us/episode/even-though-i'm-a-super-timid-noble-girl,-i-accepted-the-bet-from-my-cunning-fiancé-1x3/",
+                    "video_url": "https://rubystm.com/ydr5t7gevq98.html",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://rubystm.com/ydr5t7gevq98.html"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://filesforever.link/embed/vr7uf1o"
                         }
                     ]
                 }
@@ -548365,6 +548599,21 @@
                                     "url": "https://filesforever.link/embed/ql7nfwa"
                                 }
                             ]
+                        },
+                        {
+                            "title": "1x3",
+                            "url": "https://toonstream.us/episode/psyren-1x3/",
+                            "video_url": "https://rubystm.com/e/l88kd4aw7z7u.html",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://rubystm.com/e/l88kd4aw7z7u.html"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://filesforever.link/embed/mq067df"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -548397,6 +548646,21 @@
                         {
                             "server": "Server 2",
                             "url": "https://filesforever.link/embed/ql7nfwa"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x3",
+                    "url": "https://toonstream.us/episode/psyren-1x3/",
+                    "video_url": "https://rubystm.com/e/l88kd4aw7z7u.html",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://rubystm.com/e/l88kd4aw7z7u.html"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://filesforever.link/embed/mq067df"
                         }
                     ]
                 }
@@ -552166,6 +552430,18 @@
                                     "url": "https://ravok.buzz/video/98c2473648afc991669f9b9334c11072"
                                 }
                             ]
+                        },
+                        {
+                            "title": "Overgeared 1x7",
+                            "ep_num": "7",
+                            "url": "https://animesalt.cx/episode/overgeared-1x7/",
+                            "video_url": "https://ravok.buzz/video/a8cbe7cb86fe200a4a8040b74844af2a",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/a8cbe7cb86fe200a4a8040b74844af2a"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -552248,6 +552524,18 @@
                         {
                             "name": "Server 1",
                             "url": "https://ravok.buzz/video/98c2473648afc991669f9b9334c11072"
+                        }
+                    ]
+                },
+                {
+                    "title": "Overgeared 1x7",
+                    "ep_num": "7",
+                    "url": "https://animesalt.cx/episode/overgeared-1x7/",
+                    "video_url": "https://ravok.buzz/video/a8cbe7cb86fe200a4a8040b74844af2a",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/a8cbe7cb86fe200a4a8040b74844af2a"
                         }
                     ]
                 }
@@ -552373,6 +552661,18 @@
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWEszeHlWWVF6In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1hBeEhkd044ciJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWXBhYVhTQzRvIn1d"
                                 }
                             ]
+                        },
+                        {
+                            "title": "PSYREN 1x3",
+                            "ep_num": "3",
+                            "url": "https://animesalt.cx/episode/psyren-1x3/",
+                            "video_url": "https://ravok.buzz/video/13f23623684f53a45a8560f79cce5411",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/13f23623684f53a45a8560f79cce5411"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -552407,6 +552707,18 @@
                         {
                             "name": "Server 2",
                             "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWEszeHlWWVF6In0seyJsYW5ndWFnZSI6IkVuZ2xpc2giLCJsaW5rIjoiaHR0cHM6XC9cL3BsYXllci5hYnlzc3BsYXllci5jb21cL1hBeEhkd044ciJ9LHsibGFuZ3VhZ2UiOiJKYXBhbmVzZSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvWXBhYVhTQzRvIn1d"
+                        }
+                    ]
+                },
+                {
+                    "title": "PSYREN 1x3",
+                    "ep_num": "3",
+                    "url": "https://animesalt.cx/episode/psyren-1x3/",
+                    "video_url": "https://ravok.buzz/video/13f23623684f53a45a8560f79cce5411",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/13f23623684f53a45a8560f79cce5411"
                         }
                     ]
                 }
@@ -553195,6 +553507,18 @@
                                     "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvV1htRGhzZXhjIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9FU2ItNE4wOWMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9SLTRpX3RRVVEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUUYtU0VXTmVtIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9tS0Q1OW9YZUkifV0%3D"
                                 }
                             ]
+                        },
+                        {
+                            "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life 1x6",
+                            "ep_num": "6",
+                            "url": "https://animesalt.cx/episode/the-laid-off-cheat-granting-mage-enjoys-a-second-lease-on-life-1x6/",
+                            "video_url": "https://ravok.buzz/video/1d04bcd683377838580d82db48fb5c87",
+                            "servers": [
+                                {
+                                    "name": "Server 1",
+                                    "url": "https://ravok.buzz/video/1d04bcd683377838580d82db48fb5c87"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -553273,6 +553597,18 @@
                         {
                             "name": "Server 2",
                             "url": "https://animesalt.cx/wp-content/themes/torofilm/public/plyr/player.php?data=W3sibGFuZ3VhZ2UiOiJIaW5kaSIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvV1htRGhzZXhjIn0seyJsYW5ndWFnZSI6IlRhbWlsIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9FU2ItNE4wOWMifSx7Imxhbmd1YWdlIjoiVGVsdWd1IiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9SLTRpX3RRVVEifSx7Imxhbmd1YWdlIjoiRW5nbGlzaCIsImxpbmsiOiJodHRwczpcL1wvcGxheWVyLmFieXNzcGxheWVyLmNvbVwvUUYtU0VXTmVtIn0seyJsYW5ndWFnZSI6IkphcGFuZXNlIiwibGluayI6Imh0dHBzOlwvXC9wbGF5ZXIuYWJ5c3NwbGF5ZXIuY29tXC9tS0Q1OW9YZUkifV0%3D"
+                        }
+                    ]
+                },
+                {
+                    "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life 1x6",
+                    "ep_num": "6",
+                    "url": "https://animesalt.cx/episode/the-laid-off-cheat-granting-mage-enjoys-a-second-lease-on-life-1x6/",
+                    "video_url": "https://ravok.buzz/video/1d04bcd683377838580d82db48fb5c87",
+                    "servers": [
+                        {
+                            "name": "Server 1",
+                            "url": "https://ravok.buzz/video/1d04bcd683377838580d82db48fb5c87"
                         }
                     ]
                 }
@@ -622410,6 +622746,820 @@
                     "url": "https://toonstream.us/episode/power-rangers-s-p-d-13x38/",
                     "video_url": "",
                     "servers": []
+                }
+            ]
+        },
+        {
+            "title": "Shin Chan Season 17",
+            "url": "https://toonstream.us/series/shin-chan-season-17",
+            "image": "https://image.tmdb.org/t/p/w780/2fV83573hGUljQ2Mlly632fgUx6.jpg",
+            "id": "4248711184250473121",
+            "language": "Hindi Dub",
+            "description": "Shin-chan, the boy next door, is a walking disaster, creating chaos wherever he goes. With the body of a child and the mind of an adult, Shinchan is wreaking more havoc than any child before. Shin-chan is carefree, optimistic and gets excited about everything. This 5 year-old likes to do things his way.Quality:1080p FHD | 720p HD | 480p",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "1x1",
+                            "url": "https://toonstream.us/episode/shin-chan-season-17-1x1/",
+                            "video_url": "https://abyssplayer.com/JQVZL_z8B",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/JQVZL_z8B"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/fmlT2kY1djYt/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x2",
+                            "url": "https://toonstream.us/episode/shin-chan-season-17-1x2/",
+                            "video_url": "https://abyssplayer.com/02Fz8_-BI",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/02Fz8_-BI"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/YucQHvrNeHat/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x3",
+                            "url": "https://toonstream.us/episode/shin-chan-season-17-1x3/",
+                            "video_url": "https://abyssplayer.com/rrzVBtGKe",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/rrzVBtGKe"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/BFOZ5b3v5JnN/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x4",
+                            "url": "https://toonstream.us/episode/shin-chan-season-17-1x4/",
+                            "video_url": "https://abyssplayer.com/xhTVbTdLx",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/xhTVbTdLx"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/0ZnwuD172udQ/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x5",
+                            "url": "https://toonstream.us/episode/shin-chan-season-17-1x5/",
+                            "video_url": "https://abyssplayer.com/xQKMmvSyb",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/xQKMmvSyb"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/cYi37kjA1d1i/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x6",
+                            "url": "https://toonstream.us/episode/shin-chan-season-17-1x6/",
+                            "video_url": "https://abyssplayer.com/-VWArsfaB",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/-VWArsfaB"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/8PwD0PyIt6Fe/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x7",
+                            "url": "https://toonstream.us/episode/shin-chan-season-17-1x7/",
+                            "video_url": "https://abyssplayer.com/JBviu48Tb9",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/JBviu48Tb9"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/8jRLp7UKibSe/"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "1x1",
+                    "url": "https://toonstream.us/episode/shin-chan-season-17-1x1/",
+                    "video_url": "https://abyssplayer.com/JQVZL_z8B",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/JQVZL_z8B"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/fmlT2kY1djYt/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x2",
+                    "url": "https://toonstream.us/episode/shin-chan-season-17-1x2/",
+                    "video_url": "https://abyssplayer.com/02Fz8_-BI",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/02Fz8_-BI"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/YucQHvrNeHat/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x3",
+                    "url": "https://toonstream.us/episode/shin-chan-season-17-1x3/",
+                    "video_url": "https://abyssplayer.com/rrzVBtGKe",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/rrzVBtGKe"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/BFOZ5b3v5JnN/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x4",
+                    "url": "https://toonstream.us/episode/shin-chan-season-17-1x4/",
+                    "video_url": "https://abyssplayer.com/xhTVbTdLx",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/xhTVbTdLx"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/0ZnwuD172udQ/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x5",
+                    "url": "https://toonstream.us/episode/shin-chan-season-17-1x5/",
+                    "video_url": "https://abyssplayer.com/xQKMmvSyb",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/xQKMmvSyb"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/cYi37kjA1d1i/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x6",
+                    "url": "https://toonstream.us/episode/shin-chan-season-17-1x6/",
+                    "video_url": "https://abyssplayer.com/-VWArsfaB",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/-VWArsfaB"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/8PwD0PyIt6Fe/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x7",
+                    "url": "https://toonstream.us/episode/shin-chan-season-17-1x7/",
+                    "video_url": "https://abyssplayer.com/JBviu48Tb9",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/JBviu48Tb9"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/8jRLp7UKibSe/"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "The Woodlies Movie",
+            "url": "https://toonstream.us/movies/the-woodlies-movie",
+            "image": "https://i.imgur.com/fx8w6o0.jpg",
+            "id": "8194677660022716435",
+            "language": "Hindi Dub",
+            "description": "The Woodlies leave the forest to scavenge food for winter fromanearby campsite. But first, they must battle their enemies so that they can bring home some food.Language:Hindi-Tamil-Telugu-EnglishQuality:1080p FHD | 720p HD | 480pRunning time:min",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "url": "https://toonstream.us/movies/the-woodlies-movie",
+                            "video_url": "https://cloudy.upns.one/#lj3zqv",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://cloudy.upns.one/#lj3zqv"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidmoly.net/embed-d4uc9qym9tb3.html"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "url": "https://toonstream.us/movies/the-woodlies-movie",
+                    "video_url": "https://cloudy.upns.one/#lj3zqv",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://cloudy.upns.one/#lj3zqv"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidmoly.net/embed-d4uc9qym9tb3.html"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Kung Fu Panda",
+            "url": "https://toonstream.us/movies/kung-fu-panda",
+            "image": "https://image.tmdb.org/t/p/w780/wWt4JYXTg5Wr3xBW2phBrMKgp3x.jpg",
+            "id": "6818441183975151991",
+            "language": "Hindi Dub",
+            "description": "When the Valley of Peace is threatened, lazy Po the panda discovers his destiny as the \"chosen one\" and trains to become a kung fu hero, but transforming the unsleek slacker into a brave warrior won't be easy. It's up to Master Shifu and the Furious Five -- Tigress, Crane, Mantis, Viper and Monkey -- to give it a try.Language:English – Tamil – Telugu – HindiQuality:1080p FHD | 720p HD | 480pRunning time:1h 32m",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "url": "https://toonstream.us/movies/kung-fu-panda",
+                            "video_url": "https://vidstreaming.xyz/v/P4nDH0qKvtiN/",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://vidstreaming.xyz/v/P4nDH0qKvtiN/"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "url": "https://toonstream.us/movies/kung-fu-panda",
+                    "video_url": "https://vidstreaming.xyz/v/P4nDH0qKvtiN/",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://vidstreaming.xyz/v/P4nDH0qKvtiN/"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "How to Train Your Dragon 2",
+            "url": "https://toonstream.us/movies/how-to-train-your-dragon-2",
+            "image": "https://image.tmdb.org/t/p/w780/d13Uj86LdbDLrfDoHR5aDOFYyJC.jpg",
+            "id": "6390687782036646215",
+            "language": "Hindi Dub",
+            "description": "Five years have passed since Hiccup and Toothless united the dragons and Vikings of Berk. Now, they spend their time charting unmapped territories. During one of their adventures, the pair discover a secret cave that houses hundreds of wild dragons -- and a mysterious dragon rider who turns out to be Hiccup's mother, Valka. Hiccup and Toothless then find themselves at the center of a battle to protect Berk from a power-hungry warrior named Drago.Language:English – HindiQuality:1080p FHD | 720p HD | 480pRunning time:1 hour 42 minutes",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "url": "https://toonstream.us/movies/how-to-train-your-dragon-2",
+                            "video_url": "https://vidstreaming.xyz/v/otUY0q2r2OOZ/",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://vidstreaming.xyz/v/otUY0q2r2OOZ/"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://multimovies.cloud/e/jsq6mnhm9wqz"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "url": "https://toonstream.us/movies/how-to-train-your-dragon-2",
+                    "video_url": "https://vidstreaming.xyz/v/otUY0q2r2OOZ/",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://vidstreaming.xyz/v/otUY0q2r2OOZ/"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://multimovies.cloud/e/jsq6mnhm9wqz"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Codename: Kids Next Door",
+            "url": "https://toonstream.us/series/codename-kids-next-door",
+            "image": "https://image.tmdb.org/t/p/w780/ppM8Pl6e8JIr39HPLRFgqDH3Vf1.jpg",
+            "id": "5862674521158136728",
+            "language": "Hindi Dub",
+            "description": "Taking numbers instead of names, five extraordinary 10-year-olds form a covert team called the Kids Next Door with one dedicated mission: to free all children from the tyrannical rule of adults.Quality:1080p FHD | 720p HD | 480p",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "1x1",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x1/",
+                            "video_url": "https://abyssplayer.com/AFgkrrlLG",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/AFgkrrlLG"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/Ww5mBBpqaTAq/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x2",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x2/",
+                            "video_url": "https://abyssplayer.com/L9KGlNCHu",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/L9KGlNCHu"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/qPuSiCaUa5rd/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x3",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x3/",
+                            "video_url": "https://abyssplayer.com/bRFf7maGv",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/bRFf7maGv"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/1z9CZTKdkYJB/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x4",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x4/",
+                            "video_url": "https://abyssplayer.com/3VsvGoqWH",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/3VsvGoqWH"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/WD8uaIH3DO0u/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x5",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x5/",
+                            "video_url": "https://abyssplayer.com/ZTOql56w1",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/ZTOql56w1"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/mY2JBBAznawf/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x6",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x6/",
+                            "video_url": "https://abyssplayer.com/6khAPhx6L",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/6khAPhx6L"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/bEK6kkxacbpy/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x7",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x7/",
+                            "video_url": "https://abyssplayer.com/RtH0zvs6WE",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/RtH0zvs6WE"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/NA5o74x4no1D/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x8",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x8/",
+                            "video_url": "https://abyssplayer.com/ukqn1f0-J",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/ukqn1f0-J"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/jdN9i0TkmnGV/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x9",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x9/",
+                            "video_url": "https://abyssplayer.com/LPGZzhRWB",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/LPGZzhRWB"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/48ac2a9xa5Bi/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x10",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x10/",
+                            "video_url": "https://abyssplayer.com/9-1W7PmtO",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/9-1W7PmtO"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/h78AaKipKrbM/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x11",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x11/",
+                            "video_url": "https://abyssplayer.com/4Sn5FabK2",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/4Sn5FabK2"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/NS93aXj67E8r/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x12",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x12/",
+                            "video_url": "https://abyssplayer.com/apMPpdeXA",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/apMPpdeXA"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/CNGnSKaj3YDP/"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "1x13",
+                            "url": "https://toonstream.us/episode/codename-kids-next-door-1x13/",
+                            "video_url": "https://abyssplayer.com/YcLXDXwKp",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/YcLXDXwKp"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/jhFIK0xTSSEy/"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "1x1",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x1/",
+                    "video_url": "https://abyssplayer.com/AFgkrrlLG",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/AFgkrrlLG"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/Ww5mBBpqaTAq/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x2",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x2/",
+                    "video_url": "https://abyssplayer.com/L9KGlNCHu",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/L9KGlNCHu"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/qPuSiCaUa5rd/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x3",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x3/",
+                    "video_url": "https://abyssplayer.com/bRFf7maGv",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/bRFf7maGv"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/1z9CZTKdkYJB/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x4",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x4/",
+                    "video_url": "https://abyssplayer.com/3VsvGoqWH",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/3VsvGoqWH"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/WD8uaIH3DO0u/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x5",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x5/",
+                    "video_url": "https://abyssplayer.com/ZTOql56w1",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/ZTOql56w1"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/mY2JBBAznawf/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x6",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x6/",
+                    "video_url": "https://abyssplayer.com/6khAPhx6L",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/6khAPhx6L"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/bEK6kkxacbpy/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x7",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x7/",
+                    "video_url": "https://abyssplayer.com/RtH0zvs6WE",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/RtH0zvs6WE"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/NA5o74x4no1D/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x8",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x8/",
+                    "video_url": "https://abyssplayer.com/ukqn1f0-J",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/ukqn1f0-J"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/jdN9i0TkmnGV/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x9",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x9/",
+                    "video_url": "https://abyssplayer.com/LPGZzhRWB",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/LPGZzhRWB"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/48ac2a9xa5Bi/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x10",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x10/",
+                    "video_url": "https://abyssplayer.com/9-1W7PmtO",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/9-1W7PmtO"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/h78AaKipKrbM/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x11",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x11/",
+                    "video_url": "https://abyssplayer.com/4Sn5FabK2",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/4Sn5FabK2"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/NS93aXj67E8r/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x12",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x12/",
+                    "video_url": "https://abyssplayer.com/apMPpdeXA",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/apMPpdeXA"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/CNGnSKaj3YDP/"
+                        }
+                    ]
+                },
+                {
+                    "title": "1x13",
+                    "url": "https://toonstream.us/episode/codename-kids-next-door-1x13/",
+                    "video_url": "https://abyssplayer.com/YcLXDXwKp",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/YcLXDXwKp"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/jhFIK0xTSSEy/"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Barbie and Stacie to the Rescue",
+            "url": "https://toonstream.us/movies/barbie-and-stacie-to-the-rescue",
+            "image": "https://image.tmdb.org/t/p/w780/dS4Qsu22Hrf6bZUtfALSAawa0tU.jpg",
+            "id": "5132248745705656180",
+            "language": "Hindi Dub",
+            "description": "When the Roberts family heads to Wisconsin for a hot air balloon festival, Stacie finds herself caught in between – too young for the adult activities and too old to play with the littles. But when Barbie and Skipper have a mishap, Stacie has the right skills to save the day!Language:English – HindiQuality:1080p FHD | 720p HD | 480pRunning time:1h 1m",
+            "seasons": [
+                {
+                    "season_number": 1,
+                    "episodes": [
+                        {
+                            "title": "Full Movie",
+                            "url": "https://toonstream.us/movies/barbie-and-stacie-to-the-rescue",
+                            "video_url": "https://abyssplayer.com/lKzt3wYIo",
+                            "servers": [
+                                {
+                                    "server": "Server 1",
+                                    "url": "https://abyssplayer.com/lKzt3wYIo"
+                                },
+                                {
+                                    "server": "Server 2",
+                                    "url": "https://vidstreaming.xyz/v/qy1BjJXS5Yqd/"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "episodes": [
+                {
+                    "title": "Full Movie",
+                    "url": "https://toonstream.us/movies/barbie-and-stacie-to-the-rescue",
+                    "video_url": "https://abyssplayer.com/lKzt3wYIo",
+                    "servers": [
+                        {
+                            "server": "Server 1",
+                            "url": "https://abyssplayer.com/lKzt3wYIo"
+                        },
+                        {
+                            "server": "Server 2",
+                            "url": "https://vidstreaming.xyz/v/qy1BjJXS5Yqd/"
+                        }
+                    ]
                 }
             ]
         }
