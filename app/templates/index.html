@@ -54,7 +54,6 @@
         object-fit: cover !important;
         display: block !important;
     }
-    /* Ensure the gradient overlay only covers the bottom part and is not too dark */
     .anime-card-image-wrapper::after {
         content: '' !important;
         position: absolute !important;
@@ -67,35 +66,46 @@
         z-index: 1 !important;
     }
     .play-overlay {
-        z-index: 2 !important; /* Play button should be above the gradient */
+        z-index: 2 !important; 
     }
 
-    /* 🛠️ PROFESSIONAL PAGINATION STYLES */
+    /* 🛠️ PROFESSIONAL PAGINATION STYLES (MOBILE FIXED) */
     .pagination-wrapper {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start; /* Starts from left */
         align-items: center;
         gap: 5px;
         margin: 30px auto;
-        padding: 8px 15px;
+        padding: 8px 12px;
         background: rgba(20, 20, 25, 0.8);
         border-radius: 30px;
-        width: fit-content;
+        width: 92%; /* Fits screen */
+        max-width: max-content;
+        overflow-x: auto; /* Allow swipe scroll */
+        -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
         border: 1px solid rgba(168, 85, 247, 0.3);
         box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        /* Hide scrollbar */
+        scrollbar-width: none; 
+        -ms-overflow-style: none;
     }
+    .pagination-wrapper::-webkit-scrollbar {
+        display: none; 
+    }
+    
     .page-btn {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-width: 35px;
-        height: 35px;
+        min-width: 32px;
+        height: 32px;
         border-radius: 8px;
         color: #ccc;
         text-decoration: none;
         font-weight: 600;
         font-size: 14px;
         transition: all 0.2s ease;
+        flex-shrink: 0; /* Prevent buttons from shrinking */
     }
     .page-btn:hover:not(.disabled) {
         background: rgba(168, 85, 247, 0.2);
@@ -158,7 +168,6 @@
             <div class="cat-icon" style="background: rgba(52, 152, 219, 0.2); color: #3498db;"><i class="fas fa-film"></i></div>
             <span>Movies</span>
         </a>
-        <!-- ✅ Cartoons Icon -->
         <a href="/cartoons" class="cat-item">
             <div class="cat-icon" style="background: rgba(46, 204, 113, 0.2); color: #2ecc71;"><i class="fas fa-child"></i></div>
             <span>Cartoons</span>
@@ -216,7 +225,7 @@
                 {% endfor %}
             </div>
 
-            <!-- 🛠️ PROFESSIONAL PAGINATION -->
+            <!-- 🛠️ PROFESSIONAL PAGINATION (WINDOW SIZE 5) -->
             {% if current_page is defined and total_pages > 1 %}
             <div class="pagination-wrapper">
                 <!-- First Page -->
@@ -226,9 +235,9 @@
                 <span class="page-btn arrow disabled">«</span>
                 {% endif %}
 
-                <!-- Page Numbers (Window of 10) -->
-                {% set window_size = 10 %}
-                {% set start_page = current_page - 4 if current_page > 5 else 1 %}
+                <!-- Page Numbers (Window of 5) -->
+                {% set window_size = 5 %}
+                {% set start_page = current_page - 2 if current_page > 3 else 1 %}
                 {% set end_page = start_page + window_size - 1 %}
                 
                 {% if end_page > total_pages %}
@@ -316,7 +325,6 @@
         </div>
         {% endif %}
 
-        <!-- ✅ सेक्शन: Random Series -->
         {% if random_series %}
         <div class="app-section">
             <div class="section-header">
@@ -342,7 +350,6 @@
         </div>
         {% endif %}
 
-        <!-- ✅ सेक्शन: Cartoons (Renamed from Animated Series) -->
         {% if cartoons %}
         <div class="app-section">
             <div class="section-header">
@@ -368,7 +375,6 @@
         </div>
         {% endif %}
 
-        <!-- ✅ सेक्शन: Random Movies -->
         {% if random_movies %}
         <div class="app-section">
             <div class="section-header">
@@ -434,7 +440,6 @@
             </div>
         </div>
 
-        <!-- 🔠 BROWSE A TO Z SECTION -->
         <div class="app-section">
             <div class="section-header">
                 <h2>🔠 Browse A to Z</h2>
@@ -445,7 +450,6 @@
                 {% endfor %}
             </div>
             
-            <!-- ✅ अपडेटेड सेक्शन: A to Z के नीचे 4 एनीमे -->
             {% if trending %}
             <div class="bottom-anime-row">
                 <div class="section-header" style="margin-top: 25px; margin-bottom: 15px;">
@@ -469,7 +473,6 @@
                 </div>
             </div>
             {% endif %}
-            <!-- ✅ अपडेटेड सेक्शन खत्म -->
             
         </div>
         {% endif %}
@@ -532,7 +535,6 @@
         slideInterval = setTimeout(showSlides, 5000);
     }
 
-    // 🟢 SMART ALGORITHM (YouTube Style)
     window.loadRecommendations = function() {
         if (window.location.pathname !== '/' && window.location.pathname !== '/home') return;
 
@@ -540,16 +542,11 @@
         if (!section) return;
 
         let userPrefs = JSON.parse(localStorage.getItem('userGenrePrefs')) || {};
-        
         let sortedGenres = Object.keys(userPrefs).sort((a, b) => userPrefs[b] - userPrefs[a]);
-        
         let topGenres = [];
         if (sortedGenres.length > 0) topGenres.push(sortedGenres[0]);
         if (sortedGenres.length > 1) topGenres.push(sortedGenres[1]);
-
-        if (topGenres.length === 0) {
-            topGenres = ['Action'];
-        }
+        if (topGenres.length === 0) topGenres = ['Action'];
 
         let genresQuery = encodeURIComponent(topGenres.join(','));
 
