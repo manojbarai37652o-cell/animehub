@@ -82,56 +82,15 @@
         .logo-text { font-size: 20px; font-weight: 800; color: #fff; margin: 0; display: inline-block; }
     </style>
 
-    <!-- 🛡️ SECURITY: Advanced Anti-Inspect & DevTools Blocker -->
+    <!-- 🛡️ SECURITY: Anti-Inspect & DevTools Blocker (Optimized) -->
     <script>
-        // 1. Right Click Disable
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        // 2. Keyboard Shortcuts Disable
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
         document.onkeydown = function(e) {
             if(e.key === 'F12' || e.keyCode === 123) { return false; }
             if(e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) { return false; }
             if(e.ctrlKey && (e.key === 'U' || e.key === 'u')) { return false; }
         };
-
-        // 3. DevTools Detection (Catches menu bypass)
-        setInterval(function() {
-            // Method A: Time-taking debugger (Freezes page if DevTools open)
-            const startTime = performance.now();
-            debugger;
-            const endTime = performance.now();
-
-            // Method B: Window Size Detection (If DevTools docked, window size changes)
-            const widthThreshold = window.outerWidth - window.innerWidth > 160;
-            const heightThreshold = window.outerHeight - window.innerHeight > 160;
-
-            if ((endTime - startTime > 100) || widthThreshold || heightThreshold) {
-                // DevTools is OPEN!
-                
-                // 1. Pause and Destroy Video Players instantly
-                document.querySelectorAll('video').forEach(v => { v.pause(); v.src = ''; });
-                document.querySelectorAll('iframe').forEach(f => { 
-                    if(!f.src.includes('bancadeltempoidea')) f.src = ''; 
-                });
-
-                // 2. Show a huge Red Security Warning
-                document.body.innerHTML = `
-                    <div style="position:fixed; top:0; left:0; width:100vw; height:100vh; background:#000; z-index:9999999; display:flex; flex-direction:column; align-items:center; justify-content:center; color:red; font-family:sans-serif; text-align:center; padding:20px;">
-                        <i class="fas fa-exclamation-triangle" style="font-size:60px; margin-bottom:20px;"></i>
-                        <h1 style="margin:0 0 10px 0;">SECURITY ALERT</h1>
-                        <p style="color:#fff; font-size:18px;">Developer Tools detected.<br>Please close DevTools to continue watching.</p>
-                        <p style="color:#888; font-size:14px; margin-top:20px;">Redirecting to home page...</p>
-                    </div>
-                `;
-
-                // 3. Redirect them after 2.5 seconds
-                setTimeout(() => {
-                    window.location.href = '/';
-                }, 2500);
-            }
-        }, 1000);
+        // 🛠️ FIX: Removed heavy debugger setInterval. This was causing massive lag.
     </script>
 
 </head>
@@ -390,6 +349,7 @@
 
     <script>
         window.open = function() { return null; };
+        // 🛠️ FIX: Run ad cleaner less frequently (every 3 seconds) to avoid UI freeze
         setInterval(() => {
             const adSelectors = [
                 'iframe[src*="popads"]', 'iframe[src*="propellerads"]', 'iframe[src*="onclickads"]',
@@ -400,11 +360,10 @@
                 document.querySelectorAll(selector).forEach(el => {
                     if (el.src && el.src.includes('bancadeltempoidea.org')) return;
                     if (el.closest('#videoSectionWrapper')) return;
-                    el.style.display = 'none'; 
                     el.remove(); 
                 });
             });
-        }, 1000);
+        }, 3000); // 3000ms = 3 seconds
     </script>
 
     <script>

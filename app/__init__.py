@@ -8,26 +8,23 @@ from datetime import datetime
 from config import Config
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-import libsql_client # 🛠️ Turso Comments ke liye
+import libsql_client
 
 from .services.db_manager import (get_all_anime, get_anime_by_id, search_anime,
                                    get_random_anime, get_featured_anime,
                                    get_anime_by_genre, get_single_random_anime,
                                    get_top_anime, get_hero_anime_list)
 
-# 🛠️ TURSO SETUP FOR COMMENTS (Ab Upstash nahi chahiye)
 TURSO_URL = os.environ.get('TURSO_DATABASE_URL')
 TURSO_TOKEN = os.environ.get('TURSO_AUTH_TOKEN')
 
 if TURSO_URL and TURSO_URL.startswith("libsql://"):
     TURSO_URL = TURSO_URL.replace("libsql://", "https://", 1)
 
-# Fallback JSON (Agar Turso connect na ho toh local file use hogi)
 COMMENTS_FILE = os.path.join(os.getcwd(), 'database', 'comments.json')
 
 def get_turso_client():
     if not TURSO_URL or not TURSO_TOKEN:
-        print("⚠️ Turso URL or Token missing for comments!")
         return None
     try:
         return libsql_client.create_client_sync(url=TURSO_URL, auth_token=TURSO_TOKEN)
@@ -38,8 +35,6 @@ def get_turso_client():
 def get_comments_data(anime_id):
     anime_id_str = str(anime_id)
     client = get_turso_client()
-    
-    # 1. Try fetching from Turso Cloud
     if client:
         try:
             client.execute("CREATE TABLE IF NOT EXISTS comments (anime_id TEXT PRIMARY KEY, data TEXT)")
@@ -51,7 +46,6 @@ def get_comments_data(anime_id):
         finally:
             client.close()
     
-    # 2. Fallback to local JSON
     if not os.path.exists(COMMENTS_FILE):
         return []
     try:
@@ -64,13 +58,10 @@ def get_comments_data(anime_id):
 def save_comment_data(anime_id, new_comment):
     anime_id_str = str(anime_id)
     comments = get_comments_data(anime_id)
-    
     if 'anime_id' in new_comment: del new_comment['anime_id']
-    
     comments.insert(0, new_comment)
-    comments = comments[:500] # Max 500 comments
+    comments = comments[:500] 
     
-    # 1. Save to Turso Cloud
     client = get_turso_client()
     turso_success = False
     if client:
@@ -83,7 +74,6 @@ def save_comment_data(anime_id, new_comment):
         finally:
             client.close()
             
-    # 2. Save to local JSON (Fallback / Backup)
     data = {}
     if os.path.exists(COMMENTS_FILE):
         try:
@@ -130,8 +120,7 @@ def create_app(config_class=Config):
     @app.route('/api/comments/<anime_id>', methods=['GET', 'POST'])
     def handle_comments(anime_id):
         if request.method == 'GET':
-            comments = get_comments_data(anime_id)
-            return jsonify(comments)
+            return jsonify(get_comments_data(anime_id))
         
         elif request.method == 'POST':
             req_data = request.get_json()
@@ -152,11 +141,9 @@ def create_app(config_class=Config):
                 'avatar_color': avatar_color
             }
             
-            success = save_comment_data(anime_id, new_comment)
-            if success:
+            if save_comment_data(anime_id, new_comment):
                 return jsonify(new_comment), 201
-            else:
-                return jsonify({'error': 'Failed to save comment'}), 500
+            return jsonify({'error': 'Failed to save comment'}), 500
 
     @app.route('/google284a1cf6abd21b7d.html')
     def google_verification():
@@ -172,76 +159,50 @@ def create_app(config_class=Config):
             for page in static_pages:
                 xml += f'  <url>\n    <loc>{base_url}{page}</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n'
             for anime in all_anime:
-                anime_url = f"{base_url}/watch/{anime.get('id', '')}"
-                xml += f'  <url>\n    <loc>{anime_url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n'
+                xml += f'  <url>\n    <loc>{base_url}/watch/{anime.get("id", "")}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n'
             xml += '</urlset>'
             return Response(xml, mimetype='application/xml')
         except Exception as e:
-            return Response("Error generating sitemap", status=500)
+            return Response("Error", status=500)
+
+    # 🛠️ CACHE VARIABLES FOR SPEED
+    _cached_filtered_data = None
+    _cached_inject_data = None
 
     def get_filtered_anime():
+        nonlocal _cached_filtered_data
+        if _cached_filtered_data is not None:
+            return _cached_filtered_data
+
         all_anime = get_all_anime()
         for anime in all_anime:
             if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                 anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
-        # 🛠️ THE ULTIMATE CARTOON FILTER
-        cartoon_keywords = [
-            'ben 10', 'tom and jerry', 'tom & jerry', 'scooby', 'looney tunes', 'popeye', 'pink panther', 
-            'mr bean', 'oggy', 'zig & sharko', 'grizzy', 'ed edd', 'ed, edd n eddy', 'johnny test', 
-            'powerpuff', 'dexter', 'courage', 'cow and chicken', 'adventure time', 'regular show', 
-            'gumball', 'rick and morty', 'simpsons', 'family guy', 'spongebob', 'avatar', 'teen titans', 
-            'justice league', 'x-men', 'ninja turtles', 'transformers', 'my little pony', 'care bears',
-            'johnny bravo', 'fosters home', 'chowder', 'steven universe', 'gravity falls', 'phineas and ferb',
-            'kim possible', 'danny phantom', 'fairly oddparents', 'jimmy neutron', 'rugrats', 'hey arnold',
-            'catdog', 'rockos modern life', 'ren and stimpy', 'animaniacs', 'tale spin', 'duck tales',
-            'darkwing duck', 'chip n dale', 'aladdin', 'hercules', 'tarzan', 'lilo and stitch',
-            'doraemon', 'shinchan', 'shin chan', 'kiteretsu', 'perman', 'ninja hattori', 'chhota bheem',
-            'motu patlu', 'pokemon', 'pokémon', 'beyblade', 'bakugan', 'digimon', 'yugioh', 'cardcaptor',
-            'roll no 21', 'keymon', 'vir the robot boy', 'rudra', 'gaju bhai', 'barbie', 'chikame', 'kochikame',
-            'sgt. frog', 'sgt frog', 'kiteretsu', 'ninja hattori', 'perman', 'tensai bakabon', 'chibi maruko',
-            'spiderman', 'spider-man', 'batman', 'superman', 'marvel', 'avengers', 'iron man', 'hulk',
-            'captain america', 'thor', 'doctor strange', 'flash', 'green lantern', 'aquaman', 'wonder woman',
-            'toy story', 'finding nemo', 'frozen', 'shrek', 'madagascar', 'kung fu panda',
-            'how to train your dragon', 'princess and the frog', '1001 nights', 'hotel transylvania', 
-            'despicable me', 'minions', 'ice age', 'cars', 'moana', 'coco', 'up',
-            'wall-e', 'ratatouille', 'the incredibles', 'zootopia', 'big hero 6', 'encanto',
-            'brave', 'tangled', 'wreck-it ralph', 'mulan', 'pocahontas', 'beauty and the beast',
-            'the lion king', 'the little mermaid', 'peter pan', 'pinocchio', 'bambi', 'dumbo'
-        ]
-
-        # 🛑 ANIME BLACKLIST (Agar title me ye words hain, toh pakka anime/series hai, cartoon nahi)
+        cartoon_keywords = ['ben 10', 'tom and jerry', 'tom & jerry', 'scooby', 'looney tunes', 'popeye', 'pink panther', 'mr bean', 'oggy', 'zig & sharko', 'grizzy', 'ed edd', 'ed, edd n eddy', 'johnny test', 'powerpuff', 'dexter', 'courage', 'cow and chicken', 'adventure time', 'regular show', 'gumball', 'rick and morty', 'simpsons', 'family guy', 'spongebob', 'avatar', 'teen titans', 'justice league', 'x-men', 'ninja turtles', 'transformers', 'my little pony', 'care bears', 'johnny bravo', 'fosters home', 'chowder', 'steven universe', 'gravity falls', 'phineas and ferb', 'kim possible', 'danny phantom', 'fairly oddparents', 'jimmy neutron', 'rugrats', 'hey arnold', 'catdog', 'rockos modern life', 'ren and stimpy', 'animaniacs', 'tale spin', 'duck tales', 'darkwing duck', 'chip n dale', 'aladdin', 'hercules', 'tarzan', 'lilo and stitch', 'doraemon', 'shinchan', 'shin chan', 'kiteretsu', 'perman', 'ninja hattori', 'chhota bheem', 'motu patlu', 'pokemon', 'pokémon', 'beyblade', 'bakugan', 'digimon', 'yugioh', 'cardcaptor', 'roll no 21', 'keymon', 'vir the robot boy', 'rudra', 'gaju bhai', 'barbie', 'chikame', 'kochikame', 'sgt. frog', 'sgt frog', 'kiteretsu', 'ninja hattori', 'perman', 'tensai bakabon', 'chibi maruko', 'spiderman', 'spider-man', 'batman', 'superman', 'marvel', 'avengers', 'iron man', 'hulk', 'captain america', 'thor', 'doctor strange', 'flash', 'green lantern', 'aquaman', 'wonder woman', 'toy story', 'finding nemo', 'frozen', 'shrek', 'madagascar', 'kung fu panda', 'how to train your dragon', 'princess and the frog', '1001 nights', 'hotel transylvania', 'despicable me', 'minions', 'ice age', 'cars', 'moana', 'coco', 'up', 'wall-e', 'ratatouille', 'the incredibles', 'zootopia', 'big hero 6', 'encanto', 'brave', 'tangled', 'wreck-it ralph', 'mulan', 'pocahontas', 'beauty and the beast', 'the lion king', 'the little mermaid', 'peter pan', 'pinocchio', 'bambi', 'dumbo']
         anime_blacklist = ['cuckoos', 'kamen rider', 'tokusatsu', 'anime', 'senpai']
+
+        # 🛠️ OPTIMIZATION: Pre-compile regex for massive speed boost
+        cartoon_regex = re.compile(r'\b(' + '|'.join(map(re.escape, cartoon_keywords)) + r')\b', re.IGNORECASE)
+        blacklist_regex = re.compile(r'\b(' + '|'.join(map(re.escape, anime_blacklist)) + r')\b', re.IGNORECASE)
 
         cartoons_list = []
         movies_list = []
         series_list = []
 
         for a in all_anime:
-            title_lower = a['title'].lower()
+            title = a['title']
             
-            # 🔥 FIX 1: Regex Word Boundary (\b) ka use kiya taaki partial match na ho (e.g., 'up' match na kare 'couple' me)
-            is_cartoon = False
-            for k in cartoon_keywords:
-                if re.search(r'\b' + re.escape(k) + r'\b', title_lower):
-                    is_cartoon = True
-                    break
-            
-            # Agar title me blacklist wale words hain, toh use cartoon mat banao
-            if any(re.search(r'\b' + re.escape(b) + r'\b', title_lower) for b in anime_blacklist):
+            is_cartoon = bool(cartoon_regex.search(title))
+            if is_cartoon and blacklist_regex.search(title):
                 is_cartoon = False
 
-            # 🔥 FIX 2: Behtar Movie Detection (Agar 'Full Movie' ya sirf 'Movie' hai title me)
             is_movie = False
             if a.get('episodes') and len(a['episodes']) > 0:
                 first_ep_title = a['episodes'][0].get('title', '').lower()
                 if 'full movie' in first_ep_title or 'movie' in first_ep_title:
                     is_movie = True
 
-            # 🛠️ THE STRICT PRIORITY: 
-            # 1. Agar movie hai, toh sirf movies_list me jayega.
-            # 2. Agar movie nahi hai aur cartoon hai, toh cartoons_list me jayega.
-            # 3. Agar movie nahi hai aur cartoon bhi nahi hai, toh series_list me jayega.
             if is_movie:
                 movies_list.append(a)
             elif is_cartoon:
@@ -252,20 +213,28 @@ def create_app(config_class=Config):
         trending_full = sorted(series_list, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)
         popular_full = sorted(series_list, key=lambda x: len(x.get('episodes', [])), reverse=True)
         
-        return all_anime, trending_full, popular_full, movies_list, series_list, cartoons_list
+        _cached_filtered_data = (all_anime, trending_full, popular_full, movies_list, series_list, cartoons_list)
+        return _cached_filtered_data
 
     @app.context_processor
     def inject_search_data():
+        nonlocal _cached_inject_data
+        if _cached_inject_data is not None:
+            return _cached_inject_data
+            
         try:
             all_anime = get_all_anime()
             for anime in all_anime:
                 if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                     anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
+            # Sort only once for the context processor
             popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)[:10]
             top_rated = sorted(all_anime, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)[:10]
             trending_searches = [a['title'] for a in popular[:6]] 
-            return dict(popular_anime_overlay=popular, top_rated_anime_overlay=top_rated, trending_searches=trending_searches)
+            
+            _cached_inject_data = dict(popular_anime_overlay=popular, top_rated_anime_overlay=top_rated, trending_searches=trending_searches)
+            return _cached_inject_data
         except:
             return dict(popular_anime_overlay=[], top_rated_anime_overlay=[], trending_searches=[])
 
@@ -274,22 +243,15 @@ def create_app(config_class=Config):
     def api_recommend():
         genres_param = request.args.get('genres', 'Action')
         user_genres = [g.strip().lower() for g in genres_param.split(',') if g.strip()]
-        
         all_anime = get_all_anime()
         
-        for anime in all_anime:
-            if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
-                anime['rating'] = generate_smart_rating(anime.get('title', ''))
-
         recommended = []
-        
         genre_keywords = {
             'action': ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan', 'fight', 'battle', 'action', 'hero', 'hunter'],
             'romance': ['love', 'romance', 'couple', 'girlfriend', 'kaguya', 'wedding', 'darling', 'horimiya'],
             'fantasy': ['reincarnated', 'isekai', 'magic', 'dungeon', 'king', 'sword', 'fantasy', 'witch', 'demon'],
             'comedy': ['comedy', 'life', 'school', 'family', 'spy', 'funny', 'slice', 'club']
         }
-
         for anime in all_anime:
             title_lower = anime['title'].lower()
             for g in user_genres:
@@ -297,12 +259,10 @@ def create_app(config_class=Config):
                     if any(k in title_lower for k in genre_keywords[g]):
                         recommended.append(anime)
                         break
-
         if not recommended:
             recommended = random.sample(all_anime, min(12, len(all_anime)))
         else:
             random.shuffle(recommended)
-        
         return jsonify(recommended[:12])
 
     @app.route('/')
@@ -313,19 +273,11 @@ def create_app(config_class=Config):
         movies = movies_full[:12]
         cartoons = cartoons_full[:12]
         hero_anime_list = get_hero_anime_list(5)
-        
         random_series = random.sample(series_full, min(len(series_full), 10)) if series_full else []
         random_movies = random.sample(movies_full, min(len(movies_full), 10)) if movies_full else []
 
-        return render_template('index.html', 
-                               trending=trending, 
-                               popular=popular, 
-                               movies=movies, 
-                               cartoons=cartoons, 
-                               hero_anime_list=hero_anime_list,
-                               random_series=random_series,
-                               random_movies=random_movies,
-                               page_title='Home')
+        return render_template('index.html', trending=trending, popular=popular, movies=movies, cartoons=cartoons, 
+                               hero_anime_list=hero_anime_list, random_series=random_series, random_movies=random_movies, page_title='Home')
 
     @app.route('/trending')
     def trending_page():
@@ -361,6 +313,7 @@ def create_app(config_class=Config):
     def az_page(letter):
         letter = letter.upper()
         all_anime, _, _, _, _, _ = get_filtered_anime()
+        # Optimization: filter in place without looping twice
         filtered = [a for a in all_anime if a['title'].upper().startswith(letter)]
         filtered.sort(key=lambda x: x['title'].lower())
         return render_template('index.html', anime_list=filtered, page_title=f"Anime starting with '{letter}'")
@@ -369,10 +322,6 @@ def create_app(config_class=Config):
     def search():
         query = request.args.get('q', '')
         anime_list = search_anime(query) if query else get_all_anime()
-        for anime in anime_list:
-            if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
-                anime['rating'] = generate_smart_rating(anime.get('title', ''))
-
         return render_template('index.html', anime_list=anime_list, search_query=query, page_title=f"Search Results")
 
     @app.route('/random')
@@ -404,7 +353,6 @@ def create_app(config_class=Config):
             if episodes:
                 seasons = [{"season_number": 1, "episodes": episodes}]
         
-        # 🛠️ FIX: Convert season_number to string to avoid "2" == 2 mismatch
         season_number_str = str(season_number)
         current_season = next((s for s in seasons if str(s.get('season_number')) == season_number_str), None)
         
@@ -416,16 +364,11 @@ def create_app(config_class=Config):
         
         current_ep, current_index = None, 0
         if episodes:
-            if ep_number is None:
-                ep_number = 1 # Default to episode 1 if not specified
-
-            # 🛠️ FIX: Convert to string and match robustly against ep_num and title
+            if ep_number is None: ep_number = 1
             ep_number_str = str(ep_number)
             for i, ep in enumerate(episodes):
                 ep_num_db = str(ep.get('ep_num', ''))
                 ep_title = ep.get('title', '').lower()
-                
-                # Match either by ep_num field OR by "episode X" in title
                 if ep_num_db == ep_number_str or f"episode {ep_number_str}" in ep_title or ep_title == ep_number_str:
                     current_ep = ep
                     current_index = i
@@ -434,28 +377,19 @@ def create_app(config_class=Config):
             if not current_ep:
                 current_ep = episodes[0]
                 current_index = 0
-                ep_number = current_ep.get('ep_num', 1) # Update ep_number to reflect the actual episode playing
+                ep_number = current_ep.get('ep_num', 1)
                 
         prev_ep_num, next_ep_num = None, None
         if episodes:
-            if current_index > 0:
-                prev_ep = episodes[current_index - 1]
-                prev_ep_num = prev_ep.get('ep_num', current_index) # Fallback to index
-            if current_index < len(episodes) - 1:
-                next_ep = episodes[current_index + 1]
-                next_ep_num = next_ep.get('ep_num', current_index + 2)
+            if current_index > 0: prev_ep_num = episodes[current_index - 1].get('ep_num', current_index)
+            if current_index < len(episodes) - 1: next_ep_num = episodes[current_index + 1].get('ep_num', current_index + 2)
                 
         title_lower = anime['title'].lower()
-        if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan']):
-            genres_text = "Action • Adventure • Fantasy"
-        elif any(k in title_lower for k in ['love', 'romance', 'couple', 'girlfriend', 'kaguya']):
-            genres_text = "Romance • Comedy • Drama"
-        elif any(k in title_lower for k in ['reincarnated', 'isekai', 'magic', 'dungeon', 'king']):
-            genres_text = "Fantasy • Isekai • Adventure"
-        elif any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy']):
-            genres_text = "Comedy • Slice of Life • Drama"
-        else:
-            genres_text = "Action • Adventure • Drama"
+        if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan']): genres_text = "Action • Adventure • Fantasy"
+        elif any(k in title_lower for k in ['love', 'romance', 'couple', 'girlfriend', 'kaguya']): genres_text = "Romance • Comedy • Drama"
+        elif any(k in title_lower for k in ['reincarnated', 'isekai', 'magic', 'dungeon', 'king']): genres_text = "Fantasy • Isekai • Adventure"
+        elif any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy']): genres_text = "Comedy • Slice of Life • Drama"
+        else: genres_text = "Action • Adventure • Drama"
             
         description = f"Watch the amazing story of {anime['title']}. An unforgettable journey filled..."
         related_anime = get_random_anime(anime_id, count=4)
