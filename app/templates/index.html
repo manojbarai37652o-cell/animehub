@@ -69,6 +69,39 @@
     .play-overlay {
         z-index: 2 !important; /* Play button should be above the gradient */
     }
+
+    /* 🛠️ PAGINATION STYLES */
+    .pagination-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin: 30px 0;
+        padding: 10px;
+    }
+    .page-btn {
+        background: #a855f7;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+    .page-btn:hover {
+        background: #9333ea;
+    }
+    .page-btn.disabled {
+        background: #333;
+        color: #888;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+    .page-info {
+        color: #fff;
+        font-weight: bold;
+        font-size: 14px;
+    }
 </style>
 
 <div class="main-content-wrapper">
@@ -148,7 +181,13 @@
             <div class="az-anime-grid">
                 {% for anime in anime_list %}
                 <a href="/watch/{{ anime.id }}" class="anime-card">
-                    <span class="rank-number">{{ loop.index }}</span>
+                    <span class="rank-number">
+                        {% if current_page is defined %}
+                            {{ (current_page - 1) * 30 + loop.index }}
+                        {% else %}
+                            {{ loop.index }}
+                        {% endif %}
+                    </span>
                     <div class="anime-card-image-wrapper">
                         <img src="{{ anime.image }}" alt="{{ anime.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/150x220?text=No+Image';">
                         <div class="play-overlay">
@@ -164,6 +203,26 @@
                 <p style="text-align: center; width: 100%; padding: 20px; color: #888;">कोई एनीमे नहीं मिला।</p>
                 {% endfor %}
             </div>
+
+            <!-- 🛠️ PAGINATION BUTTONS -->
+            {% if current_page is defined and total_pages > 1 %}
+            <div class="pagination-wrapper">
+                {% if current_page > 1 %}
+                <a href="/az/{{ current_letter }}?page={{ current_page - 1 }}" class="page-btn">« Previous</a>
+                {% else %}
+                <span class="page-btn disabled">« Previous</span>
+                {% endif %}
+
+                <span class="page-info">Page {{ current_page }} of {{ total_pages }}</span>
+
+                {% if current_page < total_pages %}
+                <a href="/az/{{ current_letter }}?page={{ current_page + 1 }}" class="page-btn">Next »</a>
+                {% else %}
+                <span class="page-btn disabled">Next »</span>
+                {% endif %}
+            </div>
+            {% endif %}
+            <!-- 🛠️ END PAGINATION -->
 
             {% if 'Anime starting with' in page_title or page_title == '#' %}
             <div class="alphabet-nav">

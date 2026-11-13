@@ -4,6 +4,7 @@ import os
 import re
 import json
 import requests
+import math # 🛠️ Pagination ke liye zaroori hai
 from datetime import datetime
 from config import Config
 from flask_limiter import Limiter
@@ -306,13 +307,35 @@ def create_app(config_class=Config):
         _, _, popular_full, _, _, _ = get_filtered_anime()
         return render_template('index.html', anime_list=popular_full, page_title="Popular Anime")
 
+    # 🛠️ PAGINATION ADDED HERE
     @app.route('/az/<letter>')
     def az_page(letter):
         letter = letter.upper()
+        page = request.args.get('page', 1, type=int)
+        per_page = 30 # Ek page par 30 anime
+        
         all_anime, _, _, _, _, _ = get_filtered_anime()
-        filtered = [a for a in all_anime if a['title'].upper().startswith(letter)]
+        
+        if letter == '#':
+            filtered = [a for a in all_anime if not a['title'][0].isalpha()]
+        else:
+            filtered = [a for a in all_anime if a['title'].upper().startswith(letter)]
+            
         filtered.sort(key=lambda x: x['title'].lower())
-        return render_template('index.html', anime_list=filtered, page_title=f"Anime starting with '{letter}'")
+        
+        total_items = len(filtered)
+        total_pages = math.ceil(total_items / per_page) if total_items > 0 else 1
+        
+        start = (page - 1) * per_page
+        end = start + per_page
+        paginated_anime = filtered[start:end]
+        
+        return render_template('index.html', 
+                               anime_list=paginated_anime, 
+                               page_title=f"Anime starting with '{letter}'",
+                               current_page=page,
+                               total_pages=total_pages,
+                               current_letter=letter)
 
     @app.route('/search')
     def search():
@@ -358,7 +381,6 @@ def create_app(config_class=Config):
             
         episodes = current_season.get('episodes', []) if current_season else []
         
-        # 🛠️ FIX: Details page will only show if ep_number is None
         current_ep, current_index = None, 0
         if episodes and ep_number is not None:
             ep_number_str = str(ep_number)
