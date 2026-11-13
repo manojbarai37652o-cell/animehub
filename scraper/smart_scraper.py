@@ -85,7 +85,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     print("=" * 60)
-    print("📺 SMART SCRAPER चालू (HTML PARSER MODE)")
+    print("📺 SMART SCRAPER चालू (HTML PARSER MODE - Server 2 Fix)")
     print("🛑 रोकने के लिए Ctrl + C दबाओ")
     print("=" * 60)
 
@@ -199,10 +199,31 @@ if __name__ == '__main__':
                                 for ep in episodes:
                                     try:
                                         page.goto(ep['url'], wait_until="domcontentloaded", timeout=90000)
-                                        page.wait_for_timeout(1500)
-                                        ep_html = page.content()
-                                        ep['servers'] = parse_video_servers(ep_html, ep['url'])
-                                        ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
+                                        page.wait_for_timeout(3000) # Wait for player
+                                        
+                                        # 🛠️ SERVER 2 FIX APPLIED HERE
+                                        try:
+                                            server2_btn = page.query_selector("div[onclick='changeServer(1)']")
+                                            if server2_btn:
+                                                server2_btn.click(force=True)
+                                                page.wait_for_timeout(3000)
+                                        except: pass
+                                        
+                                        video_url = ""
+                                        iframe = page.query_selector("iframe[src*='ravok.buzz']")
+                                        if iframe:
+                                            video_url = iframe.get_attribute('src')
+                                        else:
+                                            match = re.search(r'(https?://ravok\.buzz/video/[a-zA-Z0-9]+)', page.content())
+                                            if match: video_url = match.group(1)
+                                            
+                                        if video_url:
+                                            ep['servers'] = [{"name": "Server 1", "url": video_url}, {"name": "Server 2", "url": video_url}]
+                                            ep['video_url'] = video_url
+                                        else:
+                                            ep['servers'] = parse_video_servers(page.content(), ep['url'])
+                                            ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
+                                            
                                     except: ep['video_url'] = ""
                                 anime_seasons.append({"season_number": 1, "episodes": episodes})
                         else:
@@ -213,7 +234,7 @@ if __name__ == '__main__':
                                 btn = page.query_selector(f'.season-btn[data-season="{season_num}"]')
                                 if btn:
                                     btn.click()
-                                    page.wait_for_timeout(2000)
+                                    page.wait_for_timeout(3000) # Increased wait for AJAX
                                     season_html = page.content()
                                     episodes = parse_season_episodes(season_html, anime['url'])
                                     if episodes:
@@ -221,10 +242,31 @@ if __name__ == '__main__':
                                         for ep in episodes:
                                             try:
                                                 page.goto(ep['url'], wait_until="domcontentloaded", timeout=90000)
-                                                page.wait_for_timeout(1500)
-                                                ep_html = page.content()
-                                                ep['servers'] = parse_video_servers(ep_html, ep['url'])
-                                                ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
+                                                page.wait_for_timeout(3000) # Wait for player
+                                                
+                                                # 🛠️ SERVER 2 FIX APPLIED HERE
+                                                try:
+                                                    server2_btn = page.query_selector("div[onclick='changeServer(1)']")
+                                                    if server2_btn:
+                                                        server2_btn.click(force=True)
+                                                        page.wait_for_timeout(3000)
+                                                except: pass
+                                                
+                                                video_url = ""
+                                                iframe = page.query_selector("iframe[src*='ravok.buzz']")
+                                                if iframe:
+                                                    video_url = iframe.get_attribute('src')
+                                                else:
+                                                    match = re.search(r'(https?://ravok\.buzz/video/[a-zA-Z0-9]+)', page.content())
+                                                    if match: video_url = match.group(1)
+                                                    
+                                                if video_url:
+                                                    ep['servers'] = [{"name": "Server 1", "url": video_url}, {"name": "Server 2", "url": video_url}]
+                                                    ep['video_url'] = video_url
+                                                else:
+                                                    ep['servers'] = parse_video_servers(page.content(), ep['url'])
+                                                    ep['video_url'] = ep['servers'][0]['url'] if ep['servers'] else ""
+                                                    
                                             except: ep['video_url'] = ""
                                         anime_seasons.append({"season_number": season_num, "episodes": episodes})
                         
