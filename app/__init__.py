@@ -165,7 +165,6 @@ def create_app(config_class=Config):
         except Exception as e:
             return Response("Error", status=500)
 
-    # 🛠️ CACHE VARIABLES FOR SPEED
     _cached_filtered_data = None
     _cached_inject_data = None
 
@@ -182,7 +181,6 @@ def create_app(config_class=Config):
         cartoon_keywords = ['ben 10', 'tom and jerry', 'tom & jerry', 'scooby', 'looney tunes', 'popeye', 'pink panther', 'mr bean', 'oggy', 'zig & sharko', 'grizzy', 'ed edd', 'ed, edd n eddy', 'johnny test', 'powerpuff', 'dexter', 'courage', 'cow and chicken', 'adventure time', 'regular show', 'gumball', 'rick and morty', 'simpsons', 'family guy', 'spongebob', 'avatar', 'teen titans', 'justice league', 'x-men', 'ninja turtles', 'transformers', 'my little pony', 'care bears', 'johnny bravo', 'fosters home', 'chowder', 'steven universe', 'gravity falls', 'phineas and ferb', 'kim possible', 'danny phantom', 'fairly oddparents', 'jimmy neutron', 'rugrats', 'hey arnold', 'catdog', 'rockos modern life', 'ren and stimpy', 'animaniacs', 'tale spin', 'duck tales', 'darkwing duck', 'chip n dale', 'aladdin', 'hercules', 'tarzan', 'lilo and stitch', 'doraemon', 'shinchan', 'shin chan', 'kiteretsu', 'perman', 'ninja hattori', 'chhota bheem', 'motu patlu', 'pokemon', 'pokémon', 'beyblade', 'bakugan', 'digimon', 'yugioh', 'cardcaptor', 'roll no 21', 'keymon', 'vir the robot boy', 'rudra', 'gaju bhai', 'barbie', 'chikame', 'kochikame', 'sgt. frog', 'sgt frog', 'kiteretsu', 'ninja hattori', 'perman', 'tensai bakabon', 'chibi maruko', 'spiderman', 'spider-man', 'batman', 'superman', 'marvel', 'avengers', 'iron man', 'hulk', 'captain america', 'thor', 'doctor strange', 'flash', 'green lantern', 'aquaman', 'wonder woman', 'toy story', 'finding nemo', 'frozen', 'shrek', 'madagascar', 'kung fu panda', 'how to train your dragon', 'princess and the frog', '1001 nights', 'hotel transylvania', 'despicable me', 'minions', 'ice age', 'cars', 'moana', 'coco', 'up', 'wall-e', 'ratatouille', 'the incredibles', 'zootopia', 'big hero 6', 'encanto', 'brave', 'tangled', 'wreck-it ralph', 'mulan', 'pocahontas', 'beauty and the beast', 'the lion king', 'the little mermaid', 'peter pan', 'pinocchio', 'bambi', 'dumbo']
         anime_blacklist = ['cuckoos', 'kamen rider', 'tokusatsu', 'anime', 'senpai']
 
-        # 🛠️ OPTIMIZATION: Pre-compile regex for massive speed boost
         cartoon_regex = re.compile(r'\b(' + '|'.join(map(re.escape, cartoon_keywords)) + r')\b', re.IGNORECASE)
         blacklist_regex = re.compile(r'\b(' + '|'.join(map(re.escape, anime_blacklist)) + r')\b', re.IGNORECASE)
 
@@ -228,7 +226,6 @@ def create_app(config_class=Config):
                 if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
                     anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
-            # Sort only once for the context processor
             popular = sorted(all_anime, key=lambda x: len(x.get('episodes', [])), reverse=True)[:10]
             top_rated = sorted(all_anime, key=lambda x: float(x.get('rating', 0) or 0), reverse=True)[:10]
             trending_searches = [a['title'] for a in popular[:6]] 
@@ -313,7 +310,6 @@ def create_app(config_class=Config):
     def az_page(letter):
         letter = letter.upper()
         all_anime, _, _, _, _, _ = get_filtered_anime()
-        # Optimization: filter in place without looping twice
         filtered = [a for a in all_anime if a['title'].upper().startswith(letter)]
         filtered.sort(key=lambda x: x['title'].lower())
         return render_template('index.html', anime_list=filtered, page_title=f"Anime starting with '{letter}'")
@@ -362,9 +358,9 @@ def create_app(config_class=Config):
             
         episodes = current_season.get('episodes', []) if current_season else []
         
+        # 🛠️ FIX: Details page will only show if ep_number is None
         current_ep, current_index = None, 0
-        if episodes:
-            if ep_number is None: ep_number = 1
+        if episodes and ep_number is not None:
             ep_number_str = str(ep_number)
             for i, ep in enumerate(episodes):
                 ep_num_db = str(ep.get('ep_num', ''))
@@ -380,7 +376,7 @@ def create_app(config_class=Config):
                 ep_number = current_ep.get('ep_num', 1)
                 
         prev_ep_num, next_ep_num = None, None
-        if episodes:
+        if episodes and current_ep is not None:
             if current_index > 0: prev_ep_num = episodes[current_index - 1].get('ep_num', current_index)
             if current_index < len(episodes) - 1: next_ep_num = episodes[current_index + 1].get('ep_num', current_index + 2)
                 
