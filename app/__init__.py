@@ -403,39 +403,47 @@ def create_app(config_class=Config):
             episodes = anime.get('episodes', [])
             if episodes:
                 seasons = [{"season_number": 1, "episodes": episodes}]
-                
-        current_season = next((s for s in seasons if s['season_number'] == season_number), None)
+        
+        # 🛠️ FIX: Convert season_number to string to avoid "2" == 2 mismatch
+        season_number_str = str(season_number)
+        current_season = next((s for s in seasons if str(s.get('season_number')) == season_number_str), None)
+        
         if not current_season and seasons:
             current_season = seasons[0]
-            season_number = current_season['season_number']
+            season_number = current_season.get('season_number', 1)
             
-        episodes = current_season['episodes'] if current_season else []
+        episodes = current_season.get('episodes', []) if current_season else []
         
         current_ep, current_index = None, 0
         if episodes:
             if ep_number is None:
-                current_ep = episodes[0]
-                current_index = 0
-            else:
-                match = re.search(r'(\d+)$', str(ep_number))
-                actual_ep_num = match.group(1) if match else str(ep_number)
-                for i, ep in enumerate(episodes):
-                    if f"Episode {actual_ep_num}" in ep.get('title', '') or str(ep.get('ep_num')) == actual_ep_num:
-                        current_ep = ep
-                        current_index = i
-                        break
+                ep_number = 1 # Default to episode 1 if not specified
+
+            # 🛠️ FIX: Convert to string and match robustly against ep_num and title
+            ep_number_str = str(ep_number)
+            for i, ep in enumerate(episodes):
+                ep_num_db = str(ep.get('ep_num', ''))
+                ep_title = ep.get('title', '').lower()
+                
+                # Match either by ep_num field OR by "episode X" in title
+                if ep_num_db == ep_number_str or f"episode {ep_number_str}" in ep_title or ep_title == ep_number_str:
+                    current_ep = ep
+                    current_index = i
+                    break
+                    
             if not current_ep:
                 current_ep = episodes[0]
                 current_index = 0
+                ep_number = current_ep.get('ep_num', 1) # Update ep_number to reflect the actual episode playing
                 
         prev_ep_num, next_ep_num = None, None
         if episodes:
             if current_index > 0:
-                prev_match = episodes[current_index - 1]['title'].split(' ')[-1]
-                if prev_match.isdigit(): prev_ep_num = prev_match
+                prev_ep = episodes[current_index - 1]
+                prev_ep_num = prev_ep.get('ep_num', current_index) # Fallback to index
             if current_index < len(episodes) - 1:
-                next_match = episodes[current_index + 1]['title'].split(' ')[-1]
-                if next_match.isdigit(): next_ep_num = next_match
+                next_ep = episodes[current_index + 1]
+                next_ep_num = next_ep.get('ep_num', current_index + 2)
                 
         title_lower = anime['title'].lower()
         if any(k in title_lower for k in ['slayer', 'jujutsu', 'naruto', 'piece', 'leveling', 'titan']):

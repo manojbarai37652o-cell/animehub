@@ -14,7 +14,8 @@
          data-image="{{ anime.image }}"
          data-genres="{{ genres_text }}" 
          data-ep-title="{{ current_ep.title if current_ep and current_ep.title else 'Episode 1' }}"
-         data-season="{{ current_season.season_number if current_season else 1 }}">
+         data-season="{{ current_season.season_number if current_season else 1 }}"
+         data-ep-num="{{ ep_number if ep_number is not none else 1 }}">
     </div>
 
     {% if ep_number is not none and current_ep and current_ep.video_url %}
@@ -126,7 +127,8 @@
                         <strong>Season {{ season.season_number }}</strong>
                         <span>{{ season.episodes|length }} Episodes</span>
                     </div>
-                    {% if current_season and current_season.season_number == season.season_number %}
+                    <!-- 🛠️ FIX: Type mismatch fix for active season check -->
+                    {% if current_season and current_season.season_number|string == season.season_number|string %}
                     <i class="fas fa-check check-icon"></i>
                     {% endif %}
                 </a>
@@ -139,10 +141,12 @@
         <div class="episodes-list-crunchy">
             {% for episode in episodes %}
             {% set ep_num = loop.index %}
-            <div class="episode-item-crunchy {% if current_ep and current_ep.title == episode.title %}active{% endif %}">
+            <!-- 🛠️ FIX: Use DB ep_num if available, else loop index -->
+            {% set db_ep_num = episode.ep_num if episode.ep_num else ep_num %}
+            <div class="episode-item-crunchy {% if current_ep and current_ep.title == episode.title and current_ep.video_url == episode.video_url %}active{% endif %}">
                 <div class="ep-thumb">
                     <img src="{{ anime.image }}" alt="Episode {{ ep_num }}">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}" class="ep-link">
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-link">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
@@ -180,7 +184,7 @@
                     </div>
                 </div>
                 <div class="ep-actions">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ ep_num }}" class="ep-link">
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-link">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
@@ -201,7 +205,7 @@
             <span class="nav-btn-bottom disabled">« Previous</span>
             {% endif %}
 
-            <span class="current-ep-label">Episode {{ current_ep.title if current_ep else 'Select Episode' }}</span>
+            <span class="current-ep-label">Episode {{ ep_number if ep_number is not none else 1 }}</span>
 
             {% if next_ep_num %}
             <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ next_ep_num }}" class="ep-link">Next »</a>
@@ -304,8 +308,8 @@
         image: metaData.dataset.image
     };
     
-    const urlParts = window.location.pathname.split('/');
-    const epNumFromUrl = urlParts[urlParts.length - 1] || '1';
+    // 🛠️ FIX: Read episode number directly from data attribute instead of URL parsing
+    const epNumFromUrl = metaData.dataset.epNum || '1';
     
     const currentEp = {
         title: metaData.dataset.epTitle,
