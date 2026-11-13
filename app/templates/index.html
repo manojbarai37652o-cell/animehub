@@ -70,37 +70,49 @@
         z-index: 2 !important; /* Play button should be above the gradient */
     }
 
-    /* 🛠️ PAGINATION STYLES */
+    /* 🛠️ PROFESSIONAL PAGINATION STYLES */
     .pagination-wrapper {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 15px;
-        margin: 30px 0;
-        padding: 10px;
+        gap: 5px;
+        margin: 30px auto;
+        padding: 8px 15px;
+        background: rgba(20, 20, 25, 0.8);
+        border-radius: 30px;
+        width: fit-content;
+        border: 1px solid rgba(168, 85, 247, 0.3);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
     .page-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 35px;
+        height: 35px;
+        border-radius: 8px;
+        color: #ccc;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.2s ease;
+    }
+    .page-btn:hover:not(.disabled) {
+        background: rgba(168, 85, 247, 0.2);
+        color: #fff;
+    }
+    .page-btn.active {
         background: #a855f7;
         color: #fff;
-        padding: 10px 20px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: 0.2s;
-    }
-    .page-btn:hover {
-        background: #9333ea;
+        box-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
     }
     .page-btn.disabled {
-        background: #333;
-        color: #888;
+        color: #555;
         cursor: not-allowed;
-        pointer-events: none;
     }
-    .page-info {
-        color: #fff;
+    .page-btn.arrow {
+        font-size: 16px;
         font-weight: bold;
-        font-size: 14px;
     }
 </style>
 
@@ -204,21 +216,35 @@
                 {% endfor %}
             </div>
 
-            <!-- 🛠️ PAGINATION BUTTONS -->
+            <!-- 🛠️ PROFESSIONAL PAGINATION -->
             {% if current_page is defined and total_pages > 1 %}
             <div class="pagination-wrapper">
+                <!-- First Page -->
                 {% if current_page > 1 %}
-                <a href="/az/{{ current_letter }}?page={{ current_page - 1 }}" class="page-btn">« Previous</a>
+                <a href="/az/{{ current_letter }}?page=1" class="page-btn arrow">«</a>
                 {% else %}
-                <span class="page-btn disabled">« Previous</span>
+                <span class="page-btn arrow disabled">«</span>
                 {% endif %}
 
-                <span class="page-info">Page {{ current_page }} of {{ total_pages }}</span>
+                <!-- Page Numbers (Window of 10) -->
+                {% set window_size = 10 %}
+                {% set start_page = current_page - 4 if current_page > 5 else 1 %}
+                {% set end_page = start_page + window_size - 1 %}
+                
+                {% if end_page > total_pages %}
+                    {% set end_page = total_pages %}
+                    {% set start_page = [1, total_pages - window_size + 1]|max %}
+                {% endif %}
 
+                {% for p in range(start_page, end_page + 1) %}
+                    <a href="/az/{{ current_letter }}?page={{ p }}" class="page-btn {% if p == current_page %}active{% endif %}">{{ p }}</a>
+                {% endfor %}
+
+                <!-- Last Page -->
                 {% if current_page < total_pages %}
-                <a href="/az/{{ current_letter }}?page={{ current_page + 1 }}" class="page-btn">Next »</a>
+                <a href="/az/{{ current_letter }}?page={{ total_pages }}" class="page-btn arrow">»</a>
                 {% else %}
-                <span class="page-btn disabled">Next »</span>
+                <span class="page-btn arrow disabled">»</span>
                 {% endif %}
             </div>
             {% endif %}
