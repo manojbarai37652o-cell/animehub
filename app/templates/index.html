@@ -72,20 +72,19 @@
     /* 🛠️ PROFESSIONAL PAGINATION STYLES (MOBILE FIXED) */
     .pagination-wrapper {
         display: flex;
-        justify-content: flex-start; /* Starts from left */
+        justify-content: flex-start;
         align-items: center;
         gap: 5px;
         margin: 30px auto;
         padding: 8px 12px;
         background: rgba(20, 20, 25, 0.8);
         border-radius: 30px;
-        width: 92%; /* Fits screen */
+        width: 92%;
         max-width: max-content;
-        overflow-x: auto; /* Allow swipe scroll */
-        -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         border: 1px solid rgba(168, 85, 247, 0.3);
         box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        /* Hide scrollbar */
         scrollbar-width: none; 
         -ms-overflow-style: none;
     }
@@ -105,7 +104,7 @@
         font-weight: 600;
         font-size: 14px;
         transition: all 0.2s ease;
-        flex-shrink: 0; /* Prevent buttons from shrinking */
+        flex-shrink: 0; 
     }
     .page-btn:hover:not(.disabled) {
         background: rgba(168, 85, 247, 0.2);
@@ -123,6 +122,64 @@
     .page-btn.arrow {
         font-size: 16px;
         font-weight: bold;
+    }
+
+    /* ========================================== */
+    /* 🖥️ PC / DESKTOP FIXES (Banner Size & Poster Size) */
+    /* ========================================== */
+    @media (min-width: 768px) {
+        /* Fix Huge Hero Banner */
+        .hero-banner {
+            max-width: 1200px !important;
+            height: 450px !important;
+            margin: 20px auto !important;
+            border-radius: 20px !important;
+            overflow: hidden !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+        }
+        .hero-slide {
+            height: 100% !important;
+        }
+        .hero-image {
+            object-fit: cover !important;
+            object-position: top center !important; 
+            height: 100% !important;
+            width: 100% !important;
+        }
+        .hero-content {
+            max-width: 600px !important;
+        }
+
+        /* Fix Tiny Anime Cards */
+        .az-anime-grid, .anime-grid-2-col {
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+            gap: 20px !important;
+        }
+        
+        .anime-row {
+            gap: 20px !important;
+        }
+
+        .anime-card {
+            width: 180px !important; 
+            min-width: 180px !important;
+        }
+
+        .anime-card-image-wrapper {
+            height: 260px !important; 
+            border-radius: 12px !important;
+        }
+        
+        .anime-title {
+            font-size: 14px !important;
+            margin-top: 8px !important;
+            font-weight: 600 !important;
+        }
+        
+        .anime-meta .rating {
+            font-size: 13px !important;
+            color: #fbbf24 !important;
+        }
     }
 </style>
 
