@@ -141,21 +141,26 @@
         <div class="episodes-list-crunchy">
             {% for episode in episodes %}
             {% set ep_num = loop.index %}
-            <!-- 🛠️ FIX: Use DB ep_num if available, else loop index -->
             {% set db_ep_num = episode.ep_num if episode.ep_num else ep_num %}
-            <div class="episode-item-crunchy {% if current_ep and current_ep.title == episode.title and current_ep.video_url == episode.video_url %}active{% endif %}">
-                <div class="ep-thumb">
-                    <img src="{{ anime.image }}" alt="Episode {{ ep_num }}">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-link">
+            
+            <!-- 🛠️ INLINE STYLES (MOBILE ONLY) -->
+            <div class="episode-item-crunchy {% if current_ep and current_ep.title == episode.title and current_ep.video_url == episode.video_url %}active{% endif %}"
+                 style="display: flex !important; flex-direction: row !important; align-items: center !important; padding: 10px !important; background: rgba(255,255,255,0.05) !important; border-radius: 10px !important; margin-bottom: 10px !important; gap: 12px !important; width: 100% !important; box-sizing: border-box !important; border: 1px solid rgba(255,255,255,0.08) !important;">
+                
+                <!-- Thumbnail -->
+                <div class="ep-thumb" style="width: 110px !important; min-width: 110px !important; height: 65px !important; flex-shrink: 0 !important; border-radius: 6px !important; overflow: hidden !important; position: relative !important; margin: 0 !important;">
+                    <img src="{{ anime.image }}" alt="Episode {{ ep_num }}" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-link" style="position: absolute !important; top: 0; left: 0; width: 100%; height: 100%; display: flex !important; align-items: center !important; justify-content: center !important; background: rgba(0,0,0,0.4) !important; color: #fff !important; font-size: 16px !important; text-decoration: none !important; z-index: 2 !important;">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
-                <div class="ep-info">
-                    <div class="ep-number-title">
-                        <span class="ep-num">{{ loop.index }}.</span>
-                        <span class="ep-title">Episode {{ ep_num }}</span>
+                
+                <!-- Info -->
+                <div class="ep-info" style="flex: 1 1 0% !important; min-width: 0 !important; display: flex !important; flex-direction: column !important; justify-content: center !important; text-align: left !important; margin: 0 !important; padding: 0 !important;">
+                    <div class="ep-number-title" style="display: block !important; font-size: 14px !important; color: #fff !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; margin-bottom: 4px !important; width: 100% !important; font-weight: bold !important;">
+                        <span style="color: #a855f7 !important; margin-right: 4px !important;">{{ loop.index }}.</span> Episode {{ ep_num }}
                     </div>
-                    <div class="ep-meta">
+                    <div class="ep-meta" style="display: flex !important; flex-direction: row !important; align-items: center !important; flex-wrap: wrap !important; gap: 6px !important; font-size: 11px !important; color: #aaa !important; margin: 0 !important; padding: 0 !important; width: 100% !important;">
                         <span><i class="far fa-clock"></i> 24m</span>
                         <span>|</span>
                         <span>Season {{ current_season.season_number if current_season else 1 }}</span>
@@ -178,13 +183,15 @@
                             {% set lang_display = anime.language %}
                         {% endif %}
 
-                        <span class="ep-lang-tag">
+                        <span class="ep-lang-tag" style="background: rgba(168,85,247,0.2) !important; color: #c084fc !important; padding: 2px 6px !important; border-radius: 4px !important; font-size: 10px !important; display: inline-flex !important; align-items: center !important; gap: 3px !important; margin-left: 0 !important;">
                             <i class="fas fa-language"></i> {{ lang_display }}
                         </span>
                     </div>
                 </div>
-                <div class="ep-actions">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-link">
+                
+                <!-- Play Button -->
+                <div class="ep-actions" style="display: flex !important; justify-content: flex-end !important; align-items: center !important; width: 40px !important; min-width: 40px !important; flex-shrink: 0 !important; margin: 0 !important; padding: 0 !important;">
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-link" style="width: 36px !important; height: 36px !important; background: #a855f7 !important; color: #fff !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 14px !important; text-decoration: none !important; padding: 0 !important; margin: 0 !important;">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
@@ -297,154 +304,6 @@
     </div>
 
 </div>
-
-<!-- 🛠️ NUCLEAR OPTION CSS: Bypassing old style.css entirely -->
-<style>
-    @media (max-width: 767px) {
-        /* Force the list to stack vertically */
-        body #tab-episodes .episodes-list-crunchy {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 10px !important;
-            width: 100% !important;
-            padding: 0 10px !important;
-            box-sizing: border-box !important;
-        }
-
-        /* Force the flex layout for each item */
-        body #tab-episodes .episode-item-crunchy {
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-            padding: 10px !important;
-            background: rgba(255, 255, 255, 0.05) !important;
-            border-radius: 10px !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-            height: auto !important;
-            gap: 12px !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            margin-bottom: 0 !important;
-        }
-
-        /* Thumbnail image */
-        body #tab-episodes .ep-thumb {
-            width: 110px !important;
-            min-width: 110px !important;
-            height: 65px !important;
-            flex-shrink: 0 !important;
-            position: relative !important;
-            border-radius: 6px !important;
-            overflow: hidden !important;
-            margin: 0 !important;
-        }
-        body #tab-episodes .ep-thumb img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-        }
-        body #tab-episodes .ep-thumb .ep-link {
-            position: absolute !important;
-            top: 0; left: 0; width: 100%; height: 100%;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            background: rgba(0,0,0,0.4) !important;
-            color: #fff !important;
-            font-size: 16px !important;
-            z-index: 2 !important;
-            text-decoration: none !important;
-        }
-
-        /* Text Info Container */
-        body #tab-episodes .ep-info {
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: flex-start !important;
-            text-align: left !important;
-            flex: 1 1 0% !important; /* CRITICAL: Allows flex item to shrink */
-            min-width: 0 !important; /* CRITICAL: Allows text truncation */
-            width: 100% !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-
-        /* Title (Episode X) */
-        body #tab-episodes .ep-number-title {
-            display: block !important;
-            font-size: 14px !important;
-            color: #fff !important;
-            white-space: nowrap !important;
-            overflow: hidden !important;
-            text-overflow: ellipsis !important;
-            margin-bottom: 4px !important;
-            width: 100% !important;
-            font-weight: bold !important;
-        }
-        body #tab-episodes .ep-num {
-            color: #a855f7 !important;
-            margin-right: 4px !important;
-        }
-        body #tab-episodes .ep-title {
-            color: #fff !important;
-        }
-
-        /* Meta Info (Time, Season, Lang) */
-        body #tab-episodes .ep-meta {
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            flex-wrap: wrap !important;
-            gap: 6px !important;
-            font-size: 11px !important;
-            color: #aaa !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100% !important;
-        }
-
-        /* Language Tag */
-        body #tab-episodes .ep-lang-tag {
-            background: rgba(168, 85, 247, 0.2) !important;
-            color: #c084fc !important;
-            padding: 2px 6px !important;
-            border-radius: 4px !important;
-            font-size: 10px !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            gap: 3px !important;
-            margin-left: 0 !important;
-        }
-
-        /* Play Button */
-        body #tab-episodes .ep-actions {
-            display: flex !important;
-            justify-content: flex-end !important;
-            align-items: center !important;
-            width: 40px !important;
-            min-width: 40px !important;
-            flex-shrink: 0 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-        body #tab-episodes .ep-actions .ep-link {
-            width: 36px !important;
-            height: 36px !important;
-            background: #a855f7 !important;
-            color: #fff !important;
-            border-radius: 50% !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            font-size: 14px !important;
-            text-decoration: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-    }
-</style>
 
 <!-- 🟢 JAVASCRIPT 🟢 -->
 <script>
