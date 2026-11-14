@@ -146,7 +146,7 @@
             <div class="episode-item-crunchy {% if current_ep and current_ep.title == episode.title and current_ep.video_url == episode.video_url %}active{% endif %}">
                 <div class="ep-thumb">
                     <img src="{{ anime.image }}" alt="Episode {{ ep_num }}">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-play-overlay">
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-link">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
@@ -184,7 +184,7 @@
                     </div>
                 </div>
                 <div class="ep-actions">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-play-btn">
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-link">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
@@ -200,7 +200,7 @@
 
         <div class="episode-nav-bottom">
             {% if prev_ep_num %}
-            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ prev_ep_num }}" class="nav-btn-bottom">« Previous</a>
+            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ prev_ep_num }}" class="ep-link">« Previous</a>
             {% else %}
             <span class="nav-btn-bottom disabled">« Previous</span>
             {% endif %}
@@ -208,7 +208,7 @@
             <span class="current-ep-label">Episode {{ ep_number if ep_number is not none else 1 }}</span>
 
             {% if next_ep_num %}
-            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ next_ep_num }}" class="nav-btn-bottom">Next »</a>
+            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ next_ep_num }}" class="ep-link">Next »</a>
             {% else %}
             <span class="nav-btn-bottom disabled">Next »</span>
             {% endif %}
@@ -308,6 +308,7 @@
         image: metaData.dataset.image
     };
     
+    // 🛠️ FIX: Read episode number directly from data attribute instead of URL parsing
     const epNumFromUrl = metaData.dataset.epNum || '1';
     
     const currentEp = {
