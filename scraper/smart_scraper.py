@@ -34,6 +34,11 @@ def save_db(data):
     with open(DB_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
 
+# 🛠️ SMART TITLE CLEANER (ToonStream se copy kiya gaya logic)
+def clean_title(title):
+    if not title: return ""
+    return re.sub(r'[^a-z0-9]', '', title.lower()).strip()
+
 # 🛠️ SMART EXTRACTOR (Targeting the specific HTML structure)
 def extract_anime_from_html(html):
     soup = BeautifulSoup(html, 'html.parser')
@@ -91,7 +96,11 @@ if __name__ == '__main__':
 
     db_data = load_db()
     existing_anime = db_data.get('anime_list', [])
+    
+    # 🛠️ FIX: Ab hum URL ke sath-sath Title bhi check karenge
     existing_urls = set(a.get('url', '') for a in existing_anime if a.get('url'))
+    existing_titles = set(clean_title(a.get('title', '')) for a in existing_anime)
+    
     updated_list = existing_anime.copy()
     new_anime = []
 
@@ -132,7 +141,6 @@ if __name__ == '__main__':
                         if response and response.status == 404:
                             break
 
-                        # Page load hone aur images lazy-load hone ka wait karo
                         page.wait_for_timeout(3000)
                         page.evaluate("window.scrollTo(0, document.body.scrollHeight/2)")
                         page.wait_for_timeout(1000)
@@ -153,8 +161,11 @@ if __name__ == '__main__':
                             consecutive_empty = 0
                             added_count = 0
                             for a in page_anime:
-                                if a['url'] not in existing_urls and a['url'] not in [x['url'] for x in new_anime]:
+                                clean_t = clean_title(a['title'])
+                                # 🛠️ FIX: URL aur Title dono check karo
+                                if a['url'] not in existing_urls and clean_t not in existing_titles and clean_t not in [clean_title(x['title']) for x in new_anime]:
                                     new_anime.append(a)
+                                    existing_titles.add(clean_t)
                                     added_count += 1
                             
                             print(f"   📊 पेज {page_num} पर कुल {len(page_anime)} एनीमे मिले, जिनमें से {added_count} नए हैं (कुल नए: {len(new_anime)})")
@@ -199,9 +210,8 @@ if __name__ == '__main__':
                                 for ep in episodes:
                                     try:
                                         page.goto(ep['url'], wait_until="domcontentloaded", timeout=90000)
-                                        page.wait_for_timeout(3000) # Wait for player
+                                        page.wait_for_timeout(3000)
                                         
-                                        # 🛠️ SERVER 2 FIX APPLIED HERE
                                         try:
                                             server2_btn = page.query_selector("div[onclick='changeServer(1)']")
                                             if server2_btn:
@@ -234,7 +244,7 @@ if __name__ == '__main__':
                                 btn = page.query_selector(f'.season-btn[data-season="{season_num}"]')
                                 if btn:
                                     btn.click()
-                                    page.wait_for_timeout(3000) # Increased wait for AJAX
+                                    page.wait_for_timeout(3000)
                                     season_html = page.content()
                                     episodes = parse_season_episodes(season_html, anime['url'])
                                     if episodes:
@@ -242,9 +252,8 @@ if __name__ == '__main__':
                                         for ep in episodes:
                                             try:
                                                 page.goto(ep['url'], wait_until="domcontentloaded", timeout=90000)
-                                                page.wait_for_timeout(3000) # Wait for player
+                                                page.wait_for_timeout(3000)
                                                 
-                                                # 🛠️ SERVER 2 FIX APPLIED HERE
                                                 try:
                                                     server2_btn = page.query_selector("div[onclick='changeServer(1)']")
                                                     if server2_btn:
