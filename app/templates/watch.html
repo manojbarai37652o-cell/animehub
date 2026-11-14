@@ -301,29 +301,34 @@
 <!-- 🛠️ ULTIMATE MOBILE CSS FIX FOR WATCH PAGE -->
 <style>
     @media (max-width: 767px) {
+        /* 1. Force the list to be a vertical column */
         .episodes-list-crunchy {
             display: flex !important;
             flex-direction: column !important;
-            gap: 10px !important;
+            gap: 12px !important;
             width: 100% !important;
+            padding: 0 10px !important;
+            box-sizing: border-box !important;
         }
+
+        /* 2. Strict Grid layout for each episode item */
         .episode-item-crunchy {
-            display: flex !important;
-            flex-direction: row !important;
+            display: grid !important;
+            grid-template-columns: 100px 1fr 40px !important; /* Thumb | Info | Play Button */
             align-items: center !important;
-            flex-wrap: nowrap !important;
             padding: 10px !important;
             background: rgba(255, 255, 255, 0.05) !important;
             border-radius: 10px !important;
             width: 100% !important;
             box-sizing: border-box !important;
             height: auto !important;
-            min-height: 80px !important;
             gap: 10px !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            margin-bottom: 0 !important;
         }
+
+        /* 3. Thumbnail styling */
         .ep-thumb {
-            flex: 0 0 100px !important;
             width: 100px !important;
             height: 60px !important;
             position: relative !important;
@@ -347,69 +352,81 @@
             font-size: 16px !important;
             z-index: 2 !important;
         }
+
+        /* 4. Info section (Title & Meta) */
         .ep-info {
-            flex: 1 1 auto !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
             text-align: left !important;
-            overflow: hidden !important;
-            min-width: 0 !important; /* Prevents text from breaking layout */
+            overflow: hidden !important; /* Prevents overflow */
+            width: 100% !important;
             margin: 0 !important;
             padding: 0 !important;
         }
+
+        /* 5. Title line */
         .ep-number-title {
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
-            gap: 5px !important;
-            font-size: 13px !important;
+            gap: 4px !important;
+            font-size: 14px !important;
             color: #fff !important;
             white-space: nowrap !important;
             overflow: hidden !important;
             text-overflow: ellipsis !important;
             margin-bottom: 4px !important;
             width: 100% !important;
-            font-weight: bold !important;
+            font-weight: 700 !important;
         }
+
+        /* 6. Meta info (Time, Season, Lang) */
         .ep-meta {
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
             flex-wrap: wrap !important;
             gap: 5px !important;
-            font-size: 10px !important;
+            font-size: 11px !important;
             color: #aaa !important;
             margin: 0 !important;
             padding: 0 !important;
             width: 100% !important;
         }
+
+        /* Language Tag */
         .ep-lang-tag {
             background: rgba(168, 85, 247, 0.2) !important;
-            color: #a855f7 !important;
+            color: #c084fc !important;
             padding: 2px 6px !important;
             border-radius: 4px !important;
-            font-size: 9px !important;
+            font-size: 10px !important;
             display: inline-flex !important;
             align-items: center !important;
             gap: 3px !important;
             margin-left: 0 !important;
         }
+
+        /* 7. Play Button (Right side) */
         .ep-actions {
-            flex: 0 0 auto !important;
+            display: flex !important;
+            justify-content: flex-end !important;
+            align-items: center !important;
             margin: 0 !important;
             padding: 0 !important;
+            width: 100% !important;
         }
         .ep-actions .ep-link {
-            width: 30px !important;
-            height: 30px !important;
+            width: 36px !important;
+            height: 36px !important;
             background: #a855f7 !important;
             color: #fff !important;
             border-radius: 50% !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            font-size: 12px !important;
+            font-size: 14px !important;
         }
     }
 </style>
