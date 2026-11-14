@@ -141,50 +141,40 @@
         <div class="episodes-list-crunchy">
             {% for episode in episodes %}
             {% set ep_num = loop.index %}
-            <!-- 🛠️ FIX: Use DB ep_num if available, else loop index -->
             {% set db_ep_num = episode.ep_num if episode.ep_num else ep_num %}
-            <div class="episode-item-crunchy {% if current_ep and current_ep.title == episode.title and current_ep.video_url == episode.video_url %}active{% endif %}">
-                <div class="ep-thumb">
+            
+            <!-- 🛠️ NEW PREMIUM EPISODE CARD DESIGN (From User Screenshot) -->
+            <div class="ep-card-new {% if current_ep and current_ep.title == episode.title and current_ep.video_url == episode.video_url %}active{% endif %}">
+                
+                <!-- Left: Thumbnail -->
+                <div class="ep-thumb-new">
                     <img src="{{ anime.image }}" alt="Episode {{ ep_num }}">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-link">
+                    <div class="play-overlay-new">
                         <i class="fas fa-play"></i>
-                    </a>
-                </div>
-                <div class="ep-info">
-                    <div class="ep-number-title">
-                        <span class="ep-num">{{ loop.index }}.</span>
-                        <span class="ep-title">Episode {{ ep_num }}</span>
                     </div>
-                    <div class="ep-meta">
+                </div>
+
+                <!-- Center: Details -->
+                <div class="ep-details-new">
+                    <div class="ep-title-row-new">
+                        <span class="ep-num-new">{{ loop.index }}.</span>
+                        <span class="ep-name-new">Episode {{ ep_num }}</span>
+                    </div>
+                    
+                    <div class="ep-meta-row-new">
                         <span><i class="far fa-clock"></i> 24m</span>
-                        <span>|</span>
+                        <span class="meta-divider">|</span>
                         <span>Season {{ current_season.season_number if current_season else 1 }}</span>
-                        
-                        {% set db_lang = anime.language|lower if anime.language else '' %}
-                        {% set title_lower = anime.title|lower %}
-                        {% set lang_display = 'Multi Audio' %}
+                    </div>
 
-                        {% if 'english' in title_lower or 'english' in db_lang %}
-                            {% set lang_display = 'English Dub' %}
-                        {% elif 'hindi' in title_lower or 'hindi' in db_lang %}
-                            {% set lang_display = 'Hindi Dub' %}
-                        {% elif 'japanese' in title_lower or 'japanese' in db_lang %}
-                            {% set lang_display = 'Japanese' %}
-                        {% elif 'tamil' in title_lower or 'tamil' in db_lang %}
-                            {% set lang_display = 'Tamil Dub' %}
-                        {% elif 'telugu' in title_lower or 'telugu' in db_lang %}
-                            {% set lang_display = 'Telugu Dub' %}
-                        {% elif db_lang and db_lang != 'unknown' %}
-                            {% set lang_display = anime.language %}
-                        {% endif %}
-
-                        <span class="ep-lang-tag">
-                            <i class="fas fa-language"></i> {{ lang_display }}
-                        </span>
+                    <div class="ep-tag-new">
+                        <i class="fas fa-language"></i> Multi Audio
                     </div>
                 </div>
-                <div class="ep-actions">
-                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="ep-link">
+
+                <!-- Right: Play Button -->
+                <div class="ep-action-new">
+                    <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ db_ep_num }}" class="play-btn-new">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
@@ -200,7 +190,7 @@
 
         <div class="episode-nav-bottom">
             {% if prev_ep_num %}
-            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ prev_ep_num }}" class="ep-link">« Previous</a>
+            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ prev_ep_num }}" class="nav-btn-bottom">« Previous</a>
             {% else %}
             <span class="nav-btn-bottom disabled">« Previous</span>
             {% endif %}
@@ -208,7 +198,7 @@
             <span class="current-ep-label">Episode {{ ep_number if ep_number is not none else 1 }}</span>
 
             {% if next_ep_num %}
-            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ next_ep_num }}" class="ep-link">Next »</a>
+            <a href="/watch/{{ anime.id }}/{{ current_season.season_number if current_season else 1 }}/{{ next_ep_num }}" class="nav-btn-bottom">Next »</a>
             {% else %}
             <span class="nav-btn-bottom disabled">Next »</span>
             {% endif %}
@@ -308,7 +298,6 @@
         image: metaData.dataset.image
     };
     
-    // 🛠️ FIX: Read episode number directly from data attribute instead of URL parsing
     const epNumFromUrl = metaData.dataset.epNum || '1';
     
     const currentEp = {
