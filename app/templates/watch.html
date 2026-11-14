@@ -298,6 +298,74 @@
 
 </div>
 
+<!-- 🛠️ NEW CSS FOR MOBILE WATCH PAGE FIX (Episode List) -->
+<style>
+    @media (max-width: 767px) {
+        .episode-item-crunchy {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            padding: 10px !important;
+            gap: 12px !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-radius: 10px !important;
+            margin-bottom: 10px !important;
+            border: none !important;
+        }
+        .ep-thumb {
+            width: 110px !important;
+            min-width: 110px !important;
+            height: 65px !important;
+            position: relative !important;
+            border-radius: 8px !important;
+            overflow: hidden !important;
+            flex-shrink: 0 !important;
+        }
+        .ep-thumb img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+        .ep-info {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 6px !important;
+            text-align: left !important;
+        }
+        .ep-number-title {
+            display: flex !important;
+            align-items: center !important;
+            gap: 5px !important;
+            font-size: 14px !important;
+            font-weight: bold !important;
+            color: #fff !important;
+        }
+        .ep-meta {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            align-items: center !important;
+            gap: 8px !important;
+            font-size: 11px !important;
+            color: #aaa !important;
+        }
+        .ep-actions {
+            margin-left: auto !important;
+            flex-shrink: 0 !important;
+        }
+        .ep-actions .ep-link {
+            width: 35px !important;
+            height: 35px !important;
+            border-radius: 50% !important;
+            background: #a855f7 !important;
+            color: #fff !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+    }
+</style>
+
 <!-- 🟢 JAVASCRIPT 🟢 -->
 <script>
     const metaData = document.getElementById('animeMetaData');
@@ -308,7 +376,6 @@
         image: metaData.dataset.image
     };
     
-    // 🛠️ FIX: Read episode number directly from data attribute instead of URL parsing
     const epNumFromUrl = metaData.dataset.epNum || '1';
     
     const currentEp = {

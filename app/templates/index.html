@@ -125,10 +125,9 @@
     }
 
     /* ========================================== */
-    /* 🖥️ ULTIMATE PC FIX (Overriding old style.css) */
+    /* 🖥️ PC FIX (No Black Bar + Normal Size) */
     /* ========================================== */
     @media (min-width: 768px) {
-        /* Hero Banner Fix */
         .hero-banner {
             max-width: 1200px !important;
             height: 450px !important;
@@ -141,37 +140,33 @@
         .hero-image { object-fit: cover !important; object-position: top center !important; height: 100% !important; width: 100% !important; }
         .hero-content { max-width: 600px !important; }
 
-        /* Force Grid & Card Layout */
         .az-anime-grid, .anime-grid-2-col {
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
             gap: 20px !important;
         }
         
         .anime-row { gap: 20px !important; }
 
-        /* 🛠️ THE ULTIMATE CARD FIX */
         .anime-card {
             display: flex !important;
             flex-direction: column !important;
-            height: auto !important; /* Kisi bhi fixed height ko hatao */
-            width: 180px !important; 
-            min-width: 180px !important;
-            background: transparent !important; /* Black background hatao */
+            height: auto !important;
+            width: 160px !important; 
+            min-width: 160px !important;
+            background: transparent !important;
             margin-bottom: 15px !important;
         }
 
-        /* Image Wrapper ko perfect poster shape do */
         .anime-card .anime-card-image-wrapper {
             width: 100% !important;
-            aspect-ratio: 2 / 3 !important; /* 2:3 Poster ratio */
-            height: auto !important; /* Fixed height hatao */
+            aspect-ratio: 2 / 3 !important; 
+            height: auto !important; 
             border-radius: 12px !important;
             overflow: hidden !important;
             flex-shrink: 0 !important;
-            margin-bottom: 8px !important; /* Image aur text ke beech gap */
+            margin-bottom: 8px !important; 
         }
 
-        /* Image ko stretch karo */
         .anime-card .anime-card-image-wrapper img {
             width: 100% !important;
             height: 100% !important;
@@ -179,45 +174,50 @@
             object-position: center !important;
         }
 
-        /* Text alignment */
-        .anime-title { 
-            font-size: 14px !important; 
-            margin: 0 !important; 
-            padding: 0 !important;
-            text-align: center !important;
-            width: 100% !important;
-        }
-        
-        .anime-meta { 
-            text-align: center !important; 
-            width: 100% !important;
-        }
-        
-        .anime-meta .rating { 
-            font-size: 13px !important; 
-            color: #fbbf24 !important; 
-        }
+        .anime-title { font-size: 14px !important; margin: 0 !important; padding: 0 !important; text-align: center !important; width: 100% !important; }
+        .anime-meta { text-align: center !important; width: 100% !important; }
+        .anime-meta .rating { font-size: 13px !important; color: #fbbf24 !important; }
     }
 
     /* ========================================== */
-    /* 📱 MOBILE FIX: Slightly Bigger Posters     */
+    /* 📱 MOBILE FIX: 2.5 Cards (ToonStream Style) */
     /* ========================================== */
     @media (max-width: 767px) {
+        .anime-row {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+            gap: 10px !important;
+            padding-bottom: 5px !important;
+        }
+        .anime-row::-webkit-scrollbar { display: none; }
+
         .anime-row .anime-card, 
         .anime-grid-2-col .anime-card,
         .az-anime-grid .anime-card {
-            width: 33vw !important; 
-            min-width: 115px !important;
-            max-width: 140px !important;
+            width: 42vw !important; /* 2.5 Cards Fit */
+            min-width: 42vw !important;
+            max-width: 160px !important;
+            flex-shrink: 0 !important;
         }
         
         .anime-card-image-wrapper {
             height: auto !important;
             aspect-ratio: 2 / 3 !important; 
+            border-radius: 8px !important;
         }
         
         .anime-title {
-            font-size: 13.5px !important;
+            font-size: 13px !important;
+            margin-top: 5px !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+        .anime-meta .rating {
+            font-size: 11px !important;
         }
     }
 </style>
@@ -324,14 +324,12 @@
             <!-- 🛠️ PROFESSIONAL PAGINATION (WINDOW SIZE 5) -->
             {% if current_page is defined and total_pages > 1 %}
             <div class="pagination-wrapper">
-                <!-- First Page -->
                 {% if current_page > 1 %}
                 <a href="/az/{{ current_letter }}?page=1" class="page-btn arrow">«</a>
                 {% else %}
                 <span class="page-btn arrow disabled">«</span>
                 {% endif %}
 
-                <!-- Page Numbers (Window of 5) -->
                 {% set window_size = 5 %}
                 {% set start_page = current_page - 2 if current_page > 3 else 1 %}
                 {% set end_page = start_page + window_size - 1 %}
@@ -345,7 +343,6 @@
                     <a href="/az/{{ current_letter }}?page={{ p }}" class="page-btn {% if p == current_page %}active{% endif %}">{{ p }}</a>
                 {% endfor %}
 
-                <!-- Last Page -->
                 {% if current_page < total_pages %}
                 <a href="/az/{{ current_letter }}?page={{ total_pages }}" class="page-btn arrow">»</a>
                 {% else %}
@@ -353,7 +350,6 @@
                 {% endif %}
             </div>
             {% endif %}
-            <!-- 🛠️ END PAGINATION -->
 
             {% if 'Anime starting with' in page_title or page_title == '#' %}
             <div class="alphabet-nav">
@@ -521,8 +517,6 @@
             </div>
         </div>
         {% endif %}
-
-        <!-- 🛠️ GENRES SECTION REMOVED HERE AS REQUESTED BY USER -->
 
         <div class="app-section">
             <div class="section-header">
