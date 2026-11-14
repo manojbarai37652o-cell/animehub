@@ -1,10 +1,16 @@
 import json
 import os
+import re
 
 DB_PATH = os.path.join(os.getcwd(), 'database', 'storage.json')
 
-def clean_duplicate_videos():
-    print("🔍 Checking database for duplicate video links...")
+def clean_title(title):
+    """नाम से सारे स्पेशल कैरेक्टर और स्पेस हटाकर सिर्फ अक्षर और नंबर रखेगा"""
+    if not title: return ""
+    return re.sub(r'[^a-z0-9]', '', title.lower()).strip()
+
+def clean_all_duplicates():
+    print("🔍 Checking for ALL duplicate anime (Smart Match)...")
     if not os.path.exists(DB_PATH):
         print("❌ storage.json not found!")
         return
@@ -13,39 +19,49 @@ def clean_duplicate_videos():
         data = json.load(f)
 
     anime_list = data.get('anime_list', [])
-    total_removed = 0
+    unique_anime_dict = {}
+    removed_count = 0
 
     for anime in anime_list:
-        seasons = anime.get('seasons', [])
-        if not seasons:
+        raw_title = anime.get('title', '')
+        # स्मार्ट नाम बनाओ (जैसे "Naruto (Hindi)" -> "narutohindi")
+        smart_key = clean_title(raw_title)
+        
+        if not smart_key:
             continue
 
-        seen_urls = set()
-
-        for season in seasons:
-            episodes = season.get('episodes', [])
-            valid_episodes = []
+        if smart_key in unique_anime_dict:
+            # अगर डुप्लीकेट मिला, तो देखो किसमें ज्यादा एपिसोड हैं
+            existing_anime = unique_anime_dict[smart_key]
             
-            for ep in episodes:
-                video_url = ep.get('video_url')
-                
-                # Agar video_url pehle se dekh chuke hain, toh isko skip kar do
-                if video_url and video_url in seen_urls:
-                    print(f"🗑️ Removed duplicate video from {anime['title']} (Season {season.get('season_number')}, Ep {ep.get('ep_num')})")
-                    total_removed += 1
-                else:
-                    if video_url:
-                        seen_urls.add(video_url)
-                    valid_episodes.append(ep)
-            
-            # Update the episodes list without duplicates
-            season['episodes'] = valid_episodes
+            # एपिसोड्स की संख्या चेक करो
+            existing_eps = sum(len(s.get('episodes', [])) for s in existing_anime.get('seasons', []))
+            if existing_eps == 0 and existing_anime.get('episodes'):
+                existing_eps = len(existing_anime.get('episodes', []))
 
-    # Save back to database
+            new_eps = sum(len(s.get('episodes', [])) for s in anime.get('seasons', []))
+            if new_eps == 0 and anime.get('episodes'):
+                new_eps = len(anime.get('episodes', []))
+
+            # अगर नए वाले में ज्यादा एपिसोड हैं, तो पुराने को हटाकर नया रखो
+            if new_eps > existing_eps:
+                print(f"🔄 Replaced: '{existing_anime.get('title')}' with better version '{raw_title}'")
+                unique_anime_dict[smart_key] = anime
+            else:
+                print(f"🗑️ Removed duplicate: '{raw_title}' (Kept: '{existing_anime.get('title')}')")
+            
+            removed_count += 1
+        else:
+            unique_anime_dict[smart_key] = anime
+
+    # डेटाबेस को अपडेट करो
+    data['anime_list'] = list(unique_anime_dict.values())
+    
     with open(DB_PATH, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+        json.dump(data, f, indent=4, ensure_ascii=False)
         
-    print(f"✅ Cleaning complete! Total duplicates removed: {total_removed}")
+    print(f"\n✅ Cleaning complete! Total duplicate anime removed: {removed_count}")
+    print(f"🎉 Total unique anime remaining: {len(data['anime_list'])}")
 
 if __name__ == "__main__":
-    clean_duplicate_videos()
+    clean_all_duplicates()

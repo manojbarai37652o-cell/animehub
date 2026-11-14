@@ -5388,12 +5388,47 @@ img {
     }
 }
 /* ========================================== */
-/* 🛠️ FIX FOR PC BLACK POSTER BAR (Added at the end) */
+/* 📱 MOBILE FIXES (Restoring the good look) */
+/* ========================================== */
+@media (max-width: 767px) {
+    /* Fix Category Icons (5 icons in a row) */
+    .category-icons {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 5px !important;
+        padding: 10px 0 !important;
+        justify-items: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .cat-item { display: flex !important; flex-direction: column !important; align-items: center !important; text-decoration: none !important; }
+    .cat-icon { width: 45px !important; height: 45px !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 18px !important; margin-bottom: 5px !important; }
+    .cat-item span { font-size: 10px !important; color: #fff !important; font-weight: 600 !important; text-align: center !important; }
+
+    /* Fix Anime Cards (3 cards per row) */
+    .anime-row .anime-card, .anime-grid-2-col .anime-card, .az-anime-grid .anime-card {
+        width: 30vw !important; 
+        min-width: 105px !important;
+        max-width: 130px !important;
+    }
+    .anime-card-image-wrapper {
+        height: 45vw !important; 
+        max-height: 190px !important;
+        min-height: 150px !important;
+        border-radius: 10px !important;
+        aspect-ratio: 2 / 3 !important; 
+    }
+    .anime-title { font-size: 12px !important; }
+    .anime-meta .rating { font-size: 11px !important; }
+}
+
+/* ========================================== */
+/* 🖥️ PC FIXES (Fixing the black bar on posters) */
 /* ========================================== */
 @media (min-width: 768px) {
     .anime-card-image-wrapper {
         height: auto !important; 
-        aspect-ratio: 2 / 3 !important; /* Poster ka standard size */
+        aspect-ratio: 2 / 3 !important; 
         background: transparent !important; 
     }
 }
