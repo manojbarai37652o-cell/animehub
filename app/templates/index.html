@@ -125,7 +125,7 @@
     }
 
     /* ========================================== */
-    /* 🖥️ PC / DESKTOP FIXES (Banner Size & Poster Size) */
+    /* 🖥️ PC FIX: Remove Black Bar & Adjust Size  */
     /* ========================================== */
     @media (min-width: 768px) {
         /* Fix Huge Hero Banner */
@@ -137,48 +137,54 @@
             overflow: hidden !important;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
         }
-        .hero-slide {
-            height: 100% !important;
-        }
-        .hero-image {
-            object-fit: cover !important;
-            object-position: top center !important; 
-            height: 100% !important;
-            width: 100% !important;
-        }
-        .hero-content {
-            max-width: 600px !important;
-        }
+        .hero-slide { height: 100% !important; }
+        .hero-image { object-fit: cover !important; object-position: top center !important; height: 100% !important; width: 100% !important; }
+        .hero-content { max-width: 600px !important; }
 
-        /* Fix Tiny Anime Cards */
+        /* Fix Anime Cards */
         .az-anime-grid, .anime-grid-2-col {
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
             gap: 20px !important;
         }
         
-        .anime-row {
-            gap: 20px !important;
-        }
+        .anime-row { gap: 20px !important; }
 
         .anime-card {
-            width: 180px !important; 
-            min-width: 180px !important;
+            width: 160px !important; 
+            min-width: 160px !important;
         }
 
+        /* 🛠️ YEH HAI BLAKC BAR KA ASLI FIX */
         .anime-card-image-wrapper {
-            height: 260px !important; 
+            height: auto !important; /* Fixed height hata di */
+            aspect-ratio: 2 / 3 !important; /* Standard poster shape */
             border-radius: 12px !important;
+            background: transparent !important;
+        }
+        
+        .anime-title { font-size: 14px !important; margin-top: 8px !important; font-weight: 600 !important; }
+        .anime-meta .rating { font-size: 13px !important; color: #fbbf24 !important; }
+    }
+
+    /* ========================================== */
+    /* 📱 MOBILE FIX: Slightly Bigger Posters     */
+    /* ========================================== */
+    @media (max-width: 767px) {
+        .anime-row .anime-card, 
+        .anime-grid-2-col .anime-card,
+        .az-anime-grid .anime-card {
+            width: 33vw !important; /* Mobile par poster bada karega */
+            min-width: 115px !important;
+            max-width: 140px !important;
+        }
+        
+        .anime-card-image-wrapper {
+            height: auto !important;
+            aspect-ratio: 2 / 3 !important; 
         }
         
         .anime-title {
-            font-size: 14px !important;
-            margin-top: 8px !important;
-            font-weight: 600 !important;
-        }
-        
-        .anime-meta .rating {
-            font-size: 13px !important;
-            color: #fbbf24 !important;
+            font-size: 13.5px !important;
         }
     }
 </style>
