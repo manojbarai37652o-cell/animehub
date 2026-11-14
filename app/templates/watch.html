@@ -298,11 +298,11 @@
 
 </div>
 
-<!-- 🛠️ ULTIMATE MOBILE CSS FIX FOR WATCH PAGE -->
+<!-- 🛠️ NUCLEAR OPTION CSS: Bypassing old style.css entirely -->
 <style>
     @media (max-width: 767px) {
-        /* 1. Force the list to be a vertical column */
-        .episodes-list-crunchy {
+        /* Force the list to stack vertically */
+        body .watch-page .episodes-list-crunchy {
             display: flex !important;
             flex-direction: column !important;
             gap: 12px !important;
@@ -311,10 +311,10 @@
             box-sizing: border-box !important;
         }
 
-        /* 2. Strict Grid layout for each episode item */
-        .episode-item-crunchy {
+        /* Force the grid layout for each item */
+        body .watch-page .episode-item-crunchy {
             display: grid !important;
-            grid-template-columns: 100px 1fr 40px !important; /* Thumb | Info | Play Button */
+            grid-template-columns: 100px minmax(0, 1fr) 40px !important; /* Thumb | Info | Button */
             align-items: center !important;
             padding: 10px !important;
             background: rgba(255, 255, 255, 0.05) !important;
@@ -322,13 +322,15 @@
             width: 100% !important;
             box-sizing: border-box !important;
             height: auto !important;
+            min-height: 80px !important;
             gap: 10px !important;
             border: 1px solid rgba(255, 255, 255, 0.08) !important;
             margin-bottom: 0 !important;
+            box-shadow: none !important; /* In case old CSS has shadows */
         }
 
-        /* 3. Thumbnail styling */
-        .ep-thumb {
+        /* Thumbnail image */
+        body .watch-page .ep-thumb {
             width: 100px !important;
             height: 60px !important;
             position: relative !important;
@@ -336,12 +338,12 @@
             overflow: hidden !important;
             margin: 0 !important;
         }
-        .ep-thumb img {
+        body .watch-page .ep-thumb img {
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
         }
-        .ep-thumb .ep-link {
+        body .watch-page .ep-thumb .ep-link {
             position: absolute !important;
             top: 0; left: 0; width: 100%; height: 100%;
             display: flex !important;
@@ -351,22 +353,25 @@
             color: #fff !important;
             font-size: 16px !important;
             z-index: 2 !important;
+            text-decoration: none !important;
         }
 
-        /* 4. Info section (Title & Meta) */
-        .ep-info {
+        /* Text Info Container */
+        body .watch-page .ep-info {
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
+            align-items: flex-start !important;
             text-align: left !important;
-            overflow: hidden !important; /* Prevents overflow */
+            overflow: hidden !important;
+            min-width: 0 !important; /* CRITICAL: Allows text to truncate instead of pushing box */
             width: 100% !important;
             margin: 0 !important;
             padding: 0 !important;
         }
 
-        /* 5. Title line */
-        .ep-number-title {
+        /* Title (Episode X) */
+        body .watch-page .ep-number-title {
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
@@ -381,8 +386,8 @@
             font-weight: 700 !important;
         }
 
-        /* 6. Meta info (Time, Season, Lang) */
-        .ep-meta {
+        /* Meta Info (Time, Season) */
+        body .watch-page .ep-meta {
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
@@ -396,7 +401,7 @@
         }
 
         /* Language Tag */
-        .ep-lang-tag {
+        body .watch-page .ep-lang-tag {
             background: rgba(168, 85, 247, 0.2) !important;
             color: #c084fc !important;
             padding: 2px 6px !important;
@@ -408,8 +413,8 @@
             margin-left: 0 !important;
         }
 
-        /* 7. Play Button (Right side) */
-        .ep-actions {
+        /* Play Button */
+        body .watch-page .ep-actions {
             display: flex !important;
             justify-content: flex-end !important;
             align-items: center !important;
@@ -417,7 +422,7 @@
             padding: 0 !important;
             width: 100% !important;
         }
-        .ep-actions .ep-link {
+        body .watch-page .ep-actions .ep-link {
             width: 36px !important;
             height: 36px !important;
             background: #a855f7 !important;
@@ -427,6 +432,9 @@
             align-items: center !important;
             justify-content: center !important;
             font-size: 14px !important;
+            text-decoration: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
         }
     }
 </style>
