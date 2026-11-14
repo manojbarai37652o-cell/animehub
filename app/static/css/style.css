@@ -5348,3 +5348,153 @@ img {
     color: #f1c40f !important;
     font-weight: 600 !important;
 }
+/* =====================================================
+   🛠️ ULTIMATE MOBILE FIX FOR EPISODE LIST
+   ===================================================== */
+@media (max-width: 767px) {
+    .episodes-list-crunchy {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        padding: 0 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .episode-item-crunchy {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding: 10px !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        background: rgba(20, 20, 25, 0.8) !important;
+        border-radius: 10px !important;
+        border-left: 3px solid transparent !important;
+    }
+
+    .episode-item-crunchy.active {
+        border-left-color: #a855f7 !important;
+    }
+
+    .ep-thumb {
+        position: relative !important;
+        flex-shrink: 0 !important;
+        width: 100px !important;
+        min-width: 100px !important;
+        height: 60px !important;
+        border-radius: 6px !important;
+        overflow: hidden !important;
+    }
+
+    .ep-thumb img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .ep-thumb .ep-play-overlay {
+        position: absolute !important;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.4) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #fff !important;
+        font-size: 18px !important;
+        text-decoration: none !important;
+        z-index: 2 !important;
+    }
+
+    .ep-info {
+        flex: 1 1 0% !important;
+        min-width: 0 !important; 
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        text-align: left !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .ep-number-title {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 5px !important;
+        width: 100% !important;
+        flex-wrap: nowrap !important;
+        margin-bottom: 4px !important;
+    }
+
+    .ep-num {
+        font-size: 14px !important;
+        font-weight: bold !important;
+        color: #a855f7 !important;
+        flex-shrink: 0 !important;
+    }
+
+    .ep-title {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        color: #fff !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        min-width: 0 !important;
+        flex: 1 !important;
+    }
+
+    .ep-meta {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+        font-size: 11px !important;
+        color: #aaa !important;
+        width: 100% !important;
+    }
+
+    .ep-lang-tag {
+        background: rgba(163, 113, 247, 0.15) !important;
+        color: #d1b3ff !important;
+        border: 1px solid rgba(163, 113, 247, 0.3) !important;
+        padding: 2px 6px !important;
+        border-radius: 4px !important;
+        font-size: 10px !important;
+        font-weight: 600 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 3px !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .ep-actions {
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .ep-play-btn {
+        width: 36px !important;
+        height: 36px !important;
+        background: #a855f7 !important;
+        color: #fff !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 14px !important;
+        text-decoration: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
