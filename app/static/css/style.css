@@ -5348,3 +5348,31 @@ img {
     color: #f1c40f !important;
     font-weight: 600 !important;
 }
+/* ========================================== */
+/* 🛠️ FINAL PERFECT FIX (Black Bar + Mobile Size) */
+/* ========================================== */
+
+/* 1. सभी पोस्टर्स से ब्लैक बार हटाने के लिए (ये सबसे ज़रूरी है) */
+.anime-card-image-wrapper {
+    height: auto !important;
+    aspect-ratio: 2 / 3 !important; /* इमेज के हिसाब से हाइट लेगा, ब्लैक बार नहीं बनेगा */
+    background: transparent !important;
+}
+
+/* 2. मोबाइल (Mobile) के लिए: पोस्टर को थोड़ा बड़ा करने के लिए */
+@media (max-width: 767px) {
+    .anime-row .anime-card, 
+    .anime-grid-2-col .anime-card,
+    .az-anime-grid .anime-card {
+        width: 33vw !important; /* मोबाइल पर स्क्रीन का 33% हिस्सा (3 कार्ड एक लाइन में) */
+        max-width: 140px !important; 
+    }
+}
+
+/* 3. पीसी (PC) के लिए: पोस्टर का साइज़ नॉर्मल रखने के लिए */
+@media (min-width: 768px) {
+    .anime-card {
+        width: 160px !important; /* पीसी पर ना बहुत बड़ा, ना बहुत छोटा */
+        min-width: 160px !important;
+    }
+}
