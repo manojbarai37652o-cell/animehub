@@ -5506,3 +5506,34 @@ img {
     .ep-num-new { font-size: 13px !important; }
     .play-btn-new { width: 36px !important; height: 36px !important; font-size: 14px !important; }
 }
+/* ===================================================== */
+/* 🛠️ SHOW HORIZONTAL SCROLLBAR FOR ALL ANIME ROWS */
+/* ===================================================== */
+
+/* 1. Settings for Firefox */
+.anime-row {
+    scrollbar-width: thin !important;
+    scrollbar-color: #a855f7 rgba(255, 255, 255, 0.05) !important;
+    padding-bottom: 18px !important; /* स्क्रॉलबार के लिए थोड़ी जगह */
+}
+
+/* 2. Settings for Chrome, Edge, Safari */
+.anime-row::-webkit-scrollbar {
+    display: block !important; 
+    height: 6px !important; /* स्क्रॉलबार की मोटाई */
+}
+
+.anime-row::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 10px !important;
+    margin: 0 10px !important; /* दाएं-बाएं थोड़ी जगह */
+}
+
+.anime-row::-webkit-scrollbar-thumb {
+    background: #a855f7 !important; /* तेरे वेबसाइट का पर्पल कलर */
+    border-radius: 10px !important;
+}
+
+.anime-row::-webkit-scrollbar-thumb:hover {
+    background: #d8b4fe !important; /* होवर करने पर हल्का पर्पल */
+}
