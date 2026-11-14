@@ -5349,35 +5349,41 @@ img {
     font-weight: 600 !important;
 }
 /* ========================================== */
-/* 📱 MOBILE POSTER SIZE FIX (Make cards bigger) */
+/* 📱 MOBILE POSTER SIZE FIX (Make cards BIGGER) */
 /* ========================================== */
 @media (max-width: 767px) {
-    /* पोस्टर का चौड़ाई (Width) बढ़ाया */
+    /* पोस्टर की चौड़ाई और बड़ी की (42vw मतलब स्क्रीन का लगभग 42% हिस्सा) */
     .anime-row .anime-card, 
     .anime-grid-2-col .anime-card,
     .az-anime-grid .anime-card {
-        width: 33vw !important; /* स्क्रीन के हिसाब से 3 कार्ड्स फिट होंगे */
-        max-width: 145px !important;
-        min-width: 115px !important;
+        width: 42vw !important; 
+        max-width: 175px !important;
+        min-width: 140px !important;
     }
 
-    /* पोस्टर की लंबाई (Height) बढ़ाई */
+    /* A-Z पेज वाले ग्रिड को भी बड़ा किया */
+    .az-anime-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+        gap: 12px !important;
+    }
+
+    /* पोस्टर की लंबाई (Height) बढ़ाई ताकि वो खिंचे नहीं */
     .anime-card-image-wrapper {
-        height: 48vw !important; /* Aspect ratio को बनाए रखने के लिए */
-        max-height: 210px !important;
-        min-height: 170px !important;
-        border-radius: 12px !important;
+        height: 60vw !important; 
+        max-height: 260px !important;
+        min-height: 200px !important;
+        border-radius: 14px !important;
     }
 
-    /* टाइटल और रेटिंग का फॉन्ट साइज़ भी थोड़ा बड़ा किया ताकि साफ दिखे */
+    /* टाइटल और रेटिंग का फॉन्ट और बड़ा किया ताकि प्रीमियम लुक आए */
     .anime-title {
-        font-size: 13.5px !important;
-        margin-top: 6px !important;
-        font-weight: 600 !important;
+        font-size: 14.5px !important;
+        margin-top: 8px !important;
+        font-weight: 700 !important;
     }
 
     .anime-meta .rating {
-        font-size: 12.5px !important;
+        font-size: 13.5px !important;
         color: #fbbf24 !important;
     }
 }
