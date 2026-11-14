@@ -302,48 +302,49 @@
 <style>
     @media (max-width: 767px) {
         /* Force the list to stack vertically */
-        body .watch-page .episodes-list-crunchy {
+        body #tab-episodes .episodes-list-crunchy {
             display: flex !important;
             flex-direction: column !important;
-            gap: 12px !important;
+            gap: 10px !important;
             width: 100% !important;
             padding: 0 10px !important;
             box-sizing: border-box !important;
         }
 
-        /* Force the grid layout for each item */
-        body .watch-page .episode-item-crunchy {
-            display: grid !important;
-            grid-template-columns: 100px minmax(0, 1fr) 40px !important; /* Thumb | Info | Button */
+        /* Force the flex layout for each item */
+        body #tab-episodes .episode-item-crunchy {
+            display: flex !important;
+            flex-direction: row !important;
             align-items: center !important;
+            justify-content: space-between !important;
             padding: 10px !important;
             background: rgba(255, 255, 255, 0.05) !important;
             border-radius: 10px !important;
             width: 100% !important;
             box-sizing: border-box !important;
             height: auto !important;
-            min-height: 80px !important;
-            gap: 10px !important;
+            gap: 12px !important;
             border: 1px solid rgba(255, 255, 255, 0.08) !important;
             margin-bottom: 0 !important;
-            box-shadow: none !important; /* In case old CSS has shadows */
         }
 
         /* Thumbnail image */
-        body .watch-page .ep-thumb {
-            width: 100px !important;
-            height: 60px !important;
+        body #tab-episodes .ep-thumb {
+            width: 110px !important;
+            min-width: 110px !important;
+            height: 65px !important;
+            flex-shrink: 0 !important;
             position: relative !important;
             border-radius: 6px !important;
             overflow: hidden !important;
             margin: 0 !important;
         }
-        body .watch-page .ep-thumb img {
+        body #tab-episodes .ep-thumb img {
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
         }
-        body .watch-page .ep-thumb .ep-link {
+        body #tab-episodes .ep-thumb .ep-link {
             position: absolute !important;
             top: 0; left: 0; width: 100%; height: 100%;
             display: flex !important;
@@ -357,25 +358,22 @@
         }
 
         /* Text Info Container */
-        body .watch-page .ep-info {
+        body #tab-episodes .ep-info {
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
             align-items: flex-start !important;
             text-align: left !important;
-            overflow: hidden !important;
-            min-width: 0 !important; /* CRITICAL: Allows text to truncate instead of pushing box */
+            flex: 1 1 0% !important; /* CRITICAL: Allows flex item to shrink */
+            min-width: 0 !important; /* CRITICAL: Allows text truncation */
             width: 100% !important;
             margin: 0 !important;
             padding: 0 !important;
         }
 
         /* Title (Episode X) */
-        body .watch-page .ep-number-title {
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            gap: 4px !important;
+        body #tab-episodes .ep-number-title {
+            display: block !important;
             font-size: 14px !important;
             color: #fff !important;
             white-space: nowrap !important;
@@ -383,16 +381,23 @@
             text-overflow: ellipsis !important;
             margin-bottom: 4px !important;
             width: 100% !important;
-            font-weight: 700 !important;
+            font-weight: bold !important;
+        }
+        body #tab-episodes .ep-num {
+            color: #a855f7 !important;
+            margin-right: 4px !important;
+        }
+        body #tab-episodes .ep-title {
+            color: #fff !important;
         }
 
-        /* Meta Info (Time, Season) */
-        body .watch-page .ep-meta {
+        /* Meta Info (Time, Season, Lang) */
+        body #tab-episodes .ep-meta {
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
             flex-wrap: wrap !important;
-            gap: 5px !important;
+            gap: 6px !important;
             font-size: 11px !important;
             color: #aaa !important;
             margin: 0 !important;
@@ -401,7 +406,7 @@
         }
 
         /* Language Tag */
-        body .watch-page .ep-lang-tag {
+        body #tab-episodes .ep-lang-tag {
             background: rgba(168, 85, 247, 0.2) !important;
             color: #c084fc !important;
             padding: 2px 6px !important;
@@ -414,15 +419,17 @@
         }
 
         /* Play Button */
-        body .watch-page .ep-actions {
+        body #tab-episodes .ep-actions {
             display: flex !important;
             justify-content: flex-end !important;
             align-items: center !important;
+            width: 40px !important;
+            min-width: 40px !important;
+            flex-shrink: 0 !important;
             margin: 0 !important;
             padding: 0 !important;
-            width: 100% !important;
         }
-        body .watch-page .ep-actions .ep-link {
+        body #tab-episodes .ep-actions .ep-link {
             width: 36px !important;
             height: 36px !important;
             background: #a855f7 !important;
