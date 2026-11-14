@@ -69,7 +69,7 @@
         z-index: 2 !important; 
     }
 
-    /* 🛠️ PROFESSIONAL PAGINATION STYLES (MOBILE FIXED) */
+    /* 🛠️ PROFESSIONAL PAGINATION STYLES */
     .pagination-wrapper {
         display: flex;
         justify-content: flex-start;
@@ -88,137 +88,92 @@
         scrollbar-width: none; 
         -ms-overflow-style: none;
     }
-    .pagination-wrapper::-webkit-scrollbar {
-        display: none; 
-    }
+    .pagination-wrapper::-webkit-scrollbar { display: none; }
     
     .page-btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-width: 32px;
-        height: 32px;
-        border-radius: 8px;
-        color: #ccc;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 14px;
-        transition: all 0.2s ease;
-        flex-shrink: 0; 
+        display: flex; justify-content: center; align-items: center;
+        min-width: 32px; height: 32px; border-radius: 8px;
+        color: #ccc; text-decoration: none; font-weight: 600;
+        font-size: 14px; transition: all 0.2s ease; flex-shrink: 0; 
     }
-    .page-btn:hover:not(.disabled) {
-        background: rgba(168, 85, 247, 0.2);
-        color: #fff;
-    }
-    .page-btn.active {
-        background: #a855f7;
-        color: #fff;
-        box-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
-    }
-    .page-btn.disabled {
-        color: #555;
-        cursor: not-allowed;
-    }
-    .page-btn.arrow {
-        font-size: 16px;
-        font-weight: bold;
-    }
+    .page-btn:hover:not(.disabled) { background: rgba(168, 85, 247, 0.2); color: #fff; }
+    .page-btn.active { background: #a855f7; color: #fff; box-shadow: 0 0 15px rgba(168, 85, 247, 0.6); }
+    .page-btn.disabled { color: #555; cursor: not-allowed; }
+    .page-btn.arrow { font-size: 16px; font-weight: bold; }
 
     /* ========================================== */
     /* 🖥️ PC FIX (No Black Bar + Normal Size) */
     /* ========================================== */
     @media (min-width: 768px) {
         .hero-banner {
-            max-width: 1200px !important;
-            height: 450px !important;
-            margin: 20px auto !important;
-            border-radius: 20px !important;
-            overflow: hidden !important;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+            max-width: 1200px !important; height: 450px !important;
+            margin: 20px auto !important; border-radius: 20px !important;
+            overflow: hidden !important; box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
         }
         .hero-slide { height: 100% !important; }
         .hero-image { object-fit: cover !important; object-position: top center !important; height: 100% !important; width: 100% !important; }
         .hero-content { max-width: 600px !important; }
 
-        .az-anime-grid, .anime-grid-2-col {
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
-            gap: 20px !important;
-        }
-        
+        .az-anime-grid, .anime-grid-2-col { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important; gap: 20px !important; }
         .anime-row { gap: 20px !important; }
 
         .anime-card {
-            display: flex !important;
-            flex-direction: column !important;
-            height: auto !important;
-            width: 160px !important; 
-            min-width: 160px !important;
-            background: transparent !important;
+            display: flex !important; flex-direction: column !important; height: auto !important;
+            width: 160px !important; min-width: 160px !important; background: transparent !important;
             margin-bottom: 15px !important;
         }
-
         .anime-card .anime-card-image-wrapper {
-            width: 100% !important;
-            aspect-ratio: 2 / 3 !important; 
-            height: auto !important; 
-            border-radius: 12px !important;
-            overflow: hidden !important;
-            flex-shrink: 0 !important;
+            width: 100% !important; aspect-ratio: 2 / 3 !important; height: auto !important; 
+            border-radius: 12px !important; overflow: hidden !important; flex-shrink: 0 !important;
             margin-bottom: 8px !important; 
         }
-
-        .anime-card .anime-card-image-wrapper img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            object-position: center !important;
-        }
-
+        .anime-card .anime-card-image-wrapper img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important; }
         .anime-title { font-size: 14px !important; margin: 0 !important; padding: 0 !important; text-align: center !important; width: 100% !important; }
         .anime-meta { text-align: center !important; width: 100% !important; }
         .anime-meta .rating { font-size: 13px !important; color: #fbbf24 !important; }
     }
 
     /* ========================================== */
-    /* 📱 MOBILE FIX: 2.5 Cards (ToonStream Style) */
+    /* 📱 MOBILE FIX: 2.5 Cards Layout            */
     /* ========================================== */
     @media (max-width: 767px) {
         .anime-row {
             display: flex !important;
             flex-wrap: nowrap !important;
             overflow-x: auto !important;
-            scrollbar-width: none !important;
-            -ms-overflow-style: none !important;
             gap: 10px !important;
-            padding-bottom: 5px !important;
+            padding-bottom: 15px !important;
+            scrollbar-width: none !important;
         }
         .anime-row::-webkit-scrollbar { display: none; }
 
         .anime-row .anime-card, 
         .anime-grid-2-col .anime-card,
         .az-anime-grid .anime-card {
-            width: 42vw !important; /* 2.5 Cards Fit */
-            min-width: 42vw !important;
-            max-width: 160px !important;
-            flex-shrink: 0 !important;
+            flex: 0 0 42% !important; /* Forced 42% width for 2.5 cards */
+            width: 42% !important;
+            max-width: 42% !important;
+            margin: 0 !important;
+            background: transparent !important;
         }
         
         .anime-card-image-wrapper {
             height: auto !important;
             aspect-ratio: 2 / 3 !important; 
-            border-radius: 8px !important;
+            border-radius: 10px !important;
+            margin-bottom: 6px !important;
         }
         
         .anime-title {
             font-size: 13px !important;
-            margin-top: 5px !important;
+            margin-top: 4px !important;
             white-space: nowrap !important;
             overflow: hidden !important;
             text-overflow: ellipsis !important;
+            text-align: left !important;
         }
-        .anime-meta .rating {
-            font-size: 11px !important;
-        }
+        .anime-meta { text-align: left !important; }
+        .anime-meta .rating { font-size: 11px !important; }
     }
 </style>
 
@@ -321,7 +276,6 @@
                 {% endfor %}
             </div>
 
-            <!-- 🛠️ PROFESSIONAL PAGINATION (WINDOW SIZE 5) -->
             {% if current_page is defined and total_pages > 1 %}
             <div class="pagination-wrapper">
                 {% if current_page > 1 %}
