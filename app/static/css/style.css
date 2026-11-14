@@ -5432,3 +5432,43 @@ img {
         background: transparent !important; 
     }
 }
+/* ========================================== */
+/* 🛠️ FINAL FIX: Remove Black Bar + PC Revert + Mobile Big */
+/* ========================================== */
+
+/* 1. सभी पोस्टर्स से ब्लैक बार हटाने के लिए (Universal Fix) */
+.anime-card-image-wrapper {
+    height: auto !important;
+    aspect-ratio: 2 / 3 !important; /* इमेज के हिसाब से हाइट लेगा, ब्लैक बार नहीं बनेगा */
+    background: transparent !important;
+}
+.anime-card-image-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* 2. पीसी (PC) के लिए: वापस पहले जैसा छोटा साइज़ */
+@media (min-width: 768px) {
+    .anime-card {
+        width: 150px !important; /* पहले वाले बड़े साइज़ (180px) को छोटा किया */
+        min-width: 150px !important;
+    }
+    .anime-title {
+        font-size: 13px !important;
+    }
+}
+
+/* 3. मोबाइल (Mobile) के लिए: थोड़ा बड़ा साइज़ */
+@media (max-width: 767px) {
+    .anime-row .anime-card, 
+    .anime-grid-2-col .anime-card,
+    .az-anime-grid .anime-card {
+        width: 34vw !important; /* मोबाइल पर पोस्टर बड़ा दिखेगा */
+        min-width: 115px !important;
+        max-width: 150px !important;
+    }
+    .anime-title {
+        font-size: 13.5px !important;
+    }
+}
