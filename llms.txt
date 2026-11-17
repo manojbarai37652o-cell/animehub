@@ -1,0 +1,11 @@
+# AnimeNest
+> AnimeNest is a free anime streaming website offering Hindi Dub, English Sub, and Multi-Audio anime series and movies.
+
+## Main Pages
+- [Home](/): Browse trending, popular, and latest anime.
+- [Trending Anime](/trending): Most watched anime right now.
+- [Anime Movies](/movies): Collection of anime movies.
+- [Cartoons](/cartoons): Collection of cartoon series.
+
+## Important Note
+We do not host any videos. We only provide embedded links from third-party providers.

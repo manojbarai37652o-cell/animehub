@@ -150,6 +150,11 @@ def create_app(config_class=Config):
     def google_verification():
         return send_from_directory(app.static_folder, 'google284a1cf6abd21b7d.html')
 
+    # 🛠️ NEW ROUTE: llms.txt for AI Bots
+    @app.route('/llms.txt')
+    def serve_llms_txt():
+        return send_from_directory(os.getcwd(), 'llms.txt', mimetype='text/plain')
+
     @app.route('/sitemap.xml', methods=['GET'])
     def sitemap():
         try:
@@ -157,7 +162,6 @@ def create_app(config_class=Config):
             base_url = request.url_root.rstrip('/')
             xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             
-            # 🛠️ Yahan naye pages add kiye hain
             static_pages = ['/', '/trending', '/movies', '/cartoons', '/top-rated', '/popular', '/categories', '/history', '/watchlist', '/about', '/contact', '/privacy', '/dmca']
             
             for page in static_pages:
@@ -359,7 +363,6 @@ def create_app(config_class=Config):
     def watchlist():
         return render_template('watchlist.html', page_title='Watchlist')
 
-    # 🛠️ TRUST PAGES ROUTES (Google SEO)
     @app.route('/about')
     def about_page():
         return render_template('about.html', page_title='About Us')
