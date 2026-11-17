@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}Contact Us - AnimeNest{% endblock %}
 {% block content %}
-<div class="app-section" style="padding: 30px; background: rgba(20, 20, 25, 0.8); border-radius: 15px; max-width: 800px; margin: 20px auto; color: #fff;">
+<div class="app-section" style="padding: 30px; background: rgba(20, 20, 25, 0.8); border-radius: 15px; max-width: 800px; margin: 20px auto; color: #fff; box-sizing: border-box; overflow: hidden;">
     <h1 style="color: #a855f7; margin-bottom: 20px;">Contact Us</h1>
     <p style="line-height: 1.8; font-size: 16px; color: #ccc; margin-bottom: 20px;">
         If you have any questions, suggestions, or business inquiries, feel free to reach out to us. We usually respond within 24-48 hours.
     </p>
-    <div style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); padding: 20px; border-radius: 10px; text-align: center;">
+    <div style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); padding: 20px; border-radius: 10px; text-align: center; width: 100%; box-sizing: border-box;">
         <h3 style="margin-bottom: 10px; color: #fff;">Email Us At:</h3>
-        <a href="mailto:manojbarai37652o@gmail.com" style="color: #a855f7; font-size: 20px; font-weight: bold; text-decoration: none;">manojbarai37652o@gmail.com</a>
+        <!-- 🛠️ FIX: Added word-break and display block to prevent text overflowing -->
+        <a href="mailto:manojbarai37652o@gmail.com" style="color: #a855f7; font-size: 18px; font-weight: bold; text-decoration: none; word-break: break-all; overflow-wrap: break-word; display: block; width: 100%;">manojbarai37652o@gmail.com</a>
     </div>
 </div>
 {% endblock %}
