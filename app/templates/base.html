@@ -80,6 +80,25 @@
         .telegram-float-btn svg { width: 26px; height: 26px; fill: white; }
         .telegram-float-btn:hover { transform: scale(1.1); background-color: #0099e6; }
         .logo-text { font-size: 20px; font-weight: 800; color: #fff; margin: 0; display: inline-block; }
+        
+        /* 🛠️ Footer Links Style */
+        .footer-links {
+            text-align: center;
+            padding: 20px 10px 90px 10px; /* Bottom padding taaki nav ke peeche na chhupe */
+            font-size: 12px;
+            color: #8b949e;
+            position: relative;
+            z-index: 10;
+        }
+        .footer-links a {
+            color: #a855f7;
+            text-decoration: none;
+            margin: 0 6px;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
     </style>
 
     <!-- 🛡️ SECURITY: Anti-Inspect & DevTools Blocker (Optimized) -->
@@ -90,7 +109,6 @@
             if(e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) { return false; }
             if(e.ctrlKey && (e.key === 'U' || e.key === 'u')) { return false; }
         };
-        // 🛠️ FIX: Removed heavy debugger setInterval. This was causing massive lag.
     </script>
 
 </head>
@@ -176,6 +194,16 @@
     <main class="main-content" id="spaContent">
         {% block content %}{% endblock %}
     </main>
+
+    <!-- 🛠️ NEW FOOTER LINKS FOR GOOGLE TRUST -->
+    <div class="footer-links">
+        <a href="/about">About Us</a> | 
+        <a href="/contact">Contact</a> | 
+        <a href="/privacy">Privacy Policy</a> | 
+        <a href="/dmca">DMCA</a>
+        <br><br>
+        <span>&copy; 2024 AnimeNest. All rights reserved.</span>
+    </div>
 
     <div class="bottom-nav-wrapper">
         <div class="glass-bottom-nav">
@@ -349,7 +377,6 @@
 
     <script>
         window.open = function() { return null; };
-        // 🛠️ FIX: Run ad cleaner less frequently (every 3 seconds) to avoid UI freeze
         setInterval(() => {
             const adSelectors = [
                 'iframe[src*="popads"]', 'iframe[src*="propellerads"]', 'iframe[src*="onclickads"]',
@@ -363,7 +390,7 @@
                     el.remove(); 
                 });
             });
-        }, 3000); // 3000ms = 3 seconds
+        }, 3000); 
     </script>
 
     <script>

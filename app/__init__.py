@@ -156,7 +156,10 @@ def create_app(config_class=Config):
             all_anime = get_all_anime()
             base_url = request.url_root.rstrip('/')
             xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-            static_pages = ['/', '/trending', '/movies', '/cartoons', '/top-rated', '/popular', '/categories', '/history', '/watchlist']
+            
+            # 🛠️ Yahan naye pages add kiye hain
+            static_pages = ['/', '/trending', '/movies', '/cartoons', '/top-rated', '/popular', '/categories', '/history', '/watchlist', '/about', '/contact', '/privacy', '/dmca']
+            
             for page in static_pages:
                 xml += f'  <url>\n    <loc>{base_url}{page}</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n'
             for anime in all_anime:
@@ -307,12 +310,11 @@ def create_app(config_class=Config):
         _, _, popular_full, _, _, _ = get_filtered_anime()
         return render_template('index.html', anime_list=popular_full, page_title="Popular Anime")
 
-    # 🛠️ PAGINATION ADDED HERE
     @app.route('/az/<letter>')
     def az_page(letter):
         letter = letter.upper()
         page = request.args.get('page', 1, type=int)
-        per_page = 30 # Ek page par 30 anime
+        per_page = 30 
         
         all_anime, _, _, _, _, _ = get_filtered_anime()
         
@@ -356,6 +358,23 @@ def create_app(config_class=Config):
     @app.route('/watchlist')
     def watchlist():
         return render_template('watchlist.html', page_title='Watchlist')
+
+    # 🛠️ TRUST PAGES ROUTES (Google SEO)
+    @app.route('/about')
+    def about_page():
+        return render_template('about.html', page_title='About Us')
+
+    @app.route('/contact')
+    def contact_page():
+        return render_template('contact.html', page_title='Contact Us')
+
+    @app.route('/privacy')
+    def privacy_page():
+        return render_template('privacy.html', page_title='Privacy Policy')
+
+    @app.route('/dmca')
+    def dmca_page():
+        return render_template('dmca.html', page_title='DMCA / Disclaimer')
 
     @app.route('/watch/<anime_id>')
     @app.route('/watch/<anime_id>/<int:season_number>')
