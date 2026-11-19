@@ -431,7 +431,14 @@ def create_app(config_class=Config):
         elif any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy']): genres_text = "Comedy • Slice of Life • Drama"
         else: genres_text = "Action • Adventure • Drama"
             
-        description = f"Watch the amazing story of {anime['title']}. An unforgettable journey filled..."
+        # 🛠️ THE ULTIMATE FIX FOR UNIQUE CONTENT (Google SEO)
+        # Ab hum real scraped description use karenge, na ki same copy-paste line
+        real_desc = anime.get('description', '')
+        if real_desc and len(real_desc) > 20 and real_desc != "No description available.":
+            description = real_desc
+        else:
+            description = f"Watch {anime['title']} online in Hindi Dub and English Sub. Stream all episodes of {anime['title']} for free in HD quality on AnimeNest."
+
         related_anime = get_random_anime(anime_id, count=4)
         
         return render_template('watch.html', anime=anime, seasons=seasons, current_season=current_season,
