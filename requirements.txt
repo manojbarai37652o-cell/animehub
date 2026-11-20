@@ -8,4 +8,5 @@ gunicorn
 Flask-SQLAlchemy
 psycopg2-binary
 Flask-Limiter
-libsql-client
+libsql-client>=0.3.1
+aiohttp>=3.9.5
