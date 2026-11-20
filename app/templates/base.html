@@ -50,60 +50,46 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
 
     <style>
-        /* 🛠️ PREMIUM APP-LIKE SPLASH SCREEN ANIMATIONS */
+        /* 🛠️ CINEMATIC PREMIUM SPLASH SCREEN */
         #splash-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: radial-gradient(circle at center, #1a1a2e 0%, #0b0f19 100%);
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center; z-index: 999999;
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
-        }
-        
-        .splash-hidden { 
-            opacity: 0; 
-            visibility: hidden;
-            pointer-events: none; 
+            z-index: 999999; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        /* Glowing Rotating Ring */
+        /* Splash Hidden State */
+        .splash-hidden { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.5s ease, visibility 0.5s; }
+
+        /* ========================================== */
+        /* PHASE 1: Logo & Loading */
+        /* ========================================== */
+        #splash-phase-1 {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            position: absolute; width: 100%; height: 100%;
+            transition: opacity 0.5s ease;
+        }
+        .phase-1-hidden { opacity: 0; pointer-events: none; }
+
         .splash-logo-wrapper {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
+            position: relative; width: 120px; height: 120px;
+            display: flex; align-items: center; justify-content: center; margin-bottom: 25px;
         }
         .splash-logo-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: -6px;
-            border-radius: 50%;
+            content: ''; position: absolute; inset: -6px; border-radius: 50%;
             background: conic-gradient(from 0deg, transparent 0%, #a855f7 30%, transparent 60%, #a855f7 100%);
-            animation: rotateRing 2s linear infinite;
-            z-index: 1;
+            animation: rotateRing 2s linear infinite; z-index: 1;
         }
         .splash-logo-wrapper::after {
-            content: '';
-            position: absolute;
-            inset: -6px;
-            border-radius: 50%;
+            content: ''; position: absolute; inset: -6px; border-radius: 50%;
             background: conic-gradient(from 0deg, transparent 0%, #a855f7 30%, transparent 60%, #a855f7 100%);
-            animation: rotateRing 2s linear infinite;
-            filter: blur(12px);
-            z-index: 0;
+            animation: rotateRing 2s linear infinite; filter: blur(12px); z-index: 0;
         }
-        @keyframes rotateRing {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes rotateRing { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         .splash-logo-img {
             width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
-            border: 3px solid #1a1a2e;
-            background: #0b0f19;
-            z-index: 2;
+            border: 3px solid #1a1a2e; background: #0b0f19; z-index: 2;
             animation: breathe 2s ease-in-out infinite alternate;
         }
         @keyframes breathe {
@@ -111,7 +97,6 @@
             100% { transform: scale(1.05); box-shadow: 0 0 30px rgba(168, 85, 247, 0.7); }
         }
 
-        /* Text Animation */
         .splash-text {
             color: #fff; font-size: 28px; font-weight: 800; letter-spacing: 2px;
             margin-top: 10px; opacity: 0; transform: translateY(20px);
@@ -121,32 +106,50 @@
         .splash-text span { color: #a855f7; }
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-        /* Modern Loading Bar */
         .splash-loader-bar {
-            width: 160px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            margin-top: 35px;
-            overflow: hidden;
-            position: relative;
-            opacity: 0;
-            animation: fadeIn 0.5s 0.8s forwards;
+            width: 160px; height: 4px; background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px; margin-top: 35px; overflow: hidden; position: relative;
+            opacity: 0; animation: fadeIn 0.5s 0.8s forwards;
         }
         .splash-loader-bar::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; height: 100%; width: 40%;
+            content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 40%;
             background: linear-gradient(90deg, transparent, #a855f7, #a855f7, transparent);
-            border-radius: 4px;
-            animation: loadingBar 1.5s ease-in-out infinite;
+            border-radius: 4px; animation: loadingBar 1.5s ease-in-out infinite;
         }
-        @keyframes loadingBar {
-            0% { left: -40%; }
-            100% { left: 100%; }
-        }
+        @keyframes loadingBar { 0% { left: -40%; } 100% { left: 100%; } }
         @keyframes fadeIn { to { opacity: 1; } }
 
+        /* ========================================== */
+        /* PHASE 2: Big Text Zoom Out */
+        /* ========================================== */
+        #splash-phase-2 {
+            position: absolute; width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none;
+        }
+        
+        .cinematic-text {
+            font-size: 45px; font-weight: 900; letter-spacing: 3px; color: #fff;
+            text-transform: uppercase; transform: scale(0.8);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(168, 85, 247, 0.8);
+        }
+        .cinematic-text span { color: #a855f7; }
+
+        /* The actual zooming animation */
+        .zoom-active {
+            animation: textZoomOut 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes textZoomOut {
+            0% { opacity: 0; transform: scale(0.8); filter: blur(0px); }
+            15% { opacity: 1; transform: scale(1); filter: blur(0px); }
+            50% { opacity: 1; transform: scale(1.1); filter: blur(0px); }
+            100% { opacity: 0; transform: scale(6); filter: blur(15px); }
+        }
+
+        /* ========================================== */
+        /* UTILITIES */
+        /* ========================================== */
         iframe[id*="google_ads"], iframe[src*="bancadeltempoidea"], div[class*="push"], div[id*="push"] { z-index: 99999 !important; }
 
         .telegram-float-btn {
@@ -160,22 +163,11 @@
         
         /* 🛠️ Footer Links Style */
         .footer-links {
-            text-align: center;
-            padding: 20px 10px 90px 10px;
-            font-size: 12px;
-            color: #8b949e;
-            position: relative;
-            z-index: 10;
+            text-align: center; padding: 20px 10px 90px 10px;
+            font-size: 12px; color: #8b949e; position: relative; z-index: 10;
         }
-        .footer-links a {
-            color: #a855f7;
-            text-decoration: none;
-            margin: 0 6px;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover {
-            color: #fff;
-        }
+        .footer-links a { color: #a855f7; text-decoration: none; margin: 0 6px; transition: color 0.3s; }
+        .footer-links a:hover { color: #fff; }
     </style>
 
     <!-- 🛡️ SECURITY: Anti-Inspect & DevTools Blocker (Optimized) -->
@@ -191,13 +183,23 @@
 </head>
 <body>
 
-    <!-- 🛠️ NEW PREMIUM SPLASH SCREEN -->
+    <!-- 🛠️ CINEMATIC SPLASH SCREEN -->
     <div id="splash-screen" class="splash-hidden">
-        <div class="splash-logo-wrapper">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest" class="splash-logo-img">
+        
+        <!-- PHASE 1: Logo -->
+        <div id="splash-phase-1">
+            <div class="splash-logo-wrapper">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest" class="splash-logo-img">
+            </div>
+            <div class="splash-text">Anime<span>Nest</span></div>
+            <div class="splash-loader-bar"></div>
         </div>
-        <div class="splash-text">Anime<span>Nest</span></div>
-        <div class="splash-loader-bar"></div>
+
+        <!-- PHASE 2: Big Text Zoom -->
+        <div id="splash-phase-2">
+            <div class="cinematic-text" id="cinematic-text-element">Anime<span>Nest</span></div>
+        </div>
+
     </div>
 
     <div id="spaLoader" class="spa-loader"></div>
@@ -311,23 +313,35 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById("splash-screen");
+            const phase1 = document.getElementById("splash-phase-1");
+            const phase2 = document.getElementById("splash-phase-2");
+            const textElement = document.getElementById("cinematic-text-element");
+
             if (splash) {
                 const isHomePage = window.location.pathname === '/' || window.location.pathname === '/home';
                 
-                // अगर पहले दिख चुका है या होम पेज नहीं है, तो सीधा हाइड कर दो
                 if (sessionStorage.getItem('splashShown') || !isHomePage) {
                     splash.style.display = 'none';
                 } else {
-                    // पहली बार होम पेज पर दिखाओ
                     sessionStorage.setItem('splashShown', 'true');
                     splash.classList.remove('splash-hidden');
                     
-                    // एनिमेशन पूरा होने का इंतज़ार करो (2.8 सेकंड)
+                    // 1. 2 सेकंड बाद Logo (Phase 1) फेड आउट होना शुरू होगा
+                    setTimeout(() => {
+                        phase1.classList.add('phase-1-hidden');
+                    }, 2000);
+
+                    // 2. 2.5 सेकंड बाद बड़ा टेक्स्ट (Phase 2) शुरू होगा
+                    setTimeout(() => {
+                        phase2.style.opacity = '1';
+                        textElement.classList.add('zoom-active');
+                    }, 2500);
+
+                    // 3. 4.5 सेकंड बाद पूरा Splash स्क्रीन हट जाएगा
                     setTimeout(() => {
                         splash.classList.add('splash-hidden');
-                        // फेड-आउट के बाद DOM से पूरी तरह हटा दो
-                        setTimeout(() => { splash.style.display = 'none'; }, 800); 
-                    }, 2800);
+                        setTimeout(() => { splash.style.display = 'none'; }, 500); 
+                    }, 4500);
                 }
             }
             renderRecentSearches();
