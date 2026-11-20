@@ -50,25 +50,102 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
 
     <style>
-        /* 🛠️ APP-LIKE SPLASH SCREEN ANIMATIONS */
+        /* 🛠️ PREMIUM APP-LIKE SPLASH SCREEN ANIMATIONS */
         #splash-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: #0b0f19; display: flex; flex-direction: column;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0b0f19 100%);
+            display: flex; flex-direction: column;
             align-items: center; justify-content: center; z-index: 999999;
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
         }
-        .splash-hidden { opacity: 0; transform: scale(1.1); pointer-events: none; display: none !important; }
-        .splash-logo { animation: logoPulse 1.5s infinite ease-in-out; margin-bottom: 20px; }
-        @keyframes logoPulse {
-            0% { transform: scale(1); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(168, 85, 247, 0.8); }
-            100% { transform: scale(1); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+        
+        .splash-hidden { 
+            opacity: 0; 
+            visibility: hidden;
+            pointer-events: none; 
         }
-        .splash-text { color: #fff; font-size: 24px; font-weight: 800; letter-spacing: 1px; margin-top: 15px; animation: fadeInUp 1s ease-out forwards; opacity: 0; transform: translateY(20px); }
+
+        /* Glowing Rotating Ring */
+        .splash-logo-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        .splash-logo-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, transparent 0%, #a855f7 30%, transparent 60%, #a855f7 100%);
+            animation: rotateRing 2s linear infinite;
+            z-index: 1;
+        }
+        .splash-logo-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, transparent 0%, #a855f7 30%, transparent 60%, #a855f7 100%);
+            animation: rotateRing 2s linear infinite;
+            filter: blur(12px);
+            z-index: 0;
+        }
+        @keyframes rotateRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .splash-logo-img {
+            width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
+            border: 3px solid #1a1a2e;
+            background: #0b0f19;
+            z-index: 2;
+            animation: breathe 2s ease-in-out infinite alternate;
+        }
+        @keyframes breathe {
+            0% { transform: scale(0.95); box-shadow: 0 0 10px rgba(168, 85, 247, 0.2); }
+            100% { transform: scale(1.05); box-shadow: 0 0 30px rgba(168, 85, 247, 0.7); }
+        }
+
+        /* Text Animation */
+        .splash-text {
+            color: #fff; font-size: 28px; font-weight: 800; letter-spacing: 2px;
+            margin-top: 10px; opacity: 0; transform: translateY(20px);
+            animation: fadeInUp 1s 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            text-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+        }
         .splash-text span { color: #a855f7; }
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-        .splash-spinner { width: 30px; height: 30px; border: 3px solid rgba(168, 85, 247, 0.3); border-top-color: #a855f7; border-radius: 50%; animation: spin 1s linear infinite; margin-top: 30px; }
-        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Modern Loading Bar */
+        .splash-loader-bar {
+            width: 160px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-top: 35px;
+            overflow: hidden;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 0.5s 0.8s forwards;
+        }
+        .splash-loader-bar::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; height: 100%; width: 40%;
+            background: linear-gradient(90deg, transparent, #a855f7, #a855f7, transparent);
+            border-radius: 4px;
+            animation: loadingBar 1.5s ease-in-out infinite;
+        }
+        @keyframes loadingBar {
+            0% { left: -40%; }
+            100% { left: 100%; }
+        }
+        @keyframes fadeIn { to { opacity: 1; } }
 
         iframe[id*="google_ads"], iframe[src*="bancadeltempoidea"], div[class*="push"], div[id*="push"] { z-index: 99999 !important; }
 
@@ -84,7 +161,7 @@
         /* 🛠️ Footer Links Style */
         .footer-links {
             text-align: center;
-            padding: 20px 10px 90px 10px; /* Bottom padding taaki nav ke peeche na chhupe */
+            padding: 20px 10px 90px 10px;
             font-size: 12px;
             color: #8b949e;
             position: relative;
@@ -114,12 +191,13 @@
 </head>
 <body>
 
+    <!-- 🛠️ NEW PREMIUM SPLASH SCREEN -->
     <div id="splash-screen" class="splash-hidden">
-        <div class="splash-logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest" style="width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #a855f7;">
+        <div class="splash-logo-wrapper">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest" class="splash-logo-img">
         </div>
         <div class="splash-text">Anime<span>Nest</span></div>
-        <div class="splash-spinner"></div>
+        <div class="splash-loader-bar"></div>
     </div>
 
     <div id="spaLoader" class="spa-loader"></div>
@@ -235,15 +313,21 @@
             const splash = document.getElementById("splash-screen");
             if (splash) {
                 const isHomePage = window.location.pathname === '/' || window.location.pathname === '/home';
+                
+                // अगर पहले दिख चुका है या होम पेज नहीं है, तो सीधा हाइड कर दो
                 if (sessionStorage.getItem('splashShown') || !isHomePage) {
                     splash.style.display = 'none';
                 } else {
+                    // पहली बार होम पेज पर दिखाओ
                     sessionStorage.setItem('splashShown', 'true');
                     splash.classList.remove('splash-hidden');
+                    
+                    // एनिमेशन पूरा होने का इंतज़ार करो (2.8 सेकंड)
                     setTimeout(() => {
                         splash.classList.add('splash-hidden');
-                        setTimeout(() => { splash.style.display = 'none'; }, 600);
-                    }, 2500);
+                        // फेड-आउट के बाद DOM से पूरी तरह हटा दो
+                        setTimeout(() => { splash.style.display = 'none'; }, 800); 
+                    }, 2800);
                 }
             }
             renderRecentSearches();
