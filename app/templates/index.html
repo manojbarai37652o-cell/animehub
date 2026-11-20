@@ -124,11 +124,35 @@
         font-weight: bold;
     }
 
+    /* 🛠️ SEO TEXT SECTION STYLES */
+    .seo-text-section {
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 900px;
+        background: rgba(20, 20, 25, 0.5);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        color: #ccc;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    .seo-text-section h1 {
+        font-size: 22px;
+        color: #fff;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .seo-text-section h2 {
+        font-size: 18px;
+        color: #a855f7;
+        margin-top: 15px;
+        margin-bottom: 8px;
+    }
+
     /* ========================================== */
     /* 🖥️ PC / DESKTOP FIXES (Banner Size & Poster Size) */
     /* ========================================== */
     @media (min-width: 768px) {
-        /* Fix Huge Hero Banner */
         .hero-banner {
             max-width: 1200px !important;
             height: 450px !important;
@@ -149,36 +173,32 @@
         .hero-content {
             max-width: 600px !important;
         }
-
-        /* Fix Tiny Anime Cards */
         .az-anime-grid, .anime-grid-2-col {
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
             gap: 20px !important;
         }
-        
         .anime-row {
             gap: 20px !important;
         }
-
         .anime-card {
             width: 180px !important; 
             min-width: 180px !important;
         }
-
         .anime-card-image-wrapper {
             height: 260px !important; 
             border-radius: 12px !important;
         }
-        
         .anime-title {
             font-size: 14px !important;
             margin-top: 8px !important;
             font-weight: 600 !important;
         }
-        
         .anime-meta .rating {
             font-size: 13px !important;
             color: #fbbf24 !important;
+        }
+        .seo-text-section h1 {
+            font-size: 26px;
         }
     }
 </style>
@@ -193,7 +213,7 @@
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <span class="hero-badge">🔥 Trending Now</span>
-                <h1 class="hero-title">{{ anime.title }}</h1>
+                <h2 class="hero-title">{{ anime.title }}</h2>
                 <p class="hero-desc">The weakest hunter becomes the strongest.</p>
                 <a href="/watch/{{ anime.id }}" class="btn-watch"><i class="fas fa-play"></i> Watch Now</a>
             </div>
@@ -231,6 +251,18 @@
         </a>
     </div>
     {% endif %}
+
+    <!-- 🛠️ SEO FRIENDLY UNIQUE TEXT SECTION ADDED HERE -->
+    {% if not search_query and page_title == 'Home' %}
+    <div class="seo-text-section">
+        <h1>Welcome to AnimeNest - Watch Free Hindi Dubbed Anime Online</h1>
+        <p>AnimeNest is your ultimate destination to watch anime online for free in high quality. We provide a massive collection of the latest and classic anime series, movies, and cartoons in HD (1080p) with Hindi Dub and English Subtitles. Whether you love action, romance, fantasy, isekai, or comedy, our library has something for every anime fan.</p>
+        
+        <h2>Why Choose AnimeNest?</h2>
+        <p>We update our database daily with new episodes so you never miss out on your favorite shows. Our platform is designed to give you a seamless, ad-light streaming experience without any annoying pop-ups. No sign-up or login is required—just click and start watching your favorite anime instantly!</p>
+    </div>
+    {% endif %}
+    <!-- 🛠️ END SEO TEXT SECTION -->
 
     <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 15px 0; margin-bottom: 10px;">
         <script>
@@ -482,8 +514,6 @@
             </div>
         </div>
         {% endif %}
-
-        <!-- 🛠️ GENRES SECTION REMOVED HERE AS REQUESTED BY USER -->
 
         <div class="app-section">
             <div class="section-header">
