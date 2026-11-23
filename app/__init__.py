@@ -162,12 +162,20 @@ def create_app(config_class=Config):
             base_url = request.url_root.rstrip('/')
             xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             
-            static_pages = ['/', '/trending', '/movies', '/cartoons', '/top-rated', '/popular', '/categories', '/history', '/watchlist', '/about', '/contact', '/privacy', '/dmca']
+            # 🛠️ SEO: Only include real, content-rich pages
+            static_pages = ['/', '/trending', '/movies', '/cartoons', '/top-rated', '/popular', '/categories', '/about', '/contact', '/privacy', '/dmca']
             
             for page in static_pages:
                 xml += f'  <url>\n    <loc>{base_url}{page}</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n'
+            
+            # 🛠️ SEO FIX (2026-11): Sitemap me SIRF anime info pages (/watch/<id>) 
+            # Episode URLs (/watch/<id>/<season>/<ep>) kabhi bhi include NA karo - thin content
+            # Safety check: skip karo agar anime.id missing ho
             for anime in all_anime:
-                xml += f'  <url>\n    <loc>{base_url}/watch/{anime.get("id", "")}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n'
+                anime_id = anime.get('id')
+                if not anime_id:
+                    continue
+                xml += f'  <url>\n    <loc>{base_url}/watch/{anime_id}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n'
             xml += '</urlset>'
             return Response(xml, mimetype='application/xml')
         except Exception as e:
@@ -388,6 +396,10 @@ def create_app(config_class=Config):
         if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
             anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
+        # 🛠️ SEO FIX (2026-11): Sirf canonical anime info page (/watch/<id>) ko index hone do.
+        # Season/episode pages (thin content) ko noindex kar denge template ke through.
+        is_canonical_watch_page = (request.path.rstrip('/') == f'/watch/{anime_id}')
+
         seasons = anime.get('seasons', [])
         if not seasons:
             episodes = anime.get('episodes', [])
@@ -444,7 +456,7 @@ def create_app(config_class=Config):
         return render_template('watch.html', anime=anime, seasons=seasons, current_season=current_season,
                                episodes=episodes, current_ep=current_ep, prev_ep=prev_ep_num, next_ep=next_ep_num,
                                related_anime=related_anime, genres_text=genres_text, description=description,
-                               ep_number=ep_number)
+                               ep_number=ep_number, is_canonical_watch_page=is_canonical_watch_page)
 
     @app.errorhandler(404)
     def page_not_found(e): return render_template('404.html'), 404

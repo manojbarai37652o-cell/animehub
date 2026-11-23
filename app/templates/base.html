@@ -7,6 +7,9 @@
     <title>{% block title %}AnimeNest - Watch Anime Free{% endblock %}</title>
     <meta name="description" content="{% block description %}Watch free Hindi dubbed anime online in HD quality only on AnimeNest.{% endblock %}">
     
+    <!-- 🛠️ SEO FIX (2026-11): Extra head block for noindex on thin pages -->
+    {% block head %}{% endblock %}
+    
     <link rel="canonical" href="{{ request.url }}" />
 
     <meta name="application-name" content="AnimeNest">

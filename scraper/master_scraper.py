@@ -6,7 +6,7 @@ import time
 
 # 🛑 कॉन्फ़िगरेशन
 DATABASE_PATH = "database/storage.json"
-MAX_ANIME_LIMIT = 2500  # सर्वर को सुरक्षित रखने के लिए लिमिट (तुम इसे 2000-3000 के बीच रख सकते हो)
+MAX_ANIME_LIMIT = 2500  # सर्वर को सुरक्षित रखने के लिए लिमिट 
 
 def get_anime_count():
     """डेटाबेस में मौजूद कुल एनीमे की गिनती करता है"""
@@ -23,7 +23,7 @@ def get_anime_count():
         return 0
 
 def run_scraper(script_path, scraper_name):
-    """किसी भी स्क्रिप्ट को एक अलग प्रोसेस में रन करता है ताकि RAM क्लियर हो जाए"""
+    """किसी भी स्क्रिप्ट को एक अलग प्रोसेस में रन करता है"""
     print(f"\n=======================================================")
     print(f"▶️ शुरू कर रहे हैं: {scraper_name}")
     print(f"=======================================================")
@@ -31,12 +31,9 @@ def run_scraper(script_path, scraper_name):
     start_time = time.time()
     
     try:
-        # sys.executable का इस्तेमाल करने से वही पायथन वर्ज़न चलेगा जो सिस्टम में है
         result = subprocess.run([sys.executable, script_path], check=True)
-        
         end_time = time.time()
         minutes = (end_time - start_time) / 60
-        
         print(f"\n✅ {scraper_name} सफलतापूर्वक पूरा हुआ! (समय: {minutes:.2f} मिनट)")
         
     except subprocess.CalledProcessError as e:
@@ -47,7 +44,7 @@ def run_scraper(script_path, scraper_name):
         print(f"\n❌ {scraper_name} चलाते समय अज्ञात एरर: {e}")
 
     print("🧹 RAM और मेमोरी क्लियर की जा रही है...")
-    time.sleep(2) # सिस्टम को 2 सेकंड का ब्रेक
+    time.sleep(2)
 
 def main():
     print("🤖 THE BOSS FILE: MASTER SCRAPER शुरू हो रहा है...")
@@ -63,8 +60,6 @@ def main():
     # 2. AnimeSalt स्क्रैपर चलाओ
     if current_count < MAX_ANIME_LIMIT:
         run_scraper("scraper/smart_scraper.py", "AnimeSalt Scraper")
-        
-        # AnimeSalt के बाद फिर से गिनती चेक करो (क्योंकि नए एनीमे जुड़ गए होंगे)
         current_count = get_anime_count()
         print(f"📊 AnimeSalt के बाद डेटाबेस में {current_count} एनीमे हैं।")
         
@@ -74,15 +69,17 @@ def main():
     else:
         print("🛑 AnimeSalt के बाद ही लिमिट पूरी हो गई! ToonStream स्किप किया जा रहा है।")
 
-    # 4. भविष्य में यहाँ तुम और स्क्रैपर्स जोड़ सकते हो
-    # if get_anime_count() < MAX_ANIME_LIMIT:
-    #     run_scraper("scraper/new_source_scraper.py", "New Source Scraper")
-
-    # 5. फाइनल स्टेटस
+    # 4. फाइनल स्टेटस
     final_count = get_anime_count()
     print(f"\n=======================================================")
-    print(f"🎉 ALL DONE! अब डेटाबेस में कुल {final_count} एनीमे हैं।")
+    print(f"🎉 ALL SCRAPING DONE! अब डेटाबेस में कुल {final_count} एनीमे हैं।")
     print(f"=======================================================")
+
+    # ==========================================
+    # 6. 🚀 ऑटोमैटिक टेलीग्राम पोस्टर (नया जोड़ा गया है)
+    # ==========================================
+    print("\n📤 अब Telegram पर नए एनीमे पोस्ट किए जा रहे हैं...")
+    run_scraper("telegram_poster.py", "Telegram Auto-Poster")
 
 if __name__ == "__main__":
     main()

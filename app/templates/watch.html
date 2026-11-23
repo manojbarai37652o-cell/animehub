@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 
 {% block title %}{{ anime.title }} - AnimeNest{% endblock %}
-{% block description %}Watch {{ anime.title }} in Hindi Dub/Sub online free on AnimeNest.{% endblock %}
+{% block description %}{{ description }}{% endblock %}
 {% block og_title %}{{ anime.title }} - AnimeNest{% endblock %}
+
+{# 🛠️ SEO FIX (2026-11): Episode/season pages ko noindex - thin content #}
+{% block head %}
+{% if not is_canonical_watch_page %}
+<meta name="robots" content="noindex, follow">
+{% endif %}
+{% endblock %}
 
 {% block content %}
 <div class="watch-page">
