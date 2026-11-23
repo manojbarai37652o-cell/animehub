@@ -3,16 +3,25 @@ import requests
 import libsql
 import json
 import os
+from dotenv import load_dotenv  # 🛠️ .env फाइल पढ़ने के लिए
+
+# .env फाइल लोड करो
+load_dotenv()
 
 # ==========================================
-# 🛠️ यहाँ अपनी डिटेल्स डालो
+# 🛠️ अब ये डिटेल्स .env फाइल से आएंगी
 # ==========================================
-BOT_TOKEN = '9131875336:AAFFEqVSMhh_zJpl73hfdaDTyyXa8Z5COq4'
+BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 CHANNEL_ID = '@AnimeNest_Official'
 WEBSITE_URL = 'https://animenest-zmbl.onrender.com'
 
 TURSO_URL = "https://animenest-animenest.aws-ap-south-1.turso.io" 
-TURSO_AUTH_TOKEN = "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicm8iLCJpYXQiOjE3OTUzNTc2NDMsImlkIjoiMDFhMWJiNDQtM2MwMS03ZjRiLTlmYzQtY2RhODc4NTdjZGViIiwia2lkIjoic0RfVWxIcE1mMDk3d25UemNHdHJTd3R6RjdseXFLbU1pekhTMDZFQkNtWSIsInJpZCI6ImE0ZTFiNzYyLTliMTYtNDY3YS05OTQwLWZjMWJjNmE0NDJkNSJ9.f8MuCi1bvJQm3p1ufiRpXsjTgkHcmZfy5_XBVfv3KLTV0isu5M1YSyaDDKwSLnYljca4FGF68ZSE-jMPl_RkBg"
+TURSO_AUTH_TOKEN = os.getenv('TURSO_AUTH_TOKEN')
+
+# अगर टोकन नहीं मिला तो स्क्रिप्ट रुक जाएगी
+if not BOT_TOKEN or not TURSO_AUTH_TOKEN:
+    print("❌ Error: .env file me TELEGRAM_BOT_TOKEN ya TURSO_AUTH_TOKEN nahi mila!")
+    exit(1)
 
 PROGRESS_FILE = 'progress.json'
 

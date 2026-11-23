@@ -1,10 +1,18 @@
 import json
 import os
 import libsql_client
+from dotenv import load_dotenv
 
-# ⚠️ YAHAN RENDER WALA TURSO URL AUR TOKEN DAALNA
-TURSO_URL = "https://animenest-animenest.aws-ap-south-1.turso.io" # Apna URL daalo
-TURSO_TOKEN = "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3OTQxNDMzODgsImlkIjoiMDFhMWJiNDQtM2MwMS03ZjRiLTlmYzQtY2RhODc4NTdjZGViIiwia2lkIjoic0RfVWxIcE1mMDk3d25UemNHdHJTd3R6RjdseXFLbU1pekhTMDZFQkNtWSIsInJpZCI6ImE0ZTFiNzYyLTliMTYtNDY3YS05OTQwLWZjMWJjNmE0NDJkNSJ9.03Cqd1MRuAMJgfXnjUbi9X9a8EmGhnrMGmPBFADI6CuzMqOJMkh2FmtMXYO63Ak2Z5ry-kY0y31JJL0CnnWiBA" # Apna lamba wala token daalo
+# .env फाइल से टोकन लोड करो
+load_dotenv()
+
+# 🛠️ अब टोकन सीधे .env फाइल से आएगा (सुरक्षित तरीका)
+TURSO_URL = os.environ.get('TURSO_DATABASE_URL')
+TURSO_TOKEN = os.environ.get('TURSO_AUTH_TOKEN')
+
+# अगर .env में URL नहीं है, तो डिफ़ॉल्ट वाला इस्तेमाल करो
+if not TURSO_URL:
+    TURSO_URL = "https://animenest-animenest.aws-ap-south-1.turso.io"
 
 if TURSO_URL.startswith("libsql://"):
     TURSO_URL = TURSO_URL.replace("libsql://", "https://")
@@ -13,6 +21,11 @@ DB_PATH = os.path.join(os.getcwd(), 'database', 'storage.json')
 
 def sync_to_turso():
     print("🔄 Syncing local storage.json to Turso Cloud...")
+    
+    if not TURSO_TOKEN:
+        print("❌ Error: TURSO_AUTH_TOKEN nahi mila! Check your .env file.")
+        return
+
     if not os.path.exists(DB_PATH):
         print("❌ storage.json not found!")
         return
