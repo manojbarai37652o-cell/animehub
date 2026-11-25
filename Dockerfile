@@ -1,5 +1,11 @@
-# Playwright की ऑफिशियल इमेज जिसमें सारे डिपेंडेंसीज़ पहले से हैं
+# Playwright की आधिकारिक इमेज जिसमें सारे डिपेंडेंसीज़ पहले से हैं
 FROM mcr.microsoft.com/playwright/python:v1.41.0-jammy
+
+# 🛡️ SECURITY FIX: Ghostscript Vulnerability (CVE-2026-125396) को पैच करने के लिए
+# यह कमांड सिस्टम को अपडेट करके Ghostscript का सुरक्षित वर्ज़न इंस्टॉल करेगा।
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ghostscript && \
+    rm -rf /var/lib/apt/lists/*
 
 # Python को अनबफर्ड मोड में चलाओ
 ENV PYTHONUNBUFFERED=1
@@ -15,4 +21,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Render के लिए Gunicorn कमांड
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "--timeout", "120", "--workers", "1", "app:create_app()"]
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "--timeout", "120", "--workers", "1", "app:app"]
