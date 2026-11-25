@@ -16,6 +16,7 @@ from scraper.parser import (parse_post_id, parse_season_episodes,
                             parse_video_servers, extract_language_from_detail)
 
 DB_FILE = os.path.join(project_root, 'database', 'storage.json')
+TOONSTREAM_DB_FILE = os.path.join(project_root, 'toonstream_data.json') # 🛠️ NAYA: ToonStream data bhi check karenge
 BASE_URL = "https://animesalt.cx"
 
 BATCH_SIZE = 999999          
@@ -34,28 +35,25 @@ def save_db(data):
     with open(DB_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
 
-# 🛠️ SMART TITLE CLEANER (ToonStream se copy kiya gaya logic)
+# 🛠️ SMART TITLE CLEANER
 def clean_title(title):
     if not title: return ""
     return re.sub(r'[^a-z0-9]', '', title.lower()).strip()
 
-# 🛠️ SMART EXTRACTOR (Targeting the specific HTML structure)
+# 🛠️ SMART EXTRACTOR
 def extract_anime_from_html(html):
     soup = BeautifulSoup(html, 'html.parser')
     anime_list = []
     seen_urls = set()
     
-    # AnimeSalt har anime ko '<li id="post-123">' ke andar rakhta hai
     items = soup.find_all('li', id=re.compile(r'^post-\d+'))
     
     for item in items:
         try:
-            # 1. Title nikaalo
             title_tag = item.find('h2', class_='entry-title')
             if not title_tag: continue
             title = title_tag.get_text(strip=True)
             
-            # 2. Link nikaalo (jo 'lnk-blk' class me hota hai)
             link_tag = item.find('a', class_='lnk-blk') or item.find('a', href=True)
             if not link_tag: continue
             
@@ -63,7 +61,6 @@ def extract_anime_from_html(html):
             if not href.startswith('http'):
                 href = BASE_URL + href if href.startswith('/') else BASE_URL + '/' + href
                 
-            # 3. Image nikaalo (lazy load wali data-src me hoti hai)
             img_tag = item.find('img')
             image = ""
             if img_tag:
@@ -71,10 +68,8 @@ def extract_anime_from_html(html):
                 if image.startswith('//'): image = 'https:' + image
                 elif image.startswith('/'): image = BASE_URL + image
 
-            # 4. Type check karo (Movie ya Series)
             anime_type = "Movie" if ('/movies/' in href or '/movie/' in href) else "Series"
             
-            # Duplicate links ko rokne ke liye
             if href not in seen_urls:
                 seen_urls.add(href)
                 anime_list.append({'title': title, 'url': href, 'image': image, 'type': anime_type})
@@ -94,12 +89,28 @@ if __name__ == '__main__':
     print("🛑 रोकने के लिए Ctrl + C दबाओ")
     print("=" * 60)
 
+    # 1. Live DB Load karo
     db_data = load_db()
     existing_anime = db_data.get('anime_list', [])
     
-    # 🛠️ FIX: Ab hum URL ke sath-sath Title bhi check karenge
+    # 2. ToonStream ka temporary data bhi load karo taaki duplicate na ho
+    toonstream_anime = []
+    if os.path.exists(TOONSTREAM_DB_FILE):
+        try:
+            with open(TOONSTREAM_DB_FILE, 'r', encoding='utf-8') as f:
+                ts_data = json.load(f)
+                toonstream_anime = ts_data.get('anime_list', [])
+                print(f"📂 ToonStream के टेम्परेरी डेटा में {len(toonstream_anime)} एनीमे मिले (इन्हें भी स्किप करेंगे)।")
+        except Exception as e:
+            print(f"⚠️ ToonStream डेटा पढ़ने में एरर: {e}")
+
+    # Dono DB se URLs aur Titles nikaalo
     existing_urls = set(a.get('url', '') for a in existing_anime if a.get('url'))
     existing_titles = set(clean_title(a.get('title', '')) for a in existing_anime)
+    
+    # ToonStream ke titles aur urls bhi add karo
+    existing_urls.update(set(a.get('url', '') for a in toonstream_anime if a.get('url')))
+    existing_titles.update(set(clean_title(a.get('title', '')) for a in toonstream_anime))
     
     updated_list = existing_anime.copy()
     new_anime = []
@@ -162,11 +173,14 @@ if __name__ == '__main__':
                             added_count = 0
                             for a in page_anime:
                                 clean_t = clean_title(a['title'])
-                                # 🛠️ FIX: URL aur Title dono check karo
+                                # 🛠️ FIX: URL aur Title dono check karo (Storage + ToonStream)
                                 if a['url'] not in existing_urls and clean_t not in existing_titles and clean_t not in [clean_title(x['title']) for x in new_anime]:
                                     new_anime.append(a)
                                     existing_titles.add(clean_t)
+                                    existing_urls.add(a['url'])
                                     added_count += 1
+                                else:
+                                    print(f"      ⏭️ स्किप (पहले से है): {a['title']}")
                             
                             print(f"   📊 पेज {page_num} पर कुल {len(page_anime)} एनीमे मिले, जिनमें से {added_count} नए हैं (कुल नए: {len(new_anime)})")
                         
