@@ -2,66 +2,76 @@ import json
 import os
 import re
 
-DB_PATH = os.path.join(os.getcwd(), 'database', 'storage.json')
+# 🛑 यहाँ अपनी storage.json का पाथ डालो
+DB_FILE = "database/storage.json"
 
 def clean_title(title):
-    """नाम से सारे स्पेशल कैरेक्टर और स्पेस हटाकर सिर्फ अक्षर और नंबर रखेगा"""
+    """एनीमे के नाम को साफ करके सिर्फ अक्षर और नंबर रखता है"""
     if not title: return ""
+    # सारे स्पेशल कैरेक्टर्स हटाओ और सबको lowercase में कर दो
     return re.sub(r'[^a-z0-9]', '', title.lower()).strip()
 
-def clean_all_duplicates():
-    print("🔍 Checking for ALL duplicate anime (Smart Match)...")
-    if not os.path.exists(DB_PATH):
-        print("❌ storage.json not found!")
+def remove_duplicates():
+    if not os.path.exists(DB_FILE):
+        print(f"❌ डेटाबेस फाइल नहीं मिली: {DB_FILE}")
+        print("कृपया सुनिश्चित करें कि आप प्रोजेक्ट के मेन फोल्डर से स्क्रिप्ट रन कर रहे हैं।")
         return
 
-    with open(DB_PATH, 'r', encoding='utf-8') as f:
+    print("🔄 डेटाबेस पढ़ा जा रहा है...")
+    with open(DB_FILE, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     anime_list = data.get('anime_list', [])
-    unique_anime_dict = {}
-    removed_count = 0
+    original_count = len(anime_list)
+
+    if original_count == 0:
+        print("❌ डेटाबेस खाली है।")
+        return
+
+    print(f"📊 कुल एनीमे: {original_count}")
+    print("🕵️ डुप्लीकेट्स ढूंढे जा रहे हैं...\n")
+
+    unique_anime = {}
+    duplicates_removed = 0
 
     for anime in anime_list:
-        raw_title = anime.get('title', '')
-        # स्मार्ट नाम बनाओ (जैसे "Naruto (Hindi)" -> "narutohindi")
-        smart_key = clean_title(raw_title)
-        
-        if not smart_key:
-            continue
+        title = anime.get('title', '')
+        clean_t = clean_title(title)
 
-        if smart_key in unique_anime_dict:
-            # अगर डुप्लीकेट मिला, तो देखो किसमें ज्यादा एपिसोड हैं
-            existing_anime = unique_anime_dict[smart_key]
+        if not clean_t:
+            continue # अगर नाम खाली है तो स्किप करो
+
+        if clean_t in unique_anime:
+            # 🚨 डुप्लीकेट मिला!
+            duplicates_removed += 1
+            existing_anime = unique_anime[clean_t]
             
-            # एपिसोड्स की संख्या चेक करो
-            existing_eps = sum(len(s.get('episodes', [])) for s in existing_anime.get('seasons', []))
-            if existing_eps == 0 and existing_anime.get('episodes'):
-                existing_eps = len(existing_anime.get('episodes', []))
+            # स्मार्ट चेक: किसमें ज़्यादा एपिसोड्स हैं?
+            existing_eps = len(existing_anime.get('episodes', []))
+            current_eps = len(anime.get('episodes', []))
 
-            new_eps = sum(len(s.get('episodes', [])) for s in anime.get('seasons', []))
-            if new_eps == 0 and anime.get('episodes'):
-                new_eps = len(anime.get('episodes', []))
-
-            # अगर नए वाले में ज्यादा एपिसोड हैं, तो पुराने को हटाकर नया रखो
-            if new_eps > existing_eps:
-                print(f"🔄 Replaced: '{existing_anime.get('title')}' with better version '{raw_title}'")
-                unique_anime_dict[smart_key] = anime
+            if current_eps > existing_eps:
+                print(f"🗑️ डुप्लीकेट हटाया: '{title}' (नए वाले में ज़्यादा एपिसोड्स थे, इसलिए इसे रखा गया)")
+                unique_anime[clean_t] = anime
             else:
-                print(f"🗑️ Removed duplicate: '{raw_title}' (Kept: '{existing_anime.get('title')}')")
-            
-            removed_count += 1
+                print(f"🗑️ डुप्लीकेट हटाया: '{title}' (पुराने वाले में ज़्यादा या बराबर एपिसोड्स थे, इसलिए इसे रखा गया)")
         else:
-            unique_anime_dict[smart_key] = anime
+            unique_anime[clean_t] = anime
 
-    # डेटाबेस को अपडेट करो
-    data['anime_list'] = list(unique_anime_dict.values())
-    
-    with open(DB_PATH, 'w', encoding='utf-8') as f:
+    # डिक्शनरी को वापस लिस्ट में बदलो
+    cleaned_list = list(unique_anime.values())
+    data['anime_list'] = cleaned_list
+
+    # फाइल में सेव करो
+    with open(DB_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
-        
-    print(f"\n✅ Cleaning complete! Total duplicate anime removed: {removed_count}")
-    print(f"🎉 Total unique anime remaining: {len(data['anime_list'])}")
 
-if __name__ == "__main__":
-    clean_all_duplicates()
+    print("\n" + "="*50)
+    print(f"✅ सफाई पूरी हो गई!")
+    print(f"📉 हटाए गए डुप्लीकेट्स: {duplicates_removed}")
+    print(f"📈 अब डेटाबेस में कुल यूनिक एनीमे: {len(cleaned_list)}")
+    print("="*50)
+    print("\n⚠️ IMPORTANT: अब तुम्हें अपनी Turso सिंक स्क्रिप्ट (sync_turso.py) रन करनी होगी ताकि लाइव वेबसाइट पर भी ये बदलाव दिखें!")
+
+if __name__ == '__main__':
+    remove_duplicates()
