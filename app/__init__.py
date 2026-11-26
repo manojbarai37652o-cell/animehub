@@ -4,7 +4,7 @@ import os
 import re
 import json
 import requests
-import math # 🛠️ Pagination ke liye zaroori hai
+import math
 from datetime import datetime
 from config import Config
 from flask_limiter import Limiter
@@ -118,7 +118,6 @@ def create_app(config_class=Config):
         response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
         return response
 
-    # 🛠️ NEW ROUTE: robots.txt for Google Crawlers
     @app.route('/robots.txt')
     def robots_txt():
         lines = [
@@ -130,6 +129,29 @@ def create_app(config_class=Config):
             f"Sitemap: {request.url_root.rstrip('/')}/sitemap.xml"
         ]
         return Response("\n".join(lines), mimetype="text/plain")
+
+    # 🛠️ NEW ROUTE: Live Search API for Auto-Suggest
+    @app.route('/api/live_search')
+    def live_search():
+        query = request.args.get('q', '').strip()
+        if not query or len(query) < 2:
+            return jsonify([])
+        
+        try:
+            results = search_anime(query)
+            formatted_results = []
+            
+            for a in results[:8]:
+                formatted_results.append({
+                    'id': a.get('id'),
+                    'title': a.get('title'),
+                    'image': a.get('image'),
+                    'rating': a.get('rating', '8.0')
+                })
+            return jsonify(formatted_results)
+        except Exception as e:
+            print(f"Live Search Error: {e}")
+            return jsonify([])
 
     @app.route('/api/comments/<anime_id>', methods=['GET', 'POST'])
     def handle_comments(anime_id):
@@ -163,7 +185,6 @@ def create_app(config_class=Config):
     def google_verification():
         return send_from_directory(app.static_folder, 'google284a1cf6abd21b7d.html')
 
-    # 🛠️ ROUTE: llms.txt for AI Bots
     @app.route('/llms.txt')
     def serve_llms_txt():
         return send_from_directory(os.getcwd(), 'llms.txt', mimetype='text/plain')
@@ -175,15 +196,11 @@ def create_app(config_class=Config):
             base_url = request.url_root.rstrip('/')
             xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             
-            # 🛠️ SEO: Only include real, content-rich pages
             static_pages = ['/', '/trending', '/movies', '/cartoons', '/top-rated', '/popular', '/categories', '/about', '/contact', '/privacy', '/dmca']
             
             for page in static_pages:
                 xml += f'  <url>\n    <loc>{base_url}{page}</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n'
             
-            # 🛠️ SEO FIX (2026-11): Sitemap me SIRF anime info pages (/watch/<id>) 
-            # Episode URLs (/watch/<id>/<season>/<ep>) kabhi bhi include NA karo - thin content
-            # Safety check: skip karo agar anime.id missing ho
             for anime in all_anime:
                 anime_id = anime.get('id')
                 if not anime_id:
@@ -409,8 +426,6 @@ def create_app(config_class=Config):
         if 'rating' not in anime or anime['rating'] == '8.0' or not anime['rating']:
             anime['rating'] = generate_smart_rating(anime.get('title', ''))
 
-        # 🛠️ SEO FIX (2026-11): Sirf canonical anime info page (/watch/<id>) ko index hone do.
-        # Season/episode pages (thin content) ko noindex kar denge template ke through.
         is_canonical_watch_page = (request.path.rstrip('/') == f'/watch/{anime_id}')
 
         seasons = anime.get('seasons', [])
@@ -456,8 +471,6 @@ def create_app(config_class=Config):
         elif any(k in title_lower for k in ['comedy', 'life', 'school', 'family', 'spy']): genres_text = "Comedy • Slice of Life • Drama"
         else: genres_text = "Action • Adventure • Drama"
             
-        # 🛠️ THE ULTIMATE FIX FOR UNIQUE CONTENT (Google SEO)
-        # Ab hum real scraped description use karenge, na ki same copy-paste line
         real_desc = anime.get('description', '')
         if real_desc and len(real_desc) > 20 and real_desc != "No description available.":
             description = real_desc

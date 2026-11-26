@@ -7,7 +7,6 @@
     <title>{% block title %}AnimeNest - Watch Anime Free{% endblock %}</title>
     <meta name="description" content="{% block description %}Watch free Hindi dubbed anime online in HD quality only on AnimeNest.{% endblock %}">
     
-    <!-- 🛠️ SEO FIX (2026-11): Extra head block for noindex on thin pages -->
     {% block head %}{% endblock %}
     
     <link rel="canonical" href="{{ request.url }}" />
@@ -26,10 +25,8 @@
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
 
-    <!-- 🛠️ ADSTERRA SITE VERIFICATION TAG -->
     <meta name="adsterra-site-verification" content="8GH9pw32a" />
 
-    <!-- 🛠️ GOOGLE SEARCH SITE NAME FIX -->
     <meta property="og:site_name" content="AnimeNest">
     <meta property="og:title" content="{% block og_title %}AnimeNest - Watch Anime Free{% endblock %}">
     <meta property="og:type" content="website">
@@ -38,7 +35,6 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://animenest-zmbl.onrender.com/static/images/logo.png">
 
-    <!-- 🛠️ JSON-LD SCHEMA FOR GOOGLE -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -53,78 +49,54 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
 
     <style>
-        /* 🛠️ CINEMATIC PREMIUM SPLASH SCREEN (SMOOTH OPTIMIZED) */
         #splash-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: radial-gradient(circle at center, #1a1a2e 0%, #0b0f19 100%);
             z-index: 999999; overflow: hidden;
             display: flex; align-items: center; justify-content: center;
-            /* Smooth fade out for the whole screen */
             transition: opacity 0.6s ease, visibility 0.6s;
         }
 
         .splash-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
-        /* ========================================== */
-        /* PHASE 1: Logo & Loading */
-        /* ========================================== */
         #splash-phase-1 {
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             position: absolute; width: 100%; height: 100%;
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         
-        /* Overlap transition: Logo scale down & fade while text zooms in */
-        .phase-1-hidden { 
-            opacity: 0; 
-            transform: scale(0.9);
-            pointer-events: none; 
-        }
+        .phase-1-hidden { opacity: 0; transform: scale(0.9); pointer-events: none; }
 
         .splash-logo-wrapper {
             position: relative; width: 120px; height: 120px;
             display: flex; align-items: center; justify-content: center; margin-bottom: 25px;
         }
         
-        /* Smooth glowing pulse behind the logo */
         .splash-logo-wrapper::before {
             content: ''; position: absolute; inset: -10px; border-radius: 50%;
             background: rgba(168, 85, 247, 0.4);
             box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
             animation: pulseGlow 2s ease-in-out infinite alternate;
-            z-index: 0;
-            will-change: transform, opacity;
+            z-index: 0; will-change: transform, opacity;
         }
         
-        /* Smooth rotating ring */
         .splash-logo-wrapper::after {
             content: ''; position: absolute; inset: -6px; border-radius: 50%;
             border: 3px solid transparent;
             border-top-color: #a855f7; border-bottom-color: #a855f7;
             animation: rotateRing 1.5s linear infinite;
-            z-index: 1;
-            will-change: transform;
+            z-index: 1; will-change: transform;
         }
 
-        @keyframes pulseGlow { 
-            0% { transform: scale(0.9); opacity: 0.5; } 
-            100% { transform: scale(1.1); opacity: 1; } 
-        }
-        @keyframes rotateRing { 
-            0% { transform: rotate(0deg); } 
-            100% { transform: rotate(360deg); } 
-        }
+        @keyframes pulseGlow { 0% { transform: scale(0.9); opacity: 0.5; } 100% { transform: scale(1.1); opacity: 1; } }
+        @keyframes rotateRing { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         .splash-logo-img {
             width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
             border: 3px solid #1a1a2e; background: #0b0f19; z-index: 2;
-            animation: breathe 2s ease-in-out infinite alternate;
-            will-change: transform;
+            animation: breathe 2s ease-in-out infinite alternate; will-change: transform;
         }
-        @keyframes breathe {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
-        }
+        @keyframes breathe { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
 
         .splash-text {
             color: #fff; font-size: 28px; font-weight: 800; letter-spacing: 2px;
@@ -141,23 +113,14 @@
             opacity: 0; animation: fadeIn 0.5s 0.6s forwards;
         }
         
-        /* Loader bar animation optimized using translateX */
         .splash-loader-bar::before {
             content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 50%;
             background: linear-gradient(90deg, transparent, #a855f7, #a855f7, transparent);
-            border-radius: 4px; 
-            animation: loadingBarSlide 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-            will-change: transform;
+            border-radius: 4px; animation: loadingBarSlide 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; will-change: transform;
         }
-        @keyframes loadingBarSlide { 
-            0% { transform: translateX(-100%); } 
-            100% { transform: translateX(250%); } 
-        }
+        @keyframes loadingBarSlide { 0% { transform: translateX(-100%); } 100% { transform: translateX(250%); } }
         @keyframes fadeIn { to { opacity: 1; } }
 
-        /* ========================================== */
-        /* PHASE 2: Big Text Zoom Out */
-        /* ========================================== */
         #splash-phase-2 {
             position: absolute; width: 100%; height: 100%;
             display: flex; align-items: center; justify-content: center;
@@ -172,10 +135,7 @@
         }
         .cinematic-text span { color: #a855f7; }
 
-        /* Pure transform and opacity animation (No blur = No Lag) */
-        .zoom-active {
-            animation: textZoomOut 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
+        .zoom-active { animation: textZoomOut 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
 
         @keyframes textZoomOut {
             0% { opacity: 0; transform: scale(0.9); }
@@ -183,9 +143,6 @@
             100% { opacity: 0; transform: scale(4.5); } 
         }
 
-        /* ========================================== */
-        /* UTILITIES */
-        /* ========================================== */
         iframe[id*="google_ads"], iframe[src*="bancadeltempoidea"], div[class*="push"], div[id*="push"] { z-index: 99999 !important; }
 
         .telegram-float-btn {
@@ -197,16 +154,65 @@
         .telegram-float-btn:hover { transform: scale(1.1); background-color: #0099e6; }
         .logo-text { font-size: 20px; font-weight: 800; color: #fff; margin: 0; display: inline-block; }
         
-        /* 🛠️ Footer Links Style */
         .footer-links {
             text-align: center; padding: 20px 10px 90px 10px;
             font-size: 12px; color: #8b949e; position: relative; z-index: 10;
         }
         .footer-links a { color: #a855f7; text-decoration: none; margin: 0 6px; transition: color 0.3s; }
         .footer-links a:hover { color: #fff; }
+
+        /* 🛠️ NEW CSS FOR LIVE SEARCH */
+        .live-search-dropdown {
+            position: absolute;
+            top: 60px; /* Adjust based on search bar height */
+            left: 0;
+            width: 100%;
+            background: #1a1a2e;
+            border-radius: 10px;
+            max-height: 350px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            padding: 10px;
+            display: none;
+        }
+        .live-search-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            color: white;
+        }
+        .live-search-item:hover {
+            background: rgba(168, 85, 247, 0.2);
+        }
+        .live-search-item img {
+            width: 40px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .live-search-item-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .live-search-item-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+            color: #fff;
+        }
+        .live-search-item-rating {
+            font-size: 12px;
+            color: #f1c40f;
+            margin-top: 5px;
+        }
     </style>
 
-    <!-- 🛡️ SECURITY: Anti-Inspect & DevTools Blocker (Optimized) -->
     <script>
         document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
         document.onkeydown = function(e) {
@@ -215,14 +221,10 @@
             if(e.ctrlKey && (e.key === 'U' || e.key === 'u')) { return false; }
         };
     </script>
-
 </head>
 <body>
 
-    <!-- 🛠️ CINEMATIC SPLASH SCREEN -->
     <div id="splash-screen" class="splash-hidden">
-        
-        <!-- PHASE 1: Logo -->
         <div id="splash-phase-1">
             <div class="splash-logo-wrapper">
                 <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AnimeNest" class="splash-logo-img">
@@ -230,12 +232,9 @@
             <div class="splash-text">Anime<span>Nest</span></div>
             <div class="splash-loader-bar"></div>
         </div>
-
-        <!-- PHASE 2: Big Text Zoom -->
         <div id="splash-phase-2">
             <div class="cinematic-text" id="cinematic-text-element">Anime<span>Nest</span></div>
         </div>
-
     </div>
 
     <div id="spaLoader" class="spa-loader"></div>
@@ -261,11 +260,15 @@
 
     <div id="searchOverlay" class="premium-search-overlay">
         <div class="premium-search-content">
-            <div class="premium-search-bar">
+            <div class="premium-search-bar" style="position: relative;">
                 <i class="fas fa-search search-icon"></i>
                 <input type="text" id="searchInput" placeholder="Search anime, movies, characters..." autocomplete="off">
                 <button type="button" class="close-search-btn" onclick="closeSearch()"><i class="fas fa-times"></i></button>
+                
+                <!-- 🛠️ NEW: Live Search Dropdown Container -->
+                <div id="liveSearchResults" class="live-search-dropdown"></div>
             </div>
+            
             <div id="searchResultsContainer" style="display: none;"></div>
             <div id="defaultSearchContent">
                 <div class="search-section">
@@ -311,7 +314,6 @@
         {% block content %}{% endblock %}
     </main>
 
-    <!-- 🛠️ NEW FOOTER LINKS FOR GOOGLE TRUST -->
     <div class="footer-links">
         <a href="/about">About Us</a> | 
         <a href="/contact">Contact</a> | 
@@ -362,18 +364,11 @@
                     sessionStorage.setItem('splashShown', 'true');
                     splash.classList.remove('splash-hidden');
                     
-                    // 1. 1.8 सेकंड बाद Logo (Phase 1) धीरे से पीछे हटते हुए (scale down) गायब होगा
-                    setTimeout(() => {
-                        phase1.classList.add('phase-1-hidden');
-                    }, 1800);
-
-                    // 2. 1.8 सेकंड बाद ही बड़ा टेक्स्ट (Phase 2) सामने आना और ज़ूम होना शुरू होगा (Overlap)
+                    setTimeout(() => { phase1.classList.add('phase-1-hidden'); }, 1800);
                     setTimeout(() => {
                         phase2.style.opacity = '1';
                         textElement.classList.add('zoom-active');
                     }, 1800);
-
-                    // 3. 3.6 सेकंड बाद पूरा Splash स्क्रीन हट जाएगा
                     setTimeout(() => {
                         splash.classList.add('splash-hidden');
                         setTimeout(() => { splash.style.display = 'none'; }, 600); 
@@ -388,11 +383,13 @@
             setTimeout(() => { document.getElementById('searchInput').focus(); }, 100);
             document.getElementById('searchResultsContainer').style.display = 'none';
             document.getElementById('defaultSearchContent').style.display = 'block';
+            document.getElementById('liveSearchResults').style.display = 'none';
         }
         
         function closeSearch() {
             document.getElementById('searchOverlay').classList.remove('active');
             document.getElementById('searchInput').value = '';
+            document.getElementById('liveSearchResults').style.display = 'none';
         }
 
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeSearch(); } });
@@ -434,10 +431,59 @@
 
         function clearRecentSearches() { localStorage.removeItem('recentSearches'); renderRecentSearches(); }
 
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        // 🛠️ LIVE SEARCH LOGIC
+        let searchTimeout;
+        const searchInput = document.getElementById('searchInput');
+        const liveSearchResults = document.getElementById('liveSearchResults');
+        const defaultContent = document.getElementById('defaultSearchContent');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim();
+            
+            clearTimeout(searchTimeout);
+
+            if (query.length < 2) {
+                liveSearchResults.style.display = 'none';
+                if (defaultContent) defaultContent.style.display = 'block';
+                return;
+            }
+
+            searchTimeout = setTimeout(async () => {
+                try {
+                    const res = await fetch(`/api/live_search?q=${encodeURIComponent(query)}`);
+                    const data = await res.json();
+
+                    if (data.length > 0) {
+                        liveSearchResults.innerHTML = data.map(anime => `
+                            <a href="/watch/${anime.id}" class="live-search-item spa-link" onclick="closeSearch()">
+                                <img src="${anime.image}" alt="${anime.title}" onerror="this.src='https://via.placeholder.com/40x60?text=No+Image';">
+                                <div class="live-search-item-info">
+                                    <p class="live-search-item-title">${anime.title}</p>
+                                    <span class="live-search-item-rating">★ ${anime.rating}</span>
+                                </div>
+                            </a>
+                        `).join('');
+                        liveSearchResults.style.display = 'block';
+                        if (defaultContent) defaultContent.style.display = 'none';
+                    } else {
+                        liveSearchResults.innerHTML = '<p style="color: #888; text-align: center; padding: 10px;">No anime found</p>';
+                        liveSearchResults.style.display = 'block';
+                        if (defaultContent) defaultContent.style.display = 'none';
+                    }
+                } catch (e) {
+                    console.error("Live search error", e);
+                }
+            }, 300); // 300ms debounce
+        });
+
+        searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 const query = this.value.trim();
-                if (query) { addRecentSearch(query); closeSearch(); window.location.href = `/search?q=${encodeURIComponent(query)}`; }
+                if (query) { 
+                    addRecentSearch(query); 
+                    closeSearch(); 
+                    window.location.href = `/search?q=${encodeURIComponent(query)}`; 
+                }
             }
         });
 
