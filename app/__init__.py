@@ -118,6 +118,19 @@ def create_app(config_class=Config):
         response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
         return response
 
+    # 🛠️ NEW ROUTE: robots.txt for Google Crawlers
+    @app.route('/robots.txt')
+    def robots_txt():
+        lines = [
+            "User-agent: *",
+            "Allow: /",
+            "Disallow: /api/",
+            "Disallow: /watchlist",
+            "Disallow: /history",
+            f"Sitemap: {request.url_root.rstrip('/')}/sitemap.xml"
+        ]
+        return Response("\n".join(lines), mimetype="text/plain")
+
     @app.route('/api/comments/<anime_id>', methods=['GET', 'POST'])
     def handle_comments(anime_id):
         if request.method == 'GET':
@@ -150,7 +163,7 @@ def create_app(config_class=Config):
     def google_verification():
         return send_from_directory(app.static_folder, 'google284a1cf6abd21b7d.html')
 
-    # 🛠️ NEW ROUTE: llms.txt for AI Bots
+    # 🛠️ ROUTE: llms.txt for AI Bots
     @app.route('/llms.txt')
     def serve_llms_txt():
         return send_from_directory(os.getcwd(), 'llms.txt', mimetype='text/plain')
